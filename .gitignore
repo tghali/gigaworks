@@ -2,3 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+.DS_Store
+**/.DS_Store
+db/schema.rb
+config/heroku.yml
+vendor/cache/*
