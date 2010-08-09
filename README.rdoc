@@ -1,0 +1,7 @@
+=Gigaworks
+=== Sales and Project management application for internal use
+
+
+== Copyright
+
+Copyright (c) 2010 Leandro Pedroni. See LICENSE for details.
