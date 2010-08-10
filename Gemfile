@@ -13,8 +13,8 @@ gem "pg", :group => :production
 # gem 'nokogiri', '1.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
-gem "haml", ">= 3.0.12"
-
+gem 'haml', '>= 3.0.12'
+gem 'jsmin'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -26,6 +26,7 @@ gem "haml", ">= 3.0.12"
 group :test, :cucumber do
   gem "capybara", ">= 0.3.8"
   gem "cucumber-rails", ">= 0.3.2"
+  gem "pickle", ">= 0.3.4"
   gem "database_cleaner", ">= 0.5.2"
   gem "factory_girl_rails", ">= 1.0.0"
   gem "launchy", ">= 0.3.5"
