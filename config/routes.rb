@@ -1,12 +1,12 @@
 Gigaworks::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
+  root :to => 'home#index'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   
-  match "/javascripts/:bundle.js" => JavascriptMinifier
+  match '/javascripts/:bundle.js' => JavascriptMinifier
   # match "/stylesheets/:media.css" => SassCompiler
   
   # Sample of named route:

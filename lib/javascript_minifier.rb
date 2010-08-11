@@ -94,7 +94,7 @@ module JavascriptMinifier
   def self.call(env)
     response = nil
     js_runtime = Benchmark.ms {response = Responder.call(env)}
-    Rails.logger.debug ("Javascript asset generated in %.1fms" % js_runtime)
+    Rails.logger.debug("Javascript asset generated in %.1fms" % js_runtime)
     response
   end
 end
