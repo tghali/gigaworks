@@ -28,6 +28,7 @@ module Gigaworks
     require 'wheel_clamp'
     config.middleware.use WheelClamp
     
+    config.middleware.delete 'Sass::Plugin::Rack'
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 

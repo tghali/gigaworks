@@ -9,6 +9,8 @@ class WheelClamp
   end
 
   def call(env)
+    return @app.call(env) unless Rails.env == ''
+    
     auth = Rack::Auth::Digest::MD5.new(@app) do |username| 
       "fig46&arnest" if username == "gigavine"
     end    

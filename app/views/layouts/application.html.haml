@@ -1,9 +1,15 @@
 !!!
 %html
   %head
-    %title Gigaworks
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
+    %title== #{yield :title}Gigaworks
+    
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8" }/
+    %meta{:name => "description", :content => "Gigaworks is gigavine's internal überapp" }
+        
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    = javascript_include_tag 'common.js'
     = csrf_meta_tag
   %body
     = yield
