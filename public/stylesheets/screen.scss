@@ -11,3 +11,14 @@
 @import "partials/page";
 @import "partials/form";
 @import "partials/two_col";
+
+body{
+  margin: 0;
+  border-top: 5px solid black;
+  #container{
+    @include container;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 0 20px 0 20px;
+  }
+}
