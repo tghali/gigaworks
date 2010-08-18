@@ -5,5 +5,5 @@ tmp/**/*
 .DS_Store
 **/.DS_Store
 db/schema.rb
-config/heroku.yml
+config/secrets.yml
 vendor/cache/*

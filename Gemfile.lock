@@ -1,3 +1,8 @@
+PATH
+  remote: /Users/Le/Sites/tools/tarte
+  specs:
+    tarte (0.1.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -31,6 +36,10 @@ GEM
     arel (0.4.0)
       activesupport (>= 3.0.0.beta)
     awesome_print (0.2.1)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     capybara (0.3.9)
       culerity (>= 0.2.4)
@@ -84,6 +93,9 @@ GEM
       treetop (>= 1.4.5)
     mime-types (1.16)
     nokogiri (1.4.3.1)
+    paperclip (2.3.3)
+      activerecord
+      activesupport
     pg (0.9.0)
     pickle (0.3.5)
       cucumber (>= 0.8)
@@ -134,11 +146,14 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.22)
+    warden (0.10.7)
+      rack (>= 1.0.0)
     webrat (0.7.2.beta.1)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
     wirble (0.1.3)
+    xml-simple (1.0.12)
     yard (0.5.8)
 
 PLATFORMS
@@ -146,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  aws-s3
   capybara (>= 0.3.8)
   capybara-envjs
   compass (>= 0.10.4)
@@ -156,9 +172,12 @@ DEPENDENCIES
   haml (>= 3.0.12)
   jsmin
   launchy (>= 0.3.5)
+  paperclip
   pg
   pickle (>= 0.3.4)
   rails (= 3.0.0.rc)
   rspec-rails (>= 2.0.0.beta.12)
   sqlite3-ruby
+  tarte!
+  warden
   wirble

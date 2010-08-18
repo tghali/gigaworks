@@ -17,16 +17,13 @@ Gigaworks::Application.routes.draw do
   #   resources :products
 
   # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get :short
-  #       post :toggle
-  #     end
-  #
-  #     collection do
-  #       get :sold
-  #     end
-  #   end
+  resources :contacts, :module => 'contacts' do
+    resources :details
+  
+    collection do
+      resources :organizations
+    end
+  end
 
   # Sample resource route with sub-resources:
   #   resources :products do
@@ -43,11 +40,11 @@ Gigaworks::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    namespace :admin do
+      # Directs /admin/products/* to Admin::ProductsController
+      # (app/controllers/admin/products_controller.rb)
+      resources :users
+    end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

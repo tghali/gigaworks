@@ -1,0 +1,2 @@
+module Contacts::DetailsHelper
+end
