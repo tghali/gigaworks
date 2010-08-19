@@ -10,8 +10,8 @@ Gigaworks::Application.routes.draw do
   match 'sign_in'  => 'sessions#new',     :as => :sign_in
   match 'sign_out' => 'sessions#destroy', :as => :sign_out
   
-  get  'sign_up'  => 'users#new', :as => :sign_up
-  post 'sign_up'  => 'users#create'
+  # get  'sign_up'  => 'users#new', :as => :sign_up
+  # post 'sign_up'  => 'users#create'
   get  'activate/:verification_token' => 'users#verify'
 
   # Profile and password reset

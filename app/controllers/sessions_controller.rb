@@ -6,21 +6,21 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.authenticate(params[:session][:email], params[:session][:password])
+    user = User.authenticate(params[:session][:email_or_username], params[:session][:password])
     if user
       if user.verified?
-        Rails.logger.info "user #{user.email} signed in succesfuly"
+        Rails.logger.info "user #{user.name} signed in succesfuly"
         current_session.user_id = user.id
         current_session.remember_me! if params[:session][:remember_me]
         redirect_to previous_page_or_home
       else
         flash.now[:error] = t(:'account.must_verify')
-        Rails.logger.info "user #{user.email} couldn't log - not verified"
+        Rails.logger.info "user #{user.name} couldn't log - not verified"
         render :action => "new", :status => :unauthorized
       end
     else 
       flash.now[:error] = t(:'account.wrong_password')
-      Rails.logger.info "ip #{request.env['REMOTE_ADDR']} tried to log in as #{params[:session][:email]}"
+      Rails.logger.info "ip #{request.env['REMOTE_ADDR']} tried to log in as #{params[:session][:email_or_username]}"
       render :action => "new", :status => :unauthorized
     end 
   end
