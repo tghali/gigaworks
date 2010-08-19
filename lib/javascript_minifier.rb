@@ -21,7 +21,6 @@ module JavascriptMinifier
   
     def self.call(env)
       bundle = Array(env["PATH_INFO"].match(/^\/javascripts\/(.*).js/))[1]
-      raise NotFound unless bundle and env['REQUEST_METHOD'] == 'GET'
       case Rails.env
       when 'production'
         #TODO: deal with etag headers/cachebusters

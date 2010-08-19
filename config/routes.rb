@@ -1,22 +1,31 @@
 Gigaworks::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+
   root :to => 'home#index'
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-  
-  match '/javascripts/:bundle.js' => JavascriptMinifier
-  match "/stylesheets/:media.:ext" => SassCompiler
-  
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  # Assets
+  get '/javascripts/:bundle.js' => JavascriptMinifier
+  get "/stylesheets/:media.:ext" => SassCompiler
+  
+  # Sign In, Sign Out and Sign Up 
+  match 'sign_in'  => 'sessions#new',     :as => :sign_in
+  match 'sign_out' => 'sessions#destroy', :as => :sign_out
+  
+  get  'sign_up'  => 'users#new', :as => :sign_up
+  post 'sign_up'  => 'users#create'
+  get  'activate/:verification_token' => 'users#verify'
 
-  # Sample resource route with options:
+  # Profile and password reset
+  get '/profile' => 'users#edit', :as => :profile
+  put '/profile' => 'users#update' 
+  
+  get  '/forgot_password' => 'passwords#new'
+  post '/forgot_password' => 'passwords#create'
+  
+  get '/change_password/:password_reset_token'  => 'passwords#edit', :as => :change_password
+  put '/change_password'                        => 'passwords#update' 
+  get '/change_password'                        => 'passwords#edit'  
+  
+  # Contacts
   resources :contacts, :module => 'contacts' do
     resources :details
   

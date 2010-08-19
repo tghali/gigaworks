@@ -38,21 +38,7 @@ describe User do
       u= User.create! @form.except[:contact_attributes].merge(:contact => c)
       u.contact.first_name.should eql(@form[:contact_attributes][:first_name])
     end
-  end
-  
-  describe "verification" do
     
   end
   
-  describe "password reset" do
-    
-  end
-  
-  describe "deleting a user" do
-    
-  end
-  
-  describe "subject" do
-    
-  end
 end

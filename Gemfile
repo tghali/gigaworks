@@ -16,6 +16,7 @@ group :production, :test, :cucumber, :development do
   gem 'tarte', :path => "~/Sites/tools/tarte"
   gem 'aws-s3'
   gem 'paperclip'
+  gem 'cancan'
 end
 
 group :test, :cucumber do

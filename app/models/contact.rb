@@ -3,6 +3,7 @@ class Contact < ActiveRecord::Base
   has_one    :user
   belongs_to :organization
   
+  scope :public, where(:public => true)
   
   validates_uniqueness_of    :email, :if => :email_changed?
   validates_presence_of      :first_name, :last_name

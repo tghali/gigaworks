@@ -24,7 +24,6 @@ module SassCompiler
 
     def self.call(env)
       asset = Array(env["PATH_INFO"].match(/^\/stylesheets\/(.*).css/))[1]
-      raise NotFound unless asset and env['REQUEST_METHOD'] == 'GET'
 
       if Rails.env != 'development' and @cached.include? asset
         @cache_server.call(env)

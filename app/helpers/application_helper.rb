@@ -17,4 +17,15 @@ module ApplicationHelper
     end
   end
   
+  def account_links
+    if user = current_user
+      profile = link_to current_user.email, account_path
+      sign_out = link_to t(:'account.Signout'), sign_out_path
+      
+      "#{profile} <span>(#{sign_out})</span>"
+    else
+      link_to(t(:'account.Signin'), sign_in_path)+'&nbsp;|&nbsp;'+link_to(t(:'account.Signup'), '/sign_up')
+    end
+  end
+  
 end
