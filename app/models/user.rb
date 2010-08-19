@@ -7,6 +7,8 @@ end
 
 class User < ActiveRecord::Base
   
+  belongs_to :contact
+  
   has_one_baked_in  :status, :names => [:unverified, :verified, :password_reset, :deleted, :suspended, :banned],
                              :groups => {:active =>     [:verified, :password_reset],
                                          :visible =>    [:unverified, :verified, :password_reset, :suspended],
@@ -46,7 +48,8 @@ class User < ActiveRecord::Base
     
   # REGISTRATION AND UPDATE                             
   validates_presence_of      :contact
-  validates_uniqueness_of    :contact
+  validates_uniqueness_of    :contact_id
+  validates_associated       :contact
   
   validates_inclusion_of     :status_code, :on => :update,
                                            :in => status_codes_for(:active),
@@ -67,15 +70,18 @@ class User < ActiveRecord::Base
   before_create     :create_verification_key, :unless => :verified?
   before_save       :delete_clear_password
   
+  accepts_nested_attributes_for :contact
   
-  attr_accessible :first_name, :last_name, :password, :password_confirmation, :email,
-                  :old_password, :password_reset_token, :avatar
+  attr_accessible :name, :password, :password_confirmation, :contact_attributes,
+                  :old_password, :password_reset_token, :avatar, :contact
   
   attr_accessor   :old_password, :password_reset_token, :password_confirmation
-  
-  
-  def name
-    "#{first_name} #{last_name}"
+    
+  # Finds Users by their main contact email.
+  def self.find_by_email email
+    contact = Contacts.find_by_email(email) or ActiveRecord::RecordNotFound
+    
+    contact.user
   end
   
   # Returns a user in case one with matching password and username/email exists
@@ -84,15 +90,11 @@ class User < ActiveRecord::Base
   # @param [String] password the clear character password to be matched
   # @return [User] The user, if one is found. Otherwise _nil_ is returned.
   def self.authenticate(email, password) 
-    user = Contacts.find_by_email(email).user
-    if user 
-      expected_password = encrypted_password(password, user.salt) 
-      if user.hashed_password == expected_password 
-        user
-      else
-        nil
-      end
-    end
+    user = self.find_by_email(email)
+    expected_password = encrypted_password(password, user.salt) 
+    (user.hashed_password == expected_password) ? user : nil 
+  rescue ActiveRecord::RecordNotFound
+    nil
   end
   
   #Initiates the password reset procedure
@@ -113,16 +115,8 @@ class User < ActiveRecord::Base
     key.user.password_reset_token = token
     return key.user
   end
-
   
-  # Class method to create users as an admin
-  # @param [Hash] attributes of the user that will be created.
-  # @return [User] The user, with eventual validation errors.
-  def self.admin_creates(attributes = {})
-    user = self.new(attributes).tap {|user| user.performed_by_admin}.tap { |resource| resource.save }
-  end
-  
-  ## Password creation and invites
+  ## Password
   
   # Virtual attribute to access the clear password for validations
   def password 
@@ -137,26 +131,16 @@ class User < ActiveRecord::Base
   # Sets the clear password and creates the hashed one, If the password field is blank
   # the password isn't changed.
   def password=(pwd)
-    return if (pwd.blank? && !new_record?)
+    return if pwd.blank?
     @password = pwd 
     create_new_salt
     self.hashed_password = User.encrypted_password(self.password, self.salt) 
   end
-  
-  # Links the invite to the user if the correct token is provided.
-  # It's used by the user controller to set the right form
-  def invite_token=(token)
-    self.invite = Invite.find_by_token(token) or raise ActiveRecord::RecordNotFound
-  end
-  
-  def invite_token
-    self.invite.token if self.invite
-  end
-  
+    
   # Builds methods to update, verify or track changes of the user's status, it's based on the
   # STATUSES array.
   def verified!
-    update_attribute(:status_code, STATUSES.index(:verified))
+    update_attribute :status_code, status_code_for(:verified)
     if    verification_key   then verification_key.destroy; verification_key(true)
     elsif password_reset_key then password_reset_key.destroy; password_reset_key(true)
     end
@@ -167,13 +151,13 @@ class User < ActiveRecord::Base
     
     # Returns the password, hashed with the provided salt
     def self.encrypted_password(password, salt) 
-    string_to_hash = password + 'funkyness' + salt 
+    string_to_hash = password + 'giga-funkyness' + salt 
       Digest::SHA1.hexdigest(string_to_hash) 
     end 
     
     # Creates a salt and stores it in the user model
     def create_new_salt
-      self.salt = (self.object_id * rand).to_s
+      self.salt = (self.object_id + rand(self.object_id)).to_s(36)
     end
     
     # Ensures the presence of the old password or a password reset token to change
@@ -189,17 +173,11 @@ class User < ActiveRecord::Base
         errors.add(:old_password, :old_password_missing)
       end
     end
-    
-    # Sets the invites owned by the user to five
-    def give_invites(number = 5)
-      self.invites_count = number
-    end
-    
+      
     # Empties the clear password from the user instance variables.
     def delete_clear_password
       @password = nil
       @password_reset_token = nil
-      return true
     end
     
     #  Used in a callback. Marks the verification_keys if they are present.
