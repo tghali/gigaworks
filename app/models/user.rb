@@ -72,15 +72,14 @@ class User < ActiveRecord::Base
   
   accepts_nested_attributes_for :contact
   
-  attr_accessible :name, :password, :password_confirmation, :contact_attributes,
+  attr_accessible :user_name, :password, :password_confirmation, :contact_attributes,
                   :old_password, :password_reset_token, :avatar, :contact
   
   attr_accessor   :old_password, :password_reset_token, :password_confirmation
     
   # Finds Users by their main contact email.
   def self.find_by_email email
-    contact = Contacts.find_by_email(email) or ActiveRecord::RecordNotFound
-    
+    contact = Contacts.find_by_email(email) or raise ActiveRecord::RecordNotFound
     contact.user
   end
   
@@ -89,8 +88,12 @@ class User < ActiveRecord::Base
   #                 and matched with the password hash.
   # @param [String] password the clear character password to be matched
   # @return [User] The user, if one is found. Otherwise _nil_ is returned.
-  def self.authenticate(email, password) 
-    user = self.find_by_email(email)
+  def self.authenticate(username_or_email, password)
+    if username_or_email.match  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+      user = User.find_by_email(username_or_email)
+    else
+      user = User.find_by_user_name(username_or_email) or raise ActiveRecord::RecordNotFound
+    end
     expected_password = encrypted_password(password, user.salt) 
     (user.hashed_password == expected_password) ? user : nil 
   rescue ActiveRecord::RecordNotFound

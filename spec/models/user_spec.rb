@@ -5,7 +5,8 @@ describe User do
   describe "creation" do
     
     before(:each) do
-      @form= {:name => 'ninja666', :password => 'big secret', :password_confirmation => 'big secret',
+      @form= {:user_name => 'ninja666', :password => 'big secret',
+              :password_confirmation => 'big secret',
               :contact_attributes => {:first_name => 'John', :last_name => 'Smith',
                                       :email => 'john.smith@example.com'}}
     end

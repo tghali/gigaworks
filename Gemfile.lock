@@ -1,4 +1,9 @@
 PATH
+  remote: /Users/Le/Sites/tools/formidable
+  specs:
+    formidable (0.0.2)
+
+PATH
   remote: /Users/Le/Sites/tools/tarte
   specs:
     tarte (0.1.2)
@@ -170,6 +175,7 @@ DEPENDENCIES
   cucumber-rails (>= 0.3.2)
   database_cleaner (>= 0.5.2)
   factory_girl_rails (>= 1.0.0)
+  formidable!
   fredo
   haml (>= 3.0.12)
   jsmin

@@ -25,8 +25,14 @@ module Gigaworks
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
-    require 'wheel_clamp'
-    config.middleware.use WheelClamp
+    
+    config.middleware.use Warden::Manager do |manager|
+      manager.default_strategies :sign_in
+      manager.failure_app = SessionsController.action(:unauthorized)
+      manager.serialize_into_session {|user| user.id}
+      manager.serialize_from_session {|id| User.get(id)}
+      
+    end
     
     config.middleware.delete 'Sass::Plugin::Rack'
     # Activate observers that should always be running.

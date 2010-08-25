@@ -1,4 +1,4 @@
-class UserSession
+module SessionSmarts
   def initialize(session)
     @session = session
     @session[:created_at] ||= Time.now

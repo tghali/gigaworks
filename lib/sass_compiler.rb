@@ -78,7 +78,7 @@ module SassCompiler
   def self.call(env)
     response = nil
     sass_runtime = Benchmark.ms {response = Responder.call(env)}
-    Rails.logger.debug("Sass asset generated in %.1fms" % sass_runtime)
+    Rails.logger.debug("Completed #{response.first} in %.1fms" % sass_runtime)
     response
   end
     

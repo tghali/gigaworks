@@ -1,5 +1,8 @@
 Gigaworks::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
+  require 'wheel_clamp'
+  config.middleware.use WheelClamp
+
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
