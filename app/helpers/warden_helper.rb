@@ -14,16 +14,16 @@ module WardenHelper
   end
   
   # Used in redirects to send the user to the last relevant page he visited before logging in or
-  #  performing some other action that requires a redirect.
+  # performing some other action that requires a redirect.
   # def previous_page_or_home
   #   current_session.previous_page || root_url
   # end
   
-  # # Returns the user object and memoizes it.
-  # def current_user
-  #   @current_user ||= current_session.get_user
-  # end
-  # 
+  # Returns the user object authorized by warden.
+  def current_user
+   wardent.user
+  end
+
   # # Returns the current session
   # def current_session
   #   @current_session ||= UserSession.new(session)

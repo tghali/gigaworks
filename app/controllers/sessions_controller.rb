@@ -7,8 +7,8 @@ class SessionsController < ActionController::Base
   end
   
   def create
-    
     warden.authenticate!
+    redirect_to root_url
   end
   
   def destroy

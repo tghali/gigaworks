@@ -11,6 +11,7 @@ gem 'haml', '>= 3.0.12'
 gem 'compass', '>= 0.10.4'
 gem 'jsmin'
 gem 'warden'
+gem 'net-ldap', '>= 0.1.1'
 
 group :production, :test, :cucumber, :development do
   gem 'tarte',      :path => '~/Sites/tools/tarte'
@@ -36,5 +37,6 @@ end
 group :development do
   gem 'wirble'
   gem 'awesome_print'
+  gem 'factory_girl_rails', '>= 1.0.0'
   # gem 'slowgrowl'
 end
