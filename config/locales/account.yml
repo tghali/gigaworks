@@ -3,3 +3,5 @@ en:
     Signin: Sign In
     Signup: Sign Up
     Signout: Sign Out
+    must_sign_in_as_admin: You need administrative privileges to access this section.
+    must_sign_in: You have to sign in with the credential provided by Gigavine to use this application.

@@ -10,15 +10,44 @@
 // Combine the partials into a single screen stylesheet.
 @import "partials/page";
 @import "partials/form";
-@import "partials/two_col";
+
+@import "compass/css3";
+// @import "partials/two_col";
 
 body{
   margin: 0;
-  border-top: 5px solid black;
+  background-color: #eef;
+  border-top: 1px solid #555;
   #container{
     @include container;
-    border-style: solid;
-    border-color: #fff;
-    border-width: 0 20px 0 20px;
+    background: url(/images/grad.png) repeat-x;
   }
+}
+
+// PAGE SECTIONS
+$room-columns: ceil(2 * $blueprint-grid-columns / 3);
+$terrace-columns: floor($blueprint-grid-columns / 3);
+
+#room {
+  @include column($room-columns);
+  margin-right: $blueprint-grid-margin - $separator-witdh;
+  border-right: $separator-witdh solid #777;  
+  }
+#terrace {
+  @include column($terrace-columns, last);
+  }
+#footer {
+  @include column($blueprint-grid-columns, last);
+  background-color: #bbb;
+  h6 {color: #555;}
+  }
+  
+// SECTION UI
+
+#header-room, #header-terrace {
+  height: 4.5em;
+}
+
+#header-terrace {
+  div { float:left; height: 48px; margin: 2px 5px 2px 0;}
 }

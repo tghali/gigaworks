@@ -10,7 +10,11 @@ module WardenHelper
   end
   
   def authenticate
-    env['warden'].authenticated? or throw(:warden)
+    env['warden'].authenticated? or throw(:warden, :message => :'account.must_sign_in')
+  end
+  
+  def authenticate_as_admin
+    env['warden'].authenticated? && current_user.roles.include?(:admin) or throw(:warden, :message => :'account.must_sign_in_as_admin')
   end
   
   # Used in redirects to send the user to the last relevant page he visited before logging in or
@@ -21,7 +25,7 @@ module WardenHelper
   
   # Returns the user object authorized by warden.
   def current_user
-   wardent.user
+   warden.user
   end
 
   # # Returns the current session

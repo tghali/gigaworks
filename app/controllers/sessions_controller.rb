@@ -13,10 +13,12 @@ class SessionsController < ActionController::Base
   
   def destroy
     warden.logout
+    render :action => "new"
   end
   
   def unauthorized
     # @session = params[:session].except[:password] if params[:session]
+    flash.now[:error] = t(env['warden.options'][:message]) if env['warden.options'][:message]
     render :action => "new", :status => :unauthorized
   end
 end

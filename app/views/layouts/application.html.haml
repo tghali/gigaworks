@@ -13,4 +13,19 @@
     = csrf_meta_tag
   %body
     #container
-      = yield
+      - unless flash.empty?
+        #flashes
+          - flash.each do |type, msg|
+            %div{:class=>"#{type}"}= h msg
+        -flash.clear
+      #header-bg
+      #room
+        #header-room
+          %ul#rooms
+            %li contacts
+            %li calendars
+        = yield :room_header
+        = yield
+      = render 'shared/terrace'
+      #footer
+        %h6 Gigaworks - Prototype &copy; 2010 Gigavine ltd.

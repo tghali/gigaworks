@@ -6,10 +6,11 @@ Sass::Plugin.options[:check_for_updates] = false
 
 module SassCompiler
   
-  class NotFound < StandardError; end
-  class CompileError < StandardError; end
   
   class Responder
+    class NotFound < StandardError; end
+    class CompileError < StandardError; end
+    
     @asset_folder = "#{Rails.root}/public/stylesheets"
     @cache_folder = "#{Rails.root}/tmp/asset_cache"
     @cached = []
@@ -56,8 +57,8 @@ module SassCompiler
                                            :filename          => asset,
                                            :style             => render_style
         File.open(css, 'w') {|f| f << sass.render}
-      rescue Exception => e
-        raise CompileError(e)
+      # rescue Exception => e
+      #   raise CompileError(e)
       end
       @cached << asset_name
     end

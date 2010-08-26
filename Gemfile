@@ -31,6 +31,7 @@ group :test, :cucumber do
   gem 'launchy', '>= 0.3.5'
   gem 'rspec-rails', '>= 2.0.0.beta.12'
   gem 'fredo'
+  gem 'ruby-debug'
   # gem 'spork', '>= 0.8.4'
 end
 

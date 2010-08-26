@@ -18,14 +18,15 @@ class User < ActiveRecord::Base
   has_many_baked_in :roles, :names => [:admin],
                             :verb => :is
   
-  # has_attached_file :avatar,        
-  #                   :storage        => :s3,
-  #                   :path           => ":attachment/:id/:style.:extension",
-  #                   :s3_credentials => { :access_key_id     => ENV['S3_KEY'],
-  #                                        :secret_access_key => ENV['S3_SECRET']},
-  #                   :bucket         => ENV['S3_BUCKET'],
-  #                   :styles         => { :medium => "128x128>",
-  #                                        :thumb  => "75x57>"}
+  has_attached_file :avatar,        
+                    :storage        => :s3,
+                    :path           => ":attachment/:id/:style.:extension",
+                    :default_url   => "/images/:attachment/:style-missing.png",
+                    :s3_credentials => { :access_key_id     => ENV['S3_KEY'],
+                                         :secret_access_key => ENV['S3_SECRET']},
+                    :bucket         => ENV['S3_BUCKET'],
+                    :styles         => { :medium => "128x128>",
+                                         :small  => "64x64>"}
   
   
   scope :with_role,
@@ -79,7 +80,7 @@ class User < ActiveRecord::Base
     
   # Finds Users by their main contact email.
   def self.find_by_email email
-    contact = Contacts.find_by_email(email) or raise ActiveRecord::RecordNotFound
+    contact = Contact.find_by_email(email) or raise ActiveRecord::RecordNotFound
     contact.user
   end
   
