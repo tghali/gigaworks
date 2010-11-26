@@ -30,10 +30,16 @@ $terrace-columns: floor($blueprint-grid-columns / 3);
 
 #room {
   @include column($room-columns);
-  margin-right: $blueprint-grid-margin - $separator-witdh;
-  border-right: $separator-witdh solid #777;  
+  margin-right: ceil(($blueprint-grid-margin - $separator-witdh)/2);
   }
+#separator{
+  background-color: #333;
+  float: left;
+  display: inline;
+  width: $separator-witdh;
+}
 #terrace {
+  margin-left: floor(($blueprint-grid-margin - $separator-witdh)/2);
   @include column($terrace-columns, last);
   }
 #footer {

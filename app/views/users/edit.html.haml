@@ -1,0 +1,24 @@
+- title 'Your Profile'
+%h2= user_slug
+= form_for @user, :html => { :multipart => true }, :url => profile_path do |f|
+  -# @user.errors.inspect # TODO: fix error display
+  %fieldset
+    %legend= 'Your profile'
+    = f.text_field :user_name
+    - if @user.avatar.file?
+      = image_tag @user.avatar.url(:small), :class => 'thumbnail'
+    = f.file_field :avatar
+  %fieldset
+    = f.fields_for :contact do |c|
+      %legend= 'Your contact details'
+      = c.text_field :first_name
+      = c.text_field :last_name
+      = c.text_field :email
+  %fieldset
+    %legend= 'Change password'
+    = f.password_field :old_password
+    = f.password_field :password
+    = f.password_field :password_confirmation
+  
+  
+  = f.submit :Update

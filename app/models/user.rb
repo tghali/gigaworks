@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
                                          :secret_access_key => ENV['S3_SECRET']},
                     :bucket         => ENV['S3_BUCKET'],
                     :styles         => { :medium => "128x128>",
-                                         :small  => "64x64>"}
+                                         :small  => "48x48>"}
   
   
   scope :with_role,

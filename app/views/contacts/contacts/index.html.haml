@@ -1,0 +1,5 @@
+- table_for @contacts do |tabelle|  
+  - tabelle.add_view "table", :partial => :table do |table|
+    -# table.actions %w(verify suspend delete)
+    - table.add_column "full_name"
+  

@@ -3,7 +3,7 @@ Gigaworks::Application.routes.draw do
   root :to => 'home#index'
 
   # Assets
-  get '/javascripts/:bundle.js' => JavascriptMinifier
+  get '/javascripts/:bundle.js' =>  JavascriptMinifier
   get "/stylesheets/:media.:ext" => SassCompiler
   
   # Sign In, Sign Out and Sign Up 
@@ -13,7 +13,7 @@ Gigaworks::Application.routes.draw do
   
   # get  'sign_up'  => 'users#new', :as => :sign_up
   # post 'sign_up'  => 'users#create'
-  get  'activate/:verification_token' => 'users#verify'
+  get    'activate/:verification_token' => 'users#verify'
 
   # Profile and password reset
   get '/profile' => 'users#edit', :as => :profile
