@@ -6,8 +6,7 @@
 
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
-@import "blueprint/liquid";
-@import "partials/fixed_grid";
+/*@import "partials/liquid";*/
 
 // Combine the partials into a single screen stylesheet.
 @import "partials/page";
@@ -18,46 +17,44 @@
 
 body{
   margin: 0;
-  background-color: #eef;
-  border-top: 1px solid #555;
-  width: 99%;
-  #container{
-    @include container;
-    width: 99%;
-    background: url(/images/grad.png) repeat-x;
+  background-color: #F0F1F2;
+  width: 100%;
+  height: 100%;
+  #wrapper{
+      margin: 0px 10px 0px 10px;
+    #container{
+      border-top: 1px solid #999;
+      @include container;
+    }
   }
 }
 
 // PAGE SECTIONS
-$room-columns: ceil(2 * $blueprint-liquid-grid-columns / 3);
-$terrace-columns: floor($blueprint-liquid-grid-columns / 3);
-
-#room {
-  @include column($room-columns);
-/*  margin-right: ceil(($blueprint-liquid-grid-margin - $separator-witdh)/2);*/
-  }
-#separator{
-  background-color: #333;
-  float: left;
-  display: inline;
-  width: $separator-witdh;
+$main-columns: ceil(2 * $blueprint-grid-columns / 3);
+$parent-columns: floor($blueprint-grid-columns / 3);
+#bar {
+  padding-top: 10px;
+  height: 55px;
+  @include column($blueprint-grid-columns, last);
+  @include linear-gradient(color-stops(#BAEEFF, #90CBF0 22%, #7ABCE6 80%, #6CA2C4));
+  
+  #room-switcher{@include column(4);      height: 4.5em;}
+  #room-controls{@include column(14);      height: 4.5em;}
+  #control-panel{@include column(3);      height: 4.5em;}
+  #account-panel{@include column(3,last); height: 4.5em;}
 }
-#terrace {
-  margin-left: floor(($blueprint-liquid-grid-margin - $separator-witdh)/2);
-  @include fixed-column($terrace-columns, last);
-  }
+#mid{
+  #parent {
+    @include column($parent-columns);
+    @include border(#333, 3px);
+    height:100%;
+    }
+  #main {
+    @include column($main-columns,last);
+    }
+}
 #footer {
-  @include column($blueprint-liquid-grid-columns, last);
+  @include column($blueprint-grid-columns, last);
   background-color: #bbb;
   h6 {color: #555;}
   }
-  
-// SECTION UI
-
-#header-room, #header-terrace {
-  height: 4.5em;
-}
-
-#header-terrace {
-/*  div { float:left; height: 48px; margin: 2px 5px 2px 0;}*/
-}

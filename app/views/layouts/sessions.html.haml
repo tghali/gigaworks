@@ -12,10 +12,11 @@
     = javascript_include_tag 'common.js'
     = csrf_meta_tag
   %body
-    #container
-      - unless flash.empty?
-        #flashes
-          - flash.each do |type, msg|
-            %div{:class=>"#{type}"}= h msg
-        -flash.clear
-      = yield
+    #wrapper
+      #container
+        - unless flash.empty?
+          #flashes
+            - flash.each do |type, msg|
+              %div{:class=>"#{type}"}= h msg
+          -flash.clear
+        = yield

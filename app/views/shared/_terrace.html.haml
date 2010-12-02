@@ -1,6 +1,0 @@
-#terrace
-  #header-terrace
-    .avatar
-      = image_tag current_user.avatar.url(:small), :class => 'square'
-    %h4.name= link_to current_user.user_name, '/profile'
-  = yield :terrace
