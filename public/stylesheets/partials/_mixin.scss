@@ -14,3 +14,23 @@ No need to break the paragraph
        -webkit-column-rule-style: solid ;
        -webkit-column-rule-width:  1px;
 }*/
+
+@mixin placehold($width, $height, $color: #bbb){
+  display: block;
+  width: $width;
+  height: $height;
+  background: $color;}
+
+@mixin horizontalist{
+  @include clearfix;
+  list-style-type: none;
+  padding-left: 0px;
+  margin: 0px;
+  li {
+    float: left;
+    padding-left: 4px;
+    padding-right: 4px;
+    &.first {padding-left: 0px;}
+    &.last  {padding-right: 0px;}
+  }
+}

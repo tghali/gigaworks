@@ -3,31 +3,46 @@
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
-
+@import "partials/mixin";
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
-/*@import "partials/liquid";*/
-
-// Combine the partials into a single screen stylesheet.
-@import "partials/page";
-@import "partials/form";
+@import "partials/liquid";
+@import "partials/fixed";
 
 @import "compass/css3";
-// @import "partials/two_col";
 
 body{
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
   margin: 0;
-  background-color: #F0F1F2;
+  background-color: #F7F7E4;
   width: 100%;
   height: 100%;
   #wrapper{
-      margin: 0px 10px 0px 10px;
+      //margin: 0px 10px 0px 10px;
+      margin:0px;
     #container{
       border-top: 1px solid #999;
       @include container;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  a{
+    color: #89D1DF;
+    text-decoration: none;
+    &:hover {
+      color: #89D1DF;
+      text-decoration: underline;
     }
   }
 }
+
+form {
+  @include blueprint-form; }
 
 // PAGE SECTIONS
 $main-columns: ceil(2 * $blueprint-grid-columns / 3);
@@ -36,25 +51,48 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   padding-top: 10px;
   height: 55px;
   @include column($blueprint-grid-columns, last);
-  @include linear-gradient(color-stops(#BAEEFF, #90CBF0 22%, #7ABCE6 80%, #6CA2C4));
+  background-color: #dbf043;
+  @include linear-gradient(color-stops(#e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%));
   
-  #room-switcher{@include column(4);      height: 4.5em;}
-  #room-controls{@include column(14);      height: 4.5em;}
-  #control-panel{@include column(3);      height: 4.5em;}
-  #account-panel{@include column(3,last); height: 4.5em;}
+  #room-switcher{@include fixed-column(6);}
+  #room-controls{@include float-left;} // come up with elastic: specifies only the minimum width
+  
+  #bar-end {
+    @include fixed-right-column(6, last);
+    #control-panel{@include fixed-column(3);     }
+    #account-panel{@include fixed-column(3,last);}
+  }
 }
 #mid{
+  height: 100%;
   #parent {
-    @include column($parent-columns);
-    @include border(#333, 3px);
+    @include fixed-column($parent-columns);
+    //@include border(#333, 3px); overlay it with canvas?
     height:100%;
     }
   #main {
-    @include column($main-columns,last);
+    @include elastic-column($main-columns,last);
     }
 }
 #footer {
   @include column($blueprint-grid-columns, last);
-  background-color: #bbb;
-  h6 {color: #555;}
-  }
+  background-color: #dbf043;
+  @include linear-gradient(color-stops(#d2e638 0%, #c3d825 10%, #dbf043 100%));
+  h6 {color: #555; margin-left: 1em;}
+}
+
+// WIDGETS
+#account-panel{
+  .avatar {display: inline;}
+  h4      {display: inline;}
+}
+
+// SECTIONS 
+// TODO put them into partials and load them here (use an id to namespace them?)
+
+#options{
+  @include horizontalist;
+  background: #eee;
+  width: 100%;
+}
+

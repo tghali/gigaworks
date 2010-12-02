@@ -1,0 +1,38 @@
+@mixin fixed-column-base($last: false) {
+  @include float-left;
+  @if $last {
+    @include last; }
+  @else {
+    margin-right: $blueprint_grid_margin; }
+  * html & {
+    overflow-x: hidden; } }
+
+@mixin fixed-span($n, $override: false) {
+  $width: $blueprint_grid_width * $n + $blueprint_grid_margin * ($n - 1);
+  @if $override {
+    width: $width !important; }
+  @else {
+    width: $width; } }
+
+@mixin minimum-span($n, $override: false) {
+  $width: $blueprint_grid_width * $n + $blueprint_grid_margin * ($n - 1);
+  @if $override {
+    min-width: $width !important; }
+  @else {
+    min-width: $width; } }
+
+
+@mixin fixed-column($n, $last: false) {
+  @include fixed-column-base($last);
+  @include fixed-span($n); }
+
+//To have an elastic middle
+@mixin fixed-right-column($n, $last: false) {
+  @include fixed-column-base($last);
+  @include fixed-span($n);
+  @include float-right;}
+
+//To have an elastic end
+@mixin elastic-column($n, $last: false) {
+  @include fixed-column-base($last);
+  @include minimum-span($n); }

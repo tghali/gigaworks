@@ -25,9 +25,10 @@
               %li contacts
               %li calendars
           #room-controls
-          #control-panel
-          #account-panel
-            = render 'shared/account'
+          #bar-end
+            #control-panel
+            #account-panel
+              = render 'shared/account'
         #mid
           #parent
             = yield :parent # TODO or present a standard set of options

@@ -35,6 +35,12 @@ $(document).ready(function(){
     test_paragraph.append(test_paragraph.attr("data-message"));
   })($('p[data-function=jstest]'));
   
-  
+  //this will not fly on the mobile version
+  function fill(){
+    var size = $(document).width() - $('#parent').outerWidth() - 10;
+    $('#main').width(size)
+  };
+  fill();
+  $(window).resize(fill);
   
 });
