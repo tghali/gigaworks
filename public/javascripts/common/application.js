@@ -37,8 +37,8 @@ $(document).ready(function(){
   
   //this will not fly on the mobile version
   function fill(){
-    var size = $(document).width() - $('#parent').outerWidth() - 10;
-    $('#main').width(size)
+    var width  = $(document).width() - $('#parent').outerWidth() - 10;
+    $('#main').width(width)
   };
   fill();
   $(window).resize(fill);

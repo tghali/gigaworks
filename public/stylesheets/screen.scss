@@ -1,6 +1,7 @@
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
 
+
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
 @import "partials/mixin";
@@ -79,6 +80,8 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   background-color: #dbf043;
   @include linear-gradient(color-stops(#d2e638 0%, #c3d825 10%, #dbf043 100%));
   h6 {color: #555; margin-left: 1em;}
+  position: absolute;
+  bottom: 0;
 }
 
 // WIDGETS
