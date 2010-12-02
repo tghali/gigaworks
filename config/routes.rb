@@ -26,6 +26,11 @@ Gigaworks::Application.routes.draw do
   put '/change_password'                        => 'passwords#update' 
   get '/change_password'                        => 'passwords#edit'  
   
+  
+  # Static pages
+  get 'pages/:id' => 'pages#show', :constraints => { :id => /[a-z]+/ }
+  
+  
   # Contacts
   resources :contacts, :module => 'contacts' do
     resources :details
