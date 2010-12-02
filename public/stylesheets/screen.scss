@@ -55,7 +55,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   background-color: #dbf043;
   @include linear-gradient(color-stops(#e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%));
   
-  #room-switcher{@include fixed-column(6);}
+  #room-switcher{@include fixed-column($parent-columns);}
   #room-controls{@include float-left;} // come up with elastic: specifies only the minimum width
   
   #bar-end {
@@ -86,7 +86,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 
 // WIDGETS
 #account-panel{
-  .avatar {display: inline;}
+  .avatar {display: inline; float:left; margin-right:10px;}
   h4      {display: inline;}
 }
 
