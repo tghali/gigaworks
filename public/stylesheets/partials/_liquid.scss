@@ -17,7 +17,6 @@ $blueprint-liquid-container-min-width: 950px !default;
 $blueprint-liquid-grid-push-pull: -($blueprint-liquid-grid-margin + $blueprint-liquid-grid-width) !default;
 
 @mixin container {
-  min-width: $blueprint-liquid-container-min-width;
   width: $blueprint-liquid-container-width;
   margin: 0;
   @include clearfix; }
@@ -81,10 +80,19 @@ $blueprint-liquid-grid-push-pull: -($blueprint-liquid-grid-margin + $blueprint-l
   @include colruler;
   background: white;
   color: white; }
-  
+
+@mixin footer-container{
+  overflow:auto;
+  padding-bottom: -22px;
+}
+
 @mixin footer {
-  width: 99.84%;
-  margin: 0px 1px 1px 0px;
-  position: absolute;
-  bottom: 0;
+  height: 20px;
+  width: 99.86%;
+  margin-left: 1px;
+/*position: absolute;
+  bottom: 0; */
+  position: relative;
+  margin-top: -22px; /* negative value of footer height */
+  clear:both;
 }

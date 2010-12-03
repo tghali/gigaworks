@@ -37,7 +37,7 @@ $(document).ready(function(){
   
   //Elastic Layout
   function fill(){
-    var width  = $(document).width() - $('#parent').outerWidth() - 12;
+    var width  = $(document).width() - $('#parent').outerWidth() - 14;
     $('#main').width(width)
   };
   fill();
