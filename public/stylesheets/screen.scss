@@ -1,6 +1,7 @@
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
 
+@import "compass/css3";
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
@@ -10,7 +11,6 @@
 @import "partials/liquid";
 @import "partials/fixed";
 
-@import "compass/css3";
 
 body{
   @include blueprint-typography(true);
@@ -21,11 +21,11 @@ body{
   background-color: #F7F7E4;
   width: 100%;
   height: 100%;
+  
   #wrapper{
       //margin: 0px 10px 0px 10px;
-      margin:0px;
+      margin:1px 1px 0 1px;
     #container{
-      border-top: 1px solid #999;
       @include container;
       width: 100%;
       height: 100%;
@@ -35,10 +35,8 @@ body{
   a{
     color: #89D1DF;
     text-decoration: none;
-    &:hover {
-      color: #89D1DF;
-      text-decoration: underline;
-    }
+    &:hover {color: #89D1DF; text-decoration: underline;}
+    &:visited {color: #89D1DF; text-decoration: underline;}
   }
 }
 
@@ -59,9 +57,9 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   #room-controls{@include float-left;} // come up with elastic: specifies only the minimum width
   
   #bar-end {
-    @include fixed-right-column(6, last);
-    #control-panel{@include fixed-column(3);     }
-    #account-panel{@include fixed-column(3,last);}
+    @include fixed-right-column(9, last);
+    #control-panel{@include fixed-column(4);     }
+    #account-panel{@include fixed-column(5,last);}
   }
 }
 #mid{
@@ -76,18 +74,28 @@ $parent-columns: floor($blueprint-grid-columns / 3);
     }
 }
 #footer {
-  @include column($blueprint-grid-columns, last);
+  @include footer;
   background-color: #dbf043;
   @include linear-gradient(color-stops(#d2e638 0%, #c3d825 10%, #dbf043 100%));
   h6 {color: #555; margin-left: 1em;}
-  position: absolute;
-  bottom: 0;
 }
 
 // WIDGETS
 #account-panel{
-  .avatar {display: inline; float:left; margin-right:10px;}
+  #account-avatar {display: block; float:left; margin-right:10px;}
   h4      {display: inline;}
+  #account-menu {
+    @include horizontalist;
+    li {
+        &.notifiable {width: 32px;}
+    }
+    #account-feedback   {
+      @include replace-text('/images/bare/account-feedback.png', 0, 0, 16px, 16px);
+      display: block;
+      float: left;
+    }
+    #account-statistics {@include replace-text('/images/bare/account-statistics.png', 0, 0, 16px, 16px);}
+  }
 }
 
 // SECTIONS 
@@ -98,4 +106,3 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   background: #eee;
   width: 100%;
 }
-

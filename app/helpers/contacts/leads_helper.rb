@@ -1,0 +1,2 @@
+module Contacts::LeadsHelper
+end

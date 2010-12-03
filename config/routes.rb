@@ -16,8 +16,10 @@ Gigaworks::Application.routes.draw do
   get    'activate/:verification_token' => 'users#verify'
 
   # Profile and password reset
-  get '/profile' => 'users#edit', :as => :profile
-  put '/profile' => 'users#update' 
+  get '/profile'           => 'users#edit',       :as => :profile
+  get 'profile/feedback'   => 'users#feedback',   :as => :feedback
+  get 'profile/statistics' => 'users#statistics', :as => :statistics
+  put '/profile' => 'users#update'
   
   get  '/forgot_password' => 'passwords#new'
   post '/forgot_password' => 'passwords#create'
@@ -39,7 +41,7 @@ Gigaworks::Application.routes.draw do
       resources :organizations
     end
   end
-
+  
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

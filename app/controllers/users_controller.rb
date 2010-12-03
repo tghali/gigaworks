@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     end
   end
   
+  def feedback
+    @user = current_user
+    
+    raise ActiveRecord::RecordNotFound if current_user.client
+    
+    render
+  end
+  
   # TODO: create a landing page for email account verification
   def verify
     token = UserVerificationKey.find_by_token(params[:verification_token]) or ActiveRecord::RecordNotFound

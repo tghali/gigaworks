@@ -30,7 +30,24 @@ No need to break the paragraph
     float: left;
     padding-left: 4px;
     padding-right: 4px;
-    &.first {padding-left: 0px;}
-    &.last  {padding-right: 0px;}
+    &:first-child {padding-left: 0px;};
+    &:last-child  {padding-right: 0px;};
   }
 }
+
+@mixin hide-text {
+  $approximate_em_value: 12px / 1em;
+  $wider_than_any_screen: -9999em;
+  text-indent: -9999px;
+  overflow: hidden;
+  text-align: left; }
+  
+@mixin replace-text($img, $px: 50%, $py: 50%, $x: false, $y: false) {
+  @include hide-text;
+  @if $x {width:  $x; }
+  @if $y {height: $y;}
+  display: block;
+  background: {
+    image: image-url($img);
+    repeat: no-repeat;
+    position: $px $py; }; }
