@@ -28,10 +28,10 @@ No need to break the paragraph
   margin: 0px;
   li {
     float: left;
-    padding-left: 4px;
-    padding-right: 4px;
-    &:first-child {padding-left: 0px;};
-    &:last-child  {padding-right: 0px;};
+    margin-left: 4px;
+    margin-right: 4px;
+    &:first-child {margin-left: 0px;};
+    &:last-child  {margin-right: 0px;};
   }
 }
 
@@ -47,6 +47,7 @@ No need to break the paragraph
   @if $x {width:  $x; }
   @if $y {height: $y;}
   display: block;
+  float: left;
   background: {
     image: image-url($img);
     repeat: no-repeat;

@@ -1,0 +1,24 @@
+.tooltip {
+  display:none;
+  background: #95B800;
+  text-align: center;
+  height:18px;
+  width:80px;
+  padding:1px;
+  padding-bottom: 3px;
+  color: #fff;
+  font-weight:600;	
+  @include border-radius(2px);
+  border-style: solid;
+  border-color: #C9D964;
+  border-width: 1px;
+}
+
+.tooltip.bottom {
+  padding-bottom: 1px;
+  padding-top: 3px;
+}
+
+/*.tooltip.bottom {
+  background: url('/tools/img/tooltip/black_arrow_bottom.png');
+}*/

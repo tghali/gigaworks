@@ -1,0 +1,30 @@
+// MAIN NAVIGATION WIDGETS
+
+#room-switcher-menu{
+  @include horizontalist;
+  margin-left: 10px;
+  li {
+    padding: 4px;
+    @include box-shadow(#111, 3, 3);
+    margin-left:  8px;
+    margin-right: 8px;
+    @include border-radius(3px);
+    background: #ddd;
+    @include opacity(0.8);
+    &.notifiable {width: 60px;}
+  }
+  #room-switch-contacts   {@include replace-text('/images/bare/room-switch-contacts.png', 0, 0, 32px, 32px);}
+  #room-switch-schedule   {@include replace-text('/images/bare/room-switch-schedule.png', 0, 0, 32px, 32px);}
+}
+
+
+#account-panel{
+  #account-avatar {display: block; float:left; margin-right:10px;}
+  h4      {display: inline;}
+  #account-menu {
+    @include horizontalist;
+    li {&.notifiable {width: 32px;}}
+    #account-feedback   {@include replace-text('/images/bare/account-feedback.png', 0, 0, 16px, 16px);}
+    #account-statistics {@include replace-text('/images/bare/account-statistics.png', 0, 0, 16px, 16px);}
+  }
+}

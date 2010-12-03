@@ -81,20 +81,13 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 }
 
 // WIDGETS
-#account-panel{
-  #account-avatar {display: block; float:left; margin-right:10px;}
-  h4      {display: inline;}
-  #account-menu {
-    @include horizontalist;
-    li {
-        &.notifiable {width: 32px;}
-    }
-    #account-feedback   {
-      @include replace-text('/images/bare/account-feedback.png', 0, 0, 16px, 16px);
-      display: block;
-      float: left;
-    }
-    #account-statistics {@include replace-text('/images/bare/account-statistics.png', 0, 0, 16px, 16px);}
+@import 'partials/jquery_tools';
+@import 'partials/widgets';
+
+#room-controls{
+  h1 {
+    color: #3C3A32;
+    text-shadow:-1px 1px 1px #F0F09E;//D9E876
   }
 }
 

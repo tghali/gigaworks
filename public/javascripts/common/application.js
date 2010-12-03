@@ -35,7 +35,7 @@ $(document).ready(function(){
     test_paragraph.append(test_paragraph.attr("data-message"));
   })($('p[data-function=jstest]'));
   
-  //this will not fly on the mobile version
+  //Elastic Layout
   function fill(){
     var width  = $(document).width() - $('#parent').outerWidth() - 12;
     $('#main').width(width)
@@ -43,4 +43,16 @@ $(document).ready(function(){
   fill();
   $(window).resize(fill);
   
+  
+  //Tooltips
+  $(".tooltipped a").tooltip({
+
+     // tweak the position
+     offset: [2, 10],
+
+     // use the "slide" effect
+     effect: 'slide'
+
+  // add dynamic plugin with optional configuration for bottom edge
+  }).dynamic({ bottom: { direction: 'down', bounce: true } });
 });

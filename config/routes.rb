@@ -42,6 +42,13 @@ Gigaworks::Application.routes.draw do
     end
   end
   
+  namespace 'schedule' do
+    # have different schedules for different people?
+    get '/' => 'schedule#show', :as => '
+    '
+    #resources: events -- a wrapper? or different resources for different events?
+  end
+  
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

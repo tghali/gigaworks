@@ -10,6 +10,8 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
     = javascript_include_tag 'common.js'
+    = javascript_include_tag "http://use.typekit.com/oul4lnj.js"
+    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
     = csrf_meta_tag
   %body
     #wrapper
@@ -21,11 +23,13 @@
           -flash.clear
         #bar
           #room-switcher
-            %ul#rooms
-              %li contacts
-              %li calendars
+            %ul#room-switcher-menu.tooltipped
+              %li
+                =link_to t(:'rooms.Contacts'), contacts_path, :id => :'room-switch-contacts', :title => t(:'rooms.Contacts')
+              %li
+                =link_to t(:'rooms.Schedule'), schedule_path, :id => :'room-switch-schedule', :title => t(:'rooms.Schedule')
           #room-controls
-            &nbsp;
+            %h1 Gigaworx - prototype
           #bar-end
             #control-panel
               &nbsp;

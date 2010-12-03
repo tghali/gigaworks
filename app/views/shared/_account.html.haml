@@ -1,8 +1,8 @@
 #account-avatar
   = image_tag current_user.avatar.url(:small), :class => 'square'
 %h4.name= link_to current_user.user_name, '/profile'
-%ul#account-menu
+%ul#account-menu.tooltipped
   %li.notifiable
-    =link_to t(:'profile.Feedback'),   feedback_path, :id => :'account-feedback'
+    =link_to t(:'profile.Feedback'),   feedback_path,     :id => :'account-feedback',   :title => t(:'profile.Feedback')
     (2)
-  %li= link_to t(:'profile.Statistics'), statistics_path, :id => :'account-statistics'
+  %li= link_to t(:'profile.Statistics'), statistics_path, :id => :'account-statistics', :title => t(:'profile.Statistics')
