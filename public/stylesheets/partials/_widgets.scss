@@ -5,7 +5,11 @@
   margin-left: 10px;
   li {
     padding: 4px;
-    @include box-shadow(#111, 3, 3);
+    //@include box-shadow(#F0F09E, -1px, 1px);
+    box-shadow:         inset 0px -1px 2px 0px rgba(255, 255, 255, 0.82);
+    -webkit-box-shadow: inset 0px -1px 2px 0px rgba(255, 255, 255, 0.82);
+    -moz-box-shadow:    inset 0px -1px 2px 0px rgba(255, 255, 255, 0.82);
+    
     margin-left:  8px;
     margin-right: 8px;
     @include border-radius(3px);
@@ -15,6 +19,7 @@
   }
   #room-switch-contacts   {@include replace-text('/images/bare/room-switch-contacts.png', 0, 0, 32px, 32px);}
   #room-switch-schedule   {@include replace-text('/images/bare/room-switch-schedule.png', 0, 0, 32px, 32px);}
+  #room-switch-leads      {@include replace-text('/images/bare/room-switch-leads.png', 0, 0, 32px, 32px);}
 }
 
 

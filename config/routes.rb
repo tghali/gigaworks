@@ -42,7 +42,14 @@ Gigaworks::Application.routes.draw do
     end
   end
   
-  namespace 'schedule' do
+  resources :leads, :module => 'leads' do
+  
+    collection do
+      resources :imports
+    end
+  end
+  
+  namespace :schedule do
     # have different schedules for different people?
     get '/' => 'schedule#show', :as => '
     '

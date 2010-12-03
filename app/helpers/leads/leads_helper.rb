@@ -1,0 +1,2 @@
+module Leads::LeadsHelper
+end
