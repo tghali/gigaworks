@@ -81,18 +81,18 @@ $blueprint-liquid-grid-push-pull: -($blueprint-liquid-grid-margin + $blueprint-l
   background: white;
   color: white; }
 
-@mixin footer-container{
+@mixin footer-container($size: 18px){
   overflow:auto;
-  padding-bottom: -22px;
+  padding-bottom: -($size);
 }
 
-@mixin footer {
-  height: 20px;
+@mixin footer($size: 18px) {
+  height: $size;
   width: 99.86%;
   margin-left: 1px;
 /*position: absolute;
   bottom: 0; */
   position: relative;
-  margin-top: -22px; /* negative value of footer height */
+  margin-top: -($size+2px); /* negative value of footer height */
   clear:both;
 }

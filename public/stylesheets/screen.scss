@@ -31,7 +31,7 @@ body{
     
     #container{
       @include container;
-      @include footer-container;
+      @include footer-container(18px);
       
       width: 100%;
     }
@@ -82,7 +82,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
     }
 }
 #footer {
-  @include footer;
+  @include footer(18);
   background-color: #dbf043;
   @include linear-gradient(color-stops(#d2e638 0%, #c3d825 10%, #dbf043 100%));
   h6 {color: #555; margin-left: 1em;}
@@ -97,6 +97,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
     margin-top: 0.10em;
     font-size: 2.75em;
     margin-bottom: 0.40em;
+    //font-weight: 400;
     color: #3C3A32;
     text-shadow:-1px 1px 1px #F0F09E;//D9E876
   }
