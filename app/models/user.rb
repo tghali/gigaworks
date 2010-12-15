@@ -46,7 +46,9 @@ class User < ActiveRecord::Base
                                   :dependent => :destroy, :autosave => true,
                                   :conditions => { :password_reset => true}
   
-    
+  # DELEGATES
+  delegate :email, :to => :contact
+  
   # REGISTRATION AND UPDATE                             
   validates_presence_of      :contact
   validates_uniqueness_of    :contact_id
@@ -96,7 +98,20 @@ class User < ActiveRecord::Base
       user = User.find_by_user_name(username_or_email) or raise ActiveRecord::RecordNotFound
     end
     expected_password = encrypted_password(password, user.salt) 
-    (user.hashed_password == expected_password) ? user : nil 
+    user.hashed_password == expected_password or raise ActiveRecord::RecordNotFound
+    
+    return user
+  rescue ActiveRecord::RecordNotFound
+    nil
+  end
+  
+  # Returns the user remembered in the provided cookie as long as the password
+  # (and the salt) haven't changed in the mean time.
+  def self.authenticate_remember_me(id, cookie_salt)
+    user = find_by_id(user_id)
+    user && (user.salt == cookie_salt) or raise ActiveRecord::RecordNotFound
+    
+    return user
   rescue ActiveRecord::RecordNotFound
     nil
   end

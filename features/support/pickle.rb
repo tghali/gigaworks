@@ -16,9 +16,10 @@
 # You may also need to add gem dependencies on your factory of choice in <tt>config/environments/cucumber.rb</tt>
 
 require 'pickle/world'
+# Example of configuring pickle:
 
 Pickle.configure do |config|
-  config.adapters = [ Rails.application.config.generators.options[:rails][:fixture_replacement] ]
+  config.adapters = [:factory_girl]
   config.map 'I', 'myself', 'me', 'my', :to => 'user: "me"'
 end
 

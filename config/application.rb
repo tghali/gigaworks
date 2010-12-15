@@ -26,15 +26,20 @@ module Gigaworks
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
     
+    # use OmniAuth::Builder do
+    #   provider :twitter,  ENV['TWITTER_KEY'],  ENV['TWITTER_SECRET']
+    #   provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+    # end
+    
     config.middleware.use Warden::Manager do |manager|
       manager.default_strategies :sign_in
       manager.failure_app = SessionsController.action(:unauthorized)
       manager.serialize_into_session {|user| user.id}
       manager.serialize_from_session {|id| User.find(id)}
-      
     end
     
     config.middleware.delete 'Sass::Plugin::Rack'
+    
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 

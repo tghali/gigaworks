@@ -7,7 +7,7 @@ class SessionsController < ActionController::Base
   end
   
   def create
-    warden.authenticate!
+    warden.authenticate! :remember, :sign_in
     redirect_to root_url
   end
   

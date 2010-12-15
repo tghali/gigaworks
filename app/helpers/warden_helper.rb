@@ -1,6 +1,6 @@
 module WardenHelper
-  # extend ActiveSupport::Concern
-  # 
+  extend ActiveSupport::Concern
+
   # included do
   #   helper_method :warden, authenticate
   # end

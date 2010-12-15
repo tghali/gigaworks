@@ -13,6 +13,9 @@ gem 'compass', '>= 0.10.4'
 gem 'jsmin'
 gem 'warden'
 gem 'net-ldap', '>= 0.1.1'
+gem 'omniauth', '>= 0.1.6'
+gem 'delayed_job', '~> 2.1.2'
+
 
 group :production, :test, :cucumber, :development do
   gem 'tarte',      :path => '~/Sites/tools/tarte'
@@ -35,6 +38,7 @@ group :test, :cucumber do
   gem 'cucumber-rails', '>= 0.3.2'
   gem 'pickle', '>= 0.3.4'
   gem 'database_cleaner', '>= 0.5.2'
+  gem 'timecop', '~> 0.3.5'
   gem 'launchy', '>= 0.3.5'
   gem 'rspec-rails', '>= 2.1.0'
   gem 'fredo'

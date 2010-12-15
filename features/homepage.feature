@@ -12,6 +12,6 @@ Feature: The home page
 
   @javascript
   Scenario: Open the home page with javascript
-    Given I am signed in as "lpedroni"
+    Given I am signed in with user_name: "lpedroni"
     When I go to the home page
     Then I should see "Welcome, person with javascript"

@@ -10,6 +10,9 @@ module NavigationHelpers
       
     when /the home page/
       '/'
+    when /the new login page/
+      new_login_path
+
     
     when /"(.+)"/
       $1

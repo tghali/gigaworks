@@ -1,16 +1,35 @@
 Warden::Strategies.add(:sign_in) do
   
   def valid?
-    params['session']['user_name_or_email'] || params['session']['password']
+    params['session']['user_name_or_email'] && params['session']['password']
   end
   
-  def authenticate!
+  def authenticate!      
     user = User.authenticate(params['session']['user_name_or_email'], params['session']['password'])
+    
     if user
-      env["rack.session.options"][:expire_after] = params['session']['remember_me'] ? 2.days : 15.minutes
+      session[:remember_me] = [user.id, user.salt] if params['session']['remember_me']
       success!(user)
     else
-      fail!("Could not log in")
+      fail!(:'account.user_not_found')
+    end
+  end
+  
+end
+
+Warden::Strategies.add(:remember) do
+  
+  def valid?
+    session[:remember_me]
+  end
+  
+  def authenticate!      
+    user = User.authenticate_remember_me(*session[:remember_me])
+    
+    if user
+      success!(user)
+    else
+      fail!
     end
   end
   
