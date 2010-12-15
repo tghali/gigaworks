@@ -16,7 +16,7 @@ PATH
 PATH
   remote: ~/Sites/tools/tarte
   specs:
-    tarte (0.1.2)
+    tarte (0.1.1)
 
 GEM
   remote: http://rubygems.org/
