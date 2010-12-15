@@ -32,7 +32,7 @@ module Gigaworks
     # end
     
     config.middleware.use Warden::Manager do |manager|
-      manager.default_strategies :sign_in
+      manager.default_strategies :remember, :sign_in
       manager.failure_app = SessionsController.action(:unauthorized)
       manager.serialize_into_session {|user| user.id}
       manager.serialize_from_session {|id| User.find(id)}

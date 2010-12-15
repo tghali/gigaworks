@@ -10,6 +10,7 @@ module WardenHelper
   end
   
   def authenticate
+    warden.authenticate :remember
     env['warden'].authenticated? or throw(:warden, :message => :'account.must_sign_in')
   end
   

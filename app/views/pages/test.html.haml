@@ -10,3 +10,7 @@
   %li copy
   %li paste
   %li self-destruct
+%pre
+  =session.to_yaml
+  %hr
+  =cookies.signed[:remember_me].inspect

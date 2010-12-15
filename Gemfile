@@ -26,11 +26,12 @@ group :production, :test, :cucumber, :development do
   gem 'cancan'
 end
 
-group :test, :cucumber, :development do
+group :production, :test, :cucumber, :development do
   gem 'connie', :path => '~/Sites/tools/connie'
   gem 'factory_girl_rails', '>= 1.0.0'
   gem 'factory_girl_generator'
 end
+
 
 group :test, :cucumber do
   gem 'capybara', '>= 0.3.8'
