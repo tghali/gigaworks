@@ -26,10 +26,10 @@ module Gigaworks
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
     
-    # use OmniAuth::Builder do
-    #   provider :twitter,  ENV['TWITTER_KEY'],  ENV['TWITTER_SECRET']
-    #   provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
-    # end
+    config.middleware.use OmniAuth::Builder do
+      # provider :twitter,  ENV['TWITTER_KEY'],  ENV['TWITTER_SECRET']
+      provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+    end
     
     config.middleware.use Warden::Manager do |manager|
       manager.default_strategies :remember, :sign_in
