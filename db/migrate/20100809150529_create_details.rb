@@ -3,10 +3,11 @@ class CreateDetails < ActiveRecord::Migration
     create_table :details do |t|
       t.integer :contact_id
       t.integer :property_code
-      t.string :value
-      t.integer :type_mask
-      t.integer :extra_property_code
-      t.string :extra_property_value
+      t.integer :type_code
+      t.boolean :pref
+      t.string  :value
+      t.integer :extra_property_index
+      t.string  :extra_property_label
 
       t.timestamps
     end

@@ -58,6 +58,13 @@ module Gigaworks
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password]    
   end
+  
+  module Preferences
+    def self.contact_detail_types
+      [:personal, :work, :reception, :home, :mobile]
+    end
+  end
+  
 end

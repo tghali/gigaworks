@@ -52,8 +52,7 @@ Gigaworks::Application.routes.draw do
   
   namespace :schedule do
     # have different schedules for different people?
-    get '/' => 'schedule#show', :as => '
-    '
+    get '/' => 'schedule#show'
     #resources: events -- a wrapper? or different resources for different events?
   end
   

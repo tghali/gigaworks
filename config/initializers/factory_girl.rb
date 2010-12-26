@@ -3,11 +3,27 @@
 require 'factory_girl'
 
 class Factory
-    
+  class Proxy #:nodoc:
+    class Populate < Build #:nodoc:
+
+      def result
+        run_callbacks(:after_build)
+        @instance.save or return nil
+        run_callbacks(:after_create)
+        @instance
+      end
+      
+    end
+  end
+  
   def attachment(name, path, content_type = "image/jpg")
     uploaded_file = ActionDispatch::TestProcess.fixture_file_upload("#{Rails.root}/#{path}", MIME::Types.type_for(path))
 
     add_attribute name, uploaded_file
+  end
+  
+  def self.populate (name, overrides = {})
+    factory_by_name(name).run(Proxy::Populate, overrides)
   end
   
   # def nested_attributes_for (association, options = {}, &block)

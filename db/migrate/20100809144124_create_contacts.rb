@@ -6,9 +6,14 @@ class CreateContacts < ActiveRecord::Migration
       t.integer :organization_id
       t.string  :title
       t.integer :timezone_code
+      t.integer :email_type_code,     :default => 0
       t.string  :email
+      t.integer :telephone_type_code, :default => 0
       t.string  :telephone
-      t.boolean :public, :default => true
+      t.boolean :public,              :default => true
+      t.string  :note
+      t.date    :birthday
+      t.string  :role
 
       t.timestamps
     end

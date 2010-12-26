@@ -26,3 +26,6 @@ Feature: Signing in
     Then the response status should be 200
 
   Scenario: Sign in with facebook
+    Given a facebook account with email: "me@example.com" is authorized
+    When  I go to "auth/facebook"
+    Then show me the page

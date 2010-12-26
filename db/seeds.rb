@@ -6,4 +6,15 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-me = Factory :admin, :email => 'ilpoldo@gmail.com', :title => 'Mr.', :first_name => 'Leandro', :last_name => 'Pedroni'
+me = Factory :admin, :user_name => "lpedroni",
+                     :contact_attributes => {:first_name => 'Leandro',
+                                             :last_name => 'Pedroni',
+                                             :email => 'ilpoldo@gmail.com'}
+
+
+organizations = Array.new(30).map { Factory.populate :organization}
+8.times { organizations[rand(organizations.size-1)] = nil}
+
+contacts = Array.new(200).map do
+  Factory.populate :contact, :organization => Connie(organizations)
+end

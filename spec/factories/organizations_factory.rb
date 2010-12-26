@@ -2,5 +2,5 @@
 
 Factory.define :organization do |f|
   f.name {Connie(:names).company}
-  f.country_code {Connie ['gb', 'it', 'es', 'fr', 'jp']}
+  f.country_code {Connie ['gb', 'it', 'ae', 'dk', 'fr', 'qa']}
 end

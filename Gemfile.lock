@@ -9,6 +9,11 @@ PATH
     formidable (0.0.2)
 
 PATH
+  remote: ~/Sites/tools/fredo
+  specs:
+    fredo (0.1.10)
+
+PATH
   remote: ~/Sites/tools/tabelle
   specs:
     tabelle (0.0.4)
@@ -16,7 +21,7 @@ PATH
 PATH
   remote: ~/Sites/tools/tarte
   specs:
-    tarte (0.1.2)
+    tarte (0.1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -106,7 +111,6 @@ GEM
       rack (>= 1.1.0, < 2)
     ffi (0.6.3)
       rake (>= 0.8.7)
-    fredo (0.1.10)
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
@@ -262,7 +266,7 @@ DEPENDENCIES
   factory_girl_generator
   factory_girl_rails (>= 1.0.0)
   formidable!
-  fredo
+  fredo!
   haml-rails (= 0.3.4)
   jsmin
   launchy (>= 0.3.5)
