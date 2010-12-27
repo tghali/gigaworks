@@ -25,7 +25,17 @@
 
 #account-panel{
   #account-avatar {display: block; float:left; margin-right:10px;}
-  h4      {display: inline;}
+  h4 {
+    display: inline;
+    color: #0a226c;
+    a         {color: #0a226c;}
+    a:hover   {color: #51a4dd; text-decoration: underline;}
+    .sign-out {
+      font-size: 0.6em;
+      font-weight: bold;
+      margin-bottom: 0.8em;
+    }
+  }
   #account-menu {
     @include horizontalist;
     li {&.notifiable {width: 32px;}}

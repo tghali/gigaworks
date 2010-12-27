@@ -40,8 +40,8 @@ body{
   a{
     color: #89D1DF;
     text-decoration: none;
-    &:hover {color: #89D1DF; text-decoration: underline;}
-    &:visited {color: #89D1DF; text-decoration: underline;}
+    &:hover   {color: #92DFEC; text-decoration: underline;}
+    &:visited {color: #3B5A5F; text-decoration: underline;}
   }
 }
 
@@ -75,6 +75,8 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   
   #parent {
     @include fixed-column($parent-columns);
+    overflow-x: hidden;
+    overflow-y: auto;
     //@include border(#333, 3px); overlay it with canvas?
     }
   #main {

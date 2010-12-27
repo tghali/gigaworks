@@ -7,9 +7,10 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 me = Factory :admin, :user_name => "lpedroni",
-                     :contact_attributes => {:first_name => 'Leandro',
-                                             :last_name => 'Pedroni',
-                                             :email => 'ilpoldo@gmail.com'}
+                     :contact => Factory(:user_contact, :first_name => 'Leandro',
+                                                        :last_name  => 'Pedroni',
+                                                        :title      => nil,
+                                                        :email      => 'ilpoldo@gmail.com')
 
 
 organizations = Array.new(30).map { Factory.populate :organization}

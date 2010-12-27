@@ -38,7 +38,11 @@ $(document).ready(function(){
   //Elastic Layout
   function fill(){
     var width  = $(document).width() - $('#parent').outerWidth() - 14;
-    $('#main').width(width)
+    var mid_height = $(document).height() - $('#bar').outerHeight();
+    $('#main').width(width);
+    $('#mid').height(mid_height);
+    $('#mid').children('div').height(mid_height - 20);
+    
   };
   fill();
   $(window).resize(fill);

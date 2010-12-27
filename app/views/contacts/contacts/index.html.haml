@@ -1,5 +1,4 @@
 - content_for :parent do
-  - table_for @contacts do |tabelle|  
-    - tabelle.add_view "list", :partial => :list do |list|
+  = table_for @contacts do |tabelle|  
+    = tabelle.view "list" do |list|
       -# list.actions %w(verify suspend delete)
-      - list.add_column "full_name"

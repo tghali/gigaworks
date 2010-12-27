@@ -8,7 +8,12 @@ class SessionsController < ActionController::Base
   end
   
   def create
+    if current_user
+      flash.now[:alert] = t(:'account.already_signed_in')
+      redirect_to root_url
+    end
     warden.authenticate! :remember, :sign_in
+    Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
     redirect_to root_url
   end
   
@@ -36,8 +41,9 @@ class SessionsController < ActionController::Base
   end
   
   def unauthorized
-    # @session = params[:session].except[:password] if params[:session]
     flash.now[:error] = t(env['warden.options'][:message]) if env['warden.options'][:message]
+    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{params[:user_name_or_email]} #{t(env['warden.options'][:message])}"
+    cookies.delete('_gigavine_warden')
     render :action => "new", :status => :unauthorized
   end
 end
