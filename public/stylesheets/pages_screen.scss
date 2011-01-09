@@ -54,8 +54,24 @@ body{
   
   #header-tools {
     @include column(20, last);
-    height: 86px;
-    form{float:right;}}
+    height: 82px;
+    form{float:right; 
+      label{font-weight: normal;}
+      input[type=text] {
+        width: 117px;
+        @include border-radius;
+      }
+      input[type=submit]{
+        @include replace-text('/images/search_go.png');
+        border: 0;
+        height: 19px;
+        width:  19px;
+        overflow: hidden;
+        cursor: pointer; /* hand-shaped cursor */
+        cursor: hand; /* for IE 5.x */
+      }
+    }
+  }
   
   #navigation {
     @include column(20, last);
