@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Gigaworks::Application.load_tasks
+Gigavine::Application.load_tasks

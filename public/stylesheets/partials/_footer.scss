@@ -1,0 +1,15 @@
+@mixin footer-container($size: 18px){
+  overflow:auto;
+  padding-bottom: -($size);
+}
+
+@mixin footer($size: 18px) {
+  height: $size;
+  width: 99.86%;
+  margin-left: 1px;
+/*position: absolute;
+  bottom: 0; */
+  position: relative;
+  margin-top: -($size+2px); /* negative value of footer height */
+  clear:both;
+}

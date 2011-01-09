@@ -1,6 +1,6 @@
-Gigaworks::Application.routes.draw do
+Gigavine::Application.routes.draw do
 
-  root :to => 'home#index'
+  root :to => 'pages#index'
 
   # Assets
   get '/javascripts/:bundle.js' =>  JavascriptMinifier
@@ -29,33 +29,40 @@ Gigaworks::Application.routes.draw do
   put '/change_password'                        => 'passwords#update' 
   get '/change_password'                        => 'passwords#edit'  
   
+  get '/profile'           => 'users#edit',       :as => :profile
   
-  # Static pages
-  get 'pages/:id' => 'pages#show', :constraints => { :id => /[a-z]+/ }
+  constraints :subdomain => '' do
+    # Static pages
+    get ":section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
+                                                              :page => /[a-z]+/ }
+    get "search" => 'pages#search', :as => :site_search
+  end
   
-  
+  # CRM/PMS
+  constraints :subdomain => "works" do
   # Contacts
-  resources :contacts, :module => 'contacts' do
-    resources :details
+    resources :contacts, :module => 'contacts' do
+      resources :details
   
-    collection do
-      resources :organizations
+      collection do
+        resources :organizations
+      end
     end
-  end
   
-  resources :leads, :module => 'leads' do
+    resources :leads, :module => 'leads' do
   
-    collection do
-      resources :imports
+      collection do
+        resources :imports
+      end
     end
-  end
   
-  namespace :schedule do
-    # have different schedules for different people?
-    get '/' => 'schedule#show'
-    #resources: events -- a wrapper? or different resources for different events?
-  end
+    namespace :schedule do
+      # have different schedules for different people?
+      get '/' => 'schedule#show'
+      #resources: events -- a wrapper? or different resources for different events?
+    end
   
+  end
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

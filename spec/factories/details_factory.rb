@@ -13,19 +13,19 @@ Factory.define :detail do |f|
     case Connie [:email, :telephone, :url, :address]
     when :email
       [:URL,
-       Connie(Gigaworks::Preferences.contact_detail_types),
+       Connie(Gigavine::Preferences.contact_detail_types),
        "#{Connie(:names).company}@example.com"]
     when :telephone
       [:TEL,
-       Connie(Gigaworks::Preferences.contact_detail_types),
+       Connie(Gigavine::Preferences.contact_detail_types),
        Connie(:numbers).international_telephone]
     when :url
       [:URL,
-       Connie(Gigaworks::Preferences.contact_detail_types),
+       Connie(Gigavine::Preferences.contact_detail_types),
        "http://#{Connie(:names).company}.#{Connie(:net).top_level_domain}"]
     when :address
       [:ADR,
-       Connie(Gigaworks::Preferences.contact_detail_types),
+       Connie(Gigavine::Preferences.contact_detail_types),
        Connie(:geo).full_address]
     end
   end

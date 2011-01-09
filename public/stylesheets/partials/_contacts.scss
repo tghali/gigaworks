@@ -1,0 +1,44 @@
+.tabelle {
+  .page-index{
+    @include horizontalist;
+    margin: 0px 40px;
+    li{
+      a{
+        background:white;
+        color:grey;
+        display:block;
+        border: 1px solid grey;
+        padding:0 0.5em;
+      }
+      &.currrent{a{color:#3B5A5F;}}
+    }
+    margin-bottom: 1em;
+  }
+  .top{
+    width:295px;
+    form{
+      @include blueprint-form-sizes(150px, 150px, 60px);
+      .filter-bar{
+        fieldset {
+          ul.filter-list, input[type=text], ul.filter-list li {
+            display: inline;
+            border: none;
+            margin: 0; border-width: 0; padding: 0;
+          }
+          margin: 0.5em 0; background-color: white; padding: 0px;
+          height: 1.5em;
+          ul.filter-list li {
+            border: 1px solid black;
+            background: #e6f0a3;
+            padding-left: 3px; 
+          }
+          &:focus {border: 1px solid blue;}
+          input[type=text]:focus {
+            border: none;
+            width:100%;
+          }
+        }
+      }
+    }
+  }
+}

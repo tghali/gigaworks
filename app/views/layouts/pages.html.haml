@@ -1,0 +1,45 @@
+%html
+  %head
+    %title== #{yield :title}Gigavine
+    
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8" }/
+    -# %meta{:name => "description", :content => "Gigavine" }
+        
+    = stylesheet_link_tag 'pages_screen.css', :media => 'screen, projection'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    = javascript_include_tag 'common.js'
+    = javascript_include_tag "http://use.typekit.com/oul4lnj.js"
+    %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
+    = csrf_meta_tag
+  %body
+    #wrapper
+      #container
+        %header#header
+          #language-selection
+            %span== #{t(:'site.Current_language')}:
+            %span#language-current English
+            %a#language-change{:href => '#'}== #{t(:'site.change')}
+          %h1#logo Gigavine
+          %div#header-tools
+            = form_tag site_search_path, :method => 'get' do
+              = label_tag :search, t(:'site.search')
+              = text_field_tag :search, params[:q]
+              = submit_tag t(:'site.Go'), :name => nil
+          %nav#navigation
+            %ul
+              %li#nav-company
+                =t(:'site.Company')
+                %span &middot;
+              %li#nav-creative
+                =t(:'site.Creative')
+                %span &middot;
+              %li#nav-languages
+                =t(:'site.Languages')
+                %span &middot;
+              %li#nav-technology
+                =t(:'site.Technology')
+                %span &middot;
+              %li#nav-contact
+                =t(:'site.Contact_us')
+                %span &middot;

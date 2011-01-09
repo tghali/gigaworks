@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-module Gigaworks
+module Gigavine
   class Application < Rails::Application
   
     config.generators do |g|
@@ -62,6 +62,11 @@ module Gigaworks
   end
   
   module Preferences
+    
+    def self.site_sections
+      %w(company creative languages technology contact_us)
+    end
+    
     def self.contact_detail_types
       [:personal, :work, :reception, :home, :mobile]
     end

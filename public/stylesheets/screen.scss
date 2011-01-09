@@ -9,6 +9,7 @@
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
 @import "partials/liquid";
+@import "partials/footer";
 @import "partials/fixed";
 
 html, body, #wrapper, #container {height:100%}
@@ -41,7 +42,7 @@ body{
     color: #89D1DF;
     text-decoration: none;
     &:hover   {color: #92DFEC; text-decoration: underline;}
-    &:visited {color: #3B5A5F; text-decoration: underline;}
+    &:visited {color: #89D1DF; text-decoration: underline;}//3B5A5F
   }
 }
 
@@ -93,13 +94,15 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 // WIDGETS
 @import 'partials/jquery_tools';
 @import 'partials/widgets';
+@import 'partials/contacts';
 
 #room-controls{
   h1 {
     margin-top: 0.10em;
     font-size: 2.75em;
     margin-bottom: 0.40em;
-    //font-weight: 400;
+    font-family: "Futura Condensed Medium", "Helvetica Neue Condensed Bold", Helvetica;
+    font-weight: 400;
     color: #3C3A32;
     text-shadow:-1px 1px 1px #F0F09E;//D9E876
   }

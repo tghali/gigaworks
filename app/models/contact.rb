@@ -3,8 +3,8 @@ class Contact < ActiveRecord::Base
   has_one    :user
   belongs_to :organization
   has_many   :details
-  has_one_baked_in :email_type,     :names => Gigaworks::Preferences.contact_detail_types
-  has_one_baked_in :telephone_type, :names => Gigaworks::Preferences.contact_detail_types
+  has_one_baked_in :email_type,     :names => Gigavine::Preferences.contact_detail_types
+  has_one_baked_in :telephone_type, :names => Gigavine::Preferences.contact_detail_types
   
   scope :shared, where(:public => true)
   

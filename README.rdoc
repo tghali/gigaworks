@@ -1,4 +1,4 @@
-=Gigaworks
+=Gigavine
 === Sales and Project management application for internal use
 
 

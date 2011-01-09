@@ -1,0 +1,100 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+@import "compass/css3";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+@import "partials/mixin";
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+@import "partials/footer";
+
+body{
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  margin: 0;
+  
+  #wrapper{
+    //margin: 0px 10px 0px 10px;
+    
+    #container{
+      @include container;
+      @include footer-container(18px);
+
+    }
+  }
+  
+  a{
+    color: #89D1DF;
+    text-decoration: none;
+    &:hover   {color: #92DFEC; text-decoration: underline;}
+    &:visited {color: #89D1DF; text-decoration: underline;}//3B5A5F
+  }
+}
+
+#language-selection{
+  text-align: right;
+  color: #cccccc;
+  background-color: #747f87;
+  span {color: #cccccc};
+  span#language-current {color: #ffffff;}
+  margin-bottom: 0.5em;
+  a{
+    
+  }
+}
+
+#header {
+  color: $gigavine-dark-blue;
+  
+  #logo {@include replace-text('/images/logo.png', 50%, 50%, 144px, 107px);}
+  
+  #header-tools {
+    @include column(20, last);
+    height: 86px;
+    form{float:right;}}
+  
+  #navigation {
+    @include column(20, last);
+    border-top: 2px dotted;
+    border-bottom: 2px dotted;
+    ul{
+      float: right;
+      @include horizontalist;
+      li span {font-weight:  900;
+               font-size:    1.2em;
+               display:      inline-block;
+               overflow:     hidden;
+               margin-left:  4px;
+               margin-right: 4px
+      }
+      li#nav-company{
+        a.active{color: #ff9966}
+        span{color:     #ff9966}
+      }
+      li#nav-creative{
+        a.active{color: #660000}
+        span{color:     #660000}
+
+      }
+      li#nav-languages{
+        a.active{color: #0066cc}
+        span{color:     #0066cc}
+      }
+      li#nav-technology{
+        a.active{color: #669933}
+        span{color:     #669933}
+      }
+      li#nav-contact{
+        a.active{color: #cc0066}
+        span{color:     #cc0066}
+      }
+    }
+  }
+}
+
+form {
+  @include blueprint-form; }

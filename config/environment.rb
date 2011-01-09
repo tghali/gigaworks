@@ -13,4 +13,4 @@ end
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Gigaworks::Application.initialize!
+Gigavine::Application.initialize!
