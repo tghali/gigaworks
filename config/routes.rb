@@ -1,7 +1,5 @@
 Gigavine::Application.routes.draw do
 
-  root :to => 'pages#index'
-
   # Assets
   get '/javascripts/:bundle.js' =>  JavascriptMinifier
   get "/stylesheets/:media.:ext" => SassCompiler
@@ -33,8 +31,9 @@ Gigavine::Application.routes.draw do
   
   constraints :subdomain => '' do
     # Static pages
-    get ":section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
-                                                              :page => /[a-z_\-]+/ }
+    get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
+                                                                      :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
+                                                                      :page    => /[a-z_\-]+/ }
     get "search" => 'pages#search', :as => :site_search
     
     resources :blog_posts
@@ -89,7 +88,7 @@ Gigavine::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => 'pages#show'
 
   # See how all your routes lay out with "rake routes"
 

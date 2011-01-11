@@ -52,7 +52,7 @@ module Gigavine
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w(jquery.js jquery-ui.js rails.js)
+    # config.action_view.javascript_expansions[:defaults] = %w(jquery.js jquery-ui.js rails.js)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -65,6 +65,10 @@ module Gigavine
     
     def self.site_sections
       %w(company creative languages technology contact_us legal)
+    end
+    
+    def self.site_locales
+      %w(en ar es fr)
     end
     
     def self.contact_detail_types

@@ -18,11 +18,14 @@ body{
   margin: 0;
   
   #wrapper{
-    //margin: 0px 10px 0px 10px;
+    width:  $blueprint-container-size + 40px;
+    margin: 0px auto;
     
     #container{
       @include container;
+      margin: 0px 5px 0px 20px;
       @include footer-container(140px);
+      float: left;
       overflow: hidden;
     }
   }
@@ -35,27 +38,34 @@ body{
   }
 }
 
-#language-selection{
+#locale-selection{
   text-align: right;
   color: #cccccc;
   background-color: #747f87;
   span {color: #cccccc};
-  span#language-current {color: $gigavine-white;}
+  span#locale-current {color: $gigavine-white;}
   height: 2em;
   margin-bottom: 0.75em;
   @include border-radius(0px 0px 6px 6px);
-  a{
+  a#locale-change{
     margin-left:  4px;
     margin-right: 4px;
     @include replace-text('/images/downarrow.png', 50%, 50%, 19px, 19px);
     float:right;
   }
 }
+#locale-options{
+  width: 15px;
+  float: left;
+  ul{
+    list-style:none;
+    display: inline;
+  }
+}
 
 #header {
   height:        12em;
   overflow:      hidden;
-  margin-bottom: 1.5em;
   color: $gigavine-dark-blue;
   
   #header-left {
@@ -74,6 +84,7 @@ body{
       margin-left: 10px;
       p {float: left; height: 3em; margin-bottom: 0.5em;}
       form{float:right; 
+        margin-top: -0.50em;
         label{font-weight: normal; margin-right: 4px;}
         input[type=text] {
           width: 117px;
@@ -114,30 +125,30 @@ body{
         a:visited {text-decoration: none;}
         
         li#nav-company{
-          a.active{color: #ff9966}
-          a:hover{color:  #ff9966}
-          span{color:     #ff9966}
+          a.active{color: $accent-company}
+          a:hover{color:  $accent-company}
+          span{color:     $accent-company}
         }
         li#nav-creative{
-          a.active{color: #660000}
-          a:hover{color:  #660000}
-          span{color:     #660000}
+          a.active{color: $accent-creative}
+          a:hover{color:  $accent-creative}
+          span{color:     $accent-creative}
 
         }
         li#nav-languages{
-          a.active{color: #0066cc}
-          a:hover{color:  #0066cc}
-          span{color:     #0066cc}
+          a.active{color: $accent-languages}
+          a:hover{color:  $accent-languages}
+          span{color:     $accent-languages}
         }
         li#nav-technology{
-          a.active{color: #669933}
-          a:hover{color:  #669933}
-          span{color:     #669933}
+          a.active{color: $accent-technology}
+          a:hover{color:  $accent-technology}
+          span{color:     $accent-technology}
         }
         li#nav-contact{
-          a.active{color: #cc0066}
-          a:hover{color:  #cc0066}
-          span{color:     #cc0066}
+          a.active{color: $accent-contact}
+          a:hover{color:  $accent-contact}
+          span{color:     $accent-contact}
         }
       }
     }
@@ -145,12 +156,43 @@ body{
 
 }
 
+#section-mast{
+  #navigation-sub{
+    ul{@include horizontalist; float:right;}
+  
+    a{
+      text-decoration: none;
+      &.active{text-decoration: underline;}
+    }
+  
+    &.company{
+      color: $accent-company;
+      a{color: $accent-company;}
+    }
+    &.creative{
+      li{color: $accent-creative;}
+      a{color: $accent-creative;}
+    }
+    &.languages{
+      li{color: $accent-languages;}
+      a{color: $accent-languages;}
+    }
+    &.technology{
+      li{color: $accent-technology;}
+      a{color: $accent-technology;}
+    
+    }
+  
+    clear: both;
+  }
+}
+
 form {
   @include blueprint-form; }
   
   
 #content {
-  margin-bottom: 0.75em;
+  margin-bottom: 1.5em;
   h1, h2, h3, h4, h5, h6, p, q, pre, li {color: $gigavine-medium-grey;}
   
   @include column-base(last);

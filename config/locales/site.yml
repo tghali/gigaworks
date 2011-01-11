@@ -1,9 +1,9 @@
 en:
   site:
-    Current_language: Current language
+    locale_current: Current language
+    locale_change: change
     search: search
     Go: Go
-    change: change
     Company: Company
     About_us: About us
     Case_studies: Case studies
@@ -32,3 +32,6 @@ en:
       Email: Email
       File: File
       Send: Send
+es:
+  site:
+    Current_language: Lenguaje corriente

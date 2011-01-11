@@ -16,10 +16,10 @@
     #wrapper
       #container
         %header#header
-          #language-selection
-            %span== #{t(:'site.Current_language')}:
-            %span#language-current English
-            %a#language-change{:href => '#'}== #{t(:'site.change')}
+          #locale-selection
+            %span== #{t(:'site.locale_current')}:
+            %span#locale-current English
+            %a#locale-change{:href => '#'}== #{t(:'site.locale_change')}
           #header-left
             %h1#logo Gigavine
           #header-right
@@ -46,6 +46,9 @@
                 %li#nav-contact
                   = link_to t(:'site.Contact_us'),    :section => 'company', :page => 'contact_us'
                   %span &bull;
+        -if params[:section] && params[:section] != 'contact_us'
+          #section-mast
+            = render :partial => params[:section]
         #content
           =yield
         %footer#footer
@@ -92,3 +95,8 @@
                 Copyright © 2011 Gigavine limited
                 %br/
                 Registered in England & Wales No 6748143
+      #locale-options
+        %ul
+          - locale_links.each do |link|
+            %li= link.html_safe
+      
