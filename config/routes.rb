@@ -34,8 +34,10 @@ Gigavine::Application.routes.draw do
   constraints :subdomain => '' do
     # Static pages
     get ":section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
-                                                              :page => /[a-z]+/ }
+                                                              :page => /[a-z_\-]+/ }
     get "search" => 'pages#search', :as => :site_search
+    
+    resources :blog_posts
   end
   
   # CRM/PMS

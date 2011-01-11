@@ -60,7 +60,9 @@ jQuery.goverlay = function (column, gutter, row, container) {
         if (!overlay) {
           overlay = $("<div id=goverlay />")
             .css("height", 0)
+            .css("position", "relative")
             .css("float", "left")
+            .css("z-index", 1001)
             .css("overflow", "visible");
           container.prepend(overlay);
           paper = Raphael(overlay[0] , container.width(), container.height());

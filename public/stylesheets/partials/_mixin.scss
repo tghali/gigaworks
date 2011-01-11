@@ -21,17 +21,29 @@ No need to break the paragraph
   height: $height;
   background: $color;}
 
-@mixin horizontalist{
+@mixin horizontalist($margin: 4px){
   @include clearfix;
   list-style-type: none;
   padding-left: 0px;
   margin: 0px;
   li {
     float: left;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: $margin;
+    margin-right: $margin;
     &:first-child {margin-left: 0px;};
     &:last-child  {margin-right: 0px;};
+  }
+}
+
+@mixin box-shadow ($x: 1px, $y: 3px, $blur: 5px, $color: #333333, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $x $y $blur $color;
+    -moz-box-shadow: inset $x $y $blur $color;
+    box-shadow: inset $x $y $blur $color;
+  } @else {
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
   }
 }
 

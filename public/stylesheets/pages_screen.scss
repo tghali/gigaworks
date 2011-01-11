@@ -22,8 +22,8 @@ body{
     
     #container{
       @include container;
-      @include footer-container(18px);
-
+      @include footer-container(140px);
+      overflow: hidden;
     }
   }
   
@@ -40,77 +40,235 @@ body{
   color: #cccccc;
   background-color: #747f87;
   span {color: #cccccc};
-  span#language-current {color: #ffffff;}
-  margin-bottom: 0.5em;
+  span#language-current {color: $gigavine-white;}
+  height: 2em;
+  margin-bottom: 0.75em;
+  @include border-radius(0px 0px 6px 6px);
   a{
-    
+    margin-left:  4px;
+    margin-right: 4px;
+    @include replace-text('/images/downarrow.png', 50%, 50%, 19px, 19px);
+    float:right;
   }
 }
 
 #header {
+  height:        12em;
+  overflow:      hidden;
+  margin-bottom: 1.5em;
   color: $gigavine-dark-blue;
   
-  #logo {@include replace-text('/images/logo.png', 50%, 50%, 144px, 107px);}
-  
-  #header-tools {
-    @include column(20, last);
-    height: 82px;
-    form{float:right; 
-      label{font-weight: normal;}
-      input[type=text] {
-        width: 117px;
-        @include border-radius;
-      }
-      input[type=submit]{
-        @include replace-text('/images/search_go.png');
-        border: 0;
-        height: 19px;
-        width:  19px;
-        overflow: hidden;
-        cursor: pointer; /* hand-shaped cursor */
-        cursor: hand; /* for IE 5.x */
-      }
+  #header-left {
+    @include column(4);
+    #logo {
+      @include replace-text('/images/logo.png', 50%, 50%, 144px, 107px);
+      margin-bottom: 0;
+      margin-top: 4px;
     }
   }
   
-  #navigation {
+  #header-right {
     @include column(20, last);
-    border-top: 2px dotted;
-    border-bottom: 2px dotted;
-    ul{
-      float: right;
-      @include horizontalist;
-      li span {font-weight:  900;
-               font-size:    1.2em;
-               display:      inline-block;
-               overflow:     hidden;
-               margin-left:  4px;
-               margin-right: 4px
+    #header-tools {
+      height: 86px;
+      margin-left: 10px;
+      p {float: left; height: 3em; margin-bottom: 0.5em;}
+      form{float:right; 
+        label{font-weight: normal; margin-right: 4px;}
+        input[type=text] {
+          width: 117px;
+          @include border-radius;
+        }
+        input[type=submit]{
+          @include replace-text('/images/search_go.png');
+          border: 0;
+          height: 19px;
+          width:  19px;
+          overflow: hidden;
+          margin-top: 0.7em;
+          margin-left: 4px;
+          margin-right: 4px;
+          background-color: $gigavine-white;
+          cursor: pointer; /* hand-shaped cursor */
+          cursor: hand; /* for IE 5.x */
+        }
       }
-      li#nav-company{
-        a.active{color: #ff9966}
-        span{color:     #ff9966}
-      }
-      li#nav-creative{
-        a.active{color: #660000}
-        span{color:     #660000}
+    }
 
-      }
-      li#nav-languages{
-        a.active{color: #0066cc}
-        span{color:     #0066cc}
-      }
-      li#nav-technology{
-        a.active{color: #669933}
-        span{color:     #669933}
-      }
-      li#nav-contact{
-        a.active{color: #cc0066}
-        span{color:     #cc0066}
+    #navigation {
+      @include column(20);
+      border-top: 2px dotted;
+      border-bottom: 2px dotted;
+      ul{
+        float: right;
+        @include horizontalist;
+        li span {font-weight:  900;
+                 font-size:    1.2em;
+                 display:      inline-block;
+                 overflow:     hidden;
+                 margin-left:  4px;
+                 margin-right: 4px
+        }
+        a {color: $gigavine-medium-grey;}
+        a:hover   {text-decoration: none;}
+        a:visited {text-decoration: none;}
+        
+        li#nav-company{
+          a.active{color: #ff9966}
+          a:hover{color:  #ff9966}
+          span{color:     #ff9966}
+        }
+        li#nav-creative{
+          a.active{color: #660000}
+          a:hover{color:  #660000}
+          span{color:     #660000}
+
+        }
+        li#nav-languages{
+          a.active{color: #0066cc}
+          a:hover{color:  #0066cc}
+          span{color:     #0066cc}
+        }
+        li#nav-technology{
+          a.active{color: #669933}
+          a:hover{color:  #669933}
+          span{color:     #669933}
+        }
+        li#nav-contact{
+          a.active{color: #cc0066}
+          a:hover{color:  #cc0066}
+          span{color:     #cc0066}
+        }
       }
     }
   }
+
 }
 
 form {
   @include blueprint-form; }
+  
+  
+#content {
+  margin-bottom: 0.75em;
+  h1, h2, h3, h4, h5, h6, p, q, pre, li {color: $gigavine-medium-grey;}
+  
+  @include column-base(last);
+  width: $blueprint_grid_width * 24 + $blueprint_grid_margin * 24;
+  
+  div{
+/*    h3 {margin-top: 0.50em; margin-bottom: 0.25em;}*/
+  }
+  
+  .two-thirds {@include column(16);}
+  .full {@include column(24);}
+  .box  {
+    @include column(8);
+    h3  {padding-left: 10px;}
+    div {
+      padding: 0.50em;
+      margin-bottom: 0.50em;
+      margin-top: -0.50em;
+      @include border-radius(3px);
+    }
+  }
+  .equalized {
+    height: 24em;
+    div {height: 18em;}
+  }
+  .small-equalized{
+    height: 18em;
+    div {height: 13.5em;}
+  }
+  .form-box  {
+    @include column(8);
+    @include border-radius(3px);
+    margin-top: -0.25em;
+    
+    h3  {
+      color: $gigavine-white;
+      margin: 0.167em 0.5em 0.73em 0.5em;
+    }
+
+    hr {
+      width:99%; border-color: $gigavine-light-grey;
+      margin-bottom: 1em;
+    }
+    
+    form{
+      margin: 0 10px;
+      label{font-weight: normal; color: $gigavine-white; margin-right: 4px;}
+      input[type=text], input[type=email] {
+        width: 200px;
+        @include border-radius;
+      }
+    }
+  }
+  #contact-us-box {
+    @include column(8);
+    background-image: url('/images/balloon.png');
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    
+    h3  {
+      text-indent: 34px;
+      margin-bottom: 0.73em;
+    }
+    
+    hr {width: 99%;
+        margin-bottom: 0.24em;
+        border-width:    2px 0 0 0;
+        border-color:   $gigavine-medium-grey;
+        border-style:   dotted;
+        border-spacing: 2px 2px}
+  }
+  .dark {
+    color:            $gigavine-white;
+    background-color: $gigavine-dark-grey;
+  }
+  
+  
+  .azure  div{background-color: $accent-azure-bg;}
+  .blue   div{background-color: $accent-blue-bg;}
+  .red    div{background-color: $accent-red-bg;}
+  .yellow div{background-color: $accent-yellow-bg;}
+  .green  div{background-color: $accent-green-bg;}
+  
+}
+
+#footer{
+  @include footer(140px);
+  padding-top: 0.75em;
+  background-color: $gigavine-dark-grey;
+  ul {margin: 0;}
+  color: #cccccc;
+  a {color: #cccccc;}
+  h5 a, #footer-right li, #footer-right a{color: #EFF9F6;}
+  
+  @include box-shadow( 0px, 3px, 15px, $gigavine-dark-grey*0.4, inset);
+  
+  #footer-letterpress{
+    @include column(4);
+    h4 {
+      @include replace-text('/images/grey_logo.png', 50%, 50%, 67px, 66px);
+      margin: 0.25em 41px 0 41px;
+    }
+  }
+  .footer-map-section{
+    h5 {line-height: 1.5; font-size: 1em; margin-bottom: 0;}
+    ul {list-style: none; padding-left: 10px;}
+    @include column(3);
+  }
+  #footer-right{
+    float:right;
+    text-align: right;
+    ul{
+      display: inline;
+      float:right;
+      @include horizontalist(6px);
+      margin-bottom: 1.5em;
+    }
+    padding-right: 10px;
+    #footer-details{clear:both;}
+  }
+}

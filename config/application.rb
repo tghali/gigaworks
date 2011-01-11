@@ -64,7 +64,7 @@ module Gigavine
   module Preferences
     
     def self.site_sections
-      %w(company creative languages technology contact_us)
+      %w(company creative languages technology contact_us legal)
     end
     
     def self.contact_detail_types

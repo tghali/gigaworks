@@ -5,7 +5,30 @@ en:
     Go: Go
     change: change
     Company: Company
+    About_us: About us
+    Case_studies: Case studies
+    Join_our_team: Join our team
     Creative: Creative
+    Design_and_Artwork: "Design & Artwork"
+    Web_design: Web design
+    Copywriting: Copywriting
+    Interactive: Interactive
     Languages: Languages
+    Translation: Translation
+    Localization: Localization
+    Consltancy: Consltancy
+    Online_tools: Online tools
     Technology: Technology
+    E-Learning: "E-Learning"
+    E-Commerce: "E-Commerce"
+    Web_security: Web security
+    CRM: CRM
     Contact_us: Contact us
+    Blog: Blog
+    Terms: Terms
+    Privacy: Privacy
+    quote:
+      Name: Name
+      Email: Email
+      File: File
+      Send: Send

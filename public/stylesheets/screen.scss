@@ -86,6 +86,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 }
 #footer {
   @include footer(18);
+  width: 99.86%;
   background-color: #dbf043;
   @include linear-gradient(color-stops(#d2e638 0%, #c3d825 10%, #dbf043 100%));
   h6 {color: #555; margin-left: 1em;}
