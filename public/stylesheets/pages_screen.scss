@@ -10,6 +10,7 @@
 @import "blueprint";
 @import "partials/footer";
 
+html, body, #wrapper {height: 100%;}
 body{
   @include blueprint-typography(true);
   @include blueprint-utilities;
@@ -23,6 +24,7 @@ body{
     
     #container{
       @include container;
+      min-height: 100%;
       margin: 0px 5px 0px 20px;
       @include footer-container(140px);
       float: left;
