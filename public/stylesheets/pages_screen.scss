@@ -60,6 +60,7 @@ body{
   ul{
     list-style:none;
     display: inline;
+    margin: 0; padding: 0;
   }
 }
 
@@ -112,13 +113,15 @@ body{
       border-bottom: 2px dotted;
       ul{
         float: right;
-        @include horizontalist;
+        @include horizontalist(4px);
+        margin: 0; padding: 0;
+        height: 21; //fix mozzilla misalignment
         li span {font-weight:  900;
                  font-size:    1.2em;
-                 display:      inline-block;
+                 display:      inline;
                  overflow:     hidden;
-                 margin-left:  4px;
-                 margin-right: 4px
+                 margin-left:  6px;
+                 margin-right: 6px
         }
         a {color: $gigavine-medium-grey;}
         a:hover   {text-decoration: none;}
@@ -158,7 +161,12 @@ body{
 
 #section-mast{
   #navigation-sub{
-    ul{@include horizontalist; float:right;}
+    ul{
+      @include horizontalist(4px);
+      float:right;
+      margin-right: 6px;
+      span{margin-left: 4px;}
+    }
   
     a{
       text-decoration: none;
@@ -309,6 +317,8 @@ form {
       float:right;
       @include horizontalist(6px);
       margin-bottom: 1.5em;
+      
+      span{margin-left: 6px;}
     }
     padding-right: 10px;
     #footer-details{clear:both;}

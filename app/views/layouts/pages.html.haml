@@ -15,7 +15,7 @@
   %body
     #wrapper
       #container
-        %header#header
+        %div#header
           #locale-selection
             %span== #{t(:'site.locale_current')}:
             %span#locale-current English
@@ -29,7 +29,7 @@
                   = label_tag :search, t(:'site.search')
                   = text_field_tag :search, params[:q]
                 %p= submit_tag t(:'site.Go'), :name => nil
-            %nav#navigation
+            #navigation
               %ul
                 %li#nav-company
                   = link_to t(:'site.Company'), :section => 'company'
@@ -51,7 +51,7 @@
             = render :partial => params[:section]
         #content
           =yield
-        %footer#footer
+        %div#footer
           #footer-letterpress
             %h4 Gigavine.com
           .footer-map-section
@@ -85,11 +85,14 @@
           #footer-right
             %div
               %ul
-                %li= link_to t(:'site.Blog'), blog_posts_path
-                %li &bull;
-                %li= link_to t(:'site.Terms'),   :section => 'legal', :page => 'terms'
-                %li &bull;
-                %li= link_to t(:'site.Privacy'), :section => 'legal', :page => 'privacy'
+                %li
+                  = link_to t(:'site.Blog'), blog_posts_path
+                  %span &bull;
+                %li
+                  = link_to t(:'site.Terms'),   :section => 'legal', :page => 'terms'
+                  %span &bull;
+                %li
+                  = link_to t(:'site.Privacy'), :section => 'legal', :page => 'privacy'
             #footer-details
               %p
                 Copyright © 2011 Gigavine limited

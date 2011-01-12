@@ -1,14 +1,17 @@
 #navigation-sub.languages
   %ul
-    %li= link_to t(:'site.Translation'),  :section => 'languages', :page => 'translation'
     %li
-      |
-    %li= link_to t(:'site.Localization'), :section => 'languages', :page => 'localization'
+      = link_to t(:'site.Translation'),  :section => 'languages', :page => 'translation'
+      %span
+        |
     %li
-      |
-    %li= link_to t(:'site.Consltancy'),   :section => 'languages', :page => 'consultancy'
+      = link_to t(:'site.Localization'), :section => 'languages', :page => 'localization'
+      %span
+        |
     %li
-      |
+      = link_to t(:'site.Consltancy'),   :section => 'languages', :page => 'consultancy'
+      %span
+        |
     %li= link_to t(:'site.Online_tools'), :section => 'languages', :page => 'online_tools'
 #ticker
   %h2 Languages
