@@ -241,6 +241,7 @@ form {
   .form-box  {
     @include column(8);
     @include border-radius(3px);
+    height: 208px;
     margin-top: -0.25em;
     
     h3  {
@@ -255,11 +256,57 @@ form {
     
     form{
       margin: 0 10px;
-      label{font-weight: normal; color: $gigavine-white; margin-right: 4px;}
+      label{
+        font-weight: normal;
+        color: $gigavine-white;
+        margin-right: 4px;
+        width: 40px;
+        display: inline-block;
+      }
       input[type=text], input[type=email] {
-        width: 200px;
+        width: 230px;
         @include border-radius;
       }
+
+      p.file {margin-bottom: 0;}
+      
+      input[type=text].reform {
+        width: 120px;
+      }
+      label.reform{
+        width: auto;
+        cursor: pointer;
+        cursor: hand;
+        display: inline-block;
+        padding: 5px 5px;
+        //margin-bottom: 15px;
+        background-color: $gigavine-light-grey;
+        @include border-radius(3px);
+      }
+      input[type=file].reform {
+        position: relative;
+        //text-align: right;
+        //-moz-opacity:0 ;
+        // //filter:alpha(opacity: 0);
+        opacity: 0;
+        width: 0px;
+        //z-index: 2;
+      }
+      input[type=submit]{
+        @include replace-text('/images/submit.png');
+        background-color: transparent;
+        display: inline;
+        float: none;
+        border: 0;
+        height: 19px;
+        width:  19px;
+        overflow: hidden;
+        margin-top: 0.7em;
+        margin-left: 4px;
+        margin-right: 40px;
+        cursor: pointer;
+        cursor: hand;
+      } 
     }
   }
   #contact-us-box {

@@ -31,7 +31,7 @@ en:
     quote:
       Name: Name
       Email: Email
-      File: File
+      Choose_a_file: Choose a file
       Send: Send
 es:
   language_name: Español

@@ -67,6 +67,18 @@ $(document).ready(function(){
     locale_change.toggle(revealLocales, hideLocales);
   })();  
   
+  //Form
+  (function(){
+    file_input = $('input[type=file]');
+    file_input.addClass('reform');
+    proxy_input = $('<input type="text" />');
+    file_input.after(proxy_input);
+    file_input.change(function(){
+      proxy_input.val(file_input.val());
+    });
+    file_input.siblings().addClass('reform');
+  })();
+  
   //Tooltips
   $(".tooltipped a").tooltip({
 
