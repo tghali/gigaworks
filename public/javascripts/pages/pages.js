@@ -45,6 +45,28 @@ $(document).ready(function(){
   $(window).resize(fill);
   
   
+  //Flags
+  (function() {
+    locale_options = $('#locale-options a');
+    locale_change = $('#locale-change');
+    
+    locale_options.not('.active').hide();
+    
+    function revealLocales(e){
+      locale_change.toggleClass('active1');
+      locale_options.parent().animate({height: 18}, 200);
+      locale_options.delay(200).fadeIn(400);
+      locale_options.parent().css('height', nil);
+    }
+    function hideLocales(e){
+      locale_change.toggleClass('active1');
+      locale_options.not('.active').fadeOut(400).hide();
+      locale_options.not('.active').parent().delay(400).animate({height: 0}, 200);
+    }
+    
+    locale_change.toggle(revealLocales, hideLocales);
+  })();  
+  
   //Tooltips
   $(".tooltipped a").tooltip({
 

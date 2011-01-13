@@ -18,7 +18,7 @@
         %div#header
           #locale-selection
             %span== #{t(:'site.locale_current')}:
-            %span#locale-current English
+            %span#locale-current= t(:language_name)
             %a#locale-change{:href => '#'}== #{t(:'site.locale_change')}
           #header-left
             %h1#logo Gigavine

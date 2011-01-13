@@ -63,6 +63,12 @@ body{
     list-style:none;
     display: inline;
     margin: 0; padding: 0;
+    a {margin-top: 4px; margin-bottom: 4px;}
+    a.en {@include replace-text('/images/locales/en.png', 50%, 50%, 15px, 10px)}
+    a.ar {@include replace-text('/images/locales/ar.png', 50%, 50%, 15px, 10px)}
+    a.es {@include replace-text('/images/locales/es.png', 50%, 50%, 15px, 10px)}
+    a.fr {@include replace-text('/images/locales/fr.png', 50%, 50%, 15px, 10px)}
+    a.de {@include replace-text('/images/locales/de.png', 50%, 50%, 15px, 10px)}
   }
 }
 

@@ -68,7 +68,7 @@ module Gigavine
     end
     
     def self.site_locales
-      %w(en ar es fr)
+      [:en, :ar, :es, :fr, :de]
     end
     
     def self.contact_detail_types
