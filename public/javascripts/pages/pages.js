@@ -37,7 +37,7 @@ $(document).ready(function(){
   
   //Elastic Layout
   function fill(){
-    var mid_height = $(window).height() - 126;
+    var mid_height = $(window).height() - 108;
     $('#wrapper').css("min-height", mid_height);
     
   };
