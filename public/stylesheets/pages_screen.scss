@@ -10,7 +10,7 @@
 @import "blueprint";
 @import "partials/footer";
 
-html, body, #wrapper {height: 100%;}
+html, body {height: 100%;}
 body{
   @include blueprint-typography(true);
   @include blueprint-utilities;
@@ -21,12 +21,11 @@ body{
   #wrapper{
     width:  $blueprint-container-size + 40px;
     margin: 0px auto;
+    overflow: auto;
     
     #container{
       @include container;
-      min-height: 100%;
       margin: 0px 5px 0px 20px;
-      @include footer-container(140px);
       float: left;
       overflow: hidden;
     }
@@ -47,18 +46,24 @@ body{
   span {color: #cccccc};
   span#locale-current {color: $gigavine-white;}
   height: 2em;
-  margin-bottom: 0.75em;
+  padding-top:   0.25em;
+  margin-bottom: 0.50em;
   @include border-radius(0px 0px 6px 6px);
   a#locale-change{
     margin-left:  4px;
     margin-right: 4px;
     @include replace-text('/images/downarrow.png', 50%, 50%, 19px, 19px);
     float:right;
+    &.active1, &:hover {
+       @include replace-text('/images/downarrow_lit.png', 50%, 50%, 19px, 19px);
+       float:right;
+    }
   }
 }
 #locale-options{
   width: 15px;
   float: left;
+  margin-top: 0.25em;
   ul{
     list-style:none;
     display: inline;
@@ -222,11 +227,11 @@ form {
   .full {@include column(24);}
   .box  {
     @include column(8);
-    h3  {padding-left: 10px;}
+    h4  {padding-left: 10px;}
     div {
-      padding: 0.50em;
-      margin-bottom: 0.50em;
-      margin-top: -0.50em;
+      padding: 0.75em;
+      margin-bottom: 0.75em;
+      margin-top: -0.75em;
       @include border-radius(3px);
     }
   }
@@ -235,27 +240,32 @@ form {
     div {height: 18em;}
   }
   .small-equalized{
-    height: 18em;
-    div {height: 13.5em;}
+    height: 12.5em;
+    div {height: 9em;}
   }
   .form-box  {
     @include column(8);
     @include border-radius(3px);
-    height: 208px;
-    margin-top: -0.25em;
+    height: 156px;
+    margin-top: -0.5em;
     
-    h3  {
+    h4  {
       color: $gigavine-white;
-      margin: 0.167em 0.5em 0.73em 0.5em;
+      margin: 0.5em 0 0.75em 0.5em;
     }
 
     hr {
       width:99%; border-color: $gigavine-light-grey;
-      margin-bottom: 1em;
+      opacity: 0.75;
+      margin-top: 0.25em;
+      margin-bottom: 0em;
     }
     
     form{
       margin: 0 10px;
+      
+      p { margin: 0;}
+      
       label{
         font-weight: normal;
         color: $gigavine-white;
@@ -315,13 +325,13 @@ form {
     background-repeat: no-repeat;
     background-position: 0 0px;
     
-    h3  {
+    h4  {
       text-indent: 34px;
       margin-bottom: 0.73em;
     }
     
     hr {width: 99%;
-        margin-bottom: 0.24em;
+        margin-bottom: 0.5em;
         border-width:    2px 0 0 0;
         border-color:   $gigavine-medium-grey;
         border-style:   dotted;
@@ -342,7 +352,11 @@ form {
 }
 
 #footer{
-  @include footer(140px);
+  #footer-container{
+    @include container;
+  }
+  //@include footer(140px);
+  height: 99px;
   padding-top: 0.75em;
   background-color: $gigavine-dark-grey;
   ul {margin: 0;}
@@ -355,7 +369,7 @@ form {
   #footer-letterpress{
     @include column(4);
     h4 {
-      @include replace-text('/images/grey_logo.png', 50%, 50%, 67px, 66px);
+      @include replace-text('/images/light_logo.png', 50%, 50%, 67px, 66px);
       margin: 0.25em 41px 0 41px;
     }
   }
@@ -365,6 +379,7 @@ form {
     @include column(3);
   }
   #footer-right{
+    height: 6em;
     float:right;
     text-align: right;
     ul{
@@ -376,6 +391,9 @@ form {
       span{margin-left: 6px;}
     }
     padding-right: 10px;
-    #footer-details{clear:both;}
+    #footer-details{
+      clear:both;
+      margin-top: 4.5em;
+    }
   }
 }

@@ -37,8 +37,8 @@ $(document).ready(function(){
   
   //Elastic Layout
   function fill(){
-    var mid_height = $(window).height() - 311;
-    $('#content').css("min-height", mid_height);
+    var mid_height = $(window).height() - 126;
+    $('#wrapper').css("min-height", mid_height);
     
   };
   fill();
@@ -56,12 +56,11 @@ $(document).ready(function(){
       locale_change.toggleClass('active1');
       locale_options.parent().animate({height: 18}, 200);
       locale_options.delay(200).fadeIn(400);
-      locale_options.parent().css('height', nil);
     }
     function hideLocales(e){
       locale_change.toggleClass('active1');
       locale_options.not('.active').fadeOut(400).hide();
-      locale_options.not('.active').parent().delay(400).animate({height: 0}, 200);
+      locale_options.not('.active').parent().delay(320).animate({height: 0}, 200);
     }
     
     locale_change.toggle(revealLocales, hideLocales);
