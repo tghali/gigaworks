@@ -172,8 +172,12 @@ body{
 
 }
 
-#section-mast{
+#section-mast{  
   #navigation-sub{
+    height:        18px;
+    margin-top:     3px;
+    margin-bottom: 15px;
+    
     ul{
       @include horizontalist(4px);
       float:right;
@@ -211,7 +215,43 @@ body{
 form {
   @include blueprint-form; }
   
+
+#ticker {
+  @include column(24);
+  @include border-radius(5px);
+  margin-bottom: 18px;
   
+  height: 144px;
+  overflow: hidden;
+  
+  .text{
+    display: inline;
+    float: left;
+    margin-right: 0px;
+    width: 280px;
+    height: 144px;
+    z-index: 1000;
+    
+    p, h2 {
+      margin-left: 9px; margin-right: 19px;
+      color: $gigavine-white;
+    }
+  }
+  
+  .picture{
+    @include column(17, last);
+  }
+  
+  &.languages {
+    .text{
+      span {
+        font-weight: 900;
+      }
+      background-color: $accent-languages;
+    }
+  }
+}
+
 #content {
   margin-bottom: 1.5em;
   h1, h2, h3, h4, h5, h6, p, q, pre, li {color: $gigavine-medium-grey;}
