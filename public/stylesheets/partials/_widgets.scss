@@ -17,9 +17,11 @@
     @include opacity(0.8);
     &.notifiable {width: 60px;}
   }
-  #room-switch-contacts   {@include replace-text('/images/bare/room-switch-contacts.png', 0, 0, 32px, 32px);}
-  #room-switch-schedule   {@include replace-text('/images/bare/room-switch-schedule.png', 0, 0, 32px, 32px);}
-  #room-switch-leads      {@include replace-text('/images/bare/room-switch-leads.png', 0, 0, 32px, 32px);}
+  a {@include replace-text('/images/bare/room-switch-temp.png', 0, 0, 32px, 32px);}
+  #room-switch-contacts   {background-image: url('/images/bare/room-switch-contacts.png')}
+  #room-switch-schedule   {background-image: url('/images/bare/room-switch-schedule.png')}
+  #room-switch-leads      {background-image: url('/images/bare/room-switch-leads.png')}
+  #room-switch-glossary   {background-image: url('/images/bare/room-switch-glossary.png')}
 }
 
 

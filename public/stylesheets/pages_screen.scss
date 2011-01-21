@@ -259,12 +259,23 @@ form {
   @include column-base(last);
   width: $blueprint_grid_width * 24 + $blueprint_grid_margin * 24;
   
-  div{
-/*    h3 {margin-top: 0.50em; margin-bottom: 0.25em;}*/
-  }
-  
+  .one-third {@include column(8);}
   .two-thirds {@include column(16);}
   .full {@include column(24);}
+  
+  #connect-bar{
+    margin-right: 0px;
+    width: $blueprint-container-size + $blueprint-grid-margin;
+    ul{
+      margin-right: 0; padding: 0;
+      @include clearfix;
+      list-style-type: none;
+      li{
+        @include column(4);
+      }
+    }
+  }
+  
   .box  {
     @include column(8);
     h4  {padding-left: 10px;}
@@ -359,14 +370,14 @@ form {
       } 
     }
   }
-  #contact-us-box {
+  .clearbox {
     @include column(8);
     background-image: url('/images/balloon.png');
     background-repeat: no-repeat;
     background-position: 0 0px;
     
     h4  {
-      text-indent: 34px;
+      margin-left: 34px;
       margin-bottom: 0.73em;
     }
     
@@ -376,6 +387,10 @@ form {
         border-color:   $gigavine-medium-grey;
         border-style:   dotted;
         border-spacing: 2px 2px}
+    
+    &#contcat-us-box {
+       background-image: url('/images/balloon.png');
+    }
   }
   .dark {
     color:            $gigavine-white;

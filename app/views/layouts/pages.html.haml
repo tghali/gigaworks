@@ -21,7 +21,8 @@
             %span#locale-current= t(:language_name)
             %a#locale-change{:href => '#'}== #{t(:'site.locale_change')}
           #header-left
-            %h1#logo Gigavine
+            %h1
+              %a#logo{:href => '/'} Gigavine
           #header-right
             %div#header-tools
               = form_tag site_search_path, :method => 'get' do

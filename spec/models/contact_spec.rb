@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Contact do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe controller do
+    it "is not possible to delete a contact with a user"
+  end
+  
 end

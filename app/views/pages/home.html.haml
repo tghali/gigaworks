@@ -1,0 +1,69 @@
+#we-offer-box.clearbox
+  %h4 We offer creative and technical services which cross borders and open minds.
+  %hr/
+  %p As global markets grow, clear and open communication has never been more important to businesses and governments.We offer a seamless blend of creative solutions, cultural/linguistic translation and technical delivery which transform our clients’ communications.
+  %p Our team of experts have helped organisations around the world to communicate and collaborate successfully across cultures and in multiple languages. We can do it for you too.
+  %p True communication is about connecting people in their own language.
+#news-feed.clearbox
+  %h4 Latest News from Gigavine
+  %hr
+  %ul
+    %li
+      As global markets grow, clear and open communication has never been more important to businesses and governments.
+      %a{:href => '#'} more
+    %li
+      As global markets grow, clear and open communication has never been more important to businesses and governments.
+      %a{:href => '#'} more
+    %li
+      As global markets grow, clear and open communication has never been more important to businesses and governments.
+      %a{:href => '#'} more
+    %li
+      As global markets grow, clear and open communication has never been more important to businesses and governments.
+      %a{:href => '#'} more
+.one-third
+  #create-box.stackbox
+    %h4 CREATE
+    %p Original concepts and compelling designs to capture attention and establish a connection with your audience.
+  #adapt.stackbox
+    %h4 ADAPT
+    %p Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience’s world.
+  #deliver.stackbox
+    %h4 DELIVER
+    %p The technical tools and digital interfaces to carry your communication to the heart of your audience.
+#connect-bar.full
+  %h3 How we could help you connect:
+  %ul
+    %li== Design a #{link_to 'new brand', '#'} identity for your business, suitable for South America.
+    %li== Increase your UK sales with a highly effective #{link_to 'marketing campaign', '#'}.
+    %li== Adapt your #{link_to 'annual report', '#'} for Chinese shareholders.
+    %li== Build an Arabic version of your #{link_to 'website', '#'} for Middle East expansion.
+    %li== Develop a #{link_to 'mobile app', '#'} for 15 territories in 8 languages.
+    %li== Build a multi-lingual #{link_to 'extranet', '#'} for your global customers.
+  %br.clear/
+.form-box.small-equalized.dark
+  %div
+    %h4 Submit a brief
+    %hr
+    = form_tag 'boo', :method => 'post' do
+      %p
+        = label_tag :name, t(:'site.quote.Name')
+        = text_field_tag :name
+      %p
+        = label_tag :email, t(:'site.quote.Email')
+        = email_field_tag :email
+      %p.file
+        = label_tag :file, t(:'site.quote.Choose_a_file')
+        = file_field_tag :file
+        = submit_tag t(:'site.quote.Send'), :name => nil
+#joun-us-box.clearbox
+  %h4 Join the team at Gigavine
+  %hr
+  %p We are always looking for talented individuals to join our network of specialists around the world who we call upon for particular projects, or to fill staff vacancies.
+  %p.em== If you feel you’ve got what it takes, please email us your CV, or send us an #{link_to 'email', '#'}.
+#contact-us-box.clearbox
+  %h4 Contact us at Gigavine
+  %hr
+  %p Please get in contact with us and we’ll see how we can assist.
+  %p
+    Call us on 020 3167 4370 or use our 
+    %a{:href => '/contact'} contact form
