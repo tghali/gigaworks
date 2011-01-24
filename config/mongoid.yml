@@ -1,0 +1,26 @@
+defaults: &defaults
+  allow_dynamic_fields: true
+  parameterize_keys: true
+  persist_in_safe_mode: true
+  raise_not_found_error: true
+  reconnect_time: 3
+  use_object_ids: false
+
+development:
+  <<: *defaults
+  uri: mongodb://localhost:27017/gigavine-dev
+
+test:
+  <<: *defaults
+  database: mongodb://localhost:27017/gigavine-test
+
+cucumber:
+  <<: *defaults
+  database: gigavine-cuke
+
+# set these environment variables on your prod server
+production:
+  <<: *defaults
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>

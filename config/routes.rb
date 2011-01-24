@@ -46,7 +46,12 @@ Gigavine::Application.routes.draw do
         resources :imports
       end
     end
-  
+    
+    namespace :glossary do
+      get '/', :to => 'glossary#index'
+      
+    end
+    
     namespace :schedule do
       # have different schedules for different people?
       get '/' => 'schedule#show'
