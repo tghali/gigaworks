@@ -52,5 +52,6 @@ end
 group :development do
   gem 'wirble'
   gem 'awesome_print'
+  gem 'ruby-debug'
   # gem 'slowgrowl'
 end

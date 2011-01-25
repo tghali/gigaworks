@@ -21,7 +21,7 @@ PATH
 PATH
   remote: ~/Sites/tools/tarte
   specs:
-    tarte (0.1.1)
+    tarte (0.1.2)
 
 GEM
   remote: http://rubygems.org/
@@ -61,6 +61,7 @@ GEM
       mime-types
       xml-simple
     bson (1.2.0)
+    bson_ext (1.2.0)
     builder (2.1.2)
     cancan (1.4.1)
     capybara (0.4.0)
@@ -264,6 +265,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   aws-s3
+  bson_ext (~> 1.2)
   cancan
   capybara (>= 0.3.8)
   capybara-envjs

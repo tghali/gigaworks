@@ -17,20 +17,20 @@ describe User do
       u.contact.first_name.should eql(@form[:contact_attributes][:first_name])
     end
     
-    it "accepts organization details too" do
-      organization_attributes = {:organization_attributes => {:name => 'Gigavine',
+    it "accepts organisation details too" do
+      organisation_attributes = {:organisation_attributes => {:name => 'Gigavine',
                                                               :country_code => 'uk'}}
                                                               
-      u= User.create! @form.merge(:contact_attributes => @form[:contact_attributes].merge(organization_attributes))
+      u= User.create! @form.merge(:contact_attributes => @form[:contact_attributes].merge(organisation_attributes))
       
-      u.contact.organization.name.should eql(organization_attributes[:organization_attributes][:name])
+      u.contact.organisation.name.should eql(organisation_attributes[:organisation_attributes][:name])
     end
     
-    it "accept contact details with provided organization" do
-      o= Organization.create(:name => 'Gigavine', :country_code => 'uk')
+    it "accept contact details with provided organisation" do
+      o= Organisation.create(:name => 'Gigavine', :country_code => 'uk')
       
-      u= User.create! @form.merge(:contact_attributes => @form[:contact_attributes].merge(:organization => o))
-      u.contact.organization.should eql(o)
+      u= User.create! @form.merge(:contact_attributes => @form[:contact_attributes].merge(:organisation => o))
+      u.contact.organisation.should eql(o)
     end
     
     it "from contact" do

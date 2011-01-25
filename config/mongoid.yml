@@ -8,11 +8,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  uri: mongodb://localhost:27017/gigavine-dev
+  database: gigavine-dev
 
 test:
   <<: *defaults
-  database: mongodb://localhost:27017/gigavine-test
+  database: gigavine-test
 
 cucumber:
   <<: *defaults
@@ -21,6 +21,4 @@ cucumber:
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  uri: <%= ENV['MONGOHQ_URL'] %>

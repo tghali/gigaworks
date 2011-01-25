@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Organization do
+describe Translation do
   pending "add some examples to (or delete) #{__FILE__}"
 end

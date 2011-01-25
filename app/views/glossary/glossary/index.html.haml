@@ -1,0 +1,10 @@
+- content_for :parent do
+  %ul.tabs
+    %li
+      %a{:href=>'#'} Words
+    %li
+      %a{:href=>'#'} Sentences
+  .panes
+    %div
+      = table_for @words do |tabelle|  
+        = tabelle.view "list"

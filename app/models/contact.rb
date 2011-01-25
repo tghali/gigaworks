@@ -1,7 +1,7 @@
 class Contact < ActiveRecord::Base
   
   has_one    :user
-  belongs_to :organization
+  belongs_to :organisation
   has_many   :details
   has_one_baked_in :email_type,     :names => Gigavine::Preferences.contact_detail_types
   has_one_baked_in :telephone_type, :names => Gigavine::Preferences.contact_detail_types
@@ -13,10 +13,10 @@ class Contact < ActiveRecord::Base
   
   validates_format_of        :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  accepts_nested_attributes_for :organization
+  accepts_nested_attributes_for :organisation
   
-  attr_accessible :first_name, :last_name, :organization_attributes, :title,
-                  :timezone_code, :email, :telephone, :organization
+  attr_accessible :first_name, :last_name, :organisation_attributes, :title,
+                  :timezone_code, :email, :telephone, :organisation
  
  
  def full_name
@@ -26,5 +26,11 @@ class Contact < ActiveRecord::Base
     "#{first_name} #{last_name}"
    end
  end
+ 
+ def first_with_title= (first_name_and_title)
+   self.first_name = first_name_and_title.first
+   self.title      = first_name_and_title.second
+ end
+
  
 end

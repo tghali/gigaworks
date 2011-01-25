@@ -5,7 +5,7 @@ class CreateLeads < ActiveRecord::Migration
       t.integer   :contact_id
       t.integer   :source_id
       t.string    :source_type
-      t.integer   :organization_id
+      t.integer   :organisation_id
       t.integer   :status_code
 
       t.timestamps

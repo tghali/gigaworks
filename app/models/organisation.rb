@@ -1,4 +1,4 @@
-class Organization < ActiveRecord::Base
+class Organisation < ActiveRecord::Base
   
   has_many :contacts
   

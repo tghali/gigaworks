@@ -3,7 +3,7 @@ class CreateContacts < ActiveRecord::Migration
     create_table :contacts do |t|
       t.string  :first_name
       t.string  :last_name
-      t.integer :organization_id
+      t.integer :organisation_id
       t.string  :title
       t.integer :timezone_code
       t.integer :email_type_code,     :default => 0

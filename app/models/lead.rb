@@ -6,7 +6,7 @@ class Lead < ActiveRecord::Base
                                          :inactive =>   [:deleted, :suspended, :banned],
                                          :unverified => [:unverified]}
   
-  belongs_to :organization
+  belongs_to :organisation
   belongs_to :contact, :class_name => "Contact"
   
   belongs_to :sales # the sales operator's profile

@@ -36,7 +36,7 @@ Gigavine::Application.routes.draw do
       resources :details
   
       collection do
-        resources :organizations
+        resources :organisations
       end
     end
   
