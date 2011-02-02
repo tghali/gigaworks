@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
                     :styles         => { :medium => "128x128>",
                                          :small  => "48x48>"}
   
+  has_many :departements
   
   scope :with_role,
         lambda { |role| where("roles_mask & #{2**ROLES.index(role.to_sym)} > 0") }

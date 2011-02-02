@@ -1,0 +1,26 @@
+.box.word
+  %h3= @word.word
+  - if @word.pronunciation
+    %h4= @word.pronunciation
+  %hr
+  %ol.word-definitions
+    - @word.definitions.each do |d|
+      %li
+        %h5= d.kind
+        %p=  d.text
+        - unless d.examples.empty?
+          %h3 Examples:
+          %ul.word-definition-examples
+            - d.examples.each do |e|
+              %li e.text
+        - unless d.translations.empty?
+          %ul.word-definition-translations
+            -d.translations.each do |t|
+              %li
+                = language_flag_for(t)
+                = link_to t.word, glossary_word_path(t)
+        %p
+          = link_to "Edit", edit_glossary_word_definition_path(@word, d)
+          |
+          = link_to "Add translation", new_glossary_word_definition_translation_path(@word, d)
+  = link_to "Add definition", new_glossary_word_definition_path(@word)

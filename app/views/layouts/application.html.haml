@@ -16,11 +16,6 @@
   %body
     #wrapper
       #container
-        - unless flash.empty?
-          #flashes
-            - flash.each do |type, msg|
-              %div{:class=>"#{type}"}= h msg
-          -flash.clear
         #bar
           #room-switcher
             %ul#room-switcher-menu.tooltipped
@@ -39,10 +34,15 @@
               &nbsp;
             #account-panel
               = render 'shared/account'
-        #mid
+        #mid{:class => @room}
           #parent
             = yield :parent # TODO or present a standard set of options
           #main
-            = yield
+            - unless flash.empty?
+              #flashes
+                - flash.each do |type, msg|
+                  %div{:class=>"#{type}"}= h msg
+              -flash.clear
+            = yield(:main) || yield
       #footer
         %h6 Gigaworks - Prototype &copy; 2010 Gigavine ltd.

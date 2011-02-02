@@ -82,6 +82,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
     }
   #main {
     @include elastic-column($main-columns,last);
+    overflow-y: auto;
     }
 }
 #footer {
@@ -96,6 +97,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 @import 'partials/jquery_tools';
 @import 'partials/widgets';
 @import 'partials/contacts';
+@import 'partials/glossary';
 
 #room-controls{
   h1 {

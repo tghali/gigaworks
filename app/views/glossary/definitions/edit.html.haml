@@ -1,0 +1,32 @@
+- if @definition.new_record?
+  - header, url = "New definition", glossary_word_definitions_path(@word)
+-else
+  - header, url = "Edit definition", glossary_word_definition_path(@word, @definition)
+.box.word
+  %h3= @word.word
+  - if @word.pronunciation
+    %h4= @word.pronunciation
+  %hr
+  %h4= header
+  - form_for @definition, :url => url do |w|
+    = render "shared/error_messages", :target => @definition
+    = w.select :kind, Definition.kinds.each(&:to_s)
+    = w.text_area :text
+    - w.fields_for :examples do |e|
+      = e.hidden_field :language
+      = e.text_area :text, :label => 'Example'
+    = w.submit
+  %hr
+  %h4 Other definitions
+  %ol.word-definitions
+    - (@word.definitions - [@definition]).each do |d|
+      %li
+        %h5= d.kind
+        %p= d.text
+        - unless d.translations.empty?
+          %ul.word-definition-translation
+            -d.translations.each do |t|
+              %li
+                = language_flag_for(t)
+                = link_to t.word, glossary_word_path(t)
+  = link_to "Add definition", new_glossary_word_definition_path(@word)

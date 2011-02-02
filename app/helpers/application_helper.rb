@@ -28,4 +28,13 @@ module ApplicationHelper
     end
   end
   
+  def list_item_highlighted_if_match one, two
+    args = [:li]
+    args << {:class => 'selected'} if one == two
+    
+    open *args do
+      yield
+    end
+  end
+  
 end

@@ -140,7 +140,7 @@ GEM
     mime-types (1.16)
     mongo (1.2.0)
       bson (>= 1.2.0)
-    mongoid (2.0.0.rc.6)
+    mongoid (2.0.0.rc.7)
       activemodel (~> 3.0)
       mongo (~> 1.2)
       tzinfo (~> 0.3.22)
@@ -281,7 +281,7 @@ DEPENDENCIES
   haml-rails (= 0.3.4)
   jsmin
   launchy (>= 0.3.5)
-  mongoid (= 2.0.0.rc.6)
+  mongoid (= 2.0.0.rc.7)
   net-ldap (>= 0.1.1)
   omniauth (>= 0.1.6)
   paperclip

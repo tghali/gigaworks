@@ -32,4 +32,6 @@ Gigavine::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  Connie.dictionaries_paths << File.join(Rails.root, 'lib', 'connie')
 end

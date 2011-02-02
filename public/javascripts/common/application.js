@@ -59,4 +59,8 @@ $(document).ready(function(){
 
   // add dynamic plugin with optional configuration for bottom edge
   }).dynamic({ bottom: { direction: 'down', bounce: true } });
+  
+  //Tabs
+  $("ul.tabs").tabs("div.panes > div");
+  
 });

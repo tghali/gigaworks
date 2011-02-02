@@ -1,0 +1,46 @@
+#mid.glossary {
+  #parent{
+    .tabs {
+      margin-left: 20px;
+      margin-top: 40px;
+      @include horizontalist;
+      }
+    .panes{
+      form{
+        input[type=text]{
+          width: 200px;
+        }
+      }
+    }
+  }
+  #glossary-words{
+    li {
+      list-style-type: none;
+      span.iso639-1 {
+        margin-top: 3px;
+        margin-bottom: 4px;
+        margin-right: 4px;
+        @include replace-text('/images/locales/unknown.png', 50%, 50%, 15px, 10px);
+        &.en {background-image: url('/images/locales/en.png');}
+        &.ar {background-image: url('/images/locales/ar.png');}
+        &.es {background-image: url('/images/locales/es.png');}
+        &.fr {background-image: url('/images/locales/fr.png');}
+        &.de {background-image: url('/images/locales/de.png');}
+      }
+      a {
+        color: $darkest;
+        a.active{color: $darkest;}
+        a:hover{color:  $darkest;}
+      }
+    }
+  }
+  
+ .box{
+   @include column(16);
+   @include border-radius(3px);
+   padding: 0.5em;
+   margin: 0 20px;
+   background-color: #FDFFF0;
+   @include box-shadow( 0px, 0px, 6px, #2F3029);
+ }
+}

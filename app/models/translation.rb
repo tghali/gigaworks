@@ -2,7 +2,7 @@ class Translation
   include Mongoid::Document
   
   references_one :word
-  references_one :sentence
+  references_many :sentences, :class_name => 'TranslationPair'
   
-  # field :author, :type => Departements::Languages
+  references_one :author, :type => Departements::Languages
 end

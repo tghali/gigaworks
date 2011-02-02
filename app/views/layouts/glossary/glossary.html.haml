@@ -1,0 +1,32 @@
+- @room = 'glossary'
+- content_for :parent do
+  %ul.tabs
+    %li
+      %a{:href=> glossary_words_path} Words
+    %li
+      %a{:href=> glossary_sentences_path} Sentences
+  .panes
+    %div
+      = form_tag glossary_words_path, :method => 'get', :id => "word_search_form" do
+        %p
+          = text_field_tag :word_search, params[:search]
+          = submit_tag "Search", :name => nil
+      %ul#glossary-words
+        - @words.entries.each do |word|
+          %li
+            = language_flag_for(word)
+            = link_to word.word, glossary_word_path(word)
+      %p
+        = link_to 'Add a word', new_glossary_word_path
+    %div
+      = form_tag glossary_sentences_path, :method => 'get', :id => "sentence_search_form" do
+        %p
+          = text_field_tag :sentence_search, params[:search]
+          = submit_tag "Search", :name => nil
+          
+      %ul#glossary-sentences
+        %li
+- content_for :main do
+  %h2 Gigavine glossary
+  = yield
+= render :file => 'layouts/application'

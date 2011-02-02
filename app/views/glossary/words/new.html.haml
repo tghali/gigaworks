@@ -1,0 +1,6 @@
+%h2 Add new Word
+= form_for @word, :url => glossary_words_path do |w|
+  = render "shared/error_messages", :target => @word
+  = w.select :language, [:en, :ar, :fr, :it]
+  = w.text_field :word
+  = w.submit

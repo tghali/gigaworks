@@ -1,0 +1,2 @@
+module Glossary::SentencesHelper
+end
