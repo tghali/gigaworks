@@ -1,18 +1,17 @@
-class Word
-  include Mongoid::Document
+class Word < ActiveRecord::Base
   
-  field :word
-  field :pronunciation
+  has_many :definitions
   
-  field :language
-  field :origin
+  has_one_baked_in :language, :names => Gigavine::Preferences.translated_languages
   
-  embeds_many :definitions
-  referenced_in :translation
+  validates_presence_of   :language_code, :word
+  validates_uniqueness_of :language_code, :scope => :word
   
   accepts_nested_attributes_for :definitions
   
-  validates_presence_of :word, :language
-  validates :word, :presence => true, :uniqueness => {:scope => :language}
+  def self.find_or_create_by_language_and_word(language, word)
+    find_or_create_by_language_code_and_word(Gigavine::Preferences.translated_languages.index(language.to_sym), word)
+  end
+  
   
 end

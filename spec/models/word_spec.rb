@@ -11,12 +11,12 @@ describe Word do
     it "can be created with definitions" do
       w = Word.create!(:word => 'kind',
                        :language => :en,
-                       :definitions => [
-                         {:kind => :noun,
-                          :text => "a group of people or things having similar characteristics"},
-                         {:kind => :adjective,
-                          :text => "having or showing a friendly, generous, and considerate nature"}
-                         ])
+                       :definitions_attributes => { 
+                         "0" => {:kind => :noun,
+                                 :description => "a group of people or things having similar characteristics"},
+                         "1" => {:kind => :adjective,
+                                 :description => "having or showing a friendly, generous, and considerate nature"}
+                         })
       
       w.definitions.first.kind.should eql(:noun)
     end
@@ -32,7 +32,7 @@ describe Word do
     
       lambda { Word.create!(:word => 'tempo', :language => :it) }.should_not raise_error
     
-      lambda { Word.create!(:word => 'tempo', :language => :en) }.should raise_error(Mongoid::Errors::Validations)
+      lambda { Word.create!(:word => 'tempo', :language => :en) }.should raise_error(ActiveRecord::RecordInvalid)
     end
   
   end

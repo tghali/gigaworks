@@ -1,10 +1,10 @@
 class Glossary::WordsController < Glossary::GlossaryController
   
+  before_filter :load_words
+  
   # GET /words
   # GET /words.xml
   def index
-    
-    load_words
     
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +15,6 @@ class Glossary::WordsController < Glossary::GlossaryController
   # GET /words/1
   # GET /words/1.xml
   def show
-    
-    load_words
     
     @word = Word.find(params[:id])
 

@@ -56,7 +56,9 @@ Gigavine::Application.routes.draw do
         end
       end
       
-      resources :sentences
+      resources :sentences do
+        resources :translation_pairs
+      end
     end
     
     namespace :schedule do

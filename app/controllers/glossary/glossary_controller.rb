@@ -1,7 +1,5 @@
 class Glossary::GlossaryController < ApplicationController
   
-  before_filter :load_words
-  
   def index
     @words = Word.all
   end
@@ -15,6 +13,10 @@ class Glossary::GlossaryController < ApplicationController
       else
         @words = Word.all
       end
+    end
+    
+    def load_sentences
+      @sentences = Sentence.all
     end
   
 end

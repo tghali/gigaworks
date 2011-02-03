@@ -1,5 +1,7 @@
 class SessionsController < ActionController::Base
   
+  before_filter :redirect_to_https
+  
   include WardenHelper
   protect_from_forgery
   
@@ -46,4 +48,11 @@ class SessionsController < ActionController::Base
     cookies.delete('_gigavine_warden')
     render :action => "new", :status => :unauthorized
   end
+
+protected
+
+  def redirect_to_https
+      redirect_to :protocol => "https://" unless (request.ssl? || local_request?)
+  end
+  
 end

@@ -1,7 +1,7 @@
-class Translation
-  include Mongoid::Document
+class Translation < ActiveRecord::Base
+  belongs_to :definition
+  belongs_to :word
   
-  references_and_referenced_in_many :sentences, :class_name => 'TranslationPair'
+  accepts_nested_attributes_for :word, :reject_if => proc { |obj| obj.blank? }
   
-  references_one :author, :type => Departements::Languages
 end

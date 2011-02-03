@@ -72,6 +72,10 @@ module Gigavine
       [:ar, :de, :en, :es, :fr]
     end
     
+    def self.translated_languages
+      [:en, :ar, :de, :es, :fr, :it, :ja, :zh, :hi, :th]
+    end
+    
     def self.contact_detail_types
       [:personal, :work, :reception, :home, :mobile]
     end

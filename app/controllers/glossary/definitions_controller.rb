@@ -1,5 +1,7 @@
 class Glossary::DefinitionsController < Glossary::GlossaryController
-
+  
+  before_filter :load_words
+  
   def index
     
     load_words
@@ -10,21 +12,6 @@ class Glossary::DefinitionsController < Glossary::GlossaryController
       # format.xml  { render :xml => @words }
     end
   end
-
-
-  def show
-    
-    load_words
-    
-    @word = Word.find(params[:word_id])
-    @definition = @word.definitions.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      # format.xml  { render :xml => @word }
-    end
-  end
-
 
   def new
     @word = Word.find(params[:word_id])
@@ -42,7 +29,7 @@ class Glossary::DefinitionsController < Glossary::GlossaryController
     @word = Word.find(params[:word_id])
     @definition = @word.definitions.find(params[:id])
     @definition.examples.build(:language => @word.language)
-    @definition.translations = [Word.new]
+    @definition.translations.build
   end
 
 
@@ -55,7 +42,7 @@ class Glossary::DefinitionsController < Glossary::GlossaryController
         format.html { redirect_to(glossary_word_path(@word), :notice => 'Word was successfully created.') }
         # format.xml  { render :xml => @word, :status => :created, :location => @word }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :edit }
         # format.xml  { render :xml => @word.errors, :status => :unprocessable_entity }
       end
     end

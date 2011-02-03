@@ -1,0 +1,10 @@
+.box.word
+  %h2 Add new Translation to:
+  %h3
+    = link_to @definition.word.word, glossary_word_path(@definition.word)
+    = language_flag_for(@definition.word)
+  = form_for @translation, :url => glossary_word_definition_translations_path(@definition.word, @definition) do |w|
+    = render "shared/error_messages", :target => @translation
+    = w.select :language, Gigavine::Preferences.translated_languages
+    = w.text_field :word
+    = w.submit

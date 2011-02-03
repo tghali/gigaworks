@@ -61,6 +61,6 @@ $(document).ready(function(){
   }).dynamic({ bottom: { direction: 'down', bounce: true } });
   
   //Tabs
-  $("ul.tabs").tabs("div.panes > div");
+  //$("ul.tabs").tabs("div.panes > div");
   
 });

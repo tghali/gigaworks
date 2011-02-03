@@ -3,15 +3,15 @@
 -else
   - header, url = "Edit definition", glossary_word_definition_path(@word, @definition)
 .box.word
-  %h3= @word.word
+  %h3= link_to @word.word, glossary_word_path(@word)
   - if @word.pronunciation
     %h4= @word.pronunciation
   %hr
   %h4= header
-  - form_for @definition, :url => url do |w|
+  = form_for @definition, :url => url do |w|
     = render "shared/error_messages", :target => @definition
-    = w.select :kind, Definition.kinds.each(&:to_s)
-    = w.text_area :text
+    = w.select :kind, Definition::KINDS.each(&:to_s)
+    = w.text_area :description
     - w.fields_for :examples do |e|
       = e.hidden_field :language
       = e.text_area :text, :label => 'Example'
@@ -22,7 +22,7 @@
     - (@word.definitions - [@definition]).each do |d|
       %li
         %h5= d.kind
-        %p= d.text
+        %p= d.description
         - unless d.translations.empty?
           %ul.word-definition-translation
             -d.translations.each do |t|
