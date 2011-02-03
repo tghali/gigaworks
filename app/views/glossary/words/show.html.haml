@@ -8,12 +8,12 @@
       %li
         %h5= d.kind
         %p=  d.text
-        - unless d.examples.empty?
+        - unless (d.examples || []).empty?
           %h3 Examples:
           %ul.word-definition-examples
             - d.examples.each do |e|
               %li e.text
-        - unless d.translations.empty?
+        - unless (d.translations || []).empty?
           %ul.word-definition-translations
             -d.translations.each do |t|
               %li

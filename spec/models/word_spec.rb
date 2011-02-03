@@ -50,8 +50,11 @@ describe Word do
                           :text => "having or showing a friendly, generous, and considerate nature"}
                          ])
       
-      raise w.definitions.first.translations.inspect
-      #.create(:word_attributes => {:word => 'gentile', :language => :it}, :author => Departements::Languages.for(u))
+      w.definitions.first.translations.create(:word_attributes => {:word => 'gentile', :language => :it}, :author => Departements::Languages.for(u))
+      
+      ts = w.definitions.first.translations
+      ts.should_not be_empty
+      ts.first.should be_kind_of(Word)
     end
   end
   

@@ -8,6 +8,7 @@ class Word
   field :origin
   
   embeds_many :definitions
+  referenced_in :translation
   
   accepts_nested_attributes_for :definitions
   

@@ -16,8 +16,8 @@ class Glossary::DefinitionsController < Glossary::GlossaryController
     
     load_words
     
-    @definition = Definition.find(params[:id])
-    @word = @definition.word
+    @word = Word.find(params[:word_id])
+    @definition = @word.definitions.find(params[:id])
 
     respond_to do |format|
       format.html
