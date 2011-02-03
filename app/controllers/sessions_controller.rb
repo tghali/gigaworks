@@ -52,7 +52,7 @@ class SessionsController < ActionController::Base
 protected
 
   def redirect_to_https
-      redirect_to :protocol => "https://" unless (request.ssl? || local_request?)
+      redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
   end
   
 end
