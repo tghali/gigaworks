@@ -67,7 +67,7 @@ Gigavine::Application.routes.draw do
       #resources: events -- a wrapper? or different resources for different events?
     end
     
-    get '/', :to => 'dashboard#index'
+    get '/', :to => 'dashboard#index', :as => 'gigaworks_dashboard'
   # end
   # Sample resource route with sub-resources:
   #   resources :products do

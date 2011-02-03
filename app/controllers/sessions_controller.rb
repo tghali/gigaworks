@@ -16,7 +16,7 @@ class SessionsController < ActionController::Base
     end
     warden.authenticate! :remember, :sign_in
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
-    redirect_to root_url
+    redirect_to gigaworks_dashboard_url
   end
   
   # Load user if the user has authenticated before with the provider.
