@@ -14,10 +14,15 @@ me = Factory :admin, :user_name => "lpedroni",
                                                         :organisation => gigavine,
                                                         :email      => 'ilpoldo@gmail.com')
 
+Factory :admin, :user_name => "asalti",
+                :contact => Factory(:user_contact, :first_name => 'Ahmed',
+                                                   :last_name  => 'Salti',
+                                                   :organisation => gigavine,
+                                                   :email      => 'mrasalti@googlemail.com')
 
-organisations = Array.new(30).map { Factory.populate :organisation}
-8.times { organisations[rand(organisations.size-1)] = nil}
-
-contacts = Array.new(200).map do
-  Factory.populate :contact, :organisation => Connie(organisations)
-end
+# organisations = Array.new(30).map { Factory.populate :organisation}
+# 8.times { organisations[rand(organisations.size-1)] = nil}
+# 
+# contacts = Array.new(200).map do
+#   Factory.populate :contact, :organisation => Connie(organisations)
+# end
