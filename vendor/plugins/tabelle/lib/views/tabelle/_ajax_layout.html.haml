@@ -1,0 +1,11 @@
+-# Layout to render the collection.
+-# 
+-# Add here all the table elements that are going back to the clien together with the collection
+-# rendered partials each time an ajax request is performed.
+#collection
+  - yield
+#page-index
+  - if tabelle.paginate?
+    = render :partial => 'tabelle/page_index', :object => tabelle.page_index
+#collection-size
+  = tabelle.displayed_items_count

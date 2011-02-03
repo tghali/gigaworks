@@ -1,0 +1,16 @@
+- view = tabelle.view
+%table
+  - if view.has_columns?
+    %thead
+      %tr
+        - if tabelle.has_actions?
+          %th
+            &nbsp;
+        - view.columns.each do |name, options|
+          - sorts, sort_key, direction = view.sorting_state_keyword_and_direction(tabelle.state[:sort], options[:sorts]) 
+          %th{:class => (options[:class].to_s + sorts), :id => options[:id]}
+            = name
+            - if sort_key
+              %a{ :"data-function" => "update_tabelle", :href => url_for(tabelle.state.merge(:sort => sort_key)), :class => direction } &#94;
+  %tbody
+    = yield

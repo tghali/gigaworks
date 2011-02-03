@@ -1,0 +1,8 @@
+%ul.page-index
+  - tabelle.page_index.each do |page, url|
+    - if url
+      %li{:class => url=='#' ? 'current' : nil}
+        = link_to page, url, {:"data-function" => 'update_tabelle'}
+    - else
+      %li
+        %span.ellipsis= page

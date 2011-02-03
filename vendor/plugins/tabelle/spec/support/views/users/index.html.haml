@@ -1,0 +1,13 @@
+%h2 This is just a test
+= table_for @users do |tabelle|
+  
+  -# tabelle.fields_for_scope :with_status do |status, state|
+    -# %li{:class => state}
+      -# status.select '', [["status",""],["unverified",0],["verified",1],["suspended",2]], {:selected=> 'status'}
+  - tabelle.add_view "table", :partial => :table do |table|
+    - table.actions =   %w(verify suspend delete)
+    - table.add_column "user_name", :sorts => "user_name"
+    - table.add_column "created_at"
+    - table.add_column "updated_at"
+        
+  - tabelle.add_view "icons", :partial => :grid

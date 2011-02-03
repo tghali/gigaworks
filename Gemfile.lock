@@ -1,25 +1,25 @@
 PATH
-  remote: ~/Sites/tools/connie
+  remote: vendor/plugins/connie
   specs:
     connie (0.0.1)
 
 PATH
-  remote: ~/Sites/tools/formidable
+  remote: vendor/plugins/formidable
   specs:
     formidable (0.0.2)
 
 PATH
-  remote: ~/Sites/tools/fredo
+  remote: vendor/plugins/fredo
   specs:
     fredo (0.1.10)
 
 PATH
-  remote: ~/Sites/tools/tabelle
+  remote: vendor/plugins/tabelle
   specs:
     tabelle (0.0.4)
 
 PATH
-  remote: ~/Sites/tools/tarte
+  remote: vendor/plugins/tarte
   specs:
     tarte (0.1.2)
 

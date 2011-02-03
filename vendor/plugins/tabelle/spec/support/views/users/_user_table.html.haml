@@ -1,0 +1,6 @@
+%tr
+  - if true
+    %td.select= check_box_tag 'users[]', "#{user.to_param}", false, :id => "tb-user-#{user.to_param}"
+  %td= user.user_name
+  %td= user.created_at
+  %td= user.updated_at

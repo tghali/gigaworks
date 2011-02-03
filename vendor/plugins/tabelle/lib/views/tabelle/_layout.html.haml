@@ -1,0 +1,46 @@
+.tabelle
+  %h2= tabelle.title || tabelle.collection_title
+  .top
+    - if tabelle.has_views?
+      %ul.views
+        - tabelle.views.map(&:name).each do |view|
+          %li
+            = link_to view, url_for(tabelle.state.merge(:view => view)), {:"data-function" => 'update_tabelle'}
+    - if tabelle.has_filters? or tabelle.has_scopes?
+      = form_tag "", :method => :get, :"data-function" => 'update_tabelle' do
+        - tabelle.state.except(:filters, :scopes).each do |state_param, value|
+          = hidden_field_tag state_param, value, :id => "tb-st_#{state_param}"
+        - tabelle.state[:scopes].each do |scope, value|
+          = hidden_field_tag "scopes[#{scope}]", value, :id => "tb-st_scopes-#{scope}"
+        - if tabelle.has_filters?
+          .filter-bar
+            %fieldset
+              %ul.filter-list
+                - filters = tabelle.state[:filters]
+                - filters && filters.each_with_index do |filter, index|
+                  %li.filter-box
+                    = filter
+                    = hidden_field_tag :'filters[]', filter, :id => "tb-st_filters_#{index}"
+                    = link_to '&times;'.html_safe, tabelle.state.merge(:filters => (tabelle.state[:filters] - [filter])), {:"data-function" => 'update_tabelle'}
+              = text_field_tag 'filters[]'.html_safe, '', :id => 'filter_field'
+        - if tabelle.has_scopes?
+          %ul.scopes
+            - tabelle.scope_buttons do |scope, params, status|
+              %li{:class => status}
+                %a{:"data-function" => 'update_tabelle', :href => url_for(params) }= scope
+  - if tabelle.has_actions?
+    = form_tag url_for(:action => "multiple_update"), :method => :put, :"data-function" => 'update_tabelle' do
+      %ul.actions
+        - tabelle.actions.each do |action|
+          %li= submit_tag action
+      = render :layout => tabelle.view.layout, :locals => {:tabelle => tabelle} do
+        = render :partial => tabelle.partial, :collection => collection, :as => tabelle.model_name.to_sym, :locals => {:tabelle => tabelle}
+      %ul.actions
+        - tabelle.actions.each do |action|
+          %li= submit_tag action
+  - else
+    = render :layout => tabelle.view.layout, :locals => {:tabelle => tabelle} do
+      = render :partial => tabelle.partial, :collection => collection, :as => tabelle.model_name.to_sym, :locals => {:tabelle => tabelle}
+  .footer
+    - if tabelle.multiple_pages?
+      = render :partial => 'tabelle/page_index', :locals => {:tabelle => tabelle}
