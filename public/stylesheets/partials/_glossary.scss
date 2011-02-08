@@ -14,14 +14,36 @@
   
   #parent{
     .tabs {
-      margin-left: 20px;
-      margin-top: 40px;
       @include horizontalist;
+      padding-left: 20px;
+      padding-top: 0.75em;
+      border-bottom: 2px solid #666;
+        li a {
+          font-size: 1.2em;
+          line-height: 1.25;
+          padding: 0 5px;
+          display: block;
+          position: relative;
+          top: 2px;
+          border: 1px solid #666;
+          
+          &:hover{
+            text-decoration: none;
+          }
+          &.current{
+            border-bottom: 2px solid $gigaworx-backgorund;
+            //background-color: #666;
+          }
+        }
       }
     .panes{
-      form{
-        input[type=text]{
-          width: 200px;
+      & > div{
+        border:1px solid #666;
+        border-width:0 1px 1px 1px;
+        form{
+          input[type=text]{
+            width: 200px;
+          }
         }
       }
     }

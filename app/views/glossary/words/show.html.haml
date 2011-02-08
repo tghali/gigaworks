@@ -22,9 +22,9 @@
                 = link_to t.word, glossary_word_path(t)
                 %span.ed-controls
                   (
-                  = link_to 'Edit Translation', edit_glossary_word_definition_translation_path(@word, d, t)
+                  = link_to 'Edit', edit_glossary_word_definition_translation_path(@word, d, t)
                   |
-                  = link_to 'Destroy Translation', glossary_word_definition_translation_path(@word, d, t), :confirm => 'Are you sure?', :method => :delete
+                  = link_to 'Delete', glossary_word_definition_translation_path(@word, d, t), :confirm => 'Are you sure?', :method => :delete
                   )
         %p
           = link_to "Edit", edit_glossary_word_definition_path(@word, d)

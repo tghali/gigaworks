@@ -15,10 +15,9 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
 
 
   def edit
-    translation = TranslationPairs.find(params[:id])
+    @translation = TranslationPair.find(params[:id])
     
-    @sentence    = translation.source
-    @translation = translation.result
+    @sentence    = @translation.source
     
     render :new
   end
@@ -26,7 +25,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
 
   def create
     @sentence = Sentence.find(params[:sentence_id])
-    @translation = @sentence.translations.build(params[:sentence])
+    @translation = @sentence.translations.build(params[:translation_pair])
     
     respond_to do |format|
       if @sentence.save

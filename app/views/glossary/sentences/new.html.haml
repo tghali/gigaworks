@@ -4,8 +4,8 @@
     = render "shared/error_messages", :target => @sentence
     = w.select :language, Gigavine::Preferences.translated_languages
     = w.text_area :text
-    %h3 Provide a translation (Optional)
+    %h3 Provide a translation
     - w.fields_for :translations do |d|
-      = w.select :language, Gigavine::Preferences.translated_languages
+      = d.select :language, Gigavine::Preferences.translated_languages
       = d.text_area :text
     = w.submit

@@ -10,9 +10,9 @@
             = language_flag_for(t)
             = t.text
           %p
-            = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t.translation_source)
+            = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
             |
-            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t.translation_source), :confirm => 'Are you sure?', :method => :delete
+            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
   %p
     = link_to "Edit", edit_glossary_sentence_path(@sentence)
     |

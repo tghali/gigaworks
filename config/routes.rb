@@ -57,7 +57,7 @@ Gigavine::Application.routes.draw do
       end
       
       resources :sentences do
-        resources :translation_pairs
+        resources :translation_pairs, :except => [:index, :show]
       end
     end
     
