@@ -16,7 +16,7 @@
         - unless (d.translations || []).empty?
           %ul.word-definition-translations
             -# raise d.translated_words.group(:language_code).inspect
-            -d.translated_words.group(:language_code).each do |t|
+            -d.translated_words.each do |t|
               %li
                 = language_flag_for(t)
                 = link_to t.word, glossary_word_path(t)
