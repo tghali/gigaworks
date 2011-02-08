@@ -7,7 +7,7 @@ class Word < ActiveRecord::Base
   validates_presence_of   :language_code, :word
   validates_uniqueness_of :language_code, :scope => :word
   
-  accepts_nested_attributes_for :definitions
+  accepts_nested_attributes_for :definitions, :allow_destroy => true, :reject_if => proc { |obj| obj[:description].blank? }
   
   def self.find_or_create_by_language_and_word(language, word)
     find_or_create_by_language_code_and_word(Gigavine::Preferences.translated_languages.index(language.to_sym), word)

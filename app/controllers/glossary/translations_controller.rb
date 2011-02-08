@@ -27,7 +27,7 @@ class Glossary::TranslationsController < Glossary::GlossaryController
 
   def create
     @definition = Definition.find(params[:definition_id])
-    @translation = @definition.translated_words.where(params[:word]).first || @definition.translated_words.build(params[:translation])
+    @translation = @definition.add_translation(params[:word])
     
     respond_to do |format|
       if @translation.save
@@ -43,11 +43,13 @@ class Glossary::TranslationsController < Glossary::GlossaryController
 
   def update
     @translation = Translation.find(params[:id])
-    new_word = params[:word]
-    @translation.word = Word.find_or_create_by_language_and_word(new_word[:language], new_word[:word])
+    old_word = @translation.word
+    
+    @translation.word = Word.where(params[:word]) || Word.create(params[:word])
     
     respond_to do |format|
       if @translation.save
+        old_word.destroy if old_word.definition.empty?
         format.html { redirect_to(glossary_word_path(@definition.word), :notice => 'The translation was successfully updated.') }
         # format.xml  { head :ok }
       else

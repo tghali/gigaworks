@@ -20,9 +20,19 @@ Factory :admin, :user_name => "asalti",
                                                    :organisation => gigavine,
                                                    :email      => 'mrasalti@googlemail.com')
 
-# organisations = Array.new(30).map { Factory.populate :organisation}
-# 8.times { organisations[rand(organisations.size-1)] = nil}
-# 
-# contacts = Array.new(200).map do
-#   Factory.populate :contact, :organisation => Connie(organisations)
-# end
+
+Factory :word, :language => :en, :word => 'hello', :definitions => [
+  Factory(:definition, :kind => :exclamation, :description => 'Common form of greeting',
+          :translated_words => [Factory(:word, :language => :fr, :word => 'bonjour'),
+                                Factory(:word, :language => :it, :word => 'ciao'),
+                                Factory(:word, :language => :es, :word => 'hola')]
+          )
+]
+
+
+s = Sentence.create(:language => :en, :text => 'hello world',)
+s.update_attributes :translations_attributes => {
+                      "0" => {:language => :it, :text => 'ciao mondo'},
+                      "1" => {:language => :fr, :text => 'bonjour monde'},
+                      "2" => {:language => :ar, :text => 'مرحبا للعالم'}
+                      }

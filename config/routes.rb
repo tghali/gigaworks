@@ -10,8 +10,8 @@ Gigavine::Application.routes.draw do
   get    '/auth/:provider/callback' => 'sessions#oauth'
   get    '/sign_out'                => 'sessions#destroy', :as => :sign_out
   
-  # get  'sign_up'  => 'users#new', :as => :sign_up
-  # post 'sign_up'  => 'users#create'
+  get    'sign_up/(:invite_token)'  => 'users#new', :as => :sign_up
+  post   'sign_up'  => 'users#create'
   get    'activate/:verification_token' => 'users#verify'
 
   # Profile and password reset
@@ -57,7 +57,7 @@ Gigavine::Application.routes.draw do
       end
       
       resources :sentences do
-        resources :translation_pairs
+        resources :translation_pairs, :except => [:index, :show]
       end
     end
     

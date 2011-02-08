@@ -1,29 +1,23 @@
 class TranslationPair < ActiveRecord::Base
+
+  belongs_to :sentence
   
-  
-  belongs_to :source, :class_name => 'Sentence', :counter_cache => :translation_pairs_count
-  belongs_to :result, :class_name => 'Sentence', :dependent => :destroy
-  
-  validates_uniqueness_of :result_id
+  has_one_baked_in :language, :names => Gigavine::Preferences.translated_languages
   
   validate :disallow_same_language_translations
-  validate :prevent_translating_translations
+  validates_presence_of   :language_code, :text, :sentence
+  
+  alias :source :sentence
   
   def disallow_same_language_translations
-    if source.language == result.language
-      errors.add(:result, 'You can\'t add a translation in the same language as the source')
+    p sentence.inspect
+    if self.sentence.language_code == self.language_code
+      errors.add(:language, 'You can\'t add a translation in the same language as the source')
     end
-  end
-  
-  def prevent_translating_translations
-    unless TranslationPair.where(:result_id => source_id).empty?
-      errors.add(:result, 'You can\'t add a translation to a sentence that is itself a translation')
-    end
-  end
-  
+  end  
   
   def self.translates(sentence)
-    where(:source_id => sentence)
+    where(:sentence_id => sentence)
   end
 
 end

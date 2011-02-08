@@ -1,7 +1,7 @@
 class Glossary::GlossaryController < ApplicationController
   
   def index
-    @words = Word.all
+    @sentences = Sentence.all
   end
   
   

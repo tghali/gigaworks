@@ -28,7 +28,7 @@ module WardenHelper
   def current_user
    warden.user
   end
-
+  
   # # Returns the current session
   # def current_session
   #   @current_session ||= UserSession.new(session)

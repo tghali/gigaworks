@@ -3,7 +3,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   before_filter :load_sentences
   
   def index
-    @sentences = (params[:sentence_search] ? Sentence.where('text LIKE ?', params[:sentence_search]+'%') : Sentence.all)
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : Sentence.all)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @sentences }
@@ -37,15 +37,18 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # GET /sentences/1/edit
   def edit
     @sentence = Sentence.find(params[:id])
+    @sentence.translations.build
+    
+    render :new
   end
 
   # POST /sentences
   # POST /sentences.xml
   def create
-    @sentence = Sentence.new(params[:sentence])
-
+    @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence])
+    
     respond_to do |format|
-      if @sentence.save
+      if @sentence && @sentence.save
         format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully created.') }
         format.xml  { render :xml => @sentence, :status => :created, :location => @sentence }
       else
