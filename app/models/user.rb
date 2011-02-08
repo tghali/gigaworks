@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :contact
   
   attr_accessible :user_name, :password, :password_confirmation, :contact_attributes,
-                  :old_password, :password_reset_token, :avatar, :contact
+                  :old_password, :password_reset_token, :avatar, :contact, :invite_token
   
   attr_accessor   :old_password, :password_reset_token, :password_confirmation
     

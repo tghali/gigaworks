@@ -20,8 +20,16 @@
               %li
                 = language_flag_for(t)
                 = link_to t.word, glossary_word_path(t)
+                %span.ed-controls
+                  (
+                  = link_to 'Edit Translation', edit_glossary_word_definition_translation_path(@word, d, t)
+                  |
+                  = link_to 'Destroy Translation', glossary_word_definition_translation_path(@word, d, t), :confirm => 'Are you sure?', :method => :delete
+                  )
         %p
           = link_to "Edit", edit_glossary_word_definition_path(@word, d)
+          |
+          = link_to "Destroy", glossary_word_definition_path(@word, d), :confirm => 'Are you sure?', :method => :delete
           |
           = link_to "Add translation", new_glossary_word_definition_translation_path(@word, d)
   = link_to "Add definition", new_glossary_word_definition_path(@word)

@@ -11,7 +11,12 @@
             = t.text
           %p
             = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t.translation_source)
+            |
+            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t.translation_source), :confirm => 'Are you sure?', :method => :delete
   %p
     = link_to "Edit", edit_glossary_sentence_path(@sentence)
     |
+    = link_to 'Delete', glossary_sentence_path(@sentence), :confirm => 'Are you sure?', :method => :delete
+    |
     = link_to "Add translation", new_glossary_sentence_translation_pair_path(@sentence)
+    

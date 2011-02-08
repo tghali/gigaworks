@@ -58,10 +58,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
   def destroy
     translation = TranslationPair.find(params[:id])
     
-    Translation.transaction do
-      translation.word.destroy if translation.word.definitions.empty?
-      translation.destroy
-    end
+    translation.destroy
     respond_to do |format|
       format.html { redirect_to(words_url) }
       # format.xml  { head :ok }

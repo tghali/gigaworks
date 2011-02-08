@@ -29,19 +29,7 @@ describe Sentence do
       
       lambda { o.translations << t1 }.should raise_error(ActiveRecord::RecordInvalid)
     end
-    
-    it "does not allow originals to be added as translations of something else" do
-      o1 = Factory :sentence, :language => :en, :text => 'Hello, sir!'
-      t1 = Factory :sentence, :language => :it, :text => 'Salve, signore!'
-      o1.translations << t1
-      o1.save
-      o1.reload
-      
-      o2 = Factory :sentence, :language => :fr, :text => 'Bonjour, monsieur!'
-      
-      lambda {o2.translations << o1}.should raise_error(ActiveRecord::RecordInvalid)
-    end
-    
+        
     it "works by build and update and plays nice with controllers" do
       o = Factory :sentence, :language => :en, :text => 'Hello, sir!'
       
@@ -52,6 +40,25 @@ describe Sentence do
       o.reload
       o.translations.should_not be_empty
     end
+    
+    it "finds sentences that are not a translation" do
+      o1 = Factory :sentence, :language => :en, :text => 'Hello, sir!'
+      o2 = Factory :sentence, :language => :en, :text => 'This car is really fast'
+      t1 = Factory :sentence, :language => :it, :text => 'Salve, signore!'
+      o1.translations << t1
+      
+      Sentence.originals.all.should eql([o1, o2])
+    end
+    
+    it "finds sentences that are translations" do
+      o1 = Factory :sentence, :language => :en, :text => 'Hello, sir!'
+      o2 = Factory :sentence, :language => :en, :text => 'This car is really fast'
+      t1 = Factory :sentence, :language => :it, :text => 'Salve, signore!'
+      o1.translations << t1
+      
+      Sentence.translations.all.should eql([t1])
+    end
+    
     
   end
 end

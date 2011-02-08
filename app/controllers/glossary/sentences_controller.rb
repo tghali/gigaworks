@@ -3,7 +3,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   before_filter :load_sentences
   
   def index
-    @sentences = (params[:sentence_search] ? Sentence.where('text LIKE ?', params[:sentence_search]+'%') : Sentence.all)
+    @sentences = (params[:sentence_search] ? Sentence.originals.search(params[:sentence_search]) : Sentence.originals.all)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @sentences }

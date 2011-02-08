@@ -16,7 +16,7 @@ class Glossary::GlossaryController < ApplicationController
     end
     
     def load_sentences
-      @sentences = Sentence.all
+      @sentences = Sentence.originals.all
     end
   
 end

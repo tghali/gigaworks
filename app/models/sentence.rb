@@ -23,8 +23,14 @@ class Sentence < ActiveRecord::Base
     joins(:source)
   end
   
+  # DIY left exclusve join
   def self.originals
-    # joins(:translation_pairs).where(:'translation_pairs' => nil)
+    joins('LEFT JOIN translation_pairs ON sentences.id =  translation_pairs.result_id')\
+    .where(:translation_pairs => {:source_id => nil})
+  end
+  
+  def self.search text
+    where('upper(text) LIKE upper(?)', text+'%')
   end
   
 end

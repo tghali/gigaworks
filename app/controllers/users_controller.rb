@@ -1,9 +1,40 @@
-class UsersController < ApplicationController
+class UsersController < ActionController::Base
+  include WardenHelper
+  before_filter :authenticate, :except => [:new, :create]
+  
+  layout 'application'
+  protect_from_forgery
+  
+  def new
+    @user = User.new(:invite_token => params[:invite_token])
+    @user.email = @user.beta_invite.recipient_email if @user.beta_invite
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @word }
+    end
+  end
   
   def edit
     @user = current_user
     @user.password = nil
     @user.password_confirmation = nil
+  end
+  
+  def create
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save 
+        UserMailer.deliver_verification @user
+        flash[:notice] = "Congratulations, you succesfully registered. Soon you will receive an email with an activation link: click it to complete the registration."
+        format.html { redirect_to root_url }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end      
+    end#end respond_to
   end
   
   def update

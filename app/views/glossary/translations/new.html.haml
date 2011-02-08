@@ -5,6 +5,6 @@
     = language_flag_for(@definition.word)
   = form_for @translation, :url => glossary_word_definition_translations_path(@definition.word, @definition) do |w|
     = render "shared/error_messages", :target => @translation
-    = w.select :language, Gigavine::Preferences.translated_languages
+    = w.select     :language, Gigavine::Preferences.translated_languages
     = w.text_field :word
     = w.submit

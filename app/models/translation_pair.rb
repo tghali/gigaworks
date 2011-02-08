@@ -10,13 +10,13 @@ class TranslationPair < ActiveRecord::Base
   validate :prevent_translating_translations
   
   def disallow_same_language_translations
-    if source.language == result.language
+    if source.language_code == result.language_code
       errors.add(:result, 'You can\'t add a translation in the same language as the source')
     end
   end
   
   def prevent_translating_translations
-    unless TranslationPair.where(:result_id => source_id).empty?
+    if TranslationPair.where(:source_id => result).count > 0
       errors.add(:result, 'You can\'t add a translation to a sentence that is itself a translation')
     end
   end

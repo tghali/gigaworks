@@ -10,7 +10,7 @@
       %div
         = form_tag glossary_sentences_path, :method => 'get', :id => "sentence_search_form" do
           %p
-            = text_field_tag :sentence_search, params[:search]
+            = text_field_tag :sentence_search, params[:sentence_search]
             = submit_tag "Search", :name => nil
         %ul#glossary-sentences
           - @sentences.entries.each do |sentence|
@@ -30,7 +30,7 @@
       %div
         = form_tag glossary_words_path, :method => 'get', :id => "word_search_form" do
           %p
-            = text_field_tag :word_search, params[:search]
+            = text_field_tag :word_search, params[:word_search]
             = submit_tag "Search", :name => nil
         %ul#glossary-words
           - @words.entries.each do |word|
