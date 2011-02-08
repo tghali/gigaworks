@@ -1,7 +1,7 @@
 class Glossary::GlossaryController < ApplicationController
   
   def index
-    @sentences = Sentence.all
+    @sentences = Sentence.limit(100).all
   end
   
   
@@ -9,14 +9,14 @@ class Glossary::GlossaryController < ApplicationController
 
     def load_words
       if params[:language]
-        @words = Word.where(:language => params[:language].to_sym)
+        @words = Word.where(:language => params[:language].to_sym).limit(100)
       else
-        @words = Word.all
+        @words = Word.limit(100).all
       end
     end
     
     def load_sentences
-      @sentences = Sentence.all
+      @sentences = Sentence.limit(100).all
     end
   
 end
