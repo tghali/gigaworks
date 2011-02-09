@@ -1,0 +1,11 @@
+.box.sentence
+  %h2 Edit Sentence
+  = form_for @sentence, :url => glossary_sentence_path(@sentence) do |w|
+    = render "shared/error_messages", :target => @sentence
+    = w.select :language, Gigavine::Preferences.translated_languages
+    = w.text_area :text
+    %h3 Provide a translation
+    - w.fields_for :translations do |d|
+      = d.select :language, Gigavine::Preferences.translated_languages
+      = d.text_area :text
+    = w.submit

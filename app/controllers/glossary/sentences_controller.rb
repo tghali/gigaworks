@@ -39,7 +39,6 @@ class Glossary::SentencesController < Glossary::GlossaryController
     @sentence = Sentence.find(params[:id])
     @sentence.translations.build
     
-    render :new
   end
 
   # POST /sentences
@@ -81,7 +80,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     @sentence.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sentences_url) }
+      format.html { redirect_to(glossary_sentences_url) }
       format.xml  { head :ok }
     end
   end
