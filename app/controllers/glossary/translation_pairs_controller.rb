@@ -19,7 +19,6 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     
     @sentence    = @translation.source
     
-    render :new
   end
 
 
@@ -59,7 +58,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     
     translation.destroy
     respond_to do |format|
-      format.html { redirect_to(words_url) }
+      format.html { redirect_to(glossary_words_path) }
       # format.xml  { head :ok }
     end
   end

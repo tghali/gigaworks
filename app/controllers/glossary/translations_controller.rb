@@ -21,7 +21,6 @@ class Glossary::TranslationsController < Glossary::GlossaryController
     @definition =  translation.definition
     @translation = translation.word
     
-    render :new
   end
 
 

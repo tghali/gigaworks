@@ -1,0 +1,11 @@
+.box.word
+  %h2 Edit Word
+  = form_for @word, :url => glossary_word_path(@word) do |w|
+    = render "shared/error_messages", :target => @word
+    = w.select :language, Gigavine::Preferences.translated_languages
+    = w.text_field :word
+    %h3 Provide a definition
+    - w.fields_for :definitions do |d|
+      = d.select :kind, Definition::KINDS.each(&:to_s)
+      = d.text_area :description
+    = w.submit

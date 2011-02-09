@@ -70,7 +70,7 @@ class Glossary::DefinitionsController < Glossary::GlossaryController
     @word.destroy
 
     respond_to do |format|
-      format.html { redirect_to(words_url) }
+      format.html { redirect_to(glossary_words_url) }
       # format.xml  { head :ok }
     end
   end
