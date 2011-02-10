@@ -68,11 +68,11 @@ module JavascriptMinifier
       cache_file = File.join(@cache_folder, 'javascripts', "#{bundle}.js")
       @cache_server ||= cache_server
     
-      script = files_for(bundle).inject('') do |s, f|
+      script = files_for(bundle).inject(' ') do |s, f|
         s << File.read(f)
       end
     
-      File.open(cache_file, "w") { |f| f.puts JSMin.minify(script) }
+      File.open(cache_file, "w") { |f| f.puts script } #JSMin.minify(script)
     
       @cached << bundle
     end
