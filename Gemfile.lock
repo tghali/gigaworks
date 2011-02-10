@@ -269,7 +269,7 @@ DEPENDENCIES
   cancan
   capybara (>= 0.3.8)
   capybara-envjs
-  compass (>= 0.10.4)
+  compass (>= 0.10.6)
   connie!
   cucumber-rails (>= 0.3.2)
   database_cleaner (>= 0.5.2)

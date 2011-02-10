@@ -1,7 +1,7 @@
 require 'yaml'
 
 # Load the environment variables
-unless ENV['RACK_ENV'] == 'production'
+unless ENV['RACK_ENV'] == 'productioon'
   begin
     YAML.load_file(File.expand_path('secrets.yml', File.dirname(__FILE__))).each do |key, value|
       ENV[key] = value

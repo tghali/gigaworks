@@ -21,4 +21,5 @@ cucumber:
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  uri: <%= ENV['MONGOHQ_URL'] %>
+  database: gigavine-test
+  # uri: <%= ENV['MONGOHQ_URL'] %>
