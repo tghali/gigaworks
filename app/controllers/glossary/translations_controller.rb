@@ -67,7 +67,7 @@ class Glossary::TranslationsController < Glossary::GlossaryController
       translation.destroy
     end
     respond_to do |format|
-      format.html { redirect_to words_url, :notice => 'The translation was successfully deleted.') }
+      format.html { redirect_to words_url, :notice => 'The translation was successfully deleted.' }
       # format.xml  { head :ok }
     end
   end
