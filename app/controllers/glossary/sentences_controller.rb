@@ -80,7 +80,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     @sentence.destroy
 
     respond_to do |format|
-      format.html { redirect_to(glossary_sentences_url), :notice => 'Sentence was successfully deleted.' }
+      format.html { redirect_to glossary_sentences_url, :notice => 'Sentence was successfully deleted.' }
       format.xml  { head :ok }
     end
   end

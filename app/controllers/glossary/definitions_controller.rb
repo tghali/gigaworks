@@ -70,7 +70,7 @@ class Glossary::DefinitionsController < Glossary::GlossaryController
     @word.destroy
 
     respond_to do |format|
-      format.html { redirect_to(glossary_words_url), :notice => 'The definition was successfully deleted.' }
+      format.html { redirect_to glossary_words_url, :notice => 'The definition was successfully deleted.' }
       # format.xml  { head :ok }
     end
   end

@@ -80,7 +80,7 @@ class Glossary::WordsController < Glossary::GlossaryController
     @word.destroy
 
     respond_to do |format|
-      format.html { redirect_to(glossary_words_url) }
+      format.html { redirect_to glossary_words_url, :notice => 'The word was successfully deleted.' }
       format.xml  { head :ok }
     end
   end
