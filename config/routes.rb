@@ -1,5 +1,5 @@
 Gigavine::Application.routes.draw do
-
+  
   # Assets
   get '/javascripts/:bundle.js' =>  JavascriptMinifier
   get "/stylesheets/:media.:ext" => SassCompiler
@@ -67,7 +67,7 @@ Gigavine::Application.routes.draw do
       #resources: events -- a wrapper? or different resources for different events?
     end
     
-    get '/', :to => 'dashboard#index'
+    get '/', :to => 'dashboard#index', :as => 'dashboard'
   end
   # Sample resource route with sub-resources:
   #   resources :products do

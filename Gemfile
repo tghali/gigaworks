@@ -10,7 +10,7 @@ gem 'pg', :group => :production
 # gem 'haml', '>= 3.0.12'
 gem 'haml-rails', '=0.3.4'
 gem 'compass', '>= 0.10.4'
-gem 'jsmin'
+gem 'jsmin', '=1.0.0'
 gem 'warden'
 gem 'mongoid',  '2.0.0.rc.7'
 gem 'bson_ext', '~> 1.2'
@@ -36,8 +36,9 @@ end
 
 
 group :test, :cucumber do
-  gem 'capybara', '>= 0.3.8'
-  gem 'capybara-envjs'
+  gem 'rack-test', :git => "https://github.com/hassox/rack-test.git"
+  gem 'capybara', '= 0.4.1.2'
+  gem 'capybara-envjs', '= 0.4.0'
   gem 'cucumber-rails', '>= 0.3.2'
   gem 'pickle', '>= 0.3.4'
   gem 'database_cleaner', '>= 0.5.2'

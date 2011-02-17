@@ -1,22 +1,24 @@
 module NavigationHelpers
+  # include UrlHelper
   # Maps a name to a path. Used by the
   #
   #   When /^I go to (.+)$/ do |page_name|
   #
   # step definition in web_steps.rb
   #
+  
   def path_to(page_name)
     case page_name
       
     when /the home page/
-      '/'
+      root_url
+      
     when /the new login page/
-      new_login_path
-
+      new_login_url
     
     when /"(.+)"/
       $1
-
+      
     # the following are examples using path_to_pickle
 
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
@@ -41,7 +43,9 @@ module NavigationHelpers
       begin
         page_name =~ /the (.*) page/
         path_components = $1.split(/\s+/)
-        self.send(path_components.push('path').join('_').to_sym)
+        url = self.send(path_components.push('url').join('_').to_sym)
+        announce url
+        return url
       rescue Object => e
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
           "Now, go and add a mapping in #{__FILE__}"

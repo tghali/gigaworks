@@ -4,7 +4,7 @@
     %title== #{yield :title}Gigaworks
     
     %meta{:"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8" }/
-    %meta{:name => "description", :content => "Gigaworks is gigavine's internal überapp" }
+    %meta{:name => "description", :content => "Gigaworx is gigavine's überapp" }
         
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
     /[if lt IE 8]
@@ -43,6 +43,6 @@
                 - flash.each do |type, msg|
                   %div{:class=>"#{type}"}= h msg
               -flash.clear
-            = yield(:main) || yield
+            =  content_for?(:main) ? yield(:main) : yield
       #footer
-        %h6 Gigaworks - Prototype &copy; 2010 Gigavine ltd.
+        %h6 Gigaworx - Prototype &copy; 2011 Gigavine ltd.

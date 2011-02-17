@@ -24,7 +24,6 @@ module PagesHelper
         links << link_to(locale, '#', :class => "#{locale} active").html_safe
       else
         str = link_to(locale, current_page.merge(:locale => locale), :class => locale).html_safe
-        Rails.logger.debug str
         links << str
       end
     end

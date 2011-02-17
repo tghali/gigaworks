@@ -24,7 +24,7 @@ RSpec.configure do |config|
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
+  
   config.before(:suite) do
     # DatabaseCleaner[:active_record].strategy = :transaction
     DatabaseCleaner[:mongoid].strategy = :truncation    
@@ -39,3 +39,7 @@ RSpec.configure do |config|
   end
 
 end
+
+# Gigavine::Application.configure do
+#   config.default_url_options[:host] = 'gigavine.com'
+# end
