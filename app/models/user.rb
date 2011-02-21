@@ -199,7 +199,7 @@ class User < ActiveRecord::Base
   # Builds methods to update, verify or track changes of the user's status, it's based on the
   # STATUSES array.
   def verified!
-    update_attribute :status_code, status_code_for(:verified)
+    update_attribute :status_code, User::STATUSES.index(:verified)
     if    verification_key   then verification_key.destroy; verification_key(true)
     elsif password_reset_key then password_reset_key.destroy; password_reset_key(true)
     end
