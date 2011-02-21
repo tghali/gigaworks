@@ -1,5 +1,5 @@
 Gigavine::Application.routes.draw do
-
+  
   # Assets
   get '/javascripts/:bundle.js' =>  JavascriptMinifier
   get "/stylesheets/:media.:ext" => SassCompiler
@@ -30,7 +30,7 @@ Gigavine::Application.routes.draw do
   get '/profile'           => 'users#edit',       :as => :profile
   
   # CRM/PMS
-  # constraints :subdomain => "worx" do
+  constraints :subdomain => "worx" do
   # Contacts
     resources :contacts, :module => 'contacts' do
       resources :details
@@ -67,8 +67,8 @@ Gigavine::Application.routes.draw do
       #resources: events -- a wrapper? or different resources for different events?
     end
     
-    get '/', :to => 'dashboard#index', :as => 'gigaworks_dashboard'
-  # end
+    get '/', :to => 'dashboard#index', :as => 'dashboard'
+  end
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -85,23 +85,23 @@ Gigavine::Application.routes.draw do
 
   # Sample resource route within a namespace:
   namespace :admin do
-    root :to => 'admin#index'
+    root :to => 'dashboard#index'
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
     resources :users
   end
   
   # Static pages
-  # get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
-  #                                                                   :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
-  #                                                                   :page    => /[a-z_\-]+/ }
-  # get "search" => 'pages#search', :as => :site_search
-  # 
-  # resources :blog_posts
+  get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
+                                                                    :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
+                                                                    :page    => /[a-z_\-]+/ }
+  get "search" => 'pages#search', :as => :site_search
+  
+  resources :blog_posts
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'pages#show'
+  root :to => 'pages#temp_home'
 
   # See how all your routes lay out with "rake routes"
 

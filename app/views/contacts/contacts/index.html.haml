@@ -1,4 +1,5 @@
 - content_for :parent do
   = table_for @contacts do |tabelle|  
-    = tabelle.view "list" do |list|
+    = tabelle.view "table" do |list|
       -# list.actions %w(verify suspend delete)
+  = link_to 'Add Contact', new_contact_path

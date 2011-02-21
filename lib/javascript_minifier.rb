@@ -21,8 +21,7 @@ module JavascriptMinifier
   
     def self.call(env)
       bundle = Array(env["PATH_INFO"].match(/^\/javascripts\/(.*).js/))[1]
-      case Rails.env
-      when 'production'
+      unless Rails.env == 'development'
         #TODO: deal with etag headers/cachebusters
         if @cached.include? bundle        
           @cache_server.call(env)

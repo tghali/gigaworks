@@ -77,7 +77,7 @@ module Gigavine
     end
     
     def self.contact_detail_types
-      [:personal, :work, :reception, :home, :mobile]
+      [:work, :personal, :reception, :home, :mobile]
     end
   end
   

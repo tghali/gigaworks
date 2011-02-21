@@ -1,0 +1,16 @@
+#room-switcher
+  %ul#room-switcher-menu.tooltipped
+    %li
+      =link_to t(:'rooms.Contacts'),   contacts_path, :id => :'room-switch-contacts', :title => t(:'rooms.Contacts')
+    %li
+      =link_to t(:'rooms.Glossary'),   glossary_path, :id => :'room-switch-glossary', :title => t(:'rooms.Glossary')
+    - if can? :use, :pm
+      %li
+        =link_to t(:'rooms.Schedule'), schedule_path, :id => :'room-switch-schedule', :title => t(:'rooms.Schedule')
+    - if can? :use, :crm
+      %li
+        =link_to t(:'rooms.Leads'),    contacts_path, :id => :'room-switch-leads', :title => t(:'rooms.Leads')
+    - if can? :administer, :app
+      %li
+        =link_to t(:'rooms.Admin'),    admin_root_path, :id => :'room-switch-admin', :title => t(:'rooms.Administration')
+      

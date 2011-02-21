@@ -1,0 +1,39 @@
+- content_for :parent do
+  = link_to 'Contact List', contacts_path
+.box.contact
+  %h2 Edit
+  = form_for @contact, :url => contacts_path do |c|
+    = render "shared/error_messages", :target => @contact
+    %h3 Details
+    = c.text_field :title
+    = c.text_field :first_name
+    = c.text_field :last_name
+    %br/
+    = c.text_field :email
+    = c.select :email_type, Gigavine::Preferences.contact_detail_types
+    - # TODO: add extra email address creation
+    %br/
+    = c.text_field :telephone
+    = c.select :telephone_type, Gigavine::Preferences.contact_detail_types
+    - # TODO: add extra phone numbers creation
+    %br/
+    %h3 Organisation
+    = c.select     :organisation_name, Organisation.all.map(&:name), :include_blank => true, :label => 'Choose existing'
+    = c.text_field :organisation_name, :label => 'New organisation'
+
+    - if can?(:administer, :users)
+      %p.account
+        User profile:
+    %h3 Address:
+    - c.fields_for :addresses do |a|
+      = a.select :type, Gigavine::Preferences.contact_detail_types
+      %br/
+      = a.text_field :first_line
+      %br/     
+      = a.text_field :second_line
+      %br/     
+      = a.text_field :state_or_province
+      %br/
+      = a.select :country, country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
+      %br/
+    = c.submit

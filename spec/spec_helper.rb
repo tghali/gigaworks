@@ -24,18 +24,23 @@ RSpec.configure do |config|
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
-  config.before(:suite) do
-    # DatabaseCleaner[:active_record].strategy = :transaction
-    DatabaseCleaner[:mongoid].strategy = :truncation    
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  
+  # Database cleaner was used only for mongoid
+  # config.before(:suite) do
+  #   DatabaseCleaner[:active_record].strategy = :transaction
+  #   # DatabaseCleaner[:mongoid].strategy = :truncation    
+  # end
+  # 
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+  # 
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 
 end
+
+# Gigavine::Application.configure do
+#   config.default_url_options[:host] = 'gigavine.com'
+# end

@@ -27,12 +27,12 @@
           top: 2px;
           border: 1px solid #666;
           
-          &:hover{
+          &:hover, &:visited{
             text-decoration: none;
           }
           &.current{
             border-bottom: 2px solid $gigaworx-backgorund;
-            //background-color: #666;
+            background-color: #666;
           }
         }
       }
