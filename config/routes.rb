@@ -85,7 +85,7 @@ Gigavine::Application.routes.draw do
 
   # Sample resource route within a namespace:
   namespace :admin do
-    root :to => 'admin#index'
+    root :to => 'dashboard#index'
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
     resources :users

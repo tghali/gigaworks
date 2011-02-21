@@ -1,4 +1,13 @@
-class Admin::UsersController < AdminController
+class Admin::UsersController < Admin::AdminController
+  
+  def index
+    @users = load_in_table User, :default_view => 'list' do |tabelle|
+      tabelle.filterables %w( user_name )
+      tabelle.sortables %w( user_name created_at updated_at)
+      tabelle.load_per_page :list => 28, :grid => 24
+    end
+    
+  end
   
   def new
     @user = params[:contact_id] ? Contact.find(params[:contact_id]).build_user : User.new
@@ -44,15 +53,25 @@ class Admin::UsersController < AdminController
   
   # TODO: create a landing page for email account verification
   def verify
-    @user = token.user
+    @user = User.find(params[:id])
     begin
       @user.verified!
-      current_session.user = @user
-      flash[:notice] = verified
-      redirect_to sign_in_path
     rescue
-      flash[:error] = @user.verification_key.errors.on(:base)
-      render :action => 'new', :status => :unauthorized
+      respond_to do |format|
+        format.html {redirect_to admin_users, :error => @user.verification_key.errors.on(:base)}
+      end
     end
   end
+  
+  def destroy
+    user = User.find(params[:id])
+    
+    translation.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_users_url, :notice => 'The user was successfully deleted.' }
+      # format.xml  { head :ok }
+    end
+  end
+  
 end

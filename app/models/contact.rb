@@ -3,6 +3,8 @@ class Contact < ActiveRecord::Base
   has_one    :user
   belongs_to :organisation
   has_many   :details
+  has_many   :addresses
+  
   has_one_baked_in :email_type,     :names => Gigavine::Preferences.contact_detail_types
   has_one_baked_in :telephone_type, :names => Gigavine::Preferences.contact_detail_types
   
@@ -32,5 +34,9 @@ class Contact < ActiveRecord::Base
    self.title      = first_name_and_title.second
  end
 
+ 
+ def method_name
+  
+ end
  
 end

@@ -25,18 +25,19 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   
-  config.before(:suite) do
-    # DatabaseCleaner[:active_record].strategy = :transaction
-    DatabaseCleaner[:mongoid].strategy = :truncation    
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # Database cleaner was used only for mongoid
+  # config.before(:suite) do
+  #   DatabaseCleaner[:active_record].strategy = :transaction
+  #   # DatabaseCleaner[:mongoid].strategy = :truncation    
+  # end
+  # 
+  # config.before(:each) do
+  #   DatabaseCleaner.start
+  # end
+  # 
+  # config.after(:each) do
+  #   DatabaseCleaner.clean
+  # end
 
 end
 

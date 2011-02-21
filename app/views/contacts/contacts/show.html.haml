@@ -1,0 +1,43 @@
+- content_for :parent do
+  = link_to 'User List', contacts_path
+.box.contact
+  %h2= @contact.full_name
+  - if @contact.organisation
+    %p.organisation
+      Organisation:
+      = link_to @contact.organisation.name, organisation_path(@contact.organisation)
+  - if can?(:administer, :users)
+    %p.account
+      User profile:
+      - if @contact.user
+        = link_to @contact.user.user_name, admin_user_path(@contact.user)
+      - else
+        = link_to 'Create user profile',   admin_new_user_path
+  %p
+    Email:
+    %ul
+      %li== #{@contact.email_type}: #{mail_to @contact.email}
+      - @contact.details.emails.each do |e|
+        %li== #{e.type}: #{mail_to e.value}
+  %p
+    Telephone:
+    %ul
+      %li== #{@contact.telephone_type}: #{@contact.telephone}
+      - @contact.details.telephones.each do |t|
+        %li== #{t.type}: #{mail_to t.value}
+  %p
+    Address:
+    %ul
+    - @contact.addresses.each do |a|
+      %li
+        ==#{a.type}:
+        %br/
+        a.first_line
+        %br/
+        a.second_line
+        %br/
+        a.state_or_province
+        %br/
+        a.country
+          
+  

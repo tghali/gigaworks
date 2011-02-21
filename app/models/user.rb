@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   
   belongs_to :contact
   
-  has_one_baked_in  :status, :names => [:unverified, :verified, :password_reset, :deleted, :suspended, :banned],
+  has_one_baked_in  :status, :names => [:unverified, :verified, :password_reset, :suspended, :banned],
                              :groups => {:active =>     [:verified, :password_reset],
                                          :visible =>    [:unverified, :verified, :password_reset, :suspended],
-                                         :inactive =>   [:deleted, :suspended, :banned],
+                                         :inactive =>   [:suspended, :banned],
                                          :unverified => [:unverified]}
   
   has_many_baked_in :roles, :names => [:admin],
@@ -28,7 +28,38 @@ class User < ActiveRecord::Base
                     :styles         => { :medium => "128x128>",
                                          :small  => "48x48>"}
   
-  has_many :departements
+  has_many :departements do
+    
+    def add departement_name
+      create! :name => departement_name
+    end
+    
+    def remove departement_name
+      departement = Departement.where(:name_code => Departement.name_codes_for(departement_name), :user_id => proxy_owner.id).first
+      
+      departement.delete if departement
+    end
+    
+    def find departement_name
+      Departement.where(:name_code => Departement.name_codes_for(departement_name), :user_id => proxy_owner.id).first
+    end
+    
+    def list
+      @departements ||= proxy_target.map(&:name)
+    end
+    
+    def has? departement_name
+      list.include? departement_name
+    end
+    
+  end
+  
+  # Client Profile
+  has_one :account_membership
+  
+  has_one :account, :through => :account_membership
+  
+  
   
   scope :with_role,
         lambda { |role| where("roles_mask & #{2**ROLES.index(role.to_sym)} > 0") }
@@ -80,7 +111,15 @@ class User < ActiveRecord::Base
                   :old_password, :password_reset_token, :avatar, :contact, :invite_token
   
   attr_accessor   :old_password, :password_reset_token, :password_confirmation
-    
+  
+  
+  # Project Management and Administration
+  
+  # Checks if the user has a client account
+  def is_client?
+    self.account_membership != nil
+  end
+  
   # Finds Users by their main contact email.
   def self.find_by_email email
     contact = Contact.find_by_email(email) or raise ActiveRecord::RecordNotFound

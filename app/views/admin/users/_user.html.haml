@@ -1,0 +1,11 @@
+%tr{ :class => (user_counter % 2 == 0 ? "dark" : "light") }
+  %td.task
+    %h5= link_to user.user_name, admin_user_path(user)
+  %td.email
+    = mail_to user.email
+  %td.status
+    = user.status
+  %td.role
+    = roles_for(user)
+  %td.created
+    = l(user.created_at.to_date, :format => :long)
