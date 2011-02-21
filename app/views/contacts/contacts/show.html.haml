@@ -1,5 +1,5 @@
 - content_for :parent do
-  = link_to 'User List', contacts_path
+  = link_to 'Contact List', contacts_path
 .box.contact
   %h2= @contact.full_name
   - if @contact.organisation
@@ -39,5 +39,3 @@
         a.state_or_province
         %br/
         a.country
-          
-  

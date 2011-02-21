@@ -15,7 +15,7 @@ class Contact < ActiveRecord::Base
   
   validates_format_of        :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  accepts_nested_attributes_for :organisation
+  accepts_nested_attributes_for :addresses, :allow_destroy => true, :reject_if => proc { |obj| obj[:first_line].blank?  }
   
   attr_accessible :first_name, :last_name, :organisation_attributes, :title,
                   :timezone_code, :email, :telephone, :organisation
@@ -35,8 +35,13 @@ class Contact < ActiveRecord::Base
  end
 
  
- def method_name
-  
+ def organisation_name= organisation_name
+  o = Organisation.find_or_create_by_name organisation_name
+  self.organisation = o
+ end
+ 
+ def organisation_name
+    self.organisation ? self.organisation.name : ''
  end
  
 end

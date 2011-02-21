@@ -13,6 +13,10 @@ class PagesController < ActionController::Base
     end
   end
   
+  def temp_home
+    render :layout => false
+  end
+  
 private
   def set_locale
     I18n.locale = params[:locale] || :en

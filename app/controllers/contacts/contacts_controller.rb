@@ -25,7 +25,8 @@ class Contacts::ContactsController < ApplicationController
   # GET /contacts/new.xml
   def new
     @contact = Contact.new
-
+    @contact.addresses.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @contact }
@@ -41,11 +42,11 @@ class Contacts::ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.xml
   def create
-    @contact = Contact.find_or_create_with_nested_attributes(params[:contact])
+    @contact = Contact.new(params[:contact])
     
     respond_to do |format|
-      if @contact && @contact.save
-        format.html { redirect_to(glossary_contact_path(@contact), :notice => 'Contact was successfully created.') }
+      if @contact.save
+        format.html { redirect_to(contact_path(@contact), :notice => 'Contact was successfully created.') }
         format.xml  { render :xml => @contact, :status => :created, :location => @contact }
       else
         format.html { render :action => "new" }
@@ -61,7 +62,7 @@ class Contacts::ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
-        format.html { redirect_to(glossary_contact_path(@contact), :notice => 'Contact was successfully updated.') }
+        format.html { redirect_to(contact_path(@contact), :notice => 'Contact was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -77,7 +78,7 @@ class Contacts::ContactsController < ApplicationController
     @contact.destroy
 
     respond_to do |format|
-      format.html { redirect_to glossary_contacts_url, :notice => 'Contact was successfully deleted.' }
+      format.html { redirect_to contacts_url, :notice => 'Contact was successfully deleted.' }
       format.xml  { head :ok }
     end
   end
