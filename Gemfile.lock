@@ -28,7 +28,7 @@ PATH
 PATH
   remote: vendor/plugins/tarte
   specs:
-    tarte (0.1.1)
+    tarte (0.1.2)
 
 GEM
   remote: http://rubygems.org/
@@ -263,13 +263,8 @@ DEPENDENCIES
   aws-s3
   bson_ext (~> 1.2)
   cancan
-<<<<<<< HEAD
-  capybara (>= 0.3.8)
-  capybara-envjs
-=======
   capybara (= 0.4.1.2)
   capybara-envjs (= 0.4.0)
->>>>>>> master
   compass (>= 0.10.4)
   connie!
   cucumber-rails (>= 0.3.2)
