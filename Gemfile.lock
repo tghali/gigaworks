@@ -6,27 +6,27 @@ GIT
       rack (>= 1.0)
 
 PATH
-  remote: vendor/plugins/connie
+  remote: ~/Sites/tools/connie
   specs:
     connie (0.0.1)
 
 PATH
-  remote: vendor/plugins/formidable
+  remote: ~/Sites/tools/formidable
   specs:
     formidable (0.0.2)
 
 PATH
-  remote: vendor/plugins/fredo
+  remote: ~/Sites/tools/fredo
   specs:
     fredo (0.1.10)
 
 PATH
-  remote: vendor/plugins/tabelle
+  remote: ~/Sites/tools/tabelle
   specs:
     tabelle (0.0.4)
 
 PATH
-  remote: vendor/plugins/tarte
+  remote: ~/Sites/tools/tarte
   specs:
     tarte (0.1.2)
 
