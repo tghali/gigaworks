@@ -1,6 +1,6 @@
 class Glossary::WordsController < Glossary::GlossaryController
   
-  before_filter :load_words
+  # before_filter :load_words
   
   # GET /words
   # GET /words.xml
@@ -84,5 +84,15 @@ class Glossary::WordsController < Glossary::GlossaryController
       format.xml  { head :ok }
     end
   end
-    
+
+private
+
+  def load_words
+    if params[:language]
+      @words = Word.where(:language => params[:language].to_sym).limit(100)
+    else
+      @words = Word.limit(100).all
+    end
+  end
+
 end

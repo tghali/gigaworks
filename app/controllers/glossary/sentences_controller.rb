@@ -3,7 +3,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   before_filter :load_sentences
   
   def index
-    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : Sentence.limit(100).all)
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @sentences }

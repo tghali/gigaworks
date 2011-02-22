@@ -13,33 +13,16 @@
   }
   
   #parent{
-    .tabs {
-      @include horizontalist;
-      padding-left: 20px;
-      padding-top: 0.75em;
-      border-bottom: 2px solid #666;
-        li a {
-          font-size: 1.2em;
-          line-height: 1.25;
-          padding: 0 5px;
-          display: block;
-          position: relative;
-          top: 2px;
-          border: 1px solid #666;
-          
-          &:hover, &:visited{
-            text-decoration: none;
-          }
-          &.current{
-            border-bottom: 2px solid $gigaworx-backgorund;
-            background-color: #666;
-          }
-        }
-      }
-    .panes{
-      & > div{
-        border:1px solid #666;
-        border-width:0 1px 1px 1px;
+    #glossary-search{
+      margin-top: 1em;
+      #glossary-search-box{
+        padding-left: 5px;
+        padding-top: 5px;
+        h3 {color: $gigavine-white; text-shadow:1px 1px 1px $gigavine-dark-grey;}
+        background-color: $gigavine-light-grey;
+        margin: 0 3px;
+        @include box-shadow( 0px, 3px, 2px, $gigavine-dark-grey);
+        
         form{
           input[type=text]{
             width: 200px;
@@ -48,32 +31,36 @@
       }
     }
   }
-  #glossary-words, #glossary-sentences {
-    margin: 10px;
-    padding: 0;
-    li {
-      list-style-type: none;
-      a {
-        color: $darkest;
-        a.active{color: $darkest;}
-        a:hover{color:  $darkest;}
+  #glossary-sentences {
+    ul {
+      margin: 10px;
+      padding: 0;
+      li {
+        list-style-type: none;
+        a {
+          color: $darkest;
+          a.active{color: $darkest;}
+          a:hover{color:  $darkest;}
+        }
       }
     }
   }
   
   #main {
-    .box{
-      @include column(16);
-      @include border-radius(3px);
-      padding: 0.5em;
-      margin: 0 20px;
-      background-color: #FDFFF0;
-      @include box-shadow( 0px, 0px, 6px, #2F3029);
+    #glossary-page{
+      .box{
+        @include column(16);
+        @include border-radius(3px);
+        padding: 0.5em;
+        margin: 3em 20px;
+        background-color: #FDFFF0;
+        @include box-shadow( 0px, 0px, 6px, #2F3029);
 
-      form{
-        textarea{
-          height: 70px;
-          width: 500px;
+        form{
+          textarea{
+            height: 70px;
+            width: 500px;
+          }
         }
       }
     }
