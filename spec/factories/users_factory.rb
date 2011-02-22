@@ -16,3 +16,8 @@ Factory.define :admin, :class => User do |f|
   f.roles [:admin]
   f.status :verified
 end
+
+
+Factory.define :sales_person, :parent => :user do |f|  
+  f.departement {|u| u.association(:departement, :name => :sales) }
+end

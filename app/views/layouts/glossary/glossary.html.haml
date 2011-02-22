@@ -1,46 +1,28 @@
 - @room = 'glossary'
-- if @sentences
-  - content_for :parent do
-    %ul.tabs
-      %li
-        %a{:href=> glossary_words_path} Words
-      %li
-        %a{:href=> glossary_sentences_path, :class => 'current'} Sentences
-    .panes
-      %div
-        = form_tag glossary_sentences_path, :method => 'get', :id => "sentence_search_form" do
-          %p
-            = text_field_tag :sentence_search, params[:sentence_search]
-            = submit_tag "Search", :name => nil
-        %ul#glossary-sentences
+- content_for :parent do
+  #glossary-search
+    #glossary-search-box
+      %h3 Search the Mawhiba glossary
+      = form_tag glossary_sentences_path, :method => 'get', :id => "sentence_search_form" do
+        %p
+          = text_field_tag :sentence_search, params[:sentence_search]
+          = submit_tag "Search", :name => nil
+    #glossary-sentences
+      %ul
+        - if @sentences.empty?
+          - if params[:sentence_search]
+            %em No matching sentence found
+          - else
+            %em Enter part of a sentence to search
+        - else
           - @sentences.entries.each do |sentence|
             %li
               = language_flag_for(sentence)
               = link_to truncate(sentence.text, :length => 40, :omission => '...'), glossary_sentence_path(sentence)
-        %p
-          = link_to 'Add a sentence', new_glossary_sentence_path
-- else
-  - content_for :parent do
-    %ul.tabs
-      %li
-        %a{:href=> glossary_words_path, :class => 'current'} Words
-      %li
-        %a{:href=> glossary_sentences_path} Sentences
-    .panes
-      %div
-        = form_tag glossary_words_path, :method => 'get', :id => "word_search_form" do
-          %p
-            = text_field_tag :word_search, params[:word_search]
-            = submit_tag "Search", :name => nil
-        %ul#glossary-words
-          - @words.entries.each do |word|
-            %li
-              = language_flag_for(word)
-              = link_to word.word, glossary_word_path(word)
-        %p
-          = link_to 'Add a word', new_glossary_word_path
+      %p
+        = link_to 'Add a sentence', new_glossary_sentence_path
 
 - content_for :main do
-  %h2 Gigavine glossary
-  = yield
+  #glossary-page
+    = yield
 = render :file => 'layouts/application'

@@ -4,3 +4,8 @@ Feature: Adding Contacts
   wants add contacts
 
 
+  Scenario: Create a new contace
+    When I go to "http://worx.example.com" # Dashboard page
+    Given an admin is signed in
+    Given an client exists with name: "Acme"
+    When I follow "Contacts"
