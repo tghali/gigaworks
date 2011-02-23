@@ -48,16 +48,10 @@ Gigavine::Application.routes.draw do
     end
     
     namespace :glossary do
-      get '/(:language)', :to => 'glossary#index', :constraints => {:language => /[a-z]{2}/}
-      
-      resources :words do
-        resources :definitions do
-          resources :translations
-        end
-      end
-      
+      get '/', :to => 'sentences#index'
+            
       resources :sentences do
-        resources :translation_pairs, :except => [:index, :show]
+        resources :translation_pairs
       end
     end
     

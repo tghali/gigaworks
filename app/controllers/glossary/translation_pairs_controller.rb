@@ -18,7 +18,6 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     @translation = TranslationPair.find(params[:id])
     
     @sentence    = @translation.source
-    
   end
 
 
@@ -42,7 +41,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     @translation = TranslationPair.find(params[:id])
     
     respond_to do |format|
-      if @translation.result.update_attributes(params[:sentence])
+      if @translation.update_attributes(params[:sentence])
         format.html { redirect_to(glossary_sentence_path(@translation.source), :notice => 'The translation was successfully updated.') }
         # format.xml  { head :ok }
       else
@@ -58,7 +57,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     
     translation.destroy
     respond_to do |format|
-      format.html { redirect_to glossary_words_path, :notice => 'The translation was successfully deleted.' }
+      format.html { redirect_to glossary_sentences_path, :notice => 'The translation was successfully deleted.' }
       # format.xml  { head :ok }
     end
   end
