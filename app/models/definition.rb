@@ -9,7 +9,6 @@ class Definition < ActiveRecord::Base
   
   has_many :translations do
     
-    # This can be moved as a scope in the translation model
     def to(language)
        joins(:word).where(:words => {:language_code => Gigavine::Preferences.translated_languages.index(language.to_sym)})
     end

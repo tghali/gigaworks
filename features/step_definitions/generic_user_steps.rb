@@ -40,7 +40,7 @@ When(/^I sign in with "(\S+)", "(.*)"$/) do |user_name, password|
 end
 
 Given %r{#{capture_model}\s?(?:'m|is|am) signed in(?: with #{capture_fields})?$} do |name, fields|
-  @user = (find_model(name) or [create_model(name, fields)]).first
+  @user = find_model(name) || create_model(name, fields)
   visit "/sign_in"
   fill_in 'User name or email', :with => @user.user_name 
   fill_in 'Password', :with => 'big secret'
@@ -49,9 +49,9 @@ end
 
 
 Given %r{I(?:'m|\sam) signed in as #{capture_model}(?: with #{capture_fields})?$} do |name, fields|
-  @user = (find_model(name) or [create_model(name, fields)]).first
+  @user = find_model(name) || create_model(name, fields)
   visit "/sign_in"
-  fill_in 'User Name', :with => @user.user_name
+  fill_in 'User name or email', :with => @user.user_name
   fill_in 'Password', :with => 'big secret'
   click_button 'Sign In'
 end

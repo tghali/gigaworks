@@ -5,12 +5,10 @@ class Sentence < ActiveRecord::Base
   validates_presence_of   :language_code, :text
   validates_uniqueness_of :text, :scope => :language_code,:case_sensitive => false
   
-  has_many :definition_examples
-  has_many :definitions, :through => :definition_examples
-  
   has_many :translations,  :class_name => 'TranslationPair', :dependent => :destroy
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }
+  attr_accessible :language, :text, :definition, :translations_attributes
   
   def self.search text
     where('upper(text) LIKE upper(?)', text+'%')

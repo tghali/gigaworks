@@ -5,7 +5,8 @@
     = w.select :language, Gigavine::Preferences.translated_languages
     = w.text_area :text
     %h3 Provide a translation
-    - w.fields_for :translations do |d|
-      = d.select :language, Gigavine::Preferences.translated_languages
-      = d.text_area :text
-    = w.submit
+    #translations
+      = w.fields_for :translations do |d|
+        = d.select :language, Gigavine::Preferences.translated_languages
+        = d.text_area :text
+      = w.submit
