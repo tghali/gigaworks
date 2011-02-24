@@ -5,6 +5,7 @@
       %h3 Search the Mawhiba glossary
       = form_tag glossary_sentences_path, :method => 'get', :id => "sentence_search_form" do
         %p
+          = label_tag      :sentence_search, 'Enter part of a sentence to search', :'data-infield' => true
           = text_field_tag :sentence_search, params[:sentence_search]
           = submit_tag "Search", :name => nil
     #glossary-sentences
@@ -12,8 +13,6 @@
         - if @sentences.empty?
           - if params[:sentence_search]
             %em No matching sentence found
-          - else
-            %em Enter part of a sentence to search
         - else
           - @sentences.entries.each do |sentence|
             %li

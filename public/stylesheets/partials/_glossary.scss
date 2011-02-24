@@ -24,6 +24,8 @@
         @include box-shadow( 0px, 3px, 2px, $gigavine-dark-grey);
         
         form{
+          p      { position: relative; }
+          label  { position: absolute; height: 0; top:10px; left:6px;}
           input[type=text]{
             width: 200px;
           }

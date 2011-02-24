@@ -47,6 +47,9 @@ $(document).ready(function(){
   fill();
   $(window).resize(fill);
   
+  (function(){
+    $("label[data-infield]").inFieldLabels();
+  })();
   
   //Tooltips
   $(".tooltipped a").tooltip({
