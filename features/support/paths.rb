@@ -16,8 +16,14 @@ module NavigationHelpers
     when /the new login page/
       new_login_url
     
-    when /"(.+)"/
+    when /^"(.+)"$/
       $1
+    
+    when /^the (.+?) page for #{capture_model}$/
+      path, label = $1, $2
+      url_helper = path.split(/\s+/).push('path').join('_').to_sym
+      
+      url = self.send(url_helper, model(label))
       
     # the following are examples using path_to_pickle
 
@@ -32,7 +38,7 @@ module NavigationHelpers
 
     when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
       path_to_pickle $1, :extra => $2                               #  or the forum's edit page
-
+          
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
