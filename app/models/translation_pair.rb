@@ -10,7 +10,6 @@ class TranslationPair < ActiveRecord::Base
   alias :source :sentence
   
   def disallow_same_language_translations
-    p sentence.inspect
     if self.sentence.language_code == self.language_code
       errors.add(:language, 'You can\'t add a translation in the same language as the source')
     end

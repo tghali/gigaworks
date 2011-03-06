@@ -2,6 +2,7 @@
   %p
     = language_flag_for(@sentence)
     = @sentence.text
+    = flag_toggle_for @sentence
   %hr
     %ul.word-definition-translations
       - @sentence.translations.each do |t|

@@ -22,18 +22,29 @@ Feature: Glossary
     When I go to "http://worx.example.com"
     Given a translator exists
     Given I am signed in as translator
-    # TODO: Project membership
     Given a sentence with translation exists with text: "Chicken"
     When I go to "http://worx.example.com/glossary"
     And I fill in "Enter part of a sentence to search" with "Chicken"
     And I press "Search"
     Then I should see "Chicken" within "#glossary-sentences"
-
+  
   Scenario: Deleting a translation
     When I go to "http://worx.example.com"
     Given a translator exists
     Given I am signed in as translator
     # TODO: Project membership
-    Given a sentence with translation: "fred" exists with text: "Chicken"
-    When I go to the glossary sentence page for the sentence: "fred"
+    Given a sentence with translation: "chicken" exists with text: "Chicken"
+    When I go to the glossary sentence page for the sentence: "chicken"
+    And I follow "Delete"
+    Then a sentence should not exist with text: "Chicken"
+    
+  Scenario: Flagging a translation
+    When I go to "http://worx.example.com"
+    Given a translator exists
+    Given I am signed in as translator
+    # TODO: Project membership
+    Given a sentence with translation: "chicken" exists with text: "Chicken"
+    When I go to the glossary sentence page for the sentence: "chicken"
+    And I follow "Flag"
     Then show me the page
+    Then a sentence should not exist with text: "Chicken"

@@ -35,13 +35,13 @@ class User < ActiveRecord::Base
     end
     
     def remove departement_name
-      departement = Departement.where(:name_code => Departement.name_codes_for(departement_name), :user_id => proxy_owner.id).first
+      departement = Departement.where(:name_code => Departement::NAMES.index(departement_name), :user_id => proxy_owner.id).first
       
       departement.delete if departement
     end
     
     def find departement_name
-      Departement.where(:name_code => Departement.name_codes_for(departement_name), :user_id => proxy_owner.id).first
+      Departement.where(:name_code => Departement::NAMES.index(departement_name), :user_id => proxy_owner.id).first
     end
     
     def list
@@ -53,6 +53,8 @@ class User < ActiveRecord::Base
     end
     
   end
+  
+  has_one :languages, :class_name => 'Departements::Languages'
   
   # Client Profile
   has_one :account_membership

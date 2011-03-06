@@ -8,9 +8,7 @@ end
 Factory.define :sentence_with_translation, :class => Sentence do |f|
   f.text "Base"
   f.language :en
-  f.after_build  do |sentence|
-    sentence.attributes = {:attributes_for_translation_pairs => {
-      "0" => {:language => :ar, :text => "#{sentence.text} in Arabic"}
-    }}
+  f.after_create  do |sentence|
+    sentence.translations.create :language => :ar, :text => "#{sentence.text} in Arabic"
   end
 end

@@ -51,6 +51,7 @@ Gigavine::Application.routes.draw do
       get '/', :to => 'sentences#index'
             
       resources :sentences do
+        put 'flag', :on => :member
         resources :translation_pairs
       end
     end

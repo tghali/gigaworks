@@ -71,7 +71,7 @@ module JavascriptMinifier
         s << File.read(f)
       end
     
-      File.open(cache_file, "w") { |f| f.puts JSMin.minify(script) } #JSMin.minify(script)
+      File.open(cache_file, "w") { |f| f.puts script } #JSMin.minify(script)
     
       @cached << bundle
     end

@@ -5,7 +5,8 @@ class Sentence < ActiveRecord::Base
   validates_presence_of   :language_code, :text
   validates_uniqueness_of :text, :scope => :language_code,:case_sensitive => false
   
-  has_many :translations,  :class_name => 'TranslationPair', :dependent => :destroy
+  has_many   :translations,  :class_name => 'TranslationPair', :dependent => :destroy
+  belongs_to :flagged_by, :class_name => 'User'
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }
   attr_accessible :language, :text, :definition, :translations_attributes
@@ -40,6 +41,15 @@ class Sentence < ActiveRecord::Base
     sentence.attributes = {:translations_attributes => new_translations_attributes}
     
     return sentence
+  end
+  
+  
+  def flagged?
+    self.flagged_by != nil
+  end
+  
+  def flag user
+    self.flagged_by = user
   end
   
   # def translations_attributes=attributes
