@@ -14,7 +14,7 @@ class Ability
       # To determine if a user has client privileges in the future just add them to
       # the `current_ability` inside the project controller.
       client_privileges if user.account_membership
-      
+
       translator_privileges if user.departements.has?(:languages)
       
     else #guest
@@ -29,6 +29,7 @@ class Ability
   end
   
   def translator_privileges
+    raise 'giving translator privileges' #DEBUG
     translator = @user.languages
     
     can :read,   :glossary
@@ -40,9 +41,9 @@ class Ability
       glossary_item.updated_at > 2.hours.ago
     end
     
-    can :flag, Translation do |translation|
-      if translation.flagged?
-        @user.id == translation.flagged_by_id
+    can :flag, Sentence do |sentence|
+      if sentence.flagged?
+        @user.id == sentence.flagged_by_id
       else
         true
       end

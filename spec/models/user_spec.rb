@@ -42,4 +42,12 @@ describe User do
     
   end
   
+  describe "departement association helpers" do
+    it "verifies the presence of a department" do
+      u = Factory :translator
+      
+      u.departements.has?(:languages).should be_true
+    end
+  end
+  
 end

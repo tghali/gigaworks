@@ -6,13 +6,13 @@
     %p.organisation
       Organisation:
       = link_to @contact.organisation.name, organisation_path(@contact.organisation)
-  - if can?(:administer, :users)
+  - if can?(:create, :users)
     %p.account
       User profile:
       - if @contact.user
         = link_to @contact.user.user_name, admin_user_path(@contact.user)
       - else
-        = link_to 'Create user profile',   admin_new_user_path
+        = link_to 'Create user profile',   new_admin_user_path(:contact_id => @contact.id)
   %p
     Email:
     %ul

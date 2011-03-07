@@ -1,7 +1,7 @@
 - title 'Your Profile'
 %h2= user_slug
 = form_for @user, :html => { :multipart => true }, :url => profile_path do |f|
-  -# @user.errors.inspect # TODO: fix error display
+  -render "shared/error_messages", :target => @user
   %fieldset
     %legend= 'Your profile'
     = f.text_field :user_name

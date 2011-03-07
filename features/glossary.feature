@@ -13,7 +13,7 @@ Feature: Glossary
     And I fill in "Text" with "Base"
     And I select "ar" from "Language" within "#translations"
     And I fill in "Text" with "قاعدة" within "#translations"
-    And I press "Create Sentence"
+    When I press "Create Sentence"
     Then a sentence should exist with text: "Base"
     And the sentence should have 1 translations
     Then I should see "Sentence was successfully created"
@@ -45,6 +45,6 @@ Feature: Glossary
     # TODO: Project membership
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
-    And I follow "Flag"
+    And I follow "Flag sentence"
     Then show me the page
     Then a sentence should not exist with text: "Chicken"

@@ -2,5 +2,5 @@
 
 Factory.define :departement do |d|
   d.name :sales
-  d.user { |d| d.association :user }
+  # d.user { |d| d.association :user }
 end

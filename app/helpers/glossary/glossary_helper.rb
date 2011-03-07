@@ -15,9 +15,9 @@ module Glossary::GlossaryHelper
       end
     else
       if sentence.flagged?
-        content_tag(:em, "this sentence has been flagged", :class => 'flag')
+        content_tag(:em, "this sentence has been flagged", :class => 'flag flagged')
       else
-        content_tag(:em, "this sentence has not been flagged", :class => 'flag flagged')
+        content_tag(:em, "this sentence has not been flagged", :class => 'flag')
       end
     end
   end

@@ -27,7 +27,7 @@ class Sentence < ActiveRecord::Base
       
       sentence = Sentence.new(params)
       
-      return false unless sentence.save
+      return sentence unless sentence.save
     end
     
     return sentence unless new_translations_attributes
@@ -40,7 +40,7 @@ class Sentence < ActiveRecord::Base
     
     sentence.attributes = {:translations_attributes => new_translations_attributes}
     
-    return sentence
+    return sentence  
   end
   
   
@@ -48,8 +48,12 @@ class Sentence < ActiveRecord::Base
     self.flagged_by != nil
   end
   
-  def flag user
-    self.flagged_by = user
+  def toggle_flag user
+    if self.flagged? 
+      self.flagged_by = nil
+    else
+      self.flagged_by = user
+    end
   end
   
   # def translations_attributes=attributes

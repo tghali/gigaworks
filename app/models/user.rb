@@ -40,12 +40,8 @@ class User < ActiveRecord::Base
       departement.delete if departement
     end
     
-    def find departement_name
-      Departement.where(:name_code => Departement::NAMES.index(departement_name), :user_id => proxy_owner.id).first
-    end
-    
     def list
-      @departements ||= proxy_target.map(&:name)
+      @departements ||= proxy_target.entries.map(&:name)
     end
     
     def has? departement_name
@@ -55,6 +51,7 @@ class User < ActiveRecord::Base
   end
   
   has_one :languages, :class_name => 'Departements::Languages'
+  has_one :sales,     :class_name => 'Departements::Sales'
   
   # Client Profile
   has_one :account_membership
