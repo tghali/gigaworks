@@ -4,8 +4,8 @@
   = link_to current_user.user_name, '/profile'
   %span.sign-out
     == (&nbsp;#{link_to t(:'account.Signout'), '/sign_out'}&nbsp;)
-%ul#account-menu.tooltipped
-  %li.notifiable
-    =link_to t(:'profile.Feedback'),   feedback_path,     :id => :'account-feedback',   :title => t(:'profile.Feedback')
-    (2)
-  %li= link_to t(:'profile.Statistics'), statistics_path, :id => :'account-statistics', :title => t(:'profile.Statistics')
+-# %ul#account-menu.tooltipped
+-#   %li.notifiable
+-#     =link_to t(:'profile.Feedback'),   feedback_path,     :id => :'account-feedback',   :title => t(:'profile.Feedback')
+-#     (2)
+-#   %li= link_to t(:'profile.Statistics'), statistics_path, :id => :'account-statistics', :title => t(:'profile.Statistics')

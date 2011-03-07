@@ -12,7 +12,7 @@
       - if @contact.user
         = link_to @contact.user.user_name, admin_user_path(@contact.user)
       - else
-        = link_to 'Create user profile',   new_admin_user_path(:contact_id => @contact.id)
+        = link_to 'Create user account',   new_admin_user_path(:contact_id => @contact.id)
   %p
     Email:
     %ul

@@ -101,8 +101,9 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 
 #room-controls{
   h1 {
+    width: 350px;   // this shouldn't be here
     margin-top: 0.10em;
-    font-size: 2.75em;
+    font-size: 2em; // this used to be 2.75em;
     margin-bottom: 0.40em;
     font-family: "Futura Condensed Medium", "Helvetica Neue Condensed Bold", Helvetica;
     font-weight: 400;
