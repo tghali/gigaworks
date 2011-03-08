@@ -26,7 +26,7 @@ Scenario: Creating an account for an employee
   When I fill in "User name" with "john"
   And  I fill in "Password" with "big secret"
   And I press "Sign In"
-  Then I should be signed in
+  Then show me the page
   Then the response status should be 200
 
 Scenario: Issuing an invite to a client
