@@ -3,6 +3,7 @@ class SessionsController < ActionController::Base
   before_filter :redirect_to_https
   
   include WardenHelper
+  include UrlHelper
   protect_from_forgery
   
   def new
@@ -12,11 +13,11 @@ class SessionsController < ActionController::Base
   def create
     if current_user
       flash.now[:alert] = t(:'account.already_signed_in')
-      redirect_to root_url
+      redirect_to "http://worx.#{request.domain}"
     end
     warden.authenticate! :remember, :sign_in
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
-    redirect_to dashboard_url
+    redirect_to "http://worx.#{request.domain}"
   end
   
   # Load user if the user has authenticated before with the provider.

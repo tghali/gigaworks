@@ -14,8 +14,19 @@ describe "worx subdomain urls" do
   end
   
   it "generates subdomained routes to gigaworx" do
+    controller.request.host = 'subdomain.test.com'
+    
     raise dashboard_url.inspect
     # {:get => dashboard_url}.
     #       should route_to("http://worx.gigavine.com/")
   end
+  
+  it "generates subdomained routes to gigaworx" do
+    controller.request.host = 'subdomain.test.com'
+    
+    raise url_for(:controller => "dashboard", :action => "index").inspect
+    # {:get => dashboard_url}.
+    #       should route_to("http://worx.gigavine.com/")
+  end
+  
 end
