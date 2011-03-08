@@ -2,4 +2,5 @@
   = table_for @contacts do |tabelle|  
     = tabelle.view "table" do |list|
       -# list.actions %w(verify suspend delete)
-  = link_to 'Add Contact', new_contact_path
+  - if can? :create, Contact
+    = link_to 'Add Contact', new_contact_path

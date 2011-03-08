@@ -43,6 +43,7 @@ class Contacts::ContactsController < ApplicationController
   # POST /contacts.xml
   def create
     @contact = Contact.new(params[:contact])
+    authorize! :create, Contact
     
     respond_to do |format|
       if @contact.save
@@ -59,7 +60,8 @@ class Contacts::ContactsController < ApplicationController
   # PUT /contacts/1.xml
   def update
     @contact = Contact.find(params[:id])
-
+    authorize! :update, Contact
+    
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
         format.html { redirect_to(contact_path(@contact), :notice => 'Contact was successfully updated.') }
@@ -74,6 +76,8 @@ class Contacts::ContactsController < ApplicationController
   # DELETE /contacts/1
   # DELETE /contacts/1.xml
   def destroy
+    authorize! :destroy, Contact
+    
     @contact = Contact.find(params[:id])
     @contact.destroy
 
@@ -85,6 +89,8 @@ class Contacts::ContactsController < ApplicationController
   
   # POST /contacts/1/invite
   def invite
+    authorize! :invite, Contact
+    
     @contact = Contact.find(params[:id])
     @invite = @contact.build_invite(:sender => current_user)
     
