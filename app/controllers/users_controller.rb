@@ -1,16 +1,26 @@
 class UsersController < ActionController::Base
   include WardenHelper
-  before_filter :authenticate, :except => [:new, :create]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create]
   
   layout 'application'
   protect_from_forgery
   
+  def terms_and_conditions
+    render :layout => 'sessions'
+  end
+  
+  def privacy_policy
+    render :layout => 'sessions'
+  end
+  
   def new
-    @user = User.new(:invite_token => params[:invite_token])
-    @user.email = @user.beta_invite.recipient_email if @user.beta_invite
+    invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
+    redirect_to(sign_in_url, :notice => 'The invite has already been redeemed') if invite.recipient.user
     
+    @user = invite.recipient.build_user
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render :new, :layout => 'sessions'}
       format.xml  { render :xml => @word }
     end
   end
@@ -19,19 +29,22 @@ class UsersController < ActionController::Base
     @user = current_user
     @user.password = nil
     @user.password_confirmation = nil
+    layout 'sessions'
   end
   
   def create
-    @user = User.new(params[:user])
-
+    invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
+    redirect_to(sign_in_url, :notice => 'The invite has already been redeemed') if invite.recipient.user
+    
+    @user = invite.recipient.build_user(params[:user])
+    @user.status = :verified
+    
     respond_to do |format|
       if @user.save 
-        UserMailer.deliver_verification @user
-        flash[:notice] = "Congratulations, you succesfully registered. Soon you will receive an email with an activation link: click it to complete the registration."
-        format.html { redirect_to root_url }
+        format.html { redirect_to sign_in_url, :notice => "Congratulations, you succesfully registered. You can now log in"}
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
+        format.html { render :new, :layout => 'sessions' }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end      
     end#end respond_to
@@ -70,6 +83,17 @@ class UsersController < ActionController::Base
       render :action => 'new', :status => :unauthorized
     end
   end
-  
-  
+
+# FIXME: this is a duplicate.
+private
+  def ensure_user_is_not_signed_in
+    if current_user
+      if params[:action] == 'new'
+        flash[:error] = "You are currently signed in. The action you requested will require you to sign out."
+      else
+        redirect_to :action => 'new'
+      end
+    end
+  end
+
 end

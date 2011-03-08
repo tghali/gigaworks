@@ -12,7 +12,7 @@
       - if @contact.user
         = link_to @contact.user.user_name, admin_user_path(@contact.user)
       - else
-        = link_to 'Create user account',   new_admin_user_path(:contact_id => @contact.id)
+        = link_to 'Invite user to gigaworx',   invite_contact_path(@contact), :confirm => "Are you sure you want to allow #{@contact.full_name} to register?", :method => :post
   %p
     Email:
     %ul

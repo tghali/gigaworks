@@ -1,5 +1,5 @@
 Then /^I should be signed in$/ do
-  page.driver.request.env['warden'].should_be authenticated
+  page.driver.request.env['warden'].should be_authenticated
 end
 
 Then /^I should not be signed in$/ do
@@ -21,7 +21,7 @@ Given(/^#{capture_model}\s?(?:\'m|am|has|have)? signed up(?: with #{capture_fiel
     attribute_names_for_contact.include? k
   end.map {|side| Hash[*side.flatten]}
   
-  Factory :user, user_attributes.merge({:contact => Factory(:contact, contact_attributes)})
+  Factory :user, user_attributes #.merge({:contact => Factory(:contact, contact_attributes)})
 end
 
 When(/^I sign in as "(\S+)"$/) do |user_name|

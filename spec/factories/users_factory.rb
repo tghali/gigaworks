@@ -23,5 +23,8 @@ Factory.define :sales_person, :parent => :user do |f|
 end
 
 Factory.define :translator, :parent => :user do |f|  
-  f.departements {|u| [u.association(:departement, :name => :languages)] }
+  f.departements do |u| 
+    Rails.logger.debug '[Factory] translator created'
+    [u.association(:departement, :name => :languages)]
+  end
 end

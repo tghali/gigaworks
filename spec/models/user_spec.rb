@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "cancan/matchers"
 
 describe User do
   
@@ -45,8 +46,13 @@ describe User do
   describe "departement association helpers" do
     it "verifies the presence of a department" do
       u = Factory :translator
-      
+      u.reload
+
       u.departements.has?(:languages).should be_true
+      
+      ability = Ability.new(u)
+      
+      ability.should be_able_to(:create, Sentence)
     end
   end
   

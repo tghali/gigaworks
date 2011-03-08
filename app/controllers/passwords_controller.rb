@@ -11,7 +11,7 @@ class PasswordsController < ApplicationController
     begin
       @user = User.forgot_password_for(params[:user][:email])
       if @user.save
-        UserMailer.deliver_password_reset(@user)
+        UserMailer.password_reset(@user).deliver
         flash[:success] = t:'account.password_reset_code_sent'
         redirect_to sign_in_url
       else
@@ -27,7 +27,7 @@ class PasswordsController < ApplicationController
   
   # Change password
   def edit
-    @user = User.find_by_password_reset_token(params[:password_reset_token]||'notoken')
+    @user = User.find_by_password_reset_token(params[:password_reset_token] || 'notoken')
     case @user
     when @user.nil? then
       flash[:error] = t:'account.password_reset_code_not_valid'

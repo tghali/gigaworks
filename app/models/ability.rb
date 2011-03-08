@@ -29,7 +29,6 @@ class Ability
   end
   
   def translator_privileges
-    raise 'giving translator privileges' #DEBUG
     translator = @user.languages
     
     can :read,   :glossary
@@ -37,8 +36,8 @@ class Ability
     
     # A translator can amend or delete his contribution to the glossary in 2 hours 
     can [:edit, :destroy], [Sentence, Translation] do |glossary_item|
-      return false unless glossary_item.translator_id == translator.id
-      glossary_item.updated_at > 2.hours.ago
+      (glossary_item.author_id == @user.id) &&
+      (glossary_item.updated_at > 2.hours.ago)
     end
     
     can :flag, Sentence do |sentence|

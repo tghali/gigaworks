@@ -83,4 +83,21 @@ class Contacts::ContactsController < ApplicationController
     end
   end
   
+  # POST /contacts/1/invite
+  def invite
+    @contact = Contact.find(params[:id])
+    @invite = @contact.build_invite(:sender => current_user)
+    
+    respond_to do |format|
+      if @invite.save
+        UserMailer.invite(@invite).deliver
+        format.html { redirect_to(contact_path(@contact), :notice => 'Contact was successfully invited.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "invite" }
+        format.xml  { render :xml => @contact.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
 end

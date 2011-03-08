@@ -6,6 +6,7 @@ class Sentence < ActiveRecord::Base
   validates_uniqueness_of :text, :scope => :language_code,:case_sensitive => false
   
   has_many   :translations,  :class_name => 'TranslationPair', :dependent => :destroy
+  has_one    :author,     :class_name => 'User'
   belongs_to :flagged_by, :class_name => 'User'
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }

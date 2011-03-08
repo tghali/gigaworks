@@ -30,14 +30,23 @@ Feature: Glossary
   
   Scenario: Deleting a translation
     When I go to "http://worx.example.com"
-    Given a translator exists
-    Given I am signed in as translator
+    Given an admin exists
+    Given I am signed in as admin
     # TODO: Project membership
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
     And I follow "Delete"
     Then a sentence should not exist with text: "Chicken"
     
+  Scenario: A translator cannot delete translations
+    When I go to "http://worx.example.com"
+    Given a translator exists
+    Given I am signed in as translator
+    # TODO: Project membership
+    Given a sentence with translation: "chicken" exists with text: "Chicken"
+    When I go to the glossary sentence page for the sentence: "chicken"
+    And I follow "Delete"
+  
   Scenario: Flagging a translation
     When I go to "http://worx.example.com"
     Given a translator exists
@@ -45,6 +54,6 @@ Feature: Glossary
     # TODO: Project membership
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
-    And I follow "Flag sentence"
     Then show me the page
-    Then a sentence should not exist with text: "Chicken"
+    And I follow "Flag sentence"
+    Then the sentence: "chicken" should have a flag
