@@ -46,7 +46,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   def create
     authorize! :create, Sentence
     
-    @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence])
+    @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence].merge :author => current_user)
     
     respond_to do |format|
       if @sentence.save
@@ -67,7 +67,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     authorize! :update, @sentence
     
     respond_to do |format|
-      if @sentence.update_attributes(params[:sentence])
+      if @sentence.update_attributes(params[:sentence].merge :author => current_user)
         format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -97,7 +97,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     
     authorize! :flag, @sentence
     
-    @sentence.toggle_flag
+    @sentence.toggle_flag current_user
     
     respond_to do |format|
       if @sentence.save
