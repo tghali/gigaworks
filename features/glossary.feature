@@ -54,6 +54,6 @@ Feature: Glossary
     # TODO: Project membership
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
-    Then show me the page
     And I follow "Flag sentence"
-    Then the sentence: "chicken" should have a flag
+    Then show me the page
+    Then the sentence: "chicken" should be flagged
