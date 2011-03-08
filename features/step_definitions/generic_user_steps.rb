@@ -20,8 +20,8 @@ Given(/^#{capture_model}\s?(?:\'m|am|has|have)? signed up(?: with #{capture_fiel
   contact_attributes, user_attributes = parse_fields(fields).partition do |k,v|
     attribute_names_for_contact.include? k
   end.map {|side| Hash[*side.flatten]}
-  
-  Factory :user, user_attributes #.merge({:contact => Factory(:contact, contact_attributes)})
+
+  Factory :user, user_attributes.merge({:contact => Factory(:contact, contact_attributes)})
 end
 
 When(/^I sign in as "(\S+)"$/) do |user_name|

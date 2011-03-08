@@ -9,7 +9,18 @@ Feature: Signing in
     And   I fill in "User name or email" with "me@example.com"
     And   I fill in "Password" with "big secret"
     And   I press "Sign In"
-    Then the response status should be 200
+    Then  the response status should be 200
+    Then  show me the page
+    
+  Scenario: Signing in with an email bound account
+    Given I signed up with user_name: "me", email: "me@example.com"
+    When  I go to "http://worx.example.com"
+    And   I fill in "User name or email" with "me@example.com"
+    And   I fill in "Password" with "big secret"
+    And   I press "Sign In"
+    Then  the response status should be 200
+    Then  show me the page
+
   
   Scenario: Remember a user
     Given I signed up with user_name: "me", email: "me@example.com"
