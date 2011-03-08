@@ -46,3 +46,15 @@
     #account-statistics {@include replace-text('/images/bare/account-statistics.png', 0, 0, 16px, 16px);}
   }
 }
+
+#overlay {
+  background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
+  color:#efefef;
+  height:450px;
+  
+  /* container for external content. uses vertical scrollbar, if needed */
+  div.contentWrap {
+    height:441px;
+    overflow-y:auto;
+  }
+}

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include WardenHelper
-  # include UrlHelper
+  include UrlHelper
   
   before_filter :authenticate
   

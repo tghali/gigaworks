@@ -73,7 +73,9 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 }
 #mid{
   @include column($blueprint-grid-columns, last);
-  
+  width: 97.974%;
+  margin-left:  1%;
+  margin-right: 1%;
   #parent {
     @include fixed-column($parent-columns);
     overflow-x: hidden;

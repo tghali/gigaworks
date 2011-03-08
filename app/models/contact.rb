@@ -10,7 +10,8 @@ class Contact < ActiveRecord::Base
   has_one_baked_in :email_type,     :names => Gigavine::Preferences.contact_detail_types
   has_one_baked_in :telephone_type, :names => Gigavine::Preferences.contact_detail_types
   
-  scope :shared, where(:public => true)
+  # scope :shared, where(:public => true)
+  scope :shared, where(:organisation_id => 1)
   
   validates_uniqueness_of    :email, :if => :email_changed?
   validates_presence_of      :first_name, :last_name

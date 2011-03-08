@@ -3,6 +3,7 @@ class SessionsController < ActionController::Base
   before_filter :redirect_to_https
   
   include WardenHelper
+  include UrlHelper
   protect_from_forgery
   
   def new

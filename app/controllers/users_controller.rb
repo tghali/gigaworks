@@ -1,7 +1,12 @@
 class UsersController < ActionController::Base
   include WardenHelper
+  include UrlHelper
+  protect_from_forgery
+  
   before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy]
   before_filter :ensure_user_is_not_signed_in, :only => [:new, :create]
+  
+  before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
   layout 'application'
   protect_from_forgery
@@ -29,7 +34,6 @@ class UsersController < ActionController::Base
     @user = current_user
     @user.password = nil
     @user.password_confirmation = nil
-    layout 'sessions'
   end
   
   def create
@@ -85,7 +89,8 @@ class UsersController < ActionController::Base
   end
 
 # FIXME: this is a duplicate.
-private
+protected
+
   def ensure_user_is_not_signed_in
     if current_user
       if params[:action] == 'new'
@@ -95,5 +100,8 @@ private
       end
     end
   end
-
+  
+  def redirect_to_https
+      redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+  end
 end

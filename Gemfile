@@ -44,7 +44,7 @@ group :test, :cucumber do
   gem 'database_cleaner', '>= 0.5.2'
   gem 'timecop', '~> 0.3.5'
   gem 'launchy', '>= 0.3.5'
-  gem 'rspec-rails', '>= 2.1.0'
+  gem 'rspec-rails', '>= 2.5.0'
   gem 'fredo', :path => '~/Sites/tools/fredo'
   gem 'ruby-debug'
   # gem 'spork', '>= 0.8.4'
