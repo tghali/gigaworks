@@ -1,6 +1,6 @@
 class UsersController < ActionController::Base
   include WardenHelper
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy]
   before_filter :ensure_user_is_not_signed_in, :only => [:new, :create]
   
   layout 'application'
