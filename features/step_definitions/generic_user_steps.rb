@@ -1,5 +1,5 @@
 Then /^I should be signed in$/ do
-  page.driver.request.env['warden'].should_be authenticated
+  page.driver.request.env['warden'].should be_authenticated
 end
 
 Then /^I should not be signed in$/ do
@@ -21,7 +21,7 @@ Given(/^#{capture_model}\s?(?:\'m|am|has|have)? signed up(?: with #{capture_fiel
     attribute_names_for_contact.include? k
   end.map {|side| Hash[*side.flatten]}
   
-  Factory :user, user_attributes.merge({:contact => Factory(:contact, contact_attributes)})
+  Factory :user, user_attributes #.merge({:contact => Factory(:contact, contact_attributes)})
 end
 
 When(/^I sign in as "(\S+)"$/) do |user_name|
@@ -40,7 +40,7 @@ When(/^I sign in with "(\S+)", "(.*)"$/) do |user_name, password|
 end
 
 Given %r{#{capture_model}\s?(?:'m|is|am) signed in(?: with #{capture_fields})?$} do |name, fields|
-  @user = (find_model(name) or [create_model(name, fields)]).first
+  @user = find_model(name) || create_model(name, fields)
   visit "/sign_in"
   fill_in 'User name or email', :with => @user.user_name 
   fill_in 'Password', :with => 'big secret'
@@ -49,9 +49,9 @@ end
 
 
 Given %r{I(?:'m|\sam) signed in as #{capture_model}(?: with #{capture_fields})?$} do |name, fields|
-  @user = (find_model(name) or [create_model(name, fields)]).first
+  @user = find_model(name) || create_model(name, fields)
   visit "/sign_in"
-  fill_in 'User Name', :with => @user.user_name
+  fill_in 'User name or email', :with => @user.user_name
   fill_in 'Password', :with => 'big secret'
   click_button 'Sign In'
 end

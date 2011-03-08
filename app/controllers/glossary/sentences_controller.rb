@@ -44,10 +44,12 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # POST /sentences
   # POST /sentences.xml
   def create
+    authorize! :create, Sentence
+    
     @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence])
     
     respond_to do |format|
-      if @sentence && @sentence.save
+      if @sentence.save
         format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully created.') }
         format.xml  { render :xml => @sentence, :status => :created, :location => @sentence }
       else
@@ -59,9 +61,11 @@ class Glossary::SentencesController < Glossary::GlossaryController
 
   # PUT /sentences/1
   # PUT /sentences/1.xml
-  def update
+  def update    
     @sentence = Sentence.find(params[:id])
-
+    
+    authorize! :update, @sentence
+    
     respond_to do |format|
       if @sentence.update_attributes(params[:sentence])
         format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully updated.') }
@@ -77,6 +81,9 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # DELETE /sentences/1.xml
   def destroy
     @sentence = Sentence.find(params[:id])
+    
+    authorize! :destroy, @sentence
+    
     @sentence.destroy
 
     respond_to do |format|
@@ -84,5 +91,23 @@ class Glossary::SentencesController < Glossary::GlossaryController
       format.xml  { head :ok }
     end
   end
-
+  
+  def flag    
+    @sentence = Sentence.find(params[:id])
+    
+    authorize! :flag, @sentence
+    
+    @sentence.toggle_flag
+    
+    respond_to do |format|
+      if @sentence.save
+        format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @sentence.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
 end

@@ -35,17 +35,13 @@ class User < ActiveRecord::Base
     end
     
     def remove departement_name
-      departement = Departement.where(:name_code => Departement.name_codes_for(departement_name), :user_id => proxy_owner.id).first
+      departement = Departement.where(:name_code => Departement::NAMES.index(departement_name), :user_id => proxy_owner.id).first
       
       departement.delete if departement
     end
     
-    def find departement_name
-      Departement.where(:name_code => Departement.name_codes_for(departement_name), :user_id => proxy_owner.id).first
-    end
-    
     def list
-      @departements ||= proxy_target.map(&:name)
+      @departements_list ||= map(&:name)
     end
     
     def has? departement_name
@@ -53,6 +49,9 @@ class User < ActiveRecord::Base
     end
     
   end
+  
+  has_one :languages, :class_name => 'Departements::Languages'
+  has_one :sales,     :class_name => 'Departements::Sales'
   
   # Client Profile
   has_one :account_membership
@@ -69,7 +68,7 @@ class User < ActiveRecord::Base
   
   
   # INVITES AND VERIFICATION
-  belongs_to :invite,  :dependent => :destroy
+  has_many   :invites, :foreign_key => 'sender_id', :dependent => :destroy
   
   has_one    :verification_key,   :class_name => 'UserVerificationKey',
                                   :dependent => :destroy, :autosave => true,
@@ -85,6 +84,8 @@ class User < ActiveRecord::Base
   validates_presence_of      :contact
   validates_uniqueness_of    :contact_id
   validates_associated       :contact
+  validates_acceptance_of    :terms_of_service, :on => :create
+  validates_acceptance_of    :privacy_policy, :on => :create
   
   validates_inclusion_of     :status_code, :on => :update,
                                            :in => status_codes_for(:active),
@@ -101,16 +102,18 @@ class User < ActiveRecord::Base
   validates_associated       :verification_key, :message => :expired
   validates_associated       :password_reset_key, :message => :expired
 
-  before_update     :spend_user_token, :if => lambda {|u| u.status_code_changed? and u.verified?}
+  before_update     :spend_user_token, :if => lambda {|u| u.status_code_changed? && u.verified?}
   before_create     :create_verification_key, :unless => :verified?
   before_save       :delete_clear_password
   
   accepts_nested_attributes_for :contact
   
   attr_accessible :user_name, :password, :password_confirmation, :contact_attributes,
-                  :old_password, :password_reset_token, :avatar, :contact, :invite_token
+                  :old_password, :password_reset_token, :avatar, :contact, :invite_token,
+                  :terms_of_service, :privacy_policy
   
-  attr_accessor   :old_password, :password_reset_token, :password_confirmation
+  attr_accessor   :old_password, :password_reset_token, :password_confirmation,
+                  :terms_of_service, :privacy_policy
   
   
   # Project Management and Administration

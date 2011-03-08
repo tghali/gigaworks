@@ -19,7 +19,7 @@
         #bar
           = render 'shared/room_switcher'
           #room-controls
-            %h1 Gigaworx - prototype
+            %h1 Mawhiba Educational Glossary
           #bar-end
             #control-panel
               &nbsp;
@@ -36,4 +36,4 @@
               -flash.clear
             =  content_for?(:main) ? yield(:main) : yield
       #footer
-        %h6 Gigaworx - Prototype &copy; 2011 Gigavine ltd.
+        %h6== Gigaworx - Prototype &copy; #{Time.now.year} Gigavine ltd.

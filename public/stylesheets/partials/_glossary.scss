@@ -24,6 +24,8 @@
         @include box-shadow( 0px, 3px, 2px, $gigavine-dark-grey);
         
         form{
+          p      { position: relative; }
+          label  { position: absolute; height: 0; top:10px; left:6px;}
           input[type=text]{
             width: 200px;
           }
@@ -48,6 +50,23 @@
   
   #main {
     #glossary-page{
+      a.flag {
+        @include replace-text('/images/flag_not_flagged.png', 50%, 50%, 24px, 24px);
+        display: block;
+        float: right;
+        
+        &:hover {background-image: url('/images/flag_flag.png');}
+        &.flagged {
+          background-image: url('/images/flag_flagged.png');
+          &:hover {background-image: url('/images/flag_unflag.png');}
+        }
+      }
+      em.flag {
+        @include replace-text('/images/flag_not_flagged.png', 50%, 50%, 24px, 24px);
+        display: block;
+        float: right;
+        &.flagged {background-image: url('/images/flag_flagged.png');}
+      }
       .box{
         @include column(16);
         @include border-radius(3px);

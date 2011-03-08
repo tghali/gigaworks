@@ -19,7 +19,7 @@ class RememberStrategy < Warden::Strategies::Base
     if user
       success!(user)
     else
-      fail(:'account.invalid_remember_me_token')
+      fail('Invalid remember token')
     end
   end
 end
@@ -32,12 +32,12 @@ class SignInStrategy < Warden::Strategies::Base
   
   def authenticate!      
     user = User.authenticate(params['session']['user_name_or_email'], params['session']['password'])
-    
+
     if user
       cookies.signed.permanent['_gigavine_warden'] = [user.id, user.salt] if params['session']['remember_me'] == '1' #TODO: using == '1' isn't pretty
       success!(user)
     else
-      fail(:'account.invalid_name_or_password')
+      fail('Wrong user name or password')
     end
   end
 end

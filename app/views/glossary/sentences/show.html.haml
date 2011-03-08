@@ -2,6 +2,7 @@
   %p
     = language_flag_for(@sentence)
     = @sentence.text
+    = flag_toggle_for @sentence
   %hr
     %ul.word-definition-translations
       - @sentence.translations.each do |t|
@@ -10,13 +11,18 @@
             = language_flag_for(t)
             = t.text
           %p
-            = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
+            - if can? :update, t
+              = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
             |
-            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
+            - if can? :destroy, t
+              = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
   %p
-    = link_to "Edit", edit_glossary_sentence_path(@sentence)
+    - if can? :update, @sentence
+      = link_to "Edit", edit_glossary_sentence_path(@sentence)
     |
-    = link_to 'Delete', glossary_sentence_path(@sentence), :confirm => 'Are you sure?', :method => :delete
+    - if can? :destroy, @sentence
+      = link_to 'Delete', glossary_sentence_path(@sentence), :confirm => 'Are you sure?', :method => :delete
     |
-    = link_to "Add translation", new_glossary_sentence_translation_pair_path(@sentence)
+    - if can? :create, Sentence
+      = link_to "Add translation", new_glossary_sentence_translation_pair_path(@sentence)
     

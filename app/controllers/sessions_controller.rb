@@ -43,8 +43,8 @@ class SessionsController < ActionController::Base
   end
   
   def unauthorized
-    flash.now[:error] = t(env['warden.options'][:message]) if env['warden.options'][:message]
-    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{params[:user_name_or_email]} #{t(env['warden.options'][:message])}"
+    flash.now[:error] = warden.message
+    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{warden.message}"
     cookies.delete('_gigavine_warden')
     render :action => "new", :status => :unauthorized
   end

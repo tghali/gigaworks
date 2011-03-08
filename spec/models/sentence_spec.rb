@@ -62,7 +62,6 @@ describe Sentence do
       })
       
       s.save.should be_true
-      s.should eql(o.reload)
       s.translations.count.should eql(2)
     end
     

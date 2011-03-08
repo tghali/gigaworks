@@ -31,9 +31,9 @@ $(document).ready(function(){
   // });
   
   // Just to warm up my js:
-  (function(test_paragraph){
-    test_paragraph.html(test_paragraph.attr("data-message"));
-  })($('p[data-function=jstest]'));
+  // (function(test_paragraph){
+  //   test_paragraph.html(test_paragraph.attr("data-message"));
+  // })($('p[data-function=jstest]'));
   
   //Elastic Layout
   function fill(){
@@ -47,6 +47,9 @@ $(document).ready(function(){
   fill();
   $(window).resize(fill);
   
+  (function(){
+    $("label[data-infield]").inFieldLabels();
+  })();
   
   //Tooltips
   $(".tooltipped a").tooltip({

@@ -9,15 +9,17 @@ Gigavine::Application.routes.draw do
   post   '/sign_in'                 => 'sessions#create'
   get    '/auth/:provider/callback' => 'sessions#oauth'
   get    '/sign_out'                => 'sessions#destroy', :as => :sign_out
+  get    '/terms_and_conditions'    => 'users#terms_and_conditions', :as => :terms_and_conditions
+  get    '/privacy_policy'          => 'users#privacy_policy',       :as => :privacy_policy
   
   get    'sign_up/(:invite_token)'  => 'users#new', :as => :sign_up
   post   'sign_up'  => 'users#create'
   get    'activate/:verification_token' => 'users#verify'
 
   # Profile and password reset
-  get '/profile'           => 'users#edit',       :as => :profile
-  get 'profile/feedback'   => 'users#feedback',   :as => :feedback
-  get 'profile/statistics' => 'users#statistics', :as => :statistics
+  get '/profile'           => 'users#edit',        :as => :profile
+  get '/profile/feedback'   => 'users#feedback',   :as => :feedback
+  get '/profile/statistics' => 'users#statistics', :as => :statistics
   put '/profile' => 'users#update'
   
   get  '/forgot_password' => 'passwords#new'
@@ -34,7 +36,8 @@ Gigavine::Application.routes.draw do
   # Contacts
     resources :contacts, :module => 'contacts' do
       resources :details
-  
+      post 'invite', :on => :member
+      
       collection do
         resources :organisations
       end
@@ -51,6 +54,7 @@ Gigavine::Application.routes.draw do
       get '/', :to => 'sentences#index'
             
       resources :sentences do
+        put 'flag', :on => :member
         resources :translation_pairs
       end
     end

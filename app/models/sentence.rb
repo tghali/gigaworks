@@ -5,12 +5,12 @@ class Sentence < ActiveRecord::Base
   validates_presence_of   :language_code, :text
   validates_uniqueness_of :text, :scope => :language_code,:case_sensitive => false
   
-  has_many :definition_examples
-  has_many :definitions, :through => :definition_examples
-  
-  has_many :translations,  :class_name => 'TranslationPair', :dependent => :destroy
+  has_many   :translations,  :class_name => 'TranslationPair', :dependent => :destroy
+  has_one    :author,     :class_name => 'User'
+  belongs_to :flagged_by, :class_name => 'User'
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }
+  attr_accessible :language, :text, :definition, :translations_attributes
   
   def self.search text
     where('upper(text) LIKE upper(?)', text+'%')
@@ -28,7 +28,7 @@ class Sentence < ActiveRecord::Base
       
       sentence = Sentence.new(params)
       
-      return false unless sentence.save
+      return sentence unless sentence.save
     end
     
     return sentence unless new_translations_attributes
@@ -41,7 +41,20 @@ class Sentence < ActiveRecord::Base
     
     sentence.attributes = {:translations_attributes => new_translations_attributes}
     
-    return sentence
+    return sentence  
+  end
+  
+  
+  def flagged?
+    self.flagged_by != nil
+  end
+  
+  def toggle_flag user
+    if self.flagged? 
+      self.flagged_by = nil
+    else
+      self.flagged_by = user
+    end
   end
   
   # def translations_attributes=attributes

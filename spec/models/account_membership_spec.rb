@@ -16,7 +16,7 @@ describe AccountMembership do
     organisation.contacts.first.should eql(c)
     
     # create an account
-    organisation.create_account(:sales_representative => salesperson.departements.find(:sales))
+    organisation.create_account(:sales_representative => salesperson.sales)
     
     organisation.account.users.create(:contact => c)
     
