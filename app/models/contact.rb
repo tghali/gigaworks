@@ -1,6 +1,6 @@
 class Contact < ActiveRecord::Base
   
-  has_one    :user
+  has_one    :user, :dependent => :destroy
   has_one    :invite, :foreign_key => 'recipient_id', :dependent => :destroy
   
   belongs_to :organisation
