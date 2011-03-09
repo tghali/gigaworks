@@ -1,6 +1,6 @@
 class SessionsController < ActionController::Base
   
-  before_filter :redirect_to_https
+  # before_filter :redirect_to_https
   
   include WardenHelper
   include UrlHelper
@@ -44,7 +44,8 @@ class SessionsController < ActionController::Base
   end
   
   def unauthorized
-    flash.now[:error] = warden.message
+    # (flash.now[:error] = warden.message || "please")
+
     Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{warden.message}"
     cookies.delete('_gigavine_warden')
     render :action => "new", :status => :unauthorized

@@ -6,7 +6,7 @@ class UsersController < ActionController::Base
   before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy]
   before_filter :ensure_user_is_not_signed_in, :only => [:new, :create]
   
-  before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
+  # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
   layout 'application'
   protect_from_forgery
@@ -28,6 +28,8 @@ class UsersController < ActionController::Base
       format.html {render :new, :layout => 'sessions'}
       format.xml  { render :xml => @word }
     end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to(sign_in_url, :notice => 'The invite code was not found in our database, if the problem persists please contact an administrator.')
   end
   
   def edit
@@ -101,6 +103,7 @@ protected
     end
   end
   
+  # FIXME: this kills the url parameters during protocol redirection
   def redirect_to_https
       redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
   end
