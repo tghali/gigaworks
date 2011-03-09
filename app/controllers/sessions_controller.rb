@@ -13,7 +13,7 @@ class SessionsController < ActionController::Base
   def create
     if current_user
       flash.now[:alert] = t(:'account.already_signed_in')
-      redirect_to "http://worx.#{request.domain}"
+      redirect_to "http://worx.#{request.domain}" and return
     end
     warden.authenticate! :remember, :sign_in
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"

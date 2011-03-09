@@ -98,7 +98,7 @@ protected
       if params[:action] == 'new'
         flash[:error] = "You are currently signed in. The action you requested will require you to sign out."
       else
-        redirect_to :action => 'new' and return
+        redirect_to redirect_to "http://worx.#{request.domain}" and return
       end
     end
   end
