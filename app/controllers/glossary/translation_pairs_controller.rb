@@ -22,6 +22,8 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
 
 
   def create
+    authorize! :create, Translation
+    
     @sentence = Sentence.find(params[:sentence_id])
     @translation = @sentence.translations.build(params[:translation_pair])
     
@@ -40,6 +42,8 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
   def update
     @translation = TranslationPair.find(params[:id])
     
+    authorize! :update, @translation
+    
     respond_to do |format|
       if @translation.update_attributes(params[:sentence])
         format.html { redirect_to(glossary_sentence_path(@translation.source), :notice => 'The translation was successfully updated.') }
@@ -54,6 +58,8 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
 
   def destroy
     translation = TranslationPair.find(params[:id])
+    
+    authorize! :destroy, translation
     
     translation.destroy
     respond_to do |format|

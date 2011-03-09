@@ -21,8 +21,12 @@ class UsersController < ActionController::Base
   
   def new
     invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
-    redirect_to(sign_in_url, :notice => 'The invite has already been redeemed') if invite.recipient.user
-    
+
+    if invite.recipient.user
+      redirect_to(sign_in_url, :notice => 'The invite has already been redeemed')
+      return
+    end
+
     @user = invite.recipient.build_user
     respond_to do |format|
       format.html {render :new, :layout => 'sessions'}
