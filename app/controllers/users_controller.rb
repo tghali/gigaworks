@@ -95,11 +95,7 @@ protected
 
   def ensure_user_is_not_signed_in
     if current_user
-      if params[:action] == 'new'
-        flash[:error] = "You are currently signed in. The action you requested will require you to sign out."
-      else
-        redirect_to redirect_to "http://worx.#{request.domain}" and return
-      end
+        redirect_to "http://worx.#{request.domain}", :notice => "You are currently signed in. The action you requested will require you to sign out." and return
     end
   end
   
