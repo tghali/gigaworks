@@ -13,16 +13,25 @@
           %p
             - if can? :update, t
               = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
+            - else
+              %em.disabled Edit Translation
             |
             - if can? :destroy, t
               = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
+            - else
+              %em.disabled Delete Translation
   %p
     - if can? :update, @sentence
       = link_to "Edit", edit_glossary_sentence_path(@sentence)
+    - else
+      %em.disabled Edit
     |
     - if can? :destroy, @sentence
       = link_to 'Delete', glossary_sentence_path(@sentence), :confirm => 'Are you sure?', :method => :delete
+    - else
+      %em.disabled Delete
     |
-    - if can? :create, Sentence
+    - if can? :create, Translation
       = link_to "Add translation", new_glossary_sentence_translation_pair_path(@sentence)
-    
+    - else
+      %em.disabled Add translation

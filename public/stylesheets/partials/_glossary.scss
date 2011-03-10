@@ -1,4 +1,9 @@
 #mid.glossary {
+  
+  em.disabled {
+    color: $gigavine-light-grey-bg;
+  }
+  
   span.iso639-1{
     display: inline-block;
     span.flag {
@@ -25,7 +30,7 @@
         
         form{
           p      { position: relative; }
-          label  { position: absolute; height: 0; top:10px; left:6px;}
+          label  { position: absolute; height: 0; top:10px; left:6px; color: $gigavine-medium-grey;}
           input[type=text]{
             width: 200px;
           }

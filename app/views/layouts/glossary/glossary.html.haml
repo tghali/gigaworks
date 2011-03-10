@@ -19,7 +19,10 @@
               = language_flag_for(sentence)
               = link_to truncate(sentence.text, :length => 40, :omission => '...'), glossary_sentence_path(sentence)
       %p
-        = link_to 'Add a sentence', new_glossary_sentence_path
+        - if can? :create, Sentence
+          = link_to 'Add a sentence', new_glossary_sentence_path
+        - else
+          %em.disabled Add a sentence
 
 - content_for :main do
   #glossary-page
