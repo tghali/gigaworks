@@ -33,7 +33,7 @@ Factory :word, :language => :en, :word => 'hello', :definitions => [
 ]
 
 
-s = Sentence.create(:language => :en, :text => 'hello world',)
+s = Sentence.create(:language => :en, :text => 'hello world')
 s.update_attributes :translations_attributes => {
                       "0" => {:language => :it, :text => 'ciao mondo'},
                       "1" => {:language => :fr, :text => 'bonjour monde'},

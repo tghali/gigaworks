@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
                     :styles         => { :medium => "128x128>",
                                          :small  => "48x48>"}
   
+  has_many :comments
   has_many :departements do
     
     def add departement_name

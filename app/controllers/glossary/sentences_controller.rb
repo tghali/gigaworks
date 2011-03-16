@@ -15,6 +15,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   def show
 
     @sentence = Sentence.find(params[:id])
+    @comments = Comment.where(:commentable_id => @sentence.id).where(:commentable_type => Sentence)
 
     respond_to do |format|
       format.html # show.html.erb

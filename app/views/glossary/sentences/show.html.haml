@@ -25,4 +25,27 @@
     |
     - if can? :create, Sentence
       = link_to "Add translation", new_glossary_sentence_translation_pair_path(@sentence)
+
+.comment-box
+  %p
+    Comments/ Q&A
+    %span
+      = "(#{@comments.length})"
+    - if can? :update, @sentence
+      = link_to 'Add Comment', "/"
+  %hr
+    %ul
+      - @comments.each do |comment|
+        %li
+          %p
+            = image_tag comment.user.avatar(:medium)
+            = comment.user.user_name
+            \-
+            = comment.created_at.to_s(:db)
+          %p
+            = comment.comment
+          %p.comment-buttons
+            - if can? :update, @sentence
+              = link_to 'Delete', glossary_sentence_comment_path(@sentence, comment), :method => 'delete'
+          %hr.comment-line
     
