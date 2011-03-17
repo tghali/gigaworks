@@ -28,11 +28,13 @@
 
 .comment-box
   %p
+    = notice
+  %p
     Comments/ Q&A
     %span
-      = "(#{@comments.length})"
+      == (#{@comments.length})
     - if can? :update, @sentence
-      = link_to 'Add Comment', "/"
+      = link_to 'Add Comment', "#", :rel => "#comment_form", :id => "add_comment"
   %hr
     %ul
       - @comments.each do |comment|
@@ -46,6 +48,13 @@
             = comment.comment
           %p.comment-buttons
             - if can? :update, @sentence
-              = link_to 'Delete', glossary_sentence_comment_path(@sentence, comment), :method => 'delete'
+              = link_to 'Delete', glossary_comment_path(comment), :method => 'delete'
           %hr.comment-line
-    
+#comment_form.simple_overlay
+  %h3
+    Add Comment
+  = form_for Comment.new, :url => glossary_comments_path do |w|
+    = w.text_area :comment
+    = hidden_field(:comment, :commentable_id, {:value => @sentence.id.to_s})
+    = hidden_field(:comment, :commentable_type, {:value => 'Sentence'})
+    = w.submit

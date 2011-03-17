@@ -16,6 +16,8 @@ var app = {
 
 
 $(document).ready(function(){
+//  $("a[rel]").overlay();
+  $('#add_comment[rel]').overlay();
   jQuery.goverlay(30,10,18);
   
   // HTML 5 and js-framework agnosticism
