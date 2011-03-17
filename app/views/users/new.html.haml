@@ -6,7 +6,209 @@
     = f.text_field     :user_name
     = f.password_field :password
     = f.password_field :password_confirmation
-    = f.check_box      :terms_of_service, :label => "I read and agree with the #{link_to "terms of service", terms_and_conditions_url }".html_safe
-    = f.check_box      :privacy_policy,   :label => "I read and agree with the #{link_to "privacy policy", privacy_policy_url }".html_safe
+    = f.check_box      :terms_of_service, :label => "I read and agree with the #{link_to "terms of service", '#', :rel => "#terms_of_service", :class => 'overlay-switch'}".html_safe
+    = f.check_box      :privacy_policy,   :label => "I read and agree with the #{link_to "privacy policy", '#' , :rel => "#privacy_policy", :class => 'overlay-switch' }".html_safe
     
     = f.submit('Sign Up')
+#terms_of_service.simple_overlay.long
+  %div
+    %h2 Terms and Conditions
+
+    %ol
+      %li 
+        %p In these Conditions references to any statute or statutory provision shall, unless the context otherwise requires, be construed as a reference to that statute or statutory provision as from time to time amended, consolidated, modified, extended, re-enacted or replaced.
+
+      %li
+        %h3 Application of terms
+        %ol
+          %li 
+            %p These Conditions and any applicable Special Conditions are the only conditions upon which the Company is prepared to deal with the Customer and they shall govern all Contracts between the parties to the entire exclusion of all other terms or conditions. 
+          %li
+            %p Each Order for Services shall be deemed to be an offer by the Customer to acquire Services subject to these Conditions and any applicable Special Conditions and no Order shall be deemed to be accepted until the Company accepts the offer either: (a) expressly by giving notice of acceptance in the form of an acknowledgement of order or similar document; or (b) impliedly by commencing provision of the Services. 
+          %li
+            %p No terms or conditions endorsed upon, delivered with or contained in the Customer’s purchase order, confirmation of order, specification or other document will form part of the Contract and the Customer waives any right which it otherwise might have to rely on such terms and conditions. 
+          %li
+            %p Any Quotation is valid for a period of 30 days only from its date. For the avoidance of doubt, a Quotation does not constitute an offer capable of acceptance by the Customer and Contracts may only come into existence in accordance with Condition 2.2.
+
+      %li
+        %h3 Supply of services
+        %ol
+          %li
+            %p The Company shall perform the Services with reasonable care and skill and, so far as is reasonably possible, in accordance with any timescales set out in the Quotation. However, time for the performance of the Services is not of the essence of the Contract. 
+          %li
+            %p The Customer shall at its own expense supply the Company with all Materials relating to the Services, within sufficient time to enable the Company to provide the Services in accordance with any timescales set out in the Quotation. 
+          %li
+            %p The Customer shall at its own expense retain duplicate copies of all Materials. The Company shall have no liability for any loss or damage to the Materials in its possession, however caused. 
+          %li
+            %p The Company may at any time without notifying the Customer make any changes to the Services which are necessary to comply with any applicable safety or other statutory requirements, or which do not materially affect the nature or quality of the Services.
+          %li
+            %p The Company shall make every effort to complete service(s) by the date specified but shall not be responsible for delays in completion caused by events beyond Company's control.
+
+      %li
+        %h3 Proof Stage
+        %ol
+          %li
+            %p If a Contract involves the creation of one or more Deliverables then the Company shall produce a proof of such Deliverables (the “Proof”) for approval by the Customer. If, following the Proof being made available, the Customer wishes to reject or make changes to the Proof, it shall do so in writing within the timescales specified by the Company together with its comments on the Proof. If the Customer fails to notify the Company of its rejection of the Proof or to put forward changes within the time scales specified, the Customer shall be deemed to have approved the Proof.
+          %li
+            %p If the Customer rejects or makes changes to the Proof in accordance with Condition 4.1, the Company shall then revise the Proof in accordance with the Customer’s request on one occasion and resubmit it for approval.
+          %li
+            %p If the Customer does not approve the revised Proof in accordance with Condition 4.2: 4.3.1 either party may terminate the Contract immediately by notice in writing to the other party in which case (save as may be provided in the Quotation) the parties shall have no further obligations to each other; or 4.3.2 the Customer may ask the Company to carry out further work on the Proof, in which case the parties shall negotiate in good faith a mutually acceptable payment to the Company to cover this extra work.
+          %li
+            %p Upon acceptance by the Customer of the Proof in accordance with this Condition 4, the Company shall commence commercial production of the Deliverable in accordance with the Quotation. The Company shall not be responsible for any errors or omissions in relation to such Deliverable that would have been noticed had the Customer complied with its obligations.
+
+      %li
+        %h3 Charges
+        %ol
+          %li
+            %p The Customer shall pay the Company’s charges (together with any applicable Value Added Tax, and without any set off or other deduction) within 30 days of the date of the Company’s invoice. Time for payment shall be of the essence of the Contract.
+          %li
+            %p Unless provided otherwise in the Quotation, all charges quoted to the Customer for the provision of the Services are exclusive of any Value Added Tax and postage / delivery costs, for which the Customer shall be additionally liable at the applicable rate from time to time.
+          %li
+            %p The Company shall invoice the Customer following the end of each month in which the Services are provided, or at other times agreed with the Customer.
+          %li
+            %p If payment is not made on the due date, the Company shall be entitled, without limiting any other rights it may have: 5.4.1 to charge interest on the outstanding amount (both before and after any judgment) at the rate of 5% per annum above the base rate from time to time of Abbey bank plc from the due date until the outstanding amount is paid in full; 5.4.2 to rescind any agreement as to credit and require payment against invoice; and/or 5.4.3 to suspend or terminate the Contract and/or further performance of the Services. 5.5 If the Company delivers to the Customer a quantity of Deliverables of up to 5% more or less than the quantity set out in the Order, the Customer shall not be entitled to object to or reject the Deliverables or any of them by reason of the surplus or shortfall and shall pay (or be refunded as appropriate) for such Deliverables at the pro rata rate.
+
+      %li
+        %h3 Limitation of liability
+        %ol
+          %li
+            %p The following provisions of this Condition 6 set out the entire financial liability of the Company (including any liability for the acts or omissions of its employees, agents and sub-contractors) to the Customer in respect of: 6.1.1 any breach of these Conditions; and 6.1.2 any representation, statement or tortious act or omission including negligence arising under or in connection with the Contract.
+          %li
+            %p All warranties, conditions and other terms implied by statute or common law are, to the fullest extent permitted by law, excluded from the Contract.
+          %li
+            %p Nothing in these Conditions excludes or limits the liability of the Company for death or personal injury caused by the Company’s negligence or for fraudulent misrepresentation. (The Customer’s attention is drawn to the provisions of Condition 6.4 below)
+          %li
+            %p Subject to Conditions 6.2 and 6.3: 6.4.1 the Company’s total liability in contract, tort (including negligence or breach of statutory duty), misrepresentation or otherwise, arising in connection with the performance or contemplated performance of a Contract shall be limited to the lesser of £250,000 and the value of the Contract; and 6.4.2 the Company shall not be liable to the Customer for any indirect or consequential loss or damage (whether for loss of profit, loss of business, depletion of goodwill or otherwise), costs, expenses or other claims for consequential compensation whatsoever (howsoever caused) which arise out of or in connection with the Contract.
+
+      %li
+        %h3 Intellectual property rights
+        %ol
+          %li
+            %p Subject to receipt of payment in full by the Company of its charges in respect of the Services, the Company agrees to assign to the Customer all Intellectual Property Rights in any Deliverables, save that such assignment shall not apply to the following rights which shall remain with the Company at all times, subject to a non-exclusive, non-transferable licence in favour of the Customer to use for the Customer’s own internal business purposes: 7.1.1 pre-existing and other proprietary materials belonging to the Company, including (but not limited to) Intellectual Property Rights in all works previously developed by the Company; 7.1.2 any generic skills, know-how, techniques and background experience developed by the Company in the course of providing the Services.
+          %li
+            %p In the event that new inventions, designs or processes evolve in performance of or as a result of the Contract, the Customer acknowledges that they shall be the property of the Company unless otherwise agreed in writing by the Company.
+          %li
+            %p The Customer warrants that the Materials are accurate and correct and will not contain any misleading, defamatory, libellous, slanderous, fraudulent, abusive, obscene, profane, threatening, racially offensive or otherwise illegal material.
+          %li
+            %p The Customer shall indemnify the Company against all claims, damages, losses and expenses which the Company may incur as a result of any action or claim that the Materials or any work done in accordance with the Customer's instructions infringes the Intellectual Property Rights of a third party and in respect of matters arising under Condition 7.3.
+
+      %li
+        %h3 Confidentiality
+        %ol
+          %li
+            %p Each party (the “Recipient”) shall keep in strict confidence all technical or commercial know-how, specifications, inventions, processes or initiatives which are of a confidential nature and have been disclosed to it by the other party or its agents and any other confidential information concerning its business.
+          %li
+            %p The Recipient shall restrict disclosure of such confidential material to such of its employees, agents or sub-contractors as need to know the same for the purpose of discharging its obligations under the Contract and shall ensure that such employees, agents or sub-contractors are subject to like obligations of confidentiality.
+          %li
+            %p The provisions of this Condition 8 shall not apply to any information, which is or becomes part of the public domain through no direct or indirect act or default of the parties.
+
+      %li
+        %h3 Data Protection
+        %ol
+          %li
+            %p In this Condition 9: 9.1.1 “DPA” means the Data Protection Act 1998 as amended, extended or re-enacted from time to time and including any subordinate provision make under the DPA; and 9.1.2 the terms “Personal Data”, “Data Controller”, “Data Processor” and “Process” shall have the meanings given to them in the DPA.
+          %li
+            %p To the extent the Company Processes any Personal Data as part of performing its obligations under this Agreement (“Data”): 9.2.1 the Customer acknowledges that it is the Data Controller of the Data, and that the Company is acting on the Customer's behalf as a Data Processor of the Data; 9.2.2 the Company: (a) take such measures in respect of the security of the Data as can reasonably be expected of a company offering services the same as or similar to the Services; and (b) will Process that Data only in accordance with the instructions of the Customer (and Processing necessary to comply with this Agreement shall be deemed to be an instruction).
+          %li
+            %p The Company acknowledges that the Company may transfer the Data outside the European Economic Area and hereby consents to such transfer.
+          %li
+            %p The Customer will obtain and maintain all appropriate notifications and consents under the DPA in order to allow the Company to Process the Data that it is required to Process as part of performing its obligations under this Agreement without such Processing contravening the DPA.
+
+      %li
+        %h3 Non-Solicitation of staff
+        %ol
+          %li
+            %p The Customer shall not without the prior written consent of the Company at any time during the term of the Contract or for the period of one year after its termination, solicit or entice away from the Company or employ or attempt to employ any person who is, or has been, engaged as an employee or sub-contractor of the Company in the provision of the Services.
+
+      %li
+        %h3 Assignment
+        %ol
+          %li
+            %p The Customer shall not be entitled to assign the Contract or any part of it without the prior written consent of the Company.
+          %li
+            %p The Company may assign the Contract or any part of it to any person, firm or company.
+
+      %li
+        %h3 Force Majeure
+        %ol
+          %li
+            %p The Company reserves the right to defer the date of delivery or payment or to cancel the Contract or reduce the Services ordered if it is prevented from or delayed in the carrying on of its business due to circumstances beyond the reasonable control of the Company including, without limitation, acts of God, governmental actions, war or national emergency, riot, civil commotion, fire, explosion, flood, natural disasters, epidemic, lock-outs, strikes or other labour disputes (whether or not relating to either party's workforce), power outages, failure of third party internet connectivity, restraints or delays affecting carriers and inability or delay in obtaining supplies of adequate quantities of suitable materials provided that, if the event in question continues for a continuous period in excess of 60 days, the Company shall be entitled by notice in writing to the Customer to terminate the Contract immediately.
+
+      %li
+        %h3 Communications
+        %ol
+          %li
+            %p All communications between the parties about this Contract must be in writing and delivered by hand, email or sent by pre-paid first class post or sent by facsimile transmission: 13.1.1 (in case of communications to the Company) to 7 Whitechapel road, London E1 6TD or such changed address as shall be notified to the Customer by the Company; or 13.1.2 (in the case of the communications to the Customer) to the registered office of the Customer to any address of the Customer set out in any document which forms part of this Contract or such other address as shall be notified to the Company by the Customer.
+          %li
+            %p Communications shall be deemed to have been received: 13.2.1 if sent by pre-paid first class post, 2 days (excluding Saturdays, Sundays and bank and public holidays within the UK) after posting (exclusive of the day of posting); 13.2.2 if delivered by hand, on the day of delivery; 13.2.3 if sent by email or facsimile transmission on a working day prior to 16:00, at the time of transmission and otherwise on the next working day.
+
+      %li
+        %h3 General
+        %ol
+          %li
+            %p Each right or remedy of the Company under the Contract is without prejudice to any other right or remedy of the Company whether under the Contract or not.
+          %li
+            %p If any provision of the Contract is found by any court, tribunal or administrative body of competent jurisdiction to be wholly or partly illegal, invalid, void, voidable, unenforceable or unreasonable it shall, to the extent of such illegality, invalidity, voidness, voidability, unenforceability or unreasonableness, be deemed severable and the remaining provisions of the Contract and the remainder of such provision shall continue in full force and effect.
+          %li
+            %p Failure or delay by the Company in enforcing or partially enforcing any provision of the Contract will not be construed as a waiver of any of its rights under the Contract.
+          %li
+            %p Any waiver by the Company of any breach of, or any default under, any provision of the Contract by the Customer will not be deemed a waiver of any subsequent breach or default and will in no way affect the other terms of the Contract.
+          %li
+            %p The parties to this Contract do not intend that any term of this Contract will be enforceable by virtue of the Contracts (Rights of Third Parties) Act 1999 by any person that is not a party to it.
+          %li
+            %p The formation, existence, construction, performance, validity and all aspects of the Contract shall be governed by English law and the parties submit to the exclusive jurisdiction of the English courts.
+
+    %p For requests concerning terms and conditions or queries with regard to our practices please contact admin@gigavine.com
+
+
+#privacy_policy.simple_overlay.long
+  %div
+    %h2 Privacy policy
+
+    %ol
+      %li 
+        %h3 Intellectual Property
+        %ol
+          %li
+            %p This Site is owned and operated by Gigavine Ltd. Gigavine and features trademarks, copyrights and other intellectual property which are the property of, or are licensed to, Gigavine, affiliates or subsidiaries. Gigavine, the Gigavine Signature, the Gigavine logo are registered trademarks of Gigavine (the "Gigavine Marks") are proprietary trademarks. You agree that You will not display the Gigavine Marks or other third party trademarks, or use the Gigavine Marks or other third party trademarks in any manner, without the prior written permission of Gigavine or the respective owners of other third party marks.
+          %li
+            %p This Site also may also contain trademarks, copyrights and other intellectual property rights of third parties, including our clients. All such rights are proprietary to their respective owners. Users are prohibited by law and these conditions from modifying, copying, distributing, transmitting, displaying, publishing, selling, licensing, creating derivative works or using any content on this Site for commercial or public purposes in any way or in any manner or medium, except that You may download one copy of the materials on any single computer for Your personal, non-commercial home use only, provided You keep intact all copyright and other proprietary notices.
+          %li
+            %p Gigavine hereby authorizes you to copy and display the content herein, but only for your personal or informational and non-commercial use. However, the content herein shall not be copied or posted in any network computer or broadcast in any media. Any copy you make must include this copyright notice. Limited quotations from the content are permitted if attribution to Gigavine is included, but you may not copy or display for redistribution to third parties for commercial purposes any portion of the content without the prior written permission of Gigavine. No modifications of the content may be made. Nothing contained herein shall be construed as conferring by implication, estoppel or otherwise any license or right under any patent, trademark, copyright (except as expressly provided above), or other proprietary rights of Gigavine or of any third party. Downloading, copying or other use of such software is subject to the terms and conditions of the software licensing agreement relating to such software.
+          %li
+            %p== Please also use Gigavine’s copyright notice: Gigavine &copy; #{Time.now.year}, All Rights Reserved.
+          %li
+            %p This copyright notice must appear in every copy or reproduction of such Gigavine materials. Modification of the materials or use of the materials for any other purpose is a violation of Gigavine's or other third parties’ copyright and other proprietary rights. Except as specifically permitted in accordance with the Terms and Conditions governing use of this Site, any use of Gigavine’s or other third party trademarks or tradenames found on the Site is strictly prohibited without the express written permission of their respective owners.
+      %li
+        %h3 Legal Notice
+        %ol
+          %li
+            %p Gigavine has not made and does not make any warranty of any kind whatever, express or implied, with respect to the contents of this site; and all implied warranties of merchantability, title, non-infringement and fitness for a particular purpose are hereby disclaimed by Gigavine. Gigavine will not be liable to anyone with respect to any damages, loss or claim whatsoever, no matter how occasioned, in connection with access to or use of the contents of this site. In no event shall Gigavine be liable for any special, indirect, exemplary or consequential damages or any damages whatsoever, including but not limited to loss of use, data or profits, any failure of performance, error, omission, interruption, defect, delay in operation of transmission, computer virus, line failure, technical inaccuracies, typographical errors or the inability to use the materials in this Site, even if there is on Gigavine's part or an authorized Gigavine representative has been advised of the possibility of such damages, or both. Gigavine reserves the right to make changes to this website at any time without notice.
+          %li
+            %p This Site may include links to other websites operated by parties other than Gigavine. Gigavine is not responsible and assumes no responsibility for the contents of any non-Gigavine linked Internet website, or for any potential damage arising out of or in connection with the use of any such link. The Internet websites to which links are provided in this Site are not under the control of Gigavine. Access to any other Internet sites linked to the Site is at the user's own risk. In addition, the existence of a link between this Site and any other Internet website is not and shall not be understood to be an endorsement or review by Gigavine of any material, website policies, substance, information or of the owner or proprietor of the linked Internet website, and such link shall not imply nor create any relationship nor endorsement between Gigavine and the owner or proprietor of such linked website.
+
+
+      %li
+        %h3 Privacy Policy
+        %ol
+          %li
+            %p Gigavine is committed to the highest level of integrity in dealing with clients, employees and service partners. This commitment extends to any personal information about our customers that we might possess or acquire. Gigavine is committed to respecting personal privacy, and safeguarding individual record confidentiality and system security. 
+          %li
+            %p Accordingly, Gigavine and its affiliates adhere to the following Privacy Guidelines and Principles: 
+          %li
+            %p Gigavine has developed policies and programs for the protection of customer information. Gigavine strives to maintain the accuracy of customer information and will promptly respond to any concerns that may raise with respect to the accuracy of information. Gigavine employees are responsible for the protection of customer information, and each Gigavine employee with access to personal customer information is responsible for compliance with our privacy policies and procedures. Gigavine expects all of its service partners and service providers to adhere to high ethical standards as to the confidentiality of information. Gigavine will only use personal information in compliance with applicable law. 
+          %li
+            %p We work to ensure that the personally identifying information You do intentionally provide us remains private. We will not sell, rent, or trade the personally identifying information You provide to anyone outside of Gigavine, other than with agents or companies that assist Gigavine with maintaining and/or servicing the Site, or as a result of a corporate restructure or merger, unless we are required to do so by law. Please be aware, however, that it may be possible for others to read messages that You send over the Internet, so do not send by electronic communication any Information that You would like to keep confidential. 
+
+      %li
+        %h3 Information
+        %ol
+          %li
+            %p Gigavine may collect contact data and other similar information (i.e., a persons name, business and/or home telephone numbers, and business mailing and email address) of its customers and prospects and may use and share that data in its internal systems, such as sales management applications. These systems permit Gigavine employees to access and process such data solely for the purposes of customer fulfillment, business administration, business reporting, statistical analysis and marketing of Gigavine products and services. Gigavine may share the business contact data among its affiliated businesses and with third-party service providers acting on Gigavine's behalf, located in countries where data protection laws are not comparable. Gigavine does not otherwise sell, publish or transfer that data. 
+          %li
+            %p Gigavine collects personal information from users of this Site through the use of enquiry forms and every time you email us your details. Gigavine processes this information for the purposes of dealing with your requests and providing you with information about the products and services Gigavine can offer you. Gigavine will only disclose your personal information to members of the staff, purchasers of our business or other companies engaged by Gigavine to process data on our behalf. 
+          %li
+            %p If you choose to submit unsolicited creative, production-related or other materials of any kind, such as stories, promotion or commercial ideas, music or original artwork for any reason, please be advised that all such remarks, suggestions, ideas, graphics, or other information communicated to Gigavine through this Site (together "Submission") will forever become the property of Gigavine. Gigavine will not be required to treat any Submission as confidential, and will not be liable for any ideas for its business (including without limitation, product, or advertising ideas for our clients) and will not incur any liability as a result of any similarities that may appear in future Gigavine operations. Without limitation, Gigavine will have exclusive ownership of all present and future existing rights to the Submission of every kind and nature everywhere. Gigavine will be entitled to use the Submission for any purpose whatsoever without compensation to You or any other person sending the Submission. 
+          %li
+            %p The Internet is a global environment. Using the Internet to collect and process personal data necessarily involves the transmission of data on an international basis. Therefore, by using this Site and communicating electronically with Gigavine, you acknowledge and agree to the processing of personal data in this way by Gigavine. When You visit the Site, Your browser automatically sends us an Internet Protocol ("IP") address and certain other information (including the type of browser You use). We may use this IP address and other information to give You access to the Site and otherwise to administer the Site. In certain parts of the Site, we may ask You to provide us with personal information so that we can provide You with information You request. You are under no obligation to provide us with this information, but without it, we may not be able to provide You the information You request. The Site also may include certain features that allow You to communicate with us by electronic means such as email. You are responsible if You choose to use these communication features to provide personally identifying information to us. When You provide any personally identifying information to us, You affirm that You are knowingly and voluntarily providing us the information. We may respond to the electronic communication messages You send us. The use of cookies and other information is used solely for the purposes of better customer service, enabling our ability to identify users and create content to meet their needs. While it is possible to disable cookies via your browser settings, doing so may not allow Gigavine to enhance your Web experience.
+  

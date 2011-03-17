@@ -3,23 +3,23 @@
     = language_flag_for(@sentence)
     = @sentence.text
     = flag_toggle_for @sentence
-  %hr
-    %ul.word-definition-translations
-      - @sentence.translations.each do |t|
-        %li
-          %p
-            = language_flag_for(t)
-            = t.text
-          %p
-            - if can? :update, t
-              = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
-            - else
-              %em.disabled Edit Translation
-            |
-            - if can? :destroy, t
-              = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
-            - else
-              %em.disabled Delete Translation
+  %hr/
+  %ul.word-definition-translations
+    - @sentence.translations.each do |t|
+      %li
+        %p
+          = language_flag_for(t)
+          = t.text
+        %p
+          - if can? :update, t
+            = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
+          - else
+            %em.disabled Edit Translation
+          |
+          - if can? :destroy, t
+            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
+          - else
+            %em.disabled Delete Translation
   %p
     - if can? :update, @sentence
       = link_to "Edit", edit_glossary_sentence_path(@sentence)
@@ -37,30 +37,28 @@
       %em.disabled Add translation
 .comment-box
   %p
-    = notice
-  %p
     %h3
       Comments/ Q&A
       %span
         == (#{@sentence.comments.length})
-      - if can? :update, @sentence
-        = link_to 'Add Comment', "#", :rel => "#comment_form", :id => "add_comment"
-  %hr
-    %ul
-      - @sentence.comments.each do |comment|
-        %li
-          %p
-            = image_tag comment.author.avatar(:small)
-            = comment.author.user_name
-            \-
-            = comment.created_at.to_s(:db)
-          %p
-            = comment.comment
-          %p.comment-buttons
-            - if can? :destroy, comment
-              = link_to 'Delete', glossary_sentence_comment_path(@sentence, comment), :method => 'delete'
-          %hr.comment-line
-- if @new_comment
+    - if can? :create, @new_comment
+      = link_to 'Add Comment', "#", :rel => "#comment_form", :id => "add_comment", :'class' => 'overlay-switch'
+  %hr/
+  %ul
+    - @sentence.comments.each do |comment|
+      %li
+        %p
+          = image_tag comment.author.avatar(:small)
+          = comment.author.user_name
+          \-
+          = comment.created_at.to_s(:db)
+        %p
+          = comment.comment
+        %p.comment-buttons
+          - if can? :destroy, comment
+            = link_to 'Delete', glossary_sentence_comment_path(@sentence, comment), :method => 'delete'
+      %hr.comment-line/
+- if can? :create, @new_comment
   #comment_form.simple_overlay
     %h3
       Add Comment
