@@ -8,6 +8,7 @@ class Sentence < ActiveRecord::Base
   has_many   :translations,  :class_name => 'TranslationPair', :dependent => :destroy
   has_one    :author,     :class_name => 'User'
   belongs_to :flagged_by, :class_name => 'User'
+  has_many   :comments, :as => :commentable
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }
   attr_accessible :language, :text, :definition, :translations_attributes

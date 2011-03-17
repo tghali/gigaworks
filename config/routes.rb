@@ -52,10 +52,10 @@ Gigavine::Application.routes.draw do
     
     namespace :glossary do
       get '/', :to => 'sentences#index'
-      resources :comments
       resources :sentences do
         put 'flag', :on => :member
         resources :translation_pairs
+        resources :comments
       end
     end
     

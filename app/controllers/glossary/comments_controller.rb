@@ -1,26 +1,30 @@
 class Glossary::CommentsController < Glossary::GlossaryController
   def destroy
     @comment = Comment.find(params[:id])
-    @commentable = @comment.commentable_type.constantize.find(@comment.commentable_id)
+    authorize! :destroy, @comment
+    
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(send("glossary_#{@commentable.class.to_s.underscore}_path", @commentable)) }
+      format.html { redirect_to(glossary_sentence_path @comment.commentable) }
       format.xml  { head :ok }
     end
   end
 
   def create
-    @comment = Comment.new(params[:comment])
-    @commentable = params[:comment][:commentable_type].constantize.find(params[:comment][:commentable_id])
-    @comment.user_id = current_user.id
-
+    @commentable = Sentence.find(params[:sentence_id])
+    @comment = @commentable.comments.build(params[:comment])
+    @comment.author = current_user
+    
+    authorize! :create, @comment
+    
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to(send("glossary_#{@commentable.class.to_s.underscore}_path", @commentable)) }
+        format.html { redirect_to(glossary_sentence_path @commentable) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
-        format.html { redirect_to(send("glossary_#{@commentable.class.to_s.underscore}_path", @commentable)) }
+        # TODO: ensure that if the comment form has errors it displays them and it is opened at page load
+        format.html { redirect_to(glossary_sentence_path @commentable) }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end

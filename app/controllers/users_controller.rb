@@ -99,7 +99,7 @@ protected
 
   def ensure_user_is_not_signed_in
     if current_user
-        redirect_to "http://worx.#{request.domain}", :notice => "You are currently signed in. The action you requested will require you to sign out." and return
+      redirect_to "http://worx.#{request.domain}", :notice => "You are currently signed in. The action you requested will require you to sign out." and return
     end
   end
   

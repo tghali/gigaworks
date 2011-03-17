@@ -45,7 +45,7 @@ Feature: Glossary
     # TODO: Project membership
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
-    And I follow "Delete"
+    Then I should not see "Delete"
   
   Scenario: Flagging a translation
     When I go to "http://worx.example.com"
