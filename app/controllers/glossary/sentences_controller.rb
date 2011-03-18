@@ -17,6 +17,8 @@ class Glossary::SentencesController < Glossary::GlossaryController
     @sentence = Sentence.find(params[:id])
     @new_comment = Comment.new
     @new_comment.commentable = @sentence
+    @new_tag = Tag.new
+    @new_tag.taggable = @sentence
     
     respond_to do |format|
       format.html # show.html.erb

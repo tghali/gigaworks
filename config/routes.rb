@@ -56,6 +56,7 @@ Gigavine::Application.routes.draw do
         put 'flag', :on => :member
         resources :translation_pairs
         resources :comments
+        resources :tags
       end
     end
     

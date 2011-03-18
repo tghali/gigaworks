@@ -1,5 +1,7 @@
 #mid.glossary {
   
+  .clear {clear: both;}
+
   em.disabled {
     color: $gigavine-light-grey-bg;
   }
@@ -80,11 +82,22 @@
         background-color: #FDFFF0;
         @include box-shadow( 0px, 0px, 6px, #2F3029);
 
+        .sentence_header {float: left;}
+        .sentence_tags {float: left; padding: 10px 20px;}
         form {
           textarea {
             height: 70px;
             width: 500px;
           }
+        }
+        span.sentence_tag {
+          background-color: #dadada;
+          font-size: 0.9em;
+          color: #000;
+          @include border-radius(5px);
+          padding: 3px;
+          margin-right: 5px;
+          a {font-size: 0.7em; color: #000;}
         }
       }
       .comment-box {

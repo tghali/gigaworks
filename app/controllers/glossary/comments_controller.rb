@@ -23,7 +23,7 @@ class Glossary::CommentsController < Glossary::GlossaryController
         format.html { redirect_to(glossary_sentence_path @commentable) }
         format.xml  { render :xml => @comment, :status => :created, :location => @comment }
       else
-        # TODO: ensure that if the comment form has errors it displays them and it is opened at page load
+        # TODO: ensure that if the tag form has errors it displays them and it is opened at page load
         format.html { redirect_to(glossary_sentence_path @commentable) }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
