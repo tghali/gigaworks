@@ -11,9 +11,7 @@ Feature: Glossary comments
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
     # And I follow "Add Comment" # Simply unhides the form
-    And I fill in "Comment" with "Some lengthy comment abut the translation"
+    And I fill in "Comment" with "Some lengthy comment about the translation"
     When I press "Create Comment"
     Then a comment should exist with comment: "Some lengthy comment abut the translation"
     And the sentence should have 1 comments
-    Then show me the page
-    # Then I should see "Sentence was successfully created"

@@ -64,6 +64,7 @@
     & > div {
       overflow-y: scroll;
       height: 100%;
+      min-height:150px;
     }
   }
   .close{

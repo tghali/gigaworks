@@ -1,9 +1,9 @@
-- title "Sign In"
-- user_name_or_email = params[:session][:user_name_or_email] if params[:session]
-= form_for :session, :url => sign_in_url do |f| 
-  %fieldset
-    %legend= t(:"account.Signin")
-    = f.text_field :user_name_or_email, :value => user_name_or_email
-    = f.password_field :password
-    = f.check_box :remember_me
-    = f.submit t(:"account.Signin")
+#centerform
+  %h2= title "Sign In"
+  - user_name_or_email = params[:session][:user_name_or_email] if params[:session]
+  = form_for :session, :url => sign_in_url do |f| 
+    %fieldset
+      = f.text_field :user_name_or_email, :value => user_name_or_email
+      = f.password_field :password
+      = f.check_box :remember_me
+      = f.submit t(:"account.Signin")

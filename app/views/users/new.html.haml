@@ -1,15 +1,17 @@
-= form_for @user, :url => {:action => 'create'} do |f|
-  = render "shared/error_messages", :target => @user
-  %fieldset
-    %legend Your details
-    = hidden_field_tag :invite_token, params[:invite_token]
-    = f.text_field     :user_name
-    = f.password_field :password
-    = f.password_field :password_confirmation
-    = f.check_box      :terms_of_service, :label => "I read and agree with the #{link_to "terms of service", '#', :rel => "#terms_of_service", :class => 'overlay-switch'}".html_safe
-    = f.check_box      :privacy_policy,   :label => "I read and agree with the #{link_to "privacy policy", '#' , :rel => "#privacy_policy", :class => 'overlay-switch' }".html_safe
+#centerform
+  %h2= title "Sign Up"
+  = form_for @user, :url => {:action => 'create'} do |f|
+    = render "shared/error_messages", :target => @user
+    %fieldset
+      %legend Your new registration details
+      = hidden_field_tag :invite_token, params[:invite_token]
+      = f.text_field     :user_name
+      = f.password_field :password
+      = f.password_field :password_confirmation
+      = f.check_box      :terms_of_service, :label => "I read and agree with the #{link_to "terms of service", '#', :rel => "#terms_of_service", :class => 'overlay-switch'}".html_safe
+      = f.check_box      :privacy_policy,   :label => "I read and agree with the #{link_to "privacy policy", '#' , :rel => "#privacy_policy", :class => 'overlay-switch' }".html_safe
     
-    = f.submit('Sign Up')
+      = f.submit('Sign Up')
 #terms_of_service.simple_overlay.long
   %div
     %h2 Terms and Conditions
