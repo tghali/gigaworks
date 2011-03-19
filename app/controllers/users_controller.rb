@@ -44,7 +44,10 @@ class UsersController < ActionController::Base
   
   def create
     invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
-    redirect_to(sign_in_url, :notice => 'The invite has already been redeemed') if invite.recipient.user
+    
+    if invite.recipient.user
+      redirect_to(sign_in_url, :notice => 'The invite has already been redeemed') and return
+    end
     
     @user = invite.recipient.build_user(params[:user])
     @user.status = :verified
@@ -99,7 +102,7 @@ protected
 
   def ensure_user_is_not_signed_in
     if current_user
-        redirect_to "http://worx.#{request.domain}", :notice => "You are currently signed in. The action you requested will require you to sign out." and return
+      redirect_to "http://worx.#{request.domain}", :notice => "You are currently signed in. The action you requested will require you to sign out." and return
     end
   end
   

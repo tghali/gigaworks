@@ -15,7 +15,9 @@ class Glossary::SentencesController < Glossary::GlossaryController
   def show
 
     @sentence = Sentence.find(params[:id])
-
+    @new_comment = Comment.new
+    @new_comment.commentable = @sentence
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @sentence }
@@ -38,7 +40,6 @@ class Glossary::SentencesController < Glossary::GlossaryController
   def edit
     @sentence = Sentence.find(params[:id])
     @sentence.translations.build
-    
   end
 
   # POST /sentences

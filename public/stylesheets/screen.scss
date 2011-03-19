@@ -36,6 +36,11 @@ body{
       
       width: 100%;
     }
+    #fixedcontainer{
+      @include fixed-container;
+      @include footer-container(18px);
+    }
+    
   }
   
   a{
@@ -47,7 +52,12 @@ body{
 }
 
 form {
-  @include blueprint-form; }
+  @include blueprint-form;
+  
+  .field_with_errors{
+    display: inherit;
+  }
+}
 
 // PAGE SECTIONS
 $main-columns: ceil(2 * $blueprint-grid-columns / 3);
@@ -94,6 +104,10 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   background-color: #dbf043;
   @include linear-gradient(color-stops(#d2e638 0%, #c3d825 10%, #dbf043 100%));
   h6 {color: #555; margin-left: 1em;}
+}
+#centerform {
+  @include fixed-column(10);
+  @include fixed-prepend(7);
 }
 
 // WIDGETS

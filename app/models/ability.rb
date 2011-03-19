@@ -26,16 +26,17 @@ class Ability
     can :manage, :glossary
     can :manage, Sentence
     can :manage, Translation
+    can :manage, Comment
   end
   
   def translator_privileges
     translator = @user.languages
     
     can :read,   :glossary
-    can :create, [Sentence, Translation]
+    can :create, [Sentence, Translation, Comment]
     
     # A translator can amend or delete his contribution to the glossary in 2 hours 
-    can [:edit, :destroy], [Sentence, Translation] do |glossary_item|
+    can [:update, :destroy], [Sentence, Translation, Comment] do |glossary_item|
       (glossary_item.author_id == @user.id) &&
       (glossary_item.updated_at > 2.hours.ago)
     end

@@ -47,14 +47,33 @@
   }
 }
 
-#overlay {
-  background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
-  color:#efefef;
-  height:450px;
-  
-  /* container for external content. uses vertical scrollbar, if needed */
-  div.contentWrap {
-    height:441px;
-    overflow-y:auto;
+.simple_overlay {
+  display:none;
+  z-index:10000;
+  background-color:#FDFFF0;
+  width:475px;	
+  min-height:200px;
+  -moz-box-shadow:0 0 90px 5px #000;
+  -webkit-box-shadow: 0 0 90px #000;	
+  @include border-radius(3px);
+  padding: 0.5em;
+  margin: -2em 20px;
+  background-color: #FDFFF0;
+  &.long {
+    height: 80%;
+    & > div {
+      overflow-y: scroll;
+      height: 100%;
+      min-height:150px;
+    }
+  }
+  .close{
+    background-image:url(/images/overlay/close.png);
+    position:absolute;
+    right:-15px;
+    top:-15px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
   }
 }

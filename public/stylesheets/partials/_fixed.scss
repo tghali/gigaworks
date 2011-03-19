@@ -7,6 +7,14 @@
   * html & {
     overflow-x: hidden; } }
 
+@mixin fixed-container {
+  width: $blueprint_container_size;
+  margin: 0 auto;
+  @include clearfix; }
+
+@mixin fixed-prepend($n) {
+  padding-left: $blueprint_grid_outer_width * $n; }
+      
 @mixin fixed-span($n, $override: false) {
   $width: $blueprint_grid_width * $n + $blueprint_grid_margin * ($n - 1);
   @if $override {

@@ -9,8 +9,8 @@ Feature: Signing in
     And   I fill in "User name or email" with "me@example.com"
     And   I fill in "Password" with "big secret"
     And   I press "Sign In"
+    # Then  show me the cookies
     Then  the response status should be 200
-    Then  show me the page
     
   Scenario: Signing in with an email bound account
     Given I signed up with user_name: "me", email: "me@example.com"

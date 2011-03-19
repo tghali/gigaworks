@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
                     :styles         => { :medium => "128x128>",
                                          :small  => "48x48>"}
   
+  has_many :comments
   has_many :departements do
     
     def add departement_name
@@ -92,12 +93,14 @@ class User < ActiveRecord::Base
                                            :unless => :performed_by_admin?,
                                            :message => :not_verified
                              
-  validate                   :reset_token_or_old_password, :if => :password_changed?,
-                                                           :on => :update,
+  validate_on_update         :reset_token_or_old_password, :if => :password_changed?,
                                                            :unless => :performed_by_admin?
   
+  validates_presence_of        :password, :on => :create, :unless => :password_changed?
+  
+  
   validates_confirmation_of  :password, :if => :password_changed?
-  validates_length_of        :password, :within => 7..30, :if => :password_changed?  
+  validates_length_of        :password, :within => 7..30, :if => :password_changed?
                              
   validates_associated       :verification_key, :message => :expired
   validates_associated       :password_reset_key, :message => :expired
