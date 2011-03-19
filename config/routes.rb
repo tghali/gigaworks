@@ -53,6 +53,10 @@ Gigavine::Application.routes.draw do
     namespace :glossary do
       get '/', :to => 'sentences#index'
       resources :sentences do
+        collection do
+          get 'recent'
+          get 'flagged'
+        end
         put 'flag', :on => :member
         resources :translation_pairs
         resources :comments

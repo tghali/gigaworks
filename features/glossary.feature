@@ -45,7 +45,7 @@ Feature: Glossary
     # TODO: Project membership
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
-    Then I should not see "Delete"
+    Then I should not see a "Delete" link
   
   Scenario: Flagging a translation
     When I go to "http://worx.example.com"
@@ -55,5 +55,4 @@ Feature: Glossary
     Given a sentence with translation: "chicken" exists with text: "Chicken"
     When I go to the glossary sentence page for the sentence: "chicken"
     And I follow "Flag sentence"
-    Then show me the page
     Then the sentence: "chicken" should be flagged

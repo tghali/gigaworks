@@ -108,4 +108,10 @@
       }
     }
   }
+  
+  #glossary-nav {
+    @include horizontalist;
+    em.active {color: $gigavine-white; font-style: normal;}
+  }
+  
 }

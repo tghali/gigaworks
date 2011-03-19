@@ -13,6 +13,10 @@ class Sentence < ActiveRecord::Base
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }
   attr_accessible :language, :text, :definition, :translations_attributes
   
+  scope :flagged, where(self.arel_table[:flagged_by_id].not_eq(nil)).order('updated_at DESC')
+  scope :recent,  where(self.arel_table[:updated_at].gt(2.weeks.ago)).order('updated_at DESC')
+  
+  
   def self.search text
     where('upper(text) LIKE upper(?)', text+'%')
   end
