@@ -9,6 +9,23 @@ class Glossary::SentencesController < Glossary::GlossaryController
       format.xml  { render :xml => @sentences }
     end
   end
+  
+  def flagged
+    @sentences = Sentence.flagged
+    respond_to do |format|
+      format.html { render :index}
+      format.xml  { render :xml => @sentences }
+    end
+  end
+  
+  def recent
+    @sentences = Sentence.recent
+    respond_to do |format|
+      format.html { render :index}
+      format.xml  { render :xml => @sentences }
+    end
+  end
+  
 
   # GET /sentences/1
   # GET /sentences/1.xml
