@@ -59,8 +59,8 @@ Gigavine::Application.routes.draw do
         end
         put 'flag', :on => :member
         resources :translation_pairs
-        resources :comments
-        resources :tags
+        resources :comments, :only => [:create, :destroy]
+        resources :tags,     :only => [:create, :destroy, :index]
       end
     end
     

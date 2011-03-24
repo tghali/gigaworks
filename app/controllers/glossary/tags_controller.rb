@@ -1,4 +1,9 @@
 class Glossary::TagsController < Glossary::GlossaryController
+  
+  def index
+    
+  end
+  
   def destroy
     @tag = Tag.find(params[:id])
     authorize! :destroy, @tag
@@ -22,7 +27,6 @@ class Glossary::TagsController < Glossary::GlossaryController
         format.html { redirect_to(glossary_sentence_path @taggable) }
         format.xml  { render :xml => @tag, :status => :created, :location => @tag }
       else
-        # TODO: ensure that if the comment form has errors it displays them and it is opened at page load
         format.html { redirect_to(glossary_sentence_path @taggable) }
         format.xml  { render :xml => @tag.errors, :status => :unprocessable_entity }
       end

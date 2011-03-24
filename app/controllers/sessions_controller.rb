@@ -12,7 +12,7 @@ class SessionsController < ActionController::Base
   
   def create
     if current_user
-      flash.now[:alert] = t(:'account.already_signed_in')
+      flash[:alert] = t(:'account.already_signed_in')
       redirect_to "http://worx.#{request.domain}" and return
     end
     warden.authenticate! :remember, :sign_in
@@ -44,7 +44,7 @@ class SessionsController < ActionController::Base
   end
   
   def unauthorized
-    # (flash.now[:error] = warden.message || "please")
+    flash[:error] = warden.message
 
     Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{warden.message}"
     cookies.delete('_gigavine_warden')

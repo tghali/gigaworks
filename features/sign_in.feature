@@ -9,7 +9,6 @@ Feature: Signing in
     And   I fill in "User name or email" with "me@example.com"
     And   I fill in "Password" with "big secret"
     And   I press "Sign In"
-    # Then  show me the cookies
     Then  the response status should be 200
     
   Scenario: Signing in with an email bound account
@@ -18,6 +17,8 @@ Feature: Signing in
     And   I fill in "User name or email" with "me@example.com"
     And   I fill in "Password" with "big secret"
     And   I press "Sign In"
+    Then  I debug!
+    Then  show me the cookies
     Then  the response status should be 200
     Then  show me the page
 
@@ -43,11 +44,9 @@ Feature: Signing in
     And   I fill in "Password" with "wrong password"
     And   I press "Sign In"
     Then  the response status should be 401
-    Then show me the page
     And I should see "Wrong user name or password"
     
   
-  Scenario: Sign in with facebook
-    Given a facebook account with email: "me@example.com" is authorized
-    When  I go to "auth/facebook"
-    Then show me the page
+  # Scenario: Sign in with facebook
+  #   Given a facebook account with email: "me@example.com" is authorized
+  #   When  I go to "auth/facebook"
