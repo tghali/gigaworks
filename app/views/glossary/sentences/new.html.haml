@@ -1,12 +1,12 @@
 .box.sentence
   %h2 Add new Sentence
-  = form_for @sentence, :url => glossary_sentences_path do |w|
+  = form_for @sentence, :url => glossary_sentences_path do |s|
     = render "shared/error_messages", :target => @sentence
-    = w.select :language, Gigavine::Preferences.translated_languages
-    = w.text_area :text
+    = s.select :language, Gigavine::Preferences.translated_languages, :class => 'language_toggle', :rel => s.field_id_for(:text)
+    = s.text_area :text
     %h3 Provide a translation
     #translations
-      = w.fields_for :translations do |d|
-        = d.select :language, Gigavine::Preferences.translated_languages
-        = d.text_area :text
-      = w.submit
+      = s.fields_for :translations do |t|
+        = t.select :language, Gigavine::Preferences.translated_languages, {}, :class => 'language_toggle', :rel => t.field_id_for(:text)
+        = t.text_area :text
+    = s.submit

@@ -4,6 +4,7 @@ class CreateTags < ActiveRecord::Migration
       t.integer :author_id
       t.integer :taggable_id
       t.string  :taggable_type
+      t.integer :realm_id
       t.text    :tag
 
       t.timestamps
