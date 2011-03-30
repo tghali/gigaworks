@@ -45,7 +45,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     authorize! :update, @translation
     
     respond_to do |format|
-      if @translation.update_attributes(params[:sentence])
+      if @translation.update_attributes(params[:translation_pair])
         format.html { redirect_to(glossary_sentence_path(@translation.source), :notice => 'The translation was successfully updated.') }
         # format.xml  { head :ok }
       else
