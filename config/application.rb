@@ -33,10 +33,17 @@ module Gigavine
     end
     
     config.middleware.use Warden::Manager do |manager|
-      manager.default_strategies :remember, :sign_in
+      manager.default_strategies :sign_in
       manager.failure_app = SessionsController.action(:unauthorized)
-      manager.serialize_into_session {|user| user.id}
-      manager.serialize_from_session {|id| User.find(id)}
+      
+      manager.serialize_into_session {|user| [user.id, user.salt, user.session_expires]}
+      manager.serialize_from_session do |id, salt, session_expires|
+        begin
+          User.authenticate_from_session(id, salt, session_expires)
+        rescue
+          @env['warden'].logout #delete the user key if compromised
+        end
+      end
     end
     
     config.middleware.delete 'Sass::Plugin::Rack'

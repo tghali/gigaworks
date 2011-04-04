@@ -13,11 +13,11 @@ class SessionsController < ActionController::Base
   def create
     if current_user
       flash[:alert] = t(:'account.already_signed_in')
-      redirect_to "http://worx.#{request.domain}" and return
+      redirect_to "http://worx.#{request.domain}/" and return
     end
-    warden.authenticate! :remember, :sign_in
+    warden.authenticate! :sign_in
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
-    redirect_to "http://worx.#{request.domain}"
+    redirect_to "http://worx.#{request.domain}/"
   end
   
   # Load user if the user has authenticated before with the provider.
@@ -40,6 +40,7 @@ class SessionsController < ActionController::Base
   
   def destroy
     warden.logout
+    session[:remember_me] = nil
     render :action => "new"
   end
   
@@ -47,10 +48,10 @@ class SessionsController < ActionController::Base
     flash[:error] = warden.message
 
     Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{warden.message}"
-    cookies.delete('_gigavine_warden')
+    session[:remember_me] = nil
     render :action => "new", :status => :unauthorized
   end
-
+  
 protected
 
   def redirect_to_https

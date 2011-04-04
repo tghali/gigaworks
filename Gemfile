@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -39,7 +39,7 @@ group :test, :cucumber do
   gem 'rack-test', :git => "https://github.com/hassox/rack-test.git"
   gem 'capybara', '= 0.4.1.2'
   gem 'capybara-envjs', '= 0.4.0'
-  gem 'cucumber-rails', '>= 0.3.2'
+  gem 'cucumber-rails', '= 0.4.0 '
   gem 'pickle', '>= 0.3.4'
   gem 'database_cleaner', '>= 0.5.2'
   gem 'timecop', '~> 0.3.5'

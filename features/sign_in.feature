@@ -5,6 +5,7 @@ Feature: Signing in
   
   Scenario: Signing in with an email bound account
     Given I signed up with user_name: "me", email: "me@example.com"
+    When  I go to "http://worx.example.com"
     When  I go to the sign in page
     And   I fill in "User name or email" with "me@example.com"
     And   I fill in "Password" with "big secret"
@@ -20,7 +21,6 @@ Feature: Signing in
     Then  I debug!
     Then  show me the cookies
     Then  the response status should be 200
-    Then  show me the page
 
   
   Scenario: Remember a user
@@ -30,10 +30,8 @@ Feature: Signing in
     And   I fill in "Password" with "big secret"
     And   I check "Remember me"
     And   I press "Sign In"
-    Then  show me the cookies
     Then  the response status should be 200
     And   I close my browser
-    Then  show me the cookies
     And   I go to the home page
     Then the response status should be 200
   
@@ -46,6 +44,10 @@ Feature: Signing in
     Then  the response status should be 401
     And I should see "Wrong user name or password"
     
+  Scenario: Not signing in
+    When  I go to "http://worx.example.com"
+    Then  the response status should be 401
+    And   I should see "You have to sign in with the credentials provided by Gigavine to use this application."
   
   # Scenario: Sign in with facebook
   #   Given a facebook account with email: "me@example.com" is authorized

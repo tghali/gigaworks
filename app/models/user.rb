@@ -117,7 +117,7 @@ class User < ActiveRecord::Base
                   :terms_of_service, :privacy_policy
   
   attr_accessor   :old_password, :password_reset_token, :password_confirmation,
-                  :terms_of_service, :privacy_policy
+                  :terms_of_service, :privacy_policy, :session_expires
   
   
   # Project Management and Administration
@@ -154,13 +154,15 @@ class User < ActiveRecord::Base
   
   # Returns the user remembered in the provided cookie as long as the password
   # (and the salt) haven't changed in the mean time.
-  def self.authenticate_remember_me(id, cookie_salt)
+  def self.authenticate_from_session(id, cookie_salt, session_expires = nil)
     user = find_by_id(id)
-    user && (user.salt == cookie_salt) or raise ActiveRecord::RecordNotFound
+    
+    user && (user.salt == cookie_salt) or return nil
+    if session_expires && session_expires > Time.now
+      return nil
+    end
     
     return user
-  rescue ActiveRecord::RecordNotFound
-    nil
   end
   
   #Initiates the password reset procedure
