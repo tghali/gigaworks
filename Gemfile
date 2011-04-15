@@ -29,7 +29,7 @@ group :production, :test, :cucumber, :development do
 end
 
 group :production, :test, :cucumber, :development do
-  gem 'connie', :path => 'vendor/plugins/connie'
+  gem 'connie', '>- 0.1.0'
   gem 'factory_girl_rails', '>= 1.0.0'
   gem 'factory_girl_generator'
 end
