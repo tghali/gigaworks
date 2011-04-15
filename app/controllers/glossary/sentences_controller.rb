@@ -1,7 +1,7 @@
 class Glossary::SentencesController < Glossary::GlossaryController
   
   before_filter :load_sentences
-  
+  autocomplete :sentence, :text
   def index
     @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
     respond_to do |format|
@@ -30,7 +30,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # GET /sentences/1
   # GET /sentences/1.xml
   def show
-
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : []) 
     @sentence = Sentence.find(params[:id])
     @new_comment = Comment.new
     @new_comment.commentable = @sentence
