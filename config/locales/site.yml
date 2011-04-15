@@ -4,6 +4,7 @@ en:
     locale_current: Current language
     locale_change: change
     search: search
+    login: Log in
     Go: Go
     Company: Company
     About_us: About us
@@ -11,6 +12,7 @@ en:
     Join_our_team: Join our team
     Creative: Creative
     Design_and_Artwork: "Design & Artwork"
+    Advertising: Advertising
     Web_design: Web design
     Copywriting: Copywriting
     Interactive: Interactive

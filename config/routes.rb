@@ -93,12 +93,16 @@ Gigavine::Application.routes.draw do
   end
   
   # Static pages
-  get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
-                                                                    :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
-                                                                    :page    => /[a-z_\-]+/ }
-  get "search" => 'pages#search', :as => :site_search
+  constraints :subdomain => "test" do
+    get '/' => 'pages#show'
+    
+    get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
+                                                                      :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
+                                                                      :page    => /[a-z_\-]+/ }
+    get "search" => 'pages#search', :as => :site_search
   
-  resources :blog_posts
+    resources :blog_posts
+  end
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

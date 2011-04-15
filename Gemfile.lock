@@ -8,7 +8,7 @@ GIT
 PATH
   remote: ~/Sites/tools/connie
   specs:
-    connie (0.0.1)
+    connie (0.1.0)
 
 PATH
   remote: ~/Sites/tools/formidable

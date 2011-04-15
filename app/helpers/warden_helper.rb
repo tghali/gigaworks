@@ -14,7 +14,7 @@ module WardenHelper
   end
   
   def authenticate_as_admin
-    env['warden'].authenticated? && current_user.roles.include?(:admin) or throw(:warden, :message => :'account.must_sign_in_as_admin')
+    env['warden'].authenticated? && current_user.roles.include?(:admin) or throw(:warden, :message => t(:'account.must_sign_in_as_admin'))
   end
   
   # Used in redirects to send the user to the last relevant page he visited before logging in or

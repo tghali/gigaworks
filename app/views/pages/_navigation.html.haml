@@ -1,0 +1,81 @@
+#navigation
+  %ul
+    %li#nav-company
+      = link_to t(:'site.Company'),    :section => 'company'
+      %span.bull &bull;
+      %div
+        %ul{ :class => ul_class('company') }
+          %li
+            = link_to t(:'site.About_us'),      :section => 'company', :page => 'about_us'
+            %span
+              |
+          %li
+            = link_to t(:'site.Case_studies'),  :section => 'company', :page => 'case_studies'
+            %span
+              |
+          %li
+            = link_to t(:'site.Join_our_team'), :section => 'company', :page => 'join_our_team'
+            %span
+              |
+          %li= link_to t(:'site.Contact_us'),   :section => 'company', :page => 'contact_us'
+    %li#nav-creative
+      = link_to t(:'site.Creative'),   :section => 'creative'
+      %span.bull &bull;
+      %div
+        %ul{ :class => ul_class('creative') }
+          %li
+            = link_to t(:'site.Design_and_Artwork'), :section => 'creative', :page => 'design_and_artwork'
+            %span
+              |
+          %li
+            = link_to t(:'site.Advertising'),        :section => 'creative', :page => 'advertising'
+            %span
+              |
+          %li
+            = link_to t(:'site.Web_design'),         :section => 'creative', :page => 'web_design'
+            %span
+              |
+          %li
+            = link_to t(:'site.Copywriting'),        :section => 'creative', :page => 'copywriting'
+            %span
+              |
+          %li= link_to t(:'site.Interactive'),       :section => 'creative', :page => 'interactive'
+    %li#nav-languages
+      = link_to t(:'site.Languages'), :section => 'languages'
+      %span.bull &bull;
+      %div
+        %ul{ :class => ul_class('languages') }
+          %li
+            = link_to t(:'site.Translation'),  :section => 'languages', :page => 'translation'
+            %span
+              |
+          %li
+            = link_to t(:'site.Localization'), :section => 'languages', :page => 'localization'
+            %span
+              |
+          %li
+            = link_to t(:'site.Consltancy'),   :section => 'languages', :page => 'consultancy'
+            %span
+              |
+          %li= link_to t(:'site.Online_tools'), :section => 'languages', :page => 'online_tools'
+    %li#nav-technology
+      = link_to t(:'site.Technology'), :section => 'technology'
+      %span.bull &bull;
+      %div
+        %ul{ :class => ul_class('technology') }
+          %li
+            = link_to t(:'site.E-Learning'),   :section => 'technology', :page => 'e-learning'
+            %span
+              |
+          %li
+            = link_to t(:'site.E-Commerce'),   :section => 'technology', :page => 'e-commerce'
+            %span
+              |
+          %li
+            = link_to t(:'site.Web_security'), :section => 'technology', :page => 'web_security'
+            %span
+              |
+          %li= link_to t(:'site.CRM'),         :section => 'technology', :page => 'crm'
+    %li#nav-contact
+      = link_to t(:'site.Contact_us'), :section => 'company', :page => 'contact_us'
+      %span.bull &bull;
