@@ -11,14 +11,6 @@ class UsersController < ActionController::Base
   layout 'application'
   protect_from_forgery
   
-  def terms_and_conditions
-    render :layout => 'sessions'
-  end
-  
-  def privacy_policy
-    render :layout => 'sessions'
-  end
-  
   def new
     invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
 
@@ -67,6 +59,7 @@ class UsersController < ActionController::Base
     @user = current_user
 
     if @user.update_attributes(params[:user])
+      warden.set_user @user # updates the salt if the password is changed
       flash[:success] = 'Your profile was updated.'
       render :action => 'edit'
     else

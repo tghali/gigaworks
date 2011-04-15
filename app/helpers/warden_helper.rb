@@ -9,10 +9,6 @@ module WardenHelper
     request.env['warden']
   end
   
-  def warden.message
-    super || request.env['warden.options'][:message]
-  end
-  
   def authenticate
     env['warden'].authenticated? or throw(:warden, :message => t(:'account.must_sign_in'))
   end

@@ -33,16 +33,12 @@ module Gigavine
     end
     
     config.middleware.use Warden::Manager do |manager|
-      manager.default_strategies :sign_in
+      manager.default_strategies :remember_me
       manager.failure_app = SessionsController.action(:unauthorized)
       
-      manager.serialize_into_session {|user| [user.id, user.salt, user.session_expires]}
-      manager.serialize_from_session do |id, salt, session_expires|
-        begin
-          User.authenticate_from_session(id, salt, session_expires)
-        rescue
-          @env['warden'].logout #delete the user key if compromised
-        end
+      manager.serialize_into_session { |user| [user.id, user.salt] }
+      manager.serialize_from_session do |session_key|
+        User.authenticate_from_session(*session_key)
       end
     end
     

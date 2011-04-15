@@ -6,7 +6,7 @@ class SessionsController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  def new
+  def new    
     redirect_to root_url if warden.authenticated?
   end
   
@@ -16,6 +16,7 @@ class SessionsController < ActionController::Base
       redirect_to "http://worx.#{request.domain}/" and return
     end
     warden.authenticate! :sign_in
+
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
     redirect_to "http://worx.#{request.domain}/"
   end
@@ -40,14 +41,14 @@ class SessionsController < ActionController::Base
   
   def destroy
     warden.logout
-    session[:remember_me] = nil
     render :action => "new"
   end
   
   def unauthorized
-    flash[:error] = warden.message
+    message = env['warden.options'][:message] || warden.message
+    flash[:error] = message
 
-    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{warden.message}"
+    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{message}"
     session[:remember_me] = nil
     render :action => "new", :status => :unauthorized
   end
