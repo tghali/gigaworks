@@ -7,6 +7,6 @@
     = link_to 'View original', glossary_sentence_translation_pair_path(@sentence, @translation)
   = form_for @translation, 'translation', :url => glossary_sentence_translation_pair_path(@sentence, @translation) do |t|
     = render "shared/error_messages", :target => @translation
-    = t.select :language, Gigavine::Preferences.translated_languages
+    = t.select :language, Gigavine::Preferences.translated_languages, {}, :class => 'language_toggle', :rel => t.field_id_for(:text)
     = t.text_area :text
     = t.submit

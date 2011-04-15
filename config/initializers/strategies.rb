@@ -8,7 +8,7 @@ module Warden::Mixins::Common
   end
 end
 
-class RememberStrategy < Warden::Strategies::Base
+class RememberMeStrategy < Warden::Strategies::Base
   def valid?
     cookies.signed['_gigavine_warden']
   end
@@ -23,18 +23,21 @@ class RememberStrategy < Warden::Strategies::Base
     end
   end
 end
-Warden::Strategies.add(:remember, RememberStrategy)
+Warden::Strategies.add(:remember_me, RememberMeStrategy)
+
 
 class SignInStrategy < Warden::Strategies::Base
   def valid?
     params['session']['user_name_or_email'] && params['session']['password']
   end
   
-  def authenticate!      
+  def authenticate!
     user = User.authenticate(params['session']['user_name_or_email'], params['session']['password'])
-
+    
     if user
-      cookies.signed.permanent['_gigavine_warden'] = [user.id, user.salt] if params['session']['remember_me'] == '1' #TODO: using == '1' isn't pretty
+      if params['session']['remember_me'] == '1'
+        cookies.signed['_gigavine_warden'] = {:value => [user.id, user.salt, 6.months.from_now], :domain  => :all}
+      end
       success!(user)
     else
       fail('Wrong user name or password')

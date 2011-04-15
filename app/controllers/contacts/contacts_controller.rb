@@ -97,6 +97,7 @@ class Contacts::ContactsController < ApplicationController
     respond_to do |format|
       if @invite.save
         UserMailer.invite(@invite).deliver
+        @invite.update_attribute :sent_at, Time.now
         format.html { redirect_to(contact_path(@contact), :notice => 'Contact was successfully invited.') }
         format.xml  { head :ok }
       else

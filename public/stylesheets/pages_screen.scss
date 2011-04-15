@@ -9,6 +9,8 @@
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
 @import "partials/footer";
+@import "partials/nivo";
+//@import "partials/ad-gallery";
 
 html, body {height: 100%;}
 body{
@@ -17,12 +19,12 @@ body{
   @include blueprint-debug;
   @include blueprint-interaction;
   margin: 0;
-  
+
   #wrapper{
     width:  $blueprint-container-size + 40px;
     margin: 0px auto;
     overflow: auto;
-    
+
     #container{
       @include container;
       margin: 0px 5px 0px 20px;
@@ -30,7 +32,7 @@ body{
       overflow: hidden;
     }
   }
-  
+
   a{
     color: #89D1DF;
     text-decoration: none;
@@ -55,8 +57,8 @@ body{
     @include replace-text('/images/downarrow.png', 50%, 50%, 19px, 19px);
     float:right;
     &.active1, &:hover {
-       @include replace-text('/images/downarrow_lit.png', 50%, 50%, 19px, 19px);
-       float:right;
+      @include replace-text('/images/downarrow_lit.png', 50%, 50%, 19px, 19px);
+      float:right;
     }
   }
 }
@@ -78,10 +80,10 @@ body{
 }
 
 #header {
-  height:        12em;
+  height:        15em;
   overflow:      hidden;
   color: $gigavine-dark-blue;
-  
+
   #header-left {
     @include column(4);
     #logo {
@@ -90,14 +92,16 @@ body{
       margin-top: 4px;
     }
   }
-  
+
   #header-right {
     @include column(20, last);
     #header-tools {
       height: 86px;
       margin-left: 10px;
       p {float: left; height: 3em; margin-bottom: 0.5em;}
-      form{float:right; 
+      form{
+        clear: both;
+        float:right;
         margin-top: -0.50em;
         label{font-weight: normal; margin-right: 4px;}
         input[type=text] {
@@ -105,7 +109,21 @@ body{
           @include border-radius;
         }
         input[type=submit]{
-          @include replace-text('/images/search_go.png');
+          &.go{
+            &.red {
+              @include replace-text('/images/search_go_red.gif');
+              &.hover {
+                @include replace-text('/images/search_go_red_hover.gif');
+              }
+            }
+            &.green {
+              @include replace-text('/images/search_go_green.gif');
+              &.hover {
+                @include replace-text('/images/search_go_green_hover.gif');
+                color: red;
+              }
+            }
+          }
           border: 0;
           height: 19px;
           width:  19px;
@@ -124,48 +142,90 @@ body{
       @include column(20);
       border-top: 2px dotted;
       border-bottom: 2px dotted;
+      height: 21px;
       ul{
+        position: relative;
         float: right;
         @include horizontalist(4px);
         margin: 0; padding: 0;
-        height: 21; //fix mozzilla misalignment
-        li span {font-weight:  900;
-                 font-size:    1.2em;
-                 display:      inline;
-                 overflow:     hidden;
-                 margin-left:  6px;
-                 margin-right: 6px
+        li span.bull {
+          font-weight:  900;
+          font-size:    1.2em;
+          display:      inline;
+          overflow:     hidden;
+          margin-left:  6px;
+          margin-right: 6px
         }
-        a {color: $gigavine-medium-grey;}
+        a {color: $gigavine-medium-grey; display: inline-block; height: 21px; }
         a:hover   {text-decoration: none;}
         a:visited {text-decoration: none;}
-        
+
         li#nav-company{
           a.active{color: $accent-company}
-          a:hover{color:  $accent-company}
+          a:hover{color:  $accent-company; height: 19px; border-bottom: 2px solid $accent-company;}
           span{color:     $accent-company}
+          ul li {
+            color: $accent-company;
+            a{color: $accent-company;}
+          }
         }
         li#nav-creative{
           a.active{color: $accent-creative}
-          a:hover{color:  $accent-creative}
+          a:hover{color:  $accent-creative; height: 19px; border-bottom: 2px solid $accent-creative;}
           span{color:     $accent-creative}
-
+          ul li {
+            li{color: $accent-creative;}
+            a{color: $accent-creative;}
+          }
         }
         li#nav-languages{
-          a.active{color: $accent-languages}
-          a:hover{color:  $accent-languages}
+          a.active{color: $accent-languages }
+          a:hover{color:  $accent-languages; height: 19px; border-bottom: 2px solid $accent-languages; }
           span{color:     $accent-languages}
+          ul li {
+            li{color: $accent-languages;}
+            a{color: $accent-languages;}
+          }
         }
         li#nav-technology{
           a.active{color: $accent-technology}
-          a:hover{color:  $accent-technology}
+          a:hover{color:  $accent-technology; height: 19px; border-bottom: 2px solid $accent-technology;}
           span{color:     $accent-technology}
+          ul li {
+            li{color: $accent-technology;}
+            a{color: $accent-technology;}
+          }
         }
         li#nav-contact{
           a.active{color: $accent-contact}
-          a:hover{color:  $accent-contact}
+          a:hover{color:  $accent-contact; height: 19px; border-bottom: 2px solid $accent-contact;}
           span{color:     $accent-contact}
         }
+
+        li{
+          height: 80px;
+          div { position: absolute; }
+          ul{
+            top: 8px;
+            position: relative;
+            width: 400px;
+            left: -150px;
+            text-align: center;
+
+            span{margin-left: 4px;}
+
+            a{
+              text-decoration: none;
+              &.active{text-decoration: underline;}
+            }
+
+            &.current {
+              display: block;
+            }
+            display: none;
+          }
+        }
+        overflow: visible;
       }
     }
   }
@@ -177,53 +237,53 @@ body{
     height:        18px;
     margin-top:     3px;
     margin-bottom: 15px;
-    
+
     ul{
       @include horizontalist(4px);
       float:right;
       margin-right: 6px;
       span{margin-left: 4px;}
+
+      a{
+        text-decoration: none;
+        &.active{text-decoration: underline;}
+      }
+
+      &.company{
+        color: $accent-company;
+        a{color: $accent-company;}
+      }
+      &.creative{
+        li{color: $accent-creative;}
+        a{color: $accent-creative;}
+      }
+      &.languages{
+        li{color: $accent-languages;}
+        a{color: $accent-languages;}
+      }
+      &.technology{
+        li{color: $accent-technology;}
+        a{color: $accent-technology;}
+
+      }
     }
-  
-    a{
-      text-decoration: none;
-      &.active{text-decoration: underline;}
-    }
-  
-    &.company{
-      color: $accent-company;
-      a{color: $accent-company;}
-    }
-    &.creative{
-      li{color: $accent-creative;}
-      a{color: $accent-creative;}
-    }
-    &.languages{
-      li{color: $accent-languages;}
-      a{color: $accent-languages;}
-    }
-    &.technology{
-      li{color: $accent-technology;}
-      a{color: $accent-technology;}
-    
-    }
-  
+
     clear: both;
   }
 }
 
 form {
   @include blueprint-form; }
-  
+
 
 #ticker {
   @include column(24);
   @include border-radius(5px);
   margin-bottom: 18px;
-  
+
   height: 144px;
   overflow: hidden;
-  
+
   .text{
     display: inline;
     float: left;
@@ -231,17 +291,17 @@ form {
     width: 280px;
     height: 144px;
     z-index: 1000;
-    
+
     p, h2 {
       margin-left: 9px; margin-right: 19px;
       color: $gigavine-white;
     }
   }
-  
+
   .picture{
     @include column(17, last);
   }
-  
+
   &.languages {
     .text{
       span {
@@ -252,54 +312,188 @@ form {
   }
 }
 
+#crousel {
+  @include column(24);
+  @include border-radius(5px);
+  margin-top: 18px;
+  margin-bottom: 18px;
+
+  height: 239px;
+  overflow: hidden;
+
+  .text{
+    display: inline;
+    float: left;
+    margin-right: 0px;
+    width: 280px;
+    height: 239px;
+    z-index: 1000;
+    background-color: $gigavine-dark-grey;
+
+    span {
+      font-weight: 900;
+    }
+
+
+    p, h2, a {
+      margin-left: 24px; margin-right: 19px;
+      color: $gigavine-white;
+    }
+
+    h2{
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+    a {
+      height: 19px;
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding-right: 26px;
+      cursor: pointer;
+      background: url('/images/read_more.gif') right no-repeat;
+    }
+  }
+
+  .picture{
+    @include column(17, last);
+  }
+}
+
 #content {
   margin-bottom: 1.5em;
   h1, h2, h3, h4, h5, h6, p, q, pre, li {color: $gigavine-medium-grey;}
-  
+  h4 { margin: 0  0 .5em 0; font-size: 12px; font-weight: bold; }
+  p  { margin: 0  0 .5em 0; }
+  ul { margin: 0  0 .5em 0; padding-left: 2.5em; }
+
   @include column-base(last);
   width: $blueprint_grid_width * 24 + $blueprint_grid_margin * 24;
-  
-  .one-third {@include column(8);}
-  .two-thirds {@include column(16);}
-  .full {@include column(24);}
-  
+
+  .one-third, .two-thirds, .full { margin-bottom: 1em; }
+  .one-third  {@include column(8);  }
+  .two-thirds {@include column(16); }
+  .full       {@include column(24); }
+
   #connect-bar{
+    /*
     margin-right: 0px;
     width: $blueprint-container-size + $blueprint-grid-margin;
     ul{
-      margin-right: 0; padding: 0;
-      @include clearfix;
-      list-style-type: none;
-      li{
-        @include column(4);
+    margin-right: 0; padding: 0;
+    @include clearfix;
+    list-style-type: none;
+    li{
+    @include column(4);
+    }
+    }*/
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+    @include column(24);
+
+    h3 { margin: 0 4px 5px 0; }
+    ul {
+      @include float-left;
+      @include border-radius(5px);
+
+      width: $blueprint-container-size - 2;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #cecece;
+      background: #ececec;
+
+      li {
+        @include float-left;
+        margin: 2;
+        padding: 26px 22px;
+
+        border-right: 1px solid #cecece;
+        height: 70px;
+        text-align: left;
+        width: ($blueprint-container-size - 2) / 6 - 45;
+        background: url('/images/icons/arrows.gif') no-repeat (($blueprint-container-size - 2) / 12 - 6) top;
+
+        &.yellow   { background-position: (($blueprint-container-size - 2) / 12 - 6 - 0)   top; }
+        &.red      { background-position: (($blueprint-container-size - 2) / 12 - 6 - 180) top; }
+        &.fuchsia  { background-position: (($blueprint-container-size - 2) / 12 - 6 - 360) top; }
+        &.blue     { background-position: (($blueprint-container-size - 2) / 12 - 6 - 540) top; }
+        &.green    { background-position: (($blueprint-container-size - 2) / 12 - 6 - 720) top; }
+        &.olive    { background-position: (($blueprint-container-size - 2) / 12 - 6 - 900) top; }
+      }
+      li.last {
+        border: none;
       }
     }
   }
-  
+
+  div#portoflio {
+    div.header {
+      margin: 20px 2px;
+      /*background: url('/images/portoflio_header.jpg') no-repeat left top;*/
+      overflow: hidden;
+
+
+      div#descriptions {
+        @include column(8);
+        @include border-left-radius(5px);
+        margin-right: 0;
+        position: relative;
+        height: 289px;
+        background: $gigavine-dark-grey;
+
+        div.half-circle {
+          width: 12px;
+          height: 150px;
+          position: absolute;
+          right: -12px;
+          background: url('/images/half_circle.gif') no-repeat left 100px;
+          z-index: 9999;
+        }
+      }
+
+      div.box {
+        div.l {
+          @include float-left;
+          @include border-left-radius(5);
+          height: 289px;
+
+          background: red;
+          margin: 0 ;
+          margin-right: 10px;
+        }
+        div.r {
+          @include float-left;
+          height: 289px;
+          background: url('/images/kkkkk.gif') no-repeat left 100px;
+        }
+      }
+    }
+  }
+
   .box  {
     @include column(8);
-    h4  {padding-left: 10px;}
-    div {
+    h4 { padding-left: 10px; }
+    > div {
       padding: 0.75em;
-      margin-bottom: 0.75em;
-      margin-top: -0.75em;
       @include border-radius(3px);
     }
   }
   .equalized {
     height: 24em;
-    div {height: 18em;}
+    > div {height: 18em;}
   }
   .small-equalized{
     height: 12.5em;
     div {height: 9em;}
   }
+  
   .form-box  {
     @include column(8);
     @include border-radius(3px);
     height: 156px;
-    margin-top: -0.5em;
-    
+    margin-top: 8px;
+
     h4  {
       color: $gigavine-white;
       margin: 0.5em 0 0.75em 0.5em;
@@ -311,12 +505,12 @@ form {
       margin-top: 0.25em;
       margin-bottom: 0em;
     }
-    
+
     form{
       margin: 0 10px;
-      
+
       p { margin: 0;}
-      
+
       label{
         font-weight: normal;
         color: $gigavine-white;
@@ -330,7 +524,7 @@ form {
       }
 
       p.file {margin-bottom: 0;}
-      
+
       input[type=text].reform {
         width: 120px;
       }
@@ -367,43 +561,126 @@ form {
         margin-right: 40px;
         cursor: pointer;
         cursor: hand;
-      } 
+      }
     }
   }
+  /* commented */
   .clearbox {
     @include column(8);
     background-image: url('/images/balloon.png');
     background-repeat: no-repeat;
     background-position: 0 0px;
-    
+
     h4  {
       margin-left: 34px;
       margin-bottom: 0.73em;
     }
-    
+
     hr {width: 99%;
-        margin-bottom: 0.5em;
-        border-width:    2px 0 0 0;
-        border-color:   $gigavine-medium-grey;
-        border-style:   dotted;
-        border-spacing: 2px 2px}
-    
+      margin-bottom: 0.5em;
+      border-width:    2px 0 0 0;
+      border-color:   $gigavine-medium-grey;
+      border-style:   dotted;
+    border-spacing: 2px 2px}
+
     &#contcat-us-box {
-       background-image: url('/images/balloon.png');
+      background-image: url('/images/balloon.png');
     }
   }
+  /* commented end */
+
+  #we-offer, #news-feed, #join , #contact {
+    background-repeat: no-repeat;
+    background-position: left top;
+    h4 {
+      padding: 1em 40px;
+      margin-bottom: 0;
+      height: 28px;
+      font-size: 11px;
+      font-weight: bold;
+      background: url('/images/dotted_border_gray.png') repeat-x left bottom;
+    }
+    ul { list-style: none; padding: 0; margin: 0; }
+    p, li {
+      margin: 0;
+      padding: 0.5em 0 0.5em 0;
+      list-style: none;
+      &.dotted_border {
+        background: url('/images/dotted_border_gray.png') repeat-x left bottom;
+      }
+      a { color: $gigavine-green; }
+    }
+    div.hr {
+      font-size: 2px;
+      height: 2px;
+      background: url('/images/dotted_border_gray.png') repeat-x left bottom;
+    }
+  }
+  #we-offer  { background-image: url('/images/icons/we_offer.png');  }
+  #news-feed { background-image: url('/images/icons/news_feed.png'); }
+  #join      { background-image: url('/images/icons/join.png');      }
+  #contact   { background-image: url('/images/icons/contact.png');   }
+
+  #stackbox {
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      width: 350px;
+      li {
+        width: 220px;
+        height: 84px;
+        @include float-left;
+        margin: 0 0 5px 5px;
+        h4, p { color: #fff;}
+        h4 { margin: 10px 8px 0 8px; padding: 0; text-transform: uppercase; font-weight: bold; }
+        p  { margin:  0   8px;       padding: 0; font-size: 11px; }
+        &.create, &.deliver { @include border-top-left-radius(5px); }
+        &.create  { background-color: $gigavine-fushia; }
+        &.deliver { background-color: $gigavine-dark-grey; }
+        &.adapt   { background-color: $gigavine-green; @include border-top-right-radius(5px); }
+        &.image   { width: 76px; }
+      }
+    }
+  }
+
   .dark {
     color:            $gigavine-white;
     background-color: $gigavine-dark-grey;
   }
-  
-  
-  .azure  div{background-color: $accent-azure-bg;}
-  .blue   div{background-color: $accent-blue-bg;}
-  .red    div{background-color: $accent-red-bg;}
-  .yellow div{background-color: $accent-yellow-bg;}
-  .green  div{background-color: $accent-green-bg;}
-  
+
+
+  .azure  div{
+    background-color: $accent-azure-bg;
+    .dragger_container { border-left: 1px dotted $accent-technology; }
+    .dragger           { background: $accent-technology !important;  }
+    .dragger_pressed   { background: $accent-technology !important;  }
+  }
+  .blue   div{
+    background-color: $accent-blue-bg;
+    .dragger_container { border-left: 1px dotted $accent-languages; }
+    .dragger           { background: $accent-languages !important;  }
+    .dragger_pressed   { background: $accent-languages !important;  }
+  }
+  .red    div{
+    background-color: $accent-red-bg;
+    .dragger_container { border-left: 1px dotted $accent-contact; }
+    .dragger           { background: $accent-contact !important;  }
+    .dragger_pressed   { background: $accent-contact !important;  }
+  }
+  .yellow div{
+    background-color: $accent-yellow-bg;
+    .dragger_container { border-left: 1px dotted $accent-company; }
+    .dragger           { background: $accent-company !important;  }
+    .dragger_pressed   { background: $accent-company !important;  }
+  }
+  .green  div{
+    background-color: $accent-green-bg;
+    .dragger_container { border-left: 1px dotted $accent-technology; }
+    .dragger           { background: $accent-technology !important;  }
+    .dragger_pressed   { background: $accent-technology !important;  }
+  }
+
 }
 
 #footer{
@@ -418,9 +695,9 @@ form {
   color: #cccccc;
   a {color: #cccccc;}
   h5 a, #footer-right li, #footer-right a{color: #EFF9F6;}
-  
+
   @include box-shadow( 0px, 3px, 15px, $gigavine-dark-grey*0.4, inset);
-  
+
   #footer-letterpress{
     @include column(4);
     h4 {
@@ -442,7 +719,7 @@ form {
       float:right;
       @include horizontalist(6px);
       margin-bottom: 1.5em;
-      
+
       span{margin-left: 6px;}
     }
     padding-right: 10px;
@@ -450,5 +727,55 @@ form {
       clear:both;
       margin-top: 4.5em;
     }
+  }
+}
+
+.mcs_container {
+  .customScrollBox {
+    position: relative;
+    height: 100%;
+    overflow :hidden;
+    margin: 5px 0;
+    .container {
+      position: relative;
+      width: 276px;
+      top: 0;
+      float: left;
+    }
+    .content { clear: both; }
+    .content p{ }
+  }
+
+  .dragger_container {
+    position:relative;
+    width: 0px;
+    height: 210px;
+    float: left;
+    margin: 0 0 0 10px;
+    border-left: 1px dotted #555;
+    cursor: pointer;
+  }
+  .dragger {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #555;
+    margin-left: -5px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    -moz-border-radius: 18px;
+    -khtml-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+  }
+  .dragger_pressed {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #09C;
+    margin-left: -5px;
+    overflow: hidden;
+    cursor: s-resize;
   }
 }

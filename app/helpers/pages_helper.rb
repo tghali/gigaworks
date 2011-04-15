@@ -29,6 +29,10 @@ module PagesHelper
     end
   end
   
+  def ul_class(name)
+    params[:section] == name ? "current" : ""
+  end
+  
 private
   
   def current_page

@@ -1,9 +1,17 @@
 .box.sentence
-  %h2
-    = language_flag_for(@sentence)
-    = @sentence.text
-    = flag_toggle_for @sentence
-  %hr/
+  .sentence_header
+    %h2
+      = language_flag_for(@sentence)
+      = @sentence.text
+  .sentence_tags
+    - @sentence.tags.each do |tag|
+      %span.sentence_tag
+        = tag.tag
+        = link_to 'X', glossary_sentence_tag_path(@sentence, tag), :method => 'delete'
+    - if can? :create, @new_tag
+      = link_to 'Add new tag', "#", :rel => "#tag_form", :id => "add_tag", :'class' => 'overlay-switch'
+  = flag_toggle_for @sentence
+  %hr.clear
   %ul.word-definition-translations
     - @sentence.translations.each do |t|
       %li
@@ -64,4 +72,11 @@
       Add Comment
     = form_for @new_comment, :url => glossary_sentence_comments_path(@sentence) do |w|
       = w.text_area :comment
+      = w.submit
+- if can? :create, @new_tag
+  #tag_form.simple_overlay
+    %h3
+      Add Tag
+    = form_for @new_tag, :url => glossary_sentence_tags_path(@sentence) do |w|
+      = w.text_area :tag
       = w.submit

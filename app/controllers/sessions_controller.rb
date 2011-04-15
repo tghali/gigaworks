@@ -6,18 +6,19 @@ class SessionsController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  def new
+  def new    
     redirect_to root_url if warden.authenticated?
   end
   
   def create
     if current_user
-      flash.now[:alert] = t(:'account.already_signed_in')
-      redirect_to "http://worx.#{request.domain}" and return
+      flash[:alert] = t(:'account.already_signed_in')
+      redirect_to "http://worx.#{request.domain}/" and return
     end
-    warden.authenticate! :remember, :sign_in
+    warden.authenticate! :sign_in
+
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
-    redirect_to "http://worx.#{request.domain}"
+    redirect_to "http://worx.#{request.domain}/"
   end
   
   # Load user if the user has authenticated before with the provider.
@@ -44,13 +45,14 @@ class SessionsController < ActionController::Base
   end
   
   def unauthorized
-    # (flash.now[:error] = warden.message || "please")
+    message = env['warden.options'][:message] || warden.message
+    flash[:error] = message
 
-    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{warden.message}"
-    cookies.delete('_gigavine_warden')
+    Rails.logger.info "[Sign In: fail] from #{request.remote_ip} - #{message}"
+    session[:remember_me] = nil
     render :action => "new", :status => :unauthorized
   end
-
+  
 protected
 
   def redirect_to_https

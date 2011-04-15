@@ -36,10 +36,19 @@ $(document).ready(function(){
   fill();
   $(window).resize(fill);
   
-  (function(){
-    $("label[data-infield]").inFieldLabels();
-  })();
-    
+  $("label.infield").inFieldLabels();
+  
+  // Text direction switch
+  $("select.language_toggle").live("change", function(ev){
+    var toggle = $(this);
+    var input = $(document.getElementById(toggle.attr("rel")));
+    if ($.inArray(toggle.val(), ["he", "ha", "fa", "ps", "ur", "yi", "ar"]) != -1) {
+      input.attr("dir", "rtl");
+    } else {
+      input.attr("dir", "ltr");
+    }
+  }).trigger("change");
+  
   //Tooltips
   $(".tooltipped a").tooltip({
 
