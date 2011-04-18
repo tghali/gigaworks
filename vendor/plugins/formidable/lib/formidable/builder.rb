@@ -10,20 +10,20 @@ module Formidable
           options[:class] = 'text'
         end
         args << options
-        @template.content_tag(:p, field_label(field_name, *args) + "<br />".html_safe + super(field_name, *args))
+        @template.content_tag(:p, field_label(field_name, *args[0..2]) + "<br />".html_safe + super(field_name, *args))
       end
     end
 
     %w[collection_select text_area datetime_select date_select select file_field].each do |method_name|
       define_method(method_name) do |field_name, *args|
-        @template.content_tag(:p, field_label(field_name, *args) + "<br />".html_safe + super(field_name, *args))
+        @template.content_tag(:p, field_label(field_name, *args[0..2]) + "<br />".html_safe + super(field_name, *args))
       end
     end
 
     def check_box(field_name, *args)
       old_checkbox = super(field_name, *args)
       @template.content_tag :p do
-        field_label(field_name, *args) do
+        field_label(field_name, *args[0..2]) do
           old_checkbox
         end
       end
@@ -32,17 +32,25 @@ module Formidable
     def radio_button(field_name, *args)
       old_radio_button = super(field_name, *args)
       @template.content_tag :p do
-        field_label(args.shift, *args) do
+        field_label(args.shift, *args[0..2]) do
           old_radio_button
         end
       end
+    end
+    
+    def sanitized_object_name
+      @sanitized_object_name ||= object_name.gsub(/\]\[|[^-a-zA-Z0-9:.]/, "_").sub(/_$/, "")
+    end
+    
+    def field_id_for(method)
+      "#{sanitized_object_name}_#{method.to_s.sub(/\?$/,"")}"
     end
     
     def submit(*args)
       @template.content_tag(:p, super)
     end
 
-    def many_check_boxes(name, subobjects, options = {})
+    def many_check_boxes(name, subobjects, options = {}, html_options = {})
       @template.content_tag(:p) do
         field_name = "#{object_name}[#{name}][]"
         values = @template.instance_variable_get("@#{object_name}").send(name)
@@ -50,7 +58,7 @@ module Formidable
           options.merge!(:id => "#{object_name}_#{subobject}")
           field_label(subobject, options) do
             checked = values.include?(subobject)
-            @template.check_box_tag field_name, subobject, checked, options
+            @template.check_box_tag field_name, subobject, checked, options, html_options
           end
         end.join("<br />")
         #@template.hidden_field_tag(field_name, "")
