@@ -9,8 +9,19 @@
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
     /[if lt IE 8]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
-    = javascript_include_tag 'common.js'
+    =# javascript_include_tag 'common/plugins/goverlay.jquery','common/plugins/jquery.infieldlabel','common/plugins/jquery.tools.min','common/plugins/jquery-ui'
+    =# javascript_include_tag 'common/base/raphael-min','common/application'
+	
+
+	
+    = javascript_include_tag  'jquery-1.4.2.min','jquery-ui-1.8.2.custom.min','autocomplete-rails', 'pages/plugins/rails' 
+    = javascript_include_tag 'common'
+	
+    =# javascript_include_tag 'common/base/jquery.js', 'jquery-ui-1.8.2.custom.min', 'autocomplete-rails', 'rails'
+   
     = javascript_include_tag "http://use.typekit.com/oul4lnj.js"
+    = stylesheet_link_tag 'jquery-ui-1.8.2.custom.css' 	
+
     %script{:type => "text/javascript"} try{Typekit.load();}catch(e){}
     = csrf_meta_tag
   %body
