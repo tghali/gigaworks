@@ -1,7 +1,5 @@
 class Glossary::SentencesController < Glossary::GlossaryController
   
-  before_filter :load_sentences
-  
   def index
     @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
     respond_to do |format|
@@ -104,7 +102,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     
     authorize! :destroy, @sentence
     
-    @sentence.destroy
+    @destroyed = @sentence.destroy
 
     respond_to do |format|
       format.html { redirect_to glossary_sentences_url, :notice => 'Sentence was successfully deleted.' }

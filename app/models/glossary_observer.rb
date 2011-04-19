@@ -13,6 +13,7 @@ class GlossaryObserver < ActiveRecord::Observer
   def filter(controller)
     Thread.current[:controller], Thread.current[:current_user] = controller, controller.current_user
     yield
+    Thread.current[:controller], Thread.current[:current_user] = nil, nil
   end
   
   def after_create(target)
@@ -34,8 +35,7 @@ class GlossaryObserver < ActiveRecord::Observer
   
   def after_destroy(target)
     return unless controller
-    
-    GlossaryAction.create(:user => current_user, :action => 'deleted', :target => target) if current_user
+    GlossaryAction.create(:user => current_user, :action => 'deleted', :placeholder => "a #{target.class.human_name}") if current_user
   end
   
 end

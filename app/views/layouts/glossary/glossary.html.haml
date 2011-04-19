@@ -26,7 +26,7 @@
             %em.disabled Add a sentence
     #glossary-sentences
       %ul
-        - if @sentences.empty?
+        - if !@sentences || @sentences.empty?
           - if params[:sentence_search]
             %em No matching sentence found
         - else

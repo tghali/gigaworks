@@ -1,5 +1,4 @@
 class Glossary::TranslationPairsController < Glossary::GlossaryController
-  before_filter :load_sentences
   
   def new
     @sentence = Sentence.find(params[:sentence_id])
