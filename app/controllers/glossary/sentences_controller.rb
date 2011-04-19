@@ -59,6 +59,10 @@ class Glossary::SentencesController < Glossary::GlossaryController
   def edit
     @sentence = Sentence.find(params[:id])
     @sentence.translations.build
+   respond_to do |format|
+      format.html # show.html.erb
+      format.js # { render :xml => @sentence }
+    end
   end
 
   # POST /sentences

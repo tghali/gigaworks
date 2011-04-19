@@ -1,0 +1,5 @@
+
+page['inside_form'].replace_html :partial => 'form'
+
+
+
