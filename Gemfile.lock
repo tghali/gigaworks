@@ -8,7 +8,7 @@ GIT
 PATH
   remote: ~/Sites/tools/formidable
   specs:
-    formidable (0.0.2)
+    formidable (0.1.0)
 
 PATH
   remote: ~/Sites/tools/fredo

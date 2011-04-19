@@ -10,6 +10,7 @@ class Sentence < ActiveRecord::Base
   belongs_to :flagged_by, :class_name => 'User'
   has_many   :comments, :as => :commentable
   has_many   :tags, :as => :taggable
+  has_many   :glossary_actions, :as => :target
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }
   attr_accessible :language, :text, :definition, :translations_attributes

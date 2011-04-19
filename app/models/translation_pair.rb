@@ -2,7 +2,8 @@ class TranslationPair < ActiveRecord::Base
 
   belongs_to :sentence
   has_one    :author,     :class_name => 'User'
-
+  has_many   :glossary_actions, :as => :target
+  
   has_one_baked_in :language, :names => Gigavine::Preferences.translated_languages
   
   validate :disallow_same_language_translations
