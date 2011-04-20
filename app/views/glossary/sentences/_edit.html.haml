@@ -1,0 +1,11 @@
+%h2 Edit Sentence
+%div{:style=>"height:400px; overflow-y:scroll; overflow-x:hidden;"}
+  = form_for @sentence, :url => glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]) do |w|
+    = render "shared/error_messages", :target => @sentence
+    = w.select :language, Gigavine::Preferences.translated_languages
+    = w.text_area :text
+    %h3 Provide a translation
+    - w.fields_for :translations do |d|
+      = d.select :language, Gigavine::Preferences.translated_languages
+      = d.text_area :text
+    = w.submit

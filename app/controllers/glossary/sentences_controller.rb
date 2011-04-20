@@ -1,5 +1,5 @@
 class Glossary::SentencesController < Glossary::GlossaryController
-  
+  autocomplete :sentence, :text
   def index
     @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
     respond_to do |format|
@@ -28,7 +28,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # GET /sentences/1
   # GET /sentences/1.xml
   def show
-
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : []) 
     @sentence = Sentence.find(params[:id])
     @new_comment = Comment.new
     @new_comment.commentable = @sentence
@@ -55,6 +55,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
 
   # GET /sentences/1/edit
   def edit
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : []) 
     @sentence = Sentence.find(params[:id])
     @sentence.translations.build
   end
@@ -86,9 +87,10 @@ class Glossary::SentencesController < Glossary::GlossaryController
     
     respond_to do |format|
       if @sentence.update_attributes(params[:sentence].merge :author => current_user)
-        format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully updated.') }
+        format.html { redirect_to(glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]), :notice => 'Sentence was successfully updated.') }
         format.xml  { head :ok }
       else
+        @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
         format.html { render :action => "edit" }
         format.xml  { render :xml => @sentence.errors, :status => :unprocessable_entity }
       end
