@@ -1,11 +1,4 @@
 class Glossary::GlossaryController < ApplicationController
-  
-  
-  protected
-
+  log_actions_with :glossary_observer
     
-    def load_sentences
-      @sentences = []
-    end
-  
 end

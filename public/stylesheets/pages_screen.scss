@@ -10,7 +10,7 @@
 @import "blueprint";
 @import "partials/footer";
 @import "partials/nivo";
-//@import "partials/ad-gallery";
+@import "partials/ad-gallery";
 
 html, body {height: 100%;}
 body{
@@ -161,17 +161,16 @@ body{
         a:visited {text-decoration: none;}
 
         li#nav-company{
-          a.active{color: $accent-company}
-          a:hover{color:  $accent-company; height: 19px; border-bottom: 2px solid $accent-company;}
+          &.current a, a:hover{color: $accent-company}
           span{color:     $accent-company}
+          ul { right: 180px; }
           ul li {
             color: $accent-company;
             a{color: $accent-company;}
           }
         }
         li#nav-creative{
-          a.active{color: $accent-creative}
-          a:hover{color:  $accent-creative; height: 19px; border-bottom: 2px solid $accent-creative;}
+          &.current a, a:hover{color: $accent-creative}
           span{color:     $accent-creative}
           ul li {
             li{color: $accent-creative;}
@@ -179,8 +178,7 @@ body{
           }
         }
         li#nav-languages{
-          a.active{color: $accent-languages }
-          a:hover{color:  $accent-languages; height: 19px; border-bottom: 2px solid $accent-languages; }
+          &.current a, a:hover{color: $accent-languages }
           span{color:     $accent-languages}
           ul li {
             li{color: $accent-languages;}
@@ -188,8 +186,7 @@ body{
           }
         }
         li#nav-technology{
-          a.active{color: $accent-technology}
-          a:hover{color:  $accent-technology; height: 19px; border-bottom: 2px solid $accent-technology;}
+          &.current a, a:hover{color: $accent-technology}
           span{color:     $accent-technology}
           ul li {
             li{color: $accent-technology;}
@@ -197,32 +194,27 @@ body{
           }
         }
         li#nav-contact{
-          a.active{color: $accent-contact}
-          a:hover{color:  $accent-contact; height: 19px; border-bottom: 2px solid $accent-contact;}
+          &.current a, a:hover{color: $accent-contact}
           span{color:     $accent-contact}
         }
 
         li{
           height: 80px;
-          div { position: absolute; }
           ul{
-            top: 8px;
-            position: relative;
-            width: 400px;
-            left: -150px;
-            text-align: center;
+            top: 26px;
+            right: 0px;
+            position: absolute;
 
             span{margin-left: 4px;}
 
             a{
               text-decoration: none;
-              &.active{text-decoration: underline;}
-            }
-
-            &.current {
-              display: block;
+              &:hover{text-decoration: none;}
             }
             display: none;
+          }
+          &.current ul {
+            display: block;
           }
         }
         overflow: visible;
@@ -328,7 +320,7 @@ form {
     width: 280px;
     height: 239px;
     z-index: 1000;
-    background-color: $gigavine-dark-grey;
+    background-color:  $gigavine-dark-gray;
 
     span {
       font-weight: 900;
@@ -427,6 +419,117 @@ form {
     }
   }
 
+  div#highlight {
+    h2 {
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    h3.border-bottom {
+      padding-bottom: 6px;
+      margin-bottom:  8px;
+      background: url('/images/dotted_border_gray.png') repeat-x left bottom;
+    }
+
+    .header {
+      height: 190px;
+      padding: 25px;
+      background: url('/images/highlights_header_background.jpg') no-repeat left top;
+
+      p { width: 880px; font-size: 12px; }
+
+      * { color: #fff; }
+      a.signup-now { @include replace-text('/images/signup_now.png'); width: 176px; height: 43px; }
+    }
+
+    div.highlights {
+      h4 {
+        padding: 20px 60px;
+        background: url('/images/dotted_border_gray.png') repeat-x left bottom;
+      }
+
+      .building {
+        background: url('/images/highlights_building_icons.png') no-repeat;
+      }
+
+      .connectinog {
+        background: url('/images/highlights_connectinog_icons.png') no-repeat;
+      }
+
+      .exposure {
+        background: url('/images/highlights_exposure_icons.png') no-repeat;
+      }
+    }
+
+    #feature-list {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      ul#tabs {
+        @include column(8);
+        li {
+          display: block;
+          height: 45px;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          a {
+            display: block;
+            cursor: pointer;
+            padding:  18px 25px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            background: url('/images/tabes.png') no-repeat left -45px;
+            outline: none;
+            &.first {
+              background-position: left top;
+            }
+            &.current {
+              background-position: left -90px !important;
+            }
+            &.last {
+              background-position: left -135px;
+            }
+          }
+        }
+      }
+      ul#output {
+        @include column(16);
+        li {
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          div {
+            @include column(8);
+
+            &.text {
+              h3 {
+                margin-top: 18px;
+              }
+            }
+
+            &.image {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  div.follow {
+    padding: 5px 0;
+    background: url('/images/signup-borders.gif') repeat-x;
+
+    h3    { margin-right: 28px; font-size: 16px; }
+    h3, p { display: inline; }
+  }
+
   div#portoflio {
     div.header {
       margin: 20px 2px;
@@ -440,7 +543,7 @@ form {
         margin-right: 0;
         position: relative;
         height: 289px;
-        background: $gigavine-dark-grey;
+        background:  $gigavine-dark-gray;
 
         div.half-circle {
           width: 12px;
@@ -487,7 +590,7 @@ form {
     height: 12.5em;
     div {height: 9em;}
   }
-  
+
   .form-box  {
     @include column(8);
     @include border-radius(3px);
@@ -564,6 +667,159 @@ form {
       }
     }
   }
+
+  .form-box2 {
+    float: left;
+    display: inline-block;
+    width: 288px;
+    margin-top: 8px;
+    padding: 10px;
+
+    @include border-radius(3px);
+    border: 1px solid #a7a7a7;
+
+    p {
+      float: left;
+      width: 100%;
+      * { font-weight: normal; }
+
+      &.cost { color: #0060ff; font-weight: bold; margin: 8px 0 0; }
+      &.bold,   &.bold   * { font-weight: bold; font-size: 110%;}
+      &.bolder, &.bolder * { font-weight: bold; font-size: 120%; }
+    }
+    input, select {
+      padding: 5px;
+      @include border-radius(3px);
+    }
+
+    select{
+      width: 280px;
+    }
+    span {
+      display: inline-block;
+      float: left;
+    }
+    .half {
+      width: 140px;
+      input[type=text]{
+        width: 90px;
+      }
+      &.right {
+        float: right;
+        text-align: right;
+      }
+    }
+
+    .third {
+      width: 90px;
+      label { display: block }
+    }
+
+    h3 {
+      color: #000;
+      font-size: 13px;
+      margin: 12px 0;
+      padding: 0;
+      font-weight: bold;
+      clear: both;
+    }
+    .hr {
+      font-size: 1px;
+      height: 1px;
+      background-color: #0006ff;
+      clear: both;
+    }
+
+    .submit {
+      text-align: right;
+      input {
+        margin: 0;
+        color: #0060ff;
+        font-weight: bold;
+        border: 1px solid #a7a7a7;
+        cursor: pointer;
+        background-color: transparent;
+      }
+      &.calculate {
+        padding-top: 14px;
+      }
+    }
+
+    .disabled {
+      text-decoration: line-through;
+      color: gray;
+    }
+  }
+
+  #languages-links {
+    div.holder {
+      @include column(16);
+      @include border-radius(6px);
+      margin-bottom: 8px;
+      cursor: pointer;
+
+      &.blue   {
+        background-color: $accent-blue-bg;
+        &.hover { background-color: #dbe9f7; }
+        .h3 { color:       $accent-languages;  border-right: 2px solid #dfe8f1; }
+      }
+      &.red    {
+        background-color: $accent-red-bg;
+        &.hover { background-color: #f7e1ee; }
+        .h3 { color:      $accent-technology;  border-right: 2px solid #eedde7; }
+      }
+      &.green  {
+        background-color: $accent-azure-bg;
+        &.hover { background-color: #ddf1f1; }
+        .h3 { color:       #00656d;            border-right: 2px solid #e0e6e6; }
+      }
+      &.yellow {
+        background-color: $accent-yellow-bg;
+        &.hover { background-color: #f7eae3; }
+        .h3 { color:       $accent-company;    border-right: 2px solid #efe6e1; }
+      }
+    }
+
+    .h3, p { display: block; float: left; margin: 0; }
+    .h3 {
+      width: 90px;
+      padding: 28px 20px;
+      margin-top: 4px;
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    p {
+      width: 480px;
+      .center-container { height: 82px; }
+    }
+  }
+
+  .center > .center-container {
+    display: table;
+    position: static;
+  }
+  .center-container {
+    position: relative;
+    span {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+    }
+    span span {
+      position: relative;
+      top: -50%;
+    }
+    > span {
+      display: table-cell;
+      vertical-align: middle;
+      position: static;
+    }
+  }
+
+
   /* commented */
   .clearbox {
     @include column(8);
@@ -608,7 +864,7 @@ form {
       &.dotted_border {
         background: url('/images/dotted_border_gray.png') repeat-x left bottom;
       }
-      a { color: $gigavine-green; }
+      a { color:  $gigavine-green; }
     }
     div.hr {
       font-size: 2px;
@@ -628,17 +884,17 @@ form {
       list-style: none;
       width: 350px;
       li {
-        width: 220px;
+        width: 230px;
         height: 84px;
         @include float-left;
-        margin: 0 0 5px 5px;
+        margin: 0 0 5px 0;
         h4, p { color: #fff;}
-        h4 { margin: 10px 8px 0 8px; padding: 0; text-transform: uppercase; font-weight: bold; }
+        h4 { margin: 6px  8px 0 8px; padding: 0; text-transform: uppercase; font-weight: bold; }
         p  { margin:  0   8px;       padding: 0; font-size: 11px; }
-        &.create, &.deliver { @include border-top-left-radius(5px); }
-        &.create  { background-color: $gigavine-fushia; }
-        &.deliver { background-color: $gigavine-dark-grey; }
-        &.adapt   { background-color: $gigavine-green; @include border-top-right-radius(5px); }
+        &.create, &.deliver { @include border-top-left-radius(5px); margin-right: 4px; }
+        &.create  { background-color:  $gigavine-fushia; }
+        &.deliver { background-color:  $gigavine-dark-gray; }
+        &.adapt   { background-color:  $gigavine-green; @include border-top-right-radius(5px); margin-left: 4px; }
         &.image   { width: 76px; }
       }
     }
@@ -689,7 +945,8 @@ form {
   }
   //@include footer(140px);
   height: 99px;
-  padding-top: 0.75em;
+  padding-top: 1.5em;
+  padding-bottom: 2em;
   background-color: $gigavine-dark-grey;
   ul {margin: 0;}
   color: #cccccc;
@@ -706,9 +963,15 @@ form {
     }
   }
   .footer-map-section{
+    &.company    h5 a:hover { color: $accent-company; }
+    &.creative   h5 a:hover { color: $accent-creative;   }
+    &.languages  h5 a:hover { color: $accent-languages;  }
+    &.technology h5 a:hover { color: $accent-technology; }
     h5 {line-height: 1.5; font-size: 1em; margin-bottom: 0;}
-    ul {list-style: none; padding-left: 10px;}
+    h5 a:hover { text-decoration: none; }
+    ul {list-style: none; padding-left: 0;}
     @include column(3);
+    margin-right: 20px;
   }
   #footer-right{
     height: 6em;
@@ -777,5 +1040,19 @@ form {
     margin-left: -5px;
     overflow: hidden;
     cursor: s-resize;
+  }
+}
+
+#movie {
+  width: 308px !important;
+  height: 220px;
+  @include border-radius(3px);
+  border: 1px solid #a7a7a7;
+
+  img.play {
+    position: relative;
+    top: -130px;
+    left: 240px;
+    cursor: pointer;
   }
 }

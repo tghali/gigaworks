@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
                                          :small  => "48x48>"}
   
   has_many :comments
+  has_many :glossary_actions
+  
   has_many :departements do
     
     def add departement_name

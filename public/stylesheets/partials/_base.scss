@@ -9,14 +9,12 @@ $blueprint-grid-margin: 10px;
 // Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
 
-$gigavine-white:         #fff;
-$gigavine-dark-blue:     #465560;
-$gigavine-light-grey-bg: #c1c6bf;
-$gigavine-light-grey:    #8a949a; //Ahmed Mohammed's version is #ececec
-$gigavine-grey:          #c0c2c3;
-$gigavine-medium-grey:   #5c5c5c;
-$gigavine-dark-grey:     #747f87;
-$darkest:                #222;
+$gigavine-white:       #fff;
+$gigavine-dark-blue:   #465560;
+$gigavine-light-grey:  #8a949a;
+$gigavine-medium-grey: #5c5c5c;
+$gigavine-dark-grey:   #747f87;
+$darkest:              #222;
 
 $accent-red-bg:    #fae8f1;
 $accent-yellow-bg: #fff6f1;
@@ -27,9 +25,14 @@ $accent-green-bg:  #f9f9ec;
 $accent-company:     #ff9966;
 $accent-creative:    #660000;
 $accent-languages:   #0066cc;
-$accent-technology:  #669933;
-$accent-contact:     #cc0066;
+$accent-technology:  #cc0066;
+$accent-contact:     #669933;
 
 $gigavine-backgorund: #F7F7E4;
+
 $gigavine-green:      #007f7b;
 $gigavine-fushia:     #cc0066;
+
+$gigavine-light-gray: #ececec;
+$gigavine-gray:       #c0c2c3;
+$gigavine-dark-gray:  #747f87;
