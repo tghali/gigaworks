@@ -30,7 +30,7 @@
             %em.disabled Delete Translation
   %p
     - if can? :update, @sentence
-      = link_to 'Edit', edit_glossary_sentence_path(@sentence), :rel => "#edit_form", :id => "edit_sentence", :'class' => 'overlay-switch',:remote => :true
+      = link_to 'Edit', edit_glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]), :rel => "#edit_form", :id => "edit_sentence", :'class' => 'overlay-switch',:remote => :true
     - else
       %em.disabled Edit
     |
@@ -40,8 +40,7 @@
       %em.disabled Delete
     |
     - if can? :create, Translation
-      =# link_to "Add translation", new_glossary_sentence_translation_pair_path(@sentence)
-      = link_to 'Add translation', new_glossary_sentence_translation_pair_path(@sentence), :rel => "#translation_form", :id => "add_translation", :'class' => 'overlay-switch',:remote => :true
+      = link_to 'Add translation', new_glossary_sentence_translation_pair_path(@sentence,:sentence_search => params[:sentence_search]), :rel => "#translation_form", :id => "add_translation", :'class' => 'overlay-switch',:remote => :true
 
     - else
       %em.disabled Add translation

@@ -30,9 +30,10 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     
     respond_to do |format|
       if @sentence.save
-        format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'The translation was added successfully.') }
+        format.html { redirect_to(glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]), :notice => 'The translation was added successfully.') }
         # format.xml  { render :xml => @word, :status => :created, :location => @word }
       else
+         @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : []) 
         format.html { render :new }
         # format.xml  { render :xml => @word.errors, :status => :unprocessable_entity }
       end
