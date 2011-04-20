@@ -11,15 +11,16 @@ en:
     Case_studies: Case studies
     Join_our_team: Join our team
     Creative: Creative
-    Design_and_Artwork: "Design & Artwork"
+    Artwork: "Artwork"
     Advertising: Advertising
     Web_design: Web design
+    Design: Design
     Copywriting: Copywriting
     Interactive: Interactive
     Languages: Languages
     Translation: Translation
-    Localization: Localization
-    Consltancy: Consltancy
+    Localisation: Localisation
+    Consultancy: Consultancy
     Online_tools: Online tools
     Technology: Technology
     E-Learning: "E-Learning"
@@ -30,6 +31,15 @@ en:
     Blog: Blog
     Terms: Terms
     Privacy: Privacy
+
+    Source_Language: Source Language
+    Target_Langauge: Target Langauge
+    Requirments: Requirments
+    Word_count: Word count
+    Page_count: Page count
+    Estimate: Estimate
+    Calculate: Calculate
+
     quote:
       Name: Name
       Email: Email

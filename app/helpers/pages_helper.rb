@@ -6,7 +6,7 @@ module PagesHelper
       args.second.merge!(:locale => params[:locale]) unless args.second[:locale]
       
       args.second[:locale] = nil if args.second[:locale] == I18n.default_locale
-      
+
       if args.second == current_page
         args.third || args << {}
         args.third.merge!('class' => 'active')
@@ -29,16 +29,21 @@ module PagesHelper
     end
   end
   
-  def ul_class(name)
-    params[:section] == name ? "current" : ""
+  def li_class(section, page=nil)
+    if params[:section] == section
+      if (params[:page] == 'contact_us' or page == 'contact_us') and (page != params[:page])
+        return false
+      end
+      'current'
+    end
   end
   
-private
+  private
   
   def current_page
     @current_page ||= {:locale  => I18n.locale,
-                       :section => params[:section],
-                       :page    => params[:page]}.delete_if {|k,v| v == nil}
+      :section => params[:section],
+      :page    => params[:page]}.delete_if {|k,v| v == nil}
   end
 
 end

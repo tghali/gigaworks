@@ -1,32 +1,53 @@
-#ticker.languages
-  .text
-    %h2 Languages
-    %p
-      %span DID YOU KNOW
-      our experts Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  .picture
-    %img{:src => '/images/pages/language_ticker.jpg'}
-
-%div
-  %h3 Languages
+.two-thirds
   %div
-    %p 
-      %strong It’s not just speaking the language, it’s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
+    %p It’s not just speaking the language, it’s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
     %p True translation means bringing meaning alive in a new and different context for an audience with different cultural bearings. It is as much about adapting a message’s references, as it is about translating the words.
     %p This process is an enormous challenge for businesses operating in more than one region. Translation on its own is not enough; understanding of the social, political, religious and business context is also required. Add to that the potential complexities of technical terminology and the use of different technologies and interfaces, and you have a formidable problem to solve – one which requires expert assistance.
     %p At Gigavine we live and work in this world of complex differences and crossovers. We know the challenges of managing the process of translation and adaption, and we know how to meet those challenges: we have the processes, the people and the experience to do it.
+  
+  %br
+
+  #languages-links
+    %div.holder.blue
+      = link_to t(:'site.Translation'),  { :section => 'languages', :page => 'translation'  } , { :class => 'h3' }
+      %p.center
+        %span.center-container
+          %span
+            %span At Gigavine we use only native speakers for our translation services, as this is the only way can we guarantee the correct nuances. The goal is to make the material sound as though it was originally written in that language, with no sense of strangeness or distance.
+    %div.holder.red
+      = link_to t(:'site.Localisation'), { :section => 'languages', :page => 'localisation' } , { :class => 'h3' }
+      %p.center
+        %span.center-container
+          %span
+            %span To do localisation well requires local native-speaking experts in the relevant field and a thorough and well tested methodology. Gigavine offers both.
+    %div.holder.green
+      = link_to t(:'site.Consultancy'),   { :section => 'languages', :page => 'consultancy'  } , { :class => 'h3' }
+      %p.center
+        %span.center-container
+          %span
+            %span If you’re developing materials for a foreign market it’s crucial you test them to ensure they’re appropriate for the culture you’re entering. We can provide detailed feedback and recommendations from a local cultural and creative perspective.
+    %div.holder.yellow
+      = link_to t(:'site.Online_tools'), { :section => 'languages', :page => 'online_tools' } , { :class => 'h3' }
+      %p.center
+        %span.center-container
+          %span
+            %span Our consultants and terminology architects will establish a reliable process to eliminate confusion and inconsistencies and dramatically reduce the costs of localisation.
+
+#movie.box
+  = image_tag 'movie.jpg'
+  = image_tag 'movie_play_arrow.jpg', :class => 'play'
+
+= render :partial => 'cost_calc'
 
 %br.clear
-.box.small-equalized.green
-  %h4 Medical
-  %div
-    %p Medical and pharmaceutical texts require translation by skilled experts in the field, as it is essential they are accurate and easily understood by a native speaker. That’s why at Gigavine we insist on using qualified doctors and pharmacists for this kind of work.
+  %br
 
-= render :partial => 'form'
+  %div.follow
+    %h3 SIGN UP TO FOLLOW
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      =link_to 'eiusmod tempor', '#'
+      incididunt ut labore et dolore magna aliqua.
 
-#contact.box
-  %h4 Contact us at Gigavine
-  %p Please get in contact with us and we’ll see how we can assist.
-  %p
-    Call us on 020 3167 4370 or use our 
-    %a{:href => '/contact'} contact form
+  %br
+  %br

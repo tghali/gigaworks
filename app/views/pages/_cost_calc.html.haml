@@ -1,0 +1,36 @@
+#calculations.form-box2
+  %div
+    = form_tag 'boo', :method => 'post' do
+      %p.bolder
+        = label_tag :source_language, t(:'site.Source_Language')
+        = select_tag :source_language
+      %p.bolder
+        = label_tag :target_language, t(:'site.Target_Langauge')
+        = select_tag :target_language
+      %p
+        %span.half.numeric
+          = label_tag :word_count, t(:'site.Word_count')
+          = text_field_tag :word_count
+        %span /
+        %span.half.right.numeric
+          = label_tag :page_count, t(:'site.Page_count')
+          = text_field_tag :page_count
+      %p.bold 
+        = t(:'site.Requirments')
+      %p
+        %span.third
+          = label_tag :translation, t(:'site.Translation')
+          = radio_button_tag :requirements, :translation, true
+        %span.third.middle
+          = label_tag :design, t(:'site.Design')
+          = radio_button_tag :requirements, :design
+        %span.third.right
+          = label_tag :localisation, t(:'site.Localisation')
+          = radio_button_tag :requirements, :localisation
+      %br.clear
+      %h3 
+        = t(:'site.Estimate')
+      .hr
+      %p.half.cost &nbsp; &pound; 0,00
+      %p.half.right.submit.calculate
+        = submit_tag t(:'site.Calculate'), :name => :calculate
