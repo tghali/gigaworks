@@ -12,22 +12,20 @@ gem 'haml-rails', '=0.3.4'
 gem 'compass', '>= 0.10.4'
 gem 'jsmin', '=1.0.0'
 gem 'warden'
-
-gem 'rails3-jquery-autocomplete'
-gem 'nifty-generators'
-
-
 # gem 'mongoid',  '2.0.0.rc.7'
 gem 'bson_ext', '~> 1.2'
 gem 'net-ldap', '>= 0.1.1'
 gem 'omniauth', '>= 0.1.6'
 gem 'delayed_job', '~> 2.1.2'
 
+gem 'rails3-jquery-autocomplete'
+gem 'nifty-generators'
+
 
 group :production, :test, :cucumber, :development do
-  gem 'tarte',      :path => 'vendor/plugins/tarte'
-  gem 'formidable', :path => 'vendor/plugins/formidable'
-  gem 'tabelle',    :path => 'vendor/plugins/tabelle'
+  gem 'tarte',      :path => '~/Sites/tools/tarte'
+  gem 'formidable', :path => '~/Sites/tools/formidable'
+  gem 'tabelle',    :path => '~/Sites/tools/tabelle'
   gem 'aws-s3'
   gem 'paperclip'
   gem 'cancan'
@@ -50,7 +48,7 @@ group :test, :cucumber do
   gem 'timecop', '~> 0.3.5'
   gem 'launchy', '>= 0.3.5'
   gem 'rspec-rails', '>= 2.5.0'
-  gem 'fredo', :path => 'vendor/plugins/fredo'
+  gem 'fredo', :path => '~/Sites/tools/fredo'
   gem 'ruby-debug'
   # gem 'spork', '>= 0.8.4'
 end
