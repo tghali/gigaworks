@@ -143,7 +143,7 @@ GEM
     mime-types (1.16)
     multi_json (0.0.5)
     multipart-post (1.1.0)
-    mysql (2.8.1)
+ 
     net-ldap (0.1.1)
     nifty-generators (0.4.6)
     nokogiri (1.4.4)
@@ -284,7 +284,7 @@ DEPENDENCIES
   haml-rails (= 0.3.4)
   jsmin (= 1.0.0)
   launchy (>= 0.3.5)
-  mysql
+  
   net-ldap (>= 0.1.1)
   nifty-generators
   omniauth (>= 0.1.6)
