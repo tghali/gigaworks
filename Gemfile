@@ -23,9 +23,9 @@ gem 'nifty-generators'
 
 
 group :production, :test, :cucumber, :development do
-  gem 'tarte',      :path => '~/Sites/tools/tarte'
-  gem 'formidable', :path => '~/Sites/tools/formidable'
-  gem 'tabelle',    :path => '~/Sites/tools/tabelle'
+  gem 'tarte',      :path => 'vendor/plugins/tarte'
+  gem 'formidable', :path => 'vendor/plugins/formidable'
+  gem 'tabelle',    :path => 'vendor/plugins/tabelle'
   gem 'aws-s3'
   gem 'paperclip'
   gem 'cancan'
@@ -48,7 +48,7 @@ group :test, :cucumber do
   gem 'timecop', '~> 0.3.5'
   gem 'launchy', '>= 0.3.5'
   gem 'rspec-rails', '>= 2.5.0'
-  gem 'fredo', :path => '~/Sites/tools/fredo'
+  gem 'fredo', :path => 'vendor/plugins/fredo'
   gem 'ruby-debug'
   # gem 'spork', '>= 0.8.4'
 end
