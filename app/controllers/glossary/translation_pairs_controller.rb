@@ -8,6 +8,7 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
     
     respond_to do |format|
       format.html
+      format.js
       # format.xml  { render :xml => @word }
     end
   end
