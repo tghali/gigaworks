@@ -1,0 +1,196 @@
+/* CSS Document */
+.clear{ clear:both}
+p{ margin:0px; padding:0px;}
+#doc_main{ 
+width:100%; 
+margin:0px auto;
+}
+#doc_main_left{
+width:23%; 
+margin:0px; 
+float:left; 
+}
+#doc_main_center{
+width:55%; 
+margin:0px 10px 0px 0px;  
+float:left;
+}
+#doc_main_right{
+width:20%; 
+margin:0px; 
+float:left; 
+}
+
+#doc_main_left .upload_btn{
+width:198px; 
+height:27px; 
+background:url(/images/document/upload_new.gif) no-repeat;
+margin:10px 0px 10px 0px;
+text-transform:uppercase;
+font:bold 11px/27px verdana;
+color:#FFFFFF;
+text-align:center;
+}
+.left_buttons_block{
+margin:20px 0px 0px 0px;
+height:300px;
+}
+.left_update_block{
+width:90%;
+height:auto;
+background:#f3f3f3;
+font:12px Arial, Helvetica, sans-serif;
+}
+.left_update_block h3{
+margin:0px;
+padding:0px;
+font:14px Arial, Helvetica, sans-serif;
+color:#000000;
+text-indent:10px;
+padding:10px 0px 10px 0px;
+background:url(/images/document/left_line.gif) no-repeat 7px 30px;
+}
+.left_update_block h3 span{
+color:#c1304d;
+font-style:italic;
+font-size:11px;
+}
+.update_blcok1{
+background:url(/images/document/left_line.gif) no-repeat bottom left;
+font:11px Arial, Helvetica, sans-serif;
+color:#000000;
+margin:0px 0px 0px 10px; padding:3px 0px 8px 0px;
+}
+.update_blcok1 p.edit{
+font:12px Arial, Helvetica, sans-serif;
+}
+.update_blcok1 p.edit span{ color:#FF0000; text-transform:uppercase}
+
+.update_blcok1 p.delete{ color:#979797; font-style:italic;}
+
+.doc_assesment{
+width:100%;
+height:auto;
+}
+.doc_assesment_block1{
+width:93%;
+height:25px;
+margin:10px 0px 0px 0px;
+padding:0px 0px 0px 40px;
+font:bold 14px/25px Arial, Helvetica, sans-serif;
+color:#1986c9;
+background:#d2deee url(/images/document/folder.png) no-repeat 10px 5px;
+}
+.doc_assesment_block1 span{
+font-style:italic;
+color:#FF0000;
+font-size:11px;
+}
+.left_middle{
+width:100%;
+height:auto;
+margin:0px auto;
+font:12px Arial, Helvetica, sans-serif;
+}
+
+.table_structure{
+	width:100%;
+}
+.table_structure ul{
+background:url(/images/document/nav_bg.gif) repeat-x;
+height:19px;
+margin:0px;
+padding:0px;
+list-style-type:none;
+}
+.table_structure li{ font:12px Arial, Helvetica, sans-serif; padding:0px 20px; float:left}
+/*.table_structure li a{padding:0px 20px;}
+.table_structure li a:hover{ background:url(/images/document/nav_hover.gif) repeat-x;  padding:0px 20px;}
+*/
+.table_structure li.name{ width:30%; padding:0px; margin-left:30px; font:12px Arial, Helvetica, sans-serif; color:#000000; text-align:left}
+.table_structure li.name a
+{
+	padding:0px; margin: 0px; width: 120px; float: left; text-align: left; padding-left: 15px;
+}
+.table_structure li.name a:hover{background:url(/images/document/nav_hover.gif) repeat-x; padding:0px; margin: 0px; width: 120px; float: left; text-align: left; padding-left: 15px;}
+
+.table_structure_inner{
+width:100%;
+height:25px;
+background:#f4f4f4	
+}
+.table_structure_inner ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+}
+.table_structure_inner li{
+width:auto;
+float:left;
+line-height:25px;
+}
+.table_structure_inner li.checkbox{
+width:5%;
+margin:3px 0px 0px 10px;
+}
+.table_structure_inner li.name1{
+width:35%;
+}
+.table_structure_inner li.name1 img{ position:relative; top:3px; right:5px;}
+.table_structure_inner li.date1{
+width:20%;
+}
+.table_structure_inner li.view{
+width:30%;
+font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
+}
+.table_structure_inner li.view span{ padding:0px 5px 0px 5px}
+
+.table_structure_inner_color{ width:100%;
+height:25px; background:#dbe7f7; }
+
+.table_structure_inner_color ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+clear:both
+}
+.table_structure_inner_color li{
+width:auto;
+float:left;
+line-height:25px;
+}
+.table_structure_inner_color li.checkbox{
+width:5%;
+margin:3px 0px 0px 10px;
+}
+.table_structure_inner_color li.name1{
+width:35%;
+}
+.table_structure_inner_color li.name1 img{ position:relative; top:3px; right:5px;}
+
+.table_structure_inner_color li.date1{
+width:20%;
+}
+
+.table_structure_inner_color li.view{
+width:30%;
+font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
+}
+.table_structure_inner_color li.view span{ padding:0px 5px 0px 5px}
+
+.rightupdate_blcok{
+font:11px Arial, Helvetica, sans-serif;
+color:#000000;
+margin:0px 0px 10px 10px; 
+}
+.rightupdate_blcok p.count{
+background:#FFFFFF;
+width:90%;
+height:30px;
+text-align:center;
+font:12px/30px Arial, Helvetica, sans-serif;
+}
+.rightupdate_blcok p.visit{width:90%;text-align:right; color:#3f8fc4}
+.colapse{float:right; color:#a90122; font:12px Arial, Helvetica, sans-serif; margin:5px 20px 0px 0px; padding:0px}
+.colapse img{ margin:0px 0px 0px 10px; position:relative; top:2px;}

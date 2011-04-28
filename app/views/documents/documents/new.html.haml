@@ -1,0 +1,23 @@
+- content_for :parent do
+  = render 'colapse'
+  %br
+  %p
+  = link_to "NEW ASSIGNMENT"
+  %p
+  = "FIND SOURCE"
+  %br
+  %p
+  = link_to "FINAL / CRC"
+
+.box.sentence
+  %br
+  %h3 #{@source_document.name} > Upload new document
+  = form_for @document, :url => documents_path(:folder_id => params[:folder_id]),:html => {:multipart => true} do |d|
+    = render "shared/error_messages", :target => @document
+    = d.hidden_field :first_name, :value => 'test'
+    = d.hidden_field :last_name, :value => 'last'
+    = d.hidden_field :source_document_id, :value => params[:folder_id]
+    = d.text_field :name
+    = d.file_field :document    
+    = d.text_area :description
+    = d.submit

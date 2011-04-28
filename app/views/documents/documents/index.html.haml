@@ -1,0 +1,67 @@
+- content_for :parent do
+  = render 'colapse'
+  %br
+  %p
+  = link_to "NEW ASSIGNMENT"
+  %p
+  = "FIND SOURCE"
+  %br
+  %p
+  = link_to "FINAL / CRC"
+- content_for :main do
+
+  %h3{:style => "padding-top:20px;"} Mawhiba > Source Documents
+  - if !@source_documents.blank?
+    - @source_documents.each_with_index do |folder,i|
+      .doc_assesment
+        .doc_assesment_block1{:id => i+1}
+          = folder.name
+          %span Recently Updated!
+          %div{:id => "div_image#{i+1}",:class => "colapse"}
+            %span{:id => "div_content#{i+1}"} Colapse
+            %img{:src => "/images/document/left_arrow.gif"}/
+        %div{:id => "datain#{i+1}",:class => "left_middle",:style => "display:none;"}
+          - if folder.documents.blank?
+            %br
+            = "No documents found"
+          - else
+            .table_structure
+              %ul
+                %li.name
+                  %a{:href => "#"} Name
+                %li.name
+                  %a{:href => "#"} Date
+            - folder.documents.each_with_index do |doc,j|
+              %div{:class => cycle("table_structure_inner", "table_structure_inner_color")}
+                %ul
+                  %li.checkbox
+                    %input{:type => "checkbox"}/
+                  %li.name1
+                    %img{:src => "/images/document/doc_icon.png"}>/
+                    = doc.name
+                  %li.date1
+                    = doc.created_at.strftime("%Y-%b-%d")
+                  %li.view
+                    %span> View
+                    |
+                    %span>/
+                    = link_to "Download",document_download_documents_path(:id => doc.id)
+                    |
+                    %span> Info
+                    |
+                    %span>/
+                    Delete
+
+              %div{:class => "clear"}
+          %br
+          = link_to "Upload Document", new_document_path(:folder_id => folder.id),:style => "padding-left:420px;"\
+          =# "|"
+          =# link_to "Download Document",document_download_documents_path(:id => doc.id)
+
+  -else
+    = "No Source Documents uploaded yet.By clicking on below link you can create a new folder."
+  %br
+  %p{:style => 'float:right;'}
+    = link_to "NEW FOLDER", new_source_document_path
+
+= render :file => 'layouts/application'
