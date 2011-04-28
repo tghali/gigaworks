@@ -1,4 +1,4 @@
-#room-switcher
+#room-switcher{:style => "width:auto;"}
   %ul#room-switcher-menu.tooltipped
     %li
       =link_to t(:'rooms.Contacts'),   contacts_path, :id => :'room-switch-contacts', :title => t(:'rooms.Contacts')
@@ -7,6 +7,9 @@
     - if can? :use, :pm
       %li
         =link_to t(:'rooms.Schedule'), schedule_path, :id => :'room-switch-schedule', :title => t(:'rooms.Schedule')
+    - if can? :use, :pm
+      %li
+        =link_to t(:'rooms.Schedule'), documents_path, :id => :'room-switch-documents', :title => t(:'rooms.Document')
     - if can? :use, :crm
       %li
         =link_to t(:'rooms.Leads'),    contacts_path, :id => :'room-switch-leads', :title => t(:'rooms.Leads')

@@ -1,0 +1,172 @@
+= stylesheet_link_tag "doc_style"
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js", :type => "text/javascript"}
+:javascript
+  $(document).ready(function() {
+  $('.doc_assesment_block1').click(function() {
+  var id_val = $(this).attr('id');
+  $('.colapse').find("img").attr("src","/images/document/left_arrow.gif");
+  $('.colapse').find("span").html("Colpase");
+  if(document.getElementById('datain'+id_val).style.display!='block'){
+  $('.left_middle').slideUp('slow');
+  
+  $('#datain'+id_val).slideDown('slow');
+  $('#div_image'+id_val).find("img").attr("src","/images/document/down_arrow.gif");
+  $('#div_image'+id_val).find("span").html("Expand");
+  }
+  });
+  
+  });
+/ main div start
+
+#doc_main
+  / left div start
+  #doc_main_left
+    .left_buttons_block
+      %p.upload_btn Upload New
+      %p.upload_btn Upload New
+      %p.upload_btn Upload New
+    .left_update_block
+      %h3
+        Activites
+        %span (5 updates)
+      .clear
+        %span
+      .update_blcok1
+        %p
+          %i name - 02Feb2011
+        %p.edit
+          did
+          %span EDIT
+          \- source base to target
+        %p.delete Admin | Redo | Delete
+      .update_blcok1
+        %p
+          %i name - 02Feb2011
+        %p.edit
+          did
+          %span EDIT
+          \- source base to target
+        %p.delete Admin | Redo | Delete
+  / left div end
+  / center div start
+  #doc_main_center
+    / block1 start
+    .doc_assesment
+      #1.doc_assesment_block1
+        Assesment Test
+        %span Recentyl Updated!
+        #div_image1.colapse
+          %span#div_content1 Colpase
+          %img{:src => "/images/document/left_arrow.gif"}/
+      #datain1.left_middle{:style => "display:block;"}
+        .table_structure
+          %ul
+            %li.name
+              %a{:href => "#"} Name
+            %li.name
+              %a{:href => "#"} Date
+        .table_structure_inner
+          %ul
+            %li.checkbox
+              %input{:type => "checkbox"}/
+            %li.name1
+              %img{:src => "/images/document/doc_icon.png"}>/
+              Name
+            %li.date1 Date
+            %li.view
+              %span> View
+              |
+              %span> Download
+              |
+              %span> Info
+              |
+              %span Delete
+        .table_structure_inner_color
+          %ul
+            %li.checkbox1
+              %input{:type => "checkbox"}/
+            %li.name1
+              %img{:src => "/images/document/doc_icon.png"}>/
+              Name
+            %li.date1 Date
+            %li.view
+              %span> View
+              |
+              %span> Download
+              |
+              %span> Info
+              |
+              %span Delete
+    / block1 start
+    / block2 start
+    .doc_assesment
+      #2.doc_assesment_block1
+        Assesment Test
+        %span Recentyl Updated!
+        #div_image2.colapse
+          %span#div_content2 Colpase
+          %img{:src => "/images/document/left_arrow.gif"}/
+      #datain2.left_middle{:style => "display:none;"}
+        .table_structure
+          %ul
+            %li.name
+              %a{:href => "#"} Name
+            %li.name
+              %a{:href => "#"} Date
+        .table_structure_inner
+          %ul
+            %li.checkbox
+              %input{:type => "checkbox"}/
+            %li.name1
+              %img{:src => "/images/document/doc_icon.png"}>/
+              Name
+            %li.date1 Date
+            %li.view
+              %span> View
+              |
+              %span> Download
+              |
+              %span> Info
+              |
+              %span Delete
+        .table_structure_inner_color
+          %ul
+            %li.checkbox1
+              %input{:type => "checkbox"}/
+            %li.name1
+              %img{:src => "/images/document/doc_icon.png"}>/
+              Name
+            %li.date1 Date
+            %li.view
+              %span> View
+              |
+              %span> Download
+              |
+              %span> Info
+              |
+              %span Delete
+    / block2 start
+  / center div end
+  / right div start
+  #doc_main_right
+    .left_update_block
+      %h3 Quick Quote
+      .clear
+        %span
+      .rightupdate_blcok
+        %p.count word count
+        %p.visit Name
+      .rightupdate_blcok
+        %p.count word count
+        %p.visit Name
+    .left_update_block
+      %h3 online Now
+      .clear
+        %span
+    .clear  
+    .left_update_block
+      %h3 Tag Cloud
+      .clear
+        %span
+  / right div end
+/ main div end

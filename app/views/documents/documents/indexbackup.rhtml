@@ -1,0 +1,226 @@
+
+
+<%= stylesheet_link_tag "doc_style" %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('.doc_assesment_block1').click(function() {
+var id_val = $(this).attr('id');
+$('.colapse').find("img").attr("src","/images/document/left_arrow.gif");
+$('.colapse').find("span").html("Colpase");
+if(document.getElementById('datain'+id_val).style.display!='block'){
+$('.left_middle').slideUp('slow');
+
+$('#datain'+id_val).slideDown('slow');
+$('#div_image'+id_val).find("img").attr("src","/images/document/down_arrow.gif");
+$('#div_image'+id_val).find("span").html("Expand");
+}
+});
+
+});
+</script>
+
+
+
+<!--main div start-->
+<div id="doc_main">
+
+<!--left div start-->
+<!--<div id="doc_main_left">
+
+<div class="left_buttons_block">
+<p class="upload_btn">Upload New</p>
+<p class="upload_btn">Upload New</p>
+<p class="upload_btn">Upload New</p>
+</div>
+
+
+<div class="left_update_block">
+<h3>Activites <span>(5 updates)</span></h3>
+<div class="clear"><span></span></div>
+<div class="update_blcok1">
+<p><i>name - 02Feb2011</i></p>
+<p class="edit">did <span>EDIT</span> - source base to target</p>
+<p class="delete">Admin | Redo | Delete</p>
+</div>
+
+<div class="update_blcok1">
+<p><i>name - 02Feb2011</i></p>
+<p class="edit">did <span>EDIT</span> - source base to target</p>
+<p class="delete">Admin | Redo | Delete</p>
+</div>
+
+</div>
+
+
+</div>-->
+<!--left div end-->
+
+
+
+<!--center div start-->
+<div id="doc_main_center">
+
+<!--block1 start-->
+<div class="doc_assesment">
+
+<div class="doc_assesment_block1" id="1">
+Assesment Test <span>Recentyl Updated!</span>
+
+<div class="colapse" id="div_image1"><span id="div_content1">Colpase</span><img src="/images/document/left_arrow.gif" /></div>
+
+</div>
+
+<div class="left_middle" style="display:block;" id="datain1">
+
+
+<div class="table_structure">
+		<ul>
+			<li class="name"><a href="#">Name</a></li>
+			<li class="name"><a href="#">Date</a></li>
+		</ul>
+</div>
+
+
+<div class="table_structure_inner">
+	<ul>
+		<li class="checkbox"><input type="checkbox" /></li>
+		<li class="name1"><img src="/images/document/doc_icon.png" />Name</li>
+		<li class="date1">Date</li>
+		<li class="view"><span>View</span>|<span>Download</span>|<span>Info</span>|<span>Delete</span></li>
+		
+	</ul>
+</div>
+
+<div class="table_structure_inner_color">
+	<ul>
+		<li class="checkbox1"><input type="checkbox" /></li>
+		<li class="name1"><img src="/images/document/doc_icon.png" />Name</li>
+		<li class="date1">Date</li>
+		<li class="view"><span>View</span>|<span>Download</span>|<span>Info</span>|<span>Delete</span></li>
+		
+	</ul>
+</div>
+
+
+
+</div>
+
+
+</div>
+<!--block1 start-->
+
+
+
+
+
+<!--block2 start-->
+<div class="doc_assesment">
+
+<div class="doc_assesment_block1" id="2">
+Assesment Test <span>Recentyl Updated!</span>
+
+<div class="colapse" id="div_image2"><span id="div_content2">Colpase</span><img src="/images/document/left_arrow.gif" /></div>
+
+</div>
+
+<div class="left_middle" style="display:none;" id="datain2">
+
+
+<div class="table_structure">
+		<ul>
+			<li class="name"><a href="#">Name</a></li>
+			<li class="name"><a href="#">Date</a></li>
+		</ul>
+</div>
+
+
+<div class="table_structure_inner">
+	<ul>
+		<li class="checkbox"><input type="checkbox" /></li>
+		<li class="name1"><img src="/images/document/doc_icon.png" />Name</li>
+		<li class="date1">Date</li>
+		<li class="view"><span>View</span>|<span>Download</span>|<span>Info</span>|<span>Delete</span></li>
+		
+	</ul>
+</div>
+
+<div class="table_structure_inner_color">
+	<ul>
+		<li class="checkbox1"><input type="checkbox" /></li>
+		<li class="name1"><img src="/images/document/doc_icon.png" />Name</li>
+		<li class="date1">Date</li>
+		<li class="view"><span>View</span>|<span>Download</span>|<span>Info</span>|<span>Delete</span></li>
+		
+	</ul>
+</div>
+
+
+
+</div>
+
+
+</div>
+<!--block2 start-->
+
+
+
+
+
+</div>
+<!--center div end-->
+
+
+
+
+
+<!--right div start-->
+<!--<div id="doc_main_right">
+
+<div class="left_update_block">
+<h3>Quick Quote</h3>
+<div class="clear"><span></span></div>
+
+<div class="rightupdate_blcok">
+<p class="count">word count</p>
+<p class="visit">Name</p>
+</div>
+
+<div class="rightupdate_blcok">
+<p class="count">word count</p>
+<p class="visit">Name</p>
+</div>
+
+</div>
+
+
+
+<div class="left_update_block">
+<h3>online Now</h3>
+<div class="clear"><span></span></div>
+
+</div>
+
+<div class="clear">&nbsp;</div>
+
+
+<div class="left_update_block">
+<h3>Tag Cloud</h3>
+<div class="clear"><span></span></div>
+
+
+</div>
+
+
+
+
+
+</div>-->
+<!--right div end-->
+
+
+
+
+</div>
+<!--main div end-->
+

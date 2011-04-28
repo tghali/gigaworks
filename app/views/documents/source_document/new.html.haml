@@ -1,0 +1,20 @@
+- content_for :parent do
+  =# render 'colapse'
+  %br
+  %p
+  = link_to "NEW ASSIGNMENT"
+  %p
+  = "FIND SOURCE"
+  %br
+  %p
+  = link_to "FINAL / CRC"
+
+
+.box.sentence
+  %h2 Add new folder
+  = form_for @source_document, :url => {:controller => "documents/source_document",:action => :create} do |d|
+    = render "shared/error_messages", :target => @source_document
+    = d.text_field :name
+    =# d.file_field :document    
+    = d.text_area :description
+    = d.submit

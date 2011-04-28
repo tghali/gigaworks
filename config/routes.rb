@@ -70,6 +70,24 @@ Gigavine::Application.routes.draw do
     
     get '/', :to => 'dashboard#index', :as => 'dashboard'
   end
+  
+  
+     resources :documents, :module => 'documents' do
+        collection do         
+          get 'document_download'
+          get 'source_document'
+          post 'create_source_document'
+        end
+    end
+ 
+  resources :source_document, :module => 'documents' do
+     collection do
+           
+         end
+    end
+  
+  
+  
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
