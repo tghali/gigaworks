@@ -84,7 +84,7 @@ $(document).ready(function(){
 					};
 				
 					//return false;
-					$("form").submit();
+					$(this.form).submit();
 				}
 			});
     }
