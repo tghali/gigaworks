@@ -8,8 +8,8 @@ class Glossary::SentencesController < Glossary::GlossaryController
     end
   end
   
-  def flagged
-    @sentences = Sentence.flagged
+  def flagged    
+     @sentences =  !params[:sentence_search].blank? ? Sentence.flagged.search(params[:sentence_search]) : Sentence.flagged
     respond_to do |format|
       format.html { render :index}
       format.xml  { render :xml => @sentences }
@@ -17,7 +17,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   end
   
   def recent
-    @sentences = Sentence.recent
+     @sentences = !params[:sentence_search].blank? ? Sentence.recent.search(params[:sentence_search]) : Sentence.recent    
     respond_to do |format|
       format.html { render :index}
       format.xml  { render :xml => @sentences }
@@ -44,6 +44,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # GET /sentences/new
   # GET /sentences/new.xml
   def new
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
     @sentence = Sentence.new
     @sentence.translations.build
 
@@ -72,6 +73,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
         format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully created.') }
         format.xml  { render :xml => @sentence, :status => :created, :location => @sentence }
       else
+        @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
         format.html { render :action => "new" }
         format.xml  { render :xml => @sentence.errors, :status => :unprocessable_entity }
       end
