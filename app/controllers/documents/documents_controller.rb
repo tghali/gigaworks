@@ -37,7 +37,7 @@ class Documents::DocumentsController < ApplicationController
     
     respond_to do |format|
       if @document.save
-        format.html { redirect_to(document_path(@document), :notice => 'Document was successfully uploaded.') }
+        format.html { redirect_to(documents_path, :notice => 'Document was successfully uploaded.') }
         format.xml  { render :xml => @document, :status => :created, :location => @document }
       else
         @source_document = SourceDocument.find(params[:folder_id])
