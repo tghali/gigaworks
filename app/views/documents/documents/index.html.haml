@@ -2,13 +2,14 @@
 - content_for :parent do
 
   %br
-  %p
-  = link_to "NEW ASSIGNMENT",new_source_document_path, :rel => "#new_assignment", :id => "create_assignment", :'class' => 'overlay-switch',:remote => :true
-  =# link_to "NEW ASSIGNMENT",new_source_document_path
+  %div{:style=>" width:250px; float:left;"}
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      = link_to "NEW ASSIGNMENT",new_source_document_path, :rel => "#new_assignment", :id => "create_assignment", :'class' => 'overlay-switch',:remote => :true
+      =# link_to "NEW ASSIGNMENT",new_source_document_path
 
-  - if !@source_documents.blank?
-    %p
-    = "FIND SOURCE"
+    - if !@source_documents.blank?
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      = "FIND SOURCE"
 
 
 - content_for :main do
@@ -57,12 +58,10 @@
                     = link_to "Delete",documents_path(doc.id),:method => :delete
 
               %div{:class => "clear"}
-          %br
-          %br
-          %span Upload document
-          =# link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
-          = "|"
-          = link_to "Delete Assignment",source_document_path(folder), :confirm => 'Are you sure delete this assignment with all documents? ', :method => :delete
+          %div{:style=>"float:right; width:45%; margin:0px 0px 0px -40px"} 
+            = link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
+            = "|"
+            = link_to "Delete Assignment",source_document_path(folder), :confirm => 'Are you sure delete this assignment with all documents? ', :method => :delete
       %br
       %p{:style => 'float:right;'}
       =# link_to "NEW FOLDER",new_source_document_path, :rel => "#new_assignment", :id => "create_assignment", :'class' => 'overlay-switch',:remote => :true
