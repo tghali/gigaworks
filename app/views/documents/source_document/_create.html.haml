@@ -3,7 +3,7 @@
   .box.sentence
     = form_for @source_document, :url => {:controller => "documents/source_document",:action => :create} do |d|
       = render "shared/error_messages", :target => @source_document  
-      = d.select :name,["Select","Maths","Science","Numerical Sciencefdsfsdfdsfsdfsdfdsfdsffdsf"]
+      = d.select :name,["Select","Maths","Science","Numerical Science"]
       = d.text_area :description,:style => "width:326px; height:89px;"
       = "Requirements:"
       %br
