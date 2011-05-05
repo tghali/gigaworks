@@ -1,8 +1,8 @@
 - content_for :parent do
-  =# render 'colapse'
+
   %br
   %p
-  = link_to "NEW ASSIGNMENT"
+  = "NEW ASSIGNMENT"
   %p
   = "FIND SOURCE"
   %br
@@ -11,10 +11,31 @@
 
 
 .box.sentence
-  %h2 Add new folder
+  %h2 Create New Assignment
   = form_for @source_document, :url => {:controller => "documents/source_document",:action => :create} do |d|
-    = render "shared/error_messages", :target => @source_document
-    = d.text_field :name
-    =# d.file_field :document    
-    = d.text_area :description
-    = d.submit
+    = render "shared/error_messages", :target => @source_document  
+    = d.select :name,["Select","Maths","Science","Numerical Science"] 
+    = d.text_area :description,:style => "width:526px; height:89px;"
+    = "Requirements:"
+    %br
+    = check_box "source_document", "translation"
+    = "Translation" 
+    = check_box "source_document", "QA"
+    = "QA"
+    = check_box "source_document", "design"
+    = "Design"
+    = check_box "source_document", "localisation"
+    = "Localisation"
+    %p{:style => "padding-top:10px;"}
+      = "Specify Target Language:"
+      %br
+      =# label_tag :target_language, 'Language', :class => 'infield'
+      = text_field :source_document,:target_language,:style => "width:140px;" 
+    = "Specify deadline:"
+    %br
+
+    %input#keys{:size => "10", :type => "text", :value => "" }/ 
+    %br
+    = check_box "source_document", "request_quote"
+    = "Request a qoute"	
+    = d.submit t(:create_assignment)
