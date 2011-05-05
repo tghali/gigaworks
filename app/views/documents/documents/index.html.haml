@@ -58,8 +58,9 @@
                     = link_to "Delete",documents_path(doc.id),:method => :delete
 
               %div{:class => "clear"}
-          %div{:style=>"float:right; width:45%; margin:0px 0px 0px -40px"} 
-            = link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
+          %div{:style=>"float:right; width:45%; margin:0px 0px 0px -40px"}
+            %span Upload Document 
+            =# link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
             = "|"
             = link_to "Delete Assignment",source_document_path(folder), :confirm => 'Are you sure delete this assignment with all documents? ', :method => :delete
       %br
