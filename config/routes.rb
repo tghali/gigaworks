@@ -75,7 +75,7 @@ Gigavine::Application.routes.draw do
      resources :documents, :module => 'documents' do
         collection do         
           get 'document_download'
-          get 'source_document'
+          get 'show_information'
           post 'create_source_document'
         end
     end
