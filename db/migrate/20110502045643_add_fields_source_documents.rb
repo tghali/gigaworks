@@ -1,12 +1,12 @@
 class AddFieldsSourceDocuments < ActiveRecord::Migration
   def self.up
-    add_column :source_documents, :translation, :tinyint
-    add_column :source_documents, :QA, :tinyint
-    add_column :source_documents, :design, :tinyint
-    add_column :source_documents, :localisation, :tinyint
+    add_column :source_documents, :translation, :smallint
+    add_column :source_documents, :QA, :smallint
+    add_column :source_documents, :design, :smallint
+    add_column :source_documents, :localisation, :smallint
     add_column :source_documents, :target_language, :string
     add_column :source_documents, :deadline_date, :datetime
-    add_column :source_documents, :request_quote, :tinyint
+    add_column :source_documents, :request_quote, :smallint
   end
 
   def self.down
