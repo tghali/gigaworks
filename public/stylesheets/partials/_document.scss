@@ -69,14 +69,17 @@ font:12px Arial, Helvetica, sans-serif;
 .update_blcok1 p.delete{ color:#979797; font-style:italic;}
 
 .doc_assesment{
-width:100%;
+width:90%;
 height:auto;
+margin:0px;
+padding:0px;
 }
 .doc_assesment_block1{
-width:93%;
+width:88%;
 height:25px;
-margin:10px 0px 0px 0px;
-padding:0px 0px 0px 40px;
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+text-indent:40px;
 font:bold 14px/25px Arial, Helvetica, sans-serif;
 color:#1986c9;
 background:#d2deee url(/images/document/folder.png) no-repeat 10px 5px;
@@ -94,7 +97,7 @@ font:12px Arial, Helvetica, sans-serif;
 }
 
 .table_structure{
-	width:100%;
+	width:88%;
 }
 .table_structure ul{
 background:url(/images/document/nav_bg.gif) repeat-x;
@@ -115,7 +118,7 @@ list-style-type:none;
 .table_structure li.name a:hover{background:url(/images/document/nav_hover.gif) repeat-x; padding:0px; margin: 0px; width: 120px; float: left; text-align: left; padding-left: 15px;}
 
 .table_structure_inner{
-width:100%;
+width:88%;
 height:25px;
 background:#f4f4f4	
 }
@@ -141,7 +144,7 @@ width:35%;
 width:20%;
 }
 .table_structure_inner li.view{
-width:30%;
+width:35%;
 font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
 }
 .table_structure_inner li.view span{ padding:0px 5px 0px 5px}
@@ -174,7 +177,7 @@ width:20%;
 }
 
 .table_structure_inner_color li.view{
-width:30%;
+width:35%;;
 font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
 }
 .table_structure_inner_color li.view span{ padding:0px 5px 0px 5px}
@@ -194,3 +197,4 @@ font:12px/30px Arial, Helvetica, sans-serif;
 .rightupdate_blcok p.visit{width:90%;text-align:right; color:#3f8fc4}
 .colapse{float:right; color:#a90122; font:12px Arial, Helvetica, sans-serif; margin:5px 20px 0px 0px; padding:0px}
 .colapse img{ margin:0px 0px 0px 10px; position:relative; top:2px;}
+
