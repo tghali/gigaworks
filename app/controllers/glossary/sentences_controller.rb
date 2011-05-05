@@ -109,7 +109,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     @destroyed = @sentence.destroy
 
     respond_to do |format|
-      format.html { redirect_to glossary_sentences_url, :notice => 'Sentence was successfully deleted.' }
+      format.html { redirect_to glossary_sentences_url(:sentence_search => params[:sentence_search]), :notice => 'Sentence was successfully deleted.' }
       format.xml  { head :ok }
     end
   end

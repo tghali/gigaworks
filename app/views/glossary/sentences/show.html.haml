@@ -35,7 +35,7 @@
       %em.disabled Edit
     |
     - if can? :destroy, @sentence
-      = link_to 'Delete', glossary_sentence_path(@sentence), :confirm => 'Are you sure?', :method => :delete
+      = link_to 'Delete', glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]), :confirm => 'Are you sure?', :method => :delete
     - else
       %em.disabled Delete
     |
