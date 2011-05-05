@@ -1,29 +1,32 @@
+
 - content_for :parent do
-  = render 'colapse'
+
   %br
   %p
-  = link_to "NEW ASSIGNMENT"
-  %p
-  = "FIND SOURCE"
-  %br
-  %p
-  = link_to "FINAL / CRC"
+  = link_to "NEW ASSIGNMENT",new_source_document_path, :rel => "#new_assignment", :id => "create_assignment", :'class' => 'overlay-switch',:remote => :true
+  =# link_to "NEW ASSIGNMENT",new_source_document_path
+
+  - if !@source_documents.blank?
+    %p
+    = "FIND SOURCE"
+
+
 - content_for :main do
 
-  %h3{:style => "padding-top:20px;"} Mawhiba > Source Documents
+  %h3{:style => "padding-top:20px;"} Mawhiba > Documents
   - if !@source_documents.blank?
     - @source_documents.each_with_index do |folder,i|
       .doc_assesment
         .doc_assesment_block1{:id => i+1}
           = folder.name
-          %span Recently Updated!
+          //%span Recently Updated!
           %div{:id => "div_image#{i+1}",:class => "colapse"}
             %span{:id => "div_content#{i+1}"} Colapse
             %img{:src => "/images/document/left_arrow.gif"}/
         %div{:id => "datain#{i+1}",:class => "left_middle",:style => "display:none;"}
           - if folder.documents.blank?
             %br
-            = "No documents found"
+            = "No documents / files uploaded"
           - else
             .table_structure
               %ul
@@ -47,21 +50,31 @@
                     %span>/
                     = link_to "Download",document_download_documents_path(:id => doc.id)
                     |
-                    %span> Info
+                    %span>/
+                    = link_to "Info",show_information_documents_path(:id =>doc.id), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true
                     |
                     %span>/
-                    Delete
+                    = link_to "Delete",documents_path(doc.id),:method => :delete
 
               %div{:class => "clear"}
           %br
-          = link_to "Upload Document", new_document_path(:folder_id => folder.id),:style => "padding-left:420px;"\
-          =# "|"
-          =# link_to "Download Document",document_download_documents_path(:id => doc.id)
+          %br
+          %span Upload document
+          =# link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
+          = "|"
+          = link_to "Delete Assignment",source_document_path(folder), :confirm => 'Are you sure delete this assignment with all documents? ', :method => :delete
+      %br
+      %p{:style => 'float:right;'}
+      =# link_to "NEW FOLDER",new_source_document_path, :rel => "#new_assignment", :id => "create_assignment", :'class' => 'overlay-switch',:remote => :true
 
   -else
-    = "No Source Documents uploaded yet.By clicking on below link you can create a new folder."
-  %br
-  %p{:style => 'float:right;'}
-    = link_to "NEW FOLDER", new_source_document_path
+    = "No Assignment has been uploaded yet. Please add assignment by clicking on the link and follow the instructions"
 
-= render :file => 'layouts/application'
+  #information.simple_overlay
+    #inside_information
+  #new_assignment.simple_overlay
+    #assignment
+  #new_document.simple_overlay
+    #newdoc
+
+=# render :file => 'layouts/application'

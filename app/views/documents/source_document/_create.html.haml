@@ -1,0 +1,33 @@
+%h2 Create new assignment
+%div{:style=>"height:350px; overflow-y:scroll; overflow-x:hidden;"}
+  .box.sentence
+    = form_for @source_document, :url => {:controller => "documents/source_document",:action => :create} do |d|
+      = render "shared/error_messages", :target => @source_document  
+      = d.select :name,["Select","Maths","Science","Numerical Science"] 
+      = d.text_area :description,:style => "width:326px; height:89px;"
+      = "Requirements:"
+      %br
+      = check_box "source_document", "translation"
+      = "Translation" 
+      = check_box "source_document", "QA"
+      = "QA"
+      = check_box "source_document", "design"
+      = "Design"
+      = check_box "source_document", "localisation"
+      = "Localisation"
+      %p{:style => "padding-top:10px;"}
+        = "Specify Target Language:"
+        %br
+        =# label_tag :target_language, 'Language', :class => 'infield'
+        = text_field :source_document,:target_language,:style => "width:140px;" 
+      = "Specify deadline:"
+      %br
+      %input#deadline_date{:size => "10", :type => "text", :value => "",:name => "source_document[deadline_date]",:style => "width:140px;" }/
+
+
+      %br
+      = check_box "source_document", "request_quote"
+      = "Request a qoute"	
+      = d.submit t(:create_assignment)
+
+= render 'datepickerwindow'    

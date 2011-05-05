@@ -1,3 +1,7 @@
+require 'net/ftp'
+require 'tempfile'
+
+
 class Documents::DocumentsController < ApplicationController
   
   def index
@@ -21,19 +25,20 @@ class Documents::DocumentsController < ApplicationController
     @source_document = SourceDocument.find(params[:folder_id])
     @document = Document.new
      respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @document }
+       format.js
+      #~ format.html # new.html.erb
+      #~ format.xml  { render :xml => @document }
     end
   end
   
    # POST /documents
   # POST /documents.xml
   def create
-    @document = Document.new(params[:document])
-    
-    authorize! :create, Document
-    
-    @document.author_id = current_user.id
+    @source_document = SourceDocument.find(params[:folder_id])
+    @document = Document.new(params[:document])    
+    authorize! :create, Document    
+    @document.author_id = current_user.id 
+    file = params[:document][:document]
     
     respond_to do |format|
       if @document.save
@@ -48,61 +53,41 @@ class Documents::DocumentsController < ApplicationController
   end
   
   # DELETE /document/1
-  #~ def destroy
-    #~ authorize! :destroy, Document
-    
-    #~ @document = Document.find(params[:id])
-    #~ render :text => "sdfs" and return
-    #~ @document.destroy
+  def destroy
+    #~ authorize! :destroy, Document    
+    @document = Document.find(params[:id])
+    @document.destroy
 
-    #~ respond_to do |format|
-      #~ format.html { redirect_to documents_path, :notice => 'Contact was successfully deleted.' }
-      #~ format.xml  { head :ok }
-    #~ end
-  #~ end
-   #~ def source_document
-     #~ @source_document = SourceDocument.new
-     #~ respond_to do |format|
-      #~ format.html # new.html.erb
-      #~ format.xml  { render :xml => @source_document }
-    #~ end
-  #~ end
+    respond_to do |format|
+      format.html { redirect_to documents_path, :notice => 'Document was successfully deleted.' }
+      format.xml  { head :ok }
+    end
+  end
   
-   #~ # POST /documents.xml
-  #~ def create_source_document
-    #~ @source_document = SourceDocument.new(params[:document])    
-    #~ authorize! :create, SourceDocument   
-    
-    
-    #~ respond_to do |format|
-      #~ if @source_document.save
-        #~ format.html { redirect_to(documents_path, :notice => 'Source Document was successfully created.') }
-        #~ format.xml  { render :xml => @source_document, :status => :created, :location => @source_document }
-      #~ else
-        #~ format.html { render :action => "source_document" }
-        #~ format.xml  { render :xml => @source_document.errors, :status => :unprocessable_entity }
-      #~ end
-    #~ end
-  #~ end
   
+   def show_information   
+
+     @document = Document.find(params[:id])
+     respond_to do |format|
+      #~ format.html
+      format.js
+    end
+  end
+
   
   
   
  def document_download  
    document = Document.find(params[:id])      
-      #~ render :text => File.exists?("#{RAILS_ROOT}/public/system/documents/#{params[:id]}/original/#{document.document_file_name}") and return
     
-      if document 
-        respond_to do |format|
-            if File.exists?("#{RAILS_ROOT}/public/system/documents/#{params[:id]}/original/#{document.document_file_name}")
-              #~ render :text => "#{RAILS_ROOT}/public/system/documents/#{params[:id]}/original/#{document.document_file_name}" and return
-              send_file "#{RAILS_ROOT}/public/system/documents/#{params[:id]}/original/#{document.document_file_name}"
-            else
-              #~ flash[:msg] = "File doesn't exist.Unable to download the file."
-              format.html { redirect_to(documents_path,:notice => "File doesn't exist.Unable to download the file.") }
-            end
-        end
-      end
+    
+          if document       
+                if File.exists?("#{RAILS_ROOT}/public/mydocuments/#{params[:id]}/original_#{document.document_file_name}")             
+                  send_file "#{RAILS_ROOT}/public/mydocuments/#{params[:id]}/original_#{document.document_file_name}"
+                end
+          else
+            redirect_to documents_path
+          end
     end
 
   
