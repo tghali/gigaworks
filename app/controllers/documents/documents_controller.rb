@@ -8,7 +8,7 @@ class Documents::DocumentsController < ApplicationController
     #~ render :layout => false
     #~ @source_documents = SourceDocument.find(:all)
     @source_documents = SourceDocument.find(:all)
-    @document = Document.find(:first,:conditions => "source_document_id = 1")
+    #~ @document = Document.find(:first,:conditions => "source_document_id = 1")
 
      respond_to do |format|
       format.html # new.html.erb
@@ -38,8 +38,10 @@ class Documents::DocumentsController < ApplicationController
     @document = Document.new(params[:document])    
     authorize! :create, Document    
     @document.author_id = current_user.id 
-    file = params[:document][:document]
-    
+ 
+
+
+
     respond_to do |format|
       if @document.save
         format.html { redirect_to(documents_path, :notice => 'Document was successfully uploaded.') }
@@ -55,7 +57,7 @@ class Documents::DocumentsController < ApplicationController
   # DELETE /document/1
   def destroy
     #~ authorize! :destroy, Document    
-    @document = Document.find(params[:id])
+    @document = Document.find(params[:id])  
     @document.destroy
 
     respond_to do |format|
@@ -73,13 +75,12 @@ class Documents::DocumentsController < ApplicationController
       format.js
     end
   end
-
   
-  
+ 
   
  def document_download  
    document = Document.find(params[:id])      
-    
+      #~ render :text => File.exists?("#{RAILS_ROOT}/public/system/documents/#{params[:id]}/original/#{document.document_file_name}") and return
     
           if document       
                 if File.exists?("#{RAILS_ROOT}/public/mydocuments/#{params[:id]}/original_#{document.document_file_name}")             

@@ -1,9 +1,10 @@
 %h2 Create new assignment
 %div{:style=>"height:350px; overflow-y:scroll; overflow-x:hidden;"}
   .box.sentence
-    = form_for @source_document, :url => {:controller => "documents/source_document",:action => :create} do |d|
+    = form_for @source_document, :url => {:controller => "documents/source_document",:action => :create},:remote => true do |d|
       = render "shared/error_messages", :target => @source_document  
-      = d.select :name,["Select","Maths","Science","Numerical Science"]
+
+      = d.text_field :name
       = d.text_area :description,:style => "width:326px; height:89px;"
       = "Requirements:"
       %br
@@ -24,6 +25,8 @@
         %div{:style => "width:180px; float:left;"}
           = "Specify deadline:"
           %input#deadline_date{:size => "10", :type => "text", :value => "",:name => "source_document[deadline_date]",:style => "width:140px;" }/
+          %div{:style => "float:left"}
+            = render 'datepickerwindow'           
       %div{:style => "clear:both; height:10px;"}
       %div{:style => "width:390px; float:right"}
         %div{:style => "width:120px; float:left;"}  
@@ -31,5 +34,4 @@
           = "Request a qoute"	
         %div{:style => "width:150px; float:left;"}  
           = d.submit t(:create_assignment)
-
-= render 'datepickerwindow'    
+  

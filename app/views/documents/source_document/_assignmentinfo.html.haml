@@ -1,0 +1,14 @@
+.box.sentence
+  %h3 #{@source_document.name} Details
+  %div
+
+    %span Author:
+    = @source_document.author.user_name
+    %br
+    %span Created on:
+    = @source_document.created_at.strftime("%b %m, %Y")
+    
+    %p
+    %span Description:
+    = @source_document.description 
+

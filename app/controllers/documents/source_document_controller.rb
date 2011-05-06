@@ -3,7 +3,14 @@ class Documents::SourceDocumentController < ApplicationController
   def index
   end
   
-  def show    
+  def show
+	@source_document = SourceDocument.find(params[:id])
+         respond_to do |format|
+           format.js
+          format.html # new.html.erb
+          #~ format.xml  { render :xml => @source_document }
+        end
+
   end
   
   def new
@@ -21,11 +28,13 @@ class Documents::SourceDocumentController < ApplicationController
     @source_document.author_id = current_user.id
     respond_to do |format|
       if @source_document.save
-        format.html { redirect_to(documents_path, :notice => 'Assignment was successfully created.') }
-        format.xml  { render :xml => @source_document, :status => :created, :location => @source_document }
+        format.js
+        #~ format.html { redirect_to(documents_path, :notice => 'Assignment was successfully created.') }
+        #~ format.xml  { render :xml => @source_document, :status => :created, :location => @source_document }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @source_document.errors, :status => :unprocessable_entity }
+        format.js
+        #~ format.html { render :action => "new" }
+        #~ format.xml  { render :xml => @source_document.errors, :status => :unprocessable_entity }
       end
     end
     

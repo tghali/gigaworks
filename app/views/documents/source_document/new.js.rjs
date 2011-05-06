@@ -1,4 +1,4 @@
-
+ 
 page['assignment'].replace_html :partial => 'documents/source_document/create'
 
 
