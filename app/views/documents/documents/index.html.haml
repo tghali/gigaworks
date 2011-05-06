@@ -55,12 +55,15 @@
                     = link_to "Info",show_information_documents_path(:id =>doc.id), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true
                     |
                     %span>/
-                    = link_to "Delete",documents_path(doc.id),:method => :delete
+                    = link_to "Delete",document_path(doc), :confirm => 'Are you sure? ', :method => :delete
 
               %div{:class => "clear"}
           %div{:style=>"float:right; width:45%; margin:0px 0px 0px -40px"}
             %span Upload Document 
             =# link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
+            = "|"
+            = link_to "View",source_document_path(:id =>folder.id), :rel => "#view_assignment", :id => "assignment_details", :'class' => 'overlay-switch',:remote => :true
+
             = "|"
             = link_to "Delete Assignment",source_document_path(folder), :confirm => 'Are you sure delete this assignment with all documents? ', :method => :delete
       %br
@@ -76,5 +79,7 @@
     #assignment
   #new_document.simple_overlay
     #newdoc
+  #view_assignment.simple_overlay
+    #assignment_info
 
-=# render :file => 'layouts/application'
+= render :file => 'layouts/application'

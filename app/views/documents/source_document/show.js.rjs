@@ -1,0 +1,5 @@
+
+page['assignment_info'].replace_html :partial => 'assignmentinfo'
+
+
+
