@@ -18,10 +18,10 @@
               - else
                 = link_to 'Recently updated', recent_glossary_sentences_path(:sentence_search => params[:sentence_search])         
             %li
-              - if params[:action] == 'flagged'
+              - if params[:action] == 'flagged' || params[:flag] == 'true'
                 %em.active Flagged
               - else
-                = link_to 'Flagged', flagged_glossary_sentences_path(:sentence_search => params[:sentence_search])
+                = link_to 'Flagged', flagged_glossary_sentences_path(:flag => 'true',:sentence_search => params[:sentence_search])
             %li
               - if can? :create, Sentence
                 = link_to 'Add a sentence', new_glossary_sentence_path
@@ -36,7 +36,7 @@
           - @sentences.entries.each do |sentence|
             %li
               = language_flag_for(sentence)
-              = link_to truncate(sentence.text, :length => 40, :omission => '...'), glossary_sentence_path(sentence,:sentence_search => params[:sentence_search])
+              = link_to truncate(sentence.text, :length => 40, :omission => '...'), glossary_sentence_path(sentence,:sentence_search => params[:sentence_search],:flag => params[:flag])
 
 - content_for :main do
   #glossary-page

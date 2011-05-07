@@ -28,7 +28,12 @@ class Glossary::SentencesController < Glossary::GlossaryController
   # GET /sentences/1
   # GET /sentences/1.xml
   def show
-    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : []) 
+        if params[:flag] 
+        @sentences = Sentence.flagged
+    else
+        @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : []) 
+   end
+    
     @sentence = Sentence.find(params[:id])
     @new_comment = Comment.new
     @new_comment.commentable = @sentence
