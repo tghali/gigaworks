@@ -21,12 +21,12 @@
 		if (jQuery('#datain'+id_val).is(':visible')) {
              jQuery('#datain'+id_val).slideUp(500);
 	   		jQuery('#div_image'+id_val).find("img").attr("src","/images/document/left_arrow.gif");
-			jQuery('#div_image'+id_val).find("span").html("Colapse");
+			jQuery('#div_image'+id_val).find("span").html("Expand");
         }
         else {
             jQuery('#datain'+id_val).slideDown(500);
 			jQuery('#div_image'+id_val).find("img").attr("src","/images/document/down_arrow.gif");
-			 jQuery('#div_image'+id_val).find("span").html("Expand");
+			 jQuery('#div_image'+id_val).find("span").html("Collapse");
         }
 });
 
