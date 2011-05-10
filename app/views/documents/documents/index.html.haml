@@ -22,7 +22,7 @@
           = folder.name
           //%span Recently Updated!
           %div{:id => "div_image#{i+1}",:class => "colapse"}
-            %span{:id => "div_content#{i+1}"} Colapse
+            %span{:id => "div_content#{i+1}"} Expand
             %img{:src => "/images/document/left_arrow.gif"}/
         %div{:id => "datain#{i+1}",:class => "left_middle",:style => "display:none;"}
           - if folder.documents.blank?
