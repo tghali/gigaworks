@@ -3,10 +3,10 @@
     = form_tag 'boo', :method => 'post' do
       %p.bolder
         = label_tag :source_language, t(:'site.Source_Language')
-        = select_tag :source_language
+        = select_tag :source_language, options_for_select([['English (British)', 'en(UK)'], ['English (US)', 'en(US)'], ['Arabic', 'ar'], ['French', 'fr'], ['German', 'dn'], ['Italian', 'it'], ['Russian', 'ru'], ['Spanish', 'es']])
       %p.bolder
         = label_tag :target_language, t(:'site.Target_Langauge')
-        = select_tag :target_language
+        = select_tag :target_language, options_for_select([['English (British)', 'en(UK)'], ['English (US)', 'en(US)'], ['Arabic', 'ar'], ['French', 'fr'], ['German', 'dn'], ['Italian', 'it'], ['Russian', 'ru'], ['Spanish', 'es']], 'ar')
       %p
         %span.half.numeric
           = label_tag :word_count, t(:'site.Word_count')
@@ -20,13 +20,13 @@
       %p
         %span.third
           = label_tag :translation, t(:'site.Translation')
-          = radio_button_tag :requirements, :translation, true
+          = check_box_tag :requirements, :translation
         %span.third.middle
           = label_tag :design, t(:'site.Design')
-          = radio_button_tag :requirements, :design
+          = check_box_tag :requirements, :design
         %span.third.right
           = label_tag :localisation, t(:'site.Localisation')
-          = radio_button_tag :requirements, :localisation
+          = check_box_tag :requirements, :localisation
       %br.clear
       %h3 
         = t(:'site.Estimate')

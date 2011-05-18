@@ -415,7 +415,19 @@ $(function(){
 
 $(function(){
   var calcuate = function(){
-    var translation_cost_per_word = 0.16; // 0.12
+    //var translation_cost_per_word = 0.16; // 0.12
+				
+		  var source_language = $('#source_language').val();
+    var target_language = $('#target_language').val();
+    if(source_language == target_language){
+      alert('Source language, and target language should be different!')
+      $('#calculations p.cost').html('&nbsp; &pound; 0.00');
+      return;
+    }
+    
+    var translation_cost_per_word = (source_language == 'ar' || target_language == 'ar') ? 0.16 : 0.12;		
+				
+				
     var translation_cost_per_page = 250 * translation_cost_per_word;
 
     var localisation_cost_per_page = 27.5;
@@ -429,25 +441,43 @@ $(function(){
 
 
     var cost = 0.0;
-    switch($('input:radio[name=requirements]:checked').val())
-    {
-      case 'translation':
-        if(!$word_count.hasClass('disabled') && word_count > 0){
-         cost = translation_cost_per_word  * word_count;
-        } else if (!$page_count.hasClass('disabled') && page_count > 0){
-          cost = translation_cost_per_page * page_count;
-        } else {
-          alert('error: should enter number of pages or number or words');
+   if(!$word_count.hasClass('disabled') && word_count > 0){
+      $('#calculations :checked').each(function() {
+        switch($(this).val())
+        {
+          case 'translation':
+            cost += translation_cost_per_word  * word_count;
+            break;
+          case 'design':
+            cost += design_cost_per_page * Math.ceil(word_count / 250);
+            break;
+          case 'localisation':
+            cost += localisation_cost_per_page * Math.ceil(word_count / 250);
+            break;
         }
-        break;
-      case 'design':
-        cost = design_cost_per_page * page_count;
-        break;
-      case 'localisation':
-        cost = localisation_cost_per_page * page_count;
-        break;
+      });
+    } else if (!$page_count.hasClass('disabled') && page_count > 0){
+      $('#calculations :checked').each(function() {
+        switch($(this).val())
+        {
+          case 'translation':
+            cost += translation_cost_per_page  * page_count;
+            break;
+          case 'design':
+            cost += design_cost_per_page * page_count;
+            break;
+          case 'localisation':
+            cost += localisation_cost_per_page * page_count;
+            break;
+        }
+      });
+    } else {
+      alert('Should enter number of pages or number or words!');
     }
-    $('#calculations p.cost').html('&nbsp; &pound; ' + $.formatNumber(cost, {format: '#,000.00'}));
+				
+	   $('#calculations p.cost').html('&nbsp; &pound; ' + $.formatNumber(cost, {
+      format: '#,000.00'
+    }));
   };
 
   
@@ -467,4 +497,8 @@ $(function(){
     calcuate();
     return false;
   });
+});
+
+$(function(){
+  $('#contact').validate();
 });

@@ -30,7 +30,12 @@ Gigavine::Application.routes.draw do
   get '/profile'           => 'users#edit',       :as => :profile
   
   # CRM/PMS
+  
+  
+  
   constraints :subdomain => "worx" do
+        
+    
   # Contacts
     resources :contacts, :module => 'contacts' do
       resources :details
@@ -118,8 +123,9 @@ Gigavine::Application.routes.draw do
                                                                       :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
                                                                       :page    => /[a-z_\-]+/ }
     get "search" => 'pages#search', :as => :site_search
-  
+    resources :contacts, :only => [ :create ]
     resources :blog_posts
+    
   end
   
   # You can have the root of your site routed with "root"

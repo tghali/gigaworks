@@ -352,7 +352,7 @@ form {
   }
 }
 
-#content {
+div#content {
   margin-bottom: 1.5em;
   h1, h2, h3, h4, h5, h6, p, q, pre, li {color: $gigavine-medium-grey;}
   h4 { margin: 0  0 .5em 0; font-size: 12px; font-weight: bold; }
@@ -385,6 +385,7 @@ form {
     @include column(24);
 
     h3 { margin: 0 4px 5px 0; }
+    a  { color:  $gigavine-green; }
     ul {
       @include float-left;
       @include border-radius(5px);
@@ -591,6 +592,32 @@ form {
     div {height: 9em;}
   }
 
+  form {
+    p { width: 570px; }
+    label {
+      display: inline-block;
+      width: 150px;
+      padding-top: 10px;
+      margin: 0.5em 0;
+      vertical-align: top;
+
+      &.error {
+        font-size: 11px;
+        margin-left: 153px;
+        background: #FBFCDA url('/images/x.png') no-repeat 5px;
+        border: 1px solid #DBDBD3;
+        width: 372px;
+        margin-top: 2px;
+        padding-left: 30px ;
+      }
+    }
+    input.text, input.title, input[type="email"], input[type="text"], input[type="password"], textarea, select { width : 400px; padding: 5px; }
+    select { width: 411px; }
+    .submit input{
+      float: right;
+      padding: 5px 10px;
+    }
+  }
   .form-box  {
     @include column(8);
     @include border-radius(3px);
@@ -701,6 +728,7 @@ form {
     }
     .half {
       width: 140px;
+      label { width: 100%; }
       input[type=text]{
         width: 90px;
       }
@@ -845,7 +873,7 @@ form {
   }
   /* commented end */
 
-  #we-offer, #news-feed, #join , #contact {
+  div#we-offer, div#news-feed, div#join , div#contact {
     background-repeat: no-repeat;
     background-position: left top;
     h4 {
@@ -872,10 +900,10 @@ form {
       background: url('/images/dotted_border_gray.png') repeat-x left bottom;
     }
   }
-  #we-offer  { background-image: url('/images/icons/we_offer.png');  }
-  #news-feed { background-image: url('/images/icons/news_feed.png'); }
-  #join      { background-image: url('/images/icons/join.png');      }
-  #contact   { background-image: url('/images/icons/contact.png');   }
+  div#we-offer  { background-image: url('/images/icons/we_offer.png');  }
+  div#news-feed { background-image: url('/images/icons/news_feed.png'); }
+  div#join      { background-image: url('/images/icons/join.png');      }
+  div#contact   { background-image: url('/images/icons/contact.png');   }
 
   #stackbox {
     ul{
