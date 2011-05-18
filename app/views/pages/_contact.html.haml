@@ -1,0 +1,18 @@
+= form_for Contact.new, :html => { :id => 'contact' } do |f|
+  %p
+    = f.label :name, 'Name :'
+    = f.text_field :name,  :class => 'required'
+  %p
+    = f.label :email, 'Email :'
+    = f.text_field :email, :class => 'required email'
+  %p
+    = f.label :to, 'To :'
+    = f.select :to, Contact::TOS
+  %p
+    = f.label :requerst_call, 'Request a call :'
+    = f.check_box :requerst_call
+  %p
+    = f.label :message, 'Message :'
+    = f.text_area :message
+  %p.submit
+    = f.submit :submit

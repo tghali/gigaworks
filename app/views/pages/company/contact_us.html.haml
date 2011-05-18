@@ -1,9 +1,36 @@
+#ticker.languages
+  .text
+    %h2 Contact us
+    %p
+      Seeking advice?
+      %br
+      Need help with a project?
+      %br
+      Wondering if Gigavine can help?
+      
+  .picture
+    %img{:src => '/images/pages/language_ticker.jpg'}
 
-%br
-%br
-
-%h4 Contact us
-%div
-  %p Seeking advice? Need help with a project? Wondering if Gigavine can help?
+%div.two-thirds
   %p Please get in contact with us and we’ll see how we can assist.
-  %p Send us an email and we will respond within 24 hours.
+  = render :partial => 'contact'
+
+#stackbox.box
+  %ul
+    %li.create
+      %h4 create
+      %p Original concepts and compelling designs to capture attention and establish a connection with your audience.
+    %li.image
+      %img{:src => '/images/pages/create.jpg'}
+  %ul
+    %li.image
+      %img{:src => '/images/pages/adapt.jpg'}
+    %li.adapt
+      %h4 adapt
+      %p Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience’s world.
+  %ul
+    %li.deliver
+      %h4 deliver
+      %p The technical tools and digital interfaces to carry your communication to the heart of your audience.
+    %li.image
+      %img{:src => '/images/pages/deliver.jpg'}
