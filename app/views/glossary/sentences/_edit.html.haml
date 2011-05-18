@@ -3,9 +3,9 @@
   = form_for @sentence, :url => glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]) do |w|
     = render "shared/error_messages", :target => @sentence
     = w.select :language, Gigavine::Preferences.translated_languages
-    = w.text_area :text
+    = w.text_area :text,{:style=>"height:100px;width:300px;"}
     %h3 Provide a translation
     - w.fields_for :translations do |d|
       = d.select :language, Gigavine::Preferences.translated_languages
-      = d.text_area :text
+      = d.text_area :text,{:style=>"height:100px;width:300px;"}
     = w.submit

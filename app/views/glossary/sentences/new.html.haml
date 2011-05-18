@@ -3,10 +3,10 @@
   = form_for @sentence, :url => glossary_sentences_path do |s|
     = render "shared/error_messages", :target => @sentence
     = s.select :language, Gigavine::Preferences.translated_languages, :class => 'language_toggle', :rel => s.field_id_for(:text)
-    = s.text_area :text
+    = s.text_area :text,{:style=>"height:100px;width:300px;"}
     %h3 Provide a translation
     #translations
       = s.fields_for :translations do |t|
         = t.select :language, Gigavine::Preferences.translated_languages, {}, :class => 'language_toggle', :rel => t.field_id_for(:text)
-        = t.text_area :text
+        = t.text_area :text,{:style=>"height:100px;width:300px;"}
     = s.submit

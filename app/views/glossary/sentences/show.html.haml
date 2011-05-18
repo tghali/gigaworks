@@ -79,7 +79,7 @@
     %h3
       Add Tag
     = form_for @new_tag, :url => glossary_sentence_tags_path(@sentence) do |w|
-      = w.text_area :tag
+      = w.text_area :tag,{:style=>"height:100px;width:300px;"}
       = w.submit
 #translation_form.simple_overlay
   #inside_form
