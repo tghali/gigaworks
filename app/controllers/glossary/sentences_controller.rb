@@ -2,10 +2,16 @@ class Glossary::SentencesController < Glossary::GlossaryController
   autocomplete :sentence, :text
   def index
     @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sentences }
-    end
+           if @sentences.size == 1
+                for sen in @sentences
+                  redirect_to  glossary_sentence_path(sen.id,:sentence_search=> params[:sentence_search])
+                end
+        else
+              respond_to do |format|
+                  format.html # index.html.erb
+                  format.xml  { render :xml => @sentences }
+              end
+          end
   end
   
   def flagged    

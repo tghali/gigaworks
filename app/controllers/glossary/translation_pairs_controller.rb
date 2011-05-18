@@ -15,8 +15,8 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
 
 
   def edit
-    @translation = TranslationPair.find(params[:id])
-    
+    @sentences = (params[:sentence_search] ? Sentence.search(params[:sentence_search]) : [])  
+    @translation = TranslationPair.find(params[:id])    
     @sentence    = @translation.source
   end
 

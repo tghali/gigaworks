@@ -1,4 +1,6 @@
 
+
 page['inside_edit_form'].replace_html :partial => 'edit'
+
 
 
