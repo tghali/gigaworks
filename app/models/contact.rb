@@ -12,11 +12,11 @@ class Contact < ActiveRecord::Base
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
-  attr_accessor :name, :email, :message, :to, :requerst_call
+  #~ attr_accessor :name, :email, :message, :to, :requerst_call
 
-  validates :name,  :presence  => true
-  #~ validates :email, :format    => { :with  => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i }
-  validates :to,    :inclusion => { :in    => TOS }
+  #~ validates :name,  :presence  => true
+  ### validates :email, :format    => { :with  => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i }
+  #~ validates :to,    :inclusion => { :in    => TOS }
   
   #### end of changes
   
@@ -72,23 +72,23 @@ class Contact < ActiveRecord::Base
   
   
   ########## methods of ahmed mohamed ################
-  def initialize(attributes = {})
-    attributes.each do |name, value|
-      send("#{name}=", value)
-    end
-  end
+  #~ def initialize(attributes = {})
+    #~ attributes.each do |name, value|
+      #~ send("#{name}=", value)
+    #~ end
+  #~ end
 
-  def request_call?
-    requerst_call == '1'
-  end
+  #~ def request_call?
+    #~ requerst_call == '1'
+  #~ end
   
-  def email_to
-    EMAILS.select{ |e| e.first == to }.first.last
-  end
+  #~ def email_to
+    #~ EMAILS.select{ |e| e.first == to }.first.last
+  #~ end
 
-  def persisted?
-    false
-  end
+  #~ def persisted?
+    #~ false
+  #~ end
   ############ end #############
   
   
