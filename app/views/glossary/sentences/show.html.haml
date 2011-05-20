@@ -17,7 +17,11 @@
       %li
         %p
           = language_flag_for(t)
-          = t.text
+          - if (t.language.to_s == "ar")
+            %span{:style => "font-size:17px;"}
+              = t.text
+          - else
+            = t.text
         %p
           - if can? :update, t
             = link_to 'Edit Translation', edit_glossary_sentence_translation_pair_path(@sentence, t)
