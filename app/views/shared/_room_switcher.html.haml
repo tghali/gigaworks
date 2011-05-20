@@ -10,6 +10,9 @@
     - if can? :use, :pm
       %li
         =link_to t(:'rooms.Schedule'), documents_path, :id => :'room-switch-documents', :title => t(:'rooms.Document')
+    - if can? :use, :pm
+      %li
+        =link_to t(:'rooms.Schedule'), manage_images_path, :id => :'room-switch-images', :title => t(:'rooms.Images')
     - if can? :use, :crm
       %li
         =link_to t(:'rooms.Leads'),    contacts_path, :id => :'room-switch-leads', :title => t(:'rooms.Leads')
