@@ -1,0 +1,38 @@
+- if @manage_images.blank?
+  %br
+  = "No images / files uploaded"
+- else
+  %div{:style => "padding-bottom:20px;"}
+    = will_paginate @manage_images
+
+  .table_structure
+  - @manage_images.each_with_index do |doc,j|
+    .mainimagewrapper
+      .imagewrapper
+        .middle_img
+          .middle_img1
+            .middle_img2
+              = image_tag doc.image.url(:thumb)
+      %ul
+        %li
+          = link_to image_tag("/images/img-view.png"),manage_image_path(doc), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true,:title => "Click here to view details"
+          |
+        %li
+          = link_to image_tag("/images/img-download.png"),download_image_manage_images_path(:id => doc.id),:title => "Click here to download image"
+          |
+          
+        %li
+          = link_to image_tag("/images/img-edit.png"),edit_manage_image_path(doc), :rel => "#edit_upload", :id => "edit", :'class' => 'overlay-switch',:remote => :true,:title => "Click here to edit image details"
+          |
+        %li
+          = link_to image_tag("/images/img-cancel.png"),manage_image_path(doc), :confirm => 'Are you sure? ', :method => :delete,:title => "Click here to delete image"
+      
+        %li{:style=>"width:130px; color:#000"}
+          = truncate(doc.subject.titleize,:length => 35, :omission => '...')
+
+%div{:class => :clear}
+%div{:style=>"float:right; width:35%; margin:15px 0px 0px 0px; position:relative; top:-30px;"}
+  = link_to "Upload new image",new_manage_image_path, :rel => "#new_upload", :id => "create_image", :'class' => 'overlay-switch',:remote => :true
+
+
+

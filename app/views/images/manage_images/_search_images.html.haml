@@ -1,0 +1,34 @@
+- if @find_images.blank?
+  %br
+  - if @msg
+    = @msg
+  -else
+    = "No images found with your search"
+  = link_to "Click here to get list", manage_images_path 
+- else
+  %div{:style => "padding-bottom:20px;"}
+    = will_paginate @find_images
+
+  .table_structure
+  - @find_images.each_with_index do |doc,j|
+    .mainimagewrapper
+      .imagewrapper
+        = image_tag doc.image.url(:thumb)
+      %ul
+        %li
+          = doc.subject
+        %li
+          %img{:src => "/images/icon-view.png"}/
+          = link_to "View details",manage_image_path(doc), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true
+        %li
+          %img{:src => "/images/icon-download.png"}/
+          = link_to "Download",download_image_manage_images_path(:id => doc.id)
+%div{:class => "clear"}
+
+
+  %div{:style=>"float:right; width:35%; margin:15px 0px 0px -40px;"}
+    = link_to "Back",manage_images_path
+    
+
+
+

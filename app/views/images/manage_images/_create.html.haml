@@ -1,0 +1,15 @@
+%h2 Create new image
+%div{:style=>"height:350px; overflow-y:scroll; overflow-x:hidden;"}
+  .box.sentence
+    = form_for @manage_image, :url => {:controller => "images/manage_images",:action => :create},:html => {:multipart => true} do |d|
+      = render "shared/error_messages", :target => @manage_image  
+
+      = d.text_field :subject
+      = d.text_area :tags,{:style=>"height:100px;width:300px;"}
+      = d.file_field :image
+      = d.text_area :description,{:style=>"height:100px;width:300px;"}
+
+      %div{:style => "width:150px; float:left;"}  
+        = d.submit t(:upload_image)
+
+

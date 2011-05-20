@@ -1,0 +1,8 @@
+ 
+page['results'].replace_html :partial => 'search_images'
+
+  
+
+
+
+

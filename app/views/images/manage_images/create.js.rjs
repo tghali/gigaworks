@@ -1,0 +1,9 @@
+
+if @manage_image.valid?
+	page['manage_images'].replace_html :partial => 'successmsg'
+else
+	page['manage_images'].replace_html :partial => 'create'
+end
+
+
+

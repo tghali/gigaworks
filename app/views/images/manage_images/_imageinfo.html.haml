@@ -1,0 +1,22 @@
+.box.sentence
+  %h3 #{@manage_image.subject} Details
+  %div
+
+    %span Author:
+    = @manage_image.author.user_name
+    %br
+    %span Created on:
+    = @manage_image.created_at.strftime("%b %d, %Y")
+ 
+    %p
+    %span Tags:
+    = @manage_image.tags
+
+    %p
+    %span Description:
+    = @manage_image.description
+
+    %p
+    %span File Size:
+    = calc_file_size(@manage_image)
+
