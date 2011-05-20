@@ -1,0 +1,32 @@
+
+- content_for :parent do
+  %br    
+
+- content_for :main do
+  %h3{:style => "padding-top:20px;"} Mawhiba > Images Management
+  %br
+  #glossary-search
+    = form_for(:search, :url => {:action => "search"},:remote => :true) do
+      %div{:style => "float:left;"}
+      #glossary-search-box
+        %p
+          =# label_tag :search, 'Enter search word', :class => 'infield'
+          = text_field_tag :search, params[:search], :value=>"Enter keyword", :id=>"search" ,
+
+	  :onKeyUp=>"if(event.keyCode==13) showOptions(); ",
+	  :onFocus=>"if(this.value=='Enter keyword') this.value='';", 
+	  :onBlur=>"if(this.value=='') this.value='Enter keyword';"
+          = submit_tag "Search"
+  %div{:class => "clear"}
+  %div{:id => "results"}
+    = render :partial => 'list_of_images'
+
+  
+    #information.simple_overlay
+      #showdetails
+    #new_upload.simple_overlay
+      #manage_images
+    #edit_upload.simple_overlay
+      #edit_images
+
+= render :file => 'layouts/application'

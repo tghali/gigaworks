@@ -1,0 +1,14 @@
+development:
+  bucket_name: Mawhiba
+  access_key_id: AKIAJYHU4ZKNGANHUDAA
+  secret_access_key: 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
+
+test:
+  bucket_name: appname_test
+  access_key_id: 
+  secret_access_key: 
+
+production:
+  bucket_name: appname
+  access_key_id: 
+  secret_access_key: 

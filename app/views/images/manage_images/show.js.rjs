@@ -1,0 +1,5 @@
+
+page['showdetails'].replace_html :partial => 'imageinfo'
+
+
+

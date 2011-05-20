@@ -1,0 +1,5 @@
+ 
+page['manage_images'].replace_html :partial => 'create'
+
+
+

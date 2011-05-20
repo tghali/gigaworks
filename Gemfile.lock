@@ -258,6 +258,7 @@ GEM
     tzinfo (0.3.26)
     warden (1.0.3)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre2)
     wirble (0.1.3)
     xml-simple (1.0.15)
     xpath (0.1.3)
@@ -302,4 +303,5 @@ DEPENDENCIES
   tarte!
   timecop (~> 0.3.5)
   warden
+  will_paginate (~> 3.0.pre2)
   wirble

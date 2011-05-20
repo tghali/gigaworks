@@ -1,0 +1,7 @@
+
+
+	page['edit_images'].replace_html :partial => 'edit'
+
+
+
+

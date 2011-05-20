@@ -53,6 +53,19 @@ Gigavine::Application.routes.draw do
       end
     end
     
+        
+    resources :manage_images, :module => 'images' do
+     collection do
+            get 'download_image'
+	    get 'view_uploadimage' 
+	    post 'search'
+         end
+    end
+    
+    
+    
+    
+    
     namespace :glossary do
       get '/', :to => 'sentences#index'
       resources :sentences do
