@@ -11,11 +11,11 @@ class ManageImage < ActiveRecord::Base
   validates_attachment_presence :image  
   validates_attachment_content_type :image, :content_type => ['image/jpeg','image/png','image/gif']
    
-    Paperclip.options[:swallow_stderr] = false 
+    #~ Paperclip.options[:swallow_stderr] = false 
     
     has_attached_file :image,
     :storage => :s3,
-    :styles => { :medium => "300x300>", :thumb => "100x100>", :original => "400x400>" },
+    :styles => { :thumb => "100x100>", :large => "400x400>" },
     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
     :s3_permissions => "public-read", 
     #~ :path =>  lambda { |doc| "/assignments/#{doc.name}/:id/:style:extension" },
