@@ -214,6 +214,7 @@ GEM
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
+    rmagick (2.12.0)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   pickle (>= 0.3.4)
   rack-test!
   rails (= 3.0.5)
+  rmagick (= 2.12.0)
   rspec-rails (>= 2.5.0)
   ruby-debug
   sqlite3-ruby
