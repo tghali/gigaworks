@@ -15,7 +15,7 @@ class ManageImage < ActiveRecord::Base
     
     has_attached_file :image,
     :storage => :s3,
-    :styles => { :thumb => "100x100>", :large => "400x400>" },
+    #~ :styles => { :thumb => "100x100>", :large => "400x400>" },
     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
     :s3_permissions => "public-read", 
     #~ :path =>  lambda { |doc| "/assignments/#{doc.name}/:id/:style:extension" },
