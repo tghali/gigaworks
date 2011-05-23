@@ -79,17 +79,32 @@ class Documents::DocumentsController < ApplicationController
  
   
  def document_download  
+  begin
    document = Document.find(params[:id])      
       #~ render :text => File.exists?("#{RAILS_ROOT}/public/system/documents/#{params[:id]}/original/#{document.document_file_name}") and return
     
-          if document       
-                if File.exists?("#{RAILS_ROOT}/public/mydocuments/#{params[:id]}/original_#{document.document_file_name}")             
-                  send_file "#{RAILS_ROOT}/public/mydocuments/#{params[:id]}/original_#{document.document_file_name}"
-                end
-          else
-            redirect_to documents_path
-          end
+		  if document	  
+			  data = open(document.document.url(:original)).read
+			  send_data data, :filename => document.document.original_filename 		
+		  else
+			redirect_to documents_path
+		 end
+  	 rescue
+		redirect_to documents_path
+	 end
     end
+
+
+ def view_document
+	begin 
+	 document = Document.find(params[:id])      
+	 if document
+		 redirect_to document.document.url
+	 end
+	 rescue
+		redirect_to documents_path
+	 end
+ end
 
   
 end
