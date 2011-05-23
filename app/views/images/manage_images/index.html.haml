@@ -1,6 +1,10 @@
 
 - content_for :parent do
-  %br    
+  %br
+  %div{:style=>" width:250px; float:left;"}
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      = link_to "Upload New Image",new_manage_image_path, :rel => "#new_upload", :id => "create_image", :'class' => 'overlay-switch',:remote => :true
+
 
 - content_for :main do
   %h3{:style => "padding-top:20px;"} Mawhiba > Images Management
