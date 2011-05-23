@@ -23,7 +23,6 @@ class ManageImage < ActiveRecord::Base
      
 
     named_scope :search, lambda { |str,cond_text,cond_values| {:conditions => ( [cond_text,*cond_values]),:order => "created_at DESC"}}
-
     named_scope :search_with_subject, 	lambda { |str| {:conditions => (["subject LIKE ?", "%#{str}%"])}}
  
 

@@ -31,6 +31,7 @@ group :production, :test, :cucumber, :development do
   gem 'tabelle',    :path => 'vendor/plugins/tabelle'
   gem 'aws-s3'
   gem 'paperclip'
+		gem "rmagick", "2.12.0", :require => 'RMagick'
   gem 'cancan'
 end
 

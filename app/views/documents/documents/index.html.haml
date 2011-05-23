@@ -46,7 +46,8 @@
                   %li.date1
                     = doc.created_at.strftime("%Y-%b-%d")
                   %li.view
-                    %span> View
+                    %span>/
+                    = link_to "View",view_document_documents_path(:id => doc.id)
                     |
                     %span>/
                     = link_to "Download",document_download_documents_path(:id => doc.id)
