@@ -183,9 +183,7 @@ GEM
       oa-more (= 0.2.0)
       oa-oauth (= 0.2.0)
       oa-openid (= 0.2.0)
-    paperclip (2.3.8)
-      activerecord
-      activesupport
+
     pg (0.10.1)
     pickle (0.4.7)
       cucumber (>= 0.8)
@@ -214,7 +212,7 @@ GEM
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rmagick (2.12.0)
+
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -285,12 +283,12 @@ DEPENDENCIES
   launchy (>= 0.3.5)
   net-ldap (>= 0.1.1)
   omniauth (>= 0.1.6)
-  paperclip
+  
   pg
   pickle (>= 0.3.4)
   rack-test!
   rails (= 3.0.5)
-  rmagick (= 2.12.0)
+
   rspec-rails (>= 2.5.0)
   ruby-debug
   sqlite3-ruby

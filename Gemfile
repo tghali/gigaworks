@@ -27,8 +27,8 @@ group :production, :test, :cucumber, :development do
   gem 'formidable', :path => '~/Sites/tools/formidable'
   gem 'tabelle',    :path => '~/Sites/tools/tabelle'
   gem 'aws-s3'
-  gem 'paperclip'
-		gem "rmagick", "2.12.0", :require => 'RMagick'
+  #gem 'paperclip'
+		#gem "rmagick", "2.12.0", :require => 'RMagick'
   gem 'cancan'
 end
 
