@@ -18,9 +18,10 @@ class ManageImage < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
     :s3_permissions => "public-read", 
     #~ :path =>  lambda { |doc| "/assignments/#{doc.name}/:id/:style:extension" },
-     :url =>  "/images/:id/:style.:extension" ,
-     :styles => { :medium => "300x300>", :thumb => "100x100>", :original => "400x400>" },
+    :url =>  "/images/:id/:style.:extension" ,
+    :styles => { :thumb => "100x100#", :small => "400x400>" },
     :bucket => 'Mawhiba' 
+    
      
        named_scope :search, lambda { |str,cond_text,cond_values| {:conditions => ( [cond_text,*cond_values]),:order => "created_at DESC"}}
     named_scope :search_with_subject, 	lambda { |str| {:conditions => (["subject LIKE ?", "%#{str}%"])}}
