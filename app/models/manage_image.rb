@@ -14,17 +14,15 @@ class ManageImage < ActiveRecord::Base
     #~ Paperclip.options[:swallow_stderr] = false 
     
     has_attached_file :image,
-    :storage => :s3,
-    :styles => { :medium => "300x300>", :thumb => "100x100>", :original => "400x400>" },
+    :storage => :s3,    
     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
     :s3_permissions => "public-read", 
     #~ :path =>  lambda { |doc| "/assignments/#{doc.name}/:id/:style:extension" },
-     :path =>  "/images/:id/:style.:extension" ,
+     :url =>  "/images/:id/:style.:extension" ,
+     :styles => { :medium => "300x300>", :thumb => "100x100>", :original => "400x400>" },
     :bucket => 'Mawhiba' 
      
-   
-
-    named_scope :search, lambda { |str,cond_text,cond_values| {:conditions => ( [cond_text,*cond_values]),:order => "created_at DESC"}}
+       named_scope :search, lambda { |str,cond_text,cond_values| {:conditions => ( [cond_text,*cond_values]),:order => "created_at DESC"}}
     named_scope :search_with_subject, 	lambda { |str| {:conditions => (["subject LIKE ?", "%#{str}%"])}}
  
 
