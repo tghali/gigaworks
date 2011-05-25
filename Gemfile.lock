@@ -184,7 +184,9 @@ GEM
       oa-more (= 0.2.0)
       oa-oauth (= 0.2.0)
       oa-openid (= 0.2.0)
-
+    paperclip (2.3.11)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
     pg (0.10.1)
     pickle (0.4.7)
       cucumber (>= 0.8)
@@ -289,7 +291,7 @@ DEPENDENCIES
   net-ldap (>= 0.1.1)
   nifty-generators
   omniauth (>= 0.1.6)
-
+  paperclip
   pg
   pickle (>= 0.3.4)
   rack-test!
