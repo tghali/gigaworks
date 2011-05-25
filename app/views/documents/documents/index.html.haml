@@ -28,7 +28,7 @@
           - if folder.documents.blank?
             %br
             = "No documents / files uploaded"
-          - else
+          - else	  
             .table_structure
               %ul
                 %li.name
@@ -36,30 +36,31 @@
                 %li.name
                   %a{:href => "#"} Date
             - folder.documents.each_with_index do |doc,j|
-              %div{:class => cycle("table_structure_inner", "table_structure_inner_color")}
-                %ul
-                  %li.checkbox
-                    %input{:type => "checkbox"}/
-                  %li.name1
-                    %img{:src => "/images/document/doc_icon.png"}>/
-                    = doc.name
-                  %li.date1
-                    = doc.created_at.strftime("%Y-%b-%d")
-                  %li.view
-                    %span>/
-                    = link_to "View",view_document_documents_path(:id => doc.id)
-                    |
-                    %span>/
-                    = link_to "Download",document_download_documents_path(:id => doc.id)
-                    |
-                    %span>/
-                    = link_to "Info",show_information_documents_path(:id =>doc.id), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true
-                    |
-                    %span>/
-                    = link_to "Delete",document_path(doc), :confirm => 'Are you sure? ', :method => :delete
+              - if doc.author_id == current_user.id
+                %div{:class => cycle("table_structure_inner", "table_structure_inner_color")}
+                  %ul
+                    %li.checkbox
+                      %input{:type => "checkbox"}/
+                    %li.name1
+                      %img{:src => "/images/document/doc_icon.png"}>/
+                      = doc.name
+                    %li.date1
+                      = doc.created_at.strftime("%Y-%b-%d")
+                    %li.view
+                      %span>/
+                      = link_to "View",view_document_documents_path(:id => doc.id)
+                      |
+                      %span>/
+                      = link_to "Download",document_download_documents_path(:id => doc.id)
+                      |
+                      %span>/
+                      = link_to "Info",show_information_documents_path(:id =>doc.id), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true
+                      |
+                      %span>/
+                      = link_to "Delete",document_path(doc), :confirm => 'Are you sure? ', :method => :delete
 
               %div{:class => "clear"}
-          %div{:style=>"float:right; width:45%; margin:0px 0px 0px -40px"}
+          %div{:style=>"float:right; width:55%; margin:0px 0px 0px -40px"}
             //%span Upload Document 
             = link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true
             = "|"
