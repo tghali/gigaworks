@@ -6,11 +6,11 @@ class ManageImage < ActiveRecord::Base
   validates_presence_of :subject
   
   cattr_reader :per_page
-  @@per_page =8
+  @@per_page =15
   
   validates_attachment_presence :image  
-  validates_attachment_content_type :image, :content_type => ['image/jpeg','image/png','image/gif']
-   
+  #~ validates_attachment_content_type :image, :content_type => ['image/jpeg','image/png','image/gif']
+   validates_attachment_content_type :image, :content_type => /^image\//,:message => "should be image"
     #~ Paperclip.options[:swallow_stderr] = false 
     
     has_attached_file :image,
