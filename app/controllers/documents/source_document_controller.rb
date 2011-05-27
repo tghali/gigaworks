@@ -53,5 +53,30 @@ class Documents::SourceDocumentController < ApplicationController
   end 
   
   
+  def edit 
+		@source_document = SourceDocument.find(params[:id])
+		respond_to do |format|
+		   format.js
+		  format.html # new.html.erb 
+		end
+	end
+  
+    def update    
+    @source_document = SourceDocument.find(params[:id])
+    
+    authorize! :update, @source_document
+    
+    respond_to do |format|
+      if @source_document.update_attributes(params[:source_document].merge :author => current_user)
+	 format.html { redirect_to(documents_url, :notice => 'Assignment has been successfully updated.') } 
+         format.xml  { render :xml => @source_document, :status => :created, :location => @source_document }
+      else   
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @source_document.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  
   
 end

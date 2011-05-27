@@ -12,7 +12,7 @@ class Document < ActiveRecord::Base
     :storage => :s3,
     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
     :s3_permissions => "public-read",
-     :path =>  "/assignments/:id/:style:extension" ,
+     :path =>  "/assignments/:id/:filename" ,
     :bucket => 'Mawhiba' 
    
 end

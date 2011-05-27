@@ -1,32 +1,18 @@
 <%= javascript_include_tag "common/base/jquery.js" %>
 <script type="text/javascript">
-/*jQuery(document).ready(function() {
-  jQuery('.doc_assesment_block1').click(function() {
-  var id_val = jQuery(this).attr('id');
-  jQuery('.colapse').find("img").attr("src","/images/document/left_arrow.gif");
-  jQuery('.colapse').find("span").html("Colapse");
-  if(document.getElementById('datain'+id_val).style.display!='block'){
-  jQuery('.left_middle').slideUp('slow');
-  jQuery('#datain'+id_val).slideDown('slow');
-  jQuery('#div_image'+id_val).find("img").attr("src","/images/document/down_arrow.gif");
-  jQuery('#div_image'+id_val).find("span").html("Expand");
-  }
-  });
- 
-  });*/
   jQuery(function() {
-	jQuery(".doc_assesment_block1").click(function() {
+	jQuery(".colapse").click(function() {
 
 	var id_val = jQuery(this).attr('id');
 		if (jQuery('#datain'+id_val).is(':visible')) {
              jQuery('#datain'+id_val).slideUp(500);
-	   		jQuery('#div_image'+id_val).find("img").attr("src","/images/document/left_arrow.gif");
-			jQuery('#div_image'+id_val).find("span").html("Expand");
+	   		jQuery('#div_content'+id_val).next("img").attr("src","/images/document/doc_plus.png");
+			jQuery('#div_content'+id_val).html("Expand");
         }
         else {
             jQuery('#datain'+id_val).slideDown(500);
-			jQuery('#div_image'+id_val).find("img").attr("src","/images/document/down_arrow.gif");
-			 jQuery('#div_image'+id_val).find("span").html("Collapse");
+			jQuery('#div_content'+id_val).next("img").attr("src","/images/document/doc_minus.png");
+			 jQuery('#div_content'+id_val).html("Collapse");
         }
 });
 

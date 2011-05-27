@@ -1,0 +1,5 @@
+
+page['assignment'].replace_html :partial => 'edit'
+
+
+

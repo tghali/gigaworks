@@ -195,9 +195,9 @@ text-align:center;
 font:12px/30px Arial, Helvetica, sans-serif;
 }
 .rightupdate_blcok p.visit{width:90%;text-align:right; color:#3f8fc4}
-.colapse{float:right; color:#a90122; font:12px Arial, Helvetica, sans-serif; margin:5px 20px 0px 0px; padding:0px}
-.colapse img{ margin:0px 0px 0px 10px; position:relative; top:2px;}
-
+.colapse{float:right; color:#0099ff; font:12px  Arial, Helvetica, sans-serif; margin:5px 20px 0px 0px; padding:0px; width:100; text-indent:0px; cursor:pointer}
+.colapse img{ margin:0px 0px 0px 10px; position:relative; top:0px;}
+.colapse span{ position:relative; top:-4px; color:#006666;}
 .mainimagewrapper
 {
 	width: 130px;
