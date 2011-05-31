@@ -12,7 +12,9 @@
         .middle_img
           .middle_img1
             .middle_img2
-              = image_tag doc.image.url(:thumb)
+              %div{:style=>"position:absolute;width:16px;height:16px;z-index:1;background:#f5f5f5;bottom:0;right:0"}
+                = link_to image_tag("/images/zoom-in.png"),view_uploadimage_manage_images_path(:id => doc.id), :rel => "#large_image", :id => "image_view", :'class' => 'overlay-switch',:remote => :true,:title => "Click here to view large image"
+              = image_tag doc.image.url(:thumb) 
       %ul
         %li
           = link_to image_tag("/images/img-view.png"),manage_image_path(doc), :rel => "#information", :id => "view_information", :'class' => 'overlay-switch',:remote => :true,:title => "Click here to view details"

@@ -1,0 +1,5 @@
+ 
+page['show_image'].replace_html :partial => 'show_image'
+
+
+
