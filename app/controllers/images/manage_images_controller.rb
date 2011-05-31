@@ -132,10 +132,13 @@ def search
 			images << manage_image.id
 	        end
 		
+     search_word = params[:search].downcase
+    
+    
 	    if images.size > 0	
-	        @find_images =  ManageImage.find(:all,:conditions => ["id in (#{images.join(',')}) OR subject LIKE ?","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 15  #ManageImage.tagged_with("%#{params[:search]}%") 
+	        @find_images =  ManageImage.find(:all,:conditions => ["id in (#{images.join(',')}) OR LOWER(subject) LIKE ?","%#{search_word}%"]).paginate :page => params[:page],:per_page => 15  #ManageImage.tagged_with("%#{params[:search]}%") 
 	    else
-		@find_images =  ManageImage.find(:all,:conditions => ["subject LIKE ? OR subject lIKE ? OR subject lIKE ?","%#{params[:search]}%","#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 15  
+		@find_images =  ManageImage.find(:all,:conditions => ["LOWER(subject) LIKE ? OR LOWER(subject) LIKE ? OR LOWER(subject) LIKE ?","%#{search_word}%","#{search_word}%","%#{search_word}"]).paginate :page => params[:page],:per_page => 15  
 	    end
 	    
 	    
