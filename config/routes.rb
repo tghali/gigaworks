@@ -57,9 +57,9 @@ Gigavine::Application.routes.draw do
     resources :manage_images, :module => 'images' do
      collection do
             get 'download_image'
-	    get 'view_uploadimage' 
-	    post 'search'
-         end
+            get 'view_uploadimage' 
+            get 'search'
+      end
     end
     
     
