@@ -98,16 +98,20 @@ def download_image
 
   def view_uploadimage
 	begin 
-	 uploadimage = ManageImage.find(params[:id])      
-	 if uploadimage
-		 redirect_to uploadimage.image.url
-	 end
+	 @uploadimage = ManageImage.find(params[:id])     
+		respond_to do |format|
+	      format.js 
+	      format.xml  { render :xml => @uploadimage }
+	    end    
+	 #~ if uploadimage
+		 #~ redirect_to uploadimage.image.url
+	 #~ end
 	 rescue
 		redirect_to manage_images_path
 	 end
  end
 
-    def my_search_logic(str)
+    def tag_search_logic(str)
 	     return [],[],[] if str.blank?
 	     cond_text   = str.split.map{|w| "tags LIKE ? "}.join(" OR ")
 	   
@@ -116,29 +120,36 @@ def download_image
     end
 
 
-def search
-	
-	
+def search	
 	if !params[:search].blank?
-		str,cond_text,cond_values = my_search_logic(params[:search])
-		puts "#{str}, --#{cond_text},----#{cond_values}"
-		#~ @find_images = ManageImage.paginate :page => params[:page], :conditions => ["subject LIKE ?", "%#{params[:search]}%"] \
-		#~ |       ManageImage.search(my_search_logic(params[:search]))#.paginate :page => params[:page] #ManageImage.tagged_with("%#{params[:search]}%") 
-
-		@find_images =  ManageImage.search(str,cond_text,cond_values).paginate :page => params[:page]  #ManageImage.tagged_with("%#{params[:search]}%") 
-
-
-
+		@search_word = params[:search]
+		
+		str,cond_text,cond_values = tag_search_logic(params[:search])		
+		tags = ManageImage.search(str,cond_text,cond_values) 
+		images = []
+		for tag in tags
+			manage_image = ManageImage.find_by_id(tag.id)
+			images << manage_image.id
+	        end
+		
+	    if images.size > 0	
+	        @find_images =  ManageImage.find(:all,:conditions => ["id in (#{images.join(',')}) OR subject LIKE ?","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 15  #ManageImage.tagged_with("%#{params[:search]}%") 
+	    else
+		@find_images =  ManageImage.find(:all,:conditions => ["subject LIKE ? OR subject lIKE ? OR subject lIKE ?","%#{params[:search]}%","#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 15  
+	    end
+	    
+	    
 	     if params[:search] == 'Enter keyword'
 		     @msg = 'Please enter any tag to search'
 	     end	      
-	     respond_to do |format|		     
-	      format.js 
-	      format.xml  { render :xml => @find_images }
-	    end
+		     respond_to do |format|
+		      format.html
+		      format.js 
+		      format.xml  { render :xml => @find_images }
+		    end
 	end
 	
-end
+end    ### method end
 
     
 end

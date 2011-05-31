@@ -6,6 +6,7 @@
       = link_to "Upload New Image",new_manage_image_path, :rel => "#new_upload", :id => "create_image", :'class' => 'overlay-switch',:remote => :true
 
 
+
 - content_for :main do
   %h3{:style => "padding-top:20px;"} Mawhiba > Images Management
   %br
@@ -15,23 +16,26 @@
       #glossary-search-box
         %p
           =# label_tag :search, 'Enter search word', :class => 'infield'
-          = text_field_tag :search, params[:search], :value=>"Enter keyword", :id=>"search" ,
+          = text_field_tag :search, params[:search], :value=>@search_word, :id=>"search" ,
 
 	  :onKeyUp=>"if(event.keyCode==13) showOptions(); ",
 	  :onFocus=>"if(this.value=='Enter keyword') this.value='';", 
 	  :onBlur=>"if(this.value=='') this.value='Enter keyword';"
           = submit_tag "Search"
+  
   %div{:class => "clear"}
   %div{:id => "results"}
-    = render :partial => 'list_of_images'
+    = render :partial => 'search_images'
 
-    #large_image.simple_overlay
-      #show_image  
-    #information.simple_overlay
-      #showdetails
-    #new_upload.simple_overlay
-      #manage_images
-    #edit_upload.simple_overlay
-      #edit_images
+  #large_image.simple_overlay
+    #show_image
+  #new_upload.simple_overlay
+    #manage_images
+  #information.simple_overlay
+    #showdetails
+  #edit_upload.simple_overlay
+    #edit_images
+
+
 
 = render :file => 'layouts/application'
