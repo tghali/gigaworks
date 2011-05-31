@@ -4,7 +4,7 @@
   = @msg
 - elsif @find_images.blank?
   %br
-  = "No images / files uploaded"
+  = "No images / files found with your search keyword"
 - else
   %div{:style => "padding-bottom:20px;"}
     = will_paginate @find_images,{:search => @search_word}
