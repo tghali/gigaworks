@@ -9,5 +9,10 @@ def calculate_document_size(doc)
 	end
 end
 
+def calculate_wordcount(doc)
+	data = open(doc.document.url(:original)).read
+	word = (data.to_s).split(" ")
+	return word.length
+end
 
 end

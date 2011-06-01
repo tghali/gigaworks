@@ -59,6 +59,7 @@ Gigavine::Application.routes.draw do
             get 'download_image'
             get 'view_uploadimage' 
             get 'search'
+            get 'autocomplete_manage_image_subject'
       end
     end
     

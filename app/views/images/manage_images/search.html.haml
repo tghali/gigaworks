@@ -16,7 +16,7 @@
       #glossary-search-box
         %p
           =# label_tag :search, 'Enter search word', :class => 'infield'
-          = text_field_tag :search, params[:search], :value=>@search_word, :id=>"search" ,
+          = autocomplete_field_tag :search, params[:search],autocomplete_manage_image_subject_manage_images_path, :value=>@search_word, :id=>"search" ,
 
 	  :onKeyUp=>"if(event.keyCode==13) showOptions(); ",
 	  :onFocus=>"if(this.value=='Enter keyword') this.value='';", 
