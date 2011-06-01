@@ -6,9 +6,6 @@
   %br
   = "No images / files found with your search keyword"
 - else
-  %div{:style => "padding-bottom:20px;"}
-    = will_paginate @find_images,{:search => @search_word}
-
   .table_structure
   - @find_images.each_with_index do |doc,j|
     .mainimagewrapper
@@ -35,7 +32,9 @@
       
         %li{:style=>"width:130px; color:#000"}
           = truncate(doc.subject.titleize,:length => 35, :omission => '...')
-
+  %div{:class => "clear"}
+  %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
+    = will_paginate @find_images,{:search => @search_word}
 
 %div{:class => "clear"}
 

@@ -1,5 +1,5 @@
 class Images::ManageImagesController < ApplicationController
-	
+	autocomplete :manage_image, :subject
 	 def index    
 		@manage_images = ManageImage.paginate :page => params[:page], :order => 'created_at DESC'	  
 	     respond_to do |format|

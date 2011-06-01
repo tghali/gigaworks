@@ -2,8 +2,6 @@
   %br
   = "No images / files uploaded"
 - else
-  %div{:style => "padding-bottom:20px;"}
-    = will_paginate @manage_images
 
   .table_structure
   - @manage_images.each_with_index do |doc,j|
@@ -31,6 +29,9 @@
       
         %li{:style=>"width:130px; color:#000"}
           = truncate(doc.subject.titleize,:length => 35, :omission => '...')
+  %div{:class => :clear}	  
+  %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
+    = will_paginate @manage_images
 
 %div{:class => :clear}
 %div{:style=>"float:right; width:35%; margin:15px 0px 0px 0px; position:relative; top:-30px;"}
