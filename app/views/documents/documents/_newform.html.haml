@@ -1,6 +1,6 @@
 %h3 #{@source_document.name} > Upload new document
 %div{:style=>"height:200px; overflow-y:scroll; overflow-x:hidden;"}
-  = form_for @document, :url => documents_path(:folder_id => params[:folder_id]),:html => {:multipart => true} do |d|
+  = form_for @document, :url => documents_path(:folder_id => params[:folder_id]),:html => {:multipart => true,:name => "form_count"} do |d|
     = render "shared/error_messages", :target => @document
     = d.hidden_field :first_name, :value => 'test'
     = d.hidden_field :last_name, :value => 'last'
