@@ -1,0 +1,49 @@
+
+- content_for :parent do
+  %script{:type => "text/javascript"}
+    function validate()
+    {
+    var file_name = document.getElementById('file2load');
+    if(file_name.value == "")
+    {
+    alert('Please choose a file to upload');
+    return false;
+    }
+    return true;
+    }
+  %br
+  %div{:style=>" width:250px; float:left;"}
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      = "NEW ASSIGNMENT"
+
+
+    - if !@source_documents.blank?
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      = "FIND SOURCE"
+
+
+- content_for :main do
+  %h3{:style => "padding-top:10px;"} #{@source_document.name} > Upload Multiple Files
+  %div{:style => "font-style:italic"}
+    = "You can upload upto 5 documents at one time. "
+  %div{:style=>"height:auto; padding-top:30px;"}
+    = form_for @document, :url => multifile_create_documents_path,:html => {:multipart => true,:name => "form_count",:onsubmit => "return validate();"} do |d|
+      = render "shared/error_messages", :target => @document
+      = d.hidden_field :source_document_id, :value => params[:folder_id]
+      =# d.file_field :document
+      %div{:style => "display:none;"}
+        %textarea#input{:name => "input", :onKeyUp => " wrdcnt();", :onpaste => " wrdcnt();",:style => "width: 100px; height:71px; margin-top: 3px; font-family: arial; font-size: 16px; overflow: scroll; border: 1px solid rgb(0, 0, 0);", :wrap => "off"}
+      %div{:style => "float:left; width:450px;"}
+        %div{:style => "float:left;"}
+          %input.multi{:maxlength => "5", :name => "document[document][]", :type => "file" ,:onchange => 'wrdcnt(document.form_count.input,document.form_count.c); loadfile(this.id);',:id => "file2load"}
+          =# d.file_field :document,:onchange => "loadfile();  wrdcnt(document.form_count.input,document.form_count.c); ",:id =>"file2load"
+        %div{:style => "float:left;"}     
+          Words Count
+          %input{:name => "c", :id => "c_id", :style => "width: 44px;  margin: 0px; padding-left: 2px;  font-weight: bold; font-size: 16px; font-family: arial; border: 0px none; vertical-align: middle;", :type => "text"}/      
+      %div{:class => "clear",:style => "padding-top:20px;"}
+        %div{:style => "float:left;"}
+          = d.submit 
+        %div{:style => "float:left;padding-left:10px;text-align"}
+          = link_to "Cancel", documents_path
+
+

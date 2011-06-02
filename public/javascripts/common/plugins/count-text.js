@@ -68,8 +68,8 @@ document.form_count.c.value=r;}
 function SelectAll(id) {
 document.getElementById(id).focus();
 document.getElementById(id).select();}
-function loadfile(){
-var finput = document.getElementById('file2load');
+function loadfile(ele){
+var finput = document.getElementById(ele);
 var textarea2load = document.getElementById('input');
 textarea2load.value = 'Loading...';
 var redr = new FileReader();

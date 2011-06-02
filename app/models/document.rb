@@ -1,7 +1,7 @@
 class Document < ActiveRecord::Base
   belongs_to    :author,     :class_name => 'User'
   belongs_to :source_document
-  validates_presence_of  :first_name, :last_name,:name
+  validates_presence_of  :first_name, :last_name #,:name
   validates_attachment_presence :document
   #~ validates_file_format_of :document, :in => ["pdf", "doc", "xls","txt"], :message => "Invalid file format"
   

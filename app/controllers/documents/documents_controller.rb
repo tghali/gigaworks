@@ -103,5 +103,28 @@ class Documents::DocumentsController < ApplicationController
 	 end
  end
 
+ def multi_file_upload
+	  @source_document = SourceDocument.find(params[:folder_id])
+	 @document = Document.new
+	     respond_to do |format|
+		format.html     
+	    end
+  end
+
+def multifile_create
+	begin
+	params[:document].each_with_index do |doc,i|
+		Document.create(:author_id => current_user.id, :source_document_id=> params[:document][:source_document_id],:document => params[:document][:document][i])
+	end
+	   redirect_to(documents_path, :notice => 'Documents was successfully uploaded.') 
+	rescue		
+		redirect_to(documents_path, :notice => 'Something went wrong while uploading files. Please try again') 
+	end
+	
+end
+
+
+
+
   
 end
