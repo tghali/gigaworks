@@ -29,6 +29,8 @@
   %div{:style=>"height:auto; padding-top:30px;"}
     = form_for @document, :url => multifile_create_documents_path,:html => {:multipart => true,:name => "form_count",:onsubmit => "return validate();"} do |d|
       = render "shared/error_messages", :target => @document
+      = d.hidden_field :first_name, :value => 'test'
+      = d.hidden_field :last_name, :value => 'last'
       = d.hidden_field :source_document_id, :value => params[:folder_id]
       =# d.file_field :document
       %div{:style => "display:none;"}
