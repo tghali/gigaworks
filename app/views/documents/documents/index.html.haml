@@ -65,7 +65,7 @@
                       = link_to "Delete",document_path(doc), :confirm => 'Are you sure? ', :method => :delete
 
               %div{:class => "clear"}
-          %div{:style=>"float:right; width:55%; margin:0px 0px 0px -40px"}
+          %div{:style=>"float:right; width:75%; margin:0px 0px 0px -40px"}
             = link_to "Multiple Files", multi_file_upload_documents_path(:folder_id => folder.id)
             = "|"
             = link_to "Edit", edit_source_document_path(folder.id),:rel => "#new_assignment", :id => "assignment_edit", :'class' => 'overlay-switch',:remote => :true

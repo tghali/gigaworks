@@ -5,7 +5,8 @@ require 'tempfile'
 class Documents::DocumentsController < ApplicationController
   
   def index
-    @source_documents = SourceDocument.find(:all,:conditions => "author_id = #{current_user.id}")
+    #~ @source_documents = SourceDocument.find(:all,:conditions => "author_id = #{current_user.id}")
+    @source_documents = SourceDocument.find(:all)
 
      respond_to do |format|
       format.html # new.html.erb
