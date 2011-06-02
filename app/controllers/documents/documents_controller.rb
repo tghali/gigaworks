@@ -116,7 +116,7 @@ def multifile_create
 	begin
   puts "-------multifile_create  #{params.inspect}"
 	params[:document].each_with_index do |doc,i|
-		Document.create(:author_id => current_user.id, :source_document_id=> params[:document][:source_document_id],:document => params[:document][:document][i])
+		Document.create(:author_id => current_user.id, :first_name => params[:document][:first_name], :last_name => params[:document][:last_name], :source_document_id=> params[:document][:source_document_id],:document => params[:document][:document][i])
 	end
 	   redirect_to(documents_path, :notice => 'Documents was successfully uploaded.') 
 	rescue		
