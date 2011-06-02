@@ -98,6 +98,8 @@ Gigavine::Application.routes.draw do
           get 'view_document'
           get 'show_information'
           post 'create_source_document'
+          get 'multi_file_upload'
+          post 'multifile_create'
         end
     end
  

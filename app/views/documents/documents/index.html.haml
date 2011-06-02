@@ -45,7 +45,10 @@
                       %input{:type => "checkbox"}/
                     %li.name1
                       %img{:src => "/images/document/doc_icon.png"}>/
-                      = doc.name
+                      - if doc.name.blank?
+                        = doc.document_file_name
+                      - else
+                        = doc.name
                     %li.date1
                       = doc.created_at.strftime("%Y-%b-%d")
                     %li.view
@@ -63,6 +66,8 @@
 
               %div{:class => "clear"}
           %div{:style=>"float:right; width:55%; margin:0px 0px 0px -40px"}
+            = link_to "Multiple Files", multi_file_upload_documents_path(:folder_id => folder.id)
+            = "|"
             = link_to "Edit", edit_source_document_path(folder.id),:rel => "#new_assignment", :id => "assignment_edit", :'class' => 'overlay-switch',:remote => :true
             = "|" 
             = link_to "Upload Document", new_document_path(:folder_id => folder.id),:rel => "#new_document", :id => "new_doc", :'class' => 'overlay-switch',:remote => :true

@@ -8,7 +8,7 @@
     = d.text_field :name
     %div{:style => "display:none;"}
       %textarea#input{:name => "input", :onKeyUp => " wrdcnt();", :onpaste => " wrdcnt();",:style => "width: 100px; height:71px; margin-top: 3px; font-family: arial; font-size: 16px; overflow: scroll; border: 1px solid rgb(0, 0, 0);", :wrap => "off"}
-    = d.file_field :document,:onchange => "loadfile();  wrdcnt(document.form_count.input,document.form_count.c);",:id =>"file2load"
+    = d.file_field :document,:onchange => "loadfile(this.id);  wrdcnt(document.form_count.input,document.form_count.c);",:id =>"file2load"
     Words Count
     %input{:name => "c", :readonly => "readonly", :style => "width: 44px;  margin: 0px; padding-left: 2px;  font-weight: bold; font-size: 16px; font-family: arial; border: 0px none; vertical-align: middle;", :type => "text"}/  
     =# d.text_area :description
