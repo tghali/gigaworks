@@ -29,7 +29,7 @@
             %em.disabled Edit Translation
           |
           - if can? :destroy, t
-            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t), :confirm => 'Are you sure?', :method => :delete
+            = link_to 'Delete Translation', glossary_sentence_translation_pair_path(@sentence, t,:sentence_search => params[:sentence_search]), :confirm => 'Are you sure?', :method => :delete
           - else
             %em.disabled Delete Translation
   %p
