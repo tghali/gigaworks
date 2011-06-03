@@ -61,7 +61,8 @@ setTimeout(wrdcnt2,100);}
 function wrdcnt2(){
 var y=document.form_count.input.value;
 var r = 0;
-a=y.replace(/\s/g,' ');
+a=y.replace(/[[A-Za-z]\s]/g,' ');
+//a=y.replace(/\s/g,' ');
 a=a.split(' ');
 for (z=0; z<a.length; z++) {if (a[z].length > 0) r++;}
 document.form_count.c.value=r;}
