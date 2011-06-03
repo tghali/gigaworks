@@ -58,13 +58,14 @@ class Glossary::TranslationPairsController < Glossary::GlossaryController
 
 
   def destroy
+    @sentence = Sentence.find(params[:sentence_id])
     translation = TranslationPair.find(params[:id])
     
     authorize! :destroy, translation
     
     translation.destroy
     respond_to do |format|
-      format.html { redirect_to glossary_sentences_path, :notice => 'The translation was successfully deleted.' }
+      format.html { redirect_to glossary_sentence_path(@sentence,:sentence_search => params[:sentence_search]), :notice => 'The translation was successfully deleted.' }
       # format.xml  { head :ok }
     end
   end
