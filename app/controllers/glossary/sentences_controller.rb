@@ -134,7 +134,7 @@ class Glossary::SentencesController < Glossary::GlossaryController
     
     respond_to do |format|
       if @sentence.save
-        format.html { redirect_to(glossary_sentence_path(@sentence), :notice => 'Sentence was successfully updated.') }
+        format.html { redirect_to(glossary_sentence_path(@sentence,:flag => params[:flag],:sentence_search => params[:sentence_search]), :notice => 'Sentence was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

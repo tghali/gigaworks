@@ -6,13 +6,39 @@ module Glossary::GlossaryHelper
     "no-lang".html_safe
   end
   
-  def flag_toggle_for sentence
+  #~ def flag_toggle_for sentence
+    #~ if can? :flag, sentence
+      #~ if sentence.flagged?
+        #~ link_to 'Unflag sentence', flag_glossary_sentence_path, :class => 'flag flagged', :method => :put
+      #~ else
+        #~ link_to 'Flag sentence', flag_glossary_sentence_path, :class => 'flag', :method => :put
+      #~ end
+    #~ else
+      #~ if sentence.flagged?
+        #~ content_tag(:em, "this sentence has been flagged", :class => 'flag flagged')
+      #~ else
+        #~ content_tag(:em, "this sentence has not been flagged", :class => 'flag')
+      #~ end
+    #~ end
+  #~ end
+  
+    def flag_toggle_for( sentence,flag_type,sentence_search)
     if can? :flag, sentence
-      if sentence.flagged?
-        link_to 'Unflag sentence', flag_glossary_sentence_path, :class => 'flag flagged', :method => :put
-      else
-        link_to 'Flag sentence', flag_glossary_sentence_path, :class => 'flag', :method => :put
-      end
+	         if flag_type.blank?
+			      if sentence.flagged?
+				 
+				link_to 'Unflag sentence', flag_glossary_sentence_path(:sentence_search => sentence_search), :class => 'flag flagged', :method => :put
+			      else
+				link_to 'Flag sentence', flag_glossary_sentence_path(:sentence_search => sentence_search), :class => 'flag', :method => :put
+			end
+		else
+			if sentence.flagged?
+				 
+				link_to 'Unflag sentence', flag_glossary_sentence_path(:flag => 'true',:sentence_search => sentence_search), :class => 'flag flagged', :method => :put
+			      else
+				link_to 'Flag sentence', flag_glossary_sentence_path(:flag => 'true',:sentence_search => sentence_search), :class => 'flag', :method => :put
+			end
+		end
     else
       if sentence.flagged?
         content_tag(:em, "this sentence has been flagged", :class => 'flag flagged')
@@ -21,5 +47,9 @@ module Glossary::GlossaryHelper
       end
     end
   end
+    
+  
+  
+  
   
 end
