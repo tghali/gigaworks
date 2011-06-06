@@ -10,7 +10,8 @@
         = link_to 'X', glossary_sentence_tag_path(@sentence, tag), :method => 'delete'
     - if can? :create, @new_tag
       = link_to 'Add new tag', "#", :rel => "#tag_form", :id => "add_tag", :'class' => 'overlay-switch'
-  = flag_toggle_for @sentence
+  =# flag_toggle_for @sentence
+  = flag_toggle_for (@sentence,params[:flag],params[:sentence_search])
   %hr.clear
   %ul.word-definition-translations
     - @sentence.translations.each do |t|
