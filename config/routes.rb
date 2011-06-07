@@ -73,6 +73,7 @@ Gigavine::Application.routes.draw do
         collection do
           get 'recent'
           get 'flagged'
+          get 'move_flag'
         end
         put 'flag', :on => :member
         resources :translation_pairs
