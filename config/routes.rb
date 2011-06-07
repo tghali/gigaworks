@@ -74,6 +74,7 @@ Gigavine::Application.routes.draw do
           get 'recent'
           get 'flagged'
           get 'autocomplete_sentence_text'
+          get 'move_flag'
         end
         put 'flag', :on => :member
         resources :translation_pairs
