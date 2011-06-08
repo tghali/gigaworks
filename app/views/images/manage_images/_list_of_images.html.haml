@@ -20,12 +20,12 @@
         %li
           = link_to image_tag("/images/img-download.png"),download_image_manage_images_path(:id => doc.id),:title => "Click here to download image"
           |
-          
-        %li
-          = link_to image_tag("/images/img-edit.png"),edit_manage_image_path(doc), :rel => "#edit_upload", :id => "edit", :'class' => 'overlay-switch',:remote => :true,:title => "Click here to edit image details"
-          |
-        %li
-          = link_to image_tag("/images/img-cancel.png"),manage_image_path(doc), :confirm => 'Are you sure? ', :method => :delete,:title => "Click here to delete image"
+        - if can? :update, doc            
+          %li
+            = link_to image_tag("/images/img-edit.png"),edit_manage_image_path(doc), :rel => "#edit_upload", :id => "edit", :'class' => 'overlay-switch',:remote => :true,:title => "Click here to edit image details"
+        - if can? :destroy,doc    
+          %li
+            = link_to image_tag("/images/img-cancel.png"),manage_image_path(doc), :confirm => 'Are you sure? ', :method => :delete,:title => "Click here to delete image"
       
         %li{:style=>"width:130px; color:#000"}
           = truncate(doc.subject.titleize,:length => 35, :omission => '...')

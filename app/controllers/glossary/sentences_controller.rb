@@ -146,16 +146,14 @@ class Glossary::SentencesController < Glossary::GlossaryController
    def move_flag
 	  sentences = Sentence.find(:all)
 	  for sen in sentences
-    if sen.translations
 		  if sen.translations.size < 2 
-			  if sen.flagged_by_id != nil
+			  if !sen.flagged_by_id.blank?
 				  sen.flagged_by_id = nil
 				  sen.save
 			     puts "flagged false ------- #{sen.id}"
-			  end  ## if flagged_by_id nil
-	         end ## if size end
-         end ## if  end
-    end ### for end
+			  end
+	         end
+	  end
   end
   
   

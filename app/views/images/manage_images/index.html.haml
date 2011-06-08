@@ -2,8 +2,11 @@
 - content_for :parent do
   %br
   %div{:style=>" width:250px; float:left;"}
+  - if can? :create, @manage_image
     %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
       = link_to "Upload New Image",new_manage_image_path, :rel => "#new_upload", :id => "create_image", :'class' => 'overlay-switch',:remote => :true
+  - else
+    %a{:href => "javascript://", :title => "You don't have permissions to upload new image",:style => " width:220px; font-size:18px; margin:0px auto; padding-left:18px;"} Upload New Image 
 
 
 - content_for :main do
