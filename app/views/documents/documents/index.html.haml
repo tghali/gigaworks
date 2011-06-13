@@ -10,7 +10,9 @@
     - if !@source_documents.blank?
     %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
       = "FIND SOURCE"
-
+						
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      =  link_to "Google Doc List",googledoc_list_documents_path
 
 - content_for :main do
 

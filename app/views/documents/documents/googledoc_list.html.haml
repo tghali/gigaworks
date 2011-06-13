@@ -1,0 +1,40 @@
+
+
+- content_for :parent do
+
+  %br
+  %div{:style=>" width:250px; float:left;"}
+    - if can? :create, :@source_document  
+      %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+        = link_to "NEW ASSIGNMENT",new_source_document_path, :rel => "#new_assignment", :id => "create_assignment", :'class' => 'overlay-switch',:remote => :true
+    - else
+      %a{:href => "javascript://", :title => "You don't have permissions to create new assignment",:style => " width:220px; font-size:18px; margin:0px auto; padding-left:18px;"} NEW ASSIGNMENT
+
+    - if !@source_documents.blank?
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      = "FIND SOURCE"
+
+    %p{:style=>" width:220px; font-size:18px; margin:0px auto;"}
+      =  "Google Doc"
+      
+- content_for :main do
+
+  - @title = 'Documents'
+  %table
+    %tr
+      %td{:style => "width: 40%; vertical-align: top;"}
+        %strong Folders
+        %ul
+          - @folders.each do |f|
+            %li
+              = link_to f.title, :action => :index, :folder_id => f.id
+              (#{link_to 'X', {:action => :doc_delete, :folder_id => f.id}, :confirm => 'Are you sure you want to delete this Folder?'})
+              \#{render :partial => 'folders', :locals => {:folder => f}}
+      %td{:style => "vertical-align: top;"}
+        %strong All Documents
+        = render :partial => 'file_list'
+
+
+
+
+

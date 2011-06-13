@@ -3,7 +3,7 @@ require 'tempfile'
 
 
 class Documents::DocumentsController < ApplicationController
-  
+  before_filter :setup
   def index
     #~ @source_documents = SourceDocument.find(:all,:conditions => "author_id = #{current_user.id}")
     @source_documents = SourceDocument.find(:all)
@@ -125,8 +125,63 @@ def multifile_create
 	
 end
 
+##### Google Doc API on 13-06-2011
 
+def googledoc_list
+	  @source_documents = SourceDocument.find(:all)
+	  #~ @documents = @account.files
+	  
+	 if not params[:folder_id]
+		#Display all files and root folders
+		  @documents = @account.files
+		  @folders = @account.folders.select{|f| !f.parent } #display only root folders
+	  else
+		    #Display only files and folders contained by folder_id
+		    @folder = Folder.find(@account, {:id => params[:folder_id]})
+		    @documents = @folder.files
+		    @folders = @folder.folders
+	  end	  
+end
+  
+def view
+  @document = BaseObject.find(@account, {:id => params[:doc_id]})
+end
 
+def update_doc_folder
+end  
 
+def add_user
+  @document = BaseObject.find(@account, {:id => CGI::unescape(params[:doc_id])})
+  @document.add_access_rule(params[:user], params[:role])
+  redirect_to :action => :view, :doc_id => @document.id
+end
+
+def update_user
+  @document = BaseObject.find(@account, {:id => CGI::unescape(params[:doc_id])})
+  @document.update_access_rule(params[:user], params[:role])
+  redirect_to :action => :view, :doc_id => @document.id
+end
+
+def remove_user
+  @document = BaseObject.find(@account, {:id => CGI::unescape(params[:doc_id])})
+  @document.remove_access_rule(params[:user])
+  redirect_to :action => :view, :doc_id => @document.id
+end
+ 
+def edit
+	@document = BaseObject.find(@account, {:id => params[:doc_id]})
+end	
+  
+def doc_delete
+end
+
+def googledocument_download
+@id = params[:doc_id].gsub(/document:/,'')  
+@document = BaseObject.find(@account, {:id => CGI::unescape(@id)})
+send_data @document.get_content(params[:type]), :disposition => 'inline', :filename => "#{@document.title}.#{params[:type]}"
+end
+
+def save_content
+end
   
 end

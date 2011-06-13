@@ -1,0 +1,3 @@
+- form_for '', :url => {:action => :save_content, :doc_id => @document.id} do
+  %p= text_area_tag 'content', @document.get_content('html'), :size => '50x10'
+  = submit_tag 'Save Content'
