@@ -9,6 +9,7 @@ gem 'pg', :group => :production
 
 gem "will_paginate", "~> 3.0.pre2"
 
+gem 'gdocs4ruby'
 
 # gem 'haml', '>= 3.0.12'
 gem 'haml-rails', '=0.3.4'
