@@ -100,6 +100,19 @@ Gigavine::Application.routes.draw do
           post 'create_source_document'
           get 'multi_file_upload'
           post 'multifile_create'
+          
+          
+          ### Google Doc
+	   get 'googledoc_list'
+	   get 'googledocument_download'
+	   get 'view'
+	   put 'update_doc_folder'
+	   post 'add_user'
+	   get 'edit'	  
+	   post 'doc_delete'
+	   post 'save_content'
+	   post 'remove_user'
+         
         end
     end
  

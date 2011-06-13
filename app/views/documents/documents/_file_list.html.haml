@@ -1,0 +1,11 @@
+%ul
+  - @documents.each do |doc|
+    %li
+      - if not doc.viewed
+        %strong
+      = link_to doc.title, :action => :view, :doc_id => doc.id
+      = succeed "(" do
+        %em= doc.type.capitalize
+      = link_to 'X', {:action => :doc_delete, :doc_id => doc.id}, :confirm => 'Are you sure you want to delete this file?'
+      )
+      - if not doc.viewed
