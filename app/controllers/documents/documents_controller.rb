@@ -15,12 +15,7 @@ class Documents::DocumentsController < ApplicationController
     
   end
   
-  def show   
-      @user = User.find(2)		 
-      @user.password = 'cafe1001'
-      #~ @user.old_password = 'ahmed'
-      @user.save!
-      render :text => "success" and return
+  def show
   end
   
   #GET method
