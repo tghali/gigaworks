@@ -241,7 +241,7 @@ class User < ActiveRecord::Base
         return true if User.encrypted_password(old_password, self.salt_was) == self.hashed_password_was
         errors.add(:old_password, :wrong_password)
       else
-        #~ errors.add(:old_password, :old_password_missing)
+        errors.add(:old_password, :old_password_missing)
       end
     end
       
