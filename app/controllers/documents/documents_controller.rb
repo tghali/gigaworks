@@ -148,6 +148,7 @@ def view
 end
 
 def update_doc_folder
+  render :text => "In process" and return
 end  
 
 def add_user
@@ -173,6 +174,18 @@ def edit
 end	
   
 def doc_delete
+    obj = nil
+  if params[:doc_id]
+    obj = BaseObject.find(@account, {:id => params[:doc_id]})
+  elsif params[:folder_id]
+    obj = Folder.find(@account, {:id => params[:folder_id]})
+  end
+  if obj and obj.delete
+    flash[:notice] = 'Successfully deleted!'
+  else
+    flash[:notice] = "Error deleting!"
+  end
+  redirect_to request.referer
 end
 
 def googledocument_download

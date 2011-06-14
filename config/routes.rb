@@ -110,9 +110,11 @@ Gigavine::Application.routes.draw do
 	   put 'update_doc_folder'
 	   post 'add_user'
 	   get 'edit'	  
-	   post 'doc_delete'
-	   post 'save_content'
-	   post 'remove_user'
+	   get 'doc_delete'
+	   get 'remove_user'
+ 
+	   post 'save_content'	  
+
          
         end
     end

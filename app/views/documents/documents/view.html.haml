@@ -1,6 +1,6 @@
 - @title = 'View Document Info'
 %p
-  = button_to_function 'Edit', "window.location = '#{url_for(:action => :edit, :doc_id => @document.id)}'"
+  =# button_to_function 'Edit', "window.location = '#{url_for(:action => :edit, :doc_id => @document.id)}'"
   =# button_to_function 'Edit in iFrame', "window.location = '#{url_for(:action => :edit_iframe, :doc_id => @document.id)}'"
   %p
     %strong Title:
@@ -19,19 +19,16 @@
     %strong Updated:
     = @document.updated.strftime("%m/%d/%Y")
 
-  %h3 Folders
+  %h3 Folders (in process)
   - form_for '', :url => {:action => :update_doc_folder, :doc_id => @document.id, :do => 'add'} do
     %p
       = select_tag :folder, options_for_select(@account.folders.select{|f| !@document.folders.include?(f.title) }.collect{|f| [f.title, f.id]})
       = submit_tag 'Add to Folder'
-  %ul
-    - @document.folders.each do |f|
-      %li
-        = f
-        (#{link_to 'X', {:action => :update_doc_folder, :doc_id => @document.id, :do => 'delete', :folder => f}})
+
   %h3 Download As:
   =# render :partial => @document.type +"_download"
-  = link_to 'Doc', :action => :googledocument_download, :doc_id => @document.id, :type => 'doc'
+  =# link_to 'Doc', :action => :googledocument_download, :doc_id => @document.id, :type => 'doc'
+  = link_to 'Doc'
   
   %h3 Permissions
   %strong Add User
