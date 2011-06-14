@@ -106,7 +106,7 @@ Gigavine::Application.routes.draw do
 	   get 'googledoc_list'
 	   get 'googledocument_download'
 	   get 'view'
-	   put 'update_doc_folder'
+	   post 'update_doc_folder'
 	   post 'add_user'
 	   get 'edit'	  
 	   get 'doc_delete'
