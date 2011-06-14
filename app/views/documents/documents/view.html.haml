@@ -42,3 +42,5 @@
         \- #{a.role}
         - if a.role != 'owner'
           (#{link_to 'X', {:action => :remove_user, :user => a.user, :doc_id => @document.id}, :confirm => 'Are you sure you want to remove this user?'})
+										
+  = link_to "Back to list", googledoc_list_documents_path
