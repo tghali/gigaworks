@@ -5,3 +5,6 @@ en:
   hello: "Hello world"
   create_assignment: "Create assignment"
   upload_image: "Upload Image"
+  create_group: "Create group"
+  create_subgroup: "Create subgroup"
+  edit_group: "Edit group"  
