@@ -1,7 +1,7 @@
 class Admin::GroupsController < Admin::AdminController
 	
 	def index
-		@groups = Group.find(:all,:conditions => ["parent_id ILIKE ?", 0])
+		@groups = Group.find(:all,:conditions =>  "parent_id = 0")
 		 respond_to do |format|	
 		  format.html # new.html.erb
 		  format.xml  { render :xml => @groups }
