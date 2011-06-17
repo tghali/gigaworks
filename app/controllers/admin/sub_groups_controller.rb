@@ -2,7 +2,7 @@ class Admin::SubGroupsController < Admin::AdminController#ApplicationController
 	
 	def index
 		@group = Group.find(params[:group])
-		@sub_groups = Group.find(:all,:conditions => ["parent_id LIKE ?", params[:group]])
+		@sub_groups = Group.find(:all,:conditions => ["parent_id ILIKE ?", params[:group]])
 		 respond_to do |format|	
 		  format.html # new.html.erb
 		  format.xml  { render :xml => @sub_groups }
