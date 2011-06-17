@@ -1,0 +1,63 @@
+
+
+.box.contact
+  %h2 New Client
+  = form_for @gigaclient, :url => admin_clients_path do |c|
+    = render "shared/error_messages", :target => @gigaclient
+    %h3 Details
+    = c.text_field :title
+    = c.text_field :first_name
+    = c.text_field :middle_name
+    = c.text_field :last_name
+    = c.select :suffix, Gigavine::Preferences.suffixes
+    %br/
+    = c.text_field :email
+    .label Alternate Email
+    = text_field :gigaclient, :email2
+    %br/
+    %h3 Business Address:
+    .label Street
+    = text_field :gigaclient,:business_street
+    .label City
+    = text_field :gigaclient, :business_city
+    .label State
+    = text_field :gigaclient, :business_state
+    .label Postal Code    
+    = text_field :gigaclient, :business_postal_code
+    .label Country    
+    = select :gigaclient,:business_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
+    .label Phone    
+    = text_field :gigaclient, :business_phone
+    .label Phone2
+    = text_field :gigaclient, :business_phone2
+    .label Fax    
+    = text_field :gigaclient, :business_fax
+
+    %br/
+    %h3 Home Address:
+    .label Street
+    = text_field :gigaclient,:home_street
+    .label City
+    = text_field :gigaclient, :home_city
+    .label State
+    = text_field :gigaclient, :home_state
+    .label Postal Code    
+    = text_field :gigaclient, :home_postal_code
+    .label Country    
+    = select :gigaclient,:home_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
+    .label Phone    
+    = text_field :gigaclient, :home_phone
+    .label Fax    
+    = text_field :gigaclient, :home_fax
+
+
+    %br/
+    %h3 Other Information:
+    = c.text_field :company
+    = c.text_field :mobile_phone
+    = c.text_field :pager
+    = c.text_area :notes
+    = c.text_field :web_page
+
+    %br/
+    = c.submit "Create Client"

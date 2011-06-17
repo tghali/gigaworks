@@ -82,6 +82,11 @@ module Gigavine
     def self.contact_detail_types
       [:work, :personal, :reception, :home, :mobile]
     end
+    
+     def self.suffixes
+      [:Mr, :Ms , :Mrs, :Dr ]
+    end  
+    
   end
   
 end

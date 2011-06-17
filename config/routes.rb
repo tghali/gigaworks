@@ -146,6 +146,9 @@ Gigavine::Application.routes.draw do
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
     resources :users
+    resources :groups
+    resources :sub_groups
+    resources :clients
   end
   
   # Static pages
