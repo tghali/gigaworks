@@ -182,6 +182,120 @@ font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
 }
 .table_structure_inner_color li.view span{ padding:0px 5px 0px 5px}
 
+
+
+
+
+
+
+
+
+.grouptable_structure{
+	width:98%;
+}
+.grouptable_structure ul{
+background:url(/images/document/nav_bg.gif) repeat-x;
+height:19px;
+margin:0px;
+padding:0px;
+list-style-type:none;
+}
+.grouptable_structure li{ font:12px Arial, Helvetica, sans-serif; padding:0px 20px; float:left}
+/*.table_structure li a{padding:0px 20px;}
+.table_structure li a:hover{ background:url(/images/document/nav_hover.gif) repeat-x;  padding:0px 20px;}
+*/
+.grouptable_structure li.name{ width:15%; padding:0px;  font:12px Arial, Helvetica, sans-serif; color:#000000; text-align:left}
+.grouptable_structure li.name a
+{
+	padding:0px; margin: 0px; width:15%;  float: left; text-align: left;
+}
+.grouptable_structure li.name a:hover{ margin: 0px; }
+
+
+
+
+.grouptable_structure_inner{
+width:98%;
+height:35px;
+background:#f4f4f4	
+}
+.grouptable_structure_inner ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+}
+.grouptable_structure_inner li{
+width:auto;
+float:left;
+padding-top:5px;
+}
+
+.grouptable_structure_inner li.name1{
+width:15%;
+margin-left:20px;
+}
+
+.grouptable_structure_inner li.date1{
+width:35%;
+text-align:left;
+}
+.grouptable_structure_inner li.view{
+width:45%;
+font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
+}
+.grouptable_structure_inner li.view span{ padding:0px 5px 0px 5px}
+
+.grouptable_structure_inner_color{ width:98%;
+height:25px; background:#dbe7f7; }
+
+
+
+
+
+.grouptable_structure_inner_color ul,.grouptable_structure_inner ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+clear:both
+}
+.grouptable_structure_inner_color li{
+width:auto;
+float:left;
+padding-top:5px;
+}
+.grouptable_structure_inner_color li.checkbox{
+width:5%;
+margin:3px 0px 0px 10px;
+}
+.grouptable_structure_inner_color li.name1{
+width:15%; margin-left:20px;
+}
+.grouptable_structure_inner_color li.name1 img{ position:relative; top:3px; right:5px;}
+
+.grouptable_structure_inner_color li.date1{
+width:35%;
+}
+
+.grouptable_structure_inner_color li.view{
+width:45%;;
+font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
+}
+.grouptable_structure_inner_color li.view span{ padding:0px 5px 0px 5px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .rightupdate_blcok{
 font:11px Arial, Helvetica, sans-serif;
 color:#000000;

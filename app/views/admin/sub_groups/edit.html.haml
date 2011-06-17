@@ -1,0 +1,11 @@
+%h2 Edit group
+%div{:style=>"height:350px; overflow-y:scroll; overflow-x:hidden;"}
+  .box.sentence
+    = form_for @group, :url => {:action => :update} do |d|
+      = render "shared/error_messages", :target => @group  
+
+      = d.text_field :name
+      = d.text_area :description,:style => "width:326px; height:89px;"
+ 
+      %div{:style => "width:150px; float:left;"}  
+        = d.submit t(:edit_group)
