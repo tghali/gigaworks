@@ -1,7 +1,7 @@
 class Admin::GroupsController < Admin::AdminController
 	
 	def index
-		@groups = Group.find(:all,:conditions =>  "parent_id == 0")
+		@groups = Group.find(:all,:conditions =>  "parent_id = 0")
 		 respond_to do |format|	
 		  format.html # new.html.erb
 		  format.xml  { render :xml => @groups }
@@ -23,7 +23,8 @@ class Admin::GroupsController < Admin::AdminController
 	
 	def create
 		@group = Group.new(params[:group])    
-		    authorize! :create, Group      
+		    authorize! :create, Group
+        @group.parent_id = 0
 		    @group.author_id = current_user.id
 		    respond_to do |format|
 		      if @group.save
