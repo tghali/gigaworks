@@ -1,15 +1,24 @@
 class Admin::ClientsController < Admin::AdminController
 	
-		def index
-		@clients = Gigaclient.find(:all)
+	def index
+	  if params[:search]
+		@clients = Gigaclient.find(:all,:conditions => ["first_name LIKE ? OR home_country lIKE ? OR last_name lIKE ?","%#{params[:search]}%","#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 2 
+	  else
+		@clients = Gigaclient.find(:all).paginate :page => params[:page],:per_page => 2
+	  end
+
 		 respond_to do |format|	
 		  format.html # new.html.erb
 		  format.xml  { render :xml => @clients }
 		end
-
 	end
 		
 	def show
+		@client = Gigaclient.find(params[:id])
+		 respond_to do |format|	
+		  format.js # new.html.erb
+		  format.xml  { render :xml => @client }
+		end
 	end
 	
 	def new
@@ -23,7 +32,7 @@ class Admin::ClientsController < Admin::AdminController
 	def create
 		@gigaclient = Gigaclient.new(params[:gigaclient])    
 		    authorize! :create, Gigaclient      
-		    #~ @group.author_id = current_user.id
+		    @gigaclient.author_id = current_user.id
 		    respond_to do |format|
 		      if @gigaclient.save
 			format.html { redirect_to(admin_clients_path, :notice => 'Client was successfully created.') }
@@ -42,12 +51,12 @@ class Admin::ClientsController < Admin::AdminController
 		end		
 	end
 	
-	def update
+	def update		
 	   @gigaclient = Gigaclient.find(params[:id])	    
 	    authorize! :update, @gigaclient	    
 	    respond_to do |format|
 	      if @gigaclient.update_attributes(params[:gigaclient])
-		 format.html { redirect_to(admin_groups_url, :notice => 'Client has been successfully updated.') } 
+		 format.html { redirect_to(admin_clients_url, :notice => 'Client has been successfully updated.') } 
 		 format.xml  { render :xml => @gigaclient, :status => :created, :location => @gigaclient }
 	      else   
 		format.html { render :action => "edit" }

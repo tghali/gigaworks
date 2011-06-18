@@ -1,0 +1,26 @@
+.box.sentence
+  %h3 Client Details
+  %div
+
+    %span Name:
+    = @client.suffix + "." +  @client.first_name + @client.last_name
+    %p
+    %h4 Business Address:
+    = @client.business_street + "," if !@client.business_street.blank?
+    %br
+    = @client.business_city + "," if !@client.business_city.blank?
+    %br
+    = @client.business_state + "," if !@client.business_state.blank?
+    %br
+    = @client.business_country if !@client.business_street.blank?
+    
+    %p
+    %span Email:
+    = @client.email 
+    
+    %p
+    %span Project Management URL:
+    = "http://" + @client.pms_url
+    
+
+

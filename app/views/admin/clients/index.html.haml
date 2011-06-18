@@ -1,14 +1,43 @@
 
 - content_for :parent do
+  %script{type="text/javascript"}
+    function clientsearch() {
 
+    var search = document.getElementById('search');
+    if(document.getElementById('search').value == "Enter name / country")
+    {  
+    alert('Please enter username or country');  
+    search.focus();
+    return false;
+    }
+    }
   %br
 
 
 - content_for :main do
 
   %h3{:style => "padding-top:20px;"} Clients Management
-  = link_to "Create new client",new_admin_client_path
-    
+  
+  #glossary-search
+  #div{:style=>"background-color:#F7F7E4; padding-top:15px; top:0px;position:relative;"}
+    %div{:style=>"position:fixed;margin-top:65px; top:50px; z-index:1;padding-top:2px;background-color:#F7F7E4;"}
+      #glossary-search-box
+        //%h3 Search the Mawhiba glossary
+        = form_for(:search, :url => admin_clients_path,:html => {:method => :get, :onSubmit => "return clientsearch();"}) do
+          %p
+            - if params[:search].blank?
+              = text_field_tag :search, "Enter name / country", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter name / country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter name / country';"
+            - else
+              = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter name / country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter name / country';"
+            = submit_tag "Search"
+      - if params[:search].blank?      
+        = link_to "Create new client",new_admin_client_path
+      - else
+        %span{:style => "padding-left:500px;"}
+        = link_to "Back to List",admin_clients_path
+  
+  %div{:style  => "padding-top:62px;"}
+
   - if !@clients.blank?
     #datain1.left_middle{:style => "display:block;"}
       .grouptable_structure
@@ -16,7 +45,7 @@
           %li.name{:style=>"margin-left:20px;"}
             %a{:href => "#"} Name
           %li.date1{:style=>"width: 215px"}
-            %a{:href => "#"} Email
+            %a{:href => "#"} PMS
           %li.name{:style=>"width: 175px"}
             %a{:href => "#"} Country
       - @clients.each_with_index do |client,j| 
@@ -26,21 +55,21 @@
             %li.name1             
               = client.first_name
             %li.date1{:style => "padding-left: 20px;"}
-              = client.email
+              = client.pms_url
             %li.name
-              = client.home_country
+              = client.business_country
             %li.view{:style=>"margin-top: -22px; position: relative; left: 475px;"}
               %span>/
-              =# link_to "Show", admin_client_path(client)
-              = "Show"
+              = link_to "Show", admin_client_path(client), :rel => "#show_client", :id => "client_details", :'class' => 'overlay-switch',:remote => :true  
+
               |
               %span>/
-              =# link_to "Edit",edit_admin_client_path(client)
-              = "Edit"
+              = link_to "Edit",edit_admin_client_path(client)
+
               |
               %span>/
-              =# link_to "Delete", admin_client_path(client), :confirm => 'Are you sure want to delete client details? ', :method => :delete,:title => "Click here to delete client"
-              = "Delete"	      
+              = link_to "Delete", admin_client_path(client), :confirm => 'Are you sure want to delete client details? ', :method => :delete,:title => "Click here to delete client"
+    
               |		    
               %span>/
               = "Projects"
@@ -48,10 +77,15 @@
               %div{:class => "clear"}
  
   -else
-    = "No clients has been registered yet. Please add a client by clicking on the link"
+    - if params[:search]
+      = "No clients found with your search."
+      =# link_to "Back", admin_clients_path
+    - else
+      = "No clients has been registered yet. Please add a client by clicking on the link"
 
-
-  #new_group.simple_overlay
+  #show_client.simple_overlay
     #group
 
-
+  %div{:class => :clear}	  
+  %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
+    = will_paginate @clients
