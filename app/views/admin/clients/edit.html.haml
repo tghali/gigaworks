@@ -8,8 +8,8 @@
 
 .box.contact
 
-  %h2 New Client
-  = form_for @gigaclient, :url => admin_clients_path do |c|
+  %h2 Edit Client
+  = form_for @gigaclient, :url => {:action => :update,:id => @gigaclient.id} do |c|
     = render "shared/error_messages", :target => @gigaclient
     %h3 Details
     = c.text_field :title
@@ -32,7 +32,7 @@
     .label Postal Code    
     = text_field :gigaclient, :business_postal_code
     .label Country    
-    = select :gigaclient,:business_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
+    = select :gigaclient,:business_country,country_options_for_select(:country, [@gigaclient.business_country])
     .label Phone    
     = text_field :gigaclient, :business_phone
     .label Phone2
@@ -51,7 +51,7 @@
     .label Postal Code    
     = text_field :gigaclient, :home_postal_code
     .label Country    
-    = select :gigaclient,:home_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
+    = select :gigaclient,:home_country,country_options_for_select(:country, [@gigaclient.home_country])
     .label Phone    
     = text_field :gigaclient, :home_phone
     .label Fax    
@@ -70,4 +70,4 @@
     = c.text_field :web_page
 
     %br/
-    = c.submit "Create Client"
+    = c.submit "Update"
