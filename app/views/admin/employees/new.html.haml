@@ -1,6 +1,6 @@
 .box.contact
 
-  %h2 New Employ
+  %h2 New Employe
   = form_for @contact, :url =>{:action => :create} do |c|
     = render "shared/error_messages", :target => @contact
     %h3 Details
@@ -48,4 +48,4 @@
 
 
     %br/
-    = c.submit "Create Employ"
+    = c.submit "Create Employe"
