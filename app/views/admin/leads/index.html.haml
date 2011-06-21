@@ -1,0 +1,91 @@
+
+- content_for :parent do
+  %script{type="text/javascript"}
+    function leadssearch() {
+
+    var search = document.getElementById('search');
+    if(document.getElementById('search').value == "Enter Name / Country")
+    {  
+    alert('Please enter username or country');  
+    search.focus();
+    return false;
+    }
+    }
+  %br
+
+
+- content_for :main do
+
+  %h3{:style => "padding-top:20px;"} Leads Management
+  
+  #glossary-search
+  #div{:style=>"background-color:#F7F7E4; padding-top:15px; top:0px;position:relative;"}
+    %div{:style=>"position:fixed;margin-top:65px; top:50px; z-index:1;padding-top:2px;background-color:#F7F7E4;"}
+      #glossary-search-box
+        //%h3 Search the Mawhiba glossary
+        = form_for(:search, :url => admin_leads_path,:html => {:method => :get, :onSubmit => "return leadssearch();"}) do
+          %p
+            - if params[:search].blank?
+              = text_field_tag :search, "Enter Name / Country", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name / Country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name / Country';"
+            - else
+              = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name / Country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name / Country';"
+            = submit_tag "Search"
+      - if params[:search].blank?      
+        = link_to "Create New Lead",new_admin_lead_path
+      - else
+        %span{:style => "padding-left:500px;"}
+        = link_to "Back to List",admin_leads_path
+  
+  %div{:style  => "padding-top:62px;"}
+
+  - if !@leads.blank?
+    #datain1.left_middle{:style => "display:block;"}
+      .grouptable_structure
+        %ul
+          %li.name{:style=>"margin-left:20px;"}
+            %a{:href => "#"} Name
+          %li.date1{:style=>"width: 215px"}
+            %a{:href => "#"} Email
+          %li.name{:style=>"width: 175px"}
+            %a{:href => "#"} Created On
+      - @leads.each_with_index do |lead,j| 
+        %div{:class => cycle("grouptable_structure_inner", "grouptable_structure_inner_color")}
+          %ul
+                        
+            %li.name1             
+              = lead.contact.first_name
+            %li.date1{:style => "padding-left: 20px;"}
+              = lead.contact.email
+            %li.name
+              = lead.created_at.strftime("%d-%b-%Y")
+            %li.view{:style=>"margin-top: -22px; position: relative; left: 475px;"}
+              %span>/
+              = link_to "Show", admin_lead_path(lead), :rel => "#show_client", :id => "client_details", :'class' => 'overlay-switch',:remote => :true  
+
+              |
+              %span>/
+              = link_to "Edit",edit_admin_lead_path(lead)
+
+              |
+              %span>/
+              = link_to "Delete", admin_lead_path(lead), :confirm => 'Are you sure want to delete lead details? ', :method => :delete,:title => "Click here to delete lead"
+    
+              |		    
+              %span>/
+              = "Convert to client"
+
+              %div{:class => "clear"}
+ 
+  -else
+    - if params[:search]
+      = "No leads found with your search."
+      =# link_to "Back", admin_leads_path
+    - else
+      = "No leads has been created yet. Please add a lead by clicking on the link"
+
+  #show_client.simple_overlay
+    #group
+
+  %div{:class => :clear}	  
+  %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
+    = will_paginate @leads
