@@ -16,7 +16,7 @@
 
 - content_for :main do
 
-  %h3{:style => "padding-top:20px;"} Employee Management
+  %h3{:style => "padding-top:20px;"} Employe Management
   
   #glossary-search
   #div{:style=>"background-color:#F7F7E4; padding-top:15px; top:0px;position:relative;"}
@@ -31,7 +31,7 @@
               = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name / Country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name / Country';"
             = submit_tag "Search"
       - if params[:search].blank?      
-        = link_to "Create New Employee",new_admin_employee_path
+        = link_to "Create New Employe",new_admin_employee_path
       - else
         %span{:style => "padding-left:500px;"}
         = link_to "Back to List",admin_employees_path
@@ -84,4 +84,4 @@
 
   %div{:class => :clear}	  
   %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
-    = will_paginate @leads
+    = will_paginate @employees
