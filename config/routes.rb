@@ -149,6 +149,8 @@ Gigavine::Application.routes.draw do
     resources :groups
     resources :sub_groups
     resources :clients
+    resources :leads
+    resources :employees
   end
   
   # Static pages

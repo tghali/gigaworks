@@ -1,0 +1,51 @@
+.box.sentence
+  %h3 Employ Details
+  %div
+
+    %span Name:
+    = @employ.suffix + "." +  @employ.contact.first_name + @employ.contact.last_name
+
+    %p
+    %span Email:
+    = @employ.contact.email
+    - if @employ.mobile_phone
+      %span Mobile:
+      = @employ.mobile_phone
+
+ 
+    - if !@employ.home_street.blank? || !@employ.home_city.blank? || !@employ.home_state.blank?
+      %p
+      %h4 Home Address:
+      = @employ.home_street + "," if !@employ.home_street.blank?
+      %br
+      = @employ.home_city + "," if !@employ.home_city.blank?
+      %br
+      = @employ.home_state + "," if !@employ.home_state.blank?
+      %br
+      = @employ.home_country if !@employ.home_country.blank?   
+      %br
+      = @employ.home_postal_code if !@employ.home_postal_code.blank?
+      - if @employ.home_phone
+        %br
+        %span Phone:
+        = @employ.home_phone
+      - if @employ.home_fax
+        %br
+        %span Fax:
+        = @employ.home_fax             
+      
+ 
+    
+    - if !@employ.web_page.blank?    
+      %p
+      %span Web Page:
+      = @employ.web_page  
+
+    %p
+    %span Note:
+    = @employ.notes 
+
+
+    
+
+

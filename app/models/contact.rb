@@ -33,6 +33,10 @@ class Contact < ActiveRecord::Base
   has_one_baked_in :email_type,     :names => Gigavine::Preferences.contact_detail_types
   has_one_baked_in :telephone_type, :names => Gigavine::Preferences.contact_detail_types
   
+  has_one :contact_information, :dependent=>:destroy
+  
+  
+  
   # scope :shared, where(:public => true)
   scope :shared, where(:organisation_id => 1)
   
@@ -42,6 +46,9 @@ class Contact < ActiveRecord::Base
   validates_format_of        :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
   accepts_nested_attributes_for :addresses, :allow_destroy => true, :reject_if => proc { |obj| obj[:first_line].blank?  }
+  accepts_nested_attributes_for :contact_information, :allow_destroy => true
+  
+  
   
   attr_accessible :first_name, :last_name, :organisation_attributes, :title,
                   :timezone_code, :email, :telephone, :organisation

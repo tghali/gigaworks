@@ -1,0 +1,71 @@
+.box.sentence
+  %h3 Lead Details
+  %div
+
+    %span Name:
+    = @lead.suffix + "." +  @lead.contact.first_name + @lead.contact.last_name
+
+    %p
+    %span Email:
+    = @lead.contact.email
+    - if @lead.mobile_phone
+      %span Mobile:
+      = @lead.mobile_phone
+
+ 
+    - if !@lead.home_street.blank? || !@lead.home_city.blank? || !@lead.home_state.blank?
+      %p
+      %h4 Home Address:
+      = @lead.home_street + "," if !@lead.home_street.blank?
+      %br
+      = @lead.home_city + "," if !@lead.home_city.blank?
+      %br
+      = @lead.home_state + "," if !@lead.home_state.blank?
+      %br
+      = @lead.home_country if !@lead.home_country.blank?   
+      %br
+      = @lead.home_postal_code if !@lead.home_postal_code.blank?
+      - if @lead.home_phone
+        %br
+        %span Phone:
+        = @lead.home_phone
+      - if @lead.home_fax
+        %br
+        %span Fax:
+        = @lead.home_fax             
+      
+    - if !@lead.business_street.blank? || !@lead.business_city.blank? || !@lead.business_state.blank?    
+      %p
+      %h4 Business Address:
+      = @lead.business_street + "," if !@lead.business_street.blank?
+      %br
+      = @lead.business_city + "," if !@lead.business_city.blank?
+      %br
+      = @lead.business_state + "," if !@lead.business_state.blank?
+      %br
+      = @lead.business_country if !@lead.business_country.blank?
+      %br
+      = @lead.business_postal_code if !@lead.business_postal_code.blank?
+      - if @lead.business_phone
+        %br
+        %span Phone:
+        = @lead.business_phone
+      - if @lead.business_fax
+        %br
+        %span Fax:
+        = @lead.business_fax       
+
+    
+    - if !@lead.web_page.blank?    
+      %p
+      %span Web Page:
+      = @lead.web_page  
+
+    %p
+    %span Note:
+    = @lead.notes 
+
+
+    
+
+
