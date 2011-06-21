@@ -1,16 +1,16 @@
 class Contact < ActiveRecord::Base
   ## ahmed mohamed changes
-   EMAILS = [
-    ['General', 'info@gigavine.com'],
-    ['Sales',   'sales@gigavine.com'],
-    ['Feedback', 'feedback@gigavine.com']
-  ]
+   #~ EMAILS = [
+    #~ ['General', 'info@gigavine.com'],
+    #~ ['Sales',   'sales@gigavine.com'],
+    #~ ['Feedback', 'feedback@gigavine.com']
+  #~ ]
 
-  TOS = EMAILS.collect { |e| e.first }
+  #~ TOS = EMAILS.collect { |e| e.first }
 
-  include ActiveModel::Validations
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
+  #~ include ActiveModel::Validations
+  #~ include ActiveModel::Conversion
+  #~ extend ActiveModel::Naming
   
   #~ attr_accessor :name, :email, :message, :to, :requerst_call
 
