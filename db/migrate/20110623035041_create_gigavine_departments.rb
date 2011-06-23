@@ -3,7 +3,8 @@ class CreateGigavineDepartments < ActiveRecord::Migration
     create_table :gigavine_departments do |t|
      t.string :name
      t.string :description
-     t.smallint :status,:default => 1
+     t.boolean :status, :default => true
+     #~ t.tinyint :status,:default => 1
      t.integer :author_id
 
       t.timestamps
