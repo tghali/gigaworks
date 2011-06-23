@@ -1,49 +1,58 @@
+
+%script{:type => "text/javascript"}
+  function checkNINO (toCheck) {
+
+  var exp1 = /^[A-CEGHJ-NOPR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-D\s]{1}/i;
+  var exp2 = /(^GB)|(^BG)|(^NK)|(^KN)|(^TN)|(^NT)|(^ZZ).+/i;
+	
+  if (toCheck.match(exp1) && !toCheck.match(exp2)) 
+  {
+
+  return toCheck.toUpperCase() 
+  }
+  else{
+
+  return false;
+  }
+  }
+
+  function testNINO () {
+  var myNINO = document.getElementById('employ_tax_id').value;
+  if (checkNINO (myNINO)) {
+  document.getElementById('employ_tax_id').value = checkNINO (myNINO);
+  return true;
+  } 
+  else {alert ("National Insurance Number has invalid format"); document.getElementById('employ_tax_id').focus(); return false;}
+  }  
+  
 .box.contact
 
-  %h2 Edit Employe
-  = form_for @contact, :url =>{:action => :update,:id => @contact.id} do |c|
-    = render "shared/error_messages", :target => @contact
-    %h3 Details
+  %h2 Edit Employee
+  = form_for @emp, :url =>{:action => :update},:html => {:multipart => :true,:onSubmit => "return testNINO();"} do |c|
+    = render "shared/error_messages", :target => @emp
+    //%h3 Details
     = c.text_field :title
-    = c.text_field :first_name
-    = c.fields_for :contact_information do |m|  
-      = m.text_field :middle_name
- 
+    = c.text_field :first_name 
     = c.text_field :last_name
-    = c.fields_for :contact_information do |m|  
-      = m.select :suffix, Gigavine::Preferences.suffixes
-    %br/
     = c.text_field :email
-    = c.fields_for :contact_information do |m|  
-      = m.text_field :email2,:label => "Alternate Email"
-    =# c.select :group_id, @groups.map {|u| [u.name,u.id]},:label => "Select Group"
+    = c.text_field :mobile
 
-    %br/
+    %h3 Job Details
+    = c.select :department_id, @departments.map {|u| [u.name,u.id]},:label => "Select Department"
+    = c.text_field :tax_id,:label => "Employee ID"
+    = c.text_field :job_title,:label => "Job Title"     
+
+    = c.text_field :salary,:label => "Salary (in $)"
+
+    = c.text_field :reports_to,:label => "Reports To"
     
-    %h3 Home Address:
-    = c.fields_for :contact_information do |m|     
-      = m.text_field :home_street,:label => "Street"
-      = m.text_field  :home_city,:label => "City"
-      = m.text_field  :home_state,:label => "State"
-      = m.text_field  :home_postal_code,:label => "Postal Code" 
-      = m.select :home_country,country_options_for_select(:country, [@contact.contact_information.home_country]),:label => "Country" 
-      = m.text_field  :home_phone,:label => "Phone" 
-      = m.text_field  :home_fax,:label => "Fax"
-      
-      %h3 Personal Information:      
-      = m.date_select :dob, :start_year => 1950 , :end_year => 2000, :label => "Date of Birth"
-      = m.text_field :qualification,:label => "Qualification"
+    %h3 Personal Information
+    = c.date_select :dob, :start_year => 1950 , :end_year => 2000, :label => "Date of Birth"
+    = c.file_field :passport
+    = c.date_select :date_of_join, :start_year => 1950 , :end_year => 2011, :label => "Date of Join"
 
-      = m.hidden_field :group_id, :value => 2 
 
-      %h3 Other Information:
-      = m.text_field :department,:label => "Department"      
-      = m.text_field :company,:label => "Company"
-      = m.text_field :mobile_phone,:label => "Mobile"
-      = m.text_field :pager
-      = m.text_area :notes, {:style=>"height:100px;width:300px;"}
-      = m.text_field :web_page,:label => "Web Page"
 
 
     %br/
-    = c.submit "Update Employe"
+    = c.submit "Update Employee"
