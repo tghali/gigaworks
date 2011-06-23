@@ -1,5 +1,7 @@
 /* CSS Document */
+
 .clear{ clear:both}
+
 p{ margin:0px; padding:0px;}
 #doc_main{ 
 width:100%; 
@@ -195,7 +197,7 @@ font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
 }
 .grouptable_structure ul{
 background:url(/images/document/nav_bg.gif) repeat-x;
-height:19px;
+height:28px;
 margin:0px;
 padding:0px;
 list-style-type:none;
@@ -204,20 +206,20 @@ list-style-type:none;
 /*.table_structure li a{padding:0px 20px;}
 .table_structure li a:hover{ background:url(/images/document/nav_hover.gif) repeat-x;  padding:0px 20px;}
 */
-.grouptable_structure li.name{ width:15%; padding:0px;  font:12px Arial, Helvetica, sans-serif; color:#000000; text-align:left}
+.grouptable_structure li.name{ width:15%; padding:0px;  font:12px Arial, Helvetica, sans-serif; color:#000000 !important; text-align:left; line-height:28px;}
 .grouptable_structure li.name a
 {
-	padding:0px; margin: 0px; width:15%;  float: left; text-align: left;
+	padding:0px; margin: 0px; width:15%; line-height:28px;  float: left; text-align: left;  color:#4d4d4d !important;
 }
-.grouptable_structure li.name a:hover{ margin: 0px; }
+.grouptable_structure li.name a:hover{ margin: 0px; line-height:28px; }
 
-
+.grouptable_structure li.date1 a{color:#4d4d4d !important;  line-height:28px;}
 
 
 .grouptable_structure_inner{
 width:98%;
 height:35px;
-background:#f4f4f4	
+background:#f5f8de	
 }
 .grouptable_structure_inner ul{
 list-style-type:none;
@@ -241,12 +243,12 @@ text-align:left;
 }
 .grouptable_structure_inner li.view{
 width:45%;
-font:11px/19px Arial, Helvetica, sans-serif; color:#3f8fc4;
+font:11px/19px Arial, Helvetica, sans-serif; color:#4d4d4d;
 }
 .grouptable_structure_inner li.view span{ padding:0px 5px 0px 5px}
 
 .grouptable_structure_inner_color{ width:98%;
-height:25px; background:#dbe7f7; }
+height:25px; background:#ecefd3; }
 
 
 

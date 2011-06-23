@@ -1,0 +1,11 @@
+%h2 Edit Department
+%div{:style=>"height:350px; overflow-y:scroll; overflow-x:hidden;"}
+  .box.sentence
+    = form_for @department, :url => {:action => :update} do |d|
+      = render "shared/error_messages", :target => @department  
+      = d.text_field :department_id
+      = d.text_field :name
+      = d.text_area :description,:style => "width:326px; height:89px;"
+ 
+      %div{:style => "width:150px; float:left;"}  
+        = d.submit "Edit Department"

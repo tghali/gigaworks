@@ -1,50 +1,43 @@
 .box.sentence
-  %h3 Employe Details
-  %div
-
+  %h3 Employee Details
+  %div{:style => "padding-bottom:10px;"}
     %span Name:
-    = @employ.suffix + "." +  @employ.contact.first_name + @employ.contact.last_name
-
-    %p
+    =  @employ.first_name + @employ.last_name
+    %br
     %span Email:
-    = @employ.contact.email
-    - if @employ.mobile_phone
+    = @employ.email
+    %br
+    - if !@employ.mobile.blank?
       %span Mobile:
-      = @employ.mobile_phone
+      = @employ.mobile
+    %br
+    - if !@employ.dob.blank?
+    %span DOB:
+    = @employ.dob
 
- 
-    - if !@employ.home_street.blank? || !@employ.home_city.blank? || !@employ.home_state.blank?
-      %p
-      %h4 Home Address:
-      = @employ.home_street + "," if !@employ.home_street.blank?
-      %br
-      = @employ.home_city + "," if !@employ.home_city.blank?
-      %br
-      = @employ.home_state + "," if !@employ.home_state.blank?
-      %br
-      = @employ.home_country if !@employ.home_country.blank?   
-      %br
-      = @employ.home_postal_code if !@employ.home_postal_code.blank?
-      - if @employ.home_phone
-        %br
-        %span Phone:
-        = @employ.home_phone
-      - if @employ.home_fax
-        %br
-        %span Fax:
-        = @employ.home_fax             
-      
- 
+  %h3 Job Details
+  %div{:style => "padding-bottom:10px;"}    
+    %span Department:
+    = @employ.department.name
+    %br
+    %span Tax ID:
+    = @employ.tax_id
+    %br
+    %span Job Title:
+    = @employ.job_title
+
+    %br
+    %span Date of Join:
+    = @employ.date_of_join
+    %br
+    %span Salary:
+    = "$" + @employ.salary
+    %br
+    %span Reports To:
+    = @employ.reports_to
     
-    - if !@employ.web_page.blank?    
-      %p
-      %span Web Page:
-      = @employ.web_page  
 
-    %p
-    %span Note:
-    = @employ.notes 
-
+  
 
     
 
