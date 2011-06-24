@@ -13,7 +13,7 @@ class Employ < ActiveRecord::Base
     :s3_permissions => "public-read", 
 
     :path =>  "/passport/:id/:style.:extension" ,
-    :bucket => 'sharmanyros'     
+    :bucket => 'Mawhiba'     
 	
 	
 end
