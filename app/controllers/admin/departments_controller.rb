@@ -23,7 +23,7 @@ class Admin::DepartmentsController < Admin::AdminController
 	
 	def create
 		@department = GigavineDepartment.new(params[:gigavine_department])    
-		    authorize! :create, Group      
+		    authorize! :create, GigavineDepartment      
 		    @department.author_id = current_user.id
 		    respond_to do |format|
 		      if @department.save
