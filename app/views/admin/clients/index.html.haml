@@ -4,9 +4,9 @@
     function clientsearch() {
 
     var search = document.getElementById('search');
-    if(document.getElementById('search').value == "Enter name / country")
+    if(document.getElementById('search').value == "Enter Name")
     {  
-    alert('Please enter username or country');  
+    alert('Please enter username ');  
     search.focus();
     return false;
     }
@@ -26,9 +26,9 @@
         = form_for(:search, :url => admin_clients_path,:html => {:method => :get, :onSubmit => "return clientsearch();"}) do
           %p
             - if params[:search].blank?
-              = text_field_tag :search, "Enter name / country", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter name / country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter name / country';"
+              = text_field_tag :search, "Enter Name", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name';"
             - else
-              = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter name / country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter name / country';"
+              = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name';"
             = submit_tag "Search"
       - if params[:search].blank?      
         = link_to "Create new client",new_admin_client_path
