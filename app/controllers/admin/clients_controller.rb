@@ -2,7 +2,7 @@ class Admin::ClientsController < Admin::AdminController
 	
 	def index
 	  if params[:search]
-		@clients = Gigaclient.find(:all,:conditions => ["first_name LIKE ? OR home_country lIKE ? OR last_name lIKE ?","%#{params[:search]}%","#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 2 
+		@clients = Gigaclient.find(:all,:conditions => ["first_name LIKE ? OR last_name lIKE ?","%#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 2 
 	  else
 		@clients = Gigaclient.find(:all).paginate :page => params[:page],:per_page => 2
 	  end
