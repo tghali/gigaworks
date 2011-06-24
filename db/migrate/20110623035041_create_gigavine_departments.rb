@@ -7,6 +7,7 @@ class CreateGigavineDepartments < ActiveRecord::Migration
      #~ t.tinyint :status,:default => 1
      t.integer :author_id
 
+
       t.timestamps
     end
   end
