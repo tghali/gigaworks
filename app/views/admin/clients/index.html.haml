@@ -46,8 +46,8 @@
             %a{:href => "#"} Name
           %li.date1{:style=>"width: 215px"}
             %a{:href => "#"} PMS
-          %li.name{:style=>"width: 175px"}
-            %a{:href => "#"} Country
+          -#%li.name{:style=>"width: 175px"}
+            -#%a{:href => "#"} Country
       - @clients.each_with_index do |client,j| 
         %div{:class => cycle("grouptable_structure_inner", "grouptable_structure_inner_color")}
           %ul
@@ -57,7 +57,6 @@
             %li.date1{:style => "padding-left: 20px;"}
               = client.pms_url
             %li.name
-              = client.business_country
             %li.view{:style=>"margin-top: -22px; position: relative; left: 475px;"}
               %span>/
               = link_to "Show", admin_client_path(client), :rel => "#show_client", :id => "client_details", :'class' => 'overlay-switch',:remote => :true  
