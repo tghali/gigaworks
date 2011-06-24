@@ -63,6 +63,7 @@ class Admin::ClientsController < Admin::AdminController
 		 format.html { redirect_to(admin_clients_url, :notice => 'Client has been successfully updated.') } 
 		 format.xml  { render :xml => @gigaclient, :status => :created, :location => @gigaclient }
 	      else   
+          @gigaclient = Gigaclient.find(params[:id])
 		format.html { render :action => "edit" }
 		format.xml  { render :xml => @gigaclient.errors, :status => :unprocessable_entity }
 	      end
