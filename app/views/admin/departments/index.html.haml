@@ -28,7 +28,7 @@
              
               = department.name
             %li.date1{:style => "padding-left: 20px;"}
-              = department.description
+              = truncate(department.description)
             -#%li.name
               =# department.department_id
             %li.view{:style=>"margin-top: -22px; position: relative; left: 475px;"}
