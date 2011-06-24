@@ -2,17 +2,23 @@
 - content_for :parent do
   %h4 Resources:
   %ul
-    //%li     = link_to 'Users', admin_users_path
+    //%li      = link_to 'Users', admin_users_path
     %li
       = link_to 'Groups', admin_groups_path
     %li
       = link_to 'Departments', admin_departments_path
+    %li
+      = link_to 'Languages', admin_languages_path
+    %li
+      = link_to 'Skills', admin_skills_path
     %li
       = link_to "Clients", admin_clients_path
     %li
       = link_to "Leads", admin_leads_path
     %li
       = link_to "Employees", admin_employees_path
+ 
+
 - content_for :main do
   //%h2 Gigavine Admin Panel
   = yield

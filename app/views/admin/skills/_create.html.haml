@@ -1,0 +1,11 @@
+%h2 Create New Skill
+%div{:style=>"height:350px; overflow-y:scroll; overflow-x:hidden;"}
+  .box.sentence
+    = form_for @skill, :url => {:action => :create} do |d|
+      = render "shared/error_messages", :target => @skill  
+      = d.text_field :title
+      = d.text_field :name
+      = d.text_area :description
+ 
+      %div{:style => "width:150px; float:left;"}  
+        = d.submit "create skill"

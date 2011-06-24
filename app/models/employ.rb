@@ -6,7 +6,7 @@ class Employ < ActiveRecord::Base
 	 
    validates_uniqueness_of :email
    
-	 validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+	 validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})$/i
    
 	 validates_attachment_content_type :passport, :content_type =>  /^image\//,:message => "should be image"
 	
