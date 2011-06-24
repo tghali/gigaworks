@@ -6,6 +6,39 @@
   document.getElementById('gigaclient_pms_url').value = url.toLowerCase();
   }
 
+
+  function addEvent()
+  {
+
+  document.getElementById('myDiv').style.display = 'block';
+  var ni = document.getElementById('myDiv');
+  var numi = document.getElementById('theValue');
+  var num_v = document.getElementById('theValue').value;
+  var num = (document.getElementById("theValue").value -1)+ 2;
+  numi.value = num;
+  
+ 
+  
+  var divIdName = "my"+num+"Div";
+  var newdiv = document.createElement('div');
+  newdiv.setAttribute("id",divIdName);
+  newdiv.innerHTML = "<table><tr><td>title:</td><td><input type='text' id='title[]' name='gigaclient[client_addresses_attributes]["+num_v+"][title]'></td></tr><tr><td>first_line:</td><td><input type='text' id='first_line[]' name='gigaclient[client_addresses_attributes]["+num_v+"][first_line]'></td></tr><tr><td>second_line:</td><td><input type='text' id='second_line[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][second_line]'></td></tr><tr><td>city:</td><td><input type='text' id='city[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][city]'></td></tr><tr><td>state:</td><td><input type='text' id='state[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][state]'></td></tr> <tr><td>zipcode:</td><td><input type='text' id='zipcode[]' name='gigaclient[client_addresses_attributes]["+num_v+"][zipcode]'></td></tr> <tr><td>country:</td><td><input type='text' id='country[]' name='gigaclient[client_addresses_attributes]["+num_v+"][country]'></td></tr><tr><td>po_box:</td><td><input type='text' id='po_box[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][po_box]'></td></tr>    <tr><td><a href=\"javascript:;\" onclick=\"removeEvent(\'"+divIdName+"\')\">Remove</a></td></tr></table>";
+  ni.appendChild(newdiv);
+  }
+ 
+  function removeEvent(divNum)
+  {
+  var d = document.getElementById('myDiv');
+  var olddiv = document.getElementById(divNum);
+  d.removeChild(olddiv);
+  var numi = document.getElementById('theValue');
+  numi.value = numi.value - 1;
+  }
+
+
+
+
+
 .box.contact
 
   %h2 New Client
@@ -14,61 +47,41 @@
     %h3 Details
     = c.text_field :title
     = c.text_field :first_name
-    = c.text_field :middle_name
     = c.text_field :last_name,:onblur => "pmsurl();"
-    = c.select :suffix, Gigavine::Preferences.suffixes
+ 
     %br/
     = c.text_field :email
-    .label Alternate Email
-    = text_field :gigaclient, :email2
+ 
     %br/
-    %h3 Business Address:
-    .label Street
-    = text_field :gigaclient,:business_street
-    .label City
-    = text_field :gigaclient, :business_city
-    .label State
-    = text_field :gigaclient, :business_state
-    .label Postal Code    
-    = text_field :gigaclient, :business_postal_code
-    .label Country    
-    = select :gigaclient,:business_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
-    .label Phone    
-    = text_field :gigaclient, :business_phone
-    .label Phone2
-    = text_field :gigaclient, :business_phone2
-    .label Fax    
-    = text_field :gigaclient, :business_fax
-
-    %br/
-    %h3 Home Address:
-    .label Street
-    = text_field :gigaclient,:home_street
-    .label City
-    = text_field :gigaclient, :home_city
-    .label State
-    = text_field :gigaclient, :home_state
-    .label Postal Code    
-    = text_field :gigaclient, :home_postal_code
-    .label Country    
-    = select :gigaclient,:home_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
-    .label Phone    
-    = text_field :gigaclient, :home_phone
-    .label Fax    
-    = text_field :gigaclient, :home_fax
+  
 
 
     %br/
     %h3 Other Information:
-    .label PMS URL
-    = text_field :gigaclient, :pms_url,:readonly => :true
+    = c.text_field :pms_url,:readonly => :true
     .label Project Manager
     = text_field :gigaclient, :project_manager_id
     = c.text_field :company
-    = c.text_field :mobile_phone
-    = c.text_field :pager
-    = c.text_area :notes
-    = c.text_field :web_page
-
+    = c.text_field :web_page 
+	
+	
+	
+    %h3 Address:
+    = c.fields_for :client_addresses do |m|  
+      = m.text_field :title
+      = m.text_field :first_line
+      = m.text_field :second_line
+      = m.text_field :city
+      = m.text_field :state
+      = m.text_field :zipcode
+      = m.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
+      = m.text_field :po_box
+      %input#theValue{:name => "theValue", :type => "hidden", :value => "1"}/
+      %p
+        %a{:href => "javascript:;", :onClick => "addEvent();"} Add More
+      #myDiv
+  
+	  
+	  
     %br/
     = c.submit "Create Client"

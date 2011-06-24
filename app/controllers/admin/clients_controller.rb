@@ -23,6 +23,7 @@ class Admin::ClientsController < Admin::AdminController
 	
 	def new
 		 @gigaclient = Gigaclient.new
+		 @gigaclient.client_addresses.build
 		 respond_to do |format|
 		   format.html
 		   format.xml  { render :xml => @gigaclient }
@@ -30,6 +31,7 @@ class Admin::ClientsController < Admin::AdminController
 	end
 	
 	def create
+		 #~ render :text=> params.inspect and return
 		@gigaclient = Gigaclient.new(params[:gigaclient])    
 		    authorize! :create, Gigaclient      
 		    @gigaclient.author_id = current_user.id
@@ -46,12 +48,14 @@ class Admin::ClientsController < Admin::AdminController
 	
 	def edit
 		@gigaclient = Gigaclient.find(params[:id])
+		#~ @gigaclient.client_addresses.build
 		respond_to do |format|
 		  format.html # new.html.erb 
 		end		
 	end
 	
-	def update		
+	def update
+#~ render :text => params.inspect and return		
 	   @gigaclient = Gigaclient.find(params[:id])	    
 	    authorize! :update, @gigaclient	    
 	    respond_to do |format|
