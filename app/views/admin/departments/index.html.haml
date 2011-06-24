@@ -18,8 +18,8 @@
             %a{:href => "#"} Name
           %li.date1{:style=>"width: 215px; color: #4d4d4d; font-size:13px; font-weight:bold;"}
             %a{:href => "#"} Description
-          %li.name{:style=>"width: 175px; color: #4d4d4d; font-size:13px; font-weight:bold;"}
-            %a{:href => "#"} Department&nbsp;ID
+          -#%li.name{:style=>"width: 175px; color: #4d4d4d; font-size:13px; font-weight:bold;"}
+            -#%a{:href => "#"} Department&nbsp;ID
       - @departments.each_with_index do |department,j| 
         %div{:class => cycle("grouptable_structure_inner", "grouptable_structure_inner_color")}
           %ul
@@ -29,8 +29,8 @@
               = department.name
             %li.date1{:style => "padding-left: 20px;"}
               = department.description
-            %li.name
-              = department.department_id
+            -#%li.name
+              =# department.department_id
             %li.view{:style=>"margin-top: -22px; position: relative; left: 475px;"}
               %span>/
               = link_to "Edit",edit_admin_department_path(department), :rel => "#new_group", :id => "group_edit", :'class' => 'overlay-switch',:remote => :true
