@@ -27,7 +27,7 @@ class AddClientFields < ActiveRecord::Migration
  	  
 	  
 	  ##add columns
-	  add_column :gigaclients,:status,:tinyint
+	  add_column :gigaclients,:status,:boolean
 	  
   end
 
@@ -59,7 +59,7 @@ class AddClientFields < ActiveRecord::Migration
  	  
 	  
 	  ##add columns
-	  remove_column :gigaclients,:status,:tinyint
+	  remove_column :gigaclients,:status 
 	  
   end
 end
