@@ -153,6 +153,8 @@ Gigavine::Application.routes.draw do
     resources :leads
     resources :employees
     resources :departments
+    resources :languages
+    resources :skills
   end
   
   # Static pages
