@@ -1,71 +1,33 @@
+ 
+
 .box.contact
 
   %h2 New Lead
-  = form_for @contact, :url => admin_leads_path do |c|
-    = render "shared/error_messages", :target => @contact
+  = form_for @lead, :url => admin_leads_path do |c|
+    = render "shared/error_messages", :target => @lead
     %h3 Details
     = c.text_field :title
     = c.text_field :first_name
-    = c.fields_for :contact_information do |m|  
-      = m.text_field :middle_name
- 
-    = c.text_field :last_name
-    = c.fields_for :contact_information do |m|  
-      = m.select :suffix, Gigavine::Preferences.suffixes
+    = c.text_field :last_name,:onblur => "pmsurl();"
     %br/
     = c.text_field :email
-    = c.fields_for :contact_information do |m|  
-      = m.text_field :email2,:label => "Alternate Email"
-    =# c.select :group_id, @groups.map {|u| [u.name,u.id]},:label => "Select Group"
-    =# c.hidden_field :group_id, @groups.map {|u| [u.name,u.id]},:label => "Select Group"
+
+
+
+    %br/
+    %h3 Other Information:
+    = c.text_field :web_url 
+    
+
     %br/
     
-    %h3 Home Address:
-    = c.fields_for :contact_information do |m|     
-      = m.text_field :home_street,:label => "Street"
-
-      = m.text_field  :home_city,:label => "City"
-
-      = m.text_field  :home_state,:label => "State"
-
-      = m.text_field  :home_postal_code,:label => "Postal Code"
- 
-      = m.select :home_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
- 
-      = m.text_field  :home_phone,:label => "Phone"
- 
-      = m.text_field  :home_fax,:label => "Fax"
-   
-      %h3 Business Address:
-    
-  
-      = m.text_field :business_street,:label => "Street"
-
-      = m.text_field :business_city,:label => "City"
-
-      = m.text_field :business_state,:label => "State"
-   
-      = m.text_field :business_postal_code,:label => "Postal Code"
-  
-      = m.select :business_country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
-
-      = m.text_field :business_phone,:label => "Phone"
-
-      = m.text_field :business_phone2,:label => "Phone2"
-  
-      = m.text_field  :business_fax,:label => "Fax"
-      
-
-      %h3 Other Information:
-      
-      = m.hidden_field :group_id, :value => 1 
-      
-      = m.text_field :company,:label => "Company"
-      = m.text_field :mobile_phone,:label => "Mobile"
-      = m.text_field :pager
-      = m.text_area :notes, {:style=>"height:100px;width:300px;"}
-      = m.text_field :web_page,:label => "Web Page"
-
-
+    %h3 Address:
+    = c.text_field :first_line 
+    = c.text_field :second_line 
+    = c.text_field :city 
+    = c.text_field :state 
+    = c.text_field :zipcode 
+    = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
+    = c.text_field :po_box 
     %br/
     = c.submit "Create Lead"
