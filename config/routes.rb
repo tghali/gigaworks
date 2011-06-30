@@ -151,6 +151,7 @@ Gigavine::Application.routes.draw do
     resources :clients
     resources :leads
     resources :employees
+    resources :talents
     resources :departments
     resources :languages
     resources :skills
