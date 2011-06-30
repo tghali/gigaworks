@@ -2,7 +2,7 @@ class Admin::ClientsController < Admin::AdminController
 	
 	def index
 	  if params[:search]
-		@clients = Gigaclient.find(:all,:conditions => ["first_name LIKE ? OR last_name lIKE ?","%#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 2 
+		@clients = Gigaclient.find(:all,:conditions => ["first_name LIKE ? OR home_country lIKE ? OR last_name lIKE ?","%#{params[:search]}%","#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 2 
 	  else
 		@clients = Gigaclient.find(:all).paginate :page => params[:page],:per_page => 2
 	  end
@@ -31,7 +31,7 @@ class Admin::ClientsController < Admin::AdminController
 	end
 	
 	def create
-		 #~ render :text=> params.inspect and return
+		 #~ render :text=> "hai" and return
 		@gigaclient = Gigaclient.new(params[:gigaclient])    
 		    authorize! :create, Gigaclient      
 		    @gigaclient.author_id = current_user.id
@@ -63,7 +63,6 @@ class Admin::ClientsController < Admin::AdminController
 		 format.html { redirect_to(admin_clients_url, :notice => 'Client has been successfully updated.') } 
 		 format.xml  { render :xml => @gigaclient, :status => :created, :location => @gigaclient }
 	      else   
-          @gigaclient = Gigaclient.find(params[:id])
 		format.html { render :action => "edit" }
 		format.xml  { render :xml => @gigaclient.errors, :status => :unprocessable_entity }
 	      end
