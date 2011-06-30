@@ -1,0 +1,115 @@
+ 
+
+.box.contact
+
+  %h2 Talent Registration
+  = form_for @talent, :url =>{:action => :create} do |c|
+    = render "shared/error_messages", :target => @talent
+    %h3 Contact Details
+    = c.text_field :title
+    = c.text_field :first_name
+    = c.text_field :last_name,:onblur => "pmsurl();"
+    = c.text_field :email
+    = c.select :current_location,country_options_for_select(:current_location, ['United Kingdom', 'United Arab Emirates']),:label => "Current Location"
+
+
+
+
+    = c.text_field :mobile
+    = c.text_field :phone
+    
+    %br/
+    %h3 Current Professional Details 
+   
+    %table(width="500" cellpadding="0" cellspacing="0" )
+      %tr
+        %td(width="10")
+          = c.text_field :exp_years, :label => "Years of Experience", :style=>"width:100px"
+       
+        %td(width ="400")
+          = c.text_field :exp_months, :label => "Months of Experience", :style=>"width:100px"
+	  
+    = c.text_field :rating, :label=>"Rating on your skills (out of 10)", :style=>"width:100px"
+ 
+    
+    %table(width="500" cellpadding="0" cellspacing="0" )
+      %tr
+        %td(width="10")
+          = c.text_field :rate, :label => "Rate", :style=>"width:100px"
+       
+        %td(width ="400")
+          = c.text_field :rate, :label => "in currency", :style=>"width:100px"
+ 
+    = c.select( "language_id", @languages.collect {|u| [u.name,u.id]},:label => "Select Languages")
+
+ 
+    
+    
+    
+    %table(width="500" cellpadding="0" cellspacing="0" )
+      %tr
+        %td
+          %div
+            %div{:style=>"float:left;"}
+              = c.select( "skill_id", @skills.collect {|u| [u.title,u.id]},:label => "Select Skills") 
+            %div{:style=>"float:left; width:130px; margin-left:20px;"}
+              = c.text_field :rate, :label => "Years of Experience", :style=>"width:100px; height:10px;"
+            %div{:style=>"float:left; width:130px;"}
+              = c.text_field :rate, :label => "Months of Experience ", :style=>"width:100px; height:10px;"
+
+    
+    
+
+    %br/
+    %h3 Project Details 
+    = c.text_field :project_experience, :label=>"Previous Project Name"	
+	
+    = c.text_field :previous_client, :label=>"Previous Client"	
+
+ 
+    %div{:style => "width:610px;"}
+      %div{:style => "width:300px; float:left;"}
+        %div From
+        %div
+          %div{:style => "float:left; margin:0px 10px 0px 0px"}
+            = text_field_tag :client_experiene_from_month, "Month",  :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Month') this.value='';",:onBlur=>"if(this.value=='') this.value='Month';", :style=>"width:100px"
+          %div{:style => "float:left;"}
+            = text_field_tag :client_experiene_from_year, "Year", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Year') this.value='';",:onBlur=>"if(this.value=='') this.value='Year';", :style=>"width:100px;"
+      %div{:style => "width:300px; float:left;"}
+        %div To
+        %div
+          %div{:style => "float:left; margin:0px 10px 0px 0px"}
+            = text_field_tag :client_experiene_to_month, "Month", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Month') this.value='';",:onBlur=>"if(this.value=='') this.value='Month';", :style=>"width:100px"
+          %div{:style => "float:left;"}
+            = text_field_tag :client_experiene_to_year, "Year", :onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Year') this.value='';",:onBlur=>"if(this.value=='') this.value='Year';", :style=>"width:100px"
+
+    %br/
+    %div{:style => "width:610px;"}
+      = c.select( "skill_id", @skills.collect {|u| [u.title,u.id]},:label => "Skills Used") 
+
+
+
+    %br/
+    %h3 Attached Documents 
+    = c.file_field :resume, :label=>"Experience Document"
+
+
+
+    %h3 Personal Details
+    = c.text_field :first_line
+    = c.text_field :second_line
+    = c.select "gender", options_for_select(["Select", "Male", "Female"] );
+    = c.text_field :city
+    = c.text_field :state
+    = c.text_field :zip_code
+    = c.text_field :country
+    = c.text_field :po_box
+ 
+
+
+
+
+    %br/
+    %div{:style => "width:610px;"}
+      = c.submit "Create Lead" 
+	
