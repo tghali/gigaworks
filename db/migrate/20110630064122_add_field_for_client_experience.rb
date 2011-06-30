@@ -4,6 +4,8 @@ class AddFieldForClientExperience < ActiveRecord::Migration
 	  add_column :talents, :client_experiene_from_year,:integer
 	  add_column :talents, :client_experiene_to_month,:string
 	  add_column :talents, :client_experiene_to_year,:integer
+	  add_column :talents, :client_experiene_to_year,:integer
+	  
   end
 
   def self.down
