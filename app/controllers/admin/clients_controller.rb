@@ -6,7 +6,7 @@ class Admin::ClientsController < Admin::AdminController
 	  else
 		@clients = Gigaclient.find(:all).paginate :page => params[:page],:per_page => 2
 	  end
-
+#testing
 		 respond_to do |format|	
 		  format.html # new.html.erb
 		  format.xml  { render :xml => @clients }
