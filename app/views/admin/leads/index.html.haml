@@ -47,7 +47,7 @@
           %li.date1{:style=>"width: 215px"}
             %a{:href => "#"} Email
           %li.name{:style=>"width: 175px"}
-            %a{:href => "#"} Created On
+            %a{:href => "#"} Status
       - @leads.each_with_index do |lead,j| 
         %div{:class => cycle("grouptable_structure_inner", "grouptable_structure_inner_color")}
           %ul
@@ -57,7 +57,7 @@
             %li.date1{:style => "padding-left: 20px;"}
               = lead.email
             %li.name
-              = lead.created_at.strftime("%d-%b-%Y")
+              = "Lead"
             %li.view{:style=>"margin-top: -22px; position: relative; left: 475px;"}
               %span>/
               = link_to "Show", admin_lead_path(lead), :rel => "#show_client", :id => "client_details", :'class' => 'overlay-switch',:remote => :true  
@@ -70,9 +70,7 @@
               %span>/
               = link_to "Delete", admin_lead_path(lead), :confirm => 'Are you sure want to delete lead details? ', :method => :delete,:title => "Click here to delete lead"
     
-              |		    
-              %span>/
-              = "Convert to client"
+ 
 
               %div{:class => "clear"}
  

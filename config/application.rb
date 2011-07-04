@@ -87,6 +87,39 @@ module Gigavine
       [:Mr, :Ms , :Mrs, :Dr ]
     end  
     
+    
+    
+        def self.year_details
+      ['0', '1', '2', '3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30' ]
+    end
+    
+     def self.month_details
+      ['0', '1', '2', '3','4','5','6','7','8','9','10','11']
+    end
+ 
+    
+    def self.currency_convert
+      ['AUD - Australian Dollar','CAD - Canadian Dollar','CHF - Swiss Franc','CNY - Chinese Yuan Renminbi','DKK - Danish Krone','EUR - Euro','GBP - British Pound','HKD - Hong Kong Dollar','HUF - Hungarian Forint','INR - Indian Rupee','JPY - Japanese Yen','MXN - Mexican Peso','MYR - Malaysian Ringgit','NOK - Norwegian Krone','NZD - New Zealand Dollar','PHP - Philippine Peso','RUB - Russian Ruble','SEK - Swedish Krona','SGD - Singapore Dollar','THB - Thai Baht','TRY - Turkish Lira','USD - US Dollar','ZAR - South African Rand','AUD - Australian Dollar','AED - Emirati Dirham','AFN - Afghan Afghani','ALL - Albanian Lek','AMD - Armenian Dram','ANG - Dutch Guilder','AOA - Angolan Kwanza','ARS - Argentine Peso','AWG - Aruban or Dutch Guilder','AZN - Azerbaijani New Manat']
+    end
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   end
   
 end
