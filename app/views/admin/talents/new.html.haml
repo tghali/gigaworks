@@ -30,21 +30,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     = c.text_field :rating, :label=>"Rating on your skills (out of 10)", :style=>"width:100px"
  
     
@@ -95,14 +80,14 @@
  
             = c.select :exp_months, Gigavine::Preferences.month_details
           %div{:style => "float:left;"}
-            = c.select :exp_years, Gigavine::Preferences.year_details
+            = c.select :exp_years, Gigavine::Preferences.exp_years
       %div{:style => "width:300px; float:left;"}
         %div To
         %div
           %div{:style => "float:left; margin:0px 10px 0px 0px"}
             = c.select :exp_months, Gigavine::Preferences.month_details
           %div{:style => "float:left;"}
-            = c.select :exp_years, Gigavine::Preferences.year_details
+            = c.select :exp_years, Gigavine::Preferences.exp_years
     %br/
     %div{:style => "width:610px;"}
       = c.select( "skill_id", @skills.collect {|u| [u.title,u.id]},:label => "Skills Used") 
@@ -131,5 +116,5 @@
 
     %br/
     %div{:style => "width:610px;"}
-      = c.submit "Create Lead" 
+      = c.submit "Create Talent" 
 	
