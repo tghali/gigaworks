@@ -22,7 +22,7 @@
   document.getElementById('employ_tax_id').value = checkNINO (myNINO);
   return true;
   } 
-  else {alert ("Employee ID has invalid format"); document.getElementById('employ_tax_id').focus(); return false;}
+  else {alert ("National Insurance Number has invalid format"); document.getElementById('employ_tax_id').focus(); return false;}
   }  
   
 .box.contact
@@ -39,8 +39,8 @@
 
     %h3 Job Details
     = c.select :department_id, @departments.map {|u| [u.name,u.id]},:label => "Select Department"
-    = c.text_field :tax_id,:label => "Employee ID (example: AB123456CJ)"
-    = c.text_field :job_title,:label => "Job Title"     
+    = c.text_field :tax_id,:label => "Employee ID"
+    = c.text_field :position,:label => "Position"     
 
     = c.text_field :salary,:label => "Salary (in $)"
 
