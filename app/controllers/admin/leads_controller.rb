@@ -1,10 +1,35 @@
 class Admin::LeadsController < Admin::AdminController
 	
 	def index
-	  if params[:search]
-		@leads = Lead.find(:all,:conditions => ["(first_name LIKE ?  OR last_name lIKE ?)","%#{params[:search]}%","#{params[:search]}%"],:include => :lead).paginate :page => params[:page],:per_page => 4
+	    sort = case params['sort']
+		 when "first_name"  then "first_name"  
+		  when "email"  then "email" 
+		   when "appointed_to"  then "appointed_to" 
+
+		 when "first_name_reverse"  then "first_name DESC"
+		 when "email_reverse"  then "email  DESC"  
+		 when "appointed_to_reverse"  then "appointed_to DESC"
+	
+       end	
+		condition = nil
+	        if params[:industry_search] && params[:industry_search] != 'Select Industry' 
+			condition  = "industry LIKE \"%#{params[:industry_search]}%\""
+		end
+	    
+		 if params[:turnover_search] && params[:turnover_search] != 'Select Turnover'
+			 if !condition.blank?
+				condition  = condition + "AND turnover LIKE \"#{params[:turnover_search]}\""
+			else
+				condition  = "turnover LIKE \"#{params[:turnover_search]}\""
+			end
+		end
+		
+	  if condition != nil
+	  
+		@leads = Lead.find(:all,:conditions => condition).paginate :page => params[:page],:per_page => 4,:order => sort
 	  else
-		@leads = Lead.find(:all).paginate :page => params[:page],:per_page => 4
+
+		@leads = Lead.find(:all).paginate :page => params[:page],:per_page => 4,:order => sort
 	  end
 
 		 respond_to do |format|	
