@@ -1,6 +1,6 @@
 .box.contact
 
-  %h2 New Lead
+  %h2 Edit Lead
   = form_for @lead, :url => {:action => :update,:id => @lead.id} do |c|
     = render "shared/error_messages", :target => @lead
     %h3 Details
@@ -11,17 +11,22 @@
     
     %br/
     
-    %h3  Address: 
-    
-    = c.text_field :first_line
-    = c.text_field :second_line
-    = c.text_field :city
-    = c.text_field :state
-    = c.text_field :zipcode
-    = c.select :country,country_options_for_select(:country,[@lead.country]),:label => "Country"
+    %h3 Address:
+    = c.text_field :first_line 
+    = c.text_field :second_line 
+    = c.text_field :city 
+    = c.text_field :state 
+    = c.text_field :zipcode 
+    = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
     = c.text_field :po_box 
     %br/
+    %h3 Other Information:
     
+    = c.text_field :company
+    = c.select :industry, Gigavine::Preferences.industries
+    = c.text_field :turnover
+    = c.text_field :web_url,:label => "Website"
+    = c.text_field :notes, :label => "Appointed To"       
 
 
 

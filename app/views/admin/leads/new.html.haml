@@ -8,17 +8,9 @@
     %h3 Details
     = c.text_field :title
     = c.text_field :first_name
-    = c.text_field :last_name,:onblur => "pmsurl();"
+    = c.text_field :last_name    
     %br/
     = c.text_field :email
-
-
-
-    %br/
-    %h3 Other Information:
-    = c.text_field :web_url 
-    
-
     %br/
     
     %h3 Address:
@@ -29,5 +21,14 @@
     = c.text_field :zipcode 
     = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
     = c.text_field :po_box 
+    %br/
+    %h3 Other Information:
+    
+    = c.text_field :company
+    = c.select :industry, Gigavine::Preferences.industries
+    = c.text_field :turnover
+    = c.text_field :web_url,:label => "Website"
+    = c.text_field :notes, :label => "Appointed To"    
+
     %br/
     = c.submit "Create Lead"

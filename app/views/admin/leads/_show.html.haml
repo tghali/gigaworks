@@ -4,20 +4,39 @@
 
     %span Name:
     = @lead.first_name + @lead.last_name
+    %br
+    %span Email:
+    = @lead.email 
     %p
-    %h4 Address:
-    = @lead.street + "," if !@lead.street.blank?
+    %h3 Address:
+    = @lead.first_line + "," if !@lead.first_line.blank?
     %br
     = @lead.city + "," if !@lead.city.blank?
     %br
     = @lead.state + "," if !@lead.state.blank?
     %br
-    = @lead.country if !@lead.country.blank?
+    = @lead.country + "." if !@lead.country.blank?
     
     %p
-    %span Email:
-    = @lead.email 
-    
+    %h3 Other Information:
+    - if !@lead.industry.blank?
+      %span Industry:
+      = @lead.industry
+      %br      
+    - if !@lead.company.blank?
+      %span Company:
+      = @lead.company
+      %br
+    - if !@lead.turnover.blank?
+      %span Turnover:
+      = @lead.turnover    
+      %br      
+    - if !@lead.web_url.blank?
+      %span Website:
+      = @lead.web_url
+
+
+
  
 
 

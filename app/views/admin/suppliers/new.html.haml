@@ -1,0 +1,35 @@
+ 
+
+.box.contact
+
+  %h2 Supplier Registration
+  = form_for @supplier, :url =>{:action => :create} do |c|
+    = render "shared/error_messages", :target => @supplier
+    = c.text_field :title
+    = c.text_field :name
+    = c.text_field :company
+    = c.text_field :industry
+    = c.text_field :mobile
+    
+    = c.text_field :phone
+    
+    %br/
+ 
+
+
+    %h3 Main Contact Details
+    = c.text_field :first_line
+    = c.text_field :second_line
+    = c.text_field :city
+    = c.text_field :state
+    = c.text_field :country
+    = c.text_field :po_box
+ 
+
+
+
+
+    %br/
+    %div{:style => "width:610px;"}
+      = c.submit "Create Supplier" 
+	
