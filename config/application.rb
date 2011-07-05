@@ -108,7 +108,13 @@ module Gigavine
     
     
     
-    
+        def self.industries
+	    ['Select Industry',:Education, :Entertainment, 'FMCG manufacturers']
+    end
+ 
+     def self.turnovers
+	    ['Select Turnover','1,00,000','2,00,000','3,00,000']
+    end
     
     
     
