@@ -5,7 +5,7 @@
     function leadssearch() {
 
     var search = document.getElementById('search');
-    if(document.getElementById('search').value == "Enter Name / Country")
+    if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "doc")
     {  
     alert('Please enter username or country');  
     search.focus();
@@ -17,6 +17,24 @@
     document.getElementById('result').value = type;
     document.delete.submit();
     }   
+    
+    
+    
+    if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" || ext == "doc")
+{
+return true;
+}
+else
+{
+alert("Upload CSV only");
+fup.focus();
+return true;
+}
+}
+    
+    
+    
+    
   %br
 
 
@@ -29,17 +47,6 @@
     %div{:style=>"position:fixed;margin-top:55px; top:50px; z-index:1;padding-top:2px;background-color:#F7F7E4;"}
       #glossary-search-box
         //%h3 Search the Mawhiba glossary
-        %br/
-        %div
-          - if params[:list].blank?
-            = "All (#{@all_leads})"
-          - else
-            = link_to "All (#{@all_leads})", admin_leads_path
-          = "|"
-          - if params[:list] == 'appointed'
-            = "Appointed (#{@appointed_count})"
-          - else
-            = link_to "Appointed (#{@appointed_count})",admin_leads_path(:list => 'appointed') 
         = form_for(:search, :url => admin_leads_path(:industry_search => params[:industry_search], :turnover_search => params[:turnover_search] ),:html => {:method => :get, :onSubmit => "return leadssearch();"}) do
           %div
             - if params[:search].blank?
@@ -54,7 +61,7 @@
               %div{:style=>"width:130px; float:left; margin-right:20px;"}
                 = "Country"
                 %br
-                = select( "lead","country",country_options_for_select(:country),{},{:style  => "width:130px; height:20px;"})
+                = select "lead","country",country_options_for_select(:country),{:style  => "width:130px; height:20px;"}
             - else
               = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name / Country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name / Country';"
             %div{:style=>"width:auto; float:left; margin-top:20px;"}      
@@ -63,27 +70,7 @@
 
 - form_for(:search, :url => delete_all_admin_leads_path,:html => {:method => :get,:name => 'delete'}) do  
   %div{:style  => "padding-top:62px;width:900px;"}
-  = hidden_field_tag 'result'
-  - if params[:search].blank?      
-    = link_to "Add New",new_admin_lead_path
-    = "|"
-    - if params[:action] == 'index' && params[:industry_search].blank? && params[:turnover_search].blank?
-      = "View List"
-    - else
-      = link_to "View List", admin_leads_path
-    = "|"
-    = link_to "Modify", '#',:onclick => "selectedaction('modify');"
-    = "|"
-    = link_to "Appoint", '#',:onclick => "selectedaction('appoint');"
-    = "|"
-    = link_to "Delete", '#',:onclick => "selectedaction('delete');"
-    = "|"
-    = link_to "Import", '#',:onclick => "selectedaction('import');"
-  - else
-    %span{:style => "padding-left:500px;"}
-    = link_to "Back to List",admin_leads_path
-    
-    
+
   - if !@leads.blank?
     #datain1.left_middle{:style => "display:block;width:900px;"}
       .grouptable_structure{:style => "width:900px;"}
@@ -114,6 +101,7 @@
               %a{:href => "leads?sort=appoint_a"} Appointed
             - else
               %a{:href => "leads?sort=appoint_d"} Appointed
+
       - @leads.each_with_index do |lead,j| 
         %div{:class => cycle("grouptable_structure_inner", "grouptable_structure_inner_color"),:style => "width:900px;"}
           %ul
@@ -152,11 +140,37 @@
       = "No leads has been created yet. Please add a lead by clicking on the link"
 
   %div{:style=>"clear:both;"}
+  = hidden_field_tag 'result'
+  - if params[:search].blank?      
+    = link_to "Add New",new_admin_lead_path
+    = "|"
+    - if params[:action] == 'index' && params[:industry_search].blank? && params[:turnover_search].blank?
+      = "View List"
+    - else
+      = link_to "View List", admin_leads_path
+    = "|"
+    = link_to "Modify", edit_leads_admin_leads_path,:onclick => "this.form.submit"
+    = "|"
+    = link_to "Appoint", '#',:onclick => "selectedaction('appoint');"
+    = "|"
+    = submit_tag "Delete"
+  - else
+    %span{:style => "padding-left:500px;"}
+    = link_to "Back to List",admin_leads_path
 
+
+  - form_for(@impcsv, :url =>{:action=>'csv_import'}, :html => { :multipart => true }) do |f|
+    %div{:style  => "padding-top:62px;width:900px;"}
+      %p
+        %label{:for => "impcsve"} Upload csv file:
+        = f.file_field :uploaded_data
+      %p
+        = f.submit 'Create'
+        = link_to 'Back', impcsvs_path
 
   #show_client.simple_overlay
     #group
 
   %div{:class => :clear}	  
   %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
-    = will_paginate @leads
+    =# will_paginate @leads

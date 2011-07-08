@@ -5,7 +5,12 @@ class Lead < ActiveRecord::Base
                                          #~ :visible =>    [:unverified, :verified, :password_reset, :suspended],
                                          #~ :inactive =>   [:deleted, :suspended, :banned],
                                          #~ :unverified => [:unverified]}
-  
+
+
+
+
+attr_accessor :csv_file_upload
+
   belongs_to :organisation
   belongs_to :contact, :class_name => "Contact"
     

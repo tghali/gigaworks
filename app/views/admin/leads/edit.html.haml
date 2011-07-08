@@ -17,19 +17,16 @@
     = c.text_field :city 
     = c.text_field :state 
     = c.text_field :zipcode 
-    = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
+    = c.select :country,country_options_for_select(:country, [@lead.country]),:label => "Country"
     = c.text_field :po_box 
     %br/
     %h3 Other Information:
-    
+    = c.select :status, options_for_select(['Open','Closed','Qualified','Contacted'],:selected => @lead.status)      
     = c.text_field :company
     = c.select :industry, Gigavine::Preferences.industries
-    = c.text_field :turnover
+    = c.select :turnover,Gigavine::Preferences.turnovers
     = c.text_field :web_url,:label => "Website"
     = c.text_field :appointed_to, :label => "Appointed To"       
-
-
-
 
     %br/
     = c.submit "Update Lead"
