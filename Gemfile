@@ -16,6 +16,10 @@ gem 'haml-rails', '=0.3.4'
 gem 'compass', '>= 0.10.4'
 gem 'jsmin', '=1.0.0'
 gem 'warden'
+
+gem 'fastercsv'
+gem 'vpim'
+
 # gem 'mongoid',  '2.0.0.rc.7'
 gem 'bson_ext', '~> 1.2'
 gem 'net-ldap', '>= 0.1.1'
