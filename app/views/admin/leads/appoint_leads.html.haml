@@ -1,0 +1,17 @@
+.box.sentence
+  %h3 Appoint Leads
+  %div
+  - form_for(:appoint, :url => {:action => 'appoint_to'}) do  
+
+    = hidden_field_tag 'leads', @leads
+    %span
+    %label Appoint To    
+    = text_field 'lead', 'appointed_to',:style  => "width:150px; height:10px;"
+    %br
+    = submit_tag "Appoint"
+
+
+
+ 
+
+

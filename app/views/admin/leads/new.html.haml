@@ -1,5 +1,3 @@
- 
-
 .box.contact
 
   %h2 New Lead
@@ -23,10 +21,10 @@
     = c.text_field :po_box 
     %br/
     %h3 Other Information:
-    
+    = c.select :status, options_for_select(['Open','Closed','Qualified','Contacted'])    
     = c.text_field :company
     = c.select :industry, Gigavine::Preferences.industries
-    = c.text_field :turnover
+    = c.select :turnover,Gigavine::Preferences.turnovers
     = c.text_field :web_url,:label => "Website"
     = c.text_field :appointed_to, :label => "Appointed To"    
 

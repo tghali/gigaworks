@@ -1,0 +1,40 @@
+
+  
+.box.sentence
+ 
+  %script{type="text/javascript"}
+ 
+    function Checkfiles() {
+
+    if(impcsv_csv_file_upload.value =='') {
+    alert("Choose a file to upload leads.");
+    impcsv_csv_file_upload.focus();
+    return false;
+    }
+    
+
+    if(!/(\.csv|\.xls)$/i.test(impcsv_csv_file_upload.value)) {
+    alert("Upload CSV files only.");
+    impcsv_csv_file_upload.value='';
+    impcsv_csv_file_upload.focus();
+    return false;
+    }
+    
+    return true;
+    }
+
+
+  %h3 Import Leads
+  %div
+
+ 
+  - form_for(:impcsv, :url =>{:action=>'csv_import'}, :html => { :multipart => true,:onsubmit=>"return Checkfiles();" }) do |f|
+
+    %div{:style  => "padding-top:22px;width:900px;"}
+      %p
+        %label{:for => "impcsve"} Upload csv file:
+        = f.file_field :csv_file_upload, :label=>"Import"
+      %p
+        = f.submit 'Upload'
+
+

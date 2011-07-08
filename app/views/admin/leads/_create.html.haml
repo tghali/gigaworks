@@ -2,18 +2,14 @@
   =# link_to 'Contact List', contacts_path
 .box.contact
   %h2 New Lead
-  = form_for @contact, :url => {:action => :create} do |c|
+  = form_for @lead, :url => {:action => :create} do |c|
     = render "shared/error_messages", :target => @lead
     %h3 Details
     = c.text_field :title
     = c.text_field :first_name
-    = c.text_field :middle_name
     = c.text_field :last_name
-    = c.select :suffix
     %br/
     = c.text_field :email
-    =# c.select :email_type, Gigavine::Preferences.contact_detail_types
-    = c.text_field :email2
     %br/
     %h3 Business Address:
     = c.text_field :business_street

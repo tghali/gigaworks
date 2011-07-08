@@ -150,7 +150,16 @@ Gigavine::Application.routes.draw do
     resources :groups
     resources :sub_groups
     resources :clients
-    resources :leads
+
+      resources :leads do
+
+	    get :delete_all, :on => :collection
+	    post :edit_leads,:on => :collection
+	    post :appoint_to,:on => :collection
+	    post :csv_import,:on => :collection
+    end
+    
+    
     resources :employees
     resources :talents
     resources :suppliers

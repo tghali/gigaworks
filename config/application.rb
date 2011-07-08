@@ -104,10 +104,7 @@ module Gigavine
       ['AUD - Australian Dollar','CAD - Canadian Dollar','CHF - Swiss Franc','CNY - Chinese Yuan Renminbi','DKK - Danish Krone','EUR - Euro','GBP - British Pound','HKD - Hong Kong Dollar','HUF - Hungarian Forint','INR - Indian Rupee','JPY - Japanese Yen','MXN - Mexican Peso','MYR - Malaysian Ringgit','NOK - Norwegian Krone','NZD - New Zealand Dollar','PHP - Philippine Peso','RUB - Russian Ruble','SEK - Swedish Krona','SGD - Singapore Dollar','THB - Thai Baht','TRY - Turkish Lira','USD - US Dollar','ZAR - South African Rand','AUD - Australian Dollar','AED - Emirati Dirham','AFN - Afghan Afghani','ALL - Albanian Lek','AMD - Armenian Dram','ANG - Dutch Guilder','AOA - Angolan Kwanza','ARS - Argentine Peso','AWG - Aruban or Dutch Guilder','AZN - Azerbaijani New Manat']
     end
     
-    
-    
-    
-    
+
         def self.industries
 	    ['Select Industry',:Education, :Entertainment, 'FMCG manufacturers']
     end
@@ -115,16 +112,7 @@ module Gigavine
      def self.turnovers
 	    ['Select Turnover','1,00,000','2,00,000','3,00,000']
     end
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
     
     
