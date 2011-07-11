@@ -34,23 +34,23 @@ layout 'admin/new_admin'
 		
 		condition = nil
 	        if params[:industry_search] && params[:industry_search] != 'Select Industry' 
-			condition  = "industry LIKE \"%#{params[:industry_search]}%\""
+			condition  = "industry ILIKE \"%#{params[:industry_search]}%\""
 		end
 	    
 		 if params[:turnover_search] && params[:turnover_search] != 'Select Turnover'
 			 if !condition.blank?
-				condition  = condition + "AND turnover LIKE \"#{params[:turnover_search]}\""
+				condition  = condition + "AND turnover ILIKE \"#{params[:turnover_search]}\""
 			else
-				condition  = "turnover LIKE \"#{params[:turnover_search]}\""
+				condition  = "turnover ILIKE \"#{params[:turnover_search]}\""
 			end
 		end
 		
 		if params[:lead]
 		if params[:lead][:country]
 			 if !condition.blank?
-				condition  = condition + "AND country LIKE \"#{params[:lead][:country]}\""
+				condition  = condition + "AND country ILIKE \"#{params[:lead][:country]}\""
 			else
-				condition  = "country LIKE \"#{params[:lead][:country]}\""
+				condition  = "country ILIKE \"#{params[:lead][:country]}\""
 			end
 		end
 	     end	

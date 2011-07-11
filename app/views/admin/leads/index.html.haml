@@ -76,11 +76,11 @@
               %li
                 %a{:href => "#", :title=> "Click here to view leads"} view
               %li
-                %a{:href => "#", :title=> "Click here to modify lead"} modify
+                %a{:href => "#", :title=> "Click here to modify leads"} modify
               %li
-                %a{:href => "#", :title=> "Click here to appoint lead"} appoint
+                %a{:href => "#", :title=> "Click here to appoint leads"} appoint
               %li
-                %a{:href => "#", :title=> "Click here to delete lead"} delete
+                %a{:href => "#", :title=> "Click here to delete leads"} delete
         / user action 2 block
         .bulk_action_block
           %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
@@ -90,9 +90,9 @@
                   %option Bulk Action 1
                   %option Bulk Action 1
               %td
-                %input.apply-bg{:type => "submit", :value => "Apply"}/
+                %input.apply-bg{:type => "button", :value => "Apply"}/
               %td
-                %input.import-bg{:type => "submit", :value => "Import"}/
+                %input.import-bg{:type => "button", :value => "Import"}/
         / user action 2 block end
         .spacer.clear_all
           %span
