@@ -1,0 +1,193 @@
+
+ 
+   
+/ content wrapper
+#contentwrapper
+  #contentcolumn
+    .innertube-1
+      / head block wrapper
+      .head_block_wrapper
+        / heading
+        .heading_inner_blocks
+          %h2 Leads
+        / heading end
+        / approval block
+        .approved-block
+          %ul
+            %li
+              - if params[:list].blank?
+                = "All (#{@all_leads})"
+              - else
+                =link_to "All (#{@all_leads})", admin_leads_path
+            %li
+              - if params[:list] == 'appointed'
+                = "Appointed (#{@appointed_count})"
+              - else
+                =link_to "Appointed (#{@appointed_count})",admin_leads_path(:list => 'appointed') 
+		
+
+        / approval block end
+        %br.clear_all/
+        / filter option block
+        #filter_option_wrapper
+        = form_for(:search, :url => admin_leads_path(:industry_search => params[:industry_search], :turnover_search => params[:turnover_search] ),:html => {:method => :get, :onSubmit => "return leadssearch();"}) do
+          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+            %tr
+              %td.filter{:rowspan => "2", :width => "77px"} Filter by :
+              %td.top_vbtm Industry
+              %td.top_vbtm Country
+              %td.top_vbtm Score
+              %td.top_vbtm Turnover
+            %tr
+              %td
+                = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries)
+              %td
+                = select( "lead","country",country_options_for_select(:country),{})
+              %td
+                %select
+                  %option Select score
+              %td
+                = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers)
+        / filter option block end
+        / user action wrapper block
+        .spacer.clear_all
+          %span
+        .user_action_block
+          .add_view
+            %ul
+              %li
+                %a{:href => "#"} add new
+              %li
+                %a{:href => "#"} view
+              %li
+                %a{:href => "#"} modify
+              %li
+                %a{:href => "#"} appoint
+              %li
+                %a{:href => "#"} delete
+        / user action 2 block
+        .bulk_action_block
+          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+            %tr
+              %td{:valign => "top"}
+                %select.select_box_strech
+                  %option Bulk Action 1
+                  %option Bulk Action 1
+              %td
+                %input.apply-bg{:type => "submit", :value => "Apply"}/
+              %td
+                %input.import-bg{:type => "submit", :value => "Import"}/
+        / user action 2 block end
+        .spacer.clear_all
+          %span
+        .spacer.clear_all
+          %span 
+        / table grid block
+        .grid_wrapper
+          %table.myTable01{:cellpadding => "0", :cellspacing => "0"}
+            %thead
+              %tr
+                %th
+                  %input{:type => "radio"}/
+                %th Company
+                %th Main Cotact
+                %th Status
+                %th Email
+                %th Country
+                %th Industry
+                %th Website
+                %th Appointed to
+                %th Lead score
+            %tbody
+              - @leads.each_with_index do |lead,j| 
+                %tr
+                  %td
+                    %input{:type => "checkbox"}/
+                  %td 
+                    = lead.company
+                  %td 
+                    = lead.first_name
+                  %td 
+                    = lead.status
+                  %td 
+                    = lead.email
+                  %td 
+                    = lead.country
+                  %td 
+                    = lead.industry
+                  %td 
+                    = lead.web_url
+                  %td
+                    - if lead.appointed_to		  
+                      = lead.appointed_to
+                    - else
+                      = '-None-'
+                  %td Cold
+
+            / table grid block end
+      .clear_all
+  / content wrapper end
+  #leftcolumn
+    / vertical menu
+    .glossymenu
+      %a.menuitem{:href => "#"} Dashboard
+      %a.menuitem.submenuheader{:href => "#"} Employees
+      .submenu
+        %ul
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Form CSS
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+      %a.menuitem{:href => "#"} Clients
+      %a.menuitem.submenuheader{:href => "#"} Leads
+      .submenu
+        %ul
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Form CSS
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+      %a.menuitem.submenuheader{:href => "#"} Talents
+      .submenu
+        %ul
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+          %li
+            %a{:href => "#"} Sub menu
+      %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
+      %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
+      %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Competitors
+ 
+      .clear_all        
+  / <div id="footer"><a href="http://www.gigavine.com/style/">Gigavine</a></div>

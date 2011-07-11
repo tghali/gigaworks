@@ -1,0 +1,468 @@
+
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title leads
+    = stylesheet_link_tag "style","vertical-menu"
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+    = javascript_include_tag 'curvy.js','menu.js','jquery.fixedheadertable.min','demo.js','jquery-1.4.1.min.js','ddaccordion.js'
+    
+    
+    %script{:language => "javascript", :type => "text/javascript"}
+      var settings = {
+      tl: { radius: 4 },
+      tr: { radius: 4 },
+      bl: { radius: 4 },
+      br: { radius: 4 },
+      antiAlias: true
+      };
+      
+      $$('.discount-content-block','.deal-location').each(function(rd) {
+      curvyCorners(settings,rd);
+      });
+      
+      var settings1 = {
+      tl: { radius: 6 },
+      tr: { radius: 0 },
+      bl: { radius: 0 },
+      br: { radius: 0 },
+      antiAlias: true
+      };
+      
+      $$('.add_view').each(function(rd) {
+      curvyCorners(settings1,rd);
+      });
+
+    :javascript
+      ddaccordion.init({
+      	headerclass: "submenuheader", //Shared CSS class name of headers group
+      	contentclass: "submenu", //Shared CSS class name of contents group
+      	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+      	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+      	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+      	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+      	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+      	animatedefault: false, //Should contents open by default be animated into view?
+      	persiststate: true, //persist state of opened contents within browser session?
+      	toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+      	togglehtml: ["suffix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+      	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+      	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+      		//do nothing
+      	},
+      	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+      		//do nothing
+      	}
+      })
+
+
+
+
+
+  %body
+    #maincontainer
+      #topsection
+        .innertube
+          #menu
+            %ul
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "contacts", :src => "/images/new_page/contacts.png"}/
+                  %span Contacts
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "projects", :src => "/images/new_page/projects.png"}/
+                  %span Projects
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "marketing", :src => "/images/new_page/marketing.png"}/
+                  %span Marketing
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "sales", :src => "/images/new_page/sales.png"}/
+                  %span Sales
+              %li.last
+                %a{:href => "#"}
+                  %img{:alt => "finance", :src => "/images/new_page/finance.png"}/
+                  %span Finance
+          #top-right-details
+            .date_time
+              %p 06/23/2011 02:24 AM
+              %img.click{:src => "/images/new_page/top_links.jpg"}/
+              %p
+                %a.link_d{:href => "#"} Good Morning : Ahmed
+            .avatar
+              .red_alert
+                %span 2
+              %span.login_logout
+                %a{:href => "#"} Log In
+          %br.clear_all/
+	  
+	  
+	  
+	  
+	  
+	  
+      / content wrapper
+      #contentwrapper
+        #contentcolumn
+          .innertube-1
+            / head block wrapper
+            .head_block_wrapper
+              / heading
+              .heading_inner_blocks
+                %h2 Leads
+              / heading end
+              / approval block
+              .approved-block
+                %ul
+                  %li
+                    %a{:href => "#"}
+                      All
+                      %span 17
+                  %li
+                    %a{:href => "#"}
+                      Appointed
+                      %span 4
+                  %li
+                    %a{:href => "#"}
+                      Hot
+                      %span 2
+                  %li.last
+                    %a{:href => "#"}
+                      Cold
+                      %span 1
+              / approval block end
+              %br.clear_all/
+            / head block wrapper end
+            / filter option block
+            #filter_option_wrapper
+              %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                %tr
+                  %td.filter{:rowspan => "2", :width => "77px"} Filter by :
+                  %td.top_vbtm Industry
+                  %td.top_vbtm Country
+                  %td.top_vbtm Score
+                  %td.top_vbtm Turnover
+                %tr
+                  %td
+                    %select
+                      %option Select industry
+                  %td
+                    %select
+                      %option Select country
+                  %td
+                    %select
+                      %option Select score
+                  %td
+                    %select
+                      %option Select trunover
+            / filter option block end
+            / user action wrapper block
+            .spacer.clear_all
+              %span
+            .user_action_block
+              .add_view
+                %ul
+                  %li
+                    %a{:href => "#"} add new
+                  %li
+                    %a{:href => "#"} view
+                  %li
+                    %a{:href => "#"} modify
+                  %li
+                    %a{:href => "#"} appoint
+                  %li
+                    %a{:href => "#"} delete
+            / user action 2 block
+            .bulk_action_block
+              %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+                %tr
+                  %td{:valign => "top"}
+                    %select.select_box_strech
+                      %option Bulk Action 1
+                      %option Bulk Action 1
+                  %td
+                    %input.apply-bg{:type => "submit", :value => "Apply"}/
+                  %td
+                    %input.import-bg{:type => "submit", :value => "Import"}/
+            / user action 2 block end
+            .spacer.clear_all
+              %span
+            .spacer.clear_all
+              %span
+            / table grid block
+            .grid_wrapper
+              %table.myTable01{:cellpadding => "0", :cellspacing => "0"}
+                %thead
+                  %tr
+                    %th
+                      %input{:type => "radio"}/
+                    %th Company
+                    %th Main Cotact
+                    %th Status
+                    %th Email
+                    %th Country
+                    %th Industry
+                    %th Website
+                    %th Appointed to
+                    %th Lead score
+                %tbody
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 1-A
+                    %td John Smith
+                    %td open
+                    %td lorem@ipsum.net
+                    %td United Kingdom
+                    %td Entertainment
+                    %td www.loremipsum.org
+                    %td -None-
+                    %td star
+              / table grid block end
+          .clear_all
+      / content wrapper end
+      #leftcolumn
+        / vertical menu
+        .glossymenu
+          %a.menuitem{:href => "#"} Dashboard
+          %a.menuitem.submenuheader{:href => "#"} Employees
+          .submenu
+            %ul
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Form CSS
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+          %a.menuitem{:href => "#"} Clients
+          %a.menuitem.submenuheader{:href => "#"} Leads
+          .submenu
+            %ul
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Form CSS
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+          %a.menuitem.submenuheader{:href => "#"} Talents
+          .submenu
+            %ul
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+              %li
+                %a{:href => "#"} Sub menu
+          %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
+          %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
+          %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Competitors
+          .clear_all        
+      / <div id="footer"><a href="http://www.dynamicdrive.com/style/">Gigavine</a></div>

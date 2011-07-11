@@ -1,0 +1,73 @@
+.glossymenu{
+margin: 5px 0;
+padding: 0;
+width: 200px;
+ /*width of menu*/
+
+/*border: 1px solid #999999;border-bottom-width: 0;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+*/
+height:auto;
+background:url(/images/new_page/menu-rounded-btm-b.png) no-repeat bottom;
+}
+
+.glossymenu a.menuitem{
+background: black  repeat-x bottom left;
+font: bold 13px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+display: block;
+position: relative; /*To help in the anchoring of the ".statusicon" icon image*/
+width: auto;
+padding: 5px 0;
+padding-left: 10px;
+text-decoration: none;
+background:url(/images/new_page/menu-bg.gif) repeat-x;
+color:#636363;
+text-indent:17px
+}
+
+
+.glossymenu a.menuitem:visited, .glossymenu .menuitem:active{
+color:#636363;
+}
+
+.glossymenu a.menuitem .statusicon{ /*CSS for icon image that gets dynamically added to headers*/
+position: absolute;
+top: 5px;
+left: 5px;
+border: none;
+}
+
+.glossymenu a.menuitem:hover{
+background-image: url(/images/new_page/menu-bg-hover.gif);
+}
+
+.glossymenu div.submenu{ /*DIV that contains each sub menu*/
+background: white;
+}
+
+.glossymenu div.submenu ul{ /*UL of each sub menu*/
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+.glossymenu div.submenu ul li{
+background:url(/images/new_page/sub-menu-bg-hover.gif) repeat-x;
+}
+
+.glossymenu div.submenu ul li a{
+display: block;
+font: normal 13px "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+color: black;
+text-decoration: none;
+padding: 5px 0;
+padding-left: 10px;
+background:url(/images/new_page/sub-menu-icon.png) no-repeat 8px 8px;
+text-indent:15px
+
+}
+
+.glossymenu div.submenu ul li a:hover{
+colorz: white;
+}
