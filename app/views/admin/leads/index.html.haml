@@ -151,7 +151,7 @@
                     %td 
                       = lead.web_url
                     %td
-                      - if lead.appointed_to		  
+                      - if !lead.appointed_to.blank?		  
                         = lead.appointed_to
                       - else
                         = '-None-'

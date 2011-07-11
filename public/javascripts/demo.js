@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('.myTable01').fixedHeaderTable({ width: '100%', height: '250', footer: true, cloneHeadToFoot: false, altClass: 'odd', themeClass: 'fancyTable', autoShow: false });
+    $('.myTable01').fixedHeaderTable({ width: '100%', height: '400', footer: true, cloneHeadToFoot: false, altClass: 'odd', themeClass: 'fancyTable', autoShow: false });
     
     $('.myTable01').fixedHeaderTable('show', 1000);
     
