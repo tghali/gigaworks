@@ -1,68 +1,79 @@
 .box.contact
 
+ 
   %h2 Edit Leads
-  = form_for( :lead, :url => {:action => 'edit_leads'}) do
-    = hidden_field_tag "leads_list", params[:lead]
+  = form_for(:lead, :url => {:action => 'edit_leads'}) do
+    = hidden_field_tag "leads_list", @list
 
-    - @leads.each_with_index do |lead,i|
-      - if !lead.valid?
-        =# render "shared/error_messages", :target => @lead
-      %h3 #{lead.first_name} Details
+
+    - @list.each_with_index do |lead,i|
+
+      = render "shared/error_messages", :target => eval("@lead#{i}")
+      - @lead = Lead.find(lead)
+      %h3 
       %label Title
-      = text_field "lead_#{lead.id}", :title,:value => lead.title,:style => "width:150px;height:10px;"
+
+      = text_field eval(":lead#{i}"), :title,:style => "width:150px;height:10px;"
       %br/
       %label First Name
-      = text_field "lead_#{lead.id}",:first_name,:value => lead.first_name,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:first_name,:style => "width:150px;height:10px;"
+
+
 
       %br/
       %label Last Name
-      = text_field "lead_#{lead.id}",:last_name,:value => lead.last_name,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:last_name,:style => "width:150px;height:10px;"
+
+	
       %br/
       %label Email
-      = text_field "lead_#{lead.id}",:email,:value => lead.email,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:email,:style => "width:150px;height:10px;"
+
     
       %br/
+
     
       %h3 Address:
       %label First Line
-      = text_field"lead_#{lead.id}",:first_line ,:value => lead.first_line,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:first_line ,:style => "width:150px;height:10px;"
       %br/
       %label Second Line
-      = text_field "lead_#{lead.id}",:second_line ,:value => lead.second_line,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:second_line ,:style => "width:150px;height:10px;"
       %br/
       %label City
-      = text_field "lead_#{lead.id}",:city ,:value => lead.city,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:city ,:style => "width:150px;height:10px;"
       %br/
       %label State
-      = text_field "lead_#{lead.id}",:state ,:value => lead.state,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:state ,:style => "width:150px;height:10px;"
       %br/
       %label Zipcode
-      = text_field "lead_#{lead.id}",:zipcode,:value => lead.zipcode,:style => "width:150px;height:10px;" 
+      = text_field eval(":lead#{i}"),:zipcode,:style => "width:150px;height:10px;" 
       %br/
       %label Country
-      = select "lead_#{lead.id}",:country,country_options_for_select(:country, [lead.country]),:label => "Country"
+      = select eval(":lead#{i}"),:country,country_options_for_select(:country, [@lead.country]),:label => "Country"
       %br/
       %label Po Box
-      = text_field "lead_#{lead.id}",:po_box ,:value => lead.po_box,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:po_box ,:style => "width:150px;height:10px;"
       %br/
       %h3 Other Information:
       %label Status
-      = select "lead_#{lead.id}",:status, options_for_select(['Open','Closed','Qualified','Contacted'],:selected => lead.status)
+      = select eval(":lead#{i}"),:status, options_for_select(['Open','Closed','Qualified','Contacted'],:selected => @lead.status)
       %br/     
       %label Company      
-      = text_field "lead_#{lead.id}",:company,:value => lead.company,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:company,:style => "width:150px;height:10px;"
       %br/
       %label Industry
-      = select "lead_#{lead.id}",:industry, Gigavine::Preferences.industries,:selected => lead.industry,:style => "width:150px;height:10px;"
+      = select eval(":lead#{i}"),:industry, Gigavine::Preferences.industries,:style => "width:150px;height:10px;"
       %br/
       %label Turnover
-      = select "lead_#{lead.id}",:turnover,Gigavine::Preferences.turnovers,:selected => lead.turnover,:style => "width:150px;height:10px;"
+      = select eval(":lead#{i}"),:turnover,Gigavine::Preferences.turnovers,:style => "width:150px;height:10px;"
       %br/
       %label Website
-      = text_field "lead_#{lead.id}",:web_url,:label => "Website",:value => lead.web_url,:style => "width:150px;height:10px;"
+      = text_field eval(":lead#{i}"),:web_url,:label => "Website",:style => "width:150px;height:10px;"
       %br/
       %label Appointed To
-      = text_field "lead_#{lead.id}",:appointed_to, :label => "Appointed To",:value => lead.appointed_to ,:style => "width:150px;height:10px;"      
-      %hr
+      = text_field eval(":lead#{i}"),:appointed_to, :label => "Appointed To" ,:style => "width:150px;height:10px;"      
+      %hr   
+   
     %br/
     = submit_tag "Update Lead"

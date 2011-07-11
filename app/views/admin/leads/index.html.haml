@@ -1,162 +1,205 @@
+
 %script{:type => "text/javascript"}
+  function checkAll(cb)
+  {
 
-- content_for :parent do
-  %script{type="text/javascript"}
-    function leadssearch() {
+  var val = cb.checked;
+  var frm = document.delete;
+  var len = frm.elements.length;
+  var i=0;
+  for( i=0 ; i<len ; i++) 
+  {
+  frm.elements[i].checked=val;
+  }
 
-    var search = document.getElementById('search');
-    if(document.getElementById('search').value == "Enter Name / Country")
-    {  
-    alert('Please enter username or country');  
-    search.focus();
-    return false;
-    }
-    }
-    function selectedaction(type)
-    {
-    document.getElementById('result').value = type;
-    document.delete.submit();
-    }   
-  %br
-
-
-- content_for :main do
-
-  %h3{:style => "padding-top:20px;"} Leads
-  
-  #glossary-search
-  #div{:style=>"background-color:#F7F7E4; padding-top:15px; top:0px;position:relative;"}
-    %div{:style=>"position:fixed;margin-top:55px; top:50px; z-index:1;padding-top:2px;background-color:#F7F7E4;"}
-      #glossary-search-box
-        //%h3 Search the Mawhiba glossary
-        %br/
-        %div
-          - if params[:list].blank?
-            = "All (#{@all_leads})"
-          - else
-            = link_to "All (#{@all_leads})", admin_leads_path
-          = "|"
-          - if params[:list] == 'appointed'
-            = "Appointed (#{@appointed_count})"
-          - else
-            = link_to "Appointed (#{@appointed_count})",admin_leads_path(:list => 'appointed') 
-        = form_for(:search, :url => admin_leads_path(:industry_search => params[:industry_search], :turnover_search => params[:turnover_search] ),:html => {:method => :get, :onSubmit => "return leadssearch();"}) do
-          %div
-            - if params[:search].blank?
-              %div{:style=>"width:auto; float:left; margin-right:20px;"}
-                = "Industry"
-                %br
-                = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries) ,:style  => "width:130px; height:20px;"
-              %div{:style=>"width:auto; float:left; margin-right:20px;"}
-                = "Turnover"
-                %br
-                = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers),:style  => "width:130px; height:20px;"
-              %div{:style=>"width:130px; float:left; margin-right:20px;"}
-                = "Country"
-                %br
-                = select( "lead","country",country_options_for_select(:country),{},{:style  => "width:130px; height:20px;"})
-            - else
-              = text_field_tag :search, params[:search],:onKeyUp=>"if(event.keyCode==13) showOptions(); ",:onFocus=>"if(this.value=='Enter Name / Country') this.value='';",:onBlur=>"if(this.value=='') this.value='Enter Name / Country';"
-            %div{:style=>"width:auto; float:left; margin-top:20px;"}      
-              = submit_tag "Search"
-      %div{:style=>"clear:both;"}
-
-- form_for(:search, :url => delete_all_admin_leads_path,:html => {:method => :get,:name => 'delete'}) do  
-  %div{:style  => "padding-top:62px;width:900px;"}
-  = hidden_field_tag 'result'
-  - if params[:search].blank?      
-    = link_to "Add New",new_admin_lead_path
-    = "|"
-    - if params[:action] == 'index' && params[:industry_search].blank? && params[:turnover_search].blank?
-      = "View List"
-    - else
-      = link_to "View List", admin_leads_path
-    = "|"
-    = link_to "Modify", '#',:onclick => "selectedaction('modify');"
-    = "|"
-    = link_to "Appoint", '#',:onclick => "selectedaction('appoint');"
-    = "|"
-    = link_to "Delete", '#',:onclick => "selectedaction('delete');"
-    = "|"
-    = link_to "Import", '#',:onclick => "selectedaction('import');"
-  - else
-    %span{:style => "padding-left:500px;"}
-    = link_to "Back to List",admin_leads_path
-    
-    
-  - if !@leads.blank?
-    #datain1.left_middle{:style => "display:block;width:900px;"}
-      .grouptable_structure{:style => "width:900px;"}
-        %ul
-          %li.name{:style=>"margin-left:20px;width: 85px"}
-            - if params[:sort] == 'company_d'
-              %a{:href => "leads?sort=company_a"} Company
-            - else
-              %a{:href => "leads?sort=company_d"} Company
-          %li.date1{:style=>"width: 115px"}
-            - if params[:sort] == 'fname_d'
-              %a{:href => "leads?sort=fname_a"} Main Contact
-            - else
-              %a{:href => "leads?sort=fname_d"} Main Contact
-          %li.name{:style=>"width: 75px"}
-            %a{:href => "#"} Status
-          %li.name{:style=>"width: 150px"}
-            %a{:href => "#"} Email
-          %li.name{:style=>"width: 100px"}
-            - if params[:sort] == 'industry_d'
-              %a{:href => "leads?sort=industry_a"} Industry
-            - else
-              %a{:href => "leads?sort=industry_d"} Industry
-          %li.name{:style=>"width: 100px"}
-            %a{:href => "#"} Website
-          %li.name{:style=>"width: 100px"}
-            - if params[:sort] == 'appoint_d'
-              %a{:href => "leads?sort=appoint_a"} Appointed
-            - else
-              %a{:href => "leads?sort=appoint_d"} Appointed
-      - @leads.each_with_index do |lead,j| 
-        %div{:class => cycle("grouptable_structure_inner", "grouptable_structure_inner_color"),:style => "width:900px;"}
+  }
+   
+/ content wrapper
+#contentwrapper
+  #contentcolumn
+    .innertube-1
+      / head block wrapper
+      .head_block_wrapper
+        / heading
+        .heading_inner_blocks
+          %h2 Leads
+        / heading end
+        / approval block
+        .approved-block
           %ul
-            %li.name1{:style => "width: 5px"}             
-              =check_box_tag "lead[]", lead.id                        
-            %li.name1{:style => "width: 85px"}             
-              = lead.company
-            %li.date1{:style => "padding-left: 20px;width: 115px"}
-              = lead.first_name
-            %li.name{:style=>"width: 75px"}
-              = lead.status
-            %li.name{:style=>"width: 150px"}
-              = lead.email
-            %li.name{:style=>"width: 100px"}
-              = lead.industry
-            %li.name{:style=>"width: 150px"}
-              = lead.web_url
-            %li.name{:style=>"width: 100px"}
-              = lead.appointed_to
-            %li.view{:style=>"margin-top: -22px; position: relative; left: 855px;"}
-              %span>/
-              = link_to "Show", admin_lead_path(lead), :rel => "#show_client", :id => "client_details", :'class' => 'overlay-switch',:remote => :true  
-              |
-              %span>/
-              = link_to "Edit",edit_admin_lead_path(lead)
-              |
-              %span>/
-              = link_to "Delete", admin_lead_path(lead), :confirm => 'Are you sure want to delete lead details? ', :method => :delete,:title => "Click here to delete lead"
-              %div{:class => "clear"}
+            %li
+              - if params[:list].blank?
+                = "All (#{@all_leads})"
+              - else
+                =link_to "All (#{@all_leads})", admin_leads_path
+            %li
+              - if params[:list] == 'appointed'
+                = "Appointed (#{@appointed_count})"
+              - else
+                =link_to "Appointed (#{@appointed_count})",admin_leads_path(:list => 'appointed') 
+		
+
+          / approval block end
+        %br.clear_all/
+      / filter option block
+      #filter_option_wrapper
+      = form_for(:search, :url => admin_leads_path(:industry_search => params[:industry_search], :turnover_search => params[:turnover_search] ),:html => {:name => "appl_form",:method => :get, :onSubmit => "return leadssearch();"}) do
+        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %tr
+            %td.filter{:rowspan => "2", :width => "77px"} Filter by :
+            %td.top_vbtm Industry
+            %td.top_vbtm Country
+            %td.top_vbtm Score
+            %td.top_vbtm Turnover
+          %tr
+            %td
+              = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries)
+            %td
+              = select( "lead","country",country_options_for_select(:country),{},{:style  => "width:130px;"})
+            %td
+              %select
+                %option Select score
+            %td
+              = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers)
+            %td
+              = submit_tag "Search"
+      / filter option block end
+      / user action wrapper block
+      .spacer.clear_all
+        %span
+      - form_for(:search, :url => delete_all_admin_leads_path,:html => {:method => :get,:name => 'delete'}) do  
+        .user_action_block
+          .add_view
+            %ul
+              %li
+                %a{:href => "#", :title=> "Click here to add new lead"} add new
+              %li
+                %a{:href => "#", :title=> "Click here to view leads"} view
+              %li
+                %a{:href => "#", :title=> "Click here to modify lead"} modify
+              %li
+                %a{:href => "#", :title=> "Click here to appoint lead"} appoint
+              %li
+                %a{:href => "#", :title=> "Click here to delete lead"} delete
+        / user action 2 block
+        .bulk_action_block
+          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+            %tr
+              %td{:valign => "top"}
+                %select.select_box_strech
+                  %option Bulk Action 1
+                  %option Bulk Action 1
+              %td
+                %input.apply-bg{:type => "submit", :value => "Apply"}/
+              %td
+                %input.import-bg{:type => "submit", :value => "Import"}/
+        / user action 2 block end
+        .spacer.clear_all
+          %span
+        .spacer.clear_all
+          %span 
+        / table grid block
+        .grid_wrapper
+          %table.myTable01{:cellpadding => "0", :cellspacing => "0"}
+            %thead
+              %tr
+                %th
+                  %input{:type => "checkbox", :onClick => "checkAll(this);"}/
+                %th
+                  - if params[:sort] == 'company_d'
+                    %a{:href => "leads?sort=company_a"} Company
+                  - else
+                    %a{:href => "leads?sort=company_d"} Company
+                %th
+                  - if params[:sort] == 'fname_d'
+                    %a{:href => "leads?sort=fname_a"}  Main Contact
+                  - else
+                    %a{:href => "leads?sort=fname_d"}  Main Contact
+                %th Status
+                %th Email
+                %th Country
+                %th 
+                  - if params[:sort] == 'industry_d'
+                    %a{:href => "leads?sort=industry_a"} Industry
+                  - else
+                    %a{:href => "leads?sort=industry_d"} Industry
+                %th Website
+                %th 
+                  - if params[:sort] == 'appoint_d'
+                    %a{:href => "leads?sort=appoint_a"} Appointed to
+                  - else
+                    %a{:href => "leads?sort=appoint_d"} Appointed to
+                %th Lead score
+            %tbody
+              - if !@leads.blank?
+                - @leads.each_with_index do |lead,j| 
+                  %tr
+                    %td
+                      %input{:type => "checkbox"}/
+                    %td 
+                      = lead.company
+                    %td 
+                      = lead.first_name
+                    %td 
+                      = lead.status
+                    %td 
+                      = lead.email
+                    %td 
+                      = lead.country
+                    %td 
+                      = lead.industry
+                    %td 
+                      = lead.web_url
+                    %td
+                      - if lead.appointed_to		  
+                        = lead.appointed_to
+                      - else
+                        = '-None-'
+                    %td Cold
+              - else
+                %tr
+                  %td
+                    = "No Leads found for your search."
+
+            / table grid block end
+    .clear_all
+  / content wrapper end
+#leftcolumn
+  / vertical menu
+  .glossymenu
+    %a.menuitem{:href => "#"} Dashboard
+    %a.menuitem.submenuheader{:href => "#"} Employees
+    .submenu
+      %ul
+        %li
+          %a{:href => "#"} Sub menu
+        %li
+          %a{:href => "#"} Sub menu
+        %li
+          %a{:href => "#"} Sub menu
+
+    %a.menuitem{:href => "#"} Clients
+    %a.menuitem.submenuheader{:href => "#"} Leads
+    .submenu
+      %ul
+        %li
+          %a{:href => "#"} Hot
+        %li
+          %a{:href => "#"} Cold
+        %li
+          %a{:href => "#"} Warm
+
+    %a.menuitem.submenuheader{:href => "#"} Talents
+    .submenu
+      %ul
+        %li
+          %a{:href => "#"} Sub menu
+        %li
+          %a{:href => "#"} Sub menu
+
+    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
+    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
+    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Competitors
  
-  -else
-    - if params[:industry_search] || params[:turnover_search]
-      = "No leads found with your search."
-
-    - else
-      = "No leads has been created yet. Please add a lead by clicking on the link"
-
-  %div{:style=>"clear:both;"}
-
-
-  #show_client.simple_overlay
-    #group
-
-  %div{:class => :clear}	  
-  %div{:style => "padding-bottom:20px;float:right;padding-right:20px;"}
-    = will_paginate @leads
+    .clear_all        
+/ <div id="footer"><a href="http://www.gigavine.com/style/">Gigavine</a></div>
