@@ -62,7 +62,7 @@
             %td
               = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers)
             %td
-              = submit_tag "Search"
+              %a{:href => "#"} Search
       / filter option block end
       / user action wrapper block
       .spacer.clear_all
