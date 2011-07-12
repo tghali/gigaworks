@@ -1,5 +1,7 @@
+require 'fastercsv'
+require 'csv'
 class Admin::EmployeesController < Admin::AdminController
-	
+	layout 'admin/new_admin'
 	def index
 		  if params[:search]
 		@employees = Employ.find(:all,:conditions => ["(first_name LIKE ? OR last_name lIKE ?)","%#{params[:search]}%","#{params[:search]}%"]).paginate :page => params[:page],:per_page => 2
@@ -12,7 +14,83 @@ class Admin::EmployeesController < Admin::AdminController
 		end
 
 	end
-		
+
+
+def dashboard
+@graph = open_flash_chart_object(600,300,"/admin/employees/graph_code")
+
+end
+
+
+
+ 
+
+
+
+def graph_code
+ 
+       title = Title.new("Contact list Monitor")
+ 
+        
+        @leads = Lead.count(:all)
+        @clients = Gigaclient.count(:all)
+        @employees = Employ.count(:all)
+    pie = Pie.new
+    pie.start_angle = 35
+    pie.animate = true
+    pie.colours = ["#d01f3c", "#356aa0", "#C79810"]
+      pie.values  = [PieValue.new(@leads,'Leads'),PieValue.new(@clients,'Cients'), PieValue.new(@employees,'Employees')]
+    
+    chart = OpenFlashChart.new
+    chart.title = title
+    chart.add_element(pie)
+
+    chart.x_axis = nil
+
+    render :text => chart.to_s
+ 
+end
+
+ 
+
+
+
+	def index1
+		  if params[:search]
+		@employees = Employ.find(:all,:conditions => ["(first_name LIKE ? OR last_name lIKE ?)","%#{params[:search]}%","#{params[:search]}%"]).paginate :page => params[:page],:per_page => 2
+	  else
+		@employees= Employ.find(:all).paginate :page => params[:page],:per_page => 2
+	  end
+		 respond_to do |format|	
+		  format.html # new.html.erb
+		  format.xml  { render :xml => @employees }
+		end
+
+	end
+
+  def csv_import 
+     @impcsv=CSV::Reader.parse(params[:impcsv][:passport])
+     n=0
+     @impcsv.each  do |row|
+     c=Lead.new
+     c.first_name=row[0]
+     c.last_name=row[1]
+     c.email=row[2]
+     if c.save!
+        n=n+1
+        GC.start if n%50==0
+      end
+       
+     end
+     flash.now[:message]="CSV Import Successful,  #{n} new  records added to data base"
+       redirect_to(:action=>'index1') and return
+  end 
+
+
+
+
+
+
 	def show
 		@employ = Employ.find(params[:id])
 		 respond_to do |format|	

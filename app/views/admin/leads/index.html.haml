@@ -28,7 +28,7 @@
         .approved-block
           %ul
             %li
-              - if params[:list].blank?
+              - if params[:list].blank? && params[:industry_search].blank?
                 = "All (#{@all_leads})"
               - else
                 =link_to "All (#{@all_leads})", admin_leads_path
@@ -53,16 +53,19 @@
             %td.top_vbtm Turnover
           %tr
             %td
-              = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries)
+              = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries,params[:industry_search] )
             %td
-              = select( "lead","country",country_options_for_select(:country),{},{:style  => "width:130px;"})
+              - if params[:lead]
+                = select( "lead","country",country_options_for_select(:country,[params[:lead][:country]]),{},{:style  => "width:130px;"})
+              - else
+                = select( "lead","country",country_options_for_select(:country),{:include_blank => 'Select Country'},{:style  => "width:130px;"})
             %td
               %select
-                %option Select score
+                %option Select Score
             %td
-              = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers)
+              = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers,params[:turnover_search])
             %td
-              %a{:href => "#"} Search
+              = submit_tag "Search"
       / filter option block end
       / user action wrapper block
       .spacer.clear_all
@@ -72,15 +75,15 @@
           .add_view
             %ul
               %li
-                %a{:href => "#", :title=> "Click here to add new lead"} add new
+                %a{:href => "#", :title=> "Click here to add new lead"} Add New
               %li
-                %a{:href => "#", :title=> "Click here to view leads"} view
+                %a{:href => "#", :title=> "Click here to view leads"} View
               %li
-                %a{:href => "#", :title=> "Click here to modify leads"} modify
+                %a{:href => "#", :title=> "Click here to modify leads"} Modify
               %li
-                %a{:href => "#", :title=> "Click here to appoint leads"} appoint
+                %a{:href => "#", :title=> "Click here to appoint leads"} Appoint
               %li
-                %a{:href => "#", :title=> "Click here to delete leads"} delete
+                %a{:href => "#", :title=> "Click here to delete leads"} Delete
         / user action 2 block
         .bulk_action_block
           %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
@@ -151,7 +154,7 @@
                     %td 
                       = lead.web_url
                     %td
-                      - if !lead.appointed_to.blank?		  
+                      - if lead.appointed_to		  
                         = lead.appointed_to
                       - else
                         = '-None-'
@@ -167,16 +170,16 @@
 #leftcolumn
   / vertical menu
   .glossymenu
-    %a.menuitem{:href => "#"} Dashboard
+    %a.menuitem{:href => "employees/dashboard"} Dashboard
     %a.menuitem.submenuheader{:href => "#"} Employees
     .submenu
       %ul
         %li
-          %a{:href => "#"} Sub menu
+          %a{:href => "#"} Work Group
         %li
-          %a{:href => "#"} Sub menu
+          %a{:href => "#"} Marketing
         %li
-          %a{:href => "#"} Sub menu
+          %a{:href => "#"} Sales
 
     %a.menuitem{:href => "#"} Clients
     %a.menuitem.submenuheader{:href => "#"} Leads
@@ -193,9 +196,9 @@
     .submenu
       %ul
         %li
-          %a{:href => "#"} Sub menu
+          %a{:href => "#"} Web Designers
         %li
-          %a{:href => "#"} Sub menu
+          %a{:href => "#"} Developers
 
     %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
     %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
