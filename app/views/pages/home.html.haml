@@ -1,4 +1,5 @@
 #crousel
+
   .picture
     #nivoSlider.nivoSlider
       %img{:src => '/images/pages/header_image.jpg'}
@@ -11,7 +12,8 @@
     %p
       %span Vestibulum viverra egestas auctor. Nam eget nulla lacus. Nulla nec varius urna. Donec sed augue id lectus lobortis tincidunt id a nisi. Mauris facilisis nisi ac arcu dignissim laoreet. Duis porttitor vestibulum vehicula. Nunc semper sapien porta dui lacinia luctus. Mauris felis urna, vehicula vel sodales.
     %a read more
-
+- if flash[:notice]
+  %p{:style => "color:red"} Thank you for register with us. Our Sales team will contact you soon...
 #we-offer.box
   %h4 We offer creative and technical services which cross borders and open minds.
   %p As global markets grow, clear and open communication has never been more important to businesses and governments.We offer a seamless blend of creative solutions, cultural/linguistic translation and technical delivery which transform our clients’ communications.
@@ -72,4 +74,5 @@
   %p Please get in contact with us and we’ll see how we can assist.
   %p
     Call us on 020 3167 4370 or use our 
-    %a{:href => '/contact'} contact form
+    %a{:href => '#'} contact form
+    =# link_to "Contact Form", {:controller => 'pages',:action => 'index'}
