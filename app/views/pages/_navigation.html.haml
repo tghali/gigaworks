@@ -70,5 +70,6 @@
             |
         %li= link_to t(:'site.CRM'),         :section => 'technology', :page => 'crm'
     %li#nav-contact{ :class => li_class('company', 'contact_us') }
-      = link_to t(:'site.Contact_us'), :section => 'company', :page => 'contact_us'
+      =# link_to t(:'site.Contact_us'), :section => 'company', :page => 'contact_us'
+      = link_to t(:'site.Contact_us'),{:controller => 'pages',:action => 'index'}
       %span.bull &bull;

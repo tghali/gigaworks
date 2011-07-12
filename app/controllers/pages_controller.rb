@@ -20,6 +20,25 @@ class PagesController < ActionController::Base
     render :layout => false
   end
   
+    def index
+	  	 @lead = Lead.new	
+  end
+  
+def lead_create
+	@lead = Lead.new(params[:lead]) 
+	respond_to do |format|
+		if @lead.save
+			format.html { redirect_to('/', :notice => 'Thank you for register with us. Our Sales team will contact you soon...') }
+			format.xml  { render :xml => @lead, :status => :created, :location => @lead }
+		else
+		     
+			format.html { render :action => "index" }
+			format.xml  { render :xml => @lead.errors, :status => :unprocessable_entity }
+		end
+	end
+end
+  
+  
 private
   def set_locale
     I18n.locale = params[:locale] || :en

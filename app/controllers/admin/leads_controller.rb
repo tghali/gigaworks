@@ -34,23 +34,23 @@ layout 'admin/new_admin'
 		
 		condition = nil
 	        if params[:industry_search] && params[:industry_search] != 'Select Industry' 
-			condition  = "industry ILIKE \"%#{params[:industry_search]}%\""
+			condition  = "industry = '#{params[:industry_search]}'"
 		end
 	    
 		 if params[:turnover_search] && params[:turnover_search] != 'Select Turnover'
 			 if !condition.blank?
-				condition  = condition + "AND turnover ILIKE \"#{params[:turnover_search]}\""
+				condition  = condition + " AND turnover =  '#{params[:turnover_search]}'"
 			else
-				condition  = "turnover ILIKE \"#{params[:turnover_search]}\""
+				condition  = "turnover = '#{params[:turnover_search]}'"
 			end
 		end
 		
 		if params[:lead]
-		if params[:lead][:country]
+		if params[:lead][:country] && params[:lead][:country] != ''
 			 if !condition.blank?
-				condition  = condition + "AND country ILIKE \"#{params[:lead][:country]}\""
+				condition  = condition + " AND country = '#{params[:lead][:country]}'"
 			else
-				condition  = "country ILIKE \"#{params[:lead][:country]}\""
+				condition  = "country = '#{params[:lead][:country]}'"
 			end
 		end
 	     end	
@@ -72,8 +72,8 @@ layout 'admin/new_admin'
 	  end
 
 		 respond_to do |format|	
-		  format.html # new.html.erb
-		  format.xml  { render :xml => @leads }
+			  format.html # new.html.erb
+			  format.xml  { render :xml => @leads }
 		end
 	end
 

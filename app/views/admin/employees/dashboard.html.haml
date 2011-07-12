@@ -1,0 +1,43 @@
+
+= javascript_include_tag 'swfobject.js'
+
+= raw(@graph)
+#leftcolumn
+  / vertical menu
+  .glossymenu
+    %a.menuitem{:href => "employees/dashboard"} Dashboard
+    %a.menuitem.submenuheader{:href => "#"} Employees
+    .submenu
+      %ul
+        %li
+          %a{:href => "#"} Work Group
+        %li
+          %a{:href => "#"} Marketing
+        %li
+          %a{:href => "#"} Sales
+
+    %a.menuitem{:href => "#"} Clients
+    %a.menuitem.submenuheader{:href => "#"} Leads
+    .submenu
+      %ul
+        %li
+          %a{:href => "#"} Hot
+        %li
+          %a{:href => "#"} Cold
+        %li
+          %a{:href => "#"} Warm
+
+    %a.menuitem.submenuheader{:href => "#"} Talents
+    .submenu
+      %ul
+        %li
+          %a{:href => "#"} Web Designers
+        %li
+          %a{:href => "#"} Developers
+
+    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
+    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
+    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Competitors
+ 
+    .clear_all        
+/ <div id="footer"><a href="http://www.gigavine.com/style/">Gigavine</a></div>

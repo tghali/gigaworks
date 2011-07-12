@@ -158,8 +158,11 @@ Gigavine::Application.routes.draw do
 	    post :csv_import,:on => :collection
     end
     
-    
-    resources :employees
+        resources :employees do 
+	    get :dashboard,:on => :collection
+	    get :graph_code,:on => :collection
+    end
+    #~ resources :employees
     resources :talents
     resources :suppliers
     resources :departments
@@ -170,7 +173,8 @@ Gigavine::Application.routes.draw do
   # Static pages
   constraints :subdomain => "test" do
     get '/' => 'pages#show'
-    
+        get 'contactus' => 'pages#index'
+    post 'create_contact' => 'pages#lead_create'
     get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
                                                                       :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
                                                                       :page    => /[a-z_\-]+/ }
