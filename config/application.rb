@@ -83,8 +83,8 @@ module Gigavine
       [:work, :personal, :reception, :home, :mobile]
     end
     
-     def self.suffixes
-      [:Mr, :Ms , :Mrs, :Dr ]
+      def self.suffixes
+      ['--None--', :Mr, :Ms , :Mrs, :Dr, :Professor, :Miss, :Reverend, :Major, :Lady, :Sir ]
     end  
     
             def self.exp_years
