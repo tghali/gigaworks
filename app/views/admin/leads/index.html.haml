@@ -11,13 +11,28 @@
   {
   frm.elements[i].checked=val;
   }
-
   }
-   
+  function selectedaction(type)
+  {
+
+  document.getElementById('result').value = type;
+  document.delete.submit();
+  }
+
+
+  jQuery(document).ready( function() {
+  setTimeout(function(){ jQuery("#message").fadeOut(); }, 3000);
+  });
+ 
+
 / content wrapper
 #contentwrapper
   #contentcolumn
     .innertube-1
+      - if flash[:notice]
+        .success_message{:id => 'message'}
+          %span
+          = flash[:notice]
       / head block wrapper
       .head_block_wrapper
         / heading
@@ -73,17 +88,22 @@
       - form_for(:search, :url => delete_all_admin_leads_path,:html => {:method => :get,:name => 'delete'}) do  
         .user_action_block
           .add_view
+            = hidden_field_tag 'result'
             %ul
               %li
-                %a{:href => "#", :title=> "Click here to add new lead"} Add New
+                -#%a{:href => "#", :title=> "Click here to add new lead"} Add New
+                = link_to "Add New", new_admin_lead_path
               %li
-                %a{:href => "#", :title=> "Click here to view leads"} View
+                - if params[:action] == 'index' && params[:industry_search].blank? && params[:turnover_search].blank?
+                  %a{:href => "#"}  View
+                - else
+                  = link_to "View", admin_leads_path		
               %li
-                %a{:href => "#", :title=> "Click here to modify leads"} Modify
+                = link_to "Modify", '#',:onclick => "selectedaction('modify');",:title=> "Click here to modify leads"
+              %li                
+                = link_to "Appoint", '#',:onclick => "selectedaction('appoint');", :title=> "Click here to appoint leads"
               %li
-                %a{:href => "#", :title=> "Click here to appoint leads"} Appoint
-              %li
-                %a{:href => "#", :title=> "Click here to delete leads"} Delete
+                = link_to "Delete", '#',:onclick => "selectedaction('delete');", :title=> "Click here to delete leads"
         / user action 2 block
         .bulk_action_block
           %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
@@ -138,7 +158,7 @@
                 - @leads.each_with_index do |lead,j| 
                   %tr
                     %td
-                      %input{:type => "checkbox"}/
+                      = check_box_tag "lead[]", lead.id 
                     %td 
                       = lead.company
                     %td 
@@ -167,42 +187,7 @@
             / table grid block end
     .clear_all
   / content wrapper end
-#leftcolumn
-  / vertical menu
-  .glossymenu
-    %a.menuitem{:href => "employees/dashboard"} Dashboard
-    %a.menuitem.submenuheader{:href => "#"} Employees
-    .submenu
-      %ul
-        %li
-          %a{:href => "#"} Work Group
-        %li
-          %a{:href => "#"} Marketing
-        %li
-          %a{:href => "#"} Sales
-
-    %a.menuitem{:href => "#"} Clients
-    %a.menuitem.submenuheader{:href => "#"} Leads
-    .submenu
-      %ul
-        %li
-          %a{:href => "#"} Hot
-        %li
-          %a{:href => "#"} Cold
-        %li
-          %a{:href => "#"} Warm
-
-    %a.menuitem.submenuheader{:href => "#"} Talents
-    .submenu
-      %ul
-        %li
-          %a{:href => "#"} Web Designers
-        %li
-          %a{:href => "#"} Developers
-
-    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
-    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
-    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Competitors
+= render :partial => "leftmenu"
  
-    .clear_all        
-/ <div id="footer"><a href="http://www.gigavine.com/style/">Gigavine</a></div>
+    
+
