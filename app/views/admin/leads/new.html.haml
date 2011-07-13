@@ -1,32 +1,202 @@
-.box.contact
 
-  %h2 New Lead
-  = form_for @lead, :url => admin_leads_path do |c|
-    = render "shared/error_messages", :target => @lead
-    %h3 Details
-    = c.text_field :title
-    = c.text_field :first_name
-    = c.text_field :last_name    
-    %br/
-    = c.text_field :email
-    %br/
-    
-    %h3 Address:
-    = c.text_field :first_line 
-    = c.text_field :second_line 
-    = c.text_field :city 
-    = c.text_field :state 
-    = c.text_field :zipcode 
-    = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:label => "Country"
-    = c.text_field :po_box 
-    %br/
-    %h3 Other Information:
-    = c.select :status, options_for_select(['Open','Closed','Qualified','Contacted'])    
-    = c.text_field :company
-    = c.select :industry, Gigavine::Preferences.industries
-    = c.select :turnover,Gigavine::Preferences.turnovers
-    = c.text_field :web_url,:label => "Website"
-    = c.text_field :appointed_to, :label => "Appointed To"    
+ 
+/ content wrapper
+#contentwrapper
+  #contentcolumn
+    .innertube-1
 
-    %br/
-    = c.submit "Create Lead"
+
+      / form block wrapper
+      .wrapper_form
+        = form_for @lead, :url => admin_leads_path,:html => {:id => "myform"} do |c|
+          / Lead form start
+          .wrapper_form_inner
+            - if @lead.errors.any?
+              .error_message
+                %span
+                  = render "shared/error_messages", :target => @lead
+
+            .form_head_highlight
+              %span New Lead
+            .new_lead_block.fl_left
+              / Title
+              .title_width
+                %label.fl_left.text_indent
+                  Title
+                  %span *
+                %br.clear_all/
+                %label.fl_left.input_width_11.input_width_00.title
+                  = select :lead, :title, Gigavine::Preferences.suffixes 
+                  -#%input{:title => "Try to make it hard to guess.", :type => "text"}/
+                .clear_all
+                .error_msg dd
+              / Title End
+              / First Name
+              .form_block_two.fl_left
+                %label.fl_left.text_indent First Name
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :first_name,:title => "Enter first name"
+
+                .clear_all
+                .error_msg dd
+              / First Name end
+              / Last Name
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Last Name
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field  :last_name,:title => "Enter last name"
+                .clear_all
+                .error_msg dd
+              / Last Name end
+              .clear_all
+              / Email
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Email
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :email,:title => "Enter email address"
+                .clear_all
+                .error_msg dd
+              / Email end
+              .clear_all
+          .clear_all
+          / Lead form end
+          / Address form start
+          .wrapper_form_inner
+            .form_head_highlight
+              %span Address
+            .new_lead_block.fl_left
+              / First Line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent First Line
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field  :first_line,:title => "Enter first line"
+                .clear_all
+                .error_msg dd
+              / First Line end
+              / Second line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Second Line
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field  :second_line,:title => "Enter second line"
+                .clear_all
+                .error_msg dd
+              / Second line end
+              .clear_all
+
+              / City
+              .form_block_two.fl_left
+                %label.fl_left.text_indent City
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :city,:title => "Enter city name"
+                .clear_all
+                .error_msg dd
+              / City end
+              / State
+              .form_block_three.fl_left
+                %label.fl_left.text_indent State
+                %br.clear_all/
+                %label.fl_left.input_width_15
+                  = c.text_field  :state,:title => "Enter state"
+                .clear_all
+                .error_msg dd
+              / State end
+              .clear_all
+              / Country
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Country
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = select :lead,:country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),:title => "Please select country"
+                .clear_all
+                .error_msg dd
+              / Country end
+              / Country
+              .form_block_three.fl_left
+                %label.fl_left.text_indent Zip Code
+                %br.clear_all/
+                %label.fl_left.input_width_15
+                  = c.text_field  :zipcode,:title => "Enter zip code"
+                .clear_all
+                .error_msg dd
+              / Country end
+              / City
+              .form_block_three.fl_left
+                %label.fl_left.text_indent PO Box
+                %br.clear_all/
+                %label.fl_left.input_width_15
+                  = c.text_field :po_box,:title => "Enter post box number"
+                .clear_all
+                .error_msg dd
+              / City end
+              .clear_all
+          .clear_all
+          / Address form end
+          / -------------------------------Other information start-------------------------------
+          .wrapper_form_inner
+            .form_head_highlight.form_other_information
+              %span Other Information
+            .new_lead_block.fl_left
+              / Title
+              %label.fl_left.text_indent Company
+              %br.clear_all/
+              %label.fl_left.input_width_13
+                = c.text_field  :company,:title => "Enter company name"
+              .clear_all
+              / Title End
+              / Second line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Industry
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = c.select :industry, Gigavine::Preferences.industries
+              / Second line end
+              .clear_all
+              / Country
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Turnover
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = c.select :turnover,Gigavine::Preferences.turnovers
+              / Country end
+              / City
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Website
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :web_url,:title => "Enter website name"
+              / City end
+              .clear_all
+              / Title
+              %label.fl_left.text_indent Appointed To
+              %br.clear_all/
+              %label.fl_left.input_width_12
+                = c.text_field :appointed_to,:title => "Enter manager name"
+              .clear_all
+              / Title End
+              / Second line
+              / Title
+              %label.fl_left.text_indent Status
+              %br.clear_all/
+              %label.fl_left.input_width_12.input_width_00
+                = c.select :status, options_for_select(['Open','Closed','Qualified','Contacted'])
+              .clear_all  
+              %label.fl_left.input_create_lead
+                = submit_tag " "
+              / Title End
+              / Second line
+          .clear_all
+          / -------------------------------Other information end-------------------------------
+      / form block wrapper
+      .spacer.clear_all
+        %span
+    .clear_all
+
+    .clear_all
+  / content wrapper end
+= render :partial => "leftmenu"
