@@ -5,7 +5,8 @@
     %title leads
     = stylesheet_link_tag "style","vertical-menu"
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
-    = javascript_include_tag 'curvy.js','menu.js','jquery.fixedheadertable.min','demo.js','jquery-1.4.1.min.js','ddaccordion.js' 
+
+    = javascript_include_tag 'curvy.js','menu.js','jquery.tools.min.js' ,'jquery.fixedheadertable.min','demo.js','ddaccordion.js','swfobject.js'
     %script{:language => "javascript", :type => "text/javascript"}
       var settings = {
       tl: { radius: 4 },
@@ -42,7 +43,7 @@
       	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
       	animatedefault: false, //Should contents open by default be animated into view?
       	persiststate: true, //persist state of opened contents within browser session?
-      	toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+      	toggleclass: ["", "color_blue"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
       	togglehtml: ["suffix", "<img src='/images/new_page/plus.png' class='statusicon' />", "<img src='/images/new_page/minus.png' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
       	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
       	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
@@ -52,7 +53,24 @@
       		//do nothing
       	}
       })
+      $(document).ready(function() {
 
+      //Default Action
+      $(".tab_content").hide(); //Hide all content
+      $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+      $(".tab_content:first").show(); //Show first tab content
+
+      //On Click Event
+      $("ul.tabs li").click(function() {
+      $("ul.tabs li").removeClass("active"); //Remove any "active" class
+      $(this).addClass("active"); //Add "active" class to selected tab
+      $(".tab_content").hide(); //Hide all tab content
+      var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+      $(activeTab).fadeIn(); //Fade in the active content
+      return false;
+      });
+
+      });
 
       window.onload = function displaytime()
       {

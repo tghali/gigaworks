@@ -17,7 +17,7 @@ class Admin::EmployeesController < Admin::AdminController
 
 
 def dashboard
-@graph = open_flash_chart_object(600,300,"/admin/employees/graph_code")
+@graph = open_flash_chart_object(720,200,"/admin/employees/graph_code")
 
 end
 
@@ -32,9 +32,9 @@ def graph_code
        title = Title.new("Contact list Monitor")
  
         
-        @leads = Lead.count(:all)
-        @clients = Gigaclient.count(:all)
-        @employees = Employ.count(:all)
+        @leads = 10 #Lead.count(:all)
+        @clients = 20 #Gigaclient.count(:all)
+        @employees = 30 #Employ.count(:all)
     pie = Pie.new
     pie.start_angle = 35
     pie.animate = true

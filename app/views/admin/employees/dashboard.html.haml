@@ -1,43 +1,23 @@
+#contentwrapper
+  #contentcolumn
+    .innertube-1
+      / head block wrapper
+      .head_block_wrapper
+        / New leads
+        .heading_inner_blocks
+          %h2 Dashboard
+        %br.clear_all/
+        / New leads end
+      .spacer.clear_all
+        %span  
+      #services_revenews.fl_left
+        %img{:alt => "Under Contruction", :height => "207", :src => "/images/new_page/services_revenew.jpg", :title => "Under Contruction", :width => "360"}/
+      #full_graph.fl_left
+        %img{:alt => "Under Construction", :height => "207", :src => "/images/new_page/full_graph.jpg", :width => "360"}/
+      .clear_all.spacer{:style => "height:20px"}
 
-= javascript_include_tag 'swfobject.js'
 
-= raw(@graph)
-#leftcolumn
-  / vertical menu
-  .glossymenu
-    %a.menuitem{:href => "employees/dashboard"} Dashboard
-    %a.menuitem.submenuheader{:href => "#"} Employees
-    .submenu
-      %ul
-        %li
-          %a{:href => "#"} Work Group
-        %li
-          %a{:href => "#"} Marketing
-        %li
-          %a{:href => "#"} Sales
-
-    %a.menuitem{:href => "#"} Clients
-    %a.menuitem.submenuheader{:href => "#"} Leads
-    .submenu
-      %ul
-        %li
-          %a{:href => "#"} Hot
-        %li
-          %a{:href => "#"} Cold
-        %li
-          %a{:href => "#"} Warm
-
-    %a.menuitem.submenuheader{:href => "#"} Talents
-    .submenu
-      %ul
-        %li
-          %a{:href => "#"} Web Designers
-        %li
-          %a{:href => "#"} Developers
-
-    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Suppliers
-    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Partners
-    %a.menuitem{:href => "#", :style => "border-bottom-width: 0"} Competitors
- 
-    .clear_all        
-/ <div id="footer"><a href="http://www.gigavine.com/style/">Gigavine</a></div>
+      .graph_display{:style => "width:100%"}
+        = raw(@graph)
+    .clear_all
+= render :partial => 'admin/leads/leftmenu'
