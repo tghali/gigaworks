@@ -18,6 +18,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 }
 /* remember to define focus styles! */
+input{border:0}
 :focus{outline: 0;}
 body {
 	line-height: 1;
@@ -561,6 +562,243 @@ div.fht-tbody {
 	position: relative;
 	}
 
+/*----------forms--*/
+.wrapper_form{
+	width:100%;
+	height:auto;
+	background:#cecece url(/images/new_page/pattern-bg.gif) repeat;
+	
+}
+.wrapper_form_inner{
+	width:97%;
+	margin:12px;
+	float:left;
+	/*border:1px solid #999999; 
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;*/
+	}
+
+.form_head_highlight{
+	width:108px;
+	height:29px;
+	background:url(/images/new_page/form_hd_highlight_left.gif) no-repeat left;
+	text-align:center;
+	line-height:29px;
+	font-size:16px;
+	}
+.form_head_highlight span{ float:left; width:108px; height:29px; background:url(/images/new_page/form_hd_highlight_right.gif) no-repeat right; color:#fff;}
+
+.form_other_information,.form_other_information span{
+	width:146px;
+}
+
+
+.new_lead_block{ width:98%; padding:10px 0 15px 15px;background:url(/images/new_page/form_inner_pattern.gif) repeat; }
+.new_lead_block label{ width:100%;}
+
+/*Form fields*/
+.fl_left{ float:left; margin-top:2px;} 
+.fl_right{ float:right}
+.title_width{ width:524px;}
+
+.input_width_11{ width:524px; height:37px; background:url(/images/new_page/form_elements_bg.png) no-repeat 0 0;} 
+.input_width_11 input{ width:500px;}
+.input_width_12{ width:254px; height:37px; background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -40px;}
+.input_width_12 input{width:230px; }
+.input_width_13{ width:412px; height:37px;background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -122px;}
+.input_width_13 input{ width:390px; }
+.input_width_14,
+.input_width_14 input{ width:412px; height:37px;}
+.input_width_11 input,
+.input_width_12 input,
+.input_width_13 input,
+.input_width_14 input,
+.input_width_15 input{ 
+	background:none; 
+	color:#424242;
+	margin:8px 0 0 10px; 
+	font-size:13px
+	}
+.input_width_15{ width:128px; height:37px;background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -80px;}
+.input_width_15 input{ width:110px;}
+.input_create_lead input{
+	width:109px;
+	height:38px;
+	background:url(/images/new_page/create_lead.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer
+	}
+.input_width_00{ background:none}
+.input_width_00 select{ width:254px; height:28px}
+.title select{ width:90px}
+.text_indent{ text-indent:5px;}
+.text_indent span{ color:#f00; font-size:20px; float:none; }
+.form_block_two{
+	width:268px;
+	}
+.form_block_three{
+	width:148px;
+	}
+.error_msg{ color:#f00; width:80%; padding:5px; margin:0 5px; display:none}
+/*error message*/
+.error_message{
+	border: 1px solid #c9645a;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:#febebe url(/images/new_page/error_msg.png) no-repeat 10px 4px;
+	padding:10px;
+	margin-bottom:10px;
+	color:#000;
+	}
+	.error_message span{ padding-left:30px}
+#validation-error{ margin-left:30px;}
+#validation-error h3{ font-size:16px; font-weight:700}
+#validation-error ul{margin-left:15px;}
+#validation-error ul li{ margin:5px 0}
+/*success message*/
+.success_message{
+	border: 1px solid #97c9ed;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:#ddf1fe url(/images/new_page/success.png) no-repeat 10px 4px;
+	padding:10px;
+	margin-bottom:10px;
+	color:#007ED7;
+	}
+	.success_message span{ padding-left:30px}
+
+/*Form fields end*/
+
+.tooltip {
+	background:#000;
+	border:1px solid #fff;
+	padding:10px 15px;
+	width:200px;
+	display:none;
+	color:#fff;
+	text-align:left;
+	font-size:12px;
+	border:1px solid #999999; 
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+
+	/* outline radius for mozilla/firefox only */
+/*	-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;*/
+}
 
 
 
+/*---------------dashboard styles---------------*/
+#services_revenews{
+	width:360px;
+	height:207px;
+	margin-right:10px;
+	}
+#full_graph{
+	width:350px;
+	height:207px;
+	}
+	
+/*---------------tabbing styles---------------*/	
+.container {width: 60%;}
+.graph_display{float:left; width:300px; background:#ccc}
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 21px;
+	/*border-bottom: 1px solid #999;*/
+	/*border-left: 1px solid #999;*/
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 21px;
+	line-height: 21px;
+	/*border: 1px solid #999;*/
+	border-left: none;
+	margin-bottom: -1px;
+	/*background: #e0e0e0;*/
+	overflow: hidden;
+	position: relative;
+	
+}
+
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 1.2em;
+	padding-left:20px;
+	/*border: 1px solid #fff;*/
+	outline: none;
+	
+}
+ul.tabs li a span{
+	display: block;
+	padding: 0 20px 0 0;
+}
+ul.tabs li a:hover{
+	background:url(../images/tab_left_img.gif) no-repeat top left;
+}
+ul.tabs li a:hover span{
+	background:url(../images/tab_right_img.gif) no-repeat top right;
+}
+html ul.tabs li.active a, html ul.tabs li.active a:hover  {
+	background:url(../images/tab_left_img.gif) no-repeat top left;
+}
+html ul.tabs li.active, html ul.tabs li.active a:hover span{
+background:url(../images/tab_right_img.gif) no-repeat top right;
+}
+.tab_container {
+	/*border: 1px solid #999;*/
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: #f2f2f2;
+	-moz-border-radius-bottomright: 8px;
+	-khtml-border-radius-bottomright: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-khtml-border-radius-bottomleft: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-khtml-border-radius-topright: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	 -webkit-box-shadow: 3px 3px 4px #000;
+	 box-shadow: 3px 3px 3px #000;
+	 /* For IE 8 
+	 -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000')";*/
+	 /* For IE 5.5 - 7 */
+	/* filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=153, Color='#000000');
+	 #margin-top:-8px;*/
+	/* margin-top*/ /*\**//*: blue\9*/
+}
+.tab_content {
+	padding: 20px;
+	font-size: 1.2em;
+}
+.tab_content h2 {
+	font-weight: normal;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+	font-size: 1.8em;
+}
+.tab_content h3 a{
+	color: #254588;
+}
+.tab_content img {
+	float: left;
+	margin: 0 20px 20px 0;
+	border: 1px solid #ddd;
+	padding: 5px;
+}	
+	

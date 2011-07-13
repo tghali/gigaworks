@@ -31,15 +31,19 @@ text-indent:17px
 color:#636363;
 }
 
-.glossymenu a.menuitem .statusicon{ /*CSS for icon image that gets dynamically added to headers*/
+.glossymenu a.menuitem .statusicon,.glossymenu a.statusicon_1 img{ /*CSS for icon image that gets dynamically added to headers*/
 position: absolute;
 top: 5px;
 left: 5px;
 border: none;
 }
 
-.glossymenu a.menuitem:hover{
+/*.glossymenu a.menuitem:hover{
 background-image: url(/images/new_page/menu-bg-hover.gif);
+}*/
+
+.glossymenu a.menuitem:hover,.color_blue{
+background-image: url(../images/menu-bg-hover.gif) !important;
 }
 
 .glossymenu div.submenu{ /*DIV that contains each sub menu*/
