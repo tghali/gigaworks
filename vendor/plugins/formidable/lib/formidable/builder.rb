@@ -10,13 +10,15 @@ module Formidable
           options[:class] = 'text'
         end
         args << options
-        @template.content_tag(:p, field_label(field_name, *args[0..2]) + "<br />".html_safe + super(field_name, *args))
+        #~ @template.content_tag(:p, field_label(field_name, *args[0..2]) + "<br />".html_safe + super(field_name, *args))
+	   super(field_name, *args)
       end
     end
 
     %w[collection_select text_area datetime_select date_select select file_field].each do |method_name|
       define_method(method_name) do |field_name, *args|
-        @template.content_tag(:p, field_label(field_name, *args[0..2]) + "<br />".html_safe + super(field_name, *args))
+        #~ @template.content_tag(:p, field_label(field_name, *args[0..2]) + "<br />".html_safe + super(field_name, *args))
+	super(field_name, *args)
       end
     end
 
