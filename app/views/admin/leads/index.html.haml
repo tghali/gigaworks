@@ -162,7 +162,7 @@
                     %td 
                       = lead.company
                     %td 
-                      = lead.first_name
+                      = link_to "#{lead.first_name}", edit_admin_lead_path(lead)
                     %td 
                       = lead.status
                     %td 
