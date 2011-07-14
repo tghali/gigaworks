@@ -1,7 +1,7 @@
 
 %br
 
-.two-thirds{:style => "border:1px solid #ccc"}
+.two-thirds
 
   %h3 Enter Details
   %div
@@ -9,17 +9,43 @@
     = render "shared/error_messages", :target => @lead
 
     = c.hidden_field :lead_frontend, :value => 1
-
-    = c.text_field :first_name,:label => "Name", :style => "width:130px;height:10px;"
-    = c.text_field :email,:style => "width:130px;height:10px;"  
-    
-    = c.text_field :phone,:label => "Phone No:",:style => "width:130px;height:10px;" 
-    = c.text_field :city ,:style => "width:130px;height:10px;"
-    
-    = c.text_field :state ,:style => "width:130px;height:10px;"
-    = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),{}, {:style => "width:130px;"}
-
-    = c.text_field :subject,:style => "height:10px;"    
-    = c.text_area :notes,:label => "Comments"
+    %table
+      %tr
+        %td
+          %label Name
+        %td
+          = c.text_field :first_name,:label => "Name", :style => "width:130px;height:10px;"
+        %td
+          %label Email
+        %td
+          = c.text_field :email,:style => "width:130px;height:10px;"  
+      %tr
+        %td
+          %label Phone
+        %td	  
+          = c.text_field :phone,:label => "Phone No:",:style => "width:130px;height:10px;" 
+        %td
+          %label City
+        %td
+          = c.text_field :city ,:style => "width:130px;height:10px;"
+      %tr
+        %td
+          %label State    
+        %td
+          = c.text_field :state ,:style => "width:130px;height:10px;"
+        %td
+          %label Country
+        %td
+          = c.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates']),{}, {:style => "width:130px;"}
+      %tr
+        %td
+          %label Subject
+        %td
+          = c.text_field :subject,:style => "height:10px;"  
+      %tr
+        %td
+          %label Notes    
+        %td
+          = c.text_area :notes,:label => "Comments",:style => "height:100px;vertical-align:top"
 
     = c.submit "Create"
