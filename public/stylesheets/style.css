@@ -145,7 +145,7 @@ padding-top: 15px;
 	margin-top:3px;
 	}
 #user_actions ul li{ float:left;display:inline;height:25px;}
-#user_actions ul li a{display:block;height:25px; background:url(/images/new_page/top_links.jpg) no-repeat;}
+#user_actions ul li a{display:block;height:25px; background:url(/images/new_page/top_links_hover.jpg) no-repeat;}
 #user_actions ul li a:hover{background:url(/images/new_page/top_links_hover.jpg) no-repeat;}
 #user_actions ul li a.member_ico{ background-position:0 0; width:29px;}
 #user_actions ul li a.member_ico:hover{ background-position:0 0; width:29px}
