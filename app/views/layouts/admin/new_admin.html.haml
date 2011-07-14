@@ -141,7 +141,7 @@
                     %li
                       %a.message_ico{:href => "#"}
                     %li
-                      %a.log_ico{:href => "/sign_out", :title=> "Click here to logout"}
+                      %a.log_ico{:href => "#"}
                 %br.clear_all/
               %p
                 %a.link_d{:href => "#"}
@@ -151,9 +151,9 @@
               =# image_tag current_user.avatar.url(:small)
               %span.login_logout
                 - if current_user 
-                  =# link_to t(:'account.Signout'), '/sign_out'
+                  %a{:href => "/sign_out"} Log Out 
                 - else
-                  -# %a{:href => "#"} Log In
+                  =# link_to t(:'account.Logout'), '/sign_out', :title=> "Click here to logout"
           %br.clear_all/
 
       = yield	  
