@@ -589,7 +589,7 @@ div.fht-tbody {
 .form_head_highlight span{ float:left; width:108px; height:29px; background:url(/images/new_page/form_hd_highlight_right.gif) no-repeat right; color:#fff;}
 
 .form_other_information,.form_other_information span{
-	width:146px;
+	width:166px;
 }
 
 
@@ -628,6 +628,15 @@ div.fht-tbody {
 	margin-left:5px;
 	cursor:pointer
 	}
+	
+.input_update_lead input{
+	width:109px;
+	height:38px;
+	background:url(/images/new_page/update_lead.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer
+	}	
+	
 .input_width_00{ background:none}
 .input_width_00 select{ width:254px; height:28px}
 .title select{ width:90px}

@@ -3,12 +3,13 @@
 
 .two-thirds
 
-  %h3 Enter Details
+  %h3 Contact Us
   %div
   = form_for @lead, :url => {:action => 'lead_create'} do |c|
     = render "shared/error_messages", :target => @lead
 
     = c.hidden_field :lead_frontend, :value => 1
+    = c.hidden_field :source_type, :value => 'Website'
     %table
       %tr
         %td
@@ -48,4 +49,4 @@
         %td
           = c.text_area :notes,:label => "Comments",:style => "height:100px;vertical-align:top"
 
-    = c.submit "Create"
+    = c.submit "Submit"

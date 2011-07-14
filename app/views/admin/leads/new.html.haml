@@ -23,7 +23,7 @@
               .title_width
                 %label.fl_left.text_indent
                   Title
-                  %span *
+                  %span &nbsp;
                 %br.clear_all/
                 %label.fl_left.input_width_11.input_width_00.title
                   = select :lead, :title, Gigavine::Preferences.suffixes 
@@ -33,7 +33,9 @@
               / Title End
               / First Name
               .form_block_two.fl_left
-                %label.fl_left.text_indent First Name
+                %label.fl_left.text_indent
+                  First Name
+                  %span *
                 %br.clear_all/
                 %label.fl_left.input_width_12
                   = c.text_field :first_name,:title => "Enter first name"
@@ -43,7 +45,9 @@
               / First Name end
               / Last Name
               .form_block_two.fl_left
-                %label.fl_left.text_indent Last Name
+                %label.fl_left.text_indent
+                  Last Name
+                  %span *
                 %br.clear_all/
                 %label.fl_left.input_width_12
                   = c.text_field  :last_name,:title => "Enter last name"
@@ -53,16 +57,113 @@
               .clear_all
               / Email
               .form_block_two.fl_left
-                %label.fl_left.text_indent Email
+                %label.fl_left.text_indent
+                  Email
+                  %span *
                 %br.clear_all/
                 %label.fl_left.input_width_12
                   = c.text_field :email,:title => "Enter email address"
+              .form_block_two.fl_left
+                %label.fl_left.text_indent
+                  Phone No
+                  %span &nbsp; 
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :phone,:title => "Enter phone number"
                 .clear_all
                 .error_msg dd
               / Email end
               .clear_all
           .clear_all
           / Lead form end
+	  
+          / Status block
+          .wrapper_form_inner
+            .form_head_highlight
+              %span Status
+            .new_lead_block.fl_left
+
+              / First Name
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Assigned to
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :appointed_to ,:title => "Assigned to"
+
+                .clear_all
+                .error_msg dd
+              / First Name end
+              / Status
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Status
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = c.select :status,Gigavine::Preferences.lead_status,:title => "Enter status"
+                .clear_all
+                .error_msg dd
+              / Status end
+              .clear_all
+              / Source
+              .form_block_two.fl_left
+                %label.fl_left.text_indent
+                  Source
+                  %span *
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = c.select :source_type,Gigavine::Preferences.lead_source,:title => "Please select source",:include_blank => 'Select Source'
+              .form_block_two.fl_left
+                %label.fl_left.text_indent
+                  Lead Score
+                  %span &nbsp;  
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00.title
+                  = c.select :pms_url,Gigavine::Preferences.lead_score,:title => "Please select score",:include_blank => 'Select'
+                .clear_all
+                .error_msg dd
+              / Email end
+              .clear_all
+          .clear_all
+          / Status block end
+          / -------------------------------Contact information start-------------------------------
+          .wrapper_form_inner
+            .form_head_highlight.form_other_information
+              %span Contact Information
+            .new_lead_block.fl_left
+              / Title
+              %label.fl_left.text_indent Company
+              %br.clear_all/
+              %label.fl_left.input_width_13
+                = c.text_field  :company,:title => "Enter company name"
+              .clear_all
+              / Title End
+              / Second line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Industry
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = c.select :industry, Gigavine::Preferences.industries
+              / Second line end
+              .clear_all
+              / Country
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Turnover
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00
+                  = c.select :turnover,Gigavine::Preferences.turnovers
+              / Country end
+              / City
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Website
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :web_url,:title => "Enter website name"
+              / City end
+              .clear_all
+
+          .clear_all
+          / -------------------------------Contact information end-------------------------------
+	  
+	  
           / Address form start
           .wrapper_form_inner
             .form_head_highlight
@@ -135,63 +236,13 @@
                 .error_msg dd
               / City end
               .clear_all
-          .clear_all
-          / Address form end
-          / -------------------------------Other information start-------------------------------
-          .wrapper_form_inner
-            .form_head_highlight.form_other_information
-              %span Other Information
-            .new_lead_block.fl_left
-              / Title
-              %label.fl_left.text_indent Company
-              %br.clear_all/
-              %label.fl_left.input_width_13
-                = c.text_field  :company,:title => "Enter company name"
-              .clear_all
-              / Title End
-              / Second line
-              .form_block_two.fl_left
-                %label.fl_left.text_indent Industry
-                %br.clear_all/
-                %label.fl_left.input_width_12.input_width_00
-                  = c.select :industry, Gigavine::Preferences.industries
-              / Second line end
-              .clear_all
-              / Country
-              .form_block_two.fl_left
-                %label.fl_left.text_indent Turnover
-                %br.clear_all/
-                %label.fl_left.input_width_12.input_width_00
-                  = c.select :turnover,Gigavine::Preferences.turnovers
-              / Country end
-              / City
-              .form_block_two.fl_left
-                %label.fl_left.text_indent Website
-                %br.clear_all/
-                %label.fl_left.input_width_12
-                  = c.text_field :web_url,:title => "Enter website name"
-              / City end
-              .clear_all
-              / Title
-              %label.fl_left.text_indent Appointed To
-              %br.clear_all/
-              %label.fl_left.input_width_12
-                = c.text_field :appointed_to,:title => "Enter manager name"
-              .clear_all
-              / Title End
-              / Second line
-              / Title
-              %label.fl_left.text_indent Status
-              %br.clear_all/
-              %label.fl_left.input_width_12.input_width_00
-                = c.select :status, options_for_select(['Open','Closed','Qualified','Contacted'])
-              .clear_all  
+
               %label.fl_left.input_create_lead
                 = submit_tag " "
               / Title End
               / Second line
+          / Address form end
           .clear_all
-          / -------------------------------Other information end-------------------------------
       / form block wrapper
       .spacer.clear_all
         %span
