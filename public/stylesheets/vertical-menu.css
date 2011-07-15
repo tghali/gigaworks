@@ -43,7 +43,7 @@ background-image: url(/images/new_page/menu-bg-hover.gif);
 }*/
 
 .glossymenu a.menuitem:hover,.color_blue{
-background-image: url(../images/menu-bg-hover.gif) !important;
+background-image: url(/images/menu-bg-hover.gif) !important;
 }
 
 .glossymenu div.submenu{ /*DIV that contains each sub menu*/

@@ -397,8 +397,23 @@
               / City end
               .clear_all
 
-              %label.fl_left.input_update_lead
-                = submit_tag " "
+              .form_block_three.fl_left
+                %label.fl_left.text_indent 
+                %br.clear_all/
+                %label.fl_left.input_update_lead
+                  = submit_tag " "
+                .clear_all
+                .error_msg dd
+              / City end
+
+              .form_block_three.fl_left
+                %label.fl_left.text_indent
+                %br.clear_all/
+                %label.fl_left.input_create_lead
+                  = link_to image_tag( '/images/new_page/cancel.png'), admin_leads_url
+                .clear_all
+                .error_msg dd
+              / City end
               / Title End
               / Second line
           / Address form end
