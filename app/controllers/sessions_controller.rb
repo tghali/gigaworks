@@ -1,24 +1,37 @@
 class SessionsController < ActionController::Base
   
   # before_filter :redirect_to_https
-  
+  layout  false 
   include WardenHelper
   include UrlHelper
   protect_from_forgery
   
-  def new    
+  def new   	 
     redirect_to root_url if warden.authenticated?
+
   end
   
+
+  
+  
+  
   def create
+	  
+	  
     if current_user
       flash[:alert] = t(:'account.already_signed_in')
-      redirect_to "http://worx.#{request.domain}/" and return
+      redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" and return
     end
+    
     warden.authenticate! :sign_in
 
+   
     Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
-    redirect_to "http://worx.#{request.domain}/"
+    #~ if request.referrer == "http://gigavine.com:4006/admin"
+	     #~ redirect_to "http://admin.#{request.domain}:4006/groups"
+    #~ else
+    redirect_to "http://worx.#{request.domain}:3003/admin/employees/dashboard" 
+    #~ end
   end
   
   # Load user if the user has authenticated before with the provider.

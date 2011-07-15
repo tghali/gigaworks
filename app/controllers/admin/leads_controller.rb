@@ -133,15 +133,14 @@ layout 'admin/new_admin'
 	def show	
 		@lead = Lead.find(params[:id])
 		 respond_to do |format|	
-		  format.js # new.html.erb
-		  format.xml  { render :xml => @lead }
+			  format.js # new.html.erb
+			  format.xml  { render :xml => @lead }
 		end
 	end
 	
 	def new
-		     @groups = Group.find(:all)
-		     @lead = Lead.new
-		     #@lead.build_contact_information
+		@lead = Lead.new
+		@lead.build_lead_contact
 		 respond_to do |format|
 		   format.html
 		   format.xml  { render :xml => @lead }
@@ -165,7 +164,6 @@ layout 'admin/new_admin'
 	
 	def edit
 		@lead = Lead.find(params[:id])
-		#~ @contact = Contact.find(lead.contact_id)
 		respond_to do |format|
 		  format.html # new.html.erb 
 		end		
@@ -339,7 +337,7 @@ layout 'admin/new_admin'
 	end
 	
 	def delete_all	
-		 if params[:result] == 'delete'
+		 if params[:result] == 'delete'			
 		     if !params[:lead].blank?	 
 				Lead.delete_all("id in (#{params[:lead].join(',')})")		
 				 respond_to do |format|
@@ -363,7 +361,6 @@ layout 'admin/new_admin'
 					end
 					
 				end
-
 				render 'edit_leads'
 				
 			else

@@ -14,6 +14,11 @@ class Lead < ActiveRecord::Base
   belongs_to :organisation
   belongs_to :contact, :class_name => "Contact"
     
+ has_one :lead_contact,:dependent => :destroy
+ accepts_nested_attributes_for :lead_contact, :allow_destroy => true
+ 
+ 
+    
   #belongs_to :sales # the sales operator's profile  
   # has_many :activities, :class_name => "SalesActivity"
   

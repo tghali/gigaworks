@@ -1,7 +1,7 @@
 #leftcolumn
   / vertical menu
   .glossymenu
-    %a.menuitem.statusicon_1{:href => "employees/dashboard"}
+    %a.menuitem.statusicon_1{:href => dashboard_admin_employees_url }
       %img{:src => "/images/new_page/view_details.png"}/
       Dashboard
     %a.menuitem.submenuheader{:href => "#"} Employees
@@ -17,7 +17,11 @@
     %a.menuitem.statusicon_1{:href => "#"}
       %img{:src => "/images/new_page/view_details.png"}/
       Clients
-    %a.menuitem.submenuheader{:href => "#"} Leads
+    - if params[:controller] == 'leads'
+      %a.menuitem.submenuheader{:href => "#"} Leads
+    - else
+      %a.menuitem.submenuheader{:href => admin_leads_path} Leads
+
     .submenu
       %ul
         %li
