@@ -20,7 +20,7 @@ class SessionsController < ActionController::Base
 	  
     if current_user
       flash[:alert] = t(:'account.already_signed_in')
-      redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" and return
+      redirect_to "http://worx.#{request.domain}/" and return
     end
     
     warden.authenticate! :sign_in
@@ -30,7 +30,7 @@ class SessionsController < ActionController::Base
     #~ if request.referrer == "http://gigavine.com:4006/admin"
 	     #~ redirect_to "http://admin.#{request.domain}:4006/groups"
     #~ else
-    redirect_to "http://worx.#{request.domain}:3003/admin/employees/dashboard" 
+    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" 
     #~ end
   end
   
