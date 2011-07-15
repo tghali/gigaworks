@@ -1,4 +1,4 @@
-require 'fastercsv'
+ require 'fastercsv'
 require 'csv'
 require 'vpim/vcard'
 

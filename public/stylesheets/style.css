@@ -394,6 +394,7 @@ div.fht-tbody {
 	
 	/* size */
 	padding: 5px;
+	white-space: nowrap;
 	}
 
 .fancyTable {
@@ -421,6 +422,7 @@ div.fht-tbody {
 	/* text */
 	color: #262c31;
 	font-size: 11px;
+	white-space: nowrap;
 	}
 
 .fancyTable tbody tr.odd td {
@@ -464,6 +466,7 @@ div.fht-tbody {
 	font-size: 12px;
 	font-weight: bold;
 	text-shadow: 0 1px 1px #e8ebee;
+	white-space: nowrap;
 	}
 	
 
@@ -589,7 +592,7 @@ div.fht-tbody {
 .form_head_highlight span{ float:left; width:108px; height:29px; background:url(/images/new_page/form_hd_highlight_right.gif) no-repeat right; color:#fff;}
 
 .form_other_information,.form_other_information span{
-	width:166px;
+	width:176px;
 }
 
 
@@ -634,8 +637,22 @@ div.fht-tbody {
 	height:38px;
 	background:url(/images/new_page/update_lead.png) no-repeat;
 	margin-left:5px;
-	cursor:pointer
+	cursor:pointer;
 	}	
+
+.input_search_lead{vertial:bottom;height:35px}
+.input_search_lead input{
+	width:109px;
+	height:27px;
+	background:url(/images/new_page/search.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer;
+	margin-top:5px
+	}
+
+
+
+
 	
 .input_width_00{ background:none}
 .input_width_00 select{ width:254px; height:28px}

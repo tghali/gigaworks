@@ -66,6 +66,9 @@
             %td.top_vbtm Country
             %td.top_vbtm Score
             %td.top_vbtm Turnover
+            %td{:rowspan => 2}
+              %label.input_search_lead
+                = submit_tag " "	    
           %tr
             %td
               = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries,params[:industry_search] )
@@ -79,8 +82,7 @@
                 %option Select Score
             %td
               = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers,params[:turnover_search])
-            %td
-              = submit_tag "Search"
+
       / filter option block end
       / user action wrapper block
       .spacer.clear_all
