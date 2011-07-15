@@ -1,22 +1,7 @@
-!!!
-%html
-  %head
-    %title== #{yield :title}Gigaworx
-    
-    %meta{:"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8" }/
-    %meta{:name => "description", :content => "Gigaworks is gigavine's internal überapp" }
-        
-    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
-    /[if lt IE 8]
-      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
-    = javascript_include_tag 'common.js'
-    = csrf_meta_tag
-  %body
-    #wrapper
-      #fixedcontainer
-        - unless flash.empty?
-          #flashes
-            - flash.each do |type, msg|
-              %div{:class=>"#{type}"}= h msg
-          -flash.clear
-        = yield
+
+- unless flash.empty?
+  #flashes
+    - flash.each do |type, msg|
+      %div{:class=>"#{type}"}= h msg
+    -flash.clear
+    = yield

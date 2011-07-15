@@ -117,6 +117,7 @@ $parent-columns: floor($blueprint-grid-columns / 3);
 @import 'partials/glossary';
 @import 'partials/terms_and_conditions';
 @import 'partials/document';
+
 #room-controls{
   h1 {
     width: 350px;   // this shouldn't be here
@@ -138,3 +139,4 @@ $parent-columns: floor($blueprint-grid-columns / 3);
   background: #eee;
   width: 100%;
 }
+

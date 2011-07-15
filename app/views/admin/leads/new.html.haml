@@ -85,10 +85,10 @@
 
               / First Name
               .form_block_two.fl_left
-                %label.fl_left.text_indent Assigned to
+                %label.fl_left.text_indent Appointed to
                 %br.clear_all/
                 %label.fl_left.input_width_12
-                  = c.text_field :appointed_to ,:title => "Assigned to"
+                  = c.text_field :appointed_to ,:title => "Appointed to"
 
                 .clear_all
                 .error_msg dd
@@ -124,10 +124,10 @@
               .clear_all
           .clear_all
           / Status block end
-          / -------------------------------Contact information start-------------------------------
+          / -------------------------------Comapny information start-------------------------------
           .wrapper_form_inner
             .form_head_highlight.form_other_information
-              %span Contact Information
+              %span Company Information
             .new_lead_block.fl_left
               / Title
               %label.fl_left.text_indent Company
@@ -159,10 +159,168 @@
                   = c.text_field :web_url,:title => "Enter website name"
               / City end
               .clear_all
+	      
+              / City
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Fax
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :fax,:title => "Enter fax number"
+              / City end
+
+	      
+              / City
+              .form_block_two.fl_left
+                %label.fl_left.text_indent No.of Employees
+                %br.clear_all/
+                %label.fl_left.input_width_12.input_width_00.title
+                  = c.select :emp_count, options_for_select(['  ','10','20','30','40','50','60','70','80','90'])
+              / City end
+              .clear_all
 
           .clear_all
-          / -------------------------------Contact information end-------------------------------
+          / -------------------------------Company information end-------------------------------
 	  
+
+          / Primary Contact start
+          = c.fields_for :lead_contact do |contact|  
+            .wrapper_form_inner
+              .form_head_highlight.form_other_information
+                %span Primary Contact
+              .new_lead_block.fl_left
+                / First name
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent First Name
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field :first_name_1,:title => "Enter first name"
+                  .clear_all
+                  .error_msg dd
+                / First name end
+                / last name
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Last Name
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field  :last_name_1,:title => "Enter last name"
+                  .clear_all
+                  .error_msg dd
+                / last name end
+                .clear_all
+
+                / email
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Email
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field :email_1,:title => "Enter email"
+                  .clear_all
+                  .error_msg dd
+                / email end
+                / phone number
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Phone
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field  :phone_1,:title => "Enter phone number"
+                  .clear_all
+                  .error_msg dd
+                / phone number end
+                .clear_all
+                / job title	
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Job Title
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field  :job_title_1,:title => "Enter job title"
+                  .clear_all
+                  .error_msg dd
+                / job title end
+                / Decision maker
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent &nbsp;
+                  %br.clear_all/
+                  %label.fl_left
+                    = contact.check_box  :desicion_maker_1,:label => "Decision Maker"
+                  .clear_all
+                  .error_msg dd
+                / phone number end
+                .clear_all
+                / job title	
+
+          / Secondary Contact start
+          = c.fields_for :lead_contact do |contact|  
+            .wrapper_form_inner
+              .form_head_highlight.form_other_information
+                %span Secondary Contact
+              .new_lead_block.fl_left
+                / First name
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent First Name
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field :first_name_2,:title => "Enter first name"
+                  .clear_all
+                  .error_msg dd
+                / First name end
+                / lastname
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Last Name
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field  :last_name_2,:title => "Enter last name"
+                  .clear_all
+                  .error_msg dd
+                / lastname end
+                .clear_all
+
+                / email
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Email
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field :email_2,:title => "Enter email"
+                  .clear_all
+                  .error_msg dd
+                / email end
+                / phone number
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Phone
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field  :phone_2,:title => "Enter phone number"
+                  .clear_all
+                  .error_msg dd
+                / phone number end
+                .clear_all
+                / job title
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent Job Title
+                  %br.clear_all/
+                  %label.fl_left.input_width_12
+                    = contact.text_field  :job_title_2,:title => "Enter job title"
+                  .clear_all
+                  .error_msg dd
+                / job title end
+
+                / Decision maker
+                .form_block_two.fl_left
+                  %label.fl_left.text_indent &nbsp;
+                  %br.clear_all/
+                  %label.fl_left
+                    = contact.check_box  :desicion_maker_2,:label => "Decision Maker"
+                  .clear_all
+                  .error_msg dd
+                / phone number end
+                .clear_all
+		
+                / Job title	
+
+
+
+
+
+
 	  
           / Address form start
           .wrapper_form_inner
