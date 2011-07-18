@@ -150,6 +150,12 @@ Gigavine::Application.routes.draw do
     resources :sub_groups
     resources :clients
 
+
+         resources :prospects do
+		 post :move_to ,:on => :collection
+	 end 
+
+
       resources :leads do
 
 	    get :delete_all, :on => :collection
@@ -174,6 +180,10 @@ Gigavine::Application.routes.draw do
   constraints :subdomain => "test" do
     get '/' => 'pages#show'
         get 'contactus' => 'pages#index'
+        
+        post 'submit_brief' => 'pages#submit_brief'
+
+        
     post 'create_contact' => 'pages#lead_create'
     get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
                                                                       :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,

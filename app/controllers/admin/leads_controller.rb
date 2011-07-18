@@ -164,6 +164,9 @@ layout 'admin/new_admin'
 	
 	def edit
 		@lead = Lead.find(params[:id])
+		if @lead.lead_contact.blank?
+			@lead.build_lead_contact
+		end
 		respond_to do |format|
 		  format.html # new.html.erb 
 		end		

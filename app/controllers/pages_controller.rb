@@ -25,19 +25,46 @@ class PagesController < ActionController::Base
   end
   
 def lead_create
-	@lead = Lead.new(params[:lead]) 
+	@prospect = Prospect.new(params[:prospect]) 
 	respond_to do |format|
-		if @lead.save
+		if @prospect.save
 			format.html { redirect_to('/', :notice => 'Thank you for register with us. Our Sales team will contact you soon...') }
-			format.xml  { render :xml => @lead, :status => :created, :location => @lead }
+			format.xml  { render :xml => @prospect, :status => :created, :location => @prospect }
 		else
 		     
 			format.html { render :action => "index" }
-			format.xml  { render :xml => @lead.errors, :status => :unprocessable_entity }
+			format.xml  { render :xml => @prospect.errors, :status => :unprocessable_entity }
 		end
 	end
 end
-  
+
+
+
+ 	def submit_brief
+	@briefdetail = BriefDetail.new(params[:briefdetail]) 
+		    respond_to do |format|
+			      if @briefdetail.save
+				format.html { redirect_to({:action => 'show'}, :notice => 'Lead was successfully created.') }
+				format.xml  { render :xml => @briefdetail, :status => :created, :location => @briefdetail }
+			      else
+				     
+				format.html { render :action => "index" }
+				format.xml  { render :xml => @briefdetail.errors, :status => :unprocessable_entity }
+			      end
+		    end
+	    end
+
+
+
+
+
+
+
+
+
+
+
+
   
 private
   def set_locale
