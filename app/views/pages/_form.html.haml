@@ -2,14 +2,16 @@
   %div
     %h4 Submit a brief
     %hr
-    = form_tag 'boo', :method => 'post' do
+    = form_for :briefdetail, :url =>{:controller=> :pages, :action => :submit_brief},:html => {:multipart => :true} do 
       %p
         = label_tag :name, t(:'site.quote.Name')
-        = text_field_tag :name
+        = text_field :briefdetail,  :name
       %p
         = label_tag :email, t(:'site.quote.Email')
-        = email_field_tag :email
-      %p.file
+        = email_field :briefdetail, :email
+      %p
         = label_tag :file, t(:'site.quote.Choose_a_file')
-        = file_field_tag :file
-        = submit_tag t(:'site.quote.Send'), :name => nil
+        %input#briefdetail_attachment{:name => "briefdetail[attachment]", :size => "4", :type => "file"}/
+        = submit_tag t(:'site.quote.Send') 
+
+        

@@ -5,17 +5,17 @@
 
   %h3 Contact Us
   %div
-  = form_for @lead, :url => {:action => 'lead_create'} do |c|
-    = render "shared/error_messages", :target => @lead
+  = form_for @prospect, :url => {:action => 'lead_create'} do |c|
+    = render "shared/error_messages", :target => @prospect
 
-    = c.hidden_field :lead_frontend, :value => 1
-    = c.hidden_field :source_type, :value => 'Website'
+    =# c.hidden_field :lead_frontend, :value => 1
+    = c.hidden_field :source_from, :value => 'Website'
     %table
       %tr
         %td
           %label Name
         %td
-          = c.text_field :first_name,:label => "Name", :style => "width:130px;height:10px;"
+          = c.text_field :name,:label => "Name", :style => "width:130px;height:10px;"
         %td
           %label Email
         %td
@@ -42,11 +42,11 @@
         %td
           %label Subject
         %td
-          = c.text_field :subject,:style => "height:10px;"  
+          = c.select( :subject, options_for_select(['Sales Department','Lead Department','Customer Dapartment','Marketing Department']),:include_blank => 'Select Subject')  
       %tr
         %td
-          %label Notes    
+          %label Message    
         %td
-          = c.text_area :notes,:label => "Comments",:style => "height:100px;vertical-align:top"
+          = c.text_area :message,:label => "Comments",:style => "height:100px;vertical-align:top"
 
     = c.submit "Submit"

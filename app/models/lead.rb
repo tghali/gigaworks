@@ -33,7 +33,9 @@ class Lead < ActiveRecord::Base
 	validates_format_of :phone,  :with => /^[\(\)0-9\- \+\.]{10,20}$/ , :if => Proc.new { |u| u.lead_frontend == '1' }
 	
 	
-	validates_presence_of :subject, :if => Proc.new { |u| u.lead_frontend == '1' }
+	#~ validates_presence_of :subject, :if => Proc.new { |u| u.lead_frontend == '1' }
+	
+	
 	validates_format_of :email, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i
 	
 	#~ validates_format_of :web_url, :with => /^[a-zA-Z]+[:\/\/]+[A-Za-z0-9\-_]+\\.+[A-Za-z0-9\.\/%&=\?\-_]+$/i
