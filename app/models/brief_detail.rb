@@ -6,7 +6,7 @@ class BriefDetail < ActiveRecord::Base
     :s3_permissions => "public-read", 
 
     :path =>  "/brief_details/:id/:style.:extension" ,
-    :bucket => 'sharmanyros'   
+    :bucket => 'Mawhiba'   
 	
 	
 end
