@@ -1,12 +1,12 @@
 class CreateBriefDetails < ActiveRecord::Migration
   def self.up
     create_table :brief_details do |t|
-      t.string :name,  :string
-      t.string :email,  :string
-      t.string :attachment_content_type,  :string
-      t.string :attachment_file_name,  :string
-      t.string :attachment_file_size,  :string
-      t.string :attachment_updated_at,  :datetime
+      t.string :name 
+      t.string :email 
+      t.string :attachment_content_type 
+      t.string :attachment_file_name 
+      t.string :attachment_file_size 
+      t.date :attachment_updated_at 
       t.timestamps
     end
   end
