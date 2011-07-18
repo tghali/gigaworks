@@ -21,7 +21,7 @@ class PagesController < ActionController::Base
   end
   
     def index
-	  	 @lead = Lead.new	
+	  	 @prospect = Prospect.new	
   end
   
 def lead_create
