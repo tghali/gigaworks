@@ -16,7 +16,7 @@
       .head_block_wrapper
         / heading
         .heading_inner_blocks
-          %h2 e-Requirements
+          %h2 Brief Details
         / heading end
 
         %br.clear_all/
@@ -35,34 +35,21 @@
 
                 %th Name
                 %th Email
-                %th Phone
-                %th Contry
-                %th Subject
-                %th Move To
+                %th Download
 
             %tbody
-              - if !@prospects.blank?
-                - @prospects.each_with_index do |prospect,j| 
+              - if !@brief_details.blank?
+                - @brief_details.each_with_index do |brief_detail,j| 
                   %tr
 
                     %td 
-                      = prospect.name
+                      = brief_detail.name
                     %td 
-                      = prospect.email
+                      = brief_detail.email
                     %td 
-                      = prospect.phone
-                    %td 
-                      = prospect.country
-                    %td 
-                      = prospect.subject
-                    - form_for :move, :url => {:action => "move_to"} do
-                      = hidden_field_tag :prospect_id, prospect.id
-                      %td
-                        = select_tag :move_to, options_for_select(['Sales','Lead','Customer','Marketing']),:onchange => "this.form.submit();"
-              - else
-                %tr
-                  %td{:colspan => 6,:style=> "text-align:center;"}
-                    = "No Prospects created yet..."
+                      = brief_detail.attachment_file_name 
+                      =  link_to "Download", brief_details_download_admin_prospects_url(:id => brief_detail.id)
+
 
             / table grid block end
     .clear_all

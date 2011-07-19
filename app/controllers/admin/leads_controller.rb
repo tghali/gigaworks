@@ -28,6 +28,29 @@ layout 'admin/new_admin'
 				sort = 'appointed_to ASC'
 			elsif sort ==  'appoint_d'
 				sort = 'appointed_to DESC'
+			
+			elsif sort ==  'status_a'
+				sort = 'status ASC'
+			elsif sort ==  'status_d'
+				sort = 'status DESC'
+			
+			elsif sort ==  'country_a'
+				sort = 'country ASC'
+			elsif sort ==  'country_d'
+				sort = 'country DESC'
+				
+			elsif sort ==  'email_a'
+				sort = 'email ASC'
+			elsif sort ==  'email_d'
+				sort = 'email DESC'
+				
+			elsif sort ==  'web_a'
+				sort = 'web_url ASC'
+			elsif sort ==  'web_d'
+				sort = 'web_url DESC'				
+				
+			else
+				sort = 'created_at DESC'
 
 			end
 		end

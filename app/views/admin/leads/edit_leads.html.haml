@@ -1,79 +1,169 @@
-.box.contact
+
+
+#contentwrapper
+  #contentcolumn
+    .innertube-1
+      / form block wrapper
+      .head_block_wrapper
+        / heading
+        .heading_inner_blocks
+          %h2 Modify Leads
+        / heading end
+        / approval block
+        / approval block end
+        %br.clear_all/
+      .clear_all  
+      #basic-accordian.wrapper_form
+        = form_for(:lead, :url => {:action => 'edit_leads'}) do
+          = hidden_field_tag "leads_list", @list
+          / Lead form start
+          - @list.each_with_index do |lead,i|
+       
+            - @lead = Lead.find(lead)
+
+            %div{ :class => "accordion_headings"} 	    
+              %a{:href => "#"} #{@lead.first_name.titleize}
+            
+            %div{:class => "userdata"}
+              = render "shared/error_messages", :target => eval("@lead#{i}") 
+              .wrapper_form_inner
+                .new_lead_block.fl_left
+                  / Title
+                  .title_width
+                    %label.fl_left.text_indent
+                      Title
+                      %span *
+                    %br.clear_all/
+                    %label.fl_left.input_width_11.input_width_00.title
+                      = select eval(":lead#{i}"), :title, Gigavine::Preferences.suffixes
+                    .clear_all
+                    .error_msg dd
+                  / Title End
+                  / Title
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      First Name
+                      %span *
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = text_field eval(":lead#{i}"),:first_name
+                    .clear_all
+                    .error_msg dd
+                  / Title End
+                  / Last Name
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Last Name
+                      %span *
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = text_field eval(":lead#{i}"),  :last_name
+                    .clear_all
+                    .error_msg dd
+                  / Last Name end
+                  .clear_all
+                  / Email
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Email
+                      %span *
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = text_field eval(":lead#{i}"), :email, :title => "Enter email address"
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Phone No
+                      %span &nbsp; 
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = text_field eval(":lead#{i}"), :phone,:title => "Enter phone number"
+                    .clear_all
+                    .error_msg dd
+                  / Email end
+                  .clear_all
+
+	    
+              / Status block
+              .wrapper_form_inner
+                .form_head_highlight
+                  %span Status
+                .new_lead_block.fl_left
+
+                  / First Name
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent Appointed to
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = text_field eval(":lead#{i}"), :appointed_to ,:title => "Appointed to"
+                    .clear_all
+                    .error_msg dd
+                  / First Name end
+                  / Status
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent Status
+                    %br.clear_all/
+                    %label.fl_left.input_width_12.input_width_00
+                      = select eval(":lead#{i}"),:status,Gigavine::Preferences.lead_status,:title => "Enter status"
+                    .clear_all
+                    .error_msg dd
+                  / Status end
+                  .clear_all
+                  / Source
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Source
+                      %span *
+                    %br.clear_all/
+                    %label.fl_left.input_width_12.input_width_00
+                      = select eval(":lead#{i}"), :source_type,Gigavine::Preferences.lead_source,:title => "Please select source",:include_blank => 'Select Source'
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Lead Score
+                      %span &nbsp;  
+                    %br.clear_all/
+                    %label.fl_left.input_width_12.input_width_00.title
+                      = select eval(":lead#{i}"), :pms_url,Gigavine::Preferences.lead_score,:title => "Please select score",:include_blank => 'Select'
+                    .clear_all
+                    .error_msg dd
+                  / Email end
+                  .clear_all
+              .clear_all
+              / Status block end
 
  
-  %h2 Edit Leads
-  = form_for(:lead, :url => {:action => 'edit_leads'}) do
-    = hidden_field_tag "leads_list", @list
+          .clear_all
+            .new_lead_block.fl_left
+              %label.fl_left.input_update_lead{:style => "width:auto"}
+                %input{:type => "submit", :value => " "}/
+              %label.fl_left.input_create_lead{:style => "width:auto"}
+                = link_to image_tag( '/images/new_page/cancel.png'), admin_leads_url
 
 
-    - @list.each_with_index do |lead,i|
-
-      = render "shared/error_messages", :target => eval("@lead#{i}")
-      - @lead = Lead.find(lead)
-      %h3 
-      %label Title
-
-      = text_field eval(":lead#{i}"), :title,:style => "width:150px;height:10px;"
-      %br/
-      %label First Name
-      = text_field eval(":lead#{i}"),:first_name,:style => "width:150px;height:10px;"
-
-
-
-      %br/
-      %label Last Name
-      = text_field eval(":lead#{i}"),:last_name,:style => "width:150px;height:10px;"
-
-	
-      %br/
-      %label Email
-      = text_field eval(":lead#{i}"),:email,:style => "width:150px;height:10px;"
-
-    
-      %br/
-
-    
-      %h3 Address:
-      %label First Line
-      = text_field eval(":lead#{i}"),:first_line ,:style => "width:150px;height:10px;"
-      %br/
-      %label Second Line
-      = text_field eval(":lead#{i}"),:second_line ,:style => "width:150px;height:10px;"
-      %br/
-      %label City
-      = text_field eval(":lead#{i}"),:city ,:style => "width:150px;height:10px;"
-      %br/
-      %label State
-      = text_field eval(":lead#{i}"),:state ,:style => "width:150px;height:10px;"
-      %br/
-      %label Zipcode
-      = text_field eval(":lead#{i}"),:zipcode,:style => "width:150px;height:10px;" 
-      %br/
-      %label Country
-      = select eval(":lead#{i}"),:country,country_options_for_select(:country, [@lead.country]),:label => "Country"
-      %br/
-      %label Po Box
-      = text_field eval(":lead#{i}"),:po_box ,:style => "width:150px;height:10px;"
-      %br/
-      %h3 Other Information:
-      %label Status
-      = select eval(":lead#{i}"),:status, options_for_select(['Open','Closed','Qualified','Contacted'],:selected => @lead.status)
-      %br/     
-      %label Company      
-      = text_field eval(":lead#{i}"),:company,:style => "width:150px;height:10px;"
-      %br/
-      %label Industry
-      = select eval(":lead#{i}"),:industry, Gigavine::Preferences.industries,:style => "width:150px;height:10px;"
-      %br/
-      %label Turnover
-      = select eval(":lead#{i}"),:turnover,Gigavine::Preferences.turnovers,:style => "width:150px;height:10px;"
-      %br/
-      %label Website
-      = text_field eval(":lead#{i}"),:web_url,:label => "Website",:style => "width:150px;height:10px;"
-      %br/
-      %label Appointed To
-      = text_field eval(":lead#{i}"),:appointed_to, :label => "Appointed To" ,:style => "width:150px;height:10px;"      
-      %hr   
-   
-    %br/
-    = submit_tag "Update Lead"
+ 
+/ content wrapper end
+= render :partial => "leftmenu"
+/ <div id="footer"><a href="http://www.dynamicdrive.com/style/">Gigavine</a></div>
+/ javascript coding
+:javascript
+  // execute your scripts when the DOM is ready. this is a good habit
+  $(function() {
+  
+  
+  
+  // select all desired input fields and attach tooltips to them
+  $("#myform :input").tooltip({
+  
+  	// place tooltip on the right edge
+  	position: "center right",
+  
+  	// a little tweaking of the position
+  	offset: [0, -40],
+  
+  	// use the built-in fadeIn/fadeOut effect
+  	effect: "fade",
+  
+  	// custom opacity setting
+  	opacity: 0.7
+  
+  });
+  });
