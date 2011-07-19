@@ -21,8 +21,48 @@
 
 
   jQuery(document).ready( function() {
-  setTimeout(function(){ jQuery("#message").fadeOut(); }, 3000);
+  setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
+  }function () {
+  alert('sfd');
+  //select all the a tag with name equal to modal
+  $('a[name=modal]').click(function (e) {
+  //Cancel the link behavior
+
+  e.preventDefault();
+  //Get the A tag
+  var id = $(this).attr('href');
+  //Get the screen height and width
+  var maskHeight = $(document).height();
+  var maskWidth = $(window).width();
+  //Set heigth and width to mask to fill up the whole screen
+  $('#mask').css({
+  'width': maskWidth,
+  'height': maskHeight
   });
+  //transition effect		
+  $('#mask').fadeIn(1000);
+  $('#mask').fadeTo("slow", 0.8);
+  //Get the window height and width
+  var winH = $(window).height();
+  var winW = $(window).width();
+  //Set the popup window to center
+  $(id).css('top', winH / 2 - $(id).height() / 2);
+  $(id).css('left', winW / 2 - $(id).width() / 2);
+  //transition effect
+  $(id).fadeIn(2000);
+  });
+  //if close button is clicked
+  $('.window .close').click(function (e) {
+  //Cancel the link behavior
+  e.preventDefault();
+  $('#mask').fadeOut(200);
+  $('.window').fadeOut(200);
+  });
+  //if mask is clicked
+  $('#mask').click(function () {
+  $(this).hide();
+  $('.window').fadeOut(200);
+  }););
  
 
 / content wrapper
@@ -118,6 +158,15 @@
                 %input.apply-bg{:type => "button", :value => "Apply"}/
               %td
                 %input.import-bg{:type => "button", :value => "Import"}/
+
+		
+		
+		
+		
+		
+		
+		
+		
         / user action 2 block end
         .spacer.clear_all
           %span
@@ -130,30 +179,47 @@
               %tr
                 %th
                   %input{:type => "checkbox", :onClick => "checkAll(this);"}/
-                %th
+                %th.sort_list
                   - if params[:sort] == 'company_d'
-                    %a{:href => "leads?sort=company_a"} Company
+                    %a.sort_desc_anchor{:href => "leads?sort=company_a"} Company
                   - else
-                    %a{:href => "leads?sort=company_d"} Company
-                %th
+                    %a.sort_asc_anchor{:href => "leads?sort=company_d"} Company
+                %th.sort_list
                   - if params[:sort] == 'fname_d'
-                    %a{:href => "leads?sort=fname_a"}  Main Contact
+                    %a.sort_desc_anchor{:href => "leads?sort=fname_a"}  Main Contact
                   - else
-                    %a{:href => "leads?sort=fname_d"}  Main Contact
-                %th Status
-                %th Email
-                %th Country
-                %th 
+                    %a.sort_asc_anchor{:href => "leads?sort=fname_d"}  Main Contact
+                %th.sort_list
+                  - if params[:sort] == 'status_d'
+                    %a.sort_desc_anchor{:href => "leads?sort=status_a"}  Status
+                  - else
+                    %a.sort_asc_anchor{:href => "leads?sort=status_d"}  Status
+
+                %th.sort_list
+                  - if params[:sort] == 'email_d'
+                    %a.sort_desc_anchor{:href => "leads?sort=email_a"}  Email
+                  - else
+                    %a.sort_asc_anchor{:href => "leads?sort=email_d"}  Email
+                %th.sort_list
+                  - if params[:sort] == 'country_d'
+                    %a.sort_desc_anchor{:href => "leads?sort=country_a"}  Country
+                  - else
+                    %a.sort_asc_anchor{:href => "leads?sort=country_d"}  Country
+                %th.sort_list
                   - if params[:sort] == 'industry_d'
-                    %a{:href => "leads?sort=industry_a"} Industry
+                    %a.sort_desc_anchor{:href => "leads?sort=industry_a"} Industry
                   - else
-                    %a{:href => "leads?sort=industry_d"} Industry
-                %th Website
-                %th 
+                    %a.sort_asc_anchor{:href => "leads?sort=industry_d"} Industry
+                %th
+                  - if params[:sort] == 'web_d'
+                    %a.sort_desc_anchor{:href => "leads?sort=web_a"} Website
+                  - else
+                    %a.sort_asc_anchor{:href => "leads?sort=web_d"} Website
+                %th.sort_list 
                   - if params[:sort] == 'appoint_d'
-                    %a{:href => "leads?sort=appoint_a"} Appointed to
+                    %a.sort_desc_anchor{:href => "leads?sort=appoint_a"} Appointed to
                   - else
-                    %a{:href => "leads?sort=appoint_d"} Appointed to
+                    %a.sort_asc_anchor{:href => "leads?sort=appoint_d"} Appointed to
                 %th Lead score
             %tbody
               - if !@leads.blank?

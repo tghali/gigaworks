@@ -564,6 +564,15 @@ div.fht-tbody {
 	z-index: 1;
 	position: relative;
 	}
+	
+th.sort_list{
+	background:url(/images/new_page/sorting_bg.gif) no-repeat !important;
+	}
+a.sort_asc_anchor, a.sort_desc_anchor{ color:#000 !important; display:block; padding-right:10px; background:url(/images/new_page/sorting_up_arrow.png) no-repeat center right; padding-right:15px;}
+a.sort_asc_anchor:hover, a.sort_desc_anchor{
+	background:url(/images/new_page/sorting_up_down.png) no-repeat center right !important;
+	text-decoration:none
+	}
 
 /*----------forms--*/
 .wrapper_form{
@@ -827,4 +836,48 @@ background:url(../images/tab_right_img.gif) no-repeat top right;
 	border: 1px solid #ddd;
 	padding: 5px;
 }	
+
+/*Multiple edit leads form*/	
+
+#basic-accordian{
+	/*border:5px solid #EEE;*/
+	/*padding:5px;*/
+/*	width:350px;*/
+/*	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-175px;*/
+/*	z-index:2;
+	margin-top:-100px;*/
+}
+
+
+.accordion_headings a{
+	padding:5px;
+	background:#cecece url(/images/new_page/plus_expand.png) no-repeat center right;
+	color:#000;
+	border-top:1px solid #000;
+	cursor:pointer;
+	font-weight:bold;
+	display:block;
+}
+
+
+.accordion_headings a:hover{
+	background:#4895c3 url(/images/new_page/plus_expand_hover.png) no-repeat center right;
+	color:#fff
+}
+
+
+.accordion_child{
+	padding:15px;
+	background:#EEE;
+}
+
+a.header_highlight{
+	background:#4895c3 url(/images/new_page/minus_contract.png) no-repeat center right;
+	color:#fff;
+	border-top:0;
+
+}
 	

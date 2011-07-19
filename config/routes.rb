@@ -154,6 +154,8 @@ Gigavine::Application.routes.draw do
 
          resources :prospects do
 		 post :move_to ,:on => :collection
+     get :brief_details ,:on => :collection
+     get :brief_details_download,:on => :collection
 	 end 
 
 

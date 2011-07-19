@@ -28,4 +28,47 @@ class Admin::ProspectsController < Admin::AdminController
 			  format.xml   { render :xml => @prospect, :status => :created, :location => @prospect }
 		end
 	end
+  
+  
+  
+  	def brief_details
+	@brief_details = BriefDetail.find(:all)
+			respond_to do |format|	
+			  format.html # new.html.erb
+			  format.xml  { render :xml => @brief_details }
+			end
+	end
+	
+
+
+ def brief_details_download  
+  begin
+   brief_detail = BriefDetail.find(params[:id])      
+		  if brief_detail	  
+			  data = open(brief_detail.attachment.url(:original)).read
+			  send_data data, :filename => brief_detail.attachment.original_filename 		
+		  else
+			redirect_to brief_details_download_admin_prospects_url
+		 end
+  	 rescue
+		redirect_to brief_details_download_admin_prospects_url
+	 end
+ end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 end
