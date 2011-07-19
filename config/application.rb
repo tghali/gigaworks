@@ -125,7 +125,10 @@ module Gigavine
       ['1','2','3','4','5']
     end
     
-    
+        
+         def self.employees
+	    ['Unknown','1 Employees','2 Employees','3 Employees','4 Employees','5 Employees','6-9 Employees','10-19 Employees', '20-49 Employees','50-99 Employees','100-199 Employees','200-299 Employees','300-399 Employees','400-499 Employees','500-749 Employees','750-999 Employees','1000-1499 Employees','1500-1999 Employees','2000-4999 Employees','5000-9999 Employees','100,000 Plus Employees']
+    end
     
   end
   
