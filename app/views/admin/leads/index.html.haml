@@ -24,6 +24,98 @@
   setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
   });
  
+  jQuery(document).ready(function () {
+
+  //select all the a tag with name equal to modal
+  jQuery('a[name=modal]').click(function (e) {
+
+  //Cancel the link behavior
+  e.preventDefault();
+
+  //Get the A tag
+  var id = jQuery(this).attr('href');
+
+  //Get the screen height and width
+  var maskHeight = jQuery(document).height();
+  var maskWidth = jQuery(window).width();
+
+  //Set heigth and width to mask to fill up the whole screen
+  jQuery('#mask').css({
+  'width': maskWidth,
+  'height': maskHeight
+  });
+
+  //transition effect		
+  jQuery('#mask').fadeIn(1000);
+  jQuery('#mask').fadeTo("slow", 0.8);
+
+  //Get the window height and width
+  var winH = jQuery(window).height();
+  var winW = jQuery(window).width();
+
+  //Set the popup window to center
+  jQuery(id).css('top', winH / 2 - jQuery(id).height() / 2);
+  jQuery(id).css('left', winW / 2 - jQuery(id).width() / 2);
+
+  //transition effect
+  jQuery(id).fadeIn(2000);
+
+  });
+
+
+  jQuery('a[name=modal1]').click(function (e) {
+
+  //Cancel the link behavior
+  e.preventDefault();
+
+  //Get the A tag
+  var id = jQuery(this).attr('href');
+
+  //Get the screen height and width
+  var maskHeight = jQuery(document).height();
+  var maskWidth = jQuery(window).width();
+
+  //Set heigth and width to mask to fill up the whole screen
+  jQuery('#mask').css({
+  'width': maskWidth,
+  'height': maskHeight
+  });
+
+  //transition effect		
+  jQuery('#mask').fadeIn(1000);
+  jQuery('#mask').fadeTo("slow", 0.8);
+
+  //Get the window height and width
+  var winH = jQuery(window).height();
+  var winW = jQuery(window).width();
+
+  //Set the popup window to center
+  jQuery(id).css('top', winH / 2 - jQuery(id).height() / 2);
+  jQuery(id).css('left', winW / 2 - jQuery(id).width() / 2);
+
+  //transition effect
+  jQuery(id).fadeIn(2000);
+
+  });
+
+
+  //if close button is clicked
+  jQuery('.window .close').click(function (e) {
+  //Cancel the link behavior
+  e.preventDefault();
+
+  jQuery('#mask').fadeOut(200);
+  jQuery('.window').fadeOut(200);
+  });
+
+  //if mask is clicked
+  jQuery('#mask').click(function () {
+  jQuery(this).hide();
+  jQuery('.window').fadeOut(200);
+  });
+
+  });
+
 
 / content wrapper
 #contentwrapper
@@ -66,22 +158,20 @@
             %td.top_vbtm Country
             %td.top_vbtm Score
             %td.top_vbtm Turnover
-            %td{:rowspan => 2}
-              %label.input_search_lead
-                = submit_tag " "	    
+	    
           %tr
             %td
-              = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries,params[:industry_search] )
+              = select_tag "industry_search", options_for_select(Gigavine::Preferences.industries,params[:industry_search] ),{:include_blank => 'Select Industry',:onchange => "this.form.submit();"}
             %td
               - if params[:lead]
-                = select( "lead","country",country_options_for_select(:country,[params[:lead][:country]]),{},{:style  => "width:130px;"})
+                = select( "lead","country",country_options_for_select(:country,[params[:lead][:country]]),{},{:style  => "width:130px;",:onchange => "this.form.submit();"})
               - else
-                = select( "lead","country",country_options_for_select(:country),{:include_blank => 'Select Country'},{:style  => "width:130px;"})
+                = select( "lead","country",country_options_for_select(:country),{:include_blank => 'Select Country'},{:style  => "width:130px;",:onchange => "this.form.submit();"})
             %td
               %select
                 %option Select Score
             %td
-              = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers,params[:turnover_search])
+              = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers,params[:turnover_search]),{:include_blank => 'Select Turnover',:onchange => "this.form.submit();"}
 
       / filter option block end
       / user action wrapper block
@@ -104,9 +194,11 @@
                 = link_to "Modify", '#',:onclick => "selectedaction('modify');",:title=> "Click here to modify leads"
               %li                
                 = link_to "Appoint", '#',:onclick => "selectedaction('appoint');", :title=> "Click here to appoint leads"
+
               %li
                 = link_to "Delete", '#',:onclick => "selectedaction('delete');", :title=> "Click here to delete leads"
         / user action 2 block
+      %span
         .bulk_action_block
           %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
             %tr
@@ -116,15 +208,22 @@
                   %option Bulk Action 1
               %td
                 %input.apply-bg{:type => "button", :value => "Apply"}/
-              %td
-                %input.import-bg{:type => "button", :value => "Import"}/
 
-		
-		
-		
-		
-		
-		
+              
+
+              #boxes
+              %td
+                %a{:href => "#dialog", :name => "modal"}  
+                  %input.import-bg{:type => "button", :value => "Import"}/
+                #dialog.window
+                  .inner_block_modal
+                    %h3 Import Leads
+                    - form_for(:impcsv, :url =>{:action=>'csv_import'}, :html => { :multipart => true,:onsubmit=>"return Checkfiles();" }) do |f|
+                      %p
+                        = f.file_field :csv_file_upload, :label=>"Import", :size=>"10"
+                        = f.submit 'Upload'
+                    %a.close{:href => "#"}
+                      %span
 		
 		
         / user action 2 block end
@@ -216,6 +315,6 @@
     .clear_all
   / content wrapper end
 = render :partial => "leftmenu"
- 
+#mask
     
 

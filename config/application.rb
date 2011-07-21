@@ -106,11 +106,11 @@ module Gigavine
     
 
         def self.industries
-	    ['Select Industry',:Education, :Entertainment, 'FMCG manufacturers']
+	    [:Education, :Entertainment, 'FMCG manufacturers']
     end
  
      def self.turnovers
-	    ['Select Turnover',"Up to 249k",'250k to 499k','500k to 0.9m','1m to 1.9m','2m to 2.9m','3m to 4.9m','5m to 7.49m','7.5m to 9.9m','10m to 14.9m','15m to 20m','20m to 150m','151m to 500m','501m to 999m','1b to 5b', 'over 5b']
+	    ["Up to 249k",'250k to 499k','500k to 0.9m','1m to 1.9m','2m to 2.9m','3m to 4.9m','5m to 7.49m','7.5m to 9.9m','10m to 14.9m','15m to 20m','20m to 150m','151m to 500m','501m to 999m','1b to 5b', 'over 5b']
     end
 
     
