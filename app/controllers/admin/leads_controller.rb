@@ -56,11 +56,11 @@ layout 'admin/new_admin'
 		end
 		
 		condition = nil
-	        if params[:industry_search] && params[:industry_search] != 'Select Industry' 
+	        if params[:industry_search] && params[:industry_search] != '' 
 			condition  = "industry = '#{params[:industry_search]}'"
 		end
 	    
-		 if params[:turnover_search] && params[:turnover_search] != 'Select Turnover'
+		 if params[:turnover_search] && params[:turnover_search] != ''
 			 if !condition.blank?
 				condition  = condition + " AND turnover =  '#{params[:turnover_search]}'"
 			else
@@ -103,7 +103,7 @@ layout 'admin/new_admin'
 
 
   def csv_import 	  
-	  
+ 
 	if request.post? and params[:impcsv][:csv_file_upload]
 		
 		if params[:impcsv][:csv_file_upload].content_type == 'text/x-vcard' 
@@ -128,13 +128,14 @@ layout 'admin/new_admin'
 		
 		 if params[:impcsv][:csv_file_upload].content_type == 'text/csv' 
 			     @impcsv=CSV::Reader.parse(params[:impcsv][:csv_file_upload])
+			     
 			     n=0
 			     @impcsv.each  do |row|
 			     c=Lead.new
 			     c.first_name=row[0]
 			     c.last_name=row[1]
 			     c.email=row[2]
-			     if c.save
+			     if c.save!
 				n=n+1
 				GC.start if n%50==0
 			      end
