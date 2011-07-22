@@ -1,5 +1,5 @@
 class Admin::ClientsController < Admin::AdminController
-	
+		layout 'admin/new_admin'
 	def index
 	  if params[:search]
 		@clients = Gigaclient.find(:all,:conditions => ["first_name LIKE ? OR home_country lIKE ? OR last_name lIKE ?","%#{params[:search]}%","#{params[:search]}%","%#{params[:search]}"]).paginate :page => params[:page],:per_page => 2 

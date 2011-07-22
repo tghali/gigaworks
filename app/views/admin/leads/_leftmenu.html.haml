@@ -14,7 +14,7 @@
         %li
           %a{:href => "#"} Sales
 
-    %a.menuitem.statusicon_1{:href => "#"}
+    %a.menuitem.statusicon_1{:href => admin_clients_path}
       %img{:src => "/images/new_page/view_details.png"}/
       Clients
     - if params[:controller] == 'leads'
@@ -48,11 +48,6 @@
     %a.menuitem.statusicon_1{:href => "#"}
       %img{:src => "/images/new_page/view_details.png"}/
       Competitors
-    %a.menuitem.statusicon_1{:href => admin_prospects_url }
-      %img{:src => "/images/new_page/view_details.png"}/
-      e-Requirements
-    %a.menuitem.statusicon_1{:href =>  brief_details_admin_prospects_url }
-      %img{:src => "/images/new_page/view_details.png"}/
-      Brief Details
+
     .clear_all    
 / <div id="footer"><a href="http://www.gigavine.com/style/">Gigavine</a></div>

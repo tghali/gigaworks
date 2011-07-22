@@ -1,5 +1,28 @@
 
 %script{:type => "text/javascript"}
+  var arr_ele = [];
+  function checkNew(cb,check_ele)
+  {
+
+  if(check_ele.checked == false)
+  {
+  for(var i=0; i<arr_ele.length;i++ )
+  { 
+  if(arr_ele[i]==cb)
+
+  arr_ele.splice(i,1)
+  } 
+  document.getElementById('total_leads').value = arr_ele;
+  }
+  if (check_ele.checked == true)
+  {   
+  arr_ele.push(cb);
+  document.getElementById('total_leads').value = arr_ele;
+  }
+  }
+
+
+
   function checkAll(cb)
   {
 
@@ -108,11 +131,7 @@
   jQuery('.window').fadeOut(200);
   });
 
-  //if mask is clicked
-  jQuery('#mask').click(function () {
-  jQuery(this).hide();
-  jQuery('.window').fadeOut(200);
-  });
+
 
   });
 
@@ -192,11 +211,46 @@
                   = link_to "View", admin_leads_path		
               %li
                 = link_to "Modify", '#',:onclick => "selectedaction('modify');",:title=> "Click here to modify leads"
-              %li                
-                = link_to "Appoint", '#',:onclick => "selectedaction('appoint');", :title=> "Click here to appoint leads"
+		
+              %li 
+                = link_to "Appoint", '#dialog1',:title=> "Click here to modify leads",:name => "modal1"	      
+
 
               %li
                 = link_to "Delete", '#',:onclick => "selectedaction('delete');", :title=> "Click here to delete leads"
+		
+      %span
+        #boxes
+          %td
+
+            #dialog1.window
+              .inner_block_modal
+                %h3 
+                - form_for(:appoint, :url => {:action => 'appoint_to'}) do  
+    
+                  .form_block_two.fl_left{:style=>"margin:20px 0 0 20px"}
+                    %label.fl_left.text_indent Appoint To
+                    %br.clear_all
+                    %label.fl_left.input_width_12
+                      = hidden_field_tag 'total_leads', ''
+                      = text_field 'lead', 'appointed_to'
+                  .clear_all
+                  .error_msg dd
+                  .clear_all
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent &nbsp;
+                    %br.clear_all
+                    %label.fl_left{:style=>"margin:0 0 0 20px"}
+
+                      %input.apply-bg{:type => "button", :value => "Appoint"}/
+                  .clear_all
+                  .error_msg dd
+
+
+              %a.close{:href => "#",:onclick => "document.getElementById('lead_appointed_to').value = '';document.getElementById('total_leads').value = '';"}
+                %span		
+		
+		
         / user action 2 block
       %span
         .bulk_action_block
@@ -212,18 +266,34 @@
               
 
               #boxes
-              %td
-                %a{:href => "#dialog", :name => "modal"}  
-                  %input.import-bg{:type => "button", :value => "Import"}/
+                %td
+                  %a{:href => "#dialog", :name => "modal"}  
+                    %input.import-bg{:type => "button", :value => "Import"}/
                 #dialog.window
                   .inner_block_modal
-                    %h3 Import Leads
-                    - form_for(:impcsv, :url =>{:action=>'csv_import'}, :html => { :multipart => true,:onsubmit=>"return Checkfiles();" }) do |f|
-                      %p
-                        = f.file_field :csv_file_upload, :label=>"Import", :size=>"10"
-                        = f.submit 'Upload'
-                    %a.close{:href => "#"}
-                      %span
+                    %h3
+                    - form_for(:impcsv, :url =>{:action=>'csv_import'}, :html => { :multipart => true,:onsubmit=>"return Checkfiles();",:name => "import_csv" }) do |f|
+                      .form_block_two.fl_left{:style=>"margin:20px 0 0 20px"}
+                        %label.fl_left.text_indent Upload File
+                        %br.clear_all
+                        %label.fl_left.input_width_12
+                          
+                          = f.file_field :csv_file_upload, :label=>"Import", :size=>"10"
+                      .clear_all
+                      .error_msg dd
+                      .clear_all
+                      .form_block_two.fl_left
+                        %label.fl_left.text_indent &nbsp;
+                        %br.clear_all
+                        %label.fl_left{:style=>"margin:0 0 0 20px"}
+
+                          %input.apply-bg{:type => "button", :value => "Upload"}/
+                      .clear_all
+                      .error_msg dd
+
+
+                  %a.close{:href => "#"}
+                    %span
 		
 		
         / user action 2 block end
@@ -285,7 +355,7 @@
                 - @leads.each_with_index do |lead,j| 
                   %tr
                     %td
-                      = check_box_tag "lead[]", lead.id 
+                      %input{:type => "checkbox", :value => lead.id,:onclick =>"checkNew(this.value,this);" }
                     %td 
                       = lead.company
                     %td 
@@ -315,6 +385,6 @@
     .clear_all
   / content wrapper end
 = render :partial => "leftmenu"
-#mask
+
     
 
