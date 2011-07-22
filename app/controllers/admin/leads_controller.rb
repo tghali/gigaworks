@@ -302,11 +302,13 @@ layout 'admin/new_admin'
 	end
 
 	def appoint_to
-		if !params[:leads].blank? && !params[:lead][:appointed_to].blank?
-			leads = Lead.find(:all,:conditions => "id in (#{params[:leads]})")	
+		#~ render :text => params.inspect and return
+		if !params[:total_leads].blank?
+		if !params[:total_leads].blank? && !params[:lead][:appointed_to].blank?
+			leads = Lead.find(:all,:conditions => "id in (#{params[:total_leads]})")	
 			for lead in leads
 				@lead = Lead.find(lead.id)
-				@lead.update_attributes!(:appointed_to => params[:lead][:appointed_to])
+				@lead.update_attribute(:appointed_to, params[:lead][:appointed_to])
 				
 			end
 			respond_to do |format|
@@ -316,6 +318,12 @@ layout 'admin/new_admin'
 		else
 			respond_to do |format|
 			      format.html { redirect_to admin_leads_url, :notice => 'There is a problem to update leads please try again.' }
+			      format.xml  { head :ok }
+		      end
+	         end
+		else
+			respond_to do |format|
+			      format.html { redirect_to admin_leads_url, :notice => 'No Lead was selected to appoint' }
 			      format.xml  { head :ok }
 		      end
 		end

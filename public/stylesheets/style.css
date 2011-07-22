@@ -905,36 +905,25 @@ a.header_highlight{
 
 
 
-#dialog {
-  width:375px; 
-  height:203px;
+#dialog,#dialog1 {
+  width:300px; 
+  height:auto;
   padding:10px;
   -moz-border-radius: 15px;
   -khtml-border-radius: 15px;
   -webkit-border-radius: 15px;
-	background:#464646;
-	
+	background:#464646;	
 }
-#dialog1 {
-  width:375px; 
-  height:203px;
-  padding:10px;
-  -moz-border-radius: 15px;
-  -khtml-border-radius: 15px;
-  -webkit-border-radius: 15px;
-	background:#464646;
-	
-}
-
 
 .inner_block_modal{
-	width:375px;
-	height:203px;
+	width:300px;
+	height:auto;
 	background:#fff;
 	-moz-border-radius: 8px;
 	-khtml-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	color:#000;
+	padding-bottom:25px;
 /*	border:1px solid #a0a0a0*/
 }
 .inner_block_modal p{ padding:10px;}
