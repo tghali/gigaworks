@@ -30,7 +30,8 @@ Gigavine::Application.routes.draw do
   get '/profile'           => 'users#edit',       :as => :profile
   
   # CRM/PMS
-  
+  get 'signup/(:invite_token)' => 'users#signup', :as => :signup
+  match 'signup' => 'users#gigauser_create'
   
   
   constraints :subdomain => "worx" do

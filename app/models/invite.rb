@@ -3,7 +3,7 @@ class Invite < ActiveRecord::Base
   belongs_to :recipient, :class_name => "Contact"
   
   # validates_uniqueness_of :recipient, :message => 'has already received an invite.'
-  
+  belongs_to :gigaclient,:class_name => 'Gigaclient',:foreign_key => 'event_id'
   # validates_uniqueness_of :token
   # validate :recipient_is_not_registered
   

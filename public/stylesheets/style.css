@@ -649,6 +649,21 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 	cursor:pointer;
 	}	
 
+.input_create_client input{
+	width:109px;
+	height:38px;
+	background:url(/images/new_page/create-client.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer
+	}
+
+
+
+
+
+
+
+
 .input_search_lead{vertial:bottom;height:35px}
 .input_search_lead input{
 	width:109px;

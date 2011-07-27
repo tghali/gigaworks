@@ -1,5 +1,7 @@
+= javascript_include_tag "rails"
 
 %script{:type => "text/javascript"}
+
   var arr_ele = [];
   function checkNew(cb,check_ele)
   {
@@ -44,6 +46,7 @@
 
 
   jQuery(document).ready( function() {
+
   setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
   });
  
@@ -77,7 +80,6 @@
             %td.filter{:rowspan => "2", :width => "77px"} Filter by :
             %td.top_vbtm Industry
             %td.top_vbtm Country
-            %td.top_vbtm Score
             %td.top_vbtm Turnover
 	    
           %tr
@@ -88,9 +90,7 @@
                 = select( "lead","country",country_options_for_select(:country,[params[:lead][:country]]),{},{:style  => "width:130px;",:onchange => "this.form.submit();"})
               - else
                 = select( "lead","country",country_options_for_select(:country),{:include_blank => 'Select Country'},{:style  => "width:130px;",:onchange => "this.form.submit();"})
-            %td
-              %select
-                %option Select Score
+
             %td
               = select_tag "turnover_search", options_for_select(Gigavine::Preferences.turnovers,params[:turnover_search]),{:include_blank => 'Select Turnover',:onchange => "this.form.submit();"}
 
@@ -100,22 +100,13 @@
         %span
       - form_for(:search, :url => delete_all_admin_leads_path,:html => {:method => :get,:name => 'delete'}) do  
         .user_action_block
-          .add_view
-            = hidden_field_tag 'result'
+          .add_view{:style => "width:90px;"}
+
             %ul
               %li
                 -#%a{:href => "#", :title=> "Click here to add new lead"} Add New
                 = link_to "Add New", new_admin_client_path
-              %li
-                - if params[:action] == 'index' && params[:industry_search].blank? && params[:turnover_search].blank?
-                  %a{:href => "#"}  View
-                - else
-                  = link_to "View", admin_leads_path		
-              %li
-                = link_to "Modify", '#',:onclick => "selectedaction('modify');",:title=> "Click here to modify leads"
-
-              %li
-                = link_to "Delete", '#',:onclick => "selectedaction('delete');", :title=> "Click here to delete leads"
+           
 		
       %span
         #boxes
@@ -185,31 +176,34 @@
               %tr
 
                 %th.sort_list
-                  - if params[:sort] == 'company_d'
-                    %a.sort_desc_anchor{:href => "leads?sort=company_a"} First Name
+                  - if params[:sort] == 'name_d'
+                    %a.sort_desc_anchor{:href => "clients?sort=name_a"} Name
                   - else
-                    %a.sort_asc_anchor{:href => "leads?sort=company_d"} First Name
+                    %a.sort_asc_anchor{:href => "clients?sort=name_d"} Name
                 %th.sort_list
-                  - if params[:sort] == 'fname_d'
-                    %a.sort_desc_anchor{:href => "leads?sort=fname_a"}  PMS URL
+                  - if params[:sort] == 'project_d'
+                    %a.sort_desc_anchor{:href => "clients?sort=project_a"}  Project URL
                   - else
-                    %a.sort_asc_anchor{:href => "leads?sort=fname_d"}  PMS URL
-
+                    %a.sort_asc_anchor{:href => "clients?sort=project_d"}  Project URL
+                %th.sort_list
+                  - if params[:sort] == 'pmanager_d'
+                    %a.sort_desc_anchor{:href => "clients?sort=pmanager_a"} Project Manager
+                  - else
+                    %a.sort_asc_anchor{:href => "clients?sort=pmanager_d"} Project Manager
                 %th.sort_list
                   - if params[:sort] == 'email_d'
-                    %a.sort_desc_anchor{:href => "leads?sort=email_a"}  Email
+                    %a.sort_desc_anchor{:href => "clients?sort=email_a"}  Email
                   - else
-                    %a.sort_asc_anchor{:href => "leads?sort=email_d"}  Email
+                    %a.sort_asc_anchor{:href => "clients?sort=email_d"}  Email
                 %th.sort_list
-                  - if params[:sort] == 'country_d'
-                    %a.sort_desc_anchor{:href => "leads?sort=country_a"}  Country
+                  - if params[:sort] == 'company_d'
+                    %a.sort_desc_anchor{:href => "clients?sort=company_a"}  Company
                   - else
-                    %a.sort_asc_anchor{:href => "leads?sort=country_d"}  Country
-                %th.sort_list
-                  - if params[:sort] == 'industry_d'
-                    %a.sort_desc_anchor{:href => "leads?sort=industry_a"} Industry
-                  - else
-                    %a.sort_asc_anchor{:href => "leads?sort=industry_d"} Industry
+                    %a.sort_asc_anchor{:href => "clients?sort=company_d"}  Company
+
+                %th
+                  Actions
+
 
             %tbody
               - if !@clients.blank?
@@ -220,15 +214,28 @@
                     %td 
                       = client.pms_url
                     %td 
+                      = client.project_manager_id
+
+
+                    %td 
                       = client.email
 
+		      
+                    %td 
+                      = client.company
 
                     %td 
-                      = client.industry
-                    %td 
-                      = client.turnover
+
+                      %span>/
+                      = link_to "Edit",edit_admin_client_path(client),:title=> "Click here to modify client"
+		      
+                      |
+                      %span>/
+                      = link_to "Delete", admin_client_path(client), :html_options => {:confirm => 'Are you sure want to delete client details? ', :method => :delete,:title => "Click here to delete client"}
 
 
+		      
+		      
               - else
                 %tr
                   %td{:colspan => 7}
