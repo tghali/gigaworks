@@ -10,7 +10,7 @@ class Gigaclient < ActiveRecord::Base
 	
   
   
-  has_one  :invite,:dependent => :destroy
+  has_one  :invite,:foreign_key => 'event_id',:dependent => :destroy
   
 	validates_presence_of :first_name, :last_name
 	validates_presence_of :email 
