@@ -8,6 +8,10 @@ class Gigaclient < ActiveRecord::Base
 	  has_many   :client_addresses
 	  accepts_nested_attributes_for :client_addresses, :allow_destroy => true
 	
+  
+  
+  has_one  :invite,:dependent => :destroy
+  
 	validates_presence_of :first_name, :last_name
 	validates_presence_of :email 
 	#~ validates_presence_of :pms_url	
