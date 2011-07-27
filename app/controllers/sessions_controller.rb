@@ -30,7 +30,12 @@ class SessionsController < ActionController::Base
     #~ if request.referrer == "http://gigavine.com:4006/admin"
 	     #~ redirect_to "http://admin.#{request.domain}:4006/groups"
     #~ else
-    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" 
+    	 gigadomain = Gigadomain.find_by_id(current_user.id)
+	    if gigadomain
+		    redirect_to "http://#{gigadomain.subdomain}.#{request.domain}/welcome" and return
+	    else
+		    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" 
+	    end
     #~ end
   end
   
