@@ -1,3 +1,6 @@
 .box.sentence
   %br{:style => "top:30px;"}
   %h2 Coming Soon....
+  %span.login_logout
+  - if current_user 
+    %a{:href => "/sign_out"} Log Out 

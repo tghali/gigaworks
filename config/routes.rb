@@ -33,6 +33,7 @@ Gigavine::Application.routes.draw do
   get 'signup/(:invite_token)' => 'users#signup', :as => :signup
   match 'signup' => 'users#gigauser_create'
   
+  get '/welcome' => "schedule/schedule#show"
   
   constraints :subdomain => "worx" do
         
