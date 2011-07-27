@@ -12,5 +12,14 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "Password reset")  
   end
   
+    def client_invite(invite)
+      @invite = invite
+
+    mail(:to => invite.gigaclient.email, :subject => "Gigaworx invite")
+    @invite.sent_at Time.now
+  end
+  
+  
+  
   
 end
