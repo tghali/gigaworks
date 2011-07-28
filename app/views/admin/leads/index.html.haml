@@ -1,6 +1,7 @@
 
 %script{:type => "text/javascript"}
   var arr_ele = [];
+  var all_ele = [];
   function checkNew(cb,check_ele)
   {
 
@@ -13,31 +14,58 @@
   arr_ele.splice(i,1)
   } 
   document.getElementById('total_leads').value = arr_ele;
+  document.getElementById('lead').value = arr_ele;
   }
   if (check_ele.checked == true)
   {   
   arr_ele.push(cb);
   document.getElementById('total_leads').value = arr_ele;
+  document.getElementById('lead').value = arr_ele;
   }
   }
 
 
 
-  function checkAll(cb)
+  function checkAll(cb1)
   {
 
-  var val = cb.checked;
-  var frm = document.delete;
-  var len = frm.elements.length;
-  var i=0;
-  for( i=0 ; i<len ; i++) 
+  if(cb1.checked == true)
   {
-  frm.elements[i].checked=val;
+  var c = new Array();
+  c = document.getElementsByTagName('input');
+  for (var i = 0; i < c.length; i++)
+  {
+  if (c[i].type == 'checkbox')
+  {
+  c[i].checked = true;
+  all_ele.push(c[i].value);
+  document.getElementById('lead').value = all_ele;
+  document.getElementById('total_leads').value = all_ele;
   }
   }
+  }
+  else
+  {
+
+  var c = new Array();
+  c = document.getElementsByTagName('input');
+  for (var i = 0; i < c.length; i++)
+  {
+  if (c[i].type == 'checkbox')
+  {
+  c[i].checked = false;
+  document.getElementById('lead').value = "";
+  document.getElementById('total_leads').value = ""; 
+
+  }
+  }
+  }
+  }
+  
+  
   function selectedaction(type)
   {
-
+  
   document.getElementById('result').value = type;
   document.delete.submit();
   }
@@ -200,6 +228,7 @@
         .user_action_block
           .add_view
             = hidden_field_tag 'result'
+            = hidden_field_tag 'lead'
             %ul
               %li
                 -#%a{:href => "#", :title=> "Click here to add new lead"} Add New
@@ -242,7 +271,7 @@
                     %br.clear_all
                     %label.fl_left{:style=>"margin:0 0 0 20px"}
 
-                      %input.apply-bg{:type => "button", :value => "Appoint"}/
+                      %input.apply-bg{:type => "button", :value => "Appoint",:onclick => "this.form.submit();"}/
                   .clear_all
                   .error_msg dd
 
@@ -287,7 +316,7 @@
                         %br.clear_all
                         %label.fl_left{:style=>"margin:0 0 0 20px"}
 
-                          %input.apply-bg{:type => "button", :value => "Upload"}/
+                          %input.apply-bg{:type => "button", :value => "Upload",:onclick => "this.form.submit();"}/
                       .clear_all
                       .error_msg dd
 

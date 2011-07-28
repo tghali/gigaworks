@@ -104,7 +104,7 @@ layout 'admin/new_admin'
 
   def csv_import 	  
  
-	if request.post? and params[:impcsv][:csv_file_upload]
+	if request.post? and params[:impcsv]
 		
 		if params[:impcsv][:csv_file_upload].content_type == 'text/x-vcard' 
 
@@ -305,6 +305,7 @@ layout 'admin/new_admin'
 		#~ render :text => params.inspect and return
 		if !params[:total_leads].blank?
 		if !params[:total_leads].blank? && !params[:lead][:appointed_to].blank?
+			params[:total_leads] = params[:total_leads].gsub(/on,/,'')
 			leads = Lead.find(:all,:conditions => "id in (#{params[:total_leads]})")	
 			for lead in leads
 				@lead = Lead.find(lead.id)
@@ -333,6 +334,7 @@ layout 'admin/new_admin'
 	def edit_leads	
 
 		if !params[:leads_list].blank?
+
 			       error = '0'
 				@arr = params[:leads_list].split(" ").map{|s| s.to_i}
 				@list = @arr
@@ -348,20 +350,20 @@ layout 'admin/new_admin'
 								instance_variable_set"@lead#{i}", Lead.new(params["lead#{i}"]) #, Lead.find(lead)
 							end
 						end
-
+						error = '1'
+					end
+					
 					end
 
-					end
-	
-				error = '1'
-				render 'edit_leads'
-	
 
 				 if error == '0'
 						 respond_to do |format|
 						      format.html { redirect_to admin_leads_url, :notice => 'Leads was successfully updated.' }
 						      format.xml  { head :ok }
-					      end
+						
+					end
+				else
+					render 'edit_leads'
 			       end
 		else
 				 respond_to do |format|
@@ -372,9 +374,12 @@ layout 'admin/new_admin'
 	end
 	
 	def delete_all	
+		
 		 if params[:result] == 'delete'			
-		     if !params[:lead].blank?	 
-				Lead.delete_all("id in (#{params[:lead].join(',')})")		
+		     if !params[:lead].blank?	
+				params[:lead] = params[:lead].gsub(/on,/,'')
+				
+				Lead.delete_all("id in (#{params[:lead]})")		
 				 respond_to do |format|
 				      format.html { redirect_to admin_leads_url, :notice => 'Leads was successfully deleted.' }
 				      format.xml  { head :ok }
@@ -386,16 +391,23 @@ layout 'admin/new_admin'
 			          end
 		      end
 		elsif params[:result] == 'modify'
-			if !params[:lead].blank?					
-			  @list = params[:lead]
+			if !params[:lead].blank?
+					
+				params[:lead] = params[:lead].gsub(/on,/,'')
+				
+			@arr = []
+			@arr = params[:lead].split(",").map{|s| s.to_i}
+   		        @list = @arr
 
 				total = params[:lead].size.to_i
+
 				@users = total.times.map do |i|
-					params[:lead].each_with_index do |lead,i|
-					instance_variable_set"@lead#{i}", Lead.find(lead)
+					@arr.each_with_index do |lead,i|
+					instance_variable_set"@lead#{i}", Lead.find(lead) 
 					end
 					
 				end
+				
 				render 'edit_leads'
 				
 			else
@@ -407,6 +419,7 @@ layout 'admin/new_admin'
 
 		elsif params[:result] == 'appoint'
 			if !params[:lead].blank?	
+				params[:lead] = params[:lead].gsub(/on,/,'')
 				@leads = params[:lead].join(',')		
 				render 'appoint_leads'
 

@@ -659,7 +659,13 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 
 
 
-
+.input_update_client input{
+	width:109px;
+	height:38px;
+	background:url(/images/new_page/update_client.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer
+	}
 
 
 

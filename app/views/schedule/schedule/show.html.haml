@@ -1,6 +1,7 @@
 .box.sentence
-  %br{:style => "top:30px;"}
-  %h2 Coming Soon....
-  %span.login_logout
-  - if current_user 
-    %a{:href => "/sign_out"} Log Out 
+  %title Welcome
+  %br{:style => "top:3px;"}
+  %div{:style=>"width:800px;margin:0 auto;position;relative;text-align:center"}
+    = image_tag( '/images/new_page/premium_underconstruction_template_grey.jpg')
+    %a{:href=>"/sign_out"}
+      = image_tag(( '/images/new_page/logout.png'),:style => "position:absolute;left:470px;top:300px;")
