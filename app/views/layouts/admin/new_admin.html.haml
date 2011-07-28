@@ -9,6 +9,7 @@
 
     = javascript_include_tag 'curvy.js','menu.js','jquery.tools.min.js' ,'jquery.fixedheadertable.min','demo.js','ddaccordion.js','swfobject.js'
     %script{:language => "javascript", :type => "text/javascript"}
+
       var settings = {
       tl: { radius: 4 },
       tr: { radius: 4 },
@@ -17,7 +18,7 @@
       antiAlias: true
       };
       
-      $$('.discount-content-block','.deal-location').each(function(rd) {
+      $('.discount-content-block','.deal-location').each(function(rd) {
       curvyCorners(settings,rd);
       });
       
@@ -29,11 +30,12 @@
       antiAlias: true
       };
       
-      $$('.add_view').each(function(rd) {
+      $('.add_view').each(function(rd) {
       curvyCorners(settings1,rd);
       });
 
     :javascript
+
       ddaccordion.init({
       	headerclass: "submenuheader", //Shared CSS class name of headers group
       	contentclass: "submenu", //Shared CSS class name of contents group
@@ -54,39 +56,11 @@
       		//do nothing
       	}
       })
-      $(document).ready(function() {
 
-      //Default Action
-      $(".tab_content").hide(); //Hide all content
-      $("ul.tabs li:first").addClass("active").show(); //Activate first tab
-      $(".tab_content:first").show(); //Show first tab content
-
-      //On Click Event
-      $("ul.tabs li").click(function() {
-      $("ul.tabs li").removeClass("active"); //Remove any "active" class
-      $(this).addClass("active"); //Add "active" class to selected tab
-
-      $(".tab_content").hide(); //Hide all tab content
-      var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
-      $(activeTab).fadeIn(); //Fade in the active content
-      return false;
-      });
-
-       $('#basic-accordian .userdata').hide();
-      
-       $('#basic-accordian .accordion_headings a').click(function(){
-               $('#basic-accordian .userdata').slideUp();
-               $('#basic-accordian .accordion_headings a').removeClass("header_highlight");
-               $(this).parent().next().slideDown();
-               $(this).addClass("header_highlight");
-               return false;
-       });
-
-
-      });
-
-      window.onload = function displaytime()
+      window.onload = displaytime();
+      function displaytime()
       {
+
       datetoday = new Date();
       timenow=datetoday.getTime();
       datetoday.setTime(timenow);
@@ -112,6 +86,38 @@
       document.getElementById('dddd').innerHTML =  datetoday.getMonth() + '/' + datetoday.getDate() + '/' + datetoday.getFullYear() + '         '+ curr_hour + ':' + datetoday.getMinutes() + ' ' + meridian;
       document.getElementById('greet').innerHTML = greeting + ' : ';
       }
+      $(document).ready(function() {
+
+      //Default Action
+      $(".tab_content").hide(); //Hide all content
+      $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+      $(".tab_content:first").show(); //Show first tab content
+
+      //On Click Event
+      $("ul.tabs li").click(function() {
+      $("ul.tabs li").removeClass("active"); //Remove any "active" class
+      $(this).addClass("active"); //Add "active" class to selected tab
+
+      $(".tab_content").hide(); //Hide all tab content
+      var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+      $(activeTab).fadeIn(); //Fade in the active content
+      return false;
+      });
+
+       $('#basic-accordian .userdata').hide();
+
+       $('#basic-accordian .accordion_headings a').click(function(){
+               $('#basic-accordian .userdata').slideUp();
+               $('#basic-accordian .accordion_headings a').removeClass("header_highlight");
+               $(this).parent().next().slideDown();
+               $(this).addClass("header_highlight");
+               return false;
+       });
+
+
+      });
+
+
 
 
 

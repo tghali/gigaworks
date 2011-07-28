@@ -44,11 +44,23 @@ class Admin::ClientsController < Admin::AdminController
 	end
 		
 	def show
+		if params[:method] == 'delete'
+			 @gigaclient = Gigaclient.find(params[:id])    
+			  authorize! :destroy, @gigaclient
+			
+			  @destroyed = @gigaclient.destroy
+			    respond_to do |format|
+			      format.html { redirect_to admin_clients_url, :notice => 'Client was successfully deleted.' }
+			      format.xml  { head :ok }
+			end
+		
+		else
 		@client = Gigaclient.find(params[:id])
 		 respond_to do |format|	
 		  format.js # new.html.erb
 		  format.xml  { render :xml => @client }
 		end
+	  end
 	end
 	
 	def new
@@ -93,16 +105,19 @@ class Admin::ClientsController < Admin::AdminController
 	
 	def edit
 		@gigaclient = Gigaclient.find(params[:id])
-				if @gigaclient.gigadomain.blank?
+		if @gigaclient.gigadomain.blank?
 			@gigaclient.build_gigadomain
 		end
+		if @gigaclient.client_addresses.blank?
+			@gigaclient.client_addresses.build
+		end		
+		
 		respond_to do |format|
 		  format.html # new.html.erb 
 		end		
 	end
 	
-	def update
-#~ render :text => params.inspect and return		
+	def update	
 	   @gigaclient = Gigaclient.find(params[:id])	    
 	    authorize! :update, @gigaclient	    
 	    respond_to do |format|
@@ -110,6 +125,7 @@ class Admin::ClientsController < Admin::AdminController
 		 format.html { redirect_to(admin_clients_url, :notice => 'Client has been successfully updated.') } 
 		 format.xml  { render :xml => @gigaclient, :status => :created, :location => @gigaclient }
 	      else   
+
 		format.html { render :action => "edit" }
 		format.xml  { render :xml => @gigaclient.errors, :status => :unprocessable_entity }
 	      end
@@ -120,6 +136,7 @@ class Admin::ClientsController < Admin::AdminController
 	end
 	
 	def destroy
+		render :text => "hi" and return
 		 @gigaclient = Gigaclient.find(params[:id])    
 		  authorize! :destroy, @gigaclient
 		

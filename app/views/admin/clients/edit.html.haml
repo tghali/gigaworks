@@ -22,7 +22,7 @@
   var divIdName = "my"+num+"Div";
   var newdiv = document.createElement('div');
   newdiv.setAttribute("id",divIdName);
-  newdiv.innerHTML = "<table><tr><td>title:</td><br/><td><input type='text' id='title[]' name='gigaclient[client_addresses_attributes]["+num_v+"][title]'></td></tr><br/><tr><td>first_line:</td><br/><td><input type='text' id='first_line[]' name='gigaclient[client_addresses_attributes]["+num_v+"][first_line]'></td></tr><br/><tr><td>second_line:</td><br/><td><input type='text' id='second_line[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][second_line]'></td></tr><br/><tr><td>city:</td><br/><td><input type='text' id='city[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][city]'></td></tr><br/><tr><td>state:</td><br/><td><input type='text' id='state[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][state]'></td></tr> <br/><tr><td>zipcode:</td><br/><td><input type='text' id='zipcode[]' name='gigaclient[client_addresses_attributes]["+num_v+"][zipcode]'></td></tr> <br/><tr><td>country:</td><br/><td><input type='text' id='country[]' name='gigaclient[client_addresses_attributes]["+num_v+"][country]'></td></tr><br/><tr><td>po_box:</td><br/><td><input type='text' id='po_box[]' name= 'gigaclient[client_addresses_attributes]["+num_v+"][po_box]'></td></tr> <br/>   <tr><td><a href=\"javascript:;\" onclick=\"removeEvent(\'"+divIdName+"\')\">Remove</a></td></tr></table>";
+  newdiv.innerHTML = '<div class="new_lead_block fl_left"><div class="form_block_two fl_left"><label class="fl_left text_indent">Title</label><br class="clear_all"><label class="fl_left input_width_12"><input class="text" id="title[]" name="gigaclient[client_addresses_attributes]['+num_v+'][title]" size="30" type="text"></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="clear_all"></div><div class="form_block_two fl_left"><label class="fl_left text_indent">First Line</label><br class="clear_all"><label class="fl_left input_width_12"><input class="text" id="first_line[]" name="gigaclient[client_addresses_attributes]['+num_v+'][first_line]" size="30" type="text"></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="form_block_two fl_left"><label class="fl_left text_indent">Second Line</label><br class="clear_all"><label class="fl_left input_width_12"><input class="text" id="second_line[]" name="gigaclient[client_addresses_attributes]['+num_v+'][second_line]" size="30" type="text"></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="form_block_two fl_left input_width_00"><label class="fl_left text_indent">Country</label><br class="clear_all"><label class="fl_left input_width_10"><select id="country[]" name="gigaclient[client_addresses_attributes]['+num_v+'][country]"><option value="United Kingdom">United Kingdom</option><option value="United Arab Emirates">United Arab Emirates</option><option value="" disabled="disabled">-------------</option><option value="Afghanistan">Afghanistan</option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua And Barbuda">Antigua And Barbuda</option><option value="Argentina">Argentina</option><option value="Armenia">Armenia</option><option value="Aruba">Aruba</option><option value="Australia">Australia</option><option value="Austria">Austria</option><option value="Azerbaijan">Azerbaijan</option><option value="Bahamas">Bahamas</option><option value="Bahrain">Bahrain</option><option value="Bangladesh">Bangladesh</option><option value="Barbados">Barbados</option><option value="Belarus">Belarus</option><option value="Belgium">Belgium</option><option value="Belize">Belize</option><option value="Benin">Benin</option><option value="Zimbabwe">Zimbabwe</option></select></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="form_block_two fl_left"><label class="fl_left text_indent">State</label><br class="clear_all"><label class="fl_left input_width_12"><input class="text" id="state[]" name="gigaclient[client_addresses_attributes]['+num_v+'][state]" size="30" type="text"></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="clear_all"></div><div class="form_block_two fl_left"><label class="fl_left text_indent">City</label><br class="clear_all"><label class="fl_left input_width_12"><input class="text" id="city[]" name="gigaclient[client_addresses_attributes]['+num_v+'][city]" size="30" type="text"></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="form_block_two fl_left"><label class="fl_left text_indent">zipcode</label><br class="clear_all"><label class="fl_left input_width_12"><input class="text" id="zipcode[]" name="gigaclient[client_addresses_attributes]['+num_v+'][zipcode]" size="30" type="text"></label><div class="clear_all"></div><div class="error_msg">dd</div></div><div class="clear_all"></div></div>';  ;
   ni.appendChild(newdiv);
   }
  
@@ -91,7 +91,8 @@
                   %span *
                 %br.clear_all/
                 %label.fl_left.input_width_12
-                  = c.text_field :last_name,:onblur => "pmsurl();",:title => "Enter last name"
+                  = c.text_field :last_name,:title => "Enter last name"
+
                 .clear_all
                 .error_msg dd
               .form_block_two.fl_left
@@ -105,149 +106,170 @@
                 .clear_all
                 .error_msg dd
               / First Name end
-              / Last Name
-              = c.fields_for :gigadomain do |domain|  
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent
-                    Sub Domain
-                    %span *
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = domain.hidden_field :gigaclient_id
-                    = domain.text_field :subdomain,:readonly => :true
-                  .clear_all
-                  .error_msg dd
-                / Last Name end
-	      
-	      
-              / First Name
-              .form_block_two.fl_left
-                %label.fl_left.text_indent
-                  Project Manager
-                  %span *
-                %br.clear_all/
-                %label.fl_left.input_width_12
-                  = text_field :gigaclient, :project_manager_id
+              .clear_all
+          .clear_all
+            = c.fields_for :gigadomain do |domain|  
+              .wrapper_form_inner
+                .form_head_highlight.form_other_information
+                  %span Other Information
+                .new_lead_block.fl_left
+                  / Last Name
 
-                .clear_all
-                .error_msg dd
-              / Last Name
-              .form_block_two.fl_left
-                %label.fl_left.text_indent
-                  Company
-                  %span *
-                %br.clear_all/
-                %label.fl_left.input_width_12
-                  = c.text_field :last_name,:onblur => "pmsurl();",:title => "Enter last name"
-                  = c.text_field :company
-                .clear_all
-                .error_msg dd
-              .form_block_two.fl_left
-                %label.fl_left.text_indent
-                  Web url
-                  %span *
-                %br.clear_all/
-                %label.fl_left.input_width_12
-                  = c.text_field :web_page,:title => "Enter your web url"
-                .clear_all
-                .error_msg dd
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Project URL
+                      %span *
+                    %br.clear_all/
+                    %label.fl_left.input_width_15
+                      = domain.hidden_field :gigaclient_id
+                      = domain.text_field :subdomain,:readonly => :true
+                      %span{:style => "padding-left:10px;"} .gigavine.com
+                    .clear_all
+                    .error_msg dd
+                    / Last Name end
+	      
+	      
+                  / First Name
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Project Manager
+                      %span &nbsp;
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = text_field :gigaclient, :project_manager_id
+
+                    .clear_all
+                    .error_msg dd
+                  / Last Name
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Company
+                      %span &nbsp;
+                    %br.clear_all/
+                    %label.fl_left.input_width_12                      
+                      = c.text_field :company
+                    .clear_all
+                    .error_msg dd
+                  .form_block_two.fl_left
+                    %label.fl_left.text_indent
+                      Web URL
+                      %span &nbsp;
+                    %br.clear_all/
+                    %label.fl_left.input_width_12
+                      = c.text_field :web_page,:title => "Enter your web url"
+                    .clear_all
+                    .error_msg dd
  
 
 
-              / Email end
+                  / Email end
+                  .clear_all
               .clear_all
-          .clear_all
-          / Status block end
+              / Status block end
  	  
 
-          / Primary Contact start
-          = c.fields_for :client_addresses do |m|  
-            .wrapper_form_inner
-              .form_head_highlight.form_other_information
-                %span Address
-              .new_lead_block.fl_left
-                / First name
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent Title
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = m.text_field :title
+              / Primary Contact start
+              = c.fields_for :client_addresses do |m|  
+                .wrapper_form_inner
+                  .form_head_highlight
+                    %span Address
+                  .new_lead_block.fl_left
+                    / First name
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent Title
+                      %br.clear_all/
+                      %label.fl_left.input_width_12
+                        = m.text_field :title
+                      .clear_all
+                      .error_msg dd
+                    / First name end
+                    .clear_all
+                    / FIRST LINE
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent First Line
+                      %br.clear_all/
+                      %label.fl_left.input_width_12
+                        = m.text_field :first_line
+                      .clear_all
+                      .error_msg dd
+                    / FIRST LINE end
+
+
+                    / SECOND LINE
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent Second Line
+                      %br.clear_all/
+                      %label.fl_left.input_width_12
+                        = m.text_field :second_line
+                      .clear_all
+                      .error_msg dd
+                    / SECOND LINE end
+
+
+                    / COUNTRY
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent Country
+                      %br.clear_all/
+                      %label.fl_left.input_width_00
+                        = m.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
+
+
+                      .clear_all
+                      .error_msg dd
+                    / COUNTRY end
+
+
+
+                    / STATE
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent State
+                      %br.clear_all/
+                      %label.fl_left.input_width_12
+                        = m.text_field :state
+                      .clear_all
+                      .error_msg dd
+                    / STATE end
+                    .clear_all
+                    / CITY 
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent City
+                      %br.clear_all/
+                      %label.fl_left.input_width_12
+                        = m.text_field :city
+                      .clear_all
+                      .error_msg dd
+                    / CITY  end
+
+
+
+                    / ZIPCODE	
+                    .form_block_two.fl_left
+                      %label.fl_left.text_indent zipcode
+                      %br.clear_all/
+                      %label.fl_left.input_width_12
+                        = m.text_field :zipcode
+                      .clear_all
+                      .error_msg dd
+                    / ZIPCODE end
+
+
+
+
+
+
+
+
                   .clear_all
-                  .error_msg dd
-                / First name end
-                / last name
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent First Line
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = m.text_field :first_line
-                  .clear_all
-                  .error_msg dd
-                / last name end
                 .clear_all
-
-                / email
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent Second Line
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = m.text_field :second_line
-                  .clear_all
-                  .error_msg dd
-                / email end
-                / phone number
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent City
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = m.text_field :city
-                  .clear_all
-                  .error_msg dd
-                / phone number end
-                .clear_all
-                / job title	
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent State
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = m.text_field :state
-                  .clear_all
-                  .error_msg dd
-                / job title end
-                / job title	
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent zipcode
-                  %br.clear_all/
-                  %label.fl_left.input_width_12
-                    = m.text_field :zipcode
-                  .clear_all
-                  .error_msg dd
-                / job title end
-
-
-                / email
-                .form_block_two.fl_left
-                  %label.fl_left.text_indent Country
-                  %br.clear_all/
-                  %label.fl_left.input_width_10
-                    = m.select :country,country_options_for_select(:country, ['United Kingdom', 'United Arab Emirates'])
-
-
-                  .clear_all
-                  .error_msg dd
-                / email end
-
-                .clear_all
-              .clear_all
-                %input#theValue{:name => "theValue", :type => "hidden", :value => "1"}/
-                %p
-                %a{:href => "javascript:;", :onClick => "addEvent();"} Add More
-                #myDiv
+                  %input#theValue{:name => "theValue", :type => "hidden", :value => "1"}/
+                  %p
+                  %a{:href => "javascript:;", :onClick => "addEvent();"} Add More
+                  #myDiv
 
               .form_block_three.fl_left
                 %label.fl_left.text_indent 
                 %br.clear_all/
-                %label.fl_left.input_update_lead
+                %label.fl_left.input_update_client
                   = submit_tag " "
                 .clear_all
                 .error_msg dd
@@ -256,7 +278,7 @@
               .form_block_three.fl_left
                 %label.fl_left.text_indent
                 %br.clear_all/
-                %label.fl_left.input_update_lead
+                %label.fl_left.input_create_client
                   = link_to image_tag( '/images/new_page/cancel.png'), admin_clients_url
                 .clear_all
                 .error_msg dd
