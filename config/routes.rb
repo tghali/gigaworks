@@ -35,6 +35,15 @@ Gigavine::Application.routes.draw do
   
   get '/welcome' => "schedule/schedule#show"
   
+    constraints :subdomain => "nkumar" do
+      
+      resources :leads
+    end
+  
+  
+  
+  
+  
   constraints :subdomain => "worx" do
         
     
