@@ -31,8 +31,8 @@ class SessionsController < ActionController::Base
 	     #~ redirect_to "http://admin.#{request.domain}:4006/groups"
     #~ else
     
-  gigauser = Gigauser.find(current_user.id)
-	gigadomain = Gigadomain.find_by_gigaclient_id(gigauser.gigaclient_id)
+  gigauser = Gigauser.find_by_id(current_user.id)
+	gigadomain = Gigadomain.find_by_gigaclient_id(gigauser.gigaclient_id) if !gigauser.blank?
     	 #~ gigadomain = Gigadomain.find_by_id(current_user.id)
 	    if gigadomain
           #~ render :text => "Subdomain" and return
