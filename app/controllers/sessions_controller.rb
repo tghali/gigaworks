@@ -35,11 +35,11 @@ class SessionsController < ActionController::Base
 	gigadomain = Gigadomain.find_by_gigaclient_id(gigauser.gigaclient_id)
     	 #~ gigadomain = Gigadomain.find_by_id(current_user.id)
 	    if gigadomain
-          render :text => "Subdomain" and return
-		    #~ redirect_to "http://#{gigadomain.subdomain}.#{request.domain}/welcome" and return
+          #~ render :text => "Subdomain" and return
+		    redirect_to "http://#{gigadomain.subdomain}.gigavine.com/welcome" and return
 	    else
-        render :text => "worx.gigavine.com" and return
-		    #~ redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" 
+        #~ render :text => "worx.gigavine.com" and return
+		    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" 
 	    end
     #~ end
   end
