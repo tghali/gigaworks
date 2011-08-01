@@ -142,6 +142,9 @@ class User < ActiveRecord::Base
   # @return [User] The user, if one is found. Otherwise _nil_ is returned.
   def self.authenticate(username_or_email, password)
     if username_or_email.match  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+      
+      
+      
       user = User.find_by_email(username_or_email) || Gigauser.find_by_email(username_or_email)
 
     else
@@ -158,8 +161,8 @@ class User < ActiveRecord::Base
   # Returns the user remembered in the provided cookie as long as the password
   # (and the salt) haven't changed in the mean time.
   def self.authenticate_from_session(id, cookie_salt, session_expires_at = nil)
-    user = find_by_id(id) || Gigauser.find_by_id(id)
-    
+    #~ user = find_by_id(id) || Gigauser.find_by_id(id)    
+    user = Gigauser.find_by_id(id)  
     user && (user.salt == cookie_salt) or return nil
     if session_expires_at && session_expires_at < Time.now
       raise 'session expired by stamp'
