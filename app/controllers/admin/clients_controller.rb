@@ -44,7 +44,7 @@ class Admin::ClientsController < Admin::AdminController
 	end
 		
 	def show
-		if params[:method] == 'delete'
+		if params[:a] == 'delete'
 			 @gigaclient = Gigaclient.find(params[:id])    
 
 			
