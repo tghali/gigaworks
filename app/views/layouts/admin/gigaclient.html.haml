@@ -165,7 +165,10 @@
               .red_alert
                 %span 2
               %span.login_logout
-                %a{:href => "#"} Log In
+                - if current_user 
+                  %a{:href => "/sign_out"} Log Out 
+                - else
+                  =# link_to t(:'account.Logout'), '/sign_out', :title=> "Click here to logout"
           %br.clear_all/
 
       = yield	  
