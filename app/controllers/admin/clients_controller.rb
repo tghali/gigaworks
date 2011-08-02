@@ -46,7 +46,7 @@ class Admin::ClientsController < Admin::AdminController
 	def show
 		if params[:method] == 'delete'
 			 @gigaclient = Gigaclient.find(params[:id])    
-			  authorize! :destroy, @gigaclient
+			  #~ authorize! :destroy, @gigaclient
 			
 			  @destroyed = @gigaclient.destroy
 			    respond_to do |format|
