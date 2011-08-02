@@ -2,7 +2,7 @@
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
-    %title leads
+    %title Gigaworx - Login
     = stylesheet_link_tag "style"
     %script{:src => "javascripts/curvy.js", :type => "text/javascript"}
     :javascript
@@ -236,8 +236,15 @@
       	background:#000;/*border:1px solid #a0a0a0*/}
       .close_small{ display:block; width:15px; height:15px; background:url(/images/small_close_icon.png) ;position:absolute; no-repeat;top:10px; right:10px}
   %body
+    - if request.subdomain != 'worx'
+      %span{:style => "position:absolute;left:50%;margin-left:-150px;top:10px"}
+        = image_tag("/images/clients/nord-anglia.jpg")
     / Start of Sticky Note
-
+    - unless flash.empty?
+      #flashes
+        - flash.each do |type, msg|
+          %div{:class=>"#{type}"}= h msg
+        -flash.clear
     #dialog1.window
       .d-header
         %input{:onclick => "this.value=''", :type => "text", :value => "username"}/
@@ -249,7 +256,7 @@
     - user_name_or_email = params[:session][:user_name_or_email] if params[:session]
     = form_for :session, :url => sign_in_url do |f| 
       / Lead form start
-      #login_wrapper
+      #login_wrapper{:style => "margin-top:150px"}
         .head_login
           %span Secured Connexion
         #loging_form.fl_left

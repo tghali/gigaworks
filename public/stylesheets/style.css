@@ -402,7 +402,7 @@ div.fht-tbody {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
 
-.fancyTable tbody tr td {
+.fancyTable tbody tr td,.fancyTable-1 tbody tr td{
 	/* appearance */
 	background-color: #eef2f9;
 	background-image: -moz-linear-gradient(
@@ -425,7 +425,7 @@ div.fht-tbody {
 	white-space: nowrap;
 	}
 
-.fancyTable tbody tr.odd td {
+.fancyTable tbody tr.odd td,.fancyTable-1 tbody tr.odd td  {
 	/* appearance */
 	background-color: #d6e0ef;
 	background-image: -moz-linear-gradient(
@@ -468,7 +468,34 @@ div.fht-tbody {
 	text-shadow: 0 1px 1px #e8ebee;
 	white-space: nowrap;
 	}
+	/* Clients Layout */
+	th.sort_list{background:url(/images/new_page/sorting_bg.gif) no-repeat !important;}
+a.sort_list_anchor{ color:#000 !important; display:block; width:50px; background:url(/images/new_page/sorting_up_arrow.png) no-repeat center right; margin-right:10px;}
+a.sort_list_anchor:hover{background:url(/images/new_page/sorting_up_down.png) no-repeat center right !important;text-decoration:nones}
+.fancyTable tbody tr td,.fancyTable-1 tbody tr td { background-color:#d8e7f0}	
+.fancyTable-1 tbody tr.odd td { background-color:#f8f8f8 }
+.fancyTable-1 th{font-size:11px; font-weight:700;}
+.fancyTable-1 td,.fancyTable-1 th{ padding:2px 1px; }
+.fancyTable-1 th div.head,.fancyTable-1 td div{ background:url(/images/new_page/head_bg.gif) repeat-x; border:1px solid #bcc5c1; padding:0 8px;}
+.fancyTable-1 td div{ padding:4px 8px;}
+.fancyTable-1 td div{ border:0; background:none}
+.heading_block{	height:23px; background:#e6e6e6 url(/images/clients/project_icon.jpg) no-repeat 5px 4px; }
+.heading_block h3{padding:3px 20px; font-size:16px; font-weight:700; color:#4b575f; height:23px;}
+.extra_spacer{ height:20px;}
+#comment_block{ width:85%; }
+.status_comment{ height:10px; background:url(/images/clients/comment_heading_line.gif) repeat-x 0 4px; margin-top:4px;}
+.status_comment span{ float:left; background:#fff; padding:0 5px; font-size:11px;}
+.sts_comment_left_column{ width:123px; height:61px;font-size:9px; font-weight:700}
+.sts_comment_left_column h4{ color:#006cc8;}
+.sts_comment_left_column img{ margin-top:5px;}
+.sts_comment_right_column p{ font-size:11px; padding-top:5px; padding-right:10px;}
+.sts_comment_right_column{ width:450px; height:61px;padding-left:12px; border:1px solid #ececec; position:relative}
+.sts_comment_right_inner{ width:12px;height:14px; position:absolute; top:7px; left:-12px;background:url(/images/clients/box_arrow.gif) no-repeat left center;}
+.glossary{ font-size:14px; padding:8px 0 0}
+.glossary b.numb{ color:#0071b9; font-style:italic}
 	
+	
+		/* Clients Layout */
 
 /* Fancy Dark Table */	
 .fancyDarkTable .numeric {
@@ -969,4 +996,20 @@ a.header_highlight{
   background-color:#000;
   display:none;
 }
+.heading_block h3{background: url(/images/new_page/plus_expand.png) no-repeat right -5px;}
+.heading_block h3.active{
+background:url(/images/new_page/minus_contract.png) no-repeat right -5px;
+
+}	
+
 	
+/*project management dashboard*/
+	.head_project_wrapper{
+	width:100%;
+	border-bottom:3px solid #c8c9c9;
+	}
+	.heading_project_blocks{
+	float:left;
+	width:auto;
+	}
+	.heading_project_blocks h2{ font:400 1.2em Arial, Helvetica, sans-serif; padding-bottom:5px}
