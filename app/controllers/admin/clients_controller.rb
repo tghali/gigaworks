@@ -46,15 +46,16 @@ class Admin::ClientsController < Admin::AdminController
 	def show
 		if params[:method] == 'delete'
 			 @gigaclient = Gigaclient.find(params[:id])    
-			  #~ authorize! :destroy, @gigaclient
+
 			
-			  @destroyed = @gigaclient.destroy
+			 @gigaclient.destroy
 			    respond_to do |format|
 			      format.html { redirect_to admin_clients_url, :notice => 'Client was successfully deleted.' }
 			      format.xml  { head :ok }
 			end
 		
 		else
+      		render :text => "show" and return
 		@client = Gigaclient.find(params[:id])
 		 respond_to do |format|	
 		  format.js # new.html.erb
