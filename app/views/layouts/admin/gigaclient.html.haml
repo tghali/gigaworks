@@ -1,0 +1,174 @@
+
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title Project Management
+    = stylesheet_link_tag "style","vertical-menu"
+
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+    = javascript_include_tag 'curvy.js','menu.js','jquery.tools.min.js' ,'jquery.fixedheadertable.min','demo.js','ddaccordion.js','swfobject.js'
+    /[if IE 7] <link href="css/ie6.css" rel="stylesheet" type="text/css">
+
+    :javascript
+      ddaccordion.init({
+      	headerclass: "submenuheader", //Shared CSS class name of headers group
+      	contentclass: "submenu", //Shared CSS class name of contents group
+      	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+      	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+      	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+      	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+      	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+      	animatedefault: false, //Should contents open by default be animated into view?
+      	persiststate: true, //persist state of opened contents within browser session?
+      	toggleclass: ["color_red", "color_blue"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+      	togglehtml: ["suffix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+      	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+      	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+      		//do nothing
+      	},
+      	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+      		//do nothing
+      	}
+      	
+      
+      	   
+      })
+      $(document).ready(function($) {
+       $('#accordion .sample').hide();
+
+      $('#accordion .heading_block h3').click(function(){
+      var present_id=$(this).attr("id");
+      if(!$("."+present_id).is(':hidden')){
+      //
+      $('#accordion .heading_block h3').removeClass("active");
+      $('#accordion div.sample').slideUp();
+			
+      }else{
+      $('#accordion div.sample').slideUp();
+      $('#accordion .heading_block h3').removeClass("active");
+      $("."+present_id).slideDown();
+      $(this).addClass("active");
+				
+				
+      }
+      return false;
+      });
+	   
+
+      	   
+        });	
+
+
+    :css
+      /* simple css-based tooltip */
+      .tooltip {
+      	background:#000;
+      	border:1px solid #fff;
+      	padding:10px 15px;
+      	width:auto;
+      	display:none;
+      	color:#fff;
+      	text-align:left;
+      	font-size:12px;
+      	border:1px solid #999999; 
+      	-moz-border-radius: 6px;
+      	-webkit-border-radius: 6px;
+      	/* outline radius for mozilla/firefox only */
+      /*	-moz-box-shadow:0 0 10px #000;
+      	-webkit-box-shadow:0 0 10px #000;*/
+      }
+      .error_message{
+      	border: 1px solid #c9645a;
+      	-webkit-border-radius: 5px;
+      	-moz-border-radius: 5px;
+      	border-radius: 5px;
+      	background:#1a1a1a url(images/new_page/1310547731_Error.png) no-repeat 10px 4px;
+      	padding:10px;
+      	margin-bottom:10px;
+      	color:#ef0202;
+      	}
+      	.error_message span{ padding-left:30px}
+      /*edit form*/	
+      #basic-accordian{
+      	/*border:5px solid #EEE;*/
+      	/*padding:5px;*/
+      /*	width:350px;*/
+      /*	position:absolute;
+      	left:50%;
+      	top:50%;
+      	margin-left:-175px;*/
+      /*	z-index:2;
+      	margin-top:-100px;*/
+      }
+      
+      .accordion_headings{
+      	padding:5px;
+      	background:#cecece url(images/new_page/plus_expand.png) no-repeat center right;
+      	color:#000;
+      	border-top:1px solid #000;
+      	cursor:pointer;
+      	font-weight:bold;
+      }
+      
+      .accordion_headings:hover{
+      	background:#1a1a1a url(images/new_page/plus_expand_hover.png) no-repeat center right;
+      	color:#fff
+      }
+      
+      .accordion_child{
+      	padding:15px;
+      	background:#EEE;
+      }
+      
+      .active{
+      	background:#1a1a1a url(images/new_page/minus_contract.png) no-repeat center right;
+      	color:#fff;
+      	border-top:0;
+      }
+      .notactive{ background:none}
+      #accordion { margin: 0; padding: 0; }
+      #accordion dd { margin: 0 0 5px 0; padding: 0; }
+
+  %body
+    #maincontainer
+      #topsection
+        .innertube
+          #menu
+            %ul
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "contacts", :src => "/images/clients/calendar.png"}/
+                  %span Calendar
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "projects", :src => "/images/clients/glossary.png"}/
+                  %span Glossary
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "marketing", :src => "/images/clients/document.png"}/
+                  %span Documents
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "sales", :src => "/images/clients/images.png"}/
+                  %span Images
+              %li.last
+                %a{:href => "#"}
+                  %img{:alt => "finance", :src => "/images/clients/admin.png"}/
+                  %span Admin
+          #top-right-details
+            .date_time
+              %p 06/23/2011 02:24 AM
+              %img.click{:src => "images/new_page/top_links.jpg"}/
+              %p
+                %a.link_d{:href => "#"} Good Morning : Ahmed
+            .avatar
+              .red_alert
+                %span 2
+              %span.login_logout
+                %a{:href => "#"} Log In
+          %br.clear_all/
+
+      = yield	  
+#mask	  
+  
+ 
