@@ -231,7 +231,7 @@
 		      
                       |
                       %span>/
-                      = link_to( "Delete", admin_client_path(client), :confirm => "Are you sure?", :method => :delete)
+                      = link_to( "Delete", admin_client_path(client,:method => 'delete'), :confirm => "Are you sure?", :method => :delete)
                       =# link_to "Delete", admin_client_path(client), :html_options => {:confirm => 'Are you sure want to delete client details? ', :method => :delete,:title => "Click here to delete client"}
 
 
