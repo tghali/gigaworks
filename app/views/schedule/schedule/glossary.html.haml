@@ -1,0 +1,74 @@
+#contentwrapper
+  #contentcolumn
+    #accordion.innertube-1
+      / head block wrapper
+      .head_project_wrapper
+        / heading
+        .heading_project_blocks
+          %h2 Nord Anglia Education - Glossary
+        / heading end
+        %br.clear_all/
+      / head block wrapper end
+      / user action wrapper block
+      .grid_wrapper{:style => "border:0"}
+        .heading_block
+          %h3#1 Glossary List
+        .spacer.clear_all
+          %span
+        .sample.1
+          %table.myTable02{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+            %thead
+              %tr
+                %th{:width => "25%"}
+                  .head English
+                %th{:width => "25%"}
+                  .head Arabic
+                %th{:width => "50%"}
+                  .head Actions
+
+            %tbody
+              - for sentence in @sentences
+                %tr
+                  %td
+                    %div
+                      = sentence.text	
+      
+                  %td
+                    %div
+                      = get_arabic_data(sentence.id)
+                  %td
+                    %div{:style => "padding-left:100px;"}
+                      = link_to "Edit"
+                      = link_to "Delete"
+
+
+        / table grid block end
+      .extra_spacer.clear_all
+        %span
+      / table grid block
+      / table grid block
+
+    .clear_all
+#leftcolumn
+  / vertical menu
+  .glossymenu
+    %a.menuitem.statusicon_1{:href => "/dashboard"}
+      %img{:src => "images/new_page/view_details.png"}>/
+      Dashboard
+    %a.menuitem.statusicon_1{:href => "#"}
+      %img{:src => "images/clients/new_icon.png"}>/
+      New Term
+
+    %a.menuitem.statusicon_1{:href => "#"}
+      %img{:src => "images/new_page/view_details.png"}>/
+      Flagged
+    %a.menuitem.statusicon_1{:href => "#"}
+      %img{:src => "images/new_page/view_details.png"}>/
+      Recent Activity
+    %a.menuitem.statusicon_1{:href => "#"}
+      %img{:src => "images/new_page/view_details.png"}>/
+      Import
+    %a.menuitem.statusicon_1{:href => "#"}
+      %img{:src => "images/new_page/view_details.png"}>/
+      Export
+    .clear_all

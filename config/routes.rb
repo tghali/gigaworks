@@ -37,6 +37,9 @@ Gigavine::Application.routes.draw do
   
   get '/dashboard' => "schedule/schedule#dashboard"
   
+  get '/glossary' => "schedule/schedule#glossary" 
+  
+  
     constraints :subdomain => "nkumar" do
       
       resources :leads

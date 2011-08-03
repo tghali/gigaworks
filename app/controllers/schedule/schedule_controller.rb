@@ -7,5 +7,14 @@ class Schedule::ScheduleController < ApplicationController
  def dashboard
    
   end
+  
+  def glossary
+	@sentences = Sentence.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @sentences }
+    end
+  end
  
 end
