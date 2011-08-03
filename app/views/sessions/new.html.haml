@@ -238,7 +238,8 @@
   %body
     - if request.subdomain != 'worx'
       %span{:style => "position:absolute;left:50%;margin-left:-150px;top:10px"}
-        = image_tag("/images/clients/nord-anglia.jpg")
+        - if get_logo("#{request.subdomain}") != '/logos/normal/missing.png'
+          = image_tag (get_logo("#{request.subdomain}"))
     / Start of Sticky Note
     - unless flash.empty?
       #flashes

@@ -37,4 +37,20 @@ module ApplicationHelper
     end
   end
   
+    def get_logo(domain_name)
+	  gdomain = Gigadomain.find_by_subdomain(domain_name)
+	  if !gdomain.blank?
+		gigaclient = Gigaclient.find_by_id(gdomain.gigaclient_id)
+	      if !gigaclient.blank?
+		return  gigaclient.logo.url(:normal)
+	      else
+		      return ""
+	      end
+	   else
+		   return ""
+	    end
+   end
+  
+  
+  
 end

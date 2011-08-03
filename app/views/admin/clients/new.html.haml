@@ -47,7 +47,7 @@
       / form block wrapper
       .wrapper_form
 
-        = form_for @gigaclient, :url => admin_clients_path do |c|
+        = form_for @gigaclient, :url => admin_clients_path, :html => {:multipart => :true} do |c|
           / Lead form start
           .wrapper_form_inner
             - if @gigaclient.errors.any?
@@ -106,6 +106,24 @@
               / First Name end
               .clear_all
           .clear_all
+          .wrapper_form_inner	  
+            .form_head_highlight
+              %span Logo
+            .new_lead_block.fl_left
+              / Title
+              .title_width
+                %label.fl_left.text_indent
+                  Upload Image
+                  %span &nbsp;
+                %br.clear_all/
+                %label.fl_left.input_width_11.input_width_00.title
+                  = c.file_field :logo
+
+                .clear_all
+                .error_msg dd
+              / Title End
+
+          .clear_all	  
             = c.fields_for :gigadomain do |domain|  
               .wrapper_form_inner
                 .form_head_highlight.form_other_information

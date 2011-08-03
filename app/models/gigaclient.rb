@@ -22,6 +22,19 @@ class Gigaclient < ActiveRecord::Base
 
  #validates_numericality_of :mobile_phone, :if => :mobile_phone? 
 	
+      has_attached_file :logo,
+    :storage => :s3,    
+    :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
+    :s3_permissions => "public-read", 
+    #~ :path =>  lambda { |doc| "/assignments/#{doc.name}/:id/:style:extension" },
+    :path =>  "clients/logo/:id/:style.:extension" ,
+    :styles => { :thumb => "100x100#", :large => "400x400#",:medium => "300x300#",:normal => "291x122#" },
+    :bucket => 'Mawhiba' 
+  
+  
+  
+  
+  
  after_save :gigausers
 	
 	
