@@ -37,7 +37,7 @@ Gigavine::Application.routes.draw do
   
   get '/dashboard' => "schedule/schedule#dashboard"
   
-  get '/glossary' => "schedule/schedule#glossary" 
+  #~ get '/glossary' => "schedule/schedule#glossary" 
   
     get '/client/glossary' => "schedule/schedule#glossary"
    
