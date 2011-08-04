@@ -26,7 +26,7 @@ class Schedule::ScheduleController < ApplicationController
     
   def search
 
-	  @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","%#{params[:letter]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
+	  @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","#{params[:letter]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
 	  
 	  puts "-------- #{@sentences.size}"
 	  
