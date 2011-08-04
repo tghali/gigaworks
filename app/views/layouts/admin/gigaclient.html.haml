@@ -6,33 +6,12 @@
     = stylesheet_link_tag "style","vertical-menu"
 
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+    =  javascript_include_tag 'rails.js'
     = javascript_include_tag 'curvy.js','menu.js','jquery.tools.min.js' ,'jquery.fixedheadertable.min','demo.js','ddaccordion.js','swfobject.js'
     /[if IE 7] <link href="css/ie6.css" rel="stylesheet" type="text/css">
 
     :javascript
-      ddaccordion.init({
-      	headerclass: "submenuheader", //Shared CSS class name of headers group
-      	contentclass: "submenu", //Shared CSS class name of contents group
-      	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-      	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-      	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-      	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
-      	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-      	animatedefault: false, //Should contents open by default be animated into view?
-      	persiststate: true, //persist state of opened contents within browser session?
-      	toggleclass: ["color_red", "color_blue"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-      	togglehtml: ["suffix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-      	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-      	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-      		//do nothing
-      	},
-      	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-      		//do nothing
-      	}
-      	
-      
-      	   
-      })
+
       $(document).ready(function($) {
        $('#accordion .sample').hide();
 
@@ -54,6 +33,57 @@
       return false;
       });
 	   
+      $("#table_grid table tr").mouseover(function () {
+          $(this).find(".add_view_1").show();
+      }).mouseout(function () {
+          $(this).find(".add_view_1").hide();
+      });
+
+
+      //select all the a tag with name equal to modal
+      $('a[name=modal]').click(function (e) {
+          //Cancel the link behavior
+          e.preventDefault();
+  
+          //Get the A tag
+          var id = $(this).attr('href');
+  
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+  
+          //Set the popup window to center
+          $(id).css('top', winH / 2 - $(id).height() / 2);
+          $(id).css('left', winW / 2 - $(id).width() / 2);
+  
+          //transition effect
+          $(id).fadeIn(2000);
+  
+      });
+  
+      //if close button is clicked
+      $('.window .close').click(function (e) {
+          //Cancel the link behavior
+          e.preventDefault();
+  
+          $('#mask').fadeOut(200);
+          $('.window').fadeOut(200);
+      });
+
 
       	   
         });	
@@ -171,7 +201,17 @@
                   =# link_to t(:'account.Logout'), '/sign_out', :title=> "Click here to logout"
           %br.clear_all/
 
-      = yield	  
-#mask	  
+      = yield
+      .clear_all  
+#footer_glossary
+  %p &copy; 2011
+  %ul
+    %li
+      %a{:href => "#"} Support
+    %li
+      %a{:href => "#"} Privacy
+    %li
+      %a{:href => "#"} Terms      
+%iframe#mask{:allowTransparency => "true", :frameborder => "0", :scrolling => "no", :src => "blank_iframe.html", :style => "overflow:hidden;"}  
   
  

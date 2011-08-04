@@ -1,0 +1,41 @@
+%table{:border => "0", :cellpadding => "0", :cellspacing => "1", :width => "100%", :id => "result_block"}
+  %tr
+    %th.first_td  
+    %th{:width => "40%"} English
+    %th  
+    %th.last_edit Functions
+  %div
+    - if !@sentences.blank? 
+      - for sentence in @sentences
+        %tr{:onmouseout => "this.style.background='#f8f8f8'", :onmouseover => "this.style.background='#e3f3ff'"}
+          %td
+            %img{:alt => "flag", :src => "/images/clients/flag.png"}/
+
+          %td #{sentence.text}
+          %td{:style => "text-align:right"} #{get_arabic_data(sentence.id)}
+          %td
+            .user_action_block.glossary_user_action_block
+              .add_view_1
+                %ul
+                  %li
+                    %a{:href => "#dialog", :name => "modal"} Edit
+                  %li
+                    %a{:href => "#"} Flag
+                  %li
+                    %a{:href => "#dialog", :name => "modal"} Tag
+                  %li
+                    %a{:href => "#dialog", :name => "modal"} Comment
+                  %li
+                    %a{:href => "#dialog", :name => "modal"} Delete
+      / head block wrapper end
+    - else
+      %tr{:onmouseout => "this.style.background='#f8f8f8'", :onmouseover => "this.style.background='#e3f3ff'"}
+        %td
+          &nbsp;
+
+        %td{:colspan => 3} No Results Found with your search
+      
+
+
+%div
+  = will_paginate @sentences
