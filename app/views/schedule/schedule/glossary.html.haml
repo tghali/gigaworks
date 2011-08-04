@@ -1,3 +1,6 @@
+
+
+
 #contentwrapper
   #contentcolumn
     #accordion.innertube-1
@@ -5,70 +8,145 @@
       .head_project_wrapper
         / heading
         .heading_project_blocks
-          %h2 Nord Anglia Education - Glossary
+          %h2.fl_left Nord Anglia Education - Glossary
+        .fl_right{:style => "width:auto;"}
+          %p.glossary{:style => "padding-top:0px; font-size:16px; line-height:15px"}
+            %b.numb #{@sentences.total_entries}
+            %b terms
         / heading end
         %br.clear_all/
-      / head block wrapper end
-      / user action wrapper block
-      .grid_wrapper{:style => "border:0"}
-        .heading_block
-          %h3#1 Glossary List
+      %div
+        %ul#alphabet_listing
+          %li
+            = link_to "A", client_glossary_search_path(:letter => 'a'), :remote => 'true'
+          %li
+            = link_to "B", client_glossary_search_path(:letter => 'b'), :remote => 'true'
+          %li
+            = link_to "C", client_glossary_search_path(:letter => 'c'), :remote => 'true'
+          %li
+            = link_to "D", client_glossary_search_path(:letter => 'd'), :remote => 'true'
+          %li
+            = link_to "E", client_glossary_search_path(:letter => 'e'), :remote => 'true'
+          %li
+            = link_to "F", client_glossary_search_path(:letter => 'f'), :remote => 'true'
+          %li
+            = link_to "G", client_glossary_search_path(:letter => 'g'), :remote => 'true'
+          %li
+            = link_to "H", client_glossary_search_path(:letter => 'h'), :remote => 'true'
+          %li
+            = link_to "I", client_glossary_search_path(:letter => 'i'), :remote => 'true'
+          %li
+            = link_to "J", client_glossary_search_path(:letter => 'j'), :remote => 'true'
+          %li
+            = link_to "K", client_glossary_search_path(:letter => 'k'), :remote => 'true'
+          %li
+            = link_to "L", client_glossary_search_path(:letter => 'l'), :remote => 'true'
+          %li
+
+            = link_to "M", client_glossary_search_path(:letter => 'm'), :remote => 'true'
+          %li
+            = link_to "N", client_glossary_search_path(:letter => 'n'), :remote => 'true'
+          %li
+            = link_to "O", client_glossary_search_path(:letter => 'o'), :remote => 'true'
+          %li
+            = link_to "P", client_glossary_search_path(:letter => 'p'), :remote => 'true'
+          %li
+            = link_to "Q", client_glossary_search_path(:letter => 'q'), :remote => 'true'
+          %li
+            = link_to "R", client_glossary_search_path(:letter => 'r'), :remote => 'true'
+          %li
+            = link_to "S", client_glossary_search_path(:letter => 's'), :remote => 'true'
+          %li
+            = link_to "V", client_glossary_search_path(:letter => 't'), :remote => 'true'
+          %li
+            = link_to "U", client_glossary_search_path(:letter => 'u'), :remote => 'true'
+          %li
+            = link_to "V", client_glossary_search_path(:letter => 'v'), :remote => 'true'
+          %li
+            = link_to "W", client_glossary_search_path(:letter => 'w'), :remote => 'true'
+          %li
+            = link_to "X", client_glossary_search_path(:letter => 'x'), :remote => 'true'
+          %li
+            = link_to "Y", client_glossary_search_path(:letter => 'y'), :remote => 'true'
+          %li
+            = link_to "Z", client_glossary_search_path(:letter => 'z'), :remote => 'true'
+        .clear_all
+          %span
+        #search_swap_block.fl_left
+          %label
+            %b Search Terms
+            \-
+          %label From :
+          %label
+            %select
+              %option English
+              %option Arabic
+          %label
+            %img{:alt => "swap", :height => "18", :src => "/images/clients/swap_ico.gif", :title => "swap", :width => "24"}/
+          %label To :
+          %label
+            %select
+              %option English
+              %option Arabic
         .spacer.clear_all
           %span
-        .sample.1
-          %table.myTable02{:border => "0", :cellpadding => "0", :cellspacing => "0"}
-            %thead
-              %tr
-                %th{:width => "25%"}
-                  .head English
-                %th{:width => "25%"}
-                  .head Arabic
-                %th{:width => "50%"}
-                  .head Actions
+        #search_block.fl_left
+          %input.search_field{:type => "text"}/
+          %input.search_input{:type => "submit", :value => " "}/
+        #tag_box_display
+          %ul
+            %li
+              .tags
+                SCIENCE
+                %span 12
+            %li
+              .tags
+                PHP EXPERTS
+                %span 5
+            %li
+              .tags
+                ROR EXPE
+                %span 12
+            %li
+              .tags
+                SCIENCE
+                %span 12
 
-            %tbody
-              - for sentence in @sentences
-                %tr
-                  %td
-                    %div
-                      = sentence.text	
-      
-                  %td
-                    %div
-                      = get_arabic_data(sentence.id)
-                  %td
-                    %div{:style => "padding-left:100px;"}
-                      = link_to "Edit"
-                      = link_to "Delete"
+        .clear_all
+          %br
+        #table_grid
+          %div{ :id => "result_block"}
 
+            = render :partial => 'atozsearch'
 
-        / table grid block end
-      .extra_spacer.clear_all
-        %span
-      / table grid block
-      / table grid block
-
+      / head block wrapper end
     .clear_all
+
 #leftcolumn
   / vertical menu
   .glossymenu
     %a.menuitem.statusicon_1{:href => "/dashboard"}
-      %img{:src => "images/new_page/view_details.png"}>/
+      %img{:src => "/images/new_page/view_details.png"}>/
       Dashboard
     %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "images/clients/new_icon.png"}>/
+      %img{:src => "/images/clients/new_icon.png"}>/
       New Term
 
     %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "images/new_page/view_details.png"}>/
+      %img{:src => "/images/new_page/view_details.png"}>/
       Flagged
     %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "images/new_page/view_details.png"}>/
+      %img{:src => "/images/new_page/view_details.png"}>/
       Recent Activity
     %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "images/new_page/view_details.png"}>/
+      %img{:src => "/images/new_page/view_details.png"}>/
       Import
     %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "images/new_page/view_details.png"}>/
+      %img{:src => "/images/new_page/view_details.png"}>/
       Export
     .clear_all
+#dialog.window
+  .inner_block_modal
+    %p Simple Modal Window |
+    %a.close{:href => "#"}
+      %span

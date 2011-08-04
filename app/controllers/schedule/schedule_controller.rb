@@ -8,13 +8,32 @@ class Schedule::ScheduleController < ApplicationController
    
   end
   
-  def glossary
-	@sentences = Sentence.find(:all,:limit => 100)
+  def glossary	
+ 
+	  if params[:search]
+	    @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
+	  
+         else
+	    @sentences = Sentence.paginate :page => params[:page],:per_page =>20, :order => 'created_at DESC'	
+	    
+	 end   
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @sentences }
-    end
+	    respond_to do |format|
+	      format.html # index.html.erb
+	      format.xml  { render :xml => @sentences }
+	    end
   end
+    
+  def search
+
+	  @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","%#{params[:letter]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
+	  
+	  puts "-------- #{@sentences.size}"
+	  
+	   respond_to do |format|
+	      format.js # index.html.erb
+	      format.xml  { render :xml => @sentences }
+	   end
+  end	  
  
 end
