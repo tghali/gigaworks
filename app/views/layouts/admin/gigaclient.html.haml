@@ -32,12 +32,23 @@
       }
       return false;
       });
-	   
+      
+      
+
+
+
+   
+      
+
       $("#table_grid table tr").mouseover(function () {
           $(this).find(".add_view_1").show();
       }).mouseout(function () {
           $(this).find(".add_view_1").hide();
       });
+      
+
+
+
 
 
       //select all the a tag with name equal to modal
@@ -212,6 +223,6 @@
       %a{:href => "#"} Privacy
     %li
       %a{:href => "#"} Terms      
-%iframe#mask{:allowTransparency => "true", :frameborder => "0", :scrolling => "no", :src => "blank_iframe.html", :style => "overflow:hidden;"}  
+%iframe#mask{:allowTransparency => "true", :frameborder => "0", :scrolling => "no", :src => "/blank_iframe.html", :style => "overflow:hidden;"}  
   
  
