@@ -9,7 +9,8 @@
       - for sentence in @sentences
         %tr{:onmouseout => "this.style.background='#f8f8f8'", :onmouseover => "this.style.background='#e3f3ff'"}
           %td
-            %img{:alt => "flag", :src => "/images/clients/flag.png"}/
+            - if (sentence.flagged_by_id != nil)
+              %img{:alt => "flag", :src => "/images/clients/flag.png"}/
 
           %td #{sentence.text}
           %td{:style => "text-align:right"} #{get_arabic_data(sentence.id)}
