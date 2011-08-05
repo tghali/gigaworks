@@ -33,16 +33,11 @@ Gigavine::Application.routes.draw do
   get 'signup/(:invite_token)' => 'users#signup', :as => :signup
   match 'signup' => 'users#gigauser_create'
   
-  get '/welcome' => "schedule/schedule#show"
-  
-  get '/dashboard' => "schedule/schedule#dashboard"
-  
-  #~ get '/glossary' => "schedule/schedule#glossary" 
-  
-    get '/client/glossary' => "schedule/schedule#glossary"
-   
-    get '/client/glossary/search/:letter' => "schedule/schedule#search", :as => :glossary_search
-    
+  get '/welcome' => "schedule/schedule#show"  
+  get '/dashboard' => "schedule/schedule#dashboard"  
+  get '/client/glossary' => "schedule/schedule#glossary"   
+  get '/client/glossary/search/:letter' => "schedule/schedule#search", :as => :glossary_search
+  get '/client/flagged' => "schedule/schedule#flagged"    
     
     constraints :subdomain => "nkumar" do
       
