@@ -12,7 +12,17 @@
             - if (sentence.flagged_by_id != nil)
               %img{:alt => "flag", :src => "/images/clients/flag.png"}/
 
-          %td #{sentence.text}
+          %td
+            %div{:style => "float:left"} #{sentence.text}
+            .tag_box_display
+              %ul
+                - sentence.tags.each do |tag|
+                  %li
+                    .tags
+                      = tag.tag
+                      %span
+                        %a{:href => "#"} &nbsp; 
+
           %td{:style => "text-align:right"} #{get_arabic_data(sentence.id)}
           %td
             .user_action_block.glossary_user_action_block
@@ -28,6 +38,7 @@
                     %a{:href => "#dialog", :name => "modal"} Comment
                   %li
                     %a{:href => "#dialog", :name => "modal"} Delete
+
       / head block wrapper end
     - else
       %tr{:onmouseout => "this.style.background='#f8f8f8'", :onmouseover => "this.style.background='#e3f3ff'"}
@@ -37,6 +48,66 @@
         %td{:colspan => 3} No Results Found with your search
       
 
+.clear_all
+.pagination_block
+  = paginate @sentences,:remote => :true
+  
+#dialog.window
+  .inner_block_modal
+    %p Simple Modal Window |
+    %a.close{:href => "#"}
+      %span
+      
+:javascript
+  $("#table_grid table tr").mouseover(function () {
+    $(this).find(".add_view_1").show();
+    }).mouseout(function () {
+    $(this).find(".add_view_1").hide();
+    });
+      //select all the a tag with name equal to modal
+      $('a[name=modal]').click(function (e) {
+          //Cancel the link behavior
+          e.preventDefault();
+  
+          //Get the A tag
+          var id = $(this).attr('href');
+  
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+  
+          //Set the popup window to center
+          $(id).css('top', winH / 2 - $(id).height() / 2);
+          $(id).css('left', winW / 2 - $(id).width() / 2);
+  
+          //transition effect
+          $(id).fadeIn(2000);
+  
+      });
+      
 
-%div
-  = will_paginate @sentences
+      
+      //if close button is clicked
+      $('.window .close').click(function (e) {
+          //Cancel the link behavior
+          e.preventDefault();
+  
+          $('#mask').fadeOut(200);
+          $('.window').fadeOut(200);
+      });     
+
+

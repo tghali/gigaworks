@@ -41,7 +41,8 @@ Gigavine::Application.routes.draw do
   
     get '/client/glossary' => "schedule/schedule#glossary"
    
-    get '/client/glossary/search' => "schedule/schedule#search" 
+    get '/client/glossary/search/:letter' => "schedule/schedule#search", :as => :glossary_search
+    
     
     constraints :subdomain => "nkumar" do
       

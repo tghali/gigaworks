@@ -7,4 +7,10 @@ en:
   upload_image: "Upload Image"
   create_group: "Create group"
   create_subgroup: "Create subgroup"
-  edit_group: "Edit group"  
+  edit_group: "Edit group" 
+  views:
+    pagination:
+      previous: "Previous"
+      next: "Next"
+      first: "&lt;"
+      last: "&gt;" 
