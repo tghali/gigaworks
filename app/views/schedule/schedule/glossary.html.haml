@@ -12,65 +12,65 @@
 
         .fl_right{:style => "width:auto;"}
           %p.glossary{:style => "padding-top:0px; font-size:16px; line-height:15px"}
-            %b.numb #{@sentences.total_entries}
+            %b.numb #{@sentences.total_count}
             %b terms
         / heading end
         %br.clear_all/
       %div
         %ul#alphabet_listing
           %li
-            = link_to "A", client_glossary_search_path(:letter => 'a'), :remote => 'true',:id => "char_search"
+            = link_to "A", glossary_search_path(:letter => 'a'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "B", client_glossary_search_path(:letter => 'b'), :remote => 'true',:id => "char_search"
+            = link_to "B", glossary_search_path('b'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "C", client_glossary_search_path(:letter => 'c'), :remote => 'true',:id => "char_search"
+            = link_to "C", glossary_search_path(:letter => 'c'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "D", client_glossary_search_path(:letter => 'd'), :remote => 'true',:id => "char_search"
+            = link_to "D", glossary_search_path(:letter => 'd'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "E", client_glossary_search_path(:letter => 'e'), :remote => 'true',:id => "char_search"
+            = link_to "E", glossary_search_path(:letter => 'e'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "F", client_glossary_search_path(:letter => 'f'), :remote => 'true',:id => "char_search"
+            = link_to "F", glossary_search_path(:letter => 'f'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "G", client_glossary_search_path(:letter => 'g'), :remote => 'true',:id => "char_search"
+            = link_to "G", glossary_search_path(:letter => 'g'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "H", client_glossary_search_path(:letter => 'h'), :remote => 'true',:id => "char_search"
+            = link_to "H", glossary_search_path(:letter => 'h'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "I", client_glossary_search_path(:letter => 'i'), :remote => 'true',:id => "char_search"
+            = link_to "I", glossary_search_path(:letter => 'i'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "J", client_glossary_search_path(:letter => 'j'), :remote => 'true',:id => "char_search"
+            = link_to "J", glossary_search_path(:letter => 'j'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "K", client_glossary_search_path(:letter => 'k'), :remote => 'true',:id => "char_search"
+            = link_to "K", glossary_search_path(:letter => 'k'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "L", client_glossary_search_path(:letter => 'l'), :remote => 'true',:id => "char_search"
+            = link_to "L", glossary_search_path(:letter => 'l'), :remote => 'true',:id => "char_search"
           %li
 
-            = link_to "M", client_glossary_search_path(:letter => 'm'), :remote => 'true',:id => "char_search"
+            = link_to "M", glossary_search_path(:letter => 'm'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "N", client_glossary_search_path(:letter => 'n'), :remote => 'true',:id => "char_search"
+            = link_to "N", glossary_search_path(:letter => 'n'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "O", client_glossary_search_path(:letter => 'o'), :remote => 'true',:id => "char_search"
+            = link_to "O", glossary_search_path(:letter => 'o'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "P", client_glossary_search_path(:letter => 'p'), :remote => 'true',:id => "char_search"
+            = link_to "P", glossary_search_path(:letter => 'p'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "Q", client_glossary_search_path(:letter => 'q'), :remote => 'true',:id => "char_search"
+            = link_to "Q", glossary_search_path(:letter => 'q'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "R", client_glossary_search_path(:letter => 'r'), :remote => 'true',:id => "char_search"
+            = link_to "R", glossary_search_path(:letter => 'r'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "S", client_glossary_search_path(:letter => 's'), :remote => 'true',:id => "char_search"
+            = link_to "S", glossary_search_path(:letter => 's'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "T", client_glossary_search_path(:letter => 't'), :remote => 'true',:id => "char_search"
+            = link_to "T", glossary_search_path(:letter => 't'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "U", client_glossary_search_path(:letter => 'u'), :remote => 'true',:id => "char_search"
+            = link_to "U", glossary_search_path(:letter => 'u'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "V", client_glossary_search_path(:letter => 'v'), :remote => 'true',:id => "char_search"
+            = link_to "V", glossary_search_path(:letter => 'v'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "W", client_glossary_search_path(:letter => 'w'), :remote => 'true',:id => "char_search"
+            = link_to "W", glossary_search_path(:letter => 'w'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "X", client_glossary_search_path(:letter => 'x'), :remote => 'true',:id => "char_search"
+            = link_to "X", glossary_search_path(:letter => 'x'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "Y", client_glossary_search_path(:letter => 'y'), :remote => 'true',:id => "char_search"
+            = link_to "Y", glossary_search_path(:letter => 'y'), :remote => 'true',:id => "char_search"
           %li
-            = link_to "Z", client_glossary_search_path(:letter => 'z'), :remote => 'true',:id => "char_search"
+            = link_to "Z", glossary_search_path(:letter => 'z'), :remote => 'true',:id => "char_search"
         .clear_all
           %span
         #search_swap_block.fl_left
@@ -89,7 +89,7 @@
             %select
               %option English
               %option Arabic
-          %span{:id => "newimage",:style => "display:none;"}
+          %span{:id => "spinner",:style => "display:none;"}
             = image_tag(("/images/images/loader.gif"),:width => "20",:height => "20")
         .spacer.clear_all
           %span
@@ -148,16 +148,10 @@
       %img{:src => "/images/new_page/view_details.png"}>/
       Export
     .clear_all
-#dialog.window
-  .inner_block_modal
-    %p Simple Modal Window |
-    %a.close{:href => "#"}
-      %span
-    :javascript
 
-      $(document).ready(function($) {
+:javascript
 
-      var toggleLoading = function() { $("#newimage").toggle();  };
-      $("#char_search").bind('click',toggleLoading);
-
-      });
+  $(document).ready(function($) {
+  var toggleLoading = function() { $("#spinner").toggle()  };  
+  $("#char_search").bind('click',toggleLoading);
+  });

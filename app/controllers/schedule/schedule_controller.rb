@@ -14,21 +14,22 @@ class Schedule::ScheduleController < ApplicationController
 	    @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
 	  
          else
-	    @sentences = Sentence.paginate :page => params[:page],:per_page =>20, :order => 'created_at DESC'	
+	    @sentences = Sentence.order("created_at").page(params[:page]).per(4)	
 	    
 	 end   
 
 	    respond_to do |format|
 	      format.html # index.html.erb
+	      format.js
 	      format.xml  { render :xml => @sentences }
 	    end
   end
     
   def search
 
-	  @sentences =  Sentence.find(:all,:conditions => ["text ILIKE ? ","#{params[:letter]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
+	  @sentences =  Sentence.where("text LIKE ? ","#{params[:letter]}%").order("created_at").page(params[:page]).per(4)
 	  
-	  puts "-------- #{@sentences.size}"
+
 	  
 	   respond_to do |format|
 	      format.js # index.html.erb

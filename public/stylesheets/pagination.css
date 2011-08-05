@@ -1,0 +1,12 @@
+.pagination_block{width:auto;margin:10px auto;float:right}
+nav{display:block; margin:10px auto;}
+.pagination{ background:#ccc; font:700 12px/22px Arial, Helvetica, sans-serif; }
+.pagination span{ margin-right:3px}
+.pagination .prev,.pagination .next{ float:left; width:81px; height:22px;}
+.pagination .prev{ background:url(/images/pagination/previous.gif) no-repeat;}
+.pagination .next{ background:url(/images/pagination/next.gif)}
+.pagination .page,.pagination .last,.pagination .first{ float:left; width:22px; height:22px;}
+.pagination .page a,.pagination .first a,.pagination .last a,.pagination .prev a,.pagination .next a{color:#0071b9; display:block; text-align:center; text-decoration:none}
+.pagination .page a{ background:url(/images/pagination/normal_highlight.gif) no-repeat; }
+.pagination .page a:hover{ background:url(/images/pagination/pagination_hover.gif) no-repeat}
+.pagination .current{ background:url(/images/pagination/current_selected.gif) no-repeat; text-align:center; color:#fff}
