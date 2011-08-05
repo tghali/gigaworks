@@ -35,9 +35,17 @@ Gigavine::Application.routes.draw do
   
   get '/welcome' => "schedule/schedule#show"  
   get '/dashboard' => "schedule/schedule#dashboard"  
-  get '/client/glossary' => "schedule/schedule#glossary"   
+  get '/client/glossary' => "schedule/schedule#glossary" 
+  get '/client/glossary/:id' => "schedule/schedule#glossary"   
   get '/client/glossary/search/:letter' => "schedule/schedule#search", :as => :glossary_search
-  get '/client/flagged' => "schedule/schedule#flagged"    
+
+
+  
+  
+  
+  
+  
+  #~ get '/client/flagged' => "schedule/schedule#flagged"    
     
     constraints :subdomain => "nkumar" do
       
