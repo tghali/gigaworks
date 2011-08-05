@@ -11,7 +11,7 @@ class Schedule::ScheduleController < ApplicationController
   def glossary	
  
 	  if params[:search]
-	    @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
+	    @sentences =  Sentence.find(:all,:conditions => ["text ILIKE ? ","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
 	  
          else
 	    @sentences = Sentence.order("created_at").page(params[:page]).per(25)	
@@ -27,7 +27,7 @@ class Schedule::ScheduleController < ApplicationController
     
   def search
 
-	  @sentences =  Sentence.where("text LIKE ? ","#{params[:letter]}%").order("created_at").page(params[:page]).per(25)
+	  @sentences =  Sentence.where("text ILIKE ? ","#{params[:letter]}%").order("created_at").page(params[:page]).per(25)
 	  
 
 	  
