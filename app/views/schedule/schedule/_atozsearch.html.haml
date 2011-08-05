@@ -7,7 +7,7 @@
   %div
     - if !@sentences.blank? 
       - for sentence in @sentences
-        %tr{:onmouseout => "this.style.background='#f8f8f8'", :onmouseover => "this.style.background='#e3f3ff'"}
+        %tr{:onmouseout => "this.style.background=''", :onmouseover => "this.style.background='#e3f3ff'" , :class => cycle("odd", "table_structure_inner_color")}
           %td
             - if (sentence.flagged_by_id != nil)
               %img{:alt => "flag", :src => "/images/clients/flag.png"}/
