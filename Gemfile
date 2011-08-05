@@ -12,7 +12,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'gdocs4ruby'
 gem 'subdomain-fu', :git => "git://github.com/nhowell/subdomain-fu.git"
 
-
+gem 'kaminari'
 
 # gem 'haml', '>= 3.0.12'
 gem 'haml-rails', '=0.3.4'

@@ -143,6 +143,8 @@ GEM
     jsmin (1.0.0)
     json (1.5.1)
     json_pure (1.5.1)
+    kaminari (0.12.4)
+      rails (>= 3.0.0)
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -302,6 +304,7 @@ DEPENDENCIES
   gdocs4ruby
   haml-rails (= 0.3.4)
   jsmin (= 1.0.0)
+  kaminari
   launchy (>= 0.3.5)
   net-ldap (>= 0.1.1)
   nifty-generators
