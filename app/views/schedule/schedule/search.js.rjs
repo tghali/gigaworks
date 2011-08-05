@@ -1,6 +1,6 @@
 
 page['result_block'].replace_html :partial => "atozsearch"
-page['newimage'].hide
+page['spinner'].hide
 
 
 
