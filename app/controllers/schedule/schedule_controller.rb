@@ -14,7 +14,7 @@ class Schedule::ScheduleController < ApplicationController
 	    @sentences =  Sentence.find(:all,:conditions => ["text LIKE ? ","%#{params[:search]}%"]).paginate :page => params[:page],:per_page => 20, :order => 'created_at DESC'  
 	  
          else
-	    @sentences = Sentence.order("created_at").page(params[:page]).per(4)	
+	    @sentences = Sentence.order("created_at").page(params[:page]).per(25)	
 	    
 	 end   
 
@@ -27,7 +27,7 @@ class Schedule::ScheduleController < ApplicationController
     
   def search
 
-	  @sentences =  Sentence.where("text LIKE ? ","#{params[:letter]}%").order("created_at").page(params[:page]).per(4)
+	  @sentences =  Sentence.where("text LIKE ? ","#{params[:letter]}%").order("created_at").page(params[:page]).per(25)
 	  
 
 	  
