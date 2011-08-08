@@ -13,9 +13,9 @@ class SessionsController < ActionController::Base
           if gigauser
             gigadomain = Gigadomain.find_by_gigaclient_id(gigauser.gigaclient_id)
               if gigadomain
-                redirect_to "http://#{gigadomain.subdomain}.#{request.domain}:4009/dashboard" and return
+                redirect_to "http://#{gigadomain.subdomain}.#{request.domain}/dashboard" and return
               else
-                redirect_to "http://worx.#{request.domain}:4009/admin/employees/dashboard" and return  
+                redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" and return  
               end
 	      end
 	 
