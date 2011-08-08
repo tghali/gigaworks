@@ -1,3 +1,4 @@
+
 %table{:border => "0", :cellpadding => "0", :cellspacing => "1", :width => "100%", :id => "result_block"}
   %tr
     %th.first_td  
@@ -11,6 +12,8 @@
           %td
             - if (sentence.flagged_by_id != nil)
               %img{:alt => "flag", :src => "/images/clients/flag.png"}/
+            - else  
+              %img{:alt => "unflag", :src => "/images/clients/unflag.png"}/
 
           %td
             %div{:style => "float:left"} #{sentence.text}
@@ -21,7 +24,8 @@
                     .tags
                       = tag.tag
                       %span
-                        %a{:href => "#"} &nbsp; 
+                       
+                        = link_to image_tag("/images/pagination/close_tags.gif"), deletetag_url(:tag_id => tag), :remote => 'true' 
 
           %td{:style => "text-align:right"} #{get_arabic_data(sentence.id)}
           %td
@@ -31,7 +35,7 @@
                   %li
                     %a{:href => "#dialog", :name => "modal"} Edit
                   %li
-                    %a{:href => "#"} Flag
+                    = link_to "Flag", addflag_url(:sid => sentence.id), :remote => :true
                   %li
                     %a{:href => "#dialog", :name => "modal"} Tag
                   %li
@@ -109,5 +113,6 @@
           $('#mask').fadeOut(200);
           $('.window').fadeOut(200);
       });     
+
 
 

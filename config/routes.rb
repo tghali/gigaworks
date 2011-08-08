@@ -38,12 +38,10 @@ Gigavine::Application.routes.draw do
   get '/client/glossary' => "schedule/schedule#glossary" 
   get '/client/glossary/:id' => "schedule/schedule#glossary"   
   get '/client/glossary/search/:letter' => "schedule/schedule#search", :as => :glossary_search
+  
+  get '/addflag' => "schedule/schedule#add_flag",:as => :addflag  
+  get '/deletetag' => "schedule/schedule#tag_delete",:as => :deletetag  
 
-
-  
-  
-  
-  
   
   #~ get '/client/flagged' => "schedule/schedule#flagged"    
     
