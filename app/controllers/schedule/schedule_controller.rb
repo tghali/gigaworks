@@ -35,7 +35,37 @@ class Schedule::ScheduleController < ApplicationController
 	   end
    end	
    
-
+  def add_flag	  
+    @sentence = Sentence.find(params[:sid])  
+    @sentence.client_toggle_flag(current_user)    
+    respond_to do |format|
+	      if @sentence.save
+		 if params[:id]      
+			 @sentences = Sentence.flagged.order("created_at").page(params[:page]).per(25)	
+		else
+			@sentences = Sentence.order("created_at").page(params[:page]).per(25)
+		end
+		 format.js  
+		 format.xml  { head :ok }
+	    end
+   end
+ end
+ 
+ def tag_delete
+       @tag = Tag.find(params[:tag_id])       
+  respond_to do |format|
+	      if @tag.destroy
+		      
+             if params[:id]      
+               @sentences = Sentence.flagged.order("created_at").page(params[:page]).per(25)	
+            else
+              @sentences = Sentence.order("created_at").page(params[:page]).per(25)
+            end     
+		 format.js  
+		 format.xml  { head :ok }
+	    end
+   end
+ end 
 
  
 end

@@ -63,7 +63,16 @@ class Sentence < ActiveRecord::Base
       self.flagged_by = user
     end
   end
-  
+ 
+  def client_toggle_flag(user)
+    if self.flagged? 
+      self.flagged_by = nil
+    else
+      self.flagged_by_id = user
+    end
+  end
+
+
 private
   def set_parent(child)
     child.sentence ||= self
