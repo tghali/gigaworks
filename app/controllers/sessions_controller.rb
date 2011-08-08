@@ -6,9 +6,22 @@ class SessionsController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  def new   	 
-    redirect_to root_url if warden.authenticated?
+  def new   	
 
+      if !session["warden.user.default.key"].blank?
+          gigauser = Gigauser.find(current_user.id)
+          if gigauser
+            gigadomain = Gigadomain.find_by_gigaclient_id(gigauser.gigaclient_id)
+              if gigadomain
+                redirect_to "http://#{gigadomain.subdomain}.#{request.domain}:4009/dashboard" and return
+              else
+                redirect_to "http://worx.#{request.domain}:4009/admin/employees/dashboard" and return  
+              end
+	      end
+	 
+     else
+          redirect_to root_url if warden.authenticated?
+     end
   end
   
 
