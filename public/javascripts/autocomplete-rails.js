@@ -16,6 +16,7 @@
 
 $(document).ready(function(){
 	$('input[data-autocomplete]').railsAutocomplete();
+
 });
 
 (function(jQuery)
@@ -84,8 +85,12 @@ $(document).ready(function(){
 					};
 				
 					return false;
+
+			
+					//$(this.form).submit();
 				}
 			});
-    }
-  });
+					}
+			});	
+
 })(jQuery);

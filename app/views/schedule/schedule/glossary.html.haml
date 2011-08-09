@@ -1,6 +1,4 @@
 
-
-
 #contentwrapper
   #contentcolumn
     #accordion.innertube-1
@@ -94,22 +92,20 @@
         .spacer.clear_all
           %span
         #search_block.fl_left
-          %input.search_field{:type => "text"}/
-          %input.search_input{:type => "submit", :value => " "}/
+          = form_for :search, :url => client_glossary_path, :html => { :method => :get, :remote => :true}  do
+            = autocomplete_field_tag :text_search,params[:text_search],sentence_search_path,:class => "search_field"
+            %input.search_input{:type => "submit", :value => " "}/
+
+
         #tag_box_display
           %ul
-            %li
-              .tags
-                SCIENCE
-                %span 12
-            %li
-              .tags
-                PHP EXPERTS
-                %span 5
-            %li
-              .tags
-                ROR EXPE
-                %span 12
+            - @tags.each do |tag|
+              %li
+                .tags
+                  = tag[0]
+                  %span
+                    = tag[1]
+
 
         .clear_all
           %br
@@ -127,7 +123,7 @@
     %a.menuitem.statusicon_1{:href => "/dashboard"}
       %img{:src => "/images/new_page/view_details.png"}>/
       Dashboard
-    %a.menuitem.statusicon_1{:href => "#"}
+    %a.menuitem.statusicon_1{:href => "#dialog",  :name => "modal"}
       %img{:src => "/images/clients/new_icon.png"}>/
       New Term
 
@@ -152,3 +148,4 @@
   for(var i=0; i <27;i++){      
   $("#char_search_"+i).bind('click',toggleLoading);}
   });
+
