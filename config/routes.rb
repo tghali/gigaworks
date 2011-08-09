@@ -41,7 +41,7 @@ Gigavine::Application.routes.draw do
   
   get '/addflag' => "schedule/schedule#add_flag",:as => :addflag  
   get '/deletetag' => "schedule/schedule#tag_delete",:as => :deletetag  
-
+  get '/autocomplete_sentence_text' => "schedule/schedule#autocomplete_sentence_text",:as => :sentence_search
   
   #~ get '/client/flagged' => "schedule/schedule#flagged"    
     

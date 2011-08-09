@@ -1,5 +1,7 @@
 class Schedule::ScheduleController < ApplicationController
 	 layout 'admin/gigaclient'
+    autocomplete :sentence, :text	
+   before_filter :tags_count
   def show
    redirect_to :action => 'dashboard'
  end
@@ -11,7 +13,9 @@ class Schedule::ScheduleController < ApplicationController
   def glossary 
 	  if params[:id]
 		   @sentences = Sentence.flagged.order("created_at").page(params[:page]).per(25)	  
-         else
+    elsif params[:text_search]
+		   @sentences = Sentence.where("text ILIKE ? ","%#{params[:text_search]}%").page(params[:page]).per(25)	
+    else
 	    @sentences = Sentence.order("created_at").page(params[:page]).per(25)		    
 	 end   
 
@@ -66,6 +70,14 @@ class Schedule::ScheduleController < ApplicationController
 	    end
    end
  end 
-
+ 
+protected
+ 
+ def tags_count
+	 @tags = Tag.select("tag").group(:tag).count
+	 #~ for t in @tags
+	 #~ render :text =>  t[1]and return
+	 #~ end
+ end
  
 end

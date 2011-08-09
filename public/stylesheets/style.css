@@ -1049,7 +1049,7 @@ margin-top:5px
 }
 .tag_box_display{ width:200px; padding:0; margin:0; margin-left:5px}
 #tag_box_display ul li,.tag_box_display ul li{ float:left; margin-right:5px; margin-bottom:5px; display:inline}
-#tag_box_display ul li div.tags,.tag_box_display ul li div.tags{ background:#e4e4e4;float:left;-moz-border-radius: 6px!important;-webkit-border-radius: 6px!important; padding:2px 2px 2px 4px;}
+#tag_box_display ul li div.tags,.tag_box_display ul li div.tags{ background:#e4e4e4;text-transform:uppercase;float:left;-moz-border-radius: 6px!important;-webkit-border-radius: 6px!important; padding:2px 2px 2px 4px;}
 #tag_box_display ul li span,.tag_box_display ul li span{ background:#fff;-moz-border-radius: 5px!important;-webkit-border-radius: 5px!important;border:1px solid #b5b5b5; padding:0 5px;}
 .tag_box_display ul li span{ background:none;  border:0;}
 .tag_box_display ul li span a img{float:right;margin-top:2px;margin-right:3px}
