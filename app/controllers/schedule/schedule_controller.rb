@@ -71,6 +71,52 @@ class Schedule::ScheduleController < ApplicationController
    end
  end 
  
+ def new_sentence
+    @sentence = Sentence.new
+    @sentence.translations.build 
+    respond_to do |format|
+	     format.js
+	     format.xml  { head :ok }
+    end
+ end
+ 
+ 
+ def create_sentence
+    @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence].merge :author => current_user)
+    @sentence.author_id = current_user
+    respond_to do |format|
+      if @sentence.save!
+	@sentences = Sentence.order("created_at DESC").page(params[:page]).per(25)
+        format.js { render :glossary }
+        format.xml  { render :xml => @sentence, :status => :created, :location => @sentence }
+     else	     
+	     format.js { render :new_sentence }
+      end
+    end
+
+  end 
+
+  def recent_activity
+	  @sentences = Sentence.recent.order("created_at DESC").page(params[:page]).per(25)	    
+    respond_to do |format|
+      format.js { render :glossary}
+      format.xml  { render :xml => @sentences }
+    end
+  end
+
+  def delete_sentence
+    @sentence = Sentence.find(params[:id])    
+    #~ authorize! :destroy, @sentence    
+    @destroyed = @sentence.destroy
+    respond_to do |format|
+      format.js {  render :glossary}
+      format.xml  { head :ok }
+    end
+  end
+
+  
+ 
+ 
 protected
  
  def tags_count
