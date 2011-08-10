@@ -36,12 +36,20 @@ Gigavine::Application.routes.draw do
   get '/welcome' => "schedule/schedule#show"  
   get '/dashboard' => "schedule/schedule#dashboard"  
   get '/client/glossary' => "schedule/schedule#glossary" 
-  get '/client/glossary/:id' => "schedule/schedule#glossary"   
+  get '/client/glossary/:id' => "schedule/schedule#glossary", :as => :flagged_terms   
   get '/client/glossary/search/:letter' => "schedule/schedule#search", :as => :glossary_search
   
   get '/addflag' => "schedule/schedule#add_flag",:as => :addflag  
   get '/deletetag' => "schedule/schedule#tag_delete",:as => :deletetag  
   get '/autocomplete_sentence_text' => "schedule/schedule#autocomplete_sentence_text",:as => :sentence_search
+  
+  get '/new_sentence' => 'schedule/schedule#new_sentence',:as => :new_sentence
+  post '/create_sentence' => 'schedule/schedule#create_sentence',:as => :create_sentence  
+  get '/glossary/recent_activity' => 'schedule/schedule#recent_activity',:as => :recent_activity  
+  get '/glossary/delete_sentence' => 'schedule/schedule#recent_activity',:as => :delete_sentence
+  
+  
+  
   
   #~ get '/client/flagged' => "schedule/schedule#flagged"    
     

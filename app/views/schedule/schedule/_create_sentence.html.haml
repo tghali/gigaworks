@@ -1,0 +1,47 @@
+- form_for @sentence, :url => create_sentence_path ,:remote => "true" do |s|  
+        
+  .form_block_two.fl_left{:style=>"margin:20px 0 0 20px"}
+    %label.fl_left.text_indent English
+    %br.clear_all
+    %label.fl_left.input_width_12
+      = s.hidden_field 'language', :value => 'en'
+      = s.text_field  'text'
+  .clear_all
+  .error_msg dd
+  = s.fields_for :translations do |t|
+    .form_block_two.fl_left{:style=>"margin:20px 0 10 20px"}
+      %label.fl_left.text_indent Arabic
+      %br.clear_all
+      %label.fl_left
+        = t.hidden_field 'language', :value => 'ar'
+        = t.text_area :text,{:style=>"height:100px;width:200px;"}
+    .clear_all
+    .error_msg dd
+  %br.clear_all
+  .form_block_two.fl_left{:style=>"margin:20px 0 10 20px"}
+    %label.fl_left.text_indent Comment
+    %br.clear_all
+    %label.fl_left
+      = s.text_area :comment,{:style=>"height:100px;width:200px;"}
+  .clear_all
+  .error_msg dd
+  %br.clear_all
+  .form_block_two.fl_left{:style=>"margin:20px 0 0 20px"}
+    %label.fl_left.text_indent Description
+    %br.clear_all
+    %label.fl_left
+      = s.text_area :description,{:style=>"height:100px;width:200px;"}
+  .clear_all
+  .error_msg dd
+  .clear_all
+  .form_block_two.fl_left
+    %label.fl_left.text_indent &nbsp;
+    %br.clear_all
+    %label.fl_left{:style=>"margin:100px 0 0 20px"}
+
+      %input.apply-bg{:type => "submit", :value => "Create Term"}/
+  .clear_all
+  .error_msg dd
+
+  %a.close{:href => "#"}
+    %span	

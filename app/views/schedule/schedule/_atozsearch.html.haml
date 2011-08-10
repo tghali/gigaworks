@@ -41,7 +41,8 @@
                   %li
                     %a{:href => "#dialog", :name => "modal"} Comment
                   %li
-                    %a{:href => "#dialog", :name => "modal"} Delete
+                    = link_to "Delete",delete_sentence_url(:id => sentence), :remote => :true
+
 
       / head block wrapper end
     - else
@@ -62,12 +63,21 @@
     %a.close{:href => "#"}
       %span
       
+#dialog_new_term_test.window
+  .inner_block_modal
+    #mydialog
+
+  %a.close{:href => "#"}
+    %span	
+
+      
 :javascript
   $("#table_grid table tr").mouseover(function () {
     $(this).find(".add_view_1").show();
     }).mouseout(function () {
     $(this).find(".add_view_1").hide();
     });
+
       //select all the a tag with name equal to modal
       $('a[name=modal]').click(function (e) {
           //Cancel the link behavior
@@ -100,6 +110,46 @@
   
           //transition effect
           $(id).fadeIn(2000);
+  
+      });
+    
+    
+    //select all the a tag with name equal to modal
+      $("#popup").click(function () {
+
+          //Cancel the link behavior
+         // e.preventDefault();
+
+          //Get the A tag
+         // var id = $(this).attr('href');
+          $('#dialog_new_term_test').show();
+
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+  
+          //Set the popup window to center
+          $('#dialog_new_term_test').css('top', winH / 2 - $('#dialog_new_term_test').height() / 2);
+          $('#dialog_new_term_test').css('left', winW / 2 - $('#dialog_new_term_test').width() / 2);
+  
+          //transition effect
+          $('#dialog_new_term_test').fadeIn(2000);
+	  
+	  
   
       });
       

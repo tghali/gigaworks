@@ -91,14 +91,30 @@
             = image_tag(("/images/images/loader.gif"),:width => "20",:height => "20")
         .spacer.clear_all
           %span
-        #search_block.fl_left
-          = form_for :search, :url => client_glossary_path, :html => { :method => :get, :remote => :true}  do
-            = autocomplete_field_tag :text_search,params[:text_search],sentence_search_path,:class => "search_field"
-            %input.search_input{:type => "submit", :value => " "}/
-
-
         #tag_box_display
+          #search_block.fl_left
+            = form_for :search, :url => client_glossary_path, :html => { :method => :get, :remote => :true}  do
+              = autocomplete_field_tag :text_search,params[:text_search],sentence_search_path,:class => "search_field"
+              %input.search_input{:type => "submit", :value => " "}/
           %ul
+            - @tags.each do |tag|
+              %li
+                .tags
+                  = tag[0]
+                  %span
+                    = tag[1]
+            - @tags.each do |tag|
+              %li
+                .tags
+                  = tag[0]
+                  %span
+                    = tag[1]
+            - @tags.each do |tag|
+              %li
+                .tags
+                  = tag[0]
+                  %span
+                    = tag[1]
             - @tags.each do |tag|
               %li
                 .tags
@@ -123,16 +139,10 @@
     %a.menuitem.statusicon_1{:href => "/dashboard"}
       %img{:src => "/images/new_page/view_details.png"}>/
       Dashboard
-    %a.menuitem.statusicon_1{:href => "#dialog",  :name => "modal"}
-      %img{:src => "/images/clients/new_icon.png"}>/
-      New Term
+    = link_to "New Term", new_sentence_url, :remote => :true,:id=>"popup",:class=>"menuitem statusicon_1"
+    = link_to "Flagged", flagged_terms_url(:id => 'flagged'), :remote => :true,:class=>"menuitem statusicon_1",:id => "flagged_terms"
+    = link_to "Recent Activity", recent_activity_url, :remote => :true,:class=>"menuitem statusicon_1",:id => "recent_activity"
 
-    %a.menuitem.statusicon_1{:href => "/client/glossary/flagged"}
-      %img{:src => "/images/new_page/view_details.png"}>/
-      Flagged
-    %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "/images/new_page/view_details.png"}>/
-      Recent Activity
     %a.menuitem.statusicon_1{:href => "#"}
       %img{:src => "/images/new_page/view_details.png"}>/
       Import
@@ -144,6 +154,10 @@
 :javascript
 
   $(document).ready(function($) {
+  $("#popup").prepend('<img src="/images/clients/new_icon.png"}>');   
+  $("#recent_activity").prepend('<img src="/images/new_page/view_details.png"}>');     
+  $("#flagged_terms").prepend('<img src="/images/new_page/view_details.png"}>');    
+  
   var toggleLoading = function() { $("#spinner").toggle()  };
   for(var i=0; i <27;i++){      
   $("#char_search_"+i).bind('click',toggleLoading);}
