@@ -39,6 +39,17 @@ class Schedule::ScheduleController < ApplicationController
 	   end
    end	
    
+       def tagsearch
+     
+  	    @sentences =  Sentence.where("tags.tag LIKE ? AND tags.taggable_type = 'Sentence'","#{params[:letter]}").joins(:tags).order("created_at DESC").page(params[:page]).per(25)   
+
+	  
+	   respond_to do |format|
+	      format.js # index.html.erb
+	      format.xml  { render :xml => @sentences }
+	   end
+   end
+   
   def add_flag	  
     @sentence = Sentence.find(params[:sid])  
     @sentence.client_toggle_flag(current_user)    

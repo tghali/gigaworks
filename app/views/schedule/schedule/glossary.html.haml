@@ -71,22 +71,23 @@
             = link_to "Z", glossary_search_path(:letter => 'z',:id => params[:id]), :remote => 'true',:id => "char_search_25"
         .clear_all
           %span
-        #search_swap_block.fl_left
-          %label
-            %b Search Terms
-            \-
-          %label From :
-          %label
-            %select
-              %option English
-              %option Arabic
-          %label
-            %img{:alt => "swap", :height => "18", :src => "/images/clients/swap_ico.gif", :title => "swap", :width => "24"}/
-          %label To :
-          %label
-            %select
-              %option English
-              %option Arabic
+        - form_for :search_terms, recent_activity_url do 
+          #search_swap_block.fl_left
+            %label
+              %b Search Terms
+              \-
+            %label From :
+            %label
+              %select
+                %option English
+                %option Arabic
+            %label
+              %img{:alt => "swap", :height => "18", :src => "/images/clients/swap_ico.gif", :title => "swap", :width => "24"}/
+            %label To :
+            %label
+              %select{:onchange => "this.form.submit();"}
+                %option English
+                %option Arabic
           %span{:id => "spinner",:style => "display:none;"}
             = image_tag(("/images/images/loader.gif"),:width => "20",:height => "20")
         .spacer.clear_all
@@ -100,7 +101,7 @@
             - @tags.each do |tag|
               %li
                 .tags
-                  = tag[0]
+                  = link_to tag[0], tagsearch_url(tag[0]), :remote => :true
                   %span
                     = tag[1]
 

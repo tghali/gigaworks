@@ -3,11 +3,11 @@
   %head
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
     %title Project Management
-    = stylesheet_link_tag "style","vertical-menu","pagination","jquery-ui-1.8.2.custom"
+    = stylesheet_link_tag "style","vertical-menu","pagination","jquery-ui-1.8.2.custom",'tool-tip'
 
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
     =  javascript_include_tag 'rails.js'
-    = javascript_include_tag  'curvy.js','menu.js','jquery.tools.min.js' ,'jquery.fixedheadertable.min','demo.js','ddaccordion.js','swfobject.js','common/plugins/jquery-ui.js', 'autocomplete-rails.js'
+    = javascript_include_tag   'curvy.js','menu.js','jquery.tools.min.js' ,'jquery.fixedheadertable.min','demo.js','ddaccordion.js','swfobject.js','common/plugins/jquery-ui.js', 'autocomplete-rails.js','tool-tip.js'
     /[if IE 7] <link href="css/ie6.css" rel="stylesheet" type="text/css">
 
     :javascript
@@ -123,29 +123,12 @@
       });
 
 
-
       	   
         });	
 
 
     :css
-      /* simple css-based tooltip */
-      .tooltip {
-      	background:#000;
-      	border:1px solid #fff;
-      	padding:10px 15px;
-      	width:auto;
-      	display:none;
-      	color:#fff;
-      	text-align:left;
-      	font-size:12px;
-      	border:1px solid #999999; 
-      	-moz-border-radius: 6px;
-      	-webkit-border-radius: 6px;
-      	/* outline radius for mozilla/firefox only */
-      /*	-moz-box-shadow:0 0 10px #000;
-      	-webkit-box-shadow:0 0 10px #000;*/
-      }
+
       .error_message{
       	border: 1px solid #c9645a;
       	-webkit-border-radius: 5px;
