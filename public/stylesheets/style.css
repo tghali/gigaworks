@@ -643,7 +643,9 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 .input_width_11{ width:524px; height:37px; background:url(/images/new_page/form_elements_bg.png) no-repeat 0 0;} 
 .input_width_11 input{ width:500px;}
 .input_width_12{ width:254px; height:37px; background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -40px;}
-.input_width_12 input{width:230px; }
+.textarea_width_12{background:url(/images/clients/text_area_bg.png) no-repeat; height:71px;}
+.input_width_12 input,.input_width_12 textarea{width:230px;border:0;}
+
 .input_width_13{ width:412px; height:37px;background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -122px;}
 .input_width_13 input{ width:390px; }
 .input_width_14,
@@ -652,7 +654,8 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 .input_width_12 input,
 .input_width_13 input,
 .input_width_14 input,
-.input_width_15 input{ 
+.input_width_15 input,
+.input_width_12 textarea{
 	background:none; 
 	color:#424242;
 	margin:8px 0 0 10px; 
@@ -978,7 +981,7 @@ a.header_highlight{
 
 .close{ display:block; width:32px; height:32px; background:url(/images/new_page/close.png) no-repeat; position:absolute; top:-10px; right:-10px}
 
-.window {
+/*.window {
   position:absolute;
   left:0;
   top:0;
@@ -987,7 +990,7 @@ a.header_highlight{
   display:none;
   z-index:9999;
   padding:20px;
-}
+}*/
 #mask {
   position:absolute;
   left:0;
