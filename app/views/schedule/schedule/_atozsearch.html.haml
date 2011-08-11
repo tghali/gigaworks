@@ -3,7 +3,7 @@
   %tr
     %th.first_td  
     %th{:width => "40%"} English
-    %th  
+    %th  Arabic
     %th.last_edit Functions
   %div
     - if !@sentences.blank? 
@@ -16,7 +16,9 @@
               %img{:alt => "unflag", :src => "/images/clients/unflag.png"}/
 
           %td
-            %div{:style => "float:left"} #{sentence.text}
+            %div{:style => "float:left"}
+              %span.toolTip_text{:title=>"User comment goes here...."}
+                = sentence.text
             .tag_box_display
               %ul
                 - sentence.tags.each do |tag|
@@ -27,7 +29,9 @@
                        
                         = link_to image_tag("/images/pagination/close_tags.gif"), deletetag_url(:tag_id => tag,:id => params[:id]), :remote => 'true' 
 
-          %td{:style => "text-align:right"} #{get_arabic_data(sentence.id)}
+          %td{:style => "text-align:right"}
+            %span.toolTip_text{:title=>"User comment goes here...."}
+              = get_arabic_data(sentence.id)
           %td
             .user_action_block.glossary_user_action_block
               .add_view_1
@@ -163,6 +167,7 @@
           $('#mask').fadeOut(200);
           $('.window').fadeOut(200);
       });     
+
 
 
 
