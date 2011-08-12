@@ -670,7 +670,8 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 .input_width_11 input{ width:500px;}
 .input_width_12{ width:254px; height:37px; background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -40px;}
 .textarea_width_12{background:url(/images/clients/text_area_bg.png) no-repeat; height:71px;}
-.input_width_12 input,.input_width_12 textarea{width:230px;height:50px;border:0;}
+.input_width_12 input,.input_width_12 textarea{width:230px;border:0;}
+.input_width_12 textarea{height:50px;}
 
 .input_width_13{ width:412px; height:37px;background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -122px;}
 .input_width_13 input{ width:390px; }
