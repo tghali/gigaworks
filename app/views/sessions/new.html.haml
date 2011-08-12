@@ -61,6 +61,7 @@
       });
       
     :css
+      body{background:#fff}
       /* simple css-based tooltip */
       .tooltip {
       	background:#000;
@@ -85,22 +86,9 @@
       }
       #loging_form{
       	
-      	border-bottom:1px solid #999999; 
-      	border-left:1px solid #999999; 
-      	border-right:1px solid #999999; 
-      	/*-moz-border-radius: 4px;
-      	-webkit-border-radius: 4px;*/
-      	-moz-border-radius-bottomright: 8px;
-      	-khtml-border-radius-bottomright: 8px;
-      	-webkit-border-bottom-right-radius: 8px;
-      	-moz-border-radius-bottomleft: 8px;
-      	-khtml-border-radius-bottomleft: 8px;
-      	-webkit-border-bottom-left-radius: 8px;
-      	/*-moz-border-radius-topright: 8px;
-      	-khtml-border-radius-topright: 8px;
-      	-webkit-border-top-right-radius: 8px;*/
+      
       	width:320px;
-      	background:#fff url(/images/grey_bg_inner.gif) repeat-x;
+      	background:#fff !important;
       	margin-top:-5px;
       	padding-bottom:20px;
       	}
@@ -109,16 +97,7 @@
       	height:41px;
       	line-height:41px;
       	text-indent:30px;
-      	background:url(images/secured_connexion_bg.gif) repeat-x;
-      	border-top:1px solid #999999; 
-      	border-left:1px solid #999999; 
-      	border-right:1px solid #999999; 
-      	-moz-border-radius-topright: 8px;
-      	-khtml-border-radius-topright: 8px;
-      	-webkit-border-top-right-radius: 8px;
-      	-moz-border-radius-topleft: 8px;
-      	-khtml-border-radius-topleft: 8px;
-      	-webkit-border-top-left-radius: 8px;
+        display:none;
       	overflow:hidden;font-weight:700
       	
       }
@@ -238,6 +217,7 @@
   %body
     - if request.subdomain != 'worx'
       %span{:style => "position:absolute;left:50%;margin-left:-150px;top:10px"}
+
         - if get_logo("#{request.subdomain}") != '/logos/normal/missing.png'
           = image_tag (get_logo("#{request.subdomain}"))
     / Start of Sticky Note
