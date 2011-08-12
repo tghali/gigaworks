@@ -45,6 +45,10 @@ Gigavine::Application.routes.draw do
   
   get '/new_sentence' => 'schedule/schedule#new_sentence',:as => :new_sentence
   post '/create_sentence' => 'schedule/schedule#create_sentence',:as => :create_sentence  
+  
+  get '/edit_sentence' => 'schedule/schedule#edit_sentence',:as => :edit_sentence  
+  put '/update_sentence' => 'schedule/schedule#update_sentence',:as => :update_sentence  
+  
   get '/glossary/recent_activity' => 'schedule/schedule#recent_activity',:as => :recent_activity  
   get '/glossary/delete_sentence' => 'schedule/schedule#recent_activity',:as => :delete_sentence
   get '/client/glossary/tagsearch/:letter' => "schedule/schedule#tagsearch", :as => :tagsearch  

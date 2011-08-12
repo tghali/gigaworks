@@ -30,14 +30,15 @@
                         = link_to image_tag("/images/pagination/close_tags.gif"), deletetag_url(:tag_id => tag,:id => params[:id]), :remote => 'true' 
 
           %td{:style => "text-align:right"}
-            %span.toolTip_text{:title=>"User comment goes here...."}
+            %span.toolTip_text{:title=>"User comment goes here....",:style => "font-size:14px;"}
               = get_arabic_data(sentence.id)
           %td
             .user_action_block.glossary_user_action_block
               .add_view_1
                 %ul
                   %li
-                    %a{:href => "#dialog", :name => "modal"} Edit
+                    = link_to "Edit", edit_sentence_url(:sid => sentence.id), :remote => :true,:id=>"edit_sentence",:class=>"menuitem statusicon_1",:name => "sentence_edit"
+
                   %li
                     = link_to "Flag", addflag_url(:sid => sentence.id,:id => params[:id]), :remote => :true
                   %li
@@ -61,16 +62,6 @@
 .pagination_block
   = paginate @sentences,:remote => :true
   
-#dialog.window
-  .inner_block_modal
-    %p Simple Modal Window |
-    %a.close.close_form{:href => "#"}
-      %span
-      
-#dialog_new_term_test.window
-  #mydialog
-
-
       
 :javascript
   $("#table_grid table tr").mouseover(function () {
@@ -153,6 +144,45 @@
 	  
   
       });
+      
+     //select all the a tag with name equal to modal
+      $('a[name=sentence_edit]').click(function () {
+
+          //Cancel the link behavior
+         // e.preventDefault();
+
+          //Get the A tag
+         // var id = $(this).attr('href');
+          $('#dialog_new_term_test').show();
+
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+  
+          //Set the popup window to center
+          $('#dialog_new_term_test').css('top', winH / 2 - $('#dialog_new_term_test').height() / 2);
+          $('#dialog_new_term_test').css('left', winW / 2 - $('#dialog_new_term_test').width() / 2);
+  
+          //transition effect
+          $('#dialog_new_term_test').fadeIn(2000);
+	  
+	  
+  
+      });  
       
 
       

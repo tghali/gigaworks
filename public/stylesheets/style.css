@@ -73,15 +73,41 @@ height: 90px; /*Height of top section*/
 #menu li a{ width:50px; height:59px; display:block; color:#000; float:left; text-align:center; font:13px "Myriad Pro",Arial, Helvetica, sans-serif;}
 #menu li a span{ float:left; width:50px}
 #menu li a:hover,#menu li.selected{  /* IE 8 */
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";/* IE 5-7 */
-  filter: alpha(opacity=50);/* Netscape */
-  -moz-opacity: 0.5;/* Safari 1.x */
-  -khtml-opacity: 0.5;  /* Good browsers */
-  opacity: 0.5;
-  text-decoration:none}
+
+  text-decoration:none;color:#006db2;}
 #menu li.last{margin-right:0}
 
+/*New menu styles*/
 
+#menu li a.admin{background:url(/images/clients/admin.png) no-repeat}
+#menu li a.admin:hover{background:url(/images/clients/admin_hover.png) no-repeat;}
+
+#menu li a.calendar{background:url(/images/clients/calendar.png) no-repeat}
+#menu li a.calendar:hover{background:url(/images/clients/calendar_hover.png) no-repeat;}
+
+#menu li a.contacts{background:url(/images/clients/contacts.png) no-repeat}
+#menu li a.contacts:hover{background:url(/images/clients/contacts_hover.png) no-repeat;}
+
+#menu li a.document{background:url(/images/clients/document.png) no-repeat}
+#menu li a.document:hover{background:url(/images/clients/document_hover.png) no-repeat;}
+
+#menu li a.finance{background:url(/images/clients/finance.png) no-repeat}
+#menu li a.finance:hover{background:url(/images/clients/finance_hover.png) no-repeat;}
+
+#menu li a.glossary{background:url(/images/clients/glossary.png) no-repeat; padding:0}
+#menu li a.glossary:hover{background:url(/images/clients/glossary_hover.png) no-repeat;}
+
+#menu li a.images{background:url(/images/clients/images.png) no-repeat}
+#menu li a.images:hover{background:url(/images/clients/images_hover.png) no-repeat;}
+
+#menu li a.marketing{background:url(/images/clients/marketing.png) no-repeat}
+#menu li a.marketing:hover{background:url(/images/clients/marketing_hover.png) no-repeat;}
+
+#menu li a.projects{background:url(/images/clients/projects.png) no-repeat}
+#menu li a.projects:hover{background:url(/images/clients/projects_hover.png) no-repeat;}
+
+#menu li a.sales{background:url(/images/clients/sales.png) no-repeat}
+#menu li a.sales:hover{background:url(/images/clients/sales_hover.png) no-repeat;}
 
 
 /*---------------avatar styles---------------*/
@@ -1061,6 +1087,8 @@ float:left
 #tag_box_display ul li span,.tag_box_display ul li span{ background:#fff;-moz-border-radius: 5px!important;-webkit-border-radius: 5px!important;border:1px solid #b5b5b5; padding:0 5px;}
 .tag_box_display ul li span{ background:none;  border:0;}
 .tag_box_display ul li span a img{float:right;margin-top:2px;margin-right:3px}
+#tag_box_display ul li div.tags a{color:#000}
+#tag_box_display ul li div.tags{ background:#DAD500}
 #search_swap_block{
 width:500px;
 margin-top:10px;

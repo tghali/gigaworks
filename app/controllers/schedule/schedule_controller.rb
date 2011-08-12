@@ -87,7 +87,7 @@ class Schedule::ScheduleController < ApplicationController
     @sentence.translations.build 
     respond_to do |format|
 	     format.js
-	     format.xml  { head :ok }
+	     format.xml  { render :xml => @sentence }
     end
  end
  
@@ -96,16 +96,42 @@ class Schedule::ScheduleController < ApplicationController
     @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence].merge :author => current_user)
     @sentence.author_id = current_user
     respond_to do |format|
-      if @sentence.save!
+      if @sentence.save
 	@sentences = Sentence.order("created_at DESC").page(params[:page]).per(25)
         format.js { render :glossary }
         format.xml  { render :xml => @sentence, :status => :created, :location => @sentence }
      else	     
-	     format.js { render :new_sentence }
+	     format.js { render :action => :new_sentence }
+	     format.xml  { render :xml => @sentence.errors, :status => :unprocessable_entity }
       end
     end
 
   end 
+
+def edit_sentence
+	@sentence = Sentence.find(params[:sid])
+	    if @sentence.translations.blank?
+    @sentence.translations.build 
+    end
+	   respond_to do |format|
+	      format.js # index.html.erb
+	      format.xml  { render :xml => @sentence }
+	   end
+        
+end
+
+def update_sentence
+    @sentence = Sentence.find(params[:sid])   
+    @sentence.comment = params[:sentence][:comment]
+    @sentence.description = params[:sentence][:description]
+    respond_to do |format|
+	      if @sentence.update_attributes!(params[:sentence].merge :author => current_user)
+		format.html { redirect_to :action => :glossary }
+		format.xml  { head :ok  }
+	      end
+    end
+end
+
 
   def recent_activity
 	  @sentences = Sentence.recent.order("created_at DESC").page(params[:page]).per(25)	    

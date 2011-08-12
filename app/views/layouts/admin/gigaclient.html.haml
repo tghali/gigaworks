@@ -76,8 +76,6 @@
       });
 
 
-
-
       //select all the a tag with name equal to modal
       $('#popup').click(function (e) {
           //Cancel the link behavior
@@ -112,6 +110,7 @@
           $('#dialog_new_term_test').fadeIn(2000);
   
       });
+      
   
       //if close button is clicked
       $('.window .close').click(function (e) {
@@ -188,25 +187,27 @@
           #menu
             %ul
               %li
-                %a{:href => "#"}
-                  %img{:alt => "Calendar", :src => "/images/clients/calendar.png"}/
+                %a.calendar{:href => "#"}
+                  %span{:style => "width:48px;height:41px;"}
                   %span Calendar
               %li
-                %a{:href => "/client/glossary"}
-                  %img{:alt => "Glossary", :src => "/images/clients/glossary.png"}/
+                %a.glossary{:href => "/client/glossary"}
+                  %span{:style => "width:48px;height:41px;"}
                   %span Glossary
               %li
-                %a{:href => "#"}
-                  %img{:alt => "Documents", :src => "/images/clients/document.png"}/
+                %a.document{:href => "#"}
+                  %span{:style => "width:48px;height:41px;"}
                   %span Documents
               %li
-                %a{:href => "#"}
-                  %img{:alt => "Images", :src => "/images/clients/images.png"}/
+                %a.images{:href => "#"}
+                  %span{:style => "width:48px;height:41px;"}
                   %span Images
               %li.last
-                %a{:href => "#"}
-                  %img{:alt => "Admin", :src => "/images/clients/admin.png"}/
+                %a.admin{:href => "#"}
+                  %span{:style => "width:48px;height:41px;"}
                   %span Admin
+
+
           #top-right-details
             .date_time
               %p 06/23/2011 02:24 AM
