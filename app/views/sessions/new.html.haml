@@ -81,7 +81,7 @@
       }
       #login_wrapper{
       	width:322px;
-      	margin:100px auto;
+      	margin:20px auto!IMPORTANT;
       	overflow:hidden;
       }
       #loging_form{
@@ -216,10 +216,10 @@
       .close_small{ display:block; width:15px; height:15px; background:url(/images/small_close_icon.png) ;position:absolute; no-repeat;top:10px; right:10px}
   %body
     - if request.subdomain != 'worx'
-      %span{:style => "position:absolute;left:50%;margin-left:-150px;top:10px"}
-
-        - if get_logo("#{request.subdomain}") != '/logos/normal/missing.png'
-          = image_tag (get_logo("#{request.subdomain}"))
+      %span{:style => "position:relative;left:50%;margin-left:-100px;top:10px;text-align:center"}
+        = image_tag ('/images/clients/nae_logod.jpg'),:height => "218",:width => "170"
+        -# if get_logo("#{request.subdomain}") != '/logos/normal/missing.png'
+          =# image_tag (get_logo("#{request.subdomain}"))
     / Start of Sticky Note
     - unless flash.empty?
       #flashes
@@ -275,3 +275,12 @@
           / Lead form end
     / Mask to cover the whole screen
     #mask
+#footer_glossary{:style=>"position:relative;bottom:0"}
+  %p &copy; 2011
+  %ul
+    %li
+      %a{:href => "#"} Support
+    %li
+      %a{:href => "#"} Privacy
+    %li
+      %a{:href => "#"} Terms      

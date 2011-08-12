@@ -219,9 +219,9 @@
                 %span 2
               %span.login_logout
                 - if current_user 
-                  %a{:href => "/sign_out"} Log Out 
+                  %a{:href => "/sign_out"} Sign Out 
                 - else
-                  =# link_to t(:'account.Logout'), '/sign_out', :title=> "Click here to logout"
+                  =# link_to t(:'account.Logout'), '/sign_out', :title=> "Click here to sign out"
           %br.clear_all/
 
       = yield
