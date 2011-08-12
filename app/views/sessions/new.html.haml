@@ -221,11 +221,6 @@
         -# if get_logo("#{request.subdomain}") != '/logos/normal/missing.png'
           =# image_tag (get_logo("#{request.subdomain}"))
     / Start of Sticky Note
-    - unless flash.empty?
-      #flashes
-        - flash.each do |type, msg|
-          %div{:class=>"#{type}"}= h msg
-        -flash.clear
     #dialog1.window
       .d-header
         %input{:onclick => "this.value=''", :type => "text", :value => "username"}/
@@ -238,6 +233,11 @@
     = form_for :session, :url => sign_in_url do |f| 
       / Lead form start
       #login_wrapper{:style => "margin-top:150px"}
+        - unless flash.empty?
+          #flashes
+            - flash.each do |type, msg|
+              %div{:class=>"#{type}",:style => "text-align:center;background:#f00;position:relative;padding:5px;color:#fff;font-weight:700"}= h msg
+            -flash.clear
         .head_login
           %span Secured Connexion
         #loging_form.fl_left

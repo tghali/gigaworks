@@ -190,10 +190,16 @@
                 %a.calendar{:href => "#"}
                   %span{:style => "width:48px;height:41px;"}
                   %span Calendar
-              %li
-                %a.glossary{:href => "/client/glossary"}
-                  %span{:style => "width:48px;height:41px;"}
-                  %span Glossary
+              - if params[:action] == 'glossary'
+                %li.selected
+                  %a.glossary{:href => "/client/glossary"}
+                    %span{:style => "width:48px;height:41px;"}
+                    %span Glossary
+              - else
+                %li
+                  %a.glossary{:href => "/client/glossary"}
+                    %span{:style => "width:48px;height:41px;"}
+                    %span Glossary
               %li
                 %a.document{:href => "#"}
                   %span{:style => "width:48px;height:41px;"}
