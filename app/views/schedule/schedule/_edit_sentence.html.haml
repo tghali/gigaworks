@@ -1,8 +1,8 @@
-- form_for @sentence, :url => create_sentence_path ,:remote => "true" do |s|  
+- form_for @sentence, :url => update_sentence_path(:sid => @sentence.id) do |s|  
         
   #pop_login_wrapper
     .head_login
-      %span Add New Term
+      %span  Edit Term
       %a.close.close_form{:href => "#"}
     #pop_loging_form.fl_left
       .inner_login_wrap
