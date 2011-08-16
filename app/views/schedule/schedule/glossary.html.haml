@@ -14,6 +14,11 @@
             %b terms
         / heading end
         %br.clear_all/
+        .innertube-1
+          - if flash[:notice]
+            .success_message{:id => 'message'}
+              %span
+              = flash[:notice]
       %div
         %ul#alphabet_listing
           %li
@@ -157,3 +162,6 @@
   $("#char_search_"+i).bind('click',toggleLoading);}
   });
 
+  jQuery(document).ready( function() {
+  setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
+  });

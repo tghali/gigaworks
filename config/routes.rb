@@ -53,7 +53,10 @@ Gigavine::Application.routes.draw do
   get '/glossary/delete_sentence' => 'schedule/schedule#recent_activity',:as => :delete_sentence
   get '/client/glossary/tagsearch/:letter' => "schedule/schedule#tagsearch", :as => :tagsearch  
   
-  
+ get '/comments' => "schedule/schedule#comments",:as => :comments  
+ post 'new_comment' => "schedule/schedule#create_comment"  
+ get 'new_tag' => "schedule/schedule#new_tag"  
+ post 'create_tag' => "schedule/schedule#create_tag"
   
   #~ get '/client/flagged' => "schedule/schedule#flagged"    
     

@@ -151,7 +151,60 @@ end
     end
   end
 
-  
+  def comments
+   @sentence = Sentence.find(params[:sid])
+    respond_to do |format|
+      format.js
+      format.xml  { head :ok }
+    end	
+end
+
+def create_comment
+    @sentence = Sentence.find(params[:sid])
+    @comment = @sentence.comments.build(params[:comment])
+    @comment.author_id = current_user    
+
+    respond_to do |format|
+      if @comment.save	
+	      
+		format.js {render :comments }
+		format.xml  { head :ok  }
+      else
+        # TODO: ensure that if the tag form has errors it displays them and it is opened at page load
+        format.html { redirect_to :action => :glossary}
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+      end
+    end
+
+end
+
+def new_tag
+ @sentence = Sentence.find(params[:sid])
+    respond_to do |format|
+      format.js
+      format.xml  { head :ok }
+    end	
+end
+ 
+ def create_tag
+    @taggable = Sentence.find(params[:sid])
+    @tag = @taggable.tags.build(params[:tag])
+       #~ authorize! :create, @tag
+    
+    respond_to do |format|
+      if @tag.save	
+		flash[:notice] = "Tag was created successfully"
+		format.html { redirect_to :action => :glossary}
+		format.xml  { head :ok  }
+      else
+        # TODO: ensure that if the tag form has errors it displays them and it is opened at page load
+        format.html { redirect_to :action => :glossary}
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+      end
+    end
+
+ end
+
  
  
 protected
