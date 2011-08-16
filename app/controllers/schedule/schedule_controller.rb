@@ -94,7 +94,7 @@ class Schedule::ScheduleController < ApplicationController
  
  def create_sentence
     @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence].merge :author => current_user)
-    @sentence.author_id = current_user
+    @sentence.author_id = current_user.id
     respond_to do |format|
       if @sentence.save
 	@sentences = Sentence.order("created_at DESC").page(params[:page]).per(25)
@@ -162,7 +162,7 @@ end
 def create_comment
     @sentence = Sentence.find(params[:sid])
     @comment = @sentence.comments.build(params[:comment])
-    @comment.author_id = current_user    
+    @comment.author_id = current_user.id    
 
     respond_to do |format|
       if @comment.save	
