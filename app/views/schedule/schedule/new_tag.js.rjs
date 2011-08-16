@@ -1,0 +1,6 @@
+page['mydialog'].replace_html :partial => "create_tag"
+page['comment_comment'].value = ""
+
+
+
+  
