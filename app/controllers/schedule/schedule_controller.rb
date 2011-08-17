@@ -188,8 +188,8 @@ def new_tag
 end
  
  def create_tag
-    @taggable = Sentence.find(params[:sid])
-    @tag = @taggable.tags.build(params[:tag])
+    @sentence = Sentence.find(params[:sid])
+    @tag = @sentence.tags.build(params[:tag])
        #~ authorize! :create, @tag
     
     respond_to do |format|
