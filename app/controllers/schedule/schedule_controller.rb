@@ -126,7 +126,7 @@ def update_sentence
     @sentence.description = params[:sentence][:description]
     respond_to do |format|
 	      if @sentence.update_attributes!(params[:sentence].merge :author => current_user)
-		format.html { redirect_to :action => :glossary }
+		format.js { render :sentence_update }
 		format.xml  { head :ok  }
 	      end
     end
@@ -146,6 +146,7 @@ end
     #~ authorize! :destroy, @sentence    
     @destroyed = @sentence.destroy
     respond_to do |format|
+      @sentences = Sentence.order("created_at").page(params[:page]).per(25)
       format.js {  render :glossary}
       format.xml  { head :ok }
     end
@@ -193,8 +194,8 @@ end
     
     respond_to do |format|
       if @tag.save	
-		flash[:notice] = "Tag was created successfully"
-		format.html { redirect_to :action => :glossary}
+
+		format.js { render :sentence_update }
 		format.xml  { head :ok  }
       else
         # TODO: ensure that if the tag form has errors it displays them and it is opened at page load
