@@ -1,4 +1,4 @@
-- form_for @sentence, :url => create_sentence_path ,:remote => "true" do |s|  
+- form_for @sentence, :url => create_sentence_path,:remote => :true do |s|  
         
   #pop_login_wrapper
     .head_login
@@ -17,16 +17,22 @@
           .clear_all
           .error_msg dd
         = s.fields_for :translations do |t|
-          .form_block_two.fl_left.mag_non
-            %label.fl_left.text_indent Arabic
-            %br.clear_all/
-            = t.hidden_field 'language', :value => 'ar'   
-            %label.fl_left.input_width_12.textarea_width_12
-           
-              = t.text_area :text, {:style => "direction:rtl"}
+	
+          .form_block_two.fl_left.mag_non{:style => "position:relative"}
+            #input1.clonedInput
+              %label.fl_left.text_indent Arabic
+              %br.clear_all/
+              = t.hidden_field 'language', :value => 'ar'   
+              %label.fl_left.input_width_12.textarea_width_12
+                = t.text_area :text,:style => "direction:rtl"
+              .clear_all
+              .error_msg dd
+            %input#btnAdd{:style => "position:absolute; right:-10px; top:20px;background:#fff url(/images/clients/add_term.png) no-repeat;color:#fff; cursor:pointer", :type => "button", :value => " "}/
 
-            .clear_all
-            .error_msg dd
+
+	
+	
+
         .form_block_two.fl_left.mag_non
           %label.fl_left.text_indent Comment
           %br.clear_all/
@@ -59,4 +65,28 @@
           $('.window').fadeOut(200);
       }); 
 
+        $(document).ready(function() {
+            $('#btnAdd').click(function() {
+                var num     = $('.clonedInput').length;
+                var newNum  = new Number(num + 1);
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+                newElem.find('textarea').attr('id', 'name' + newNum).attr('name', 'sentence[translations_attributes]['+newNum+'][text]' );
+                newElem.find('input').attr('id', 'name' + newNum).attr('name', 'sentence[translations_attributes]['+newNum+'][language]' );
+                //newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+                $('#input' + num).after(newElem);
 
+                $('#btnDel').attr('disabled','');
+                if (newNum == 5)
+                    $('#btnAdd').attr('disabled','disabled');
+            });
+ 
+            $('#btnDel').click(function() {
+                var num = $('.clonedInput').length;
+                $('#input' + num).remove();
+                $('#btnAdd').attr('disabled','');
+                if (num-1 == 1)
+                    $('#btnDel').attr('disabled','disabled');
+            });
+ 
+            $('#btnDel').attr('disabled','disabled');
+        });
