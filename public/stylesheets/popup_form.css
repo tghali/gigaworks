@@ -94,7 +94,7 @@
   width:322px;
 }
 
-.close_form{ display:block; width:16px; height:17px; background:url(/images/clients/close_form.png) no-repeat; float:right; margin:10px 10px;}  
+.close_form{ display:block; width:16px; height:17px; background:url(/images/clients/close_form.png) no-repeat; float:right; margin:18px 25px !important;}  
 
 html {
 overflow: hidden\0/;
