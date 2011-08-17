@@ -108,54 +108,7 @@
                 = link_to "Add New", new_admin_client_path
            
 		
-      %span
-        #boxes
-          %td
-            %a{:href => "#dialog", :name => "modal"}  
 
-            #dialog.window
-              .inner_block_modal
-                %h3 
-                  .wrapper_form_inner
-                    .form_head_highlight
-                      %span Appoint Lead
-                    .new_lead_block.fl_left
-                      / Title
-                      .title_width
-                        %label.fl_left.text_indent
-                        Appoint To
-                        %span &nbsp;
-                      %br.clear_all/
-                      %label.fl_left.input_width_11
-                        = hidden_field_tag 'total_leads', ''
-                        = text_field 'lead', 'appointed_to'
-
-                    .clear_all
-                    .error_msg dd
-                    / Title End
-                  .form_block_three.fl_left
-                    %label.fl_left.text_indent 
-                    %br.clear_all/
-                    %label.fl_left.input_create_lead
-                      = submit_tag " "
-                    .clear_all
-                    .error_msg dd
-                    / City end
-
-                  .form_block_three.fl_left
-                    %label.fl_left.text_indent
-                    %br.clear_all/
-                    %label.fl_left.input_create_lead
-                      %a.close{:href => "#" }
-                      = image_tag( '/images/new_page/cancel.png')
-                    .clear_all
-                    .error_msg dd
-                    / City end
-
-
-
-              %a.close{:href => "#",:onclick => "document.getElementById('lead_appointed_to').value = '';document.getElementById('total_leads').value = '';"}
-                %span		
 		
 		
 
