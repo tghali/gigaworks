@@ -1,4 +1,4 @@
-- form_for @sentence, :url => update_sentence_path(:sid => @sentence.id) do |s|  
+- form_for @sentence, :url => update_sentence_path(:sid => @sentence.id) ,:remote => :true do |s|  
         
   #pop_login_wrapper
     .head_login

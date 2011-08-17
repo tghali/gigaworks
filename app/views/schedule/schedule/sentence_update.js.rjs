@@ -1,0 +1,3 @@
+page["singlerow_#{@sentence.id}"].replace :partial => "update_sentence"
+page['dialog_new_term_test'].hide
+page['mask'].fadeOut(200) if page['mask']

@@ -1,4 +1,4 @@
-- form_for :sentence, :url => {:action => "create_tag",:sid => @sentence.id} do
+- form_for :sentence, :url => {:action => "create_tag",:sid => @sentence.id},:remote => :true do
         
   #pop_login_wrapper
     .head_login
