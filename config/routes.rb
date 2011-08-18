@@ -30,8 +30,20 @@ Gigavine::Application.routes.draw do
   get '/profile'           => 'users#edit',       :as => :profile
   
   # CRM/PMS
+  
+  #### Client Signup
   get 'signup/(:invite_token)' => 'users#signup', :as => :signup
   match 'signup' => 'users#gigauser_create'
+  ##### end client signup 
+  
+    ### Client User Signup 
+  
+  get '/contact/signup/(:invite_token)' => 'users#client_user_signup', :as => :usersignup
+  match '/contact/signup' => 'users#client_user_create'
+  
+  ### end client user signup
+  
+  
   
   get '/welcome' => "schedule/schedule#show"  
   get '/dashboard' => "schedule/schedule#dashboard"  
@@ -57,6 +69,16 @@ Gigavine::Application.routes.draw do
  post 'new_comment' => "schedule/schedule#create_comment"  
  get 'new_tag' => "schedule/schedule#new_tag"  
  post 'create_tag' => "schedule/schedule#create_tag"
+  
+  
+ ### for clients admin
+  
+  get '/contact/new' => "schedule/admin#new",:as => :new_contact  
+  post '/contact/create_contact' => "schedule/admin#create",:as => :create_contact    
+  get '/contacts/users' =>  "schedule/admin#index",:as => :users_list
+  get '/contact/user_invitation' => "schedule/admin#user_invitation",:as => :user_invitation
+  
+ ### end for clients admin  
   
   #~ get '/client/flagged' => "schedule/schedule#flagged"    
     

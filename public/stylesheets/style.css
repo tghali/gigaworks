@@ -682,12 +682,16 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 .input_width_13 input,
 .input_width_14 input,
 .input_width_15 input,
-.input_width_12 textarea{
+.input_width_12 textarea,
+.input_width_15 select{
 	background:none; 
 	color:#424242;
 	margin:8px 0 0 10px; 
-	font-size:13px
+	font-size:13px;
+	border:0
 	}
+.input_width_15 select{ width:110px}
+.input_width_15s{ width:128px !important;}
 .input_width_15{ width:128px; height:37px;background:url(/images/new_page/form_elements_bg.png) no-repeat 0 -80px;}
 .input_width_15 input{ width:110px;}
 .input_create_lead input{
@@ -737,7 +741,13 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 	margin-top:5px
 	}
 
-
+.input_create_contact input{
+	width:119px;
+	height:38px;
+	background:url(/images/new_page/create_contact.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer
+	}
 
 
 	

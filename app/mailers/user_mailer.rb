@@ -19,6 +19,11 @@ class UserMailer < ActionMailer::Base
     @invite.sent_at Time.now
   end
   
+  def client_contact_invite(invite)
+      @invite = invite
+    mail(:to => invite.recipient.email, :subject => "Client Users Invitation")
+    @invite.sent_at Time.now
+  end
   
   
   

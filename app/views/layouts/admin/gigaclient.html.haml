@@ -208,10 +208,18 @@
                 %a.images{:href => "#"}
                   %span{:style => "width:48px;height:41px;"}
                   %span Images
-              %li.last
-                %a.admin{:href => "#"}
-                  %span{:style => "width:48px;height:41px;"}
-                  %span Admin
+		  
+              - if params[:controller] == 'schedule/admin'
+                %li.last.selected
+                  %a.admin{:href => "/contacts/users"}
+                    %span{:style => "width:48px;height:41px;"}
+                    %span Admin
+              - else
+                %li.last
+                  %a.admin{:href => "/contacts/users"}
+                    %span{:style => "width:48px;height:41px;"}
+                    %span Admin
+
 
 
           #top-right-details
