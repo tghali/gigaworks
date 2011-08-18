@@ -6,7 +6,7 @@ class CreateClientContacts < ActiveRecord::Migration
       t.string   :last_name,        :limit => 32
       t.string   :title,            :limit => 64
       t.string   :organization,          :limit => 64
-      t.smallint   :gender 
+      t.integer   :gender 
       t.string   :role
       t.integer :gigaclient_id
       t.timestamps
