@@ -1,0 +1,165 @@
+
+
+%script{:type => "text/javascript"}
+
+  var arr_ele = [];
+  function checkNew(cb,check_ele)
+  {
+
+  if(check_ele.checked == false)
+  {
+  for(var i=0; i<arr_ele.length;i++ )
+  { 
+  if(arr_ele[i]==cb)
+
+  arr_ele.splice(i,1)
+  } 
+  document.getElementById('total_leads').value = arr_ele;
+  }
+  if (check_ele.checked == true)
+  {   
+  arr_ele.push(cb);
+  document.getElementById('total_leads').value = arr_ele;
+  }
+  }
+
+
+
+  function checkAll(cb)
+  {
+
+  var val = cb.checked;
+  var frm = document.delete;
+  var len = frm.elements.length;
+  var i=0;
+  for( i=0 ; i<len ; i++) 
+  {
+  frm.elements[i].checked=val;
+  }
+  }
+
+
+
+  jQuery(document).ready( function() {
+
+  setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
+  });
+ 
+
+
+  });
+
+
+/ content wrapper
+#contentwrapper
+  #contentcolumn
+    .innertube-1
+      - if flash[:notice]
+        .success_message{:id => 'message'}
+          %span
+          = flash[:notice]
+      / head block wrapper
+      .head_block_wrapper
+        / heading
+        .heading_inner_blocks
+          %h2 Contacts
+        / heading end
+
+
+        %br.clear_all/
+      / filter option block
+      #filter_option_wrapper
+      = form_for(:search, :url => admin_leads_path(:industry_search => params[:industry_search], :turnover_search => params[:turnover_search] ),:html => {:name => "appl_form",:method => :get, :onSubmit => "return leadssearch();"}) do
+        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+ 
+      / filter option block end
+      / user action wrapper block
+      .spacer.clear_all
+        %span
+      - form_for(:search, :url => delete_all_admin_leads_path,:html => {:method => :get,:name => 'filters'}) do  
+        .user_action_block
+          .add_view{:style => "width:90px;"}
+
+            %ul
+              %li
+                -#%a{:href => "#", :title=> "Click here to add new contact"} Add New
+                = link_to "Add New ", new_contact_path
+           
+		
+
+        / user action 2 block end
+        .spacer.clear_all
+          %span
+        .spacer.clear_all
+          %span 
+        / table grid block
+        .grid_wrapper
+          %table.myTable01{:cellpadding => "0", :cellspacing => "0"}
+            %thead
+              %tr
+
+                %th.sort_list
+                  - if params[:sort] == 'project_d'
+                    %a.sort_desc_anchor{:href => "users?sort=project_a"}  First Name
+                  - else
+                    %a.sort_asc_anchor{:href => "users?sort=project_d"}  First Name
+                %th.sort_list
+                  - if params[:sort] == 'pmanager_d'
+                    %a.sort_desc_anchor{:href => "users?sort=pmanager_a"} Last Name
+                  - else
+                    %a.sort_asc_anchor{:href => "users?sort=pmanager_d"} Last Name
+                %th.sort_list
+                  - if params[:sort] == 'email_d'
+                    %a.sort_desc_anchor{:href => "users?sort=email_a"}  Email
+                  - else
+                    %a.sort_asc_anchor{:href => "users?sort=email_d"}  Email
+                %th.sort_list
+                  - if params[:sort] == 'email_d'
+                    %a.sort_desc_anchor{:href => "users?sort=email_a"}  Role
+                  - else
+                    %a.sort_asc_anchor{:href => "users?sort=email_d"}  Role
+
+                %th.sort_list
+                  - if params[:sort] == 'company_d'
+                    %a.sort_desc_anchor{:href => "users?sort=company_a"}  Organization
+                  - else
+                    %a.sort_asc_anchor{:href => "users?sort=company_d"}  Organization
+
+                %th
+                  Actions
+
+
+ 
+            %tbody
+              - if !@client_contacts.blank?
+                - @client_contacts.each_with_index do |client_contact,j| 
+                  %tr
+                    %td 
+                      = client_contact.first_name
+                    %td 
+                      = client_contact.last_name
+                    %td 
+                      = client_contact.email
+                    %td 
+                      = client_contact.role
+                    %td 
+                      = client_contact.organization
+                    %td 
+                      = link_to "Invite", user_invitation_path(:id => client_contact.id)
+                      = " | "
+                      = link_to "Edit ", "#"
+                      = " | "
+                      = link_to "Delete ", "#"
+
+              - else
+                %tr
+                  %td{:colspan =>6}
+                    = "No contacts created yet."
+
+            / table grid block end
+    .clear_all
+  / content wrapper end
+ 
+= render :partial => "admin_left_menu"
+    
+

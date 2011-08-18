@@ -3,7 +3,7 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create]
   before_filter :ensure_user_is_not_signed_in, :only => [:new, :create]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
@@ -45,7 +45,35 @@ def gigauser_create
 end
 
   
-  
+  #### Client User Signup
+
+ def client_user_signup
+	@invite = ClientContactInvite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound	
+        @gigauser = Gigauser.new 
+     respond_to do |format|
+      format.html {render :client_user_signup, :layout => false}
+    end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to(sign_in_url, :notice => 'The invite code was not found in our database, if the problem persists please contact an administrator.')
+ end
+
+
+def client_user_create
+	@gigauser = Gigauser.new(params[:gigauser])
+	 respond_to do |format|
+		 if @gigauser.save
+			 gigaclient = Gigaclient.find(@gigauser.gigaclient_id)
+			 format.html { redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
+			
+		 else
+			 format.html {render :client_user_signup, :layout => false}
+		end
+       end
+end
+
+
+#### Client User Signup End
+
   
   
   
