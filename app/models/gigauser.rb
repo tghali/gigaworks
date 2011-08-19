@@ -2,7 +2,11 @@ require 'digest/sha1'
 
 class Gigauser < ActiveRecord::Base
 	
-	
+	  validates :username,
+    :presence => true,
+    :uniqueness => {:if => :username?}    
+  validates :password,:password_confirmation,
+    :presence => true  
 	
   attr_accessor :password, :password_confirmation,:terms_of_service, :privacy_policy
 

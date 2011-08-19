@@ -993,7 +993,7 @@ a.header_highlight{
 
 
 
-#dialog,#dialog1 {
+#dialog,#dialog1,#terms_services,#privacy_policy {
   width:300px; 
   height:auto;
   padding:10px;
@@ -1018,6 +1018,13 @@ a.header_highlight{
 
 .close{ display:block; width:32px; height:32px; background:url(/images/new_page/close.png) no-repeat; position:absolute; top:-10px; right:-10px}
 
+#terms_services,#privacy_policy{ width:600px;}
+
+#terms_services .inner_block_modal{ width:600px;}
+#terms_services .inner_block_modal h2{color:#ef0202}
+
+#privacy_policy .inner_block_modal{ width:600px;}
+#privacy_policy .inner_block_modal h2{color:#ef0202}
 /*.window {
   position:absolute;
   left:0;

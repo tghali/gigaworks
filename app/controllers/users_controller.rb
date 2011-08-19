@@ -48,11 +48,16 @@ end
   #### Client User Signup
 
  def client_user_signup
-	@invite = ClientContactInvite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound	
-        @gigauser = Gigauser.new 
-     respond_to do |format|
-      format.html {render :client_user_signup, :layout => false}
-    end
+	@invite = ClientContactInvite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
+    if @invite.status == 0	
+	    @gigauser = Gigauser.new 
+	     respond_to do |format|
+	      format.html {render :client_user_signup, :layout => 'admin/user_signup'}
+	    end
+   else
+			 gigaclient = Gigaclient.find(@invite.sender.gigaclient_id)
+			  redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}:4009/sign_in", :notice => "The invite has already been redeemed"	   
+   end	   
   rescue ActiveRecord::RecordNotFound
     redirect_to(sign_in_url, :notice => 'The invite code was not found in our database, if the problem persists please contact an administrator.')
  end
@@ -62,11 +67,13 @@ def client_user_create
 	@gigauser = Gigauser.new(params[:gigauser])
 	 respond_to do |format|
 		 if @gigauser.save
+			 @invite = ClientContactInvite.where(:token => params[:invite_token]).first
+			 @invite.update_attribute(:status, 1)
 			 gigaclient = Gigaclient.find(@gigauser.gigaclient_id)
-			 format.html { redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
-			
+			 format.html { redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}:4009/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
 		 else
-			 format.html {render :client_user_signup, :layout => false}
+			@invite = ClientContactInvite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound	
+			format.html { render :action => "client_user_signup", :layout => 'admin/user_signup'}
 		end
        end
 end
