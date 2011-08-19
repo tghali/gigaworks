@@ -56,7 +56,7 @@ end
 	    end
    else
 			 gigaclient = Gigaclient.find(@invite.sender.gigaclient_id)
-			  redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}:4009/sign_in", :notice => "The invite has already been redeemed"	   
+			  redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "The invite has already been redeemed"	   
    end	   
   rescue ActiveRecord::RecordNotFound
     redirect_to(sign_in_url, :notice => 'The invite code was not found in our database, if the problem persists please contact an administrator.')
@@ -70,7 +70,7 @@ def client_user_create
 			 @invite = ClientContactInvite.where(:token => params[:invite_token]).first
 			 @invite.update_attribute(:status, 1)
 			 gigaclient = Gigaclient.find(@gigauser.gigaclient_id)
-			 format.html { redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}:4009/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
+			 format.html { redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
 		 else
 			@invite = ClientContactInvite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound	
 			format.html { render :action => "client_user_signup", :layout => 'admin/user_signup'}
