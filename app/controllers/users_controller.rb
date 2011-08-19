@@ -64,8 +64,10 @@ end
 
 
 def client_user_create
+  @gfind = Gigauser.find(:last)
 	@gigauser = Gigauser.new(params[:gigauser])
 	 respond_to do |format|
+     @gigauser.id = @gfind.id.to_i + 1
 		 if @gigauser.save
 			 @invite = ClientContactInvite.where(:token => params[:invite_token]).first
 			 @invite.update_attribute(:status, 1)
