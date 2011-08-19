@@ -1,0 +1,131 @@
+
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title Gigavine - User Sign Up
+    = stylesheet_link_tag 'style.css','screen.css', :media => 'screen, projection'
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+
+    :javascript
+
+      $(document).ready(function($) {
+
+
+      //select all the a tag with name equal to modal
+      $('a[name=terms_services]').click(function (e) {
+          //Cancel the link behavior
+          //e.preventDefault();
+  
+          //Get the A tag
+          //var id = $(this).attr('href');
+          $('#terms_services').show();
+
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+  
+          //Set the popup window to center
+          //Set the popup window to center
+          $('#terms_services').css('top', winH / 2 - $('#terms_services').height() / 2);
+          $('#terms_services').css('left', winW / 2 - $('#terms_services').width() / 2);
+  
+          //transition effect
+          $('#terms_services').fadeIn(2000);
+  
+      });
+
+      //select all the a tag with name equal to modal
+      $('a[name=privacy_policy]').click(function (e) {
+          //Cancel the link behavior
+          //e.preventDefault();
+  
+          //Get the A tag
+          //var id = $(this).attr('href');
+          $('#privacy_policy').show();
+
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+  
+          //Set the popup window to center
+          //Set the popup window to center
+          $('#privacy_policy').css('top', winH / 2 - $('#privacy').height() / 2);
+          $('#privacy_policy').css('left', winW / 2 - $('#privacy').width() / 2);
+  
+          //transition effect
+          $('#privacy_policy').fadeIn(2000);
+  
+      });
+    
+  
+      //if close button is clicked
+      $('.window .close').click(function (e) {
+          //Cancel the link behavior
+          e.preventDefault();
+  
+          $('#mask').fadeOut(200);
+          $('.window').fadeOut(200);
+      });
+
+
+      	   
+        });	
+    :css    
+
+      .window {
+        position:absolute;
+        left:0;
+        top:0;
+        width:440px;
+        height:200px;
+        display:none;
+        z-index:9999;
+        padding:20px;
+      }
+      
+
+  %body{:style => "background:#fff; "}
+    #maincontainer
+
+      = yield
+      .clear_all  
+#footer_glossary
+  %p &copy; 2011
+  %ul
+    %li
+      %a{:href => "#"} Support
+    %li
+      %a{:href => "#"} Privacy
+    %li
+      %a{:href => "#"} Terms      
+%iframe#mask{:allowTransparency => "true", :frameborder => "0", :scrolling => "no", :src => "/blank_iframe.html", :style => "overflow:hidden;"}  
+  
+ 
