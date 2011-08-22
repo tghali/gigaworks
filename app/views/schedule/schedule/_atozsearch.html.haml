@@ -26,9 +26,10 @@
                     %li
                       .tags
                         = tag.tag
-                        %span
-                       
-                          = link_to image_tag("/images/pagination/close_tags.gif"), deletetag_url(:tag_id => tag,:id => params[:id]), :remote => 'true' 
+                        - if can? :tag_delete, sentence     
+                          %span
+                  
+                            = link_to image_tag("/images/pagination/close_tags.gif"), deletetag_url(:tag_id => tag,:id => params[:id]), :remote => 'true' 
 
             %td{:style => "text-align:right"}
               %span.toolTip_text{:title=>"User comment goes here....",:style => "font-size:14px;"}
@@ -37,17 +38,21 @@
               .user_action_block.glossary_user_action_block
                 .add_view_1
                   %ul
-                    %li
-                      = link_to "Edit", edit_sentence_url(:sid => sentence.id), :remote => :true,:id=>"edit_sentence",:class=>"menuitem statusicon_1",:name => "sentence_edit"
-
-                    %li
-                      = link_to "Flag", addflag_url(:sid => sentence.id,:id => params[:id]), :remote => :true
-                    %li
-                      = link_to "Tag",new_tag_url(:sid=> sentence.id),:remote => :true,:id=>"tag_sentence",:class=>"menuitem statusicon_1",:name => "sentence_tag"
+                    - if can? :update_sentence, sentence
+                      %li
+                        = link_to "Edit", edit_sentence_url(:sid => sentence.id), :remote => :true,:id=>"edit_sentence",:class=>"menuitem statusicon_1",:name => "sentence_edit"
+                    - if can? :add_flag, sentence
+                      %li
+                        = link_to "Flag", addflag_url(:sid => sentence.id,:id => params[:id]), :remote => :true
+                    - if can? :create_tag, sentence
+                      %li
+                        = link_to "Tag",new_tag_url(:sid=> sentence.id),:remote => :true,:id=>"tag_sentence",:class=>"menuitem statusicon_1",:name => "sentence_tag"
+		      
                     %li
                       = link_to "Comment",comments_url(:sid=> sentence.id),:remote => :true,:id=>"comment_sentence",:class=>"menuitem statusicon_1",:name => "sentence_comment"
-                    %li
-                      = link_to "Delete",delete_sentence_url(:id => sentence), :remote => :true
+                    - if can? :delete_sentence, sentence
+                      %li
+                        = link_to "Delete",delete_sentence_url(:id => sentence), :remote => :true
 
 
       / head block wrapper end

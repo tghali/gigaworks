@@ -7,15 +7,31 @@ class Ability
       
       can :access, :app
       
+      
+    if user.class.to_s == "User"  	     
       if user.roles.include? :admin
         can :manage, :all
-      end
-      
+      end        
       # To determine if a user has client privileges in the future just add them to
-      # the `current_ability` inside the project controller.
-      client_privileges if user.account_membership
+      # the `current_ability` inside the project controller.      
+     client_privileges if user.account_membership
+     translator_privileges if user.departements.has?(:languages)
+    end
+     
+  
 
-      translator_privileges if user.departements.has?(:languages)
+  if user.class.to_s == 'Gigauser' 
+      if user.role ==  "Editor" 
+        can :access, [Sentence]
+        #~ can :read,[ClientContact]
+     end
+
+     if user.role == "Admin"
+	     can :manage, [ClientContact, ClientContactInvite,Sentence]
+     end	     
+ end     
+
+
       
     else #guest
 

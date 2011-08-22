@@ -51,6 +51,7 @@ class Schedule::ScheduleController < ApplicationController
    end
    
   def add_flag	  
+    authorize! :add_flag, Sentence  
     @sentence = Sentence.find(params[:sid])  
     @sentence.client_toggle_flag(current_user)    
     respond_to do |format|
@@ -67,6 +68,7 @@ class Schedule::ScheduleController < ApplicationController
  end
  
  def tag_delete
+    authorize! :tag_delete, Sentence  
        @tag = Tag.find(params[:tag_id])       
   respond_to do |format|
 	      if @tag.destroy
@@ -93,6 +95,7 @@ class Schedule::ScheduleController < ApplicationController
  
  
  def create_sentence
+    authorize! :create_sentence, Sentence
     @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence].merge :author => current_user)
     @sentence.author_id = current_user.id
     respond_to do |format|
@@ -121,6 +124,7 @@ def edit_sentence
 end
 
 def update_sentence
+     authorize! :update_sentence, Sentence
     @sentence = Sentence.find(params[:sid])   
     @sentence.comment = params[:sentence][:comment]
     @sentence.description = params[:sentence][:description]
@@ -142,6 +146,7 @@ end
   end
 
   def delete_sentence
+     authorize! :delete_sentence, Sentence
     @sentence = Sentence.find(params[:id])    
     #~ authorize! :destroy, @sentence    
     @destroyed = @sentence.destroy

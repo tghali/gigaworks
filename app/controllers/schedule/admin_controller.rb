@@ -3,9 +3,11 @@ class Schedule::AdminController < ApplicationController
 		 
   def index
 	  @client_contacts = ClientContact.all
+    authorize! :index, ClientContact
   end
   
   def new
+    authorize! :new, ClientContact
      @client_contact = ClientContact.new
      respond_to do |format|
       format.html # new.html.erb
@@ -14,6 +16,7 @@ class Schedule::AdminController < ApplicationController
   end
   
   def create
+    authorize! :create, ClientContact
     @client_contact = ClientContact.new(params[:client_contact])
     @client_contact.gigaclient_id = current_user.id
     #~ authorize! :create_contact, Contact
@@ -29,6 +32,7 @@ class Schedule::AdminController < ApplicationController
   end
   
   def user_invitation
+  authorize! :user_invitation, ClientContactInvite
 	@client_contact = ClientContact.find(params[:id])
 	@invite = @client_contact.build_client_contact_invite(:sender => current_user)
 	if @invite.save
