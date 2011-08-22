@@ -187,16 +187,17 @@
                   %span{:style => "width:48px;height:41px;"}
                   %span Images
 		  
-              - if params[:controller] == 'schedule/admin'
-                %li.last.selected
-                  %a.admin{:href => "/contacts/users"}
-                    %span{:style => "width:48px;height:41px;"}
-                    %span Admin
-              - else
-                %li.last
-                  %a.admin{:href => "/contacts/users"}
-                    %span{:style => "width:48px;height:41px;"}
-                    %span Admin
+              - if current_user.role == 'Admin'		  
+                - if params[:controller] == 'schedule/admin'
+                  %li.last.selected
+                    %a.admin{:href => "/contacts/users"}
+                      %span{:style => "width:48px;height:41px;"}
+                      %span Admin
+                - else
+                  %li.last
+                    %a.admin{:href => "/contacts/users"}
+                      %span{:style => "width:48px;height:41px;"}
+                      %span Admin
 
 
 
