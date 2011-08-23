@@ -233,6 +233,7 @@ width: 100%;
 .user_action_block{
 	width:350px;
 	float:left;
+
 	}
 .user_action_block .add_view{ background:#5a5a5a; float:left; width:294px; height:24px;-moz-border-radius: 13px;
 -webkit-border-radius: 13px;}
@@ -1140,6 +1141,12 @@ margin-top:10px;
 .glossary_user_action_block .add_view_1 li a{ padding:0 2px;}
 .glossary_user_action_block .add_view_1 li a:hover{ background:#3e858b}
 .glossary_user_action_block .add_view_1 li,.glossary_user_action_block .add_view_1 li a{ font-size:10px; width:auto; height:20px; line-height:20px}
+
+.glossary_user_action_block .glossary_links li a{ background:none!important;color:#000000;}
+.glossary_user_action_block .glossary_links li a:hover{ text-decoration:underline;}
+.glossary_user_action_block .glossary_links {background:none;}
+
+
 
 #footer_glossary{
 	width:100%;
