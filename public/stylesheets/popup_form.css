@@ -104,43 +104,23 @@ overflow: hidden\0/;
 	position: absolute;
 }
 #mydialog #pop_login_wrapper{
-	width:422px;
+	width:360px;
 }
 #mydialog .window{
-	width:422px;
+	width:362px;
 }
 #mydialog #pop_loging_form{
-	width:420px;
+	width:360px;
 }
 #mydialog .head_login{
-	width:420px;
+	width:360px;
 }
 
 #mydialog  #pop_loging_form .inner_login_wrap{
-	width:360px;
+	width:300px;
 	height:300px;
 	overflow-x:hidden;
 	overflow-y:auto;
 }
-#mydialog .head_login .close_form{ position:absolute; right:-110px}
+#mydialog .head_login .close_form{ position:absolute; right:-55px}
 
-#dialogtagcomment #pop_login_wrapper{
-	width:422px;
-}
-#dialogtagcomment .window{
-	width:422px;
-}
-#dialogtagcomment #pop_loging_form{
-	width:420px;
-}
-#dialogtagcomment .head_login{
-	width:420px;
-}
-
-#dialogtagcomment  #pop_loging_form .inner_login_wrap{
-	width:360px;
-	height:200px;
-	overflow-x:hidden;
-	overflow-y:auto;
-}
-#dialogtagcomment .head_login .close_form{ position:absolute; right:-110px}
