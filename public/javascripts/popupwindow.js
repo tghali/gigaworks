@@ -155,7 +155,7 @@
 
           //Get the A tag
          // var id = $(this).attr('href');
-          $('#dialog_tag_comment').show();
+          $('#dialog_new_term_test').show();
 
           //Get the screen height and width
           var maskHeight = $(document).height();
@@ -179,12 +179,12 @@
           //$('#dialog_new_term_test').css('top', winH / 2 - $('#dialog_new_term_test').height() / 2);
           //$('#dialog_new_term_test').css('left', winW / 2 - $('#dialog_new_term_test').width() / 2);
   
-  								var popMargTop = ($('#dialog_tag_comment').height() + 10) / 2;
+  								var popMargTop = ($('#dialog_new_term_test').height() + 10) / 2;
 											if(popMargTop == 5){popMargTop = 204}
-											var popMargLeft = ($('#dialog_tag_comment').width() + 10) / 2;
+											var popMargLeft = ($('#dialog_new_term_test').width() + 10) / 2;
 		
           //Set the popup window to center
-											$('#dialog_tag_comment').css({ 
+											$('#dialog_new_term_test').css({ 
 												'margin-top' : -popMargTop,
 												'margin-left' : -popMargLeft
 											});
@@ -192,7 +192,7 @@
   
   
           //transition effect
-          $('#dialog_tag_comment').fadeIn(2000);
+          $('#dialog_new_term_test').fadeIn(2000);
 	  
 	  
   
