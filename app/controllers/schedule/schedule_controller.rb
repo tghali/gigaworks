@@ -98,6 +98,8 @@ class Schedule::ScheduleController < ApplicationController
     authorize! :create_sentence, Sentence
     @sentence = Sentence.find_or_create_with_nested_attributes(params[:sentence].merge :author => current_user)
     @sentence.author_id = current_user.id
+    @sentence.comment = params[:sentence][:comment]
+    @sentence.description = params[:sentence][:description]
     respond_to do |format|
       if @sentence.save
 	@sentences = Sentence.order("created_at DESC").page(params[:page]).per(25)

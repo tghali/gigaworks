@@ -1,4 +1,4 @@
-page['mydialog'].replace_html :partial => "comments_list"
+page['dialogtagcomment'].replace_html :partial => "comments_list"
 page['comment_comment'].value = ""
 
 

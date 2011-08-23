@@ -144,13 +144,16 @@
 #dialog_new_term_test.window
   #mydialog
 
+#dialog_tag_comment.window
+  #dialogtagcomment
+
 #dialog.window
   .inner_block_modal
     %p Simple Modal Window |
     %a.close.close_form{:href => "#"}
       %span
 
-
+= javascript_include_tag "popupwindow.js"
 :javascript
 
   $(document).ready(function($) {

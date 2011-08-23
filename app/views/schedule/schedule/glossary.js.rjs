@@ -1,2 +1,3 @@
 page['result_block'].replace_html :partial => "atozsearch"
+page['dialog_new_term_test'].hide
 page['mask'].fadeOut(200) if page['mask']

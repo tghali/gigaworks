@@ -55,6 +55,9 @@ input,select,textarea{
 	font:12px Arial, Helvetica, sans-serif;
 	color:#000;
 }
+ textarea {
+    resize: none;
+} 
 b{font-size: 110%;}
 em{color: red;}
 br.clear_all{ clear:both; line-height:0; font-size:0;}
