@@ -86,9 +86,10 @@
 }
 
 .window {
-  position:absolute;
-  left:0;
-  top:0;
+ 	  position: fixed;
+    top: 50%; 
+   left: 50%;
+	  float: left;
   display:none;
   z-index:9999;
   width:322px;
@@ -99,3 +100,47 @@
 html {
 overflow: hidden\0/;
 }
+*html .window {
+	position: absolute;
+}
+#mydialog #pop_login_wrapper{
+	width:422px;
+}
+#mydialog .window{
+	width:422px;
+}
+#mydialog #pop_loging_form{
+	width:420px;
+}
+#mydialog .head_login{
+	width:420px;
+}
+
+#mydialog  #pop_loging_form .inner_login_wrap{
+	width:360px;
+	height:300px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+#mydialog .head_login .close_form{ position:absolute; right:-110px}
+
+#dialogtagcomment #pop_login_wrapper{
+	width:422px;
+}
+#dialogtagcomment .window{
+	width:422px;
+}
+#dialogtagcomment #pop_loging_form{
+	width:420px;
+}
+#dialogtagcomment .head_login{
+	width:420px;
+}
+
+#dialogtagcomment  #pop_loging_form .inner_login_wrap{
+	width:360px;
+	height:200px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+#dialogtagcomment .head_login .close_form{ position:absolute; right:-110px}
