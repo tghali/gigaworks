@@ -26,6 +26,8 @@ class Ability
       elsif user.role ==  "Editor" 
         can :manage, [Sentence]
         cannot [:delete_sentence,:tag_delete], Sentence	
+      elsif user.role ==  "Project Manager" 
+        can :manage, [Sentence]
      elsif user.role == "Client" 
         can :manage, [ClientContact, ClientContactInvite,Sentence]
      end	   
