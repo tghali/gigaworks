@@ -90,10 +90,16 @@
                 %a.document{:href => "#"}
                   %span{:style => "width:48px;height:41px;"}
                   %span Documents
-              %li
-                %a.images{:href => "#"}
-                  %span{:style => "width:48px;height:41px;"}
-                  %span Images
+              - if params[:controller] == 'schedule/manage_images'	      
+                %li.selected
+                  %a.images{:href => "#"}
+                    %span{:style => "width:48px;height:41px;"}
+                    %span Images
+              - else
+                %li
+                  %a.images{:href => "/clients/images"}
+                    %span{:style => "width:48px;height:41px;"}
+                    %span Images
               - if current_user.role == 'Client'		  
                 - if params[:controller] == 'schedule/admin'
                   %li.last.selected

@@ -79,7 +79,15 @@ Gigavine::Application.routes.draw do
   get '/contact/user_invitation' => "schedule/admin#user_invitation",:as => :user_invitation
   
  ### end for clients admin  
+
+   ### for clients images  
+
+  get '/clients/images' =>  "schedule/manage_images#index",:as => :images_list
   
+  ### end for clients images  
+
+
+
   #~ get '/client/flagged' => "schedule/schedule#flagged"    
     
     constraints :subdomain => "nkumar" do

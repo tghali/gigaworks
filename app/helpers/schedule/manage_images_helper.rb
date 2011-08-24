@@ -1,0 +1,2 @@
+module Schedule::ManageImagesHelper
+end
