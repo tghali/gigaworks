@@ -1,0 +1,1 @@
+page['list_of_images'].replace_html :partial => "images_list"
