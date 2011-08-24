@@ -131,7 +131,7 @@
     - if can? :create_sentence, Sentence
       = link_to "New Term", new_sentence_url, :remote => :true,:id=>"popup",:class=>"menuitem statusicon_1"
     = link_to "Flagged", flagged_terms_url(:id => 'flagged'), :remote => :true,:class=>"menuitem statusicon_1",:id => "flagged_terms"
-    = link_to "Recent Activity", recent_activity_url, :remote => :true,:class=>"menuitem statusicon_1",:id => "recent_activity"
+    = link_to "Recently Updated", recent_activity_url, :remote => :true,:class=>"menuitem statusicon_1",:id => "recent_activity"
 
     %a.menuitem.statusicon_1{:href => "#"}
       %img{:src => "/images/new_page/view_details.png"}>/
