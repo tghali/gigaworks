@@ -1159,5 +1159,58 @@ margin-top:10px;
 #footer_glossary ul li{ float:left; height:30px; line-height:30px; padding:0 5px;}
 #footer_glossary ul li a{color:#7f7f7f; font-size:11px}
 	
-	
+	/*Image Mangement*/
+#image_mangement_wrapper{
+	width:100%;
+}
+#image_mangement_wrapper ul li{
+	float:left;
+	display:inline;
+	position:relative;
+	text-align:center;
+	background:url(/images/clients/image_manage/imgmng_bg.gif) no-repeat;
+	width:132px;
+	height:171px;
+	margin-right:45px;
+	margin-bottom:10px;
+	font:12px Verdana, Arial, Helvetica, sans-serif;
+	color:#0071b9;
+}
+#image_mangement_wrapper ul li .avatar{
+	width:100px;
+	height:100px;
+	margin:6px 15px 13px;
+	background:#ccc;
+}
+#image_mangement_wrapper ul li img{
+	display:block;
+}
+.user_image_actions{
+	width:118px;
+	height:17px;
+	margin-left:9px
+}
+#image_mangement_wrapper .user_image_actions ul li{
+	float:left;
+	display:inline;
+	width:17px;
+	height:17px; 
+	margin-right:8px
+}
+#image_mangement_wrapper .user_image_actions ul li a{
+	display:block;
+	width:17px;
+	height:17px;
+}
+#image_mangement_wrapper .user_image_actions ul li.image_delete{ background:none}
+#image_mangement_wrapper .user_image_actions ul li.image_view a{background:url(/images/clients/image_manage/image_view.gif) no-repeat;}
+#image_mangement_wrapper .user_image_actions ul li.image_download a{background:url(/images/clients/image_manage/download.gif) no-repeat;}
+#image_mangement_wrapper .user_image_actions ul li.image_edit a{background:url(/images/clients/image_manage/edit.gif) no-repeat;}
+#image_mangement_wrapper .user_image_actions ul li.image_delete a{background:url(/images/clients/image_manage/delete.gif) no-repeat}
+
+#image_mangement_wrapper .user_image_actions ul li.image_view a:hover{background:url(/images/clients/image_manage/image_view_hover.gif) no-repeat;}
+#image_mangement_wrapper .user_image_actions ul li.image_download a:hover{background:url(/images/clients/image_manage/download_hover.gif) no-repeat;}
+#image_mangement_wrapper .user_image_actions ul li.image_edit a:hover{background:url(/images/clients/image_manage/edit_hover.gif) no-repeat;}
+#image_mangement_wrapper .user_image_actions ul li.image_delete a:hover{background:url(/images/clients/image_manage/delete_hover.gif) no-repeat}
+#image_mangement_wrapper .user_image_actions ul li.image_delete{ float:right; margin-right:0}
 	
