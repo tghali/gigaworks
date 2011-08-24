@@ -1,7 +1,7 @@
 class Schedule::ScheduleController < ApplicationController
 	 layout 'admin/gigaclient'
     autocomplete :sentence, :text	
-   before_filter :tags_count
+   before_filter :tags_count, :authenticate
   def show
    redirect_to :action => 'dashboard'
  end
