@@ -34,14 +34,19 @@ class Schedule::AdminController < ApplicationController
   def user_invitation
   authorize! :user_invitation, ClientContactInvite
 	@client_contact = ClientContact.find(params[:id])
-	@invite = @client_contact.build_client_contact_invite(:sender => current_user)
-	if @invite.save
-	UserMailer.client_contact_invite(@invite).deliver
-        @invite.update_attribute :sent_at, Time.now
-	flash[:notice] = "Contact was successfully invited."
-	redirect_to users_list_path
-	end
-  end 
+         if ClientContactInvite.find_by_recipient_id(@client_contact.id)
+            flash[:notice] = "The Contact was already invited."
+            redirect_to users_list_path	
+          else	
+                    @invite = @client_contact.build_client_contact_invite(:sender => current_user)
+                    if @invite.save
+                    UserMailer.client_contact_invite(@invite).deliver
+                    @invite.update_attribute :sent_at, Time.now
+                    flash[:notice] = "Contact was successfully invited."
+                    redirect_to users_list_path
+                  end  ### inner if end
+          end ### outer if end
+   end   #### method end
   
   
   
