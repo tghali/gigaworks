@@ -30,27 +30,11 @@
         %input.search_input{:type => "submit", :value => " "}/
       .spacer.clear_all{:style => "height:15px;"}
         %span
-      #image_mangement_wrapper
-        %ul
-          - for manage_image in @manage_images
-            %li
-              .avatar
-                = image_tag manage_image.image.url(:thumb)
-              .user_image_actions
-                %ul
-                  %li.image_view
-                    %a{:href => "#"}
-                  %li.image_download
-                    %a{:href => "#"}
-                  %li.image_edit
-                    %a{:href => "#"}
-                  %li.image_delete
-                    %a{:href => "#"}
-              %br.clear_all/
-              %div
-                = truncate(manage_image.subject.titleize,:length => 35, :omission => '...')
+      #list_of_images
+        = render :partial => "images_list"
     .clear_all
- 
+
+  
 #leftcolumn
   / vertical menu
   .glossymenu
