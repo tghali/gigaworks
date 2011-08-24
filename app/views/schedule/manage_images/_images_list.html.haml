@@ -1,0 +1,22 @@
+#image_mangement_wrapper
+  %ul
+    - for manage_image in @manage_images
+      %li
+        .avatar
+          = image_tag manage_image.image.url(:thumb)
+        .user_image_actions
+          %ul
+            %li.image_view
+              %a{:href => "#"}
+            %li.image_download
+              %a{:href => "#"}
+            %li.image_edit
+              %a{:href => "#"}
+            %li.image_delete
+              %a{:href => "#"}
+        %br.clear_all/
+        %div
+          = truncate(manage_image.subject.titleize,:length => 35, :omission => '...')
+.clear_all
+.pagination_block
+  = paginate @manage_images,  :remote => :true
