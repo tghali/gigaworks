@@ -28,7 +28,7 @@
       
       = f.hidden_field :main_account_id, :value =>@invite.sender_id
       = f.hidden_field :gigaclient_id, :value =>@invite.sender.gigaclient_id
-      
+      = f.hidden_field :role, :value =>@invite.recipient.role      
       %label Password
       = f.password_field :password
       %label Confirm Password
