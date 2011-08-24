@@ -145,9 +145,10 @@
                     %td 
                       = client_contact.organization
                     %td
-	    
-                      = link_to "Invite", user_invitation_path(:id => client_contact.id)
-
+                      - if client_contact.client_contact_invite.status == 0		    
+                        = link_to "Invite", user_invitation_path(:id => client_contact.id)
+                      - else
+                        Registered
                       = " | "
                       = link_to "Edit ", "#"
                       = " | "

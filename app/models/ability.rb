@@ -21,14 +21,14 @@ class Ability
   
 
   if user.class.to_s == 'Gigauser' 
-      if user.role ==  "Editor" 
+      if user.role ==  "Translator" 
         can :access, [Sentence]
-        #~ can :read,[ClientContact]
-     end
-
-     if user.role == "Admin"
-	     can :manage, [ClientContact, ClientContactInvite,Sentence]
-     end	     
+      elsif user.role ==  "Editor" 
+        can :manage, [Sentence]
+        cannot [:delete_sentence,:tag_delete], Sentence	
+     elsif user.role == "Client" 
+        can :manage, [ClientContact, ClientContactInvite,Sentence]
+     end	   
  end     
 
 
