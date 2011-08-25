@@ -71,6 +71,7 @@ def client_user_create
 		 if @gigauser.save
 			 @invite = ClientContactInvite.where(:token => params[:invite_token]).first
 			 @invite.update_attribute(:status, 1)
+       @invite.recipient.update_attribute(:gigauser_id,@gigauser.id)
 			 gigaclient = Gigaclient.find(@gigauser.gigaclient_id)
 			 format.html { redirect_to "http://#{gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
 		 else

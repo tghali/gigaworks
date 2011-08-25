@@ -48,6 +48,23 @@ class Schedule::AdminController < ApplicationController
           end ### outer if end
    end   #### method end
   
+  def user_access
+	  client_contact = ClientContact.find(params[:id])
+	  if client_contact
+		  if params[:user_access]
+			  client_contact.update_attribute(:login_access, "block")
+			flash[:notice] = "Contact was successfully blocked. He is unable to access the site"
+			redirect_to users_list_path				  
+		  else
+			  client_contact.update_attribute(:login_access, "open")
+			flash[:notice] = "Contact was successfully opened. Now he can access the site with his login details"
+			redirect_to users_list_path	
+		  end
   
+	else
+		flash[:notice] = "The contact was not found in our database. Please try with original contact"
+		redirect_to users_list_path			  
+	  end
+  end
   
 end

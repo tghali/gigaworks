@@ -71,13 +71,12 @@ Gigavine::Application.routes.draw do
  post 'create_tag' => "schedule/schedule#create_tag"
   
   
- ### for clients admin
-  
+ ### for clients admin  
   get '/contact/new' => "schedule/admin#new",:as => :new_contact  
   post '/contact/create_contact' => "schedule/admin#create",:as => :create_contact    
   get '/contacts/users' =>  "schedule/admin#index",:as => :users_list
   get '/contact/user_invitation' => "schedule/admin#user_invitation",:as => :user_invitation
-  
+  post '/contact/allow_user/:id' => "schedule/admin#user_access",:as => :allow_user
  ### end for clients admin  
 
    ### for clients images  
