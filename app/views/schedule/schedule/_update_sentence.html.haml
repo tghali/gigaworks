@@ -1,4 +1,4 @@
-
+= javascript_include_tag "tool-tip.js","popupwindow.js"
 %tr{:onmouseout => "this.style.background=''",:id => "singlerow_#{@sentence.id}", :onmouseover => "this.style.background='#e3f3ff'" , :class => cycle("odd", "table_structure_inner_color")}
   %td
     - if (@sentence.flagged_by_id != nil)
@@ -39,5 +39,5 @@
           %li
             = link_to "Delete",delete_sentence_url(:id => @sentence), :remote => :true
 
-= javascript_include_tag "tool-tip.js","popupwindow.js"
+
 
