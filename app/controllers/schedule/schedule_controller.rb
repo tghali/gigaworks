@@ -77,7 +77,8 @@ class Schedule::ScheduleController < ApplicationController
                @sentences = Sentence.flagged.order("created_at").page(params[:page]).per(25)	
             else
               @sentences = Sentence.order("created_at").page(params[:page]).per(25)
-            end     
+            end   
+     tags_count            
 		 format.js  
 		 format.xml  { head :ok }
 	    end
@@ -153,6 +154,7 @@ end
     #~ authorize! :destroy, @sentence    
     @destroyed = @sentence.destroy
     respond_to do |format|
+      tags_count
       @sentences = Sentence.order("created_at").page(params[:page]).per(25)
       format.js {  render :glossary}
       format.xml  { head :ok }
@@ -201,7 +203,7 @@ end
     
     respond_to do |format|
       if @tag.save	
-
+    tags_count
 		format.js { render :sentence_update }
 		format.xml  { head :ok  }
       else
