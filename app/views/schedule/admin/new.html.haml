@@ -61,7 +61,7 @@
                 %br.clear_all/
                 %label.fl_left.input_width_12
                   = c.text_field :email,:title => "Enter email address"
- 
+                  = c.hidden_field :login_access, :value => "open" 
               / Email end
               .clear_all
           .clear_all
