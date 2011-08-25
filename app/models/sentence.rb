@@ -3,7 +3,7 @@ class Sentence < ActiveRecord::Base
   has_one_baked_in :language, :names => Gigavine::Preferences.translated_languages
   
   validates_presence_of   :language_code, :text
-  validates_uniqueness_of :text, :scope => :language_code,:case_sensitive => false
+  validates_uniqueness_of :text, :scope => :language_code,:case_sensitive => false,:on => :create
   
   has_many   :translations,  :class_name => 'TranslationPair', :dependent => :destroy, :before_add => :set_parent
   has_one    :author,     :class_name => 'User'
