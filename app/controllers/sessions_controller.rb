@@ -23,14 +23,9 @@ class SessionsController < ActionController::Base
           redirect_to root_url if warden.authenticated?
      end
   end
-  
 
   
-  
-  
-  def create
-	  
-	  
+  def create	  
     if current_user
       flash[:alert] = t(:'account.already_signed_in')
       redirect_to "http://worx.#{request.domain}/" and return

@@ -10,7 +10,12 @@ module WardenHelper
   end
   
   def authenticate
-    env['warden'].authenticated? or throw(:warden, :message => t(:'account.must_sign_in'))
+     client_contact = ClientContact.find_by_gigauser_id(current_user)
+      if !client_contact.blank?
+        env['warden'].authenticated? && client_contact.login_access == "open" or throw(:warden, :message => t(:'account.must_have_access'))
+      else
+        env['warden'].authenticated? or throw(:warden, :message => t(:'account.must_sign_in'))
+      end
   end
   
   def authenticate_as_admin

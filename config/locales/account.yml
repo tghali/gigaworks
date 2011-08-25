@@ -5,3 +5,4 @@ en:
     Signout: Sign Out
     must_sign_in_as_admin: You need administrative privileges to access this section.
     must_sign_in: You have to sign in with the credentials provided by Gigavine to use this application.
+				must_have_access: Your account was blocked temporarily. Please contact administrator.

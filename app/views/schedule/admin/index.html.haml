@@ -124,7 +124,10 @@
                     %a.sort_desc_anchor{:href => "users?sort=company_a"}  Organization
                   - else
                     %a.sort_asc_anchor{:href => "users?sort=company_d"}  Organization
-
+		    
+                %th.sort_list
+                  Access    
+																		
                 %th
                   Actions
 
@@ -144,6 +147,12 @@
                       = client_contact.role
                     %td 
                       = client_contact.organization
+                    %td
+                      - form_for(:user_access, :url => allow_user_path(client_contact.id),:html => {:method => :post}) do	
+                        - if client_contact.login_access == "block"		      
+                          %input{:type => :checkbox, :checked=> true, :name => "user_access",:onclick => "this.form.submit();"}
+                        - else		      
+                          %input{:type => :checkbox, :name => "user_access",:onclick => "this.form.submit();"}
                     %td
                       - if client_contact.client_contact_invite
                         - if client_contact.client_contact_invite.status == 0		    
