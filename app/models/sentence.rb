@@ -9,7 +9,7 @@ class Sentence < ActiveRecord::Base
   has_one    :author,     :class_name => 'User'
   belongs_to :flagged_by, :class_name => 'User'
   has_many   :comments, :as => :commentable
-  has_many   :tags, :as => :taggable
+  has_many   :tags, :as => :taggable,:dependent => :destroy
   has_many   :glossary_actions, :as => :target
   
   accepts_nested_attributes_for :translations, :allow_destroy => true, :reject_if => proc { |obj| obj[:text].blank?  }

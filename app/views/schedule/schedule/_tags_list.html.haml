@@ -1,0 +1,12 @@
+#tag_box_display
+  #search_block.fl_left
+    = form_for :search, :url => client_glossary_path, :html => { :method => :get, :remote => :true}  do
+      = autocomplete_field_tag :text_search,params[:text_search],sentence_search_path,:class => "search_field"
+      %input.search_input{:type => "submit", :value => " "}/
+  %ul
+    - @tags.each do |tag|
+      %li
+        .tags
+          = link_to tag[0], tagsearch_url(tag[0]), :remote => :true
+          %span
+            = tag[1]
