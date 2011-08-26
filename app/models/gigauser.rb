@@ -14,11 +14,16 @@ class Gigauser < ActiveRecord::Base
   validates_confirmation_of  :password, :if => :password_changed?
   validates_length_of        :password, :within => 7..30, :if => :password_changed?	
 
-  validates_acceptance_of    :terms_of_service, :on => :update
-  validates_acceptance_of    :privacy_policy, :on => :update
+  #~ validates_acceptance_of    :terms_of_service, :on => :update
+  #~ validates_acceptance_of    :privacy_policy, :on => :update
 
+  validates_presence_of  :first_name,:last_name,:email , :on => :create, :if => Proc.new {|user| user.main_account_id != nil}
   
+  validates_acceptance_of    :terms_of_service, :on => :update, :if => Proc.new {|user| user.main_account_id == nil}
+  validates_acceptance_of    :privacy_policy, :on => :update, :if => Proc.new {|user| user.main_account_id == nil}
   
+  validates_acceptance_of    :terms_of_service, :on => :create, :if => Proc.new {|user| user.main_account_id != nil}
+  validates_acceptance_of    :privacy_policy, :on => :create, :if => Proc.new {|user| user.main_account_id != nil}
 	  
  ## Password
   
