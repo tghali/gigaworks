@@ -60,20 +60,38 @@
           %thead
             %tr
 
+             %th.sort_list
+                - if params[:sort] == 'fname_d'
+                  %a.sort_desc_anchor{:href => "users?sort=fname_a"}  First Name
+                - else
+                  %a.sort_asc_anchor{:href => "users?sort=fname_d"}  First Name
               %th.sort_list
-                First Name
+                - if params[:sort] == 'lname_d'
+                  %a.sort_desc_anchor{:href => "users?sort=lname_a"} Last Name
+                - else
+                  %a.sort_asc_anchor{:href => "users?sort=lname_d"} Last Name
               %th.sort_list
-                Last Name
+                - if params[:sort] == 'email_d'
+                  %a.sort_desc_anchor{:href => "users?sort=email_a"}  Email
+                - else
+                  %a.sort_asc_anchor{:href => "users?sort=email_d"}  Email
               %th.sort_list
-                Email
+                - if params[:sort] == 'role_d'
+                  %a.sort_desc_anchor{:href => "users?sort=role_a"}  Role
+                - else
+                  %a.sort_asc_anchor{:href => "users?sort=role_d"}  Role
+
               %th.sort_list
-                Role
+                - if params[:sort] == 'org_d'
+                  %a.sort_desc_anchor{:href => "users?sort=org_a"}  Organisation
+                - else
+                  %a.sort_asc_anchor{:href => "users?sort=org_d"}  Organisation
+																		    
               %th.sort_list
-                Organization		    
-              %th.sort_list
-                Block     
+                Block   
+																  
               %th
-                Actions
+                Functions
 
 
  
