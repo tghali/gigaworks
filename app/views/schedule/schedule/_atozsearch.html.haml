@@ -18,7 +18,7 @@
 
             %td
               %div{:style => "float:left"}
-                %span.toolTip_text{:title=>"User comment goes here...."}
+                %span.toolTip_text{:title=>"#{show_comment(sentence.id)}"}
                   = sentence.text
               .tag_box_display
                 %ul
@@ -32,7 +32,7 @@
                             = link_to image_tag("/images/pagination/close_tags.gif"), deletetag_url(:tag_id => tag,:id => params[:id]),:confirm => "Are you sure you want to delete tag", :remote => 'true' 
 
             %td{:style => "text-align:right;direction:rtl;"}
-              %span.toolTip_text{:title=>"User comment goes here....",:style => "font-size:14px;"}
+              %span.toolTip_text{:title=>"#{show_comment(sentence.id)}",:style => "font-size:14px;"}
                 = get_arabic_data(sentence.id)
             %td
               .user_action_block.glossary_user_action_block

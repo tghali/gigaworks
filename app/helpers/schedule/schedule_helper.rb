@@ -14,4 +14,19 @@ def get_arabic_data(sentence_id)
 	end
 end
 
+
+def show_comment(sid)
+	sentence = Sentence.find(sid)
+	if sentence.comments.size > 0
+		latest_comment = sentence.comments.last
+		latest_comment.comment
+	elsif !sentence.comment.blank?
+		sentence.comment
+	else
+		return "No Comments"
+	end
+end
+
+
+
 end
