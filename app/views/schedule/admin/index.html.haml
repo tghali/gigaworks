@@ -2,12 +2,6 @@
 
 %script{:type => "text/javascript"}
 
-
-
-
-
-
-
   jQuery(document).ready( function() {
 
   setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
@@ -67,35 +61,17 @@
             %tr
 
               %th.sort_list
-                - if params[:sort] == 'project_d'
-                  %a.sort_desc_anchor{:href => "users?sort=project_a"}  First Name
-                - else
-                  %a.sort_asc_anchor{:href => "users?sort=project_d"}  First Name
+                First Name
               %th.sort_list
-                - if params[:sort] == 'pmanager_d'
-                  %a.sort_desc_anchor{:href => "users?sort=pmanager_a"} Last Name
-                - else
-                  %a.sort_asc_anchor{:href => "users?sort=pmanager_d"} Last Name
+                Last Name
               %th.sort_list
-                - if params[:sort] == 'email_d'
-                  %a.sort_desc_anchor{:href => "users?sort=email_a"}  Email
-                - else
-                  %a.sort_asc_anchor{:href => "users?sort=email_d"}  Email
+                Email
               %th.sort_list
-                - if params[:sort] == 'email_d'
-                  %a.sort_desc_anchor{:href => "users?sort=email_a"}  Role
-                - else
-                  %a.sort_asc_anchor{:href => "users?sort=email_d"}  Role
-
+                Role
               %th.sort_list
-                - if params[:sort] == 'company_d'
-                  %a.sort_desc_anchor{:href => "users?sort=company_a"}  Organization
-                - else
-                  %a.sort_asc_anchor{:href => "users?sort=company_d"}  Organization
-		    
+                Organization		    
               %th.sort_list
-                Access     
-
+                Block     
               %th
                 Actions
 
