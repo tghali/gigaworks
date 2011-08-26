@@ -38,7 +38,7 @@
 
       = f.check_box  :privacy_policy,   :label => "I read and agree with the #{link_to "privacy policy", '#' , :id => "privacy", :name => :privacy_policy}".html_safe
     
-      = f.submit('Sign Up')
+      = f.submit "Sign Up", :type => :image, :src => "/images/new_page/signup.png"
     .clear      
 #terms_services.window
   .inner_block_modal
