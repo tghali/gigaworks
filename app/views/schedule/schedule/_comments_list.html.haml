@@ -4,7 +4,7 @@
     .head_login
       %span Comments /Q&A (#{@sentence.comments.length})  
     
-      %a.close.close_form{:href => "#"}
+      = link_to( "" ,client_glossary_path, :class => "close close_form",:remote => :true)
     #pop_loging_form.fl_left
       .inner_login_wrap
  
