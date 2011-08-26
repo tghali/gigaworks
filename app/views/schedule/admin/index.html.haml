@@ -59,8 +59,7 @@
         %table.myTable01{:cellpadding => "0", :cellspacing => "0"}
           %thead
             %tr
-
-             %th.sort_list
+              %th.sort_list
                 - if params[:sort] == 'fname_d'
                   %a.sort_desc_anchor{:href => "users?sort=fname_a"}  First Name
                 - else
