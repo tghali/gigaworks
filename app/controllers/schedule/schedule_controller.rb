@@ -176,7 +176,7 @@ def create_comment
 
     respond_to do |format|
       if @comment.save	
-	      
+	     @sentences = Sentence.order("created_at").page(params[:page]).per(25) 
 		format.js {render :comments }
 		format.xml  { head :ok  }
       else
