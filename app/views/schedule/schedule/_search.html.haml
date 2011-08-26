@@ -1,0 +1,21 @@
+- for sentence in @sentences
+  %tr{:onmouseout => "this.style.background='#f8f8f8'", :onmouseover => "this.style.background='#e3f3ff'"}
+    %td
+      %img{:alt => "flag", :src => "images/clients/flag.png"}/
+
+    %td #{sentence.text}
+    %td{:style => "text-align:right;direction:rtl;"} #{get_arabic_data(sentence.id)}
+    %td
+      .user_action_block.glossary_user_action_block
+        .add_view_1
+          %ul
+            %li
+              %a{:href => "#dialog", :name => "modal"} Edit
+            %li
+              %a{:href => "#"} Flag
+            %li
+              %a{:href => "#dialog", :name => "modal"} Tag
+            %li
+              %a{:href => "#dialog", :name => "modal"} Comment
+            %li
+              %a{:href => "#dialog", :name => "modal"} Delete

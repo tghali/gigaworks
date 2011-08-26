@@ -35,10 +35,24 @@ class SignInStrategy < Warden::Strategies::Base
     user = User.authenticate(params['session']['user_name_or_email'], params['session']['password'])
     
     if user
-      if params['session']['remember_me'] == '1'
-        cookies.signed['_gigavine_warden'] = {:value => [user.id, user.salt, 6.months.from_now], :domain  => :all}
-      end
-      success!(user)
+      
+      #~ if params['session']['remember_me'] == '1'
+        #~ cookies.signed['_gigavine_warden'] = {:value => [user.id, user.salt, 6.months.from_now], :domain  => :all}
+      #~ end
+      #~ success!(user)
+      
+     client_contact = ClientContact.find_by_gigauser_id(user.id)
+		 if !client_contact.blank? &&  client_contact.login_access == "block"
+			 fail('Your account was blocked temporarily. Please contact administrator.')
+		else
+			
+				      if params['session']['remember_me'] == '1'
+                cookies.signed['_gigavine_warden'] = {:value => [user.id, user.salt, 6.months.from_now], :domain  => :all}
+				      end
+				      success!(user)
+		end	
+      
+
     else
       fail('Wrong user name or password')
     end
