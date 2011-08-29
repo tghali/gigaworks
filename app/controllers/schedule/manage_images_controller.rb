@@ -2,7 +2,7 @@ class Schedule::ManageImagesController < ApplicationController
    layout 'admin/gigaclient'
    before_filter :authenticate	 		 
   def index   
-	    @manage_images = ManageImage.order("created_at").page(params[:page]).per(4)  
+	    @manage_images = ManageImage.order("created_at").page(params[:page]).per(12)  
 	     respond_to do |format|
 	      format.html 
 	      format.js
@@ -79,7 +79,7 @@ end
     @manage_image = ManageImage.find(params[:id])     
     @manage_image.destroy    
     respond_to do |format|
-	 @manage_images = ManageImage.order("created_at").page(params[:page]).per(4)  
+	 @manage_images = ManageImage.order("created_at").page(params[:page]).per(12)  
       format.js {render :list_of_images}	    
       #format.html { redirect_to images_list_path, :notice => 'Image was successfully deleted.' }
       format.xml  {  render :xml => @manage_image }
