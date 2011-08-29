@@ -69,7 +69,7 @@ Gigavine::Application.routes.draw do
  post 'new_comment' => "schedule/schedule#create_comment"  
  get 'new_tag' => "schedule/schedule#new_tag"  
  post 'create_tag' => "schedule/schedule#create_tag"
-  
+ get '/delete_comment' => "schedule/schedule#comment_delete",:as => :delete_comment    
   
  ### for clients admin  
   get '/contact/new' => "schedule/admin#new",:as => :new_contact  
@@ -82,6 +82,12 @@ Gigavine::Application.routes.draw do
    ### for clients images  
 
   get '/clients/images' =>  "schedule/manage_images#index",:as => :images_list
+  get '/images/new' => "schedule/manage_images#new",:as => :new_image  
+  post '/images/create_image' => "schedule/manage_images#create",:as => :create_image  
+  get '/image/edit/:id' => 'schedule/manage_images#edit',:as => :edit_image  
+  put '/image/update/:id' => 'schedule/manage_images#update',:as => :update_image 
+  get '/images/delete_image' => "schedule/manage_images#destroy",:as => :delete_image 
+  get '/images/download_image' => "schedule/manage_images#download_image",:as => :download_image   
   
   ### end for clients images  
 
