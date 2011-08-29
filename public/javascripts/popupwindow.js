@@ -249,6 +249,60 @@
       });  
 
 
+
+
+    //select all the a tag with name equal to modal
+      $('a[name=edit_image]').click(function () {
+
+          //Cancel the link behavior
+         // e.preventDefault();
+   
+          //Get the A tag
+         // var id = $(this).attr('href');
+          $('#imageedit').show();
+
+
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+          //var winH = $(window).height();
+          //var winW = $(window).width();
+  
+          //Set the popup window to center
+          //$('#dialog_new_term_test').css('top', winH / 2 - $('#dialog_new_term_test').height() / 2);
+          //$('#dialog_new_term_test').css('left', winW / 2 - $('#dialog_new_term_test').width() / 2);
+  
+  								var popMargTop = ($('#imageedit').height() + 10) / 2;
+											if(popMargTop == 5){popMargTop = 204}
+											var popMargLeft = ($('#imageedit').width() + 10) / 2;
+		
+          //Set the popup window to center
+											$('#imageedit').css({ 
+												'margin-top' : -popMargTop,
+												'margin-left' : -popMargLeft
+											});
+  
+  
+  
+          //transition effect
+          $('#imageedit').fadeIn(2000);
+	  
+	  
+  
+      });  
+
       
       //if close button is clicked
       $('.window .close').click(function (e) {
