@@ -19,7 +19,13 @@ class ManageImage < ActiveRecord::Base
     :s3_permissions => "public-read", 
     #~ :path =>  lambda { |doc| "/assignments/#{doc.name}/:id/:style:extension" },
     :path =>  "images/:id/:style.:extension" ,
-    :styles => { :thumb => "100x100#", :large => "400x400#",:medium => "300x300#" },
+    #:styles => { :thumb => "100x100#", :large => "400x400#",:medium => "300x300#" },
+    
+   :styles => {  :thumb => "100x100#",
+    :custom => Proc.new { |instance| instance.resize }   },
+    
+    :convert_options => { :custom => '-quality 10' },    
+    
     :bucket => 'Mawhiba' 
     
      
