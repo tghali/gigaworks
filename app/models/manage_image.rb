@@ -33,7 +33,13 @@ class ManageImage < ActiveRecord::Base
     named_scope :search_with_subject, 	lambda { |str| {:conditions => (["subject LIKE ?", "%#{str}%"])}}
  
 
-	
+	 def resize     
+     geo = Paperclip::Geometry.from_file(image.to_file(:original))
+     final_width = geo.width
+     final_height = geo.height      
+    "#{final_width}x#{final_height.round}!"
+
+end
 	
 	
 	
