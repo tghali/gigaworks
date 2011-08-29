@@ -3,20 +3,28 @@
     - for manage_image in @manage_images
       %li
         .avatar
-          = image_tag manage_image.image.url(:thumb)
+          = image_tag manage_image.image.url(:custom),:style => "width:100px;height:100px;" 
         .user_image_actions
           %ul
             %li.image_view
               %a{:href => "#"}
-            %li.image_download
-              %a{:href => "#"}
+            %li.image_download 
+              = link_to "", download_image_url(:id => manage_image),:title => "Download"
             %li.image_edit
-              %a{:href => "#"}
+              - if can? :edit, ManageImage
+                = link_to "", edit_image_url(:id => manage_image),:id=>"edit_image",:remote => :true,:name => "edit_image",:title => "Edit"
+              - else
+                = image_tag("/images/clients/image_manage/edit.gif",:title => "No permission to edit",:alt => "No permission to edit" )
             %li.image_delete
-              %a{:href => "#"}
+              - if can? :destroy, ManageImage
+                = link_to "", delete_image_url(:id => manage_image),:confirm => "Are you sure you want to delete image",:remote => :true,:title => "Delete"
+              - else
+                = image_tag("/images/clients/image_manage/delete.gif",:title => "No permission to delete",:alt => "No permission to delete" )               
         %br.clear_all/
         %div
           = truncate(manage_image.subject.titleize,:length => 35, :omission => '...')
 .clear_all
 .pagination_block
-  = paginate @manage_images,  :remote => :true
+  = paginate @manage_images, :params => {:controller => "schedule/manage_images", :action => "index"},  :remote => :true
+  
+= javascript_include_tag "popupwindow.js"

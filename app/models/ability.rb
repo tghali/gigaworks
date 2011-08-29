@@ -24,12 +24,12 @@ class Ability
       if user.role ==  "Translator" 
         can :access, [Sentence]
       elsif user.role ==  "Editor" 
-        can :manage, [Sentence]
-        cannot [:delete_sentence,:tag_delete], Sentence	
+        can :manage, [Sentence,ManageImage]
+        cannot [:delete_sentence,:tag_delete], Sentence
       elsif user.role ==  "Project Manager" 
-        can :manage, [Sentence]
+        can :manage, [Sentence,Comment,ManageImage]
      elsif user.role == "Client" 
-        can :manage, [ClientContact, ClientContactInvite,Sentence]
+        can :manage, [ClientContact, ClientContactInvite,Sentence,Comment,ManageImage]
      end	   
  end     
 

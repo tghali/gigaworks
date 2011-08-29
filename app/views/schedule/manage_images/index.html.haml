@@ -1,25 +1,18 @@
 
-
-%script{:type => "text/javascript"}
-
-  jQuery(document).ready( function() {
-
-  setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
-  });
- 
-
-
-  });
-
-
 #contentwrapper
   #contentcolumn
     #accordion.innertube-1
+      - if flash[:notice]
+        .success_message{:id => 'message'}
+          %span
+          = flash[:notice]
       / head block wrapper
       .head_project_wrapper
         / heading
         .heading_project_blocks
           %h2.fl_left Nord Anglia Education - Image Management
+          %span{:id => "spinner",:style => "display:none;"}
+            = image_tag(("/images/images/loader.gif"),:width => "20",:height => "20")
         / heading end
         %br.clear_all/
       / head block wrapper end
@@ -32,27 +25,36 @@
         %span
       #list_of_images
         = render :partial => "images_list"
+
     .clear_all
 
-  
+#dialog_new_term_test.window
+  #mydialog
+
+#imageedit.window
+  #editimage
+
 #leftcolumn
   / vertical menu
   .glossymenu
-    %a.menuitem.statusicon_1{:href => "#"}
+    %a.menuitem.statusicon_1{:href => "/dashboard"}
       %img{:src => "/images/new_page/view_details.png"}>/
-      Dashboard
-    %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "/images/clients/new_icon.png"}>/
-      New Assignment
+      Main Menu
+    = link_to "Upload Image", new_image_url, :remote => :true,:id=>"popup",:class=>"menuitem statusicon_1"
+
     %a.menuitem.statusicon_1{:href => "#"}
       %img{:src => "/images/clients/new_icon.png"}>/
       New Task
-    %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "/images/new_page/view_details.png"}>/
-      Recent Activities
-    %a.menuitem.statusicon_1{:href => "#"}
-      %img{:src => "/images/new_page/view_details.png"}>/
-      Project Activities
+
     .clear_all
     
+= javascript_include_tag "popupwindow.js"
+:javascript
 
+  $(document).ready(function($) {
+  $("#popup").prepend('<img src="/images/clients/new_icon.png"}>');   
+  
+  setTimeout(function(){ jQuery("#message").fadeOut(); }, 5000);  
+
+
+  });
