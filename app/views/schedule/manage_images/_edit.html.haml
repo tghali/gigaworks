@@ -1,0 +1,63 @@
+- form_for @manage_image, :url => update_image_path(:id => @manage_image.id),:html =>{:multipart => "true" } do |s|  
+        
+  #pop_login_wrapper
+    .head_login
+      %span Edit Image
+      %a.close.close_form{:href => "#"}
+    #pop_loging_form.fl_left
+      .inner_login_wrap
+        / First Name
+        =# render "shared/error_messages", :target => @manage_image
+        .form_block_two.fl_left
+          %label.fl_left.text_indent Subject
+          %br.clear_all/
+          = s.hidden_field 'author_id', :value => current_user.id
+          %label.fl_left.input_width_12
+            = s.text_field  'subject'
+          .clear_all
+          .error_msg dd
+
+        .form_block_two.fl_left{:style=>"margin:20px 0 0 20px"}
+          %label.fl_left.text_indent Upload Image
+          %br.clear_all
+          %label.fl_left
+            = s.file_field :image
+        .clear_all
+        .error_msg dd
+
+	
+        .form_block_two.fl_left.mag_non{:style => "position:relative"}
+          #input1.clonedInput
+            %label.fl_left.text_indent Tags
+            %br.clear_all/
+            %label.fl_left.input_width_12.textarea_width_12
+              = s.text_area :tags
+            .clear_all
+            .error_msg dd
+
+        .form_block_two.fl_left.mag_non
+          %label.fl_left.text_indent Description
+          %br.clear_all/
+          %label.fl_left.input_width_12.textarea_width_12
+            = s.text_area :description
+          .clear_all
+          .error_msg dd
+        .clear_all
+        .form_block_two.fl_left.mag_non
+          %label.fl_left.input_width_12{:style => "background:none"}
+            %input.sign_submit.create_submit{:type => "submit", :value => "Update Image",:id => "create_term_btn"}/
+      .clear_all
+      / Lead form end
+      
+:javascript
+
+      //if close button is clicked
+      $('.window .close').click(function (e) {
+          //Cancel the link behavior
+          e.preventDefault();
+  
+          $('#mask').fadeOut(200);
+          $('.window').fadeOut(200);
+      }); 
+
+
