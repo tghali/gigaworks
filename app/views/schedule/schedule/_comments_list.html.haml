@@ -4,6 +4,7 @@
     .head_login
       %span Comments /Q&A (#{@sentence.comments.length})  
     
+      -#%a.close.close_form{:href => "/client/glossary"}
       = link_to( "" ,client_glossary_path, :class => "close close_form",:remote => :true)
     #pop_loging_form.fl_left
       .inner_login_wrap
@@ -12,6 +13,7 @@
         - @sentence.comments.each do |comment|
 
           %p{:style=>"padding:5px;"}
+	  
             - if comment.author
               = image_tag comment.author.avatar(:small),:class => "fl_left",:style => "margin-right:5px;",:width => "40",:height=> "40"
               = comment.author.user_name
@@ -25,6 +27,10 @@
 
           %p
             = comment.comment
+          %p
+            - if can? :comment_delete, Comment  
+              %span                  
+                = link_to "Delete", delete_comment_url(:cid => comment.id,:sid => @sentence.id), :confirm => "Are you sure you want to delete comment", :remote => 'true' 
         .clear_all
 
 
