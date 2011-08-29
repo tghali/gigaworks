@@ -24,7 +24,7 @@ class Schedule::ManageImagesController < ApplicationController
     @manage_image = ManageImage.new(params[:manage_image])
     respond_to do |format|
       if @manage_image.save
-        format.html {redirect_to images_list_url }
+        format.html {redirect_to images_list_url, :notice => "Image has been uploaded successfully." }
         format.xml  { render :xml => @manage_image, :status => :created, :location => @manage_image }
      else	     
 	     format.js { render :action => :new }

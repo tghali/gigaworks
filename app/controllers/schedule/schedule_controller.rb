@@ -215,6 +215,19 @@ end
 
  end
 
+
+ def comment_delete
+  authorize! :comment_delete, Comment  
+ @sentence = Sentence.find(params[:sid])		 
+ @comment = Comment.find_by_id(params[:cid])       
+  respond_to do |format|
+	      if @comment.destroy		      
+	       @sentences = Sentence.order("created_at").page(params[:page]).per(25)
+		format.js {render :comments }
+		format.xml  { head :ok  }
+	    end
+   end
+ end
  
  
 protected
