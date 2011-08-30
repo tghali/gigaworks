@@ -2,7 +2,34 @@ class Schedule::AdminController < ApplicationController
    layout 'admin/gigaclient'
 	 before_filter :authenticate	 
   def index
-	  @client_contacts = ClientContact.where(:gigaclient_id => current_user.id)
+    	sort = params[:sort]
+		if sort 
+			if sort == 'email_d'
+				sort = 'email DESC'
+			elsif sort ==  'email_a'
+				sort = 'email ASC'
+			elsif sort ==  'fname_d'
+				sort = 'first_name DESC'
+			elsif sort ==  'fname_a'
+				sort = 'first_name ASC'
+			elsif sort ==  'lname_d'
+				sort = 'last_name DESC'
+			elsif sort ==  'lname_a'
+				sort = 'last_name ASC'
+			elsif sort ==  'role_d'
+				sort = 'role DESC'
+			elsif sort ==  'role_a'
+				sort = 'role ASC'
+			elsif sort ==  'org_d'
+				sort = 'organization DESC'
+			elsif sort ==  'org_a'
+				sort = 'organization ASC'
+			else
+				sort = "created_at DESC"
+			end
+			end
+
+	  @client_contacts = ClientContact.where(:gigaclient_id => current_user.id).order(sort)
     authorize! :index, ClientContact
   end
   

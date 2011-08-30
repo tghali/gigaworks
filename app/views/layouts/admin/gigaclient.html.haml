@@ -116,10 +116,19 @@
 
           #top-right-details
             .date_time
-              %p 06/23/2011 02:24 AM
+              %p #{Date.today.strftime("%m/%d/%Y")} #{Time.now.strftime("%I:%M %p")} 
               %img.click{:src => "/images/new_page/top_links.jpg"}/
               %p
-                %a.link_d{:href => "#"} Good Morning : Ahmed
+                %a.link_d{:href => "#"}
+                - @t = Time.now.strftime("%I")		
+                - if (@t.to_i > 4 && Time.now.strftime("%p") == 'PM')
+                  Good Evening :
+                - elsif (@t.to_i < 12 && Time.now.strftime("%p") == 'AM')
+                  Good Morning :
+                - elsif (@t.to_i > 12 && Time.now.strftime("%p") == 'PM')
+                  Good Afternoon :
+	
+                = current_user.username.titleize
             .avatar
               .red_alert
                 %span 2
