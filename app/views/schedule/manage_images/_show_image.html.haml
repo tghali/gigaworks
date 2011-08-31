@@ -1,0 +1,7 @@
+.inner_block_modal{:style => "background:none;padding-bottom:0;height:auto;width:auto;"}
+  %div{:style=>"position:relative;height:auto;width:#{@width}px;"}
+    = image_tag( @uploadimage.image.url(:preview),:class => "preview_block")
+    %a.close{:href => "#"}
+      %span
+= javascript_include_tag "popupwindow.js"
+ 

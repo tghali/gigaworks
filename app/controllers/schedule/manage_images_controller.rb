@@ -1,8 +1,13 @@
 class Schedule::ManageImagesController < ApplicationController
    layout 'admin/gigaclient'
-   before_filter :authenticate	 		 
+   before_filter :authenticate	 
+   autocomplete :manage_image, :subject      
   def index   
-	    @manage_images = ManageImage.order("created_at").page(params[:page]).per(12)  
+		  if params[:text_search]
+        @manage_images = ManageImage.where("subject ILIKE ? ","%#{params[:text_search]}%").page(params[:page]).per(15)	
+      else	    
+        @manage_images = ManageImage.order("created_at").page(params[:page]).per(15)  
+      end
 	     respond_to do |format|
 	      format.html 
 	      format.js
@@ -71,7 +76,16 @@ end
 	 end
     end
   
-  
+    def view_uploadimage
+	 @uploadimage = ManageImage.find(params[:id])  
+	  geo = Paperclip::Geometry.from_file(@uploadimage.image.to_file(:preview))
+    @width = geo.width	 
+		respond_to do |format|
+	      format.js 
+	      format.xml  { render :xml => @uploadimage }
+	    end
+   end
+ 
   
     
   def destroy
