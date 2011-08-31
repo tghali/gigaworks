@@ -43,6 +43,52 @@
           $(id).fadeIn(2000);
   
       });
+  
+        //select all the a tag with name equal to modal
+      $('a[name=preview_image]').click(function (e) {
+          //Cancel the link behavior
+           $('#dialog_new_term_test').show();
+
+          //Get the screen height and width
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+  
+          //Set heigth and width to mask to fill up the whole screen
+          $('#mask').css({
+              'width': maskWidth,
+              'height': maskHeight
+          });
+  
+          //transition effect		
+          $('#mask').fadeIn(1000);
+          $('#mask').fadeTo("slow", 0.8);
+  
+          //Get the window height and width
+/*          var winH = $(window).height();
+          var winW = $(window).width();*/
+  
+											var popMargTop = ($('#dialog_new_term_test').height() + 10) / 2;
+											if(popMargTop == 5){popMargTop = 204}
+											var popMargLeft = ($('#dialog_new_term_test').width() + 10) / 2;
+				
+			
+          //Set the popup window to center
+											$('#dialog_new_term_test').css({ 
+												'margin-top' : -popMargTop,
+												'margin-left' : -popMargLeft
+											});
+		
+		
+          //Set the popup window to center
+/*          $('#dialog_new_term_test').css('top', winH / 2 - $('#dialog_new_term_test').height() / 2);
+          $('#dialog_new_term_test').css('left', winW / 2 - $('#dialog_new_term_test').width() / 2);*/
+  
+          //transition effect
+          $('#dialog_new_term_test').fadeIn(2000);
+  
+      });
+  
+  
     
     
     //select all the a tag with name equal to modal
