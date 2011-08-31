@@ -21,11 +21,14 @@ class ManageImage < ActiveRecord::Base
     :path =>  "images/:id/:style.:extension" ,
     #:styles => { :thumb => "100x100#", :large => "400x400#",:medium => "300x300#" },
     
-   :styles => {  :thumb => "100x100#",
-    :custom => Proc.new { |instance| instance.resize }   },
+    :styles => {  :thumb => "100x100>",
+    :preview => "400x400>",
+    :custom => Proc.new { |instance| instance.resize } 
+
+},
     
-    :convert_options => { :custom => '-quality 10' },    
-    
+    :convert_options => { :custom => '-quality 10',:thumb => '-quality 10',:preview => "-quality 10" },
+
     :bucket => 'Mawhiba' 
     
      

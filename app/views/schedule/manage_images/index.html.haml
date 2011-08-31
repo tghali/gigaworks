@@ -19,8 +19,9 @@
       .spacer.clear_all
         %span
       #search_block.fl_left
-        %input.search_field{:type => "text"}/
-        %input.search_input{:type => "submit", :value => " "}/
+        = form_for :search, :url => images_list_path, :html => { :method => :get, :remote => :true}  do
+          = autocomplete_field_tag :text_search,params[:text_search],image_search_path,:class => "search_field"
+          %input.search_input{:type => "submit", :value => " "}/
       .spacer.clear_all{:style => "height:15px;"}
         %span
       #list_of_images
@@ -33,6 +34,10 @@
 
 #imageedit.window
   #editimage
+
+#previewimage.window
+  #viewimage
+
 
 #leftcolumn
   / vertical menu

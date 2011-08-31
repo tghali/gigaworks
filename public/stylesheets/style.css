@@ -130,6 +130,7 @@ padding-top: 15px;
 		background:url(/images/new_page/avatar.png) no-repeat 100% 0;
 		position:relative;
 		}
+	
 	#top-right-details .avatar .red_alert{
 		width:39px;
 		height:30px;
@@ -1004,7 +1005,7 @@ a.header_highlight{
   -moz-border-radius: 15px;
   -khtml-border-radius: 15px;
   -webkit-border-radius: 15px;
-	background:#464646;	
+  background:#464646;	
 }
 
 .inner_block_modal{
@@ -1026,7 +1027,10 @@ a.header_highlight{
 
 #terms_services .inner_block_modal{ width:600px;}
 #terms_services .inner_block_modal h2{color:#ef0202}
-
+.inner_block_modal img.preview_block{border:5px solid #fff;	
+   -moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;}
 #privacy_policy .inner_block_modal{ width:600px;}
 #privacy_policy .inner_block_modal h2{color:#ef0202}
 /*.window {
@@ -1171,19 +1175,25 @@ margin-top:10px;
 	background:url(/images/clients/image_manage/imgmng_bg.gif) no-repeat;
 	width:132px;
 	height:171px;
-	margin-right:45px;
+	margin-right:10px;
 	margin-bottom:10px;
 	font:12px Verdana, Arial, Helvetica, sans-serif;
 	color:#0071b9;
+	text-align:center;
+	vertical-align:bottom
 }
 #image_mangement_wrapper ul li .avatar{
 	width:100px;
 	height:100px;
-	margin:6px 15px 13px;
-	background:#ccc;
+	margin:6px auto 13px;
+	background:#ccc;	
+	position:relative;
 }
 #image_mangement_wrapper ul li img{
 	display:block;
+	position:absolute;
+	left:50%;
+	bottom:0;
 }
 .user_image_actions{
 	width:118px;

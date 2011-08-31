@@ -2,12 +2,12 @@
   %ul
     - for manage_image in @manage_images
       %li
-        .avatar
-          = image_tag manage_image.image.url(:custom),:style => "width:100px;height:100px;" 
+        .avatar{:style => "background:none;"}
+          = image_tag( manage_image.image.url(:thumb),:style=>"margin-left:#{get_width(manage_image.id)}px;")
         .user_image_actions
           %ul
             %li.image_view
-              %a{:href => "#"}
+              = link_to "", view_uploadimage_url(:id => manage_image),:id=>"previewimage",:remote => :true,:name => "preview_image",:title => "Preview"
             %li.image_download 
               = link_to "", download_image_url(:id => manage_image),:title => "Download"
             %li.image_edit

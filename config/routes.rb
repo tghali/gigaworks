@@ -88,7 +88,8 @@ Gigavine::Application.routes.draw do
   put '/image/update/:id' => 'schedule/manage_images#update',:as => :update_image 
   get '/images/delete_image' => "schedule/manage_images#destroy",:as => :delete_image 
   get '/images/download_image' => "schedule/manage_images#download_image",:as => :download_image   
-  
+  get '/images/preview/:id' => "schedule/manage_images#view_uploadimage",:as => :view_uploadimage 
+  get '/autocomplete_manage_image_subject' => "schedule/manage_images#autocomplete_manage_image_subject",:as => :image_search   
   ### end for clients images  
 
 
