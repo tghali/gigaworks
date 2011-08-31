@@ -141,11 +141,12 @@ end
 
 
   def recent_activity
-	  @sentences = Sentence.recent.order("created_at DESC").page(params[:page]).per(25)	    
-    respond_to do |format|
-      format.js { render :glossary}
-      format.xml  { render :xml => @sentences }
-    end
+	  #~ @sentences = Sentence.recent.order("created_at DESC").page(params[:page]).per(25)
+    @glossary_actions = GlossaryAction.order("created_at DESC").page(params[:page]).per(25)
+	    respond_to do |format|
+	      format.js
+	      format.xml  { render :xml => @glossary_actions }
+	    end
   end
 
   def delete_sentence
