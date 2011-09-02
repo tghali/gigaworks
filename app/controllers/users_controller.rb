@@ -64,15 +64,17 @@ end
 
 
 def client_user_create
-  @gfind = Gigauser.find(:last)
+  #@gfind = Gigauser.find(:last)
+  @gfind = Gigauser.find_by_sql("SELECT id FROM gigausers order by id DESC limit 1")
 	@gigauser = Gigauser.new(params[:gigauser])
 	 respond_to do |format|
-     @gigauser.id = @gfind.id.to_i + 1
+     #@gigauser.id = @gfind.id.to_i + 1     
+     @gigauser.id = @gfind[0]['id'] + 1
 		 if @gigauser.save
 			 @invite = ClientContactInvite.where(:token => params[:invite_token]).first
 			 @invite.update_attribute(:status, 1)
        @invite.recipient.update_attribute(:gigauser_id,@gigauser.id)
-       @gigauser.update_attribute(:client_contact_id,@invite.recipient)
+       @gigauser.update_attribute(:client_contact_id,@invite.recipient_id)
 			 @gigaclient = Gigaclient.find(@gigauser.gigaclient_id)
        UserMailer.registration_details(@gigauser,@gigaclient).deliver
 			 format.html { redirect_to "http://#{@gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}
