@@ -754,6 +754,14 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 	cursor:pointer
 	}
 
+.input_update_contact input{
+	width:130px;
+	height:38px;
+	background:url(/images/new_page/update_contact.png) no-repeat;
+	margin-left:5px;
+	cursor:pointer
+	}
+
 
 	
 .input_width_00{ background:none}
