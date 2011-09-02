@@ -93,5 +93,55 @@ class Schedule::AdminController < ApplicationController
 		redirect_to users_list_path			  
 	  end
   end
+
+  def edit_contact
+	  @client_contact = ClientContact.find(params[:id])
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.xml  { render :xml => @client_contact }
+    end
+ end
   
+  def update_contact
+   @client_contact = ClientContact.find(params[:id])
+    respond_to do |format|
+	    	   if @client_contact.update_attributes(params[:client_contact])
+			format.html {redirect_to users_list_path,:notice => "Contact details was successfully updated." }
+			format.xml  { render :xml => @client_contact }
+		else
+		format.html { render :action => "edit_contact"}
+		format.xml  { render :xml => @client_contact.errors, :status => :unprocessable_entity }
+		end
+    end
+  end
+  
+  
+  def contact_delete
+	  contact = ClientContact.find(params[:id])	 
+	  if contact
+
+		  contact.destroy
+
+		  
+		     respond_to do |format|
+		
+		      format.html {redirect_to users_list_path,:notice => "Contact was successfully deleted" } # new.html.erb
+		      format.xml  { render :xml => contact }
+		    end	
+	else
+		     respond_to do |format|	
+		      format.html {redirect_to users_list_path,:notice => "Contact was not found to delete" } # new.html.erb
+		      format.xml  { render :xml => contact }
+		    end				
+	  end        
+  end
+
+
+
+
+
+
+
+
+
 end

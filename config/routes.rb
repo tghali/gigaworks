@@ -77,6 +77,11 @@ Gigavine::Application.routes.draw do
   get '/contacts/users' =>  "schedule/admin#index",:as => :users_list
   get '/contact/user_invitation' => "schedule/admin#user_invitation",:as => :user_invitation
   post '/contact/allow_user/:id' => "schedule/admin#user_access",:as => :allow_user
+  
+  
+  get '/contact/delete_user/:id' => "schedule/admin#contact_delete",:as => :contact_delete
+  get '/contact/edit/:id' => "schedule/admin#edit_contact",:as => :contact_edit
+  put '/contact/update/:id' => "schedule/admin#update_contact",:as => :contact_update  
  ### end for clients admin  
 
    ### for clients images  
