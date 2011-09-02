@@ -72,6 +72,7 @@ def client_user_create
 			 @invite = ClientContactInvite.where(:token => params[:invite_token]).first
 			 @invite.update_attribute(:status, 1)
        @invite.recipient.update_attribute(:gigauser_id,@gigauser.id)
+       @gigauser.update_attribute(:client_contact_id,@invite.recipient)
 			 @gigaclient = Gigaclient.find(@gigauser.gigaclient_id)
        UserMailer.registration_details(@gigauser,@gigaclient).deliver
 			 format.html { redirect_to "http://#{@gigaclient.gigadomain.subdomain}.#{request.domain}/sign_in", :notice => "Congratulations, you succesfully registered. You can now log in"}

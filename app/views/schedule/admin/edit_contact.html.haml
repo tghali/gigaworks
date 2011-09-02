@@ -1,0 +1,149 @@
+/ content wrapper
+#contentwrapper
+  #contentcolumn
+    .innertube-1
+
+
+      / form block wrapper
+      .wrapper_form
+        = form_for @client_contact, :url => contact_update_path(@client_contact.id),:html => {:id => "update_contact"} do |c|
+          / contact form start
+          .wrapper_form_inner
+            - if @client_contact.errors.any?
+              .error_message
+                %span
+                  = render "shared/error_messages", :target => @client_contact
+
+            .form_head_highlight
+              %span Edit Contact
+            .new_lead_block.fl_left
+              / Title
+              .title_width
+                %label.fl_left.text_indent
+                  Title
+                  %span &nbsp;
+                %br.clear_all/
+                %label.fl_left.input_width_11.input_width_00.title
+                  = select :client_contact, :title, Gigavine::Preferences.suffixes 
+                  -#%input{:title => "Try to make it hard to guess.", :type => "text"}/
+                .clear_all
+                .error_msg dd
+              / Title End
+              / First Name
+              .form_block_two.fl_left
+                %label.fl_left.text_indent
+                  First Name
+                  %span *
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :first_name,:title => "Enter first name"
+
+                .clear_all
+                .error_msg dd
+              / First Name end
+              / Last Name
+              .form_block_two.fl_left
+                %label.fl_left.text_indent
+                  Last Name
+                  %span *
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field  :last_name,:title => "Enter last name"
+                .clear_all
+                .error_msg dd
+              / Last Name end
+              .clear_all
+              / Email
+              .form_block_two.fl_left
+                %label.fl_left.text_indent
+                  Email
+                  %span *
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :email,:title => "Enter email address"
+                  = c.hidden_field :login_access,:value => "open" 
+              / Email end
+              .clear_all
+          .clear_all
+          / Lead form end
+	  
+
+	  
+          / Address form start
+          .wrapper_form_inner
+
+  
+            .form_head_highlight
+              %span Information
+            .new_lead_block.fl_left
+
+              / First Line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Gender
+                %br.clear_all/
+                %label.fl_lef
+                  %input#gender_male{:name => "client_contact[gender]", :type => "radio",:value => 1,:checked => true}/
+                  Male
+                  %input#gender_female{:name => "client_contact[gender]", :type => "radio",:value => 0 }/
+                  Female
+                .clear_all
+                .error_msg dd
+              / First Line end
+              %br.clear_all
+              %br.clear_all
+
+              / First Line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Organisation
+                %br.clear_all/
+                %label.fl_left.input_width_12
+                  = c.text_field :organization
+                .clear_all
+                .error_msg dd
+              / First Line end
+              / Second line
+              .form_block_two.fl_left
+                %label.fl_left.text_indent Role
+                %br.clear_all/
+                %label.fl_left.input_width_15.input_width_15s
+                  = select :client_contact, :role, Gigavine::Preferences.client_contacts 
+                .clear_all
+                .error_msg dd
+              / Second line end
+              .clear_all
+
+ 
+
+
+
+              .form_block_three.fl_left
+                %label.fl_left.text_indent 
+                %br.clear_all/
+                %label.fl_left.input_create_contact
+                  = submit_tag " "
+                .clear_all
+                .error_msg dd
+              / City end
+
+              .form_block_three.fl_left
+                %label.fl_left.text_indent
+                %br.clear_all/
+                %label.fl_left.input_create_lead
+                  = link_to image_tag( '/images/new_page/cancel.png'), users_list_url
+                .clear_all
+                .error_msg dd
+              / City end
+
+              / Title End
+              / Second line
+          / Address form end
+          .clear_all
+      / form block wrapper
+      .spacer.clear_all
+        %span
+    .clear_all
+
+    .clear_all
+  / content wrapper end
+ 
+= render :partial => "admin_left_menu"
