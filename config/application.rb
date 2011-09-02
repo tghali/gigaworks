@@ -134,7 +134,7 @@ module Gigavine
    
         def self.client_contacts
           
-           ['Editor','Project Manger','Client','Translator']
+           ['Editor','Project Manager','Client','Translator']
           
 
     end

@@ -2,9 +2,12 @@ require 'digest/sha1'
 
 class Gigauser < ActiveRecord::Base
 	  acts_as_paranoid
+    validates_as_paranoid
+    
 	  validates :username,
-    :presence => true,
-    :uniqueness => {:if => :username?}    
+    :presence => true
+    validates_uniqueness_of_without_deleted  :username
+    #:uniqueness => {:if => :username?}    
   validates :password,:password_confirmation,
     :presence => true  
 	
