@@ -11,7 +11,7 @@ gem "will_paginate", "~> 3.0.pre2"
 
 gem 'gdocs4ruby'
 gem 'subdomain-fu', :git => "git://github.com/nhowell/subdomain-fu.git"
-
+gem "rails3_acts_as_paranoid", :path =>  'vendor/plugins/rails3_acts_as_paranoid'
 gem 'kaminari'
 
 # gem 'haml', '>= 3.0.12'

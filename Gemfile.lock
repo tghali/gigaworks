@@ -24,6 +24,13 @@ PATH
     fredo (0.1.10)
 
 PATH
+  remote: vendor/plugins/rails3_acts_as_paranoid
+  specs:
+    rails3_acts_as_paranoid (0.1)
+      activerecord (~> 3.0)
+
+
+PATH
   remote: vendor/plugins/tabelle
   specs:
     tabelle (0.0.4)
@@ -315,6 +322,7 @@ DEPENDENCIES
   rack-test!
   rails (= 3.0.5)
   rails3-jquery-autocomplete
+  rails3_acts_as_paranoid!
   rspec-rails (>= 2.5.0)
 
   ruby-debug
