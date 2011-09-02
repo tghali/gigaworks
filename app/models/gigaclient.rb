@@ -39,9 +39,9 @@ class Gigaclient < ActiveRecord::Base
 	
 	
 	def gigausers
-    gfind = Gigauser.find(:last)
+    @gfind = Gigauser.find_by_sql("SELECT id FROM gigausers order by id DESC limit 1")
     guser = Gigauser.new
-    guser.id = gfind.id.to_i + 1
+    guser.id = @gfind[0]['id'] + 1
     guser.first_name = self.first_name
     guser.last_name = self.last_name
     guser.gigaclient_id = self.id
