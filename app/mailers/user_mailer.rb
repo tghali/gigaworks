@@ -25,6 +25,10 @@ class UserMailer < ActionMailer::Base
     @invite.sent_at Time.now
   end
   
-  
+ def registration_details(gigauser,gigaclient)
+	  @user = gigauser
+	  @gigaclient = gigaclient
+	  mail(:to => gigauser.email, :subject => "Gigavine Login Details")
+end
   
 end
