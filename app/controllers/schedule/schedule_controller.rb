@@ -230,6 +230,21 @@ end
    end
  end
  
+  def delete_translation
+  authorize! :delete_translation, Sentence  
+  @sentence = Sentence.find(params[:sid])		 
+  @translation = TranslationPair.find_by_id(params[:tid])    
+  respond_to do |format|
+	      if @translation.destroy		      
+	       @sentences = Sentence.order("created_at").page(params[:page]).per(25)
+		format.js {render :edit_sentence }
+		format.xml  { head :ok  }
+	    end
+   end
+
+ end
+ 
+ 
  
 protected
  

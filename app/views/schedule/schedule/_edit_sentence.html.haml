@@ -18,16 +18,20 @@
           .error_msg dd
           %input#btnAdd{:style => "position:absolute; right:10px; top:150px;background:#fff url(/images/clients/add_term.png) no-repeat;color:#fff; cursor:pointer", :type => "button", :value => " "}/	
           - @count = 1  
-	  
+          - i = 0  		  
         = s.fields_for :translations do |t|
 	
           .form_block_two.fl_left.mag_non{:style => "position:relative"}
             %div.clonedInput{:id=>"input#{@count}"}
               %label.fl_left.text_indent Arabic
+              - if can? :delete_translation, @sentence
+                %span{:style => "padding-left:100px;"}
+                = link_to "Delete", delete_translation_path(:sid => @sentence.id, :tid =>@sentence.translations[i].id),:remote => :true,:confirm => "Are you sure you want to delete translation ?"
               %br.clear_all/
               = t.hidden_field 'language', :value => 'ar'   
               %label.fl_left.input_width_12.textarea_width_12
                 = t.text_area :text,:style => "direction:rtl"
+                - i = i + 1
               .clear_all
               .error_msg dd
               - @count = @count + 1

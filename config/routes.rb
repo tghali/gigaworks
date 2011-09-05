@@ -70,7 +70,7 @@ Gigavine::Application.routes.draw do
  get 'new_tag' => "schedule/schedule#new_tag"  
  post 'create_tag' => "schedule/schedule#create_tag"
  get '/delete_comment' => "schedule/schedule#comment_delete",:as => :delete_comment    
-  
+ get '/delete_translation' => "schedule/schedule#delete_translation",:as => :delete_translation  
  ### for clients admin  
   get '/contact/new' => "schedule/admin#new",:as => :new_contact  
   post '/contact/create_contact' => "schedule/admin#create",:as => :create_contact    
