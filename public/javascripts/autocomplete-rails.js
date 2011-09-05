@@ -84,10 +84,11 @@ $(document).ready(function(){
 						}
 					};
 				
-					return false;
+
+					//return false;
 
 			
-					//$(this.form).submit();
+					$(this.form).submit();
 				}
 			});
 					}
