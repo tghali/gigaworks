@@ -2,119 +2,8 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %title Front End
-    %link{:href => "/stylesheets/frontend/lightbox.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/stylesheets/frontend/style.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/stylesheets/frontend/tabs-slideshow.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/stylesheets/frontend/superfish.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/stylesheets/frontend/superfish-navbar.css", :rel => "stylesheet", :type => "text/css"}/
-    %script{:src => "/javascripts/frontend/jquery.min.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/jquery-ui.min.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/pngFix/jquery.pngFix.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/mopSlider/mopSlider-2.4.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/script.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/jquery.tools.min.js"}
-    %script{:src => "/javascripts/frontend/jquery.lightbox_me.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/cufon-yui.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/Gotham_Light_300.font.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/cufon-yui.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/Gotham_Light_300.font.js", :type => "text/javascript"}
-    :javascript
-      Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span', ' ', { fontFamily: 'gothamxlight', hover: true});
-		   
-      Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'},color: '#20202c'});
-		   
-      Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
-      Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
-			
-			
-		   
-    %script{:src => "/javascripts/frontend/hoverIntent.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/superfish.js", :type => "text/javascript"}
-    %script{:language => "JavaScript"}
-      jQuery.noConflict();
-      jQuery(document).ready(function(){
-      jQuery("ul.sf-menu").superfish({
-      pathClass:  'current'
-      });
-      });
-      jQuery(function() {
-      
-      jQuery(".slidetabs").tabs(".images > div", {
-      
-      \// enable "cross-fading" effect
-      effect: 'fade',
-      fadeOutSpeed: "slow",
-      autoplay: true,
-      \// start from the beginning after the last tab
-      rotate: true,
-      interval : 300
-      
-      \// use the slideshow plugin. It accepts its own configuration
-      }).slideshow();
-      jQuery(".slidetabs").data("slideshow").play();
-      
-      jQuery(".slidetabs_2").tabs(".images_1 > div", {
-      
-      \// enable "cross-fading" effect
-      effect: 'fade',
-      fadeOutSpeed: "slow",
-      \//autoplay: true,
-      \// start from the beginning after the last tab
-      rotate: true
-      \//interval : 300
-      
-      \// use the slideshow plugin. It accepts its own configuration
-      })/*.slideshow();*/
-      
-      });
-    :javascript
-      jQuery.noConflict();
-      jQuery(function() {
-      jQuery(document).ready(function(){ 
-      	jQuery("#products").hide();	
-      	});	
-      jQuery("#image_frm_div").click(function () {
-      	if(document.getElementById("products").style.display == 'none')
-      	{
-      	jQuery("#products").show();	
-      	return false;
-      	}
-      	else
-      	{
-      	jQuery("#products").hide();	
-      	return false;
-      	}
-      	});	
-      });
-      
-    :javascript
-      jQuery(function() {
-       jQuery(".menu_middle").click(function () {
-       	Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
-      			Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
-      			
-      			Cufon.replace('.sf-with-ul li a', {color: '#20202c'});
-      			Cufon.replace('.sf-navbar li a.current', {color: '#ff0000'});
-       });
-      }); 
-    %script{:charset => "utf-8", :type => "text/javascript"}
-      jQuery(function() {
-      function launch() {
-      jQuery('#sign_up').lightbox_me({centered: true, onLoad: function() { $('#sign_up').find('input:first').focus()}});
-      }
-      
-      jQuery('#try-1').click(function(e) {
-      jQuery("#sign_up").lightbox_me({centered: true, onLoad: function() {
-      jQuery("#sign_up").find("input:first").focus();
-      }});
-      
-      e.preventDefault();
-      });
-      
-      
-      jQuery('table tr:nth-child(even)').addClass('stripe');
-      });
+    %title Gigavine
+    = render :partial => "/pages/partials/script_files"
     /[if IE]
       <style type="text/css">
       \.sldCenter,.sldLeft,.sldRight{background:#0f0; top:-5px;}
@@ -126,6 +15,7 @@
       <div class="topframe">
       <iframe src="submenu.html"></iframe>
       </div>
+
     #main-wrapper-home
       / Top holder
       .create_headder{:style => "height:auto"}
@@ -159,77 +49,16 @@
               .reg_text2
                 Search_
                 %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+            = render :partial => "/pages/partials/top_menu"
 
       / Top holder end
-      / Header
-      #home_header
-        %a.backward prev
-        .slidetabs
-          %a{:href => "#"}
-          %a{:href => "#"}
-          %a{:href => "#"}
-          %a{:href => "#"}
-        / container for the slides
-        .images
-          / first slide start
-          .home_index_header
-            %p Gigavine offers creative and technical services which cross borders and open minds1.
-          / first slide end
-          / second slide start
-          .home_index_header
-            %p Gigavine offers creative and technical services which cross borders and open minds2.
-          / second slide end
-          / third slide start
-          .home_index_header
-            %p Gigavine offers creative and technical services which cross borders and open minds3.
-          / third slide end
-          / fourth slide start
-          .home_index_header
-            %p Gigavine offers creative and technical services which cross borders and open minds4.
-          / fourth slide end
-        / "next slide" button
-        %a.forward next
-        .clear
-          %span
-      / Headerend
+      = render :partial => "/pages/partials/home_header"
+
       / content block start
+      =# render :partial => "/pages/partials/home_content"
       #main2{:style => "position:relative; z-index:1;"}
         / container for the slides
-        .slidetabs_2
-          .slidetabs_2_inner
-            %ul
-              %li.menu_middle
-                %a{:href => "#"} Create
-              %li.menu_middle
-                %a{:href => "#"} Adapt
-              %li.menu_middle{:style => "margin:0"}
-                %a{:href => "#"} Deliver
-        .images_1
-          .create
-            .clear
-            .sub_content
-              / <h3>Create</h3>
-              %img.fl_left{:src => "/images/frontend/content-image.png"}
-                %p
-                  Original concepts and compelling designs to capture attention and establish a connection with your audience
-                  %span
-                    %a{:href => "#"} Find out more
-          .adapt
-            .sub_content
-              / <h3>Create</h3>
-              %img.fl_left{:src => "/images/frontend/content-image.png"}
-                %p
-                  Original concepts and compelling designs to capture attention and establish a connection with your audience
-                  %span.span_1
-                    %a{:href => "#"} Find out more
-          .deliver
-            .sub_content
-              / <h3>Create</h3>
-              %img.fl_left{:src => "/images/frontend/content-image.png"}
-                %p
-                  Original concepts and compelling designs to capture attention and establish a connection with your audience
-                  %span.span_2
-                    %a{:href => "#"} Find out more
+        = render :partial => "/pages/partials/slide_tabs"
         .clear
           %span
         / headding text start
@@ -243,42 +72,15 @@
           %div
             / lastes news block start
             #latest-news
-              .org_leftcorner
-                %span
-              .org_bg
-                .org_bg_inner
-                  %br
-                    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices.
-                    .news_headding
-                      %h4 Latest news
-              .org_rightcorner
-                %span
+              = render :partial => "/pages/partials/latest_news"
             / lastes news block end
             / join network block start
             #join-the-network
-              .green_leftcorner
-                %span
-              .green_bg
-                .org_bg_inner
-                  %br
-                    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices.
-                    .news_headding
-                      %h4 Join the network
-              .green_rightcorner
-                %span
+              = render :partial => "/pages/partials/join_network"
             / join network block end
             / contact block start
             #contact-us
-              .blue_leftcorner
-                %span
-              .blue_bg
-                .org_bg_inner
-                  %br
-                    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices.
-                    .news_headding
-                      %h4 Contact us
-              .blue_rightcorner
-                %span
+              = render :partial => "/pages/partials/contact_us"
             / contact block end
         / headding text end
         .clear
@@ -286,151 +88,15 @@
         / tabbing block start
         #tabbing
           .tabmainblock
-            / submit block start
-            #submit-a-brief
-              %h4 Submit a brief
-              .sub_inner
-                .sub_leftcorner
-                  %span
-                .sub_bg
-                  .sub_bg_inner
-                    %form
-                      %p
-                        %span Name
-                        %input{:type => "text"}/
-                      %p
-                        %span Email
-                        %input{:type => "text"}/
-                      %p
-                        %span File
-                        #FileUpload
-                          %input#BrowserHidden{:onChange => "getElementById('FileField').value = getElementById('BrowserHidden').value;", :size => "24", :type => "file"}
-                            #BrowserVisible
-                              %input#FileField{:type => "text"}/
-                .sub_rightcorner
-                  %span
-            / submit block end
-            / how we help block start
-            #how-we-help
-              %h4 How we help connect
-              .help_block
-                #main
-                  .container
-                    #slider
-                      .product
-                        .pic
-                          %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/1.png", :width => "128"}/
-                        .title Build an Arabic version of your website for Middle East expansion
-                      .product
-                        .pic
-                          %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/2.png", :width => "128"}/
-                        .title Build an Arabic version of your website for Middle East expansion
-                      .product
-                        .pic
-                          %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/3.png", :width => "128"}/
-                        .title Build an Arabic version of your website for Middle East expansion
-                      .product
-                        .pic
-                          %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/4.png", :width => "128"}/
-                        .title Build an Arabic version of your website for Middle East expansion
-                      .product
-                        .pic
-                          %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/5.png", :width => "128"}/
-                        .title Build an Arabic version of your website for Middle East expansion
-                    .clear
-            / how we help block end
+            = render :partial => "/pages/partials/submit_block"
+
         / tabbing block end
       / content block end
       .clear  
       .clear  
       / footer block start
-      #footer
-        .inner_footer
-          .foot_left
-            %p.foot_logo
-              %a{:alt => "", :href => "#", :title => ""}
-                %img{:alt => "", :src => "/images/frontend/foot_logo.gif", :title => ""}/
-          .foot_right
-            .flo_left
-              %ul
-                %li
-                  %p Languages
-                %li
-                  %a{:href => "#"} Translation
-                %li
-                  %a{:href => "#"} Localisation
-                %li
-                  %a{:href => "#"} Consultancy
-                %li
-                  %a{:href => "#"} Online tools
-            .flo_left
-              %ul
-                %li
-                  %p Creative
-                %li
-                  %a{:href => "#"} Artwork
-                %li
-                  %a{:href => "#"} Webdesign
-                %li
-                  %a{:href => "#"} Copywriting
-                %li
-                  %a{:href => "#"} Interactive
-            .flo_left
-              %ul
-                %li
-                  %p Technology
-                %li
-                  %a{:href => "#"} E-learning
-                %li
-                  %a{:href => "#"} E-commerce
-                %li
-                  %a{:href => "#"} Online security
-                %li
-                  %a{:href => "#"} DMS
-            .flo_left
-              %ul
-                %li
-                  %p Projects
-                %li
-                  %a{:href => "#"} Case studies
-            .flo_left
-              %ul
-                %li
-                  %p Network
-                %li
-                  %a{:href => "#"} Registration
-                %li
-                  %a{:href => "#"} Featured
-            .flo_left
-              %ul{:style => "margin-right:0px;"}
-                %li
-                  %p Company
-                %li
-                  %a{:href => "#"} About
-                %li
-                  %a{:href => "#"} Values
-                %li
-                  %a{:href => "#"} Blog
-                %li
-                  %a{:href => "#"} Contact us
-        .inner_footer
-          .foot_left
-            %ul
-              %li
-                %a{:alt => "", :href => "#", :title => ""}
-                  %img{:alt => "", :src => "/images/frontend/fb_icon.gif", :title => ""}/
-              %li
-                %a{:alt => "", :href => "#", :title => ""}
-                  %img{:alt => "", :src => "/images/frontend/twit_icon.gif", :title => ""}/
-              %li
-                %a{:alt => "", :href => "#", :title => ""}
-                  %img{:alt => "", :src => "/images/frontend/ytoube_icon.gif", :title => ""}/
-              %li
-                %a{:alt => "", :href => "#", :title => ""}
-                  %img{:alt => "", :src => "/images/frontend/rss-icon.gif", :title => ""}/
-          .foot_right
-            %p &copy; Copyright Gigavine plc 2011      Terms & Conditions      Privacy Policy
-      / footer block end
+      = render :partial => "/pages/partials/footer"
+
     #sign_up{:style => "display:none"}
       %h3#see_id  
       %form

@@ -1,0 +1,98 @@
+= stylesheet_link_tag "frontend/lightbox.css","frontend/style.css","frontend/tabs-slideshow.css","frontend/superfish.css","frontend/superfish-navbar.css"
+= javascript_include_tag "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js",""
+:javascript
+  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span', ' ', { fontFamily: 'gothamxlight', hover: true});
+		   
+  Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'},color: '#20202c'});
+		   
+  Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
+  Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
+			
+			
+		   
+%script{:src => "/javascripts/frontend/hoverIntent.js", :type => "text/javascript"}
+%script{:src => "/javascripts/frontend/superfish.js", :type => "text/javascript"}
+%script{:language => "JavaScript"}
+  jQuery.noConflict();
+  jQuery(document).ready(function(){
+  jQuery("ul.sf-menu").superfish({
+  pathClass:  'current'
+  });
+  });
+  jQuery(function() {
+      
+  jQuery(".slidetabs").tabs(".images > div", {
+      
+  \// enable "cross-fading" effect
+  effect: 'fade',
+  fadeOutSpeed: "slow",
+  autoplay: true,
+  \// start from the beginning after the last tab
+  rotate: true,
+  interval : 300
+      
+  \// use the slideshow plugin. It accepts its own configuration
+  }).slideshow();
+  jQuery(".slidetabs").data("slideshow").play();
+      
+  jQuery(".slidetabs_2").tabs(".images_1 > div", {
+      
+  \// enable "cross-fading" effect
+  effect: 'fade',
+  fadeOutSpeed: "slow",
+  \//autoplay: true,
+  \// start from the beginning after the last tab
+  rotate: true
+  \//interval : 300
+    
+  \// use the slideshow plugin. It accepts its own configuration
+  })/*.slideshow();*/
+      
+  });
+:javascript
+  jQuery.noConflict();
+  jQuery(function() {
+  jQuery(document).ready(function(){ 
+  	jQuery("#products").hide();	
+  	});	
+  jQuery("#image_frm_div").click(function () {
+  	if(document.getElementById("products").style.display == 'none')
+  	{
+  	jQuery("#products").show();	
+  	return false;
+  	}
+  	else
+  	{
+  	jQuery("#products").hide();	
+  	return false;
+  	}
+  	});	
+  });
+    
+:javascript
+  jQuery(function() {
+   jQuery(".menu_middle").click(function () {
+   	Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
+  			Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
+    			
+  			Cufon.replace('.sf-with-ul li a', {color: '#20202c'});
+  			Cufon.replace('.sf-navbar li a.current', {color: '#ff0000'});
+   });
+  }); 
+%script{:charset => "utf-8", :type => "text/javascript"}
+  jQuery(function() {
+  function launch() {
+  jQuery('#sign_up').lightbox_me({centered: true, onLoad: function() { $('#sign_up').find('input:first').focus()}});
+  }
+      
+  jQuery('#try-1').click(function(e) {
+  jQuery("#sign_up").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#sign_up").find("input:first").focus();
+  }});
+      
+  e.preventDefault();
+  });
+      
+      
+  jQuery('table tr:nth-child(even)').addClass('stripe');
+  });

@@ -1,0 +1,53 @@
+/ submit block start
+#submit-a-brief
+  %h4 Submit a brief
+  .sub_inner
+    .sub_leftcorner
+      %span
+    .sub_bg
+      .sub_bg_inner
+        %form
+          %p
+            %span Name
+            %input{:type => "text"}/
+          %p
+            %span Email
+            %input{:type => "text"}/
+          %p
+            %span File
+            #FileUpload
+              %input#BrowserHidden{:onChange => "getElementById('FileField').value = getElementById('BrowserHidden').value;", :size => "24", :type => "file"}
+                #BrowserVisible
+                  %input#FileField{:type => "text"}/
+    .sub_rightcorner
+      %span
+/ submit block end
+/ how we help block start
+#how-we-help
+  %h4 How we help connect
+  .help_block
+    #main
+      .container
+        #slider
+          .product
+            .pic
+              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/1.png", :width => "128"}/
+            .title Build an Arabic version of your website for Middle East expansion
+          .product
+            .pic
+              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/2.png", :width => "128"}/
+            .title Build an Arabic version of your website for Middle East expansion
+          .product
+            .pic
+              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/3.png", :width => "128"}/
+            .title Build an Arabic version of your website for Middle East expansion
+          .product
+            .pic
+              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/4.png", :width => "128"}/
+            .title Build an Arabic version of your website for Middle East expansion
+          .product
+            .pic
+              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/5.png", :width => "128"}/
+            .title Build an Arabic version of your website for Middle East expansion
+        .clear
+/ how we help block end
