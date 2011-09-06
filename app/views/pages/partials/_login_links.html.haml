@@ -1,0 +1,38 @@
+#main-wrapper-home
+  / Top holder
+  .create_headder{:style => "height:auto"}
+    .create_nav
+      .create_navleftblock
+        #logo
+          %a{:alt => "Gigavine", :href => "index.html", :title => "Gigavine"}
+            %img{:alt => "Gigavine", :src => "/images/frontend/gigavine-logo.png", :title => "Gigavine"}/
+      .create_navrightblock
+        .create_register
+          .reg_text
+            Register
+            %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+          .reg_text
+            %a#try-1{:href => "#"}
+              Login
+              %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+          .reg_text1
+            Current Language: 
+            %a#image_frm_div{:href => "javascript://"}
+              English
+              %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+            #products.select_language
+              %ul
+                %li
+                  %a{:href => "#"} En
+                %li
+                  %a{:href => "#"} Fn
+                %li
+                  %a{:href => "#"} An
+          .reg_text2
+            Search_
+            %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+
+        = render :partial => "top_menu"
+
+  / Top holder end
+  / Header
