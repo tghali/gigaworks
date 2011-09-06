@@ -258,6 +258,7 @@ Gigavine::Application.routes.draw do
   # Static pages
   constraints :subdomain => "test" do
     get '/' => 'pages#show'
+    get '/home' => 'pages#home_land'
         get 'contactus' => 'pages#index'
         
         post 'submit_brief' => 'pages#submit_brief'

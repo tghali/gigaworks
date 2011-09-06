@@ -1,0 +1,198 @@
+/* container for slides */
+
+.images ,.images_1{
+	position:relative;	
+	height:370px;
+	width:1016px;
+	float:left;
+	/*margin-top:72px;*/
+	/* CSS3 tweaks for modern browsers*/
+	/*-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow:0 0 25px #666;
+	-webkit-box-shadow:0 0 25px #666;*/
+}
+
+/* single slide */
+.images div{
+padding:0 6px;
+}
+.images div,.images_1 div.create,.images_1 div.adapt,.images_1 div.deliver {
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;		
+	/*padding:111px 30px 15px 58px;*/
+	height:352px;
+	font-size:12px;
+	}
+
+.images_1 div.create,.images_1 div.adapt,.images_1 div.deliver{
+	height:231px;
+	}	
+.images_1{
+	width:100%;
+	height:232px;
+	float:none;
+	}
+
+.images_1 div.sub_content{
+	width:1086px;
+	height:auto;
+	margin:0 auto;
+	position:relative;
+	margin-top:56px;
+	}
+.images_1 div.sub_content p{
+	padding-left:68px;
+	padding-right:30px;
+	padding-top:40px;
+	color:#fff;
+	font:27px Gotham,Arial, Helvetica, sans-serif;
+}
+.images_1 div.sub_content p br{font-size:0; line-height:0px;}
+.images_1 div.sub_content p span{font:14px Arial, Helvetica, sans-serif; background:#77bbe3; padding:4px 8px;}
+.images_1 div.sub_content p .span_1{ background:#bd5369}
+.images_1 div.sub_content p .span_2{ background:#8cc75d}
+.images_1 div.sub_content p span a{ color:#fff; text-decoration:none}
+.images_1 div.sub_content img{ float:left; margin-right:25px; margin-left:60px; margin-top:30px}
+/* header */
+.images h3 {
+	font-size:22px;
+	font-weight:normal;
+	margin:111px 0 20px 0;
+	padding:0;
+	color:#456;
+}
+.images h3.transforming_communication{
+	background:url(/images/frontend/transforming.png) no-repeat;
+	width:702px;
+	height:113px;
+	margin-top:50px;
+}
+.images p.content_one{
+	width:653px;
+	height:46px;
+	background:url(offers.gif) no-repeat;
+}
+/* tabs (those little circles below slides) */
+.slidetabs, .slidetabs_2{
+	clear:both;
+	margin-left:88px;
+	position:absolute; 
+	/*z-index:9999;*/
+	z-index:1;
+	left:0;
+	top:250px;
+}
+
+/* single tab */
+.slidetabs a,.slidetabs_2 a{
+	width:13px;
+	height:13px;
+	float:left;
+	margin:3px;
+	background:url(/images/frontend/navigator.gif) 0 -13px no-repeat;
+	display:block;
+	font-size:1px;
+	}
+
+.slidetabs_2{
+	margin:0;
+	top:-14px;
+	left:50%;
+	margin-left:-543px;
+	height:67px;
+	width:1030px;
+	background:url(/images/frontend/corner-left-shadow.png) no-repeat left bottom;
+}
+.slidetabs_2_inner{
+	background:url(/images/frontend/corner-right-shadow.png) no-repeat right bottom;
+	width:1030px;
+	height:67px;
+	padding-left:70px;
+}
+
+.slidetabs_2 ul{
+	margin:0;
+	padding:0;
+	width:967px;
+	height:68px;
+	background:url(/images/frontend/tabbing-bg.png) no-repeat bottom;
+}
+.slidetabs_2 ul li{
+	float:left;
+	display:inline;
+	margin-right:2px
+}
+
+.slidetabs_2 a{
+	width:321px;
+	height:67px;
+	text-align:center;
+	text-decoration:none;
+	background:none;
+	color:#20202c;
+	font:24px/67px Gotham;
+	margin:0
+}
+
+/* mouseover state */
+.slidetabs a:hover,.slidetabs_2 a:hover {
+	background-position:0 -26px;
+	color:#fff;
+	}
+
+/* active state (current page state) */
+.slidetabs a.current,.slidetabs_2 a.current {
+	background-position:0 -26px; color:#fff;} 	
+
+
+.slidetabs_2 a.current{
+	background:#495963;
+	background:url(/images/frontend/highlight.jpg) no-repeat;
+	color:#FFF
+}
+
+.images_1 .create{
+	background:#026cac;
+	width:100%;
+}
+
+.images_1 .adapt{
+	background:#870036;
+	width:100%;
+}
+
+.images_1 .deliver{
+	background:#629831;
+	width:100%;
+}
+
+/* prev and next buttons */
+.forward, .backward {
+	float:left;
+	margin-top:145px;
+	/*background:#fff url(hori_large.png) no-repeat;*/
+	display:block;
+	width:33px;
+	height:65px;
+	cursor:pointer;
+	font-size:1px;
+	text-indent:-9999em;}
+
+/* next */
+.forward 				{ background-position: 0 -30px; clear:right; background:url(/images/frontend/right.png) no-repeat; }
+/*.forward:hover 		{ background-position:-30px -30px; }
+.forward:active 	 	{ background-position:-60px -30px; } */
+
+
+/* prev */
+.backward{background:url(/images/frontend/lef.png) no-repeat}
+/*.backward:hover  		{ background-position:-30px 0; }
+.backward:active  	{ background-position:-60px 0; }*/
+
+/* disabled navigational button. is not needed when tabs are configured with rotate: true */
+.disabled {
+	visibility:hidden !important;		
+}
