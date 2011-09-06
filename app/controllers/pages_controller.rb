@@ -20,6 +20,12 @@ class PagesController < ActionController::Base
     render :layout => false
   end
   
+  def home_land
+	  render :layout => false
+  end
+  
+  
+  
     def index
 	  	 @prospect = Prospect.new	
   end
