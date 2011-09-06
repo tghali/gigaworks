@@ -755,14 +755,12 @@ a.sort_asc_anchor:hover, a.sort_desc_anchor{
 	}
 
 .input_update_contact input{
-	width:130px;
+	width:129px;
 	height:38px;
 	background:url(/images/new_page/update_contact.png) no-repeat;
 	margin-left:5px;
 	cursor:pointer
 	}
-
-
 	
 .input_width_00{ background:none}
 .input_width_00 select{ width:254px; height:28px}
@@ -1165,9 +1163,9 @@ margin-top:10px;
 	height:30px;
 	border-top:2px solid #e0e0e0;
 	}
-	#footer_glossary p{ background:url(/images/clients/gigavine_logo.gif) no-repeat left center; padding-left:58px; line-height:30px; height:30px; float:left}
+	#footer_glossary p{ background:url(/images/clients/gigavine_logo.gif) no-repeat left center; padding-left:58px; line-height:30px; height:30px; float:left; margin-left:20px;}
 
-#footer_glossary ul{ float:right}
+#footer_glossary ul{ float:right; margin-right:20px;}
 #footer_glossary ul li{ float:left; height:30px; line-height:30px; padding:0 5px;}
 #footer_glossary ul li a{color:#7f7f7f; font-size:11px}
 	
