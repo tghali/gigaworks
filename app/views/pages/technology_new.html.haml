@@ -1,0 +1,59 @@
+#tech_landing_wrapper
+  / Header
+  #tech-header
+    .create_headder
+      = render :partial => "/pages/partials/login_links"
+      .create_headding
+        %h4 CREATIVE
+      .create_mainblock
+        %img{:alt => "", :src => "/images/frontend/watch.gif", :title => ""}
+          .top_comment
+            %p Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
+  / Headerend
+  / content block start
+  #lp_content{:style => "position:relative;"}
+    #lp_midcontent
+      / left block start
+      .lp_leftblock
+        .lp_navigation
+          %ul
+            %li.current
+              %a{:href => "#"} E-learning
+            %li
+              %a{:href => "#"} E-commerce
+            %li
+              %a{:href => "#"} Online security
+            %li
+              %a{:href => "#"} DMS
+        / submit block start
+        #lp_submit
+          %h4 Submit a brief
+          .lpsub_inner
+            .lpsub_leftcorner
+              %span
+            .lpsub_bg
+              .lpsub_bg_inner
+                %p
+                  %span Name
+                  %input{:type => "text"}/
+                %p
+                  %span Email
+                  %input{:type => "text"}/
+                %p
+                  %span File
+                  %input{:type => "text"}/
+            .lpsub_rightcorner
+              %span
+        / submit block end
+      / left block end
+      / right block start
+      .lp_rightblock
+        %p.headding_text We don&rsquo;t just create the messages, we deliver them. Using an array of cutting edge communications technologies, we build the interfaces and develop the interactions that bring each client’s digital presence alive.
+        %p A powerful message that can&rsquo;t reach its audience is wasted, but a technology without engaging content is empty. We bring them together so one can inform the other.
+        %p This is why the applications, digital campaigns and online solutions we build for our clients are highly effective &ndash; because they are focused on delivering effective and meaningful communication. It could be through an ecommerce website or a mobile phone application, a secure server or a CRM system for managing relationships with customers.
+        %p Gigavine offers an integrated team built on a culture of innovation which will pursue and deliver the most effective technical solutions for your requirements: technology to transform communications.
+      / right block end
+  / content block end
+  .clear  
+  / footer block start
+  / footer block end
