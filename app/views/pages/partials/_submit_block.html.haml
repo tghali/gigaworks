@@ -15,10 +15,13 @@
             %input{:type => "text"}/
           %p
             %span File
-            #FileUpload
-              %input#BrowserHidden{:onChange => "getElementById('FileField').value = getElementById('BrowserHidden').value;", :size => "24", :type => "file"}
-                #BrowserVisible
-                  %input#FileField{:type => "text"}/
+            %input#browsetext{:name => "browsetext", :style => "width:300px;", :type => "text", :value => ""}/
+            %input{:accept => "/images/frontend/gif,image/jpeg", :name => "browse2", :style => "display: none;", :type => "file"}/
+            %img{:alt => "Add Picture", :height => "22", :name => "AddPicture", :onClick => "document.forms1.browse2.click();\r\ndocument.forms1.browsetext.value=document.forms1.browse2.value;\r\ndocument.forms1.browse2.disabled=false", :src => "/images/frontend/browse_btn1.png", :width => "51"}/
+          %p.form_btn
+            %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
+	    
+
     .sub_rightcorner
       %span
 / submit block end
@@ -31,23 +34,23 @@
         #slider
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/1.png", :width => "128"}/
+              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
             .title Build an Arabic version of your website for Middle East expansion
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/2.png", :width => "128"}/
+              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/2.png", :width => "116"}/
             .title Build an Arabic version of your website for Middle East expansion
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/3.png", :width => "128"}/
+              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/3.png", :width => "116"}/
             .title Build an Arabic version of your website for Middle East expansion
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/4.png", :width => "128"}/
+              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/4.png", :width => "116"}/
             .title Build an Arabic version of your website for Middle East expansion
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "128", :src => "/images/frontend/content/5.png", :width => "128"}/
+              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/5.png", :width => "116"}/
             .title Build an Arabic version of your website for Middle East expansion
         .clear
 / how we help block end

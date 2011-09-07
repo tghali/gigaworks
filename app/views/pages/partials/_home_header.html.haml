@@ -1,5 +1,4 @@
-/ Header
-#home_header
+#header-wrapper
   %a.backward prev
   .slidetabs
     %a{:href => "#"}
@@ -10,22 +9,31 @@
   .images
     / first slide start
     .home_index_header
-      %p Gigavine offers creative and technical services which cross borders and open minds1.
+      %p
+        %img{:height => "113", :src => "/images/frontend/transforming.png", :width => "702"} Gigavine offers creative and technical services which cross borders and open minds1.
     / first slide end
     / second slide start
-    .home_index_header
-      %p Gigavine offers creative and technical services which cross borders and open minds2.
+    .home_technology_header
+      %h4 TECHNOLOGY
+      %p
+        %span.headtext The technologies which have had the most profound effects on human life are usually simple.
+        %span.clientname William Plomer, Writer
     / second slide end
     / third slide start
-    .home_index_header
-      %p Gigavine offers creative and technical services which cross borders and open minds3.
-    / third slide end
+    .home_language_header
+      %h4 languages
+      %p
+        %span.headtext If you talk to a man in a language he understands, that goes to his head.  If you talk to him in his language, that goes to his heart.
+        %span.clientname William Plomer, Writer
+    / third slide start
     / fourth slide start
-    .home_index_header
-      %p Gigavine offers creative and technical services which cross borders and open minds4.
+    .home_create_header
+      %h4 creativity
+      %p
+        %span.headtext Creativity is the power to connect the seemingly unconnected.
+        %span.clientname William Plomer, Writer
     / fourth slide end
   / "next slide" button
   %a.forward next
   .clear
     %span
-/ Headerend
