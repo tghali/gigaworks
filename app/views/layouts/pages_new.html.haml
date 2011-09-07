@@ -11,9 +11,10 @@
       \.sldBtnLeft,.sldBtnRight{ width:16px!important;height:30px!important;}
       </style>
   %body
-    /
+    /  
       .topframe
-        %iframe{:src => "submenu.html"}
+        %iframe
+        = render :partial => "/pages/partials/sub_menu"
     
 
     = yield

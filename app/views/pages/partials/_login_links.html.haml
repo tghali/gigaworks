@@ -3,7 +3,7 @@
   .create_nav
     .create_navleftblock
       #logo
-        %a{:alt => "Gigavine", :href => "/home", :title => "Gigavine"}
+        %a{:alt => "Gigavine", :href => "http://test.gigavine.com/home", :title => "Gigavine"}
           %img{:alt => "Gigavine", :src => "/images/frontend/gigavine-logo.png", :title => "Gigavine"}/
     .create_navrightblock
       .create_register
@@ -28,7 +28,8 @@
               %li
                 %a{:href => "#"} An
         .reg_text2
-          Search_
-          %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+          %input{:type => "text", :value => "Search_"}
+            %a{:href => "#"}
+              %img{:src => "images/frontend/top_inputarrow.jpg"}/
 
       = render :partial => "/pages/partials/top_menu"
