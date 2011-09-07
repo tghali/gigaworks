@@ -1,0 +1,89 @@
+#lang_landing_wrapper
+  / Header
+  #languages-header
+    .create_headder
+      = render :partial => "/pages/partials/login_links"
+      .create_headding
+        %h4 CREATIVE
+      .create_mainblock
+        %img{:alt => "", :src => "/images/frontend/red_img1.gif", :title => ""}
+          .top_comment
+            %p Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
+  / Headerend
+  / content block start
+  #lp_content{:style => "position:relative;"}
+    #lp_midcontent
+      / left block start
+      .lp_leftblock
+        .lp_navigation
+          %ul
+            %li.current
+              %a{:href => "#"} Artwork
+            %li
+              %a{:href => "#"} Webdesign
+            %li
+              %a{:href => "#"} Copywriting
+            %li
+              %a{:href => "#"} Intractive
+        / submit block start
+        #language_get
+          %h4 Get an estimate
+          .get_inner
+            .get_leftcorner
+              %span
+            .get_bg
+              .get_bg_inner
+                %p
+                  %span Source language
+                  %select
+                    %option Select
+                %p
+                  %span Target language
+                  %select
+                    %option Select
+                %div
+                  %p.count
+                    %span.getname Word count
+                    %input{:type => "text"}/
+                  %p.count1
+                    %span.getname or
+                  %p.count{:style => "float:right!important;"}
+                    %span.getname Page count
+                    %input{:type => "text"}/
+                %p.clear{:style => "height:20px;"}
+                  %span
+                %p{:style => "height:auto!important"}
+                  %span Requirements
+                %p.checkbox_block
+                  .checkbox
+                    %input{:type => "checkbox"} Translation
+                  .checkbox{:style => "width:80px;"}
+                    %input{:type => "checkbox"} Design
+                  .checkbox
+                    %input{:type => "checkbox"} Localisation
+                %p.estimate
+                  %span Estimate
+                %div
+                  .count_number $0,00
+                  .count_btn calculate
+            .get_rightcorner
+              %span
+        / submit block end
+      / left block end
+      / right block start
+      .lp_rightblock
+        %p.headding_text It’s not just speaking the language, it’s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
+        %p True translation means bringing meaning alive in a new and different context for an audience with different cultural bearings. It is as much about adapting a message’s references, as it is about translating the words.
+        %div
+          .language_textblock
+            This process is an enormous challenge for businesses operating in more than one region. Translation on its own is not enough; understanding of the social, political, religious and business context is also required. Add to that the potential complexities of technical terminology and the use of different technologies and interfaces, and you have a formidable problem to solve – one which requires expert assistance.
+          .language_video
+            %img{:alt => "", :src => "/images/frontend/video.jpg", :title => ""}
+              %h4 Gigavine: Making a difference
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing escip it ipsum lpsum dolor sit amet.
+        .clear
+          %span
+        %p At Gigavine we live and work in this world of complex differences and crossovers. We know the challenges of managing the process of translation and adaption, and we know how to meet those challenges: we have the processes, the people and the experience to do it.
+      / right block end
+  / content block end
+  .clear  
