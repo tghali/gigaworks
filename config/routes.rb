@@ -260,7 +260,7 @@ Gigavine::Application.routes.draw do
   constraints :subdomain => "test" do
     get '/' => 'pages#show'
     get '/home' => 'pages#home_land'
-    get '/languages' => 'pages#languages_new'   
+    get '/home/languages' => 'pages#languages_new'   
         get 'contactus' => 'pages#index'
         
         post 'submit_brief' => 'pages#submit_brief'
