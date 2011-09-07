@@ -1,0 +1,48 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title Gigavine
+    = render :partial => "/pages/partials/script_files"
+    /[if IE]
+      <style type="text/css">
+      \.sldCenter,.sldLeft,.sldRight{background:#0f0; top:-5px;}
+      \.sliderBtn{ width:32px !important;}
+      \.sldBtnLeft,.sldBtnRight{ width:16px!important;height:30px!important;}
+      </style>
+  %body
+    /
+      .topframe
+        %iframe{:src => "submenu.html"}
+    
+
+    = yield
+
+    / footer block start
+    = render :partial => "/pages/partials/footer"
+				
+    #sign_up{:style => "display:none"}
+      %h3#see_id  
+      %form
+        %label
+          %strong Headding:
+          %input/
+          / <p class="error1">error</p>
+        %label
+          %strong Headding:
+          %input/
+          / <p class="error1">error</p>
+        %label
+          %strong Paragraph:
+          %textarea
+        %label
+          %strong File Upload:
+          #FileUpload{:style => "width:600px; margin:20px 0px 0px 25px;"}
+            %input#BrowserHidden{:onChange => "getElementById('FileField').value = getElementById('BrowserHidden').value;", :size => "24", :style => "width:500px;", :type => "file"}
+              #BrowserVisible{:style => "width:600px; margin:20px 0px 0px 25px;"}
+                %input#FileField{:style => "width:500px;", :type => "text"}/
+        %p.clearspace  
+        %p.clearspace  
+        %p.send_btn
+          %a{:href => "#"} Submit
+      %a#close_x.close.sprited{:href => "#"} close

@@ -21,7 +21,11 @@ class PagesController < ActionController::Base
   end
   
   def home_land
-	  render :layout => false
+	  render :layout => 'pages_new'
+  end
+  
+  def languages_new
+	   render :layout => 'pages_new'
   end
   
   
