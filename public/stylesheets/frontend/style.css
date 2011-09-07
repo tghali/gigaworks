@@ -890,7 +890,7 @@ font:20px Gotham;
 color:#465561;
 margin:0px auto;
 padding:0px;
-width:300px;
+width:310px;
 }
 .language_video p{
 margin:0px auto;
@@ -1140,6 +1140,7 @@ width:980px;
 height:50px;
 margin:0px auto;
 display:block;
+overflow:hidden;
 }
 .subframe{
 width:980px;
