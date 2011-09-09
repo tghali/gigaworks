@@ -11,39 +11,115 @@
       \.sldBtnLeft,.sldBtnRight{ width:16px!important;height:30px!important;}
       </style>
   %body
-    /  
-      .topframe
-        %iframe
-        = render :partial => "/pages/partials/sub_menu"
+        
+    .topframe
+      /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
+
+      .subframe
+        %ul
+          %li
+            %a{:href => "#", :id => "home_new"} HOME
+          %li
+            %a{:href => "#"} LANGUAGES
+          %li
+            %a{:href => "#"} CREATIVE
+          %li
+            %a{:href => "#"} TECHNOLOGY
+          %li
+            %a{:href => "#"} PROJECTS
+          %li
+            %a{:href => "#"} NETWORK
+          %li{:style => "float:right;"}
+            %a{:href => "#"} Logout
+
     
 
     = yield
 
     / footer block start
     = render :partial => "/pages/partials/footer"
-				
-    #sign_up{:style => "display:none"}
-      %h3#see_id  
-      %form
+	
+#home_page.sign_up{:style => "display:none"}
+  %h3#see_id  
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a.c1{:href => "#create"} Create
+      %li
+        %a{:href => "#adapt"} Adapt
+      %li
+        %a{:href => "#deliver"} Deliver
+    #create.tabdiv
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+        = f.hidden_field :tab_type,  :value => "create"
+        %label.headding1_label
+          %strong Image:
+          =# f.file_field :image,{:size => "110", :style=>"font:12px arial; height:20px; width:600px; position: relative;"}
+          %input{:type=>"file", :name=>"image", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
+        %label.headding_label
+          %strong Content:
+          = f.text_area :content, :style => "width:600px;", :value => get_data('home_create')
+
+        %p.send_btn1
+          = submit_tag "Submit"
+    / /Create
+    #adapt.tabdiv
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+        = f.hidden_field :tab_type,  :value => "adapt"
+        %label.headding1_label
+          %strong Image:
+          %input{:type=>"file", :name=>"frontend_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
+        %label.headding_label
+          %strong Content:
+          = f.text_area :content, :style => "width:600px;", :value => get_data('home_adapt')
+
+        %p.send_btn1
+          = submit_tag "Submit"
+    / /Adapt
+    #deliver.tabdiv
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+        = f.hidden_field :tab_type,  :value => "deliver"
+        %label.headding1_label
+          %strong Image:
+          %input{:type=>"file", :name=>"frontend_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
+        %label.headding_label
+          %strong Content:
+          = f.text_area :content, :style => "width:600px;", :value => get_data('home_deliver')
+
+        %p.send_btn1
+          = submit_tag "Submit"
+    / Deliver
+  .clearspace  
+  %div
+    = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+      = f.hidden_field :tab_type,  :value => "middle_content"
+      %label
+        %strong Title:
+        = f.text_field :title,  :value => get_title('home_middle')
+
+      %label
+        %strong Content:
+        = f.text_area :content, :style => "width:600px;",  :value => get_data('home_middle')
+      %p.clearspace  
+      %p.send_btn
+        = submit_tag "Submit"
+  .clear  
+  .latest_maintab
+    = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+      = f.hidden_field :tab_type,  :value => "news_block"
+      .latest_inputblock
         %label
-          %strong Headding:
-          %input/
-          / <p class="error1">error</p>
+          %strong Latest News
+          = f.text_area :news,  :value => get_news('home_news_block')
+      .latest_inputblock
         %label
-          %strong Headding:
-          %input/
-          / <p class="error1">error</p>
+          %strong Join&nbsp;the&nbsp;network
+          = f.text_area :network,  :value => get_network('home_news_block')
+      .latest_inputblock
         %label
-          %strong Paragraph:
-          %textarea
-        %label
-          %strong File Upload:
-          #FileUpload{:style => "width:600px; margin:20px 0px 0px 25px;"}
-            %input#BrowserHidden{:onChange => "getElementById('FileField').value = getElementById('BrowserHidden').value;", :size => "24", :style => "width:500px;", :type => "file"}
-              #BrowserVisible{:style => "width:600px; margin:20px 0px 0px 25px;"}
-                %input#FileField{:style => "width:500px;", :type => "text"}/
-        %p.clearspace  
-        %p.clearspace  
-        %p.send_btn
-          %a{:href => "#"} Submit
-      %a#close_x.close.sprited{:href => "#"} close
+          %strong Contact us
+          = f.text_area :contact_us,  :value => get_contact('home_news_block')
+      %p.clearspace  
+      %p.send_btn
+        = submit_tag "Submit"
+  %a#close_x.close.sprited{:href => "#"} close
