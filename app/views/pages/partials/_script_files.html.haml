@@ -1,5 +1,5 @@
-= stylesheet_link_tag "frontend/lightbox.css","frontend/style.css","frontend/tabs-slideshow.css","frontend/superfish.css","frontend/superfish-navbar.css"
-= javascript_include_tag "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js",""
+= stylesheet_link_tag "frontend/lightbox.css","frontend/style.css","frontend/tabs-slideshow.css","frontend/superfish.css","frontend/superfish-navbar.css","frontend/tabcontent.css"
+= javascript_include_tag "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js"
 :javascript
   Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p', ' ', { fontFamily: 'gothamxlight', hover: true});
 		   
@@ -12,43 +12,7 @@
 		   
 %script{:src => "/javascripts/frontend/hoverIntent.js", :type => "text/javascript"}
 %script{:src => "/javascripts/frontend/superfish.js", :type => "text/javascript"}
-%script{:language => "JavaScript"}
-  jQuery.noConflict();
-  jQuery(document).ready(function(){
-  jQuery("ul.sf-menu").superfish({
-  pathClass:  'current'
-  });
-  });
-  jQuery(function() {
-      
-  jQuery(".slidetabs").tabs(".images > div", {
-      
-  \// enable "cross-fading" effect
-  effect: 'fade',
-  fadeOutSpeed: "slow",
-  autoplay: true,
-  \// start from the beginning after the last tab
-  rotate: true,
-  interval : 300
-      
-  \// use the slideshow plugin. It accepts its own configuration
-  }).slideshow();
-  jQuery(".slidetabs").data("slideshow").play();
-      
-  jQuery(".slidetabs_2").tabs(".images_1 > div", {
-      
-  \// enable "cross-fading" effect
-  effect: 'fade',
-  fadeOutSpeed: "slow",
-  \//autoplay: true,
-  \// start from the beginning after the last tab
-  rotate: true
-  \//interval : 300
-    
-  \// use the slideshow plugin. It accepts its own configuration
-  })/*.slideshow();*/
-      
-  });
+
 :javascript
   jQuery.noConflict();
   jQuery(function() {
@@ -66,11 +30,24 @@
   	jQuery("#products").hide();	
   	return false;
   	}
-  	});	
+  	});
+    jQuery(".tabdiv").hide();
+    jQuery("#create").show();
+    jQuery(".c1").css("background-color","#e5e5e5");
+    jQuery(".tabnav li").click(function($){
+    getid = jQuery(this).find("a").attr('href');
+    jQuery(".tabnav li a").css("background-color","");
+    jQuery(this).find("a").css("background-color","#e5e5e5");
+    jQuery(".tabdiv").slideUp('slow');
+    jQuery(getid).slideDown('slow');
+    return false;
+    });
   });
     
 :javascript
+  jQuery.noConflict();
   jQuery(function() {
+		
    jQuery(".menu_middle").click(function () {
    	Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
   			Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
@@ -82,17 +59,20 @@
 %script{:charset => "utf-8", :type => "text/javascript"}
   jQuery(function() {
   function launch() {
-  jQuery('#sign_up').lightbox_me({centered: true, onLoad: function() { $('#sign_up').find('input:first').focus()}});
+  jQuery('#home_page').lightbox_me({centered: true, onLoad: function() { $('#home_page').find('input:first').focus()}});
+
   }
       
-  jQuery('#try-1').click(function(e) {
-  jQuery("#sign_up").lightbox_me({centered: true, onLoad: function() {
-  jQuery("#sign_up").find("input:first").focus();
+  jQuery('#home_new').click(function(e) {
+  jQuery("#home_page").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#home_page").find("input:first").focus();
   }});
-      
+    
   e.preventDefault();
   });
-      
+
+    
+
       
   jQuery('table tr:nth-child(even)').addClass('stripe');
   });

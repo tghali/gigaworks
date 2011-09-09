@@ -1,4 +1,40 @@
-
+%script{:language => "JavaScript"}
+  jQuery.noConflict();
+  jQuery(document).ready(function(){
+  jQuery("ul.sf-menu").superfish({
+  pathClass:  'current'
+  });
+  });
+  jQuery(function() {
+  jQuery.noConflict();      
+  jQuery(".slidetabs").tabs(".images > div", {
+      
+  \// enable "cross-fading" effect
+  effect: 'fade',
+  fadeOutSpeed: "slow",
+  autoplay: true,
+  \// start from the beginning after the last tab
+  rotate: true,
+  interval : 300
+      
+  \// use the slideshow plugin. It accepts its own configuration
+  }).slideshow();
+  jQuery(".slidetabs").data("slideshow").play();
+      
+  jQuery(".slidetabs_2").tabs(".images_1 > div", {
+      
+  \// enable "cross-fading" effect
+  effect: 'fade',
+  fadeOutSpeed: "slow",
+  \//autoplay: true,
+  \// start from the beginning after the last tab
+  rotate: true
+  \//interval : 300
+    
+  \// use the slideshow plugin. It accepts its own configuration
+  })/*.slideshow();*/
+      
+  });
 
 
 #main-wrapper-home
@@ -19,10 +55,13 @@
     / headding text start
     #corousol-wrapper
       .shadow_midbg
-        %h4 Gigavine offers creative & technical services which cross borders & open minds
+        %h4 #{get_title('home_middle')}
       .shadow_midbg
         %p
-          As global markets grow, clear and open communication has never been more important to businesses and governments. We offer a seamless blend of creative solutions, cultural and linguistic translation and technical delivery which transform our clients &rsquo; communications. Our team of experts have helped organisations around the world to communicate and collaborate successfully across cultures and in multiple languages.
+          - if !get_data('home_deliver').blank?
+            = get_data('home_middle')
+          - else
+            As global markets grow, clear and open communication has never been more important to businesses and governments. We offer a seamless blend of creative solutions, cultural and linguistic translation and technical delivery which transform our clients ’ communications. Our team of experts have helped organisations around the world to communicate and collaborate successfully across cultures and in multiple languages.
           %span We can do it for you too!
       %div
         / lastes news block start

@@ -35,6 +35,28 @@ class PagesController < ActionController::Base
    render :layout => 'pages_new'
  end
   
+   def submenu
+     render :layout => false  
+ end
+ 
+ def home_create
+	 page_section = page_data(params[:frontend_page][:tab_type])
+	 
+	 find_page = FrontendPage.find_by_page_section(page_section)
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:frontend_page])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = page_section
+		@frontend_page.save
+	else
+		find_page.update_attributes(params[:frontend_page])
+	end
+	 redirect_to :action => "home_land"
+ end
+
+  
+  
+  
   
     def index
 	  	 @prospect = Prospect.new	

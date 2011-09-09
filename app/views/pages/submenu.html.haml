@@ -1,0 +1,36 @@
+= stylesheet_link_tag "frontend/lightbox.css","frontend/style.css"
+= javascript_include_tag "frontend/jquery.min.js","frontend/jquery.lightbox_me.js"
+:javascript
+  jQuery(function() {
+  function launch() {
+  jQuery('#home_page').lightbox_me({centered: true, onLoad: function() { $('#home_page').find('input:first').focus()}});
+  }
+  
+  jQuery('#home_new').click(function(e) {
+
+  jQuery("#home_page").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#home_page").find("input:first").focus();
+  }});
+  
+  e.preventDefault();
+  });
+  jQuery('table tr:nth-child(even)').addClass('stripe');
+  });
+.subframe
+  %ul
+    %li
+      %a{:href => "#", :id => "home_new"} HOMEdfsdfsd
+    %li
+      %a{:href => "#"} LANGUAGES
+    %li
+      %a{:href => "#"} CREATIVE
+    %li
+      %a{:href => "#"} TECHNOLOGY
+    %li
+      %a{:href => "#"} PROJECTS
+    %li
+      %a{:href => "#"} NETWORK
+    %li{:style => "float:right;"}
+      %a{:href => "#"} Logout
+
+

@@ -11,7 +11,7 @@ body {
     display: block;
 }
 
-  #sign_up {
+  .sign_up {
         -moz-border-radius: 6px;
         background: #f5f5f5;
         -webkit-border-radius: 6px;
@@ -23,22 +23,22 @@ body {
         position: relative;
         display: none;
     }
-    #sign_up #sign_up_form {
+    .sign_up .sign_up_form {
         margin-top: 13px;
     }
-    #sign_up label {
+    .sign_up label {
         display: block;
         margin:0px auto; 
         color: #536376;
 		clear:both;
     }
-  #sign_up label strong{
+  .sign_up label strong{
   float:left;
   width:120px; 
    font:16px/25px Gotham;
   
   }
-    #sign_up label input {
+    .sign_up label input {
         display: block;
         width: 660px;
         height: 31px;
@@ -65,7 +65,7 @@ body {
 	position:relative;
 	top:-10px;
 	}
-	 #sign_up label textarea {
+	 .sign_up label textarea {
         display: block;
         width: 660px;
         height: 231px;
@@ -83,12 +83,12 @@ body {
 		border: 1px solid #cbccd1;
     }
     
-    #see_id {
+    .see_id {
         width: 228px;
         height: 23px;
         background-position: -202px -133px;
     }
-    #left_out {
+    .left_out {
         background-position: -202px -158px;
         width: 113px; height: 16px;
     }
@@ -99,7 +99,7 @@ body {
         position: absolute; top: 5px; right: 5px;
         background-position: -387px -102px;
     }
-	#sign_up p.send_btn{
+.sign_up p.send_btn, .sign_up p.send_btn1{
 	background:url(/images/frontend/submit_btn.png) no-repeat;
 	height:28px;
 	width:89px;
@@ -108,7 +108,7 @@ body {
 	float:right;
 	margin:0px 2px 0px 0px;
 	}
-	#sign_up p.send_btn:hover{
+	.sign_up p.send_btn:hover, .sign_up p.send_btn1:hover{
 	background:url(/images/frontend/submit_btn.png) no-repeat ;
 	background-position:0px -30px;
 	height:28px;
@@ -116,7 +116,14 @@ body {
 	text-decoration:none;
 	display:block;
 	}
-    #sign_up p.send_btn a{ display:block; color:#000000; text-decoration:none;}
+	.sign_up p.send_btn1{
+margin:0px 30px 10px 0px;
+	}
+    .sign_up p.send_btn a, .sign_up p.send_btn1 a{ display:block; color:#000000; text-decoration:none;}
+	.headding_label{
+	margin:0px 0px 0px 10px!important;
+	}
+	.headding1_label{ margin:20px 0px 0px 10px!important;}
    /* #sign_up_form {
         position: relative;
         background: url(divider.png) repeat-x bottom left;
