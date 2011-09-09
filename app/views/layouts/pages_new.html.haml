@@ -61,7 +61,7 @@
           = f.text_area :content, :style => "width:600px;", :value => get_data('home_create')
 
         %p.send_btn1
-          = submit_tag "Submit"
+          %input{:type=>"image",:value=> "Submit"}
     / /Create
     #adapt.tabdiv
       = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
@@ -74,7 +74,7 @@
           = f.text_area :content, :style => "width:600px;", :value => get_data('home_adapt')
 
         %p.send_btn1
-          = submit_tag "Submit"
+          %input{:type=>"image",:value=> "Submit"}
     / /Adapt
     #deliver.tabdiv
       = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
@@ -87,7 +87,7 @@
           = f.text_area :content, :style => "width:600px;", :value => get_data('home_deliver')
 
         %p.send_btn1
-          = submit_tag "Submit"
+          %input{:type=>"image",:value=> "Submit"}
     / Deliver
   .clearspace  
   %div
@@ -102,7 +102,7 @@
         = f.text_area :content, :style => "width:600px;",  :value => get_data('home_middle')
       %p.clearspace  
       %p.send_btn
-        = submit_tag "Submit"
+        %input{:type=>"image",:value=> "Submit"}
   .clear  
   .latest_maintab
     = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
@@ -121,5 +121,5 @@
           = f.text_area :contact_us,  :value => get_contact('home_news_block')
       %p.clearspace  
       %p.send_btn
-        = submit_tag "Submit"
+        %input{:type=>"image",:value=> "Submit"}
   %a#close_x.close.sprited{:href => "#"} close
