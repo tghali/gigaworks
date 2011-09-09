@@ -93,7 +93,19 @@ end
 	    end
 
 
-
+ def page_data(tab_type)	 
+	 if tab_type == "create"
+		 return "home_create"
+	 elsif tab_type == "adapt"
+		 return "home_adapt"
+	 elsif tab_type == "deliver"
+		 return "home_deliver"
+	 elsif tab_type == "middle_content"
+		 return "home_middle"	
+         elsif tab_type == "news_block"	
+		  return "home_news_block"	
+	 end
+ end 
 
 
 
