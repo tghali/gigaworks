@@ -73,10 +73,17 @@ font:14px/25px Arial, Helvetica, sans-serif;
 			margin-bottom: 5px;
 			}
 */
+label strong{
+font:14px Arial, Helvetica, sans-serif;
+}
 .latest_maintab{
 width:830px;}
 .latest_inputblock{
 width:275px; float:left;
+font:14px Arial, Helvetica, sans-serif;
+}
+.latest_inputblock label strong{
+font:14px Arial, Helvetica, sans-serif;
 }
 .latest_inputblock label textarea{
 width:230px!important;
