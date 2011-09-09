@@ -38,15 +38,7 @@ module PagesHelper
     end
   end
   
-  private
-  
-  def current_page
-    @current_page ||= {:locale  => I18n.locale,
-      :section => params[:section],
-      :page    => params[:page]}.delete_if {|k,v| v == nil}
-  end
-
-  def get_data(tab_type)
+   def get_data(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
 	frontend_page.content
   end
@@ -70,6 +62,18 @@ module PagesHelper
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
   !frontend_page.blank? ? raw(frontend_page.contact_us) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices."
   end
+  
+  
+  
+  private
+  
+  def current_page
+    @current_page ||= {:locale  => I18n.locale,
+      :section => params[:section],
+      :page    => params[:page]}.delete_if {|k,v| v == nil}
+  end
+
+ 
 
 
 
