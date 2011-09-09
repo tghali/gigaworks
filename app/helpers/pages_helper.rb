@@ -40,27 +40,27 @@ module PagesHelper
   
    def get_data(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
-	frontend_page.content
+	frontend_page.content if !frontend_page.blank?
   end
 
   def get_title(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
-	!frontend_page.blank? ? raw(frontend_page.title) : "Gigavine offers creative & technical services which cross borders & open minds" 
+	!frontend_page.blank? ? raw(frontend_page.title) : "Gigavine offers creative & technical services which cross borders & open minds" if !frontend_page.blank? 
   end
 
   def get_news(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
-	!frontend_page.blank? ? raw(frontend_page.news) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices."
+	!frontend_page.blank? ? raw(frontend_page.news) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices." if !frontend_page.blank?
   end
 
   def get_network(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
-  !frontend_page.blank? ? raw(frontend_page.network) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices."
+  !frontend_page.blank? ? raw(frontend_page.network) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices." if !frontend_page.blank?
   end
 
   def get_contact(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
-  !frontend_page.blank? ? raw(frontend_page.contact_us) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices."
+  !frontend_page.blank? ? raw(frontend_page.contact_us) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices." if !frontend_page.blank?
   end
   
   
