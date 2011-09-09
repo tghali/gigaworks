@@ -13,7 +13,7 @@
   %body
         
     .topframe
-      /%iframe{:src => "http://test.gigavine.com/submenu"}
+      /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
 
       .subframe
         %ul
@@ -94,11 +94,11 @@
     = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
       = f.hidden_field :tab_type,  :value => "middle_content"
       %label
-        %strong Title:
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Title:
         = f.text_field :title,  :value => get_title('home_middle')
 
       %label
-        %strong Content:
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Content:
         = f.text_area :content, :style => "width:600px;",  :value => get_data('home_middle')
       %p.clearspace  
       %p.send_btn
@@ -120,6 +120,6 @@
           %strong Contact us
           = f.text_area :contact_us,  :value => get_contact('home_news_block')
       %p.clearspace  
-      %p.send_btn
+      %p.send_btn{:style=>"position:relative; right:30px;"}
         %input{:type=>"image",:value=> "Submit"}
   %a#close_x.close.sprited{:href => "#"} close

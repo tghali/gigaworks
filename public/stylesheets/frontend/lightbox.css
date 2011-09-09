@@ -22,6 +22,7 @@ body {
         width: 800px;
         position: relative;
         display: none;
+								font:14px Arial, Helvetica, sans-serif;
     }
     .sign_up .sign_up_form {
         margin-top: 13px;
@@ -120,10 +121,12 @@ body {
 margin:0px 30px 10px 0px;
 	}
     .sign_up p.send_btn a, .sign_up p.send_btn1 a{ display:block; color:#000000; text-decoration:none;}
-	.headding_label{
-	margin:0px 0px 0px 10px!important;
+label.headding_label{
+	margin:0px 0px 0px 10px!important; font:14px Arial, Helvetica, sans-serif !important;
 	}
-	.headding1_label{ margin:20px 0px 0px 10px!important;}
+	label.headding_label strong{ font:14px Arial, Helvetica, sans-serif;}
+	label.headding1_label strong{ font:14px Arial, Helvetica, sans-serif;}
+label.headding1_label{ margin:20px 0px 0px 10px!important; }
    /* #sign_up_form {
         position: relative;
         background: url(divider.png) repeat-x bottom left;
