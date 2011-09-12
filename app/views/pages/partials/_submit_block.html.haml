@@ -1,3 +1,5 @@
+
+
 / submit block start
 #submit-a-brief
   %h4 Submit a brief
@@ -6,19 +8,19 @@
       %span
     .sub_bg
       .sub_bg_inner
-        %form
+        = form_for :data, :url => {},:html => {:name=> "forms1"} do 
           %p
             %span Name
             %input{:type => "text"}/
           %p
             %span Email
             %input{:type => "text"}/
-          %p
+          %p{:style=>"width:370px; float:left;"}
             %span File
-            %input#browsetext{:name => "browsetext", :style => "width:300px;", :type => "text", :value => ""}/
-            %input{:accept => "/images/frontend/gif,image/jpeg", :name => "browse2", :style => "display: none;", :type => "file"}/
-            %img{:alt => "Add Picture", :height => "22", :name => "AddPicture", :onClick => "document.forms1.browse2.click();\r\ndocument.forms1.browsetext.value=document.forms1.browse2.value;\r\ndocument.forms1.browse2.disabled=false", :src => "/images/frontend/browse_btn1.png", :width => "51"}/
-          %p.form_btn
+            %input#browsetext{:name => "browsetext", :onClick => "document.forms1.AddPicture.click();", :style => "width:240px;", :type => "text", :value => ""}/
+            %input{:accept => "image/gif,image/jpeg", :name => "browse2", :onChange => "document.forms1.browsetext.value=document.forms1.browse2.value;", :style => "display: none;", :type => "file", :value => ""}/
+            %img{:alt => "Add Picture", :height => "22", :name => "AddPicture", :onClick => "document.forms1.browse2.click();document.forms1.browse2.disabled=false;", :src => "/images/frontend/browse_btn1.png", :style => "margin:0px 0px 0px 4px", :width => "51"}/
+          %p.form_btn{:style=>"float:left; width:50px;"}
             %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
 	    
 

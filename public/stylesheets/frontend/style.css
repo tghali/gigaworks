@@ -301,7 +301,7 @@ margin:20px 0px 0px 0px;
  font:14px Gotham;
 }
 .sub_bg_inner p{
-height:30px;
+height:33px;
 }
 .sub_bg_inner p span{
 width: 68px;
@@ -389,6 +389,16 @@ text-decoration:none;
 width:800px;
 height:auto;
 float:left;
+}
+.foot_right a{
+font:11px Arial, Helvetica, sans-serif;
+color:#a7a7a7;
+text-decoration:none;
+}
+.foot_right a:hover{
+font:11px Arial, Helvetica, sans-serif;
+color:#fff;
+text-decoration:none;
 }
 .foot_right p{
 font:11px/60px Arial, Helvetica, sans-serif;
@@ -721,7 +731,7 @@ margin:10px 0px 0px 0px;
  color:#465561;
 }
 .lpsub_bg_inner p{
-height:33px;
+height:30px;
 }
 .lpsub_bg_inner p span{
 width: 68px;

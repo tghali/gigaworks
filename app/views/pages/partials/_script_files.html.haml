@@ -60,7 +60,7 @@
   jQuery(function() {
   function launch() {
   jQuery('#home_page').lightbox_me({centered: true, onLoad: function() { $('#home_page').find('input:first').focus()}});
-
+  jQuery('#languages').lightbox_me({centered: true, onLoad: function() { $('#languages').find('input:first').focus()}});
   }
       
   jQuery('#home_new').click(function(e) {
@@ -71,7 +71,12 @@
   e.preventDefault();
   });
 
-    
+  jQuery('#languages_new').click(function(e) {
+  jQuery("#languages").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#languages").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });    
 
       
   jQuery('table tr:nth-child(even)').addClass('stripe');
