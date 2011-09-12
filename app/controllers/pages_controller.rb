@@ -54,7 +54,19 @@ class PagesController < ActionController::Base
 	 redirect_to :action => "home_land"
  end
 
-  
+   def language_create
+	 find_page = FrontendPage.find_by_page_section(params[:languages_page][:page_section])
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:languages_page])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = params[:languages_page][:page_section]
+		@frontend_page.save
+	else
+		find_page.update_attributes(params[:languages_page])
+	end
+	 redirect_to :action => "languages_new"
+ end
+
   
   
   

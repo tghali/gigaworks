@@ -56,6 +56,18 @@ module PagesHelper
 	!frontend_page.blank? ? raw(frontend_page.title) : "Gigavine offers creative & technical services which cross borders & open minds" 
   end
 
+  def get_languages(tab_type,option)
+    lang = FrontendPage.find_by_page_section(tab_type)
+    if option == 'title'
+    return lang.title if !lang.blank?
+    elsif option == 'summary'
+      return raw(lang.content) if !lang.blank?
+    end
+  end
+
+
+
+
   def get_news(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
 	!frontend_page.blank? ? raw(frontend_page.news) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices."

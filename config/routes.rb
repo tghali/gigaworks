@@ -265,7 +265,8 @@ Gigavine::Application.routes.draw do
     get '/technology' => 'pages#technology_new'
     get '/submenu'=> 'pages#submenu'
     post '/home_create' => 'pages#home_create'
-
+    
+    post '/language_create' => 'pages#language_create'
 
         get 'contactus' => 'pages#index'
         

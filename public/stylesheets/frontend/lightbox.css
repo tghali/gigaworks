@@ -104,10 +104,14 @@ body {
 	background:url(/images/frontend/submit_btn.png) no-repeat;
 	height:28px;
 	width:89px;
-	font:14px/28px Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:28px;
+	/*font:14px/28px Arial, Helvetica, sans-serif;*/
 	text-align:center;
 	float:right;
 	margin:0px 2px 0px 0px;
+	color:#000!important;
 	}
 	.sign_up p.send_btn:hover, .sign_up p.send_btn1:hover{
 	background:url(/images/frontend/submit_btn.png) no-repeat ;
@@ -115,11 +119,13 @@ body {
 	height:28px;
 	width:89px;
 	text-decoration:none;
-	display:block;
+	color:#000!important;
 	}
 	.sign_up p.send_btn1{
 margin:0px 30px 10px 0px;
 	}
+.send_btn input{ color:#000!important;}
+.send_btn1 input{ color:#000!important; background:none;cursor:pointer;}
     .sign_up p.send_btn a, .sign_up p.send_btn1 a{ display:block; color:#000000; text-decoration:none;}
 label.headding_label{
 	margin:0px 0px 0px 10px!important; font:14px Arial, Helvetica, sans-serif !important;
