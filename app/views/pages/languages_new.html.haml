@@ -1,3 +1,4 @@
+
 #lang_landing_wrapper
   / Header
   #languages-header
@@ -44,12 +45,12 @@
                 %div
                   %p.count
                     %span.getname Word count
-                    %input{:type => "text"}/
+                    %input{:type => "text" , :style=>"margin:0px; padding:0px;"}
                   %p.count1
                     %span.getname or
                   %p.count{:style => "float:right!important;"}
                     %span.getname Page count
-                    %input{:type => "text"}/
+                    %input{:type => "text" , :style=>"margin:0px; padding:0px;"}
                 %p.clear{:style => "height:20px;"}
                   %span
                 %p{:style => "height:auto!important"}
@@ -72,18 +73,27 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p.headding_text It’s not just speaking the language, it’s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
-        %p True translation means bringing meaning alive in a new and different context for an audience with different cultural bearings. It is as much about adapting a message’s references, as it is about translating the words.
-        %div
-          .language_textblock
-            This process is an enormous challenge for businesses operating in more than one region. Translation on its own is not enough; understanding of the social, political, religious and business context is also required. Add to that the potential complexities of technical terminology and the use of different technologies and interfaces, and you have a formidable problem to solve – one which requires expert assistance.
-          .language_video
-            %img{:alt => "", :src => "/images/frontend/video.jpg", :title => ""}
-              %h4 Gigavine: Making a difference
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing escip it ipsum lpsum dolor sit amet.
-        .clear
-          %span
-        %p At Gigavine we live and work in this world of complex differences and crossovers. We know the challenges of managing the process of translation and adaption, and we know how to meet those challenges: we have the processes, the people and the experience to do it.
-      / right block end
-  / content block end
+        %p.headding_text
+          - if !get_languages('languages_page','title').blank?
+            = get_languages('languages_page','title')
+          - else
+            It’s not just speaking the language, it’s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
+        - if !get_languages('languages_page','summary').blank?
+          %p
+            = get_languages('languages_page','summary')
+        - else
+          %p True translation means bringing meaning alive in a new and different context for an audience with different cultural bearings. It is as much about adapting a message’s references, as it is about translating the words.
+          %div
+            .language_textblock
+              This process is an enormous challenge for businesses operating in more than one region. Translation on its own is not enough; understanding of the social, political, religious and business context is also required. Add to that the potential complexities of technical terminology and the use of different technologies and interfaces, and you have a formidable problem to solve – one which requires expert assistance.
+            .language_video
+              =# video_tag( "http://test.gigavine.com:4009/public/giga8.mov",:controls => true, :autobuffer => true)
+              %img{:alt => "", :src => "/images/frontend/video.jpg", :title => ""}
+                %h4 Gigavine: Making a difference
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing escip it ipsum lpsum dolor sit amet.
+          .clear
+            %span
+          %p At Gigavine we live and work in this world of complex differences and crossovers. We know the challenges of managing the process of translation and adaption, and we know how to meet those challenges: we have the processes, the people and the experience to do it.
+        / right block end
+    / content block end
   .clear  
