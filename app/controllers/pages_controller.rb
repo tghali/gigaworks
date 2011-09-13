@@ -35,6 +35,10 @@ class PagesController < ActionController::Base
    render :layout => 'pages_new'
  end
   
+   def network_land
+	 render :layout => 'pages_new'
+ end
+  
    def submenu
      render :layout => false  
  end

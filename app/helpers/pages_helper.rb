@@ -51,6 +51,13 @@ module PagesHelper
 	frontend_page.content if !frontend_page.blank?
   end
 
+ def get_image(tab)
+   frontend_page =  FrontendPage.find_by_page_section(tab)
+   frontend_page.image.url(:original) if frontend_page && !frontend_page.image.blank?
+  end
+
+
+
   def get_title(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
 	!frontend_page.blank? ? raw(frontend_page.title) : "Gigavine offers creative & technical services which cross borders & open minds" 
