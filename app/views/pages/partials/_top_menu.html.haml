@@ -1,62 +1,115 @@
 %div
   #sample4.sampleTabContent
     %ul#sample-menu-4.sf-menu.sf-navbar
-      %li.current
-        %a.sf-with-ul{:href => "/languages"}
-          Languages
-          %span.sf-sub-indicator »
-        %ul
-          %li
-            %a{:href => "#"} Translation
-          %li
-            %a{:href => "#"} Localisation
-          %li
-            %a{:href => "#"} Consultancy
-          %li
-            %a{:href => "#"} Online Tools
-      %li
-        %a.sf-with-ul{:href => "/creative"}
-          Creative
-          %span.sf-sub-indicator »
-        %ul
-          %li
-            %a{:href => "#"} 1
-          %li
-            %a{:href => "#"} 2
-          %li
-            %a{:href => "#"} 3
-          %li
-            %a{:href => "#"} 4
-      %li
-        %a.sf-with-ul{:href => "/technology"}
-          Technology
-          %span.sf-sub-indicator »
-        %ul
-          %li
-            %a{:href => "#"} if no subitems, duplicate parent item href and use this as descriptive label
+      - if params[:action] == 'languages_new'
+        %li.current
+          %a.sf-with-ul{:href => "/languages"}
+            Languages
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} Translation
+            %li.sub_nav
+              %a{:href => "#"} Localisation
+            %li.sub_nav
+              %a{:href => "#"} Consultancy
+            %li.sub_nav
+              %a{:href => "#"} Online Tools
+      - else
+        %li			
+          %a.sf-with-ul{:href => "/languages"}
+            Languages
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} Translation
+            %li.sub_nav
+              %a{:href => "#"} Localisation
+            %li.sub_nav
+              %a{:href => "#"} Consultancy
+            %li.sub_nav
+              %a{:href => "#"} Online Tools
+      - if params[:action] == 'creative_new'
+        %li.current
+          %a.sf-with-ul{:href => "/creative"}
+            Creative
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} Artwork
+            %li.sub_nav
+              %a{:href => "#"} Webdesign
+            %li.sub_nav
+              %a{:href => "#"} Copywriting 
+            %li.sub_nav
+              %a{:href => "#"} Interactive
+      - else
+        %li
+          %a.sf-with-ul{:href => "/creative"}
+            Creative
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} Artwork
+            %li.sub_nav
+              %a{:href => "#"} Webdesign
+            %li.sub_nav
+              %a{:href => "#"} Copywriting
+            %li.sub_nav
+              %a{:href => "#"} Interactive
+      - if params[:action] == 'technology_new'
+        %li.current
+          %a.sf-with-ul{:href => "/technology"}
+            Technology
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} E-Learning 
+            %li.sub_nav
+              %a{:href => "#"} E-Commerce 
+            %li.sub_nav
+              %a{:href => "#"} Online Security  
+            %li.sub_nav
+              %a{:href => "#"} Dms 
+      - else
+        %li
+          %a.sf-with-ul{:href => "/technology"}
+            Technology
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} E-Learning 
+            %li.sub_nav
+              %a{:href => "#"} E-Commerce 
+            %li.sub_nav
+              %a{:href => "#"} Online Security  
+            %li.sub_nav
+              %a{:href => "#"} Dms 
       %li
         %a.sf-with-ul{:href => "#"}
           Projects
         %span.sf-sub-indicator »
         %ul
-          %li
-            %a{:href => "#"} Tech Landing Page
-          %li
-            %a{:href => "#"} subitem 4b
-          %li
-            %a{:href => "#"} subitem 4c
-          %li
-            %a{:href => "#"} subitem 4d
-      %li
-        %a.sf-with-ul{:href => "#",:style => "padding-right:0px!important;"}
-          Network
-          %span.sf-sub-indicator »
-        %ul
-          %li
-            %a{:href => "#"} subitem 5a
-          %li
-            %a{:href => "#"} subitem 5b
-          %li
-            %a{:href => "#"} subitem 5c
-          %li
-            %a{:href => "#"} subitem 5d
+          %li.sub_nav
+            %a{:href => "#"} Projects
+
+      - if params[:action] == 'network_land'
+        %li.current
+          %a.sf-with-ul{:href => "/network",:style => "padding-right:0px!important;"}
+            Network
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} Registration
+            %li.sub_nav
+              %a{:href => "#"} Featured
+      - else
+        %li
+          %a.sf-with-ul{:href => "/network",:style => "padding-right:0px!important;"}
+            Network
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "#"} Registration
+            %li.sub_nav
+              %a{:href => "#"} Featured

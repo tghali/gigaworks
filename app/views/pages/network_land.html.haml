@@ -1,0 +1,97 @@
+#network_landing_wrapper
+  / Header
+  #network-header
+    .create_headder
+      = render :partial => "/pages/partials/login_links"
+
+      .create_headding
+        %h4 NETWORK
+      .create_mainblock
+        %img{:alt => "", :src => "/images/frontend/newtwork.gif", :title => ""}
+          .network_comment
+            %p Showcase your talent to gain exposure and be discovered.
+            .net_signbtn
+              %a{:alt => "Signup", :href => "#", :title => "Signup"} Signup
+  / Headerend
+  / net landing block start
+  .net_landing_wrapper
+    .net_block_wrapper{:style => "margin:10px 0px 0px 20px;"}
+      %h4 Linguists
+      %div
+        %img{:alt => "", :src => "/images/frontend/net_landing_img1.gif", :title => ""}/
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar. Duis consequat nunc sit amet lorem hendrerit suscipit pellentesque mi feugiat. Nunc molestie blandit lacus, at consectetur nibh dignissim non.
+      %p.btn
+        %a{:href => "#"} Click here to register
+    .net_block_wrapper
+      %h4 Creative
+      %div
+        %img{:alt => "", :src => "/images/frontend/net_landing_img2.gif", :title => ""}/
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar. Duis consequat nunc sit amet lorem hendrerit suscipit pellentesque mi feugiat. Nunc molestie blandit lacus, at consectetur nibh dignissim non.
+      %p.btn
+        %a{:href => "#"} Click here to register
+    .net_block_wrapper{:style => "margin:10px 0px 0px 0px;"}
+      %h4 Developers
+      %div
+        %img{:alt => "", :src => "/images/frontend/net_landing_img3.gif", :title => ""}/
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar. Duis consequat nunc sit amet lorem hendrerit suscipit pellentesque mi feugiat. Nunc molestie blandit lacus, at consectetur nibh dignissim non.
+      %p.btn
+        %a{:href => "#"} Click here to register
+  / net landing block start
+  .clear  
+  / network content start
+  .network_content1
+    .inner_newtwork
+      / left top block start
+      .net_rightblock
+        %h3 FEATURED
+        %h5 PROFILES
+      / left top block end
+      / right top block start
+      .net_leftblock{:style => "border:none;"}
+        %p.landing Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar. Duis consequat nunc sit amet lorem hendrerit.
+      / right top block end
+    .inner_newtwork{:style => "border-bottom:none;"}
+      / block1 start
+      .net_block2
+        .inner_net_block2
+          %div
+            %img{:alt => "", :src => "/images/frontend/net_img1.gif", :title => ""}/
+          .inner_net_content
+            .inner_img_top
+              %h4 Stephen Anderson
+              %p DESIGNER
+              %p.net_peraha Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar.
+              %p.see_btn
+                %a{:href => "#"} See more
+      / block1 end
+      / block2 start
+      .net_block2
+        .inner_net_block2
+          %div
+            %img{:alt => "", :src => "/images/frontend/net_img2.gif", :title => ""}/
+          .inner_net_content
+            .inner_img_top
+              %h4 Cyntha Neil
+              %p JOURNALIST
+              %p.net_peraha Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar.
+              %p.see_btn
+                %a{:href => "#"} See more
+      / block2 end
+      / block3 start
+      .net_block2{:style => "border-right:none;"}
+        .inner_net_block2
+          %div
+            %img{:alt => "", :src => "/images/frontend/net_img3.gif", :title => ""}/
+          .inner_net_content
+            .inner_img_top
+              %h4 Jacob Miller
+              %p DEVELOPER
+              %p.net_peraha Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar.
+              %p.see_btn
+                %a{:href => "#"} See more
+      / block3 end
+  / network content end
+  .topspace
+    %span
+  / footer block start
+  / footer block end

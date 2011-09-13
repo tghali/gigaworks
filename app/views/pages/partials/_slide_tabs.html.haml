@@ -12,19 +12,25 @@
     .clear
     .sub_content
       / <h3>Create</h3>
-      %img.fl_left{:src => "/images/frontend/content-image.png"}
-        %p
-          - if !get_data('home_create').blank?
-            = truncate(get_data('home_create'),:length => 120)
-          - else
-            Original concepts and compelling designs to capture attention and establish a connection with your audience.
+      - if !get_image('home_create').blank?
+        = image_tag get_image('home_create'),:class => "fl_left"
+      - else
+        %img.fl_left{:src => "/images/frontend/content-image.png"}
+      %p
+        - if !get_data('home_create').blank?
+          = truncate(get_data('home_create'),:length => 120)
+        - else
+          Original concepts and compelling designs to capture attention and establish a connection with your audience.
 
-          %span
-            %a{:href => "/creative"} Find out more
+        %span
+          %a{:href => "/creative"} Find out more
   .adapt
     .sub_content
       / <h3>Create</h3>
-      %img.fl_left{:src => "/images/frontend/content-image.png"}
+      - if !get_image('home_adapt').blank?
+        = image_tag get_image('home_adapt'),:class => "fl_left"
+      - else
+        %img.fl_left{:src => "/images/frontend/content-image.png"}
         %p
           - if !get_data('home_adapt').blank?
             = truncate(get_data('home_adapt'),:length => 120)
@@ -36,7 +42,10 @@
   .deliver
     .sub_content
       / <h3>Create</h3>
-      %img.fl_left{:src => "/images/frontend/content-image.png"}
+      - if !get_image('home_deliver').blank?
+        = image_tag get_image('home_deliver'),:class => "fl_left"
+      - else
+        %img.fl_left{:src => "/images/frontend/content-image.png"}
         %p
           - if !get_data('home_deliver').blank?
             = truncate(get_data('home_deliver'),:length => 120)

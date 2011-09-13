@@ -1,3 +1,7 @@
+:javascript
+  Cufon.replace('.sf-navbar li a.current', {color: '#5f9732'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+
 #tech_landing_wrapper
   / Header
   #tech-header
@@ -41,7 +45,9 @@
                   %input{:type => "text"}/
                 %p
                   %span File
-                  %input{:type => "text"}/
+                  %input{:type => "file", :size=>"12"}/
+                %p.form_btn
+                  %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
             .lpsub_rightcorner
               %span
         / submit block end
