@@ -263,6 +263,8 @@ Gigavine::Application.routes.draw do
     get '/languages' => 'pages#languages_new'
     get '/creative' => 'pages#creative_new'
     get '/technology' => 'pages#technology_new'
+    get '/network' => 'pages#network_land'  
+    
     get '/submenu'=> 'pages#submenu'
     post '/home_create' => 'pages#home_create'
     
