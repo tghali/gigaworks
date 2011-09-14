@@ -48,7 +48,11 @@ module PagesHelper
 
   def get_data(tab_type)
 	frontend_page =  FrontendPage.find_by_page_section(tab_type)
-	frontend_page.content if !frontend_page.blank?
+	 if !frontend_page.blank? && !frontend_page.content.blank?
+     return frontend_page.content
+   else
+     return ""
+   end
   end
 
  def get_image(tab)
