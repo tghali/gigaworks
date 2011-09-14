@@ -12,7 +12,8 @@
     .clear
     .sub_content
       / <h3>Create</h3>
-      - if get_image('home_create') == ""
+
+      - if get_image('home_create') != ""
         = image_tag get_image('home_create'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
@@ -27,14 +28,14 @@
   .adapt
     .sub_content
       / <h3>Create</h3>
-      - if get_image('home_adapt') == ""
+      - if get_image('home_adapt') != ""
         = image_tag get_image('home_adapt'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
         %p
           
           - if !get_data('home_adapt').blank?
-            = truncate(get_data('home_adapt'),:length => 190)
+            = truncate(get_data('home_adapt'),:length => 120)
           - else
             Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
 
@@ -43,7 +44,7 @@
   .deliver
     .sub_content
       / <h3>Create</h3>
-      - if get_image('home_deliver') == ""
+      - if get_image('home_deliver') != ""
         = image_tag get_image('home_deliver'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}

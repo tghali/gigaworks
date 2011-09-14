@@ -54,16 +54,33 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p.headding_text You have messages, products and services you need to promote and position, and an audience you want to communicate with. We have the ideas and the skills to make it happen.
-        %p Creativity means using original concepts and compelling designs to bring your offer alive, so your audience welcomes the message, remembers it and acts on it. This is how we establish a connection and begin communicating.
-        %p
-          It doesn’t matter what the medium is, the idea is primary. And the value of the idea comes from gaining a thorough understanding of your brand, your products and services, your market and your audience – only then can we create something which will be powerful and effective. That is why we use a thorough strategic planning process which involves auditing and defining your identity and brand attributes.
-        %p.headding_text Branding runs through everything we do.
-        %p Every kind of creative work we do for our clients involves branding. This is because a brand is more than a logo or even a set of colours. Your brand is the sum of what you mean to your customers, your values, your products, your voice, your message and your attitude. It is not something you simply adopt, but emerges from what you are.
-        %p
-          %i Your brand is what you stand for.
-        %p
-          We work with you to define and develop that brand, create guidelines and act as the brand guardian
+        %p.headding_text
+          - if get_languages('creative_page','title').blank?
+            You have messages, products and services you need to promote and position, and an audience you want to communicate with. We have the ideas and the skills to make it happen.
+          - else
+            = get_languages('creative_page','title')
+
+        - if get_languages('creative_page','summary').blank?
+          %p 
+            Creativity means using original concepts and compelling designs to bring your offer alive, so your audience welcomes the message, remembers it and acts on it. This is how we establish a connection and begin communicating.
+          %p
+            It doesn’t matter what the medium is, the idea is primary. And the value of the idea comes from gaining a thorough understanding of your brand, your products and services, your market and your audience – only then can we create something which will be powerful and effective. That is why we use a thorough strategic planning process which involves auditing and defining your identity and brand attributes.
+        - else
+          = get_languages('creative_page','summary')
+
+        %p.headding_text
+          - if get_languages('creative_page','heading2').blank?
+            Branding runs through everything we do.
+          - else
+            = get_languages('creative_page','heading2')
+        - if get_languages('creative_page','summary2').blank?
+          %p Every kind of creative work we do for our clients involves branding. This is because a brand is more than a logo or even a set of colours. Your brand is the sum of what you mean to your customers, your values, your products, your voice, your message and your attitude. It is not something you simply adopt, but emerges from what you are.
+          %p
+            %i Your brand is what you stand for.
+          %p
+            We work with you to define and develop that brand, create guidelines and act as the brand guardian
+        - else
+          = get_languages('creative_page','summary2')
       / right block end
   / content block end
   .clear  
