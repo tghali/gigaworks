@@ -1,0 +1,212 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title Network Featured Page
+    = render :partial => "/pages/partials/script_files"
+  %body
+    .topframe
+      /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
+
+      .subframe
+        %ul
+          %li
+            %a{:href => "#", :id => "home_new"} HOME
+          %li
+            %a{:href => "#", :id => "languages_new"} LANGUAGES
+          %li
+            %a{:href => "#"} CREATIVE
+          %li
+            %a{:href => "#"} TECHNOLOGY
+          %li
+            %a{:href => "#"} PROJECTS
+          %li
+            %a{:href => "#"} NETWORK
+          %li{:style => "float:right;"}
+            %a{:href => "#"} Logout
+    #network_landing_wrapper
+      / Header
+      #network-header
+        .create_headder
+          = render :partial => "/pages/partials/login_links"
+          .create_headding
+            %h4
+              %span NETWORK /
+              FEATURED
+      / Headerend
+      .clear  
+      / network content start
+      .network_content
+        .inner_newtwork{:style => "background:#d5d5d5;"}
+          / left top block start
+          .net_leftblock
+            %p Vivamus tortor massa, placerat quis dictum a, commodo ac est. Donec eu lectus sit amet lacus gravida imperdiet non eget ns eleifend, odio nec egestas volutpat, est ante luctus leo, quis sollicitudin enim lectus id risus.
+          / left top block end
+          / right top block start
+          .net_rightblock
+            .net_right_inner
+              .clearspace
+                %span
+              %div
+                .filter_name FILTER BY:
+                .filter_select
+                  %select
+                    %option Most popular
+              %div
+                .filter_name BY INDUSTRY:
+                .filter_select
+                  %select
+                    %option Entertainment
+          / right top block end
+        .inner_newtwork
+          / block1 start
+          .net_block1
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img1.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Stephen Anderson
+                  %p DESIGNER
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 359
+          / block1 end
+          / block2 start
+          .net_block1
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img2.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Cyntha Neil
+                  %p JOURNALIST
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 152
+          / block2 end
+          / block3 start
+          .net_block1{:style => "border-right:none;"}
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img3.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Jacob Miller
+                  %p DEVELOPER
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 1118
+          / block3 end
+        .inner_newtwork
+          / block1 start
+          .net_block1
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img1.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Stephen Anderson
+                  %p DESIGNER
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 359
+          / block1 end
+          / block2 start
+          .net_block1
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img2.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Cyntha Neil
+                  %p JOURNALIST
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 152
+          / block2 end
+          / block3 start
+          .net_block1{:style => "border-right:none;"}
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img3.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Jacob Miller
+                  %p DEVELOPER
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 1118
+          / block3 end
+        .inner_newtwork
+          / block1 start
+          .net_block1
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img1.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Stephen Anderson
+                  %p DESIGNER
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 359
+          / block1 end
+          / block2 start
+          .net_block1
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img2.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Cyntha Neil
+                  %p JOURNALIST
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 152
+          / block2 end
+          / block3 start
+          .net_block1{:style => "border-right:none;"}
+            .inner_net_block1
+              %div
+                %img{:alt => "", :src => "/images/frontend/net_img3.gif", :title => ""}/
+              .inner_net_content
+                .inner_img_top
+                  %h4 Jacob Miller
+                  %p DEVELOPER
+                .inner_img_bottom
+                  %p.desg Design, architecture
+                  %p.count 1118
+          / block3 end
+        / pagination start
+        .network_pagination
+          .pagination_block
+            .pagination
+              %ul
+                %li
+                  %a.current{:href => "#"} 1
+                %li
+                  %a{:href => "#"} 2
+                %li
+                  %a{:href => "#"} 3
+                %li
+                  %a{:href => "#"} 4
+                %li
+                  %a{:href => "#"} 5
+                %li
+                  %a{:href => "#"} 6
+                %li
+                  %a{:href => "#"} 7
+                %li
+                  %a{:href => "#"} 8
+                %li{:style => "background:none;"}
+                  %a{:href => "#"} 9
+                %li{:style => "background:none;"}
+                  %a{:href => "#"}
+                    %img{:src => "/images/frontend/next.jpg"}/
+        / pagination end
+      / network content end
+      .clear  
+      / footer block start
+      = render :partial => "/pages/partials/footer_only"
+      / footer block end

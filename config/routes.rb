@@ -263,15 +263,15 @@ Gigavine::Application.routes.draw do
     get '/creative' => 'pages#creative_new'
     get '/technology' => 'pages#technology_new'
     get '/network' => 'pages#network_land'  
+    get '/network/featured'=> 'pages#network_featured' 
     
     get '/submenu'=> 'pages#submenu'
-    post '/home_create' => 'pages#home_create'
-    
+    post '/home_create' => 'pages#home_create'    
     post '/language_create' => 'pages#language_create'
+    post '/creative_create' => 'pages#creative_create'
 
-        get 'contactus' => 'pages#index'
-        
-        post 'submit_brief' => 'pages#submit_brief'
+    get 'contactus' => 'pages#index'        
+    post 'submit_brief' => 'pages#submit_brief'
 
         
     post 'create_contact' => 'pages#lead_create'

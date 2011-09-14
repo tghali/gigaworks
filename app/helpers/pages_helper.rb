@@ -57,7 +57,15 @@ module PagesHelper
 
  def get_image(tab)
    frontend_page =  FrontendPage.find_by_page_section(tab)
-   frontend_page.image.url(:original) if frontend_page && !frontend_page.image.blank?
+       if frontend_page 
+         if !frontend_page.image_file_name.blank?
+            frontend_page.image.url(:original) 
+          else
+            return ""
+          end
+       else
+         return ""
+       end
   end
 
 
@@ -70,9 +78,13 @@ module PagesHelper
   def get_languages(tab_type,option)
     lang = FrontendPage.find_by_page_section(tab_type)
     if option == 'title'
-    return lang.title if !lang.blank?
+      return lang.title if !lang.blank?
     elsif option == 'summary'
       return raw(lang.content) if !lang.blank?
+    elsif option == 'heading2'
+      return raw(lang.news) if !lang.blank?
+    elsif option == 'summary2'
+      return raw(lang.network) if !lang.blank?
     end
   end
 

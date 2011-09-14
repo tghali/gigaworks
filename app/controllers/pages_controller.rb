@@ -39,6 +39,10 @@ class PagesController < ActionController::Base
 	 render :layout => 'pages_new'
  end
   
+   def network_featured
+   render :layout => false
+ end
+  
    def submenu
      render :layout => false  
  end
@@ -71,7 +75,18 @@ class PagesController < ActionController::Base
 	 redirect_to :action => "languages_new"
  end
 
-  
+    def creative_create
+	 find_page = FrontendPage.find_by_page_section(params[:creative_page][:page_section])
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:creative_page])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = params[:creative_page][:page_section]
+		@frontend_page.save
+	else
+		find_page.update_attributes(params[:creative_page])
+	end
+	 redirect_to :action => "creative_new"
+ end
   
   
     def index
