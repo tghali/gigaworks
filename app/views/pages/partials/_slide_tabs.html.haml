@@ -12,7 +12,7 @@
     .clear
     .sub_content
       / <h3>Create</h3>
-      - if !get_image('home_create').blank?
+      - if get_image('home_create') == ""
         = image_tag get_image('home_create'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
@@ -27,22 +27,23 @@
   .adapt
     .sub_content
       / <h3>Create</h3>
-      - if !get_image('home_adapt').blank?
+      - if get_image('home_adapt') == ""
         = image_tag get_image('home_adapt'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
         %p
+          
           - if !get_data('home_adapt').blank?
             = truncate(get_data('home_adapt'),:length => 120)
           - else
             Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
 
-            %span.span_1
-              %a{:href => "/languages"} Find out more
+          %span.span_1
+            %a{:href => "/languages"} Find out more
   .deliver
     .sub_content
       / <h3>Create</h3>
-      - if !get_image('home_deliver').blank?
+      - if get_image('home_deliver') == ""
         = image_tag get_image('home_deliver'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
@@ -52,5 +53,5 @@
           - else
             The technical tools and digital interfaces to carry your communication to the heart of your audience.
 
-            %span.span_2
-              %a{:href => "/technology"} Find out more
+          %span.span_2
+            %a{:href => "/technology"} Find out more
