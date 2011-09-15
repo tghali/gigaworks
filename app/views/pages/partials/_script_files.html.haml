@@ -65,6 +65,7 @@
   jQuery('#home_page').lightbox_me({centered: true, onLoad: function() { $('#home_page').find('input:first').focus()}});
   jQuery('#languages').lightbox_me({centered: true, onLoad: function() { $('#languages').find('input:first').focus()}});
   jQuery('#creative').lightbox_me({centered: true, onLoad: function() { $('#creative').find('input:first').focus()}});
+  jQuery('#banner').lightbox_me({centered: true, onLoad: function() { $('#creative').find('input:first').focus()}});
   }
       
   jQuery('#home_new').click(function(e) {
@@ -88,7 +89,12 @@
   e.preventDefault();
   });		
 	
-		
+  jQuery('#banner_new').click(function(e) {
+  jQuery("#banner").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#banner").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });			
 		
   jQuery('table tr:nth-child(even)').addClass('stripe');
   });

@@ -45,11 +45,17 @@
                 %p
                   %span Email
                   %input{:type => "text"}/
-                %p
+                %p{:style=>"width:200px;"}
                   %span File
-                  %input{:type => "text"}/
+                  #FileUpload1
+                    %input#BrowserHidden{:onChange => "document.getElementById('FileField1').value = document.getElementById('BrowserHidden1').value;", :size => "4", :type => "file"}
+                      #BrowserVisible1
+                        %input#FileField1{:type => "text", :size => "17"}																		
+                %p.form_btn{ :style=>"float:right; position:relative; top:-80px; right:12px;"}
+                  %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
             .lpsub_rightcorner
               %span
+
         / submit block end
       / left block end
       / right block start

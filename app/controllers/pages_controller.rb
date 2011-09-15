@@ -88,6 +88,22 @@ class PagesController < ActionController::Base
 	 redirect_to :action => "creative_new"
  end
   
+    def banner_create
+    #~ render :text => params.inspect and return
+    
+	 find_page = FrontendPage.find_by_page_section(params[:banner_page][:page_section])
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:banner_page])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = params[:banner_page][:page_section]
+		@frontend_page.save
+	else
+		find_page.update_attributes(params[:banner_page])
+	end
+	 redirect_to :action => "home_land"
+ end
+  
+  
   
     def index
 	  	 @prospect = Prospect.new	
