@@ -30,6 +30,8 @@
             %a{:href => "#"} PROJECTS
           %li
             %a{:href => "#"} NETWORK
+          %li
+            %a{:href => "#", :id => "banner_new"} HOME BANNER
           %li{:style => "float:right;"}
             %a{:href => "#"} Logout
 
@@ -172,6 +174,46 @@
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+
+  %a#close_x.close.sprited{:href => "#"} close
+		
+#banner.sign_up{:style => "display:none"}
+  %h3#see_id  Home Banner 
+  %br.clear
+  %div
+    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form1"} do |f|
+      = f.hidden_field :page_section,  :value => "banner_one"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 2:
+        = f.text_area :title, :style => "width:600px;height:200px;"
+        %input{:type=>"file", :name=>"banner_page[image]", :size=>"35", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+
+    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form2"} do |f|
+      = f.hidden_field :page_section,  :value => "banner_two"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 3:
+        = f.text_area :title, :style => "width:600px;height:200px;"
+        %input{:type=>"file", :name=>"banner_page[image]", :size=>"35", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}				
+
+    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form3"} do |f|
+      = f.hidden_field :page_section,  :value => "banner_three"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 4:
+        = f.text_area :title, :style => "width:600px;height:200px;"
+        %input{:type=>"file", :name=>"banner_page[image]", :size=>"35", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}				
+
+
+
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close
