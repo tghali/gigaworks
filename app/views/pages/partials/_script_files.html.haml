@@ -4,7 +4,7 @@
 
 
 :javascript
-  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p', ' ', { fontFamily: 'gothamxlight', hover: true});
+  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .trans_headding h4 span, .content_tab li', ' ', { fontFamily: 'gothamxlight', hover: true});
 		   
   Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'},color: '#20202c'});
 		   
@@ -12,14 +12,16 @@
   Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
 			
 			
-		   
 %script{:src => "/javascripts/frontend/hoverIntent.js", :type => "text/javascript"}
 %script{:src => "/javascripts/frontend/superfish.js", :type => "text/javascript"}
+
+
 
 :javascript
   jQuery.noConflict();
   jQuery(function() {
   jQuery(document).ready(function(){ 
+
   	jQuery("#products").hide();	
   	});	
   jQuery("#image_frm_div").click(function () {
@@ -94,7 +96,7 @@
   jQuery("#banner").find("input:first").focus();
   }});    
   e.preventDefault();
-  });			
+  });				
 		
   jQuery('table tr:nth-child(even)').addClass('stripe');
   });
@@ -104,4 +106,14 @@
   jQuery("ul.sf-menu").superfish({
   pathClass:  'current'
   });
+  });
+		
+:javascript
+  jQuery(document).ready(function(){ 
+  	jQuery(".div_li_tab").click(function () {
+  		tab_id = jQuery(this).find("a").attr('id');
+  		jQuery(".tabdiv").hide();
+  		document.getElementById("tab"+tab_id).style.display='block';
+  		//jQuery("#tab"+tab_id).show("slow");
+  	});   
   });
