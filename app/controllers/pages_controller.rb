@@ -26,7 +26,14 @@ class PagesController < ActionController::Base
   
   def languages_new
 	   render :layout => 'pages_new'
-  end
+   end
+   
+  def language_translation	
+     render :layout => 'pages_new'
+  end    
+   
+   
+   
     def creative_new
     	   render :layout => 'pages_new'
   end    

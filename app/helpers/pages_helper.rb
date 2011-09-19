@@ -13,7 +13,7 @@ module PagesHelper
         args[1] = '#' # blanks the url
       end
     end
-    
+     
     super *args
 
   end
@@ -88,7 +88,14 @@ module PagesHelper
     end
   end
 
-
+ def get_banner(banner_count,option)
+    banner = FrontendPage.find_by_page_section(banner_count) 
+    if option == 'title'
+    return banner.title if !banner.blank?
+   elsif option == 'image' 
+     banner.image.url(:original) if !banner.blank? && !banner.image_file_name.blank?
+   end
+ end
 
 
   def get_news(tab_type)

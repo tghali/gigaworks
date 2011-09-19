@@ -1135,6 +1135,7 @@ border-radius: 5px;
     top: 0px;
     left: 0px;
     z-index: 1;
+	 width:125px;
     /*background:url(/images/frontend.browse.jpg) 100% 0px no-repeat;*/
     height:22px;
 }
@@ -1604,4 +1605,126 @@ color:#fff;
 .topspace{
 height:20px;
 clear:both;
+}
+
+
+/*-------------------------------------Languages Translation Content-----------------------------------------------*/
+#lang_trans_wrapper{
+width:100%;
+height:auto;
+background:url(/images/frontend/inner_trans_bg.jpg) repeat-x;
+}
+#trans-wrapper{
+height:214px;
+width:100%;
+margin:0px auto;
+position:relative;	z-index:100;
+}
+
+#trans-main{
+height:214px;
+width:964px;
+margin:0px auto;
+position:relative;	z-index:100;
+}
+
+.trans-header{
+	width:100%;
+	height:152px;
+	margin:-12px auto;
+	position:relative;
+	top:-140px;
+	background:url(/images/frontend/trans_header.jpg) no-repeat center bottom;
+	}
+.trans_headding{
+width:964px;
+height:65px;
+}	
+.trans_headding h4{
+color:#fff;
+text-align:left;
+font:32px/65px Gotham;
+text-indent:22px;
+}
+.trans_headding h4 span{
+color:#63030f;
+text-align:left;
+font:32px/65px Gotham;
+text-indent:22px;
+}
+#trance_midcontent{
+width:936px;
+height:auto;
+margin:41px auto;
+}
+.content_tab{
+width:555px;
+height:32px;
+}
+.content_tab ul{
+margin:0px;
+padding:0px;
+list-style-type:none;
+width:555px;
+}
+.content_tab li{
+margin:0px;
+padding:0px;
+height:32px;
+width:auto;
+float:left;
+font:bold 12px Gotham;
+}
+.content_tab li a{
+text-align:left;
+margin:0px;
+padding:10px 12px 10px 12px;
+font: bold 12px Gotham;
+color:#848d95;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+text-decoration:none;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
+}
+.content_tab li a:hover{
+padding:10px 12px 10px 12px;
+font:bold 12px Gotham;
+color:#465561;
+text-decoration:none;
+border-bottom:none!important;
+background:none!important;
+border-left:none!important;
+border-right:1px solid #c9c9c9;
+text-align:left!important;
+}
+.content_tab li a.selettab{
+font:bold 12px Gotham;
+color:#465561;
+border-bottom:none!important;
+background:none!important;
+border-left:none!important;
+border-right:1px solid #c9c9c9;
+text-align:left!important;
+}
+.tabdiv_new{
+width:555px;
+height:auto;
+margin:0px;
+padding:0px;
+}
+.tabdiv_new p{
+color:#828282;
+margin:10px 0px 0px 0px;
+padding:0px;
+font:14px/22px Arial, Helvetica, sans-serif;
+text-align:left;
+}
+.inner_tabing{
+padding:0px 0px 10px 0px;
+margin:0px;
+}
+.tabnav_new li{
+	display: inline;
+	list-style: none;
+	padding: 0px;
 }
