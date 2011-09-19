@@ -8,7 +8,12 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "/languages/translation"} Translation
+              %a{:href => "/languages/translation"}
+                - if params[:action] == 'language_translation'
+                  %span.languagesclass Translation					
+                - else
+                  Translation		
+                
             %li.sub_nav
               %a{:href => "#"} Localisation
             %li.sub_nav
@@ -22,7 +27,11 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "/languages/translation"} Translation
+              %a{:href => "/languages/translation"}
+                - if params[:action] == 'language_translation'
+                  %span.languagesclass Translation					
+                - else
+                  Translation		
             %li.sub_nav
               %a{:href => "#"} Localisation
             %li.sub_nav
@@ -102,7 +111,11 @@
             %li.sub_nav
               %a{:href => "#"} Registration
             %li.sub_nav
-              %a{:href => "/network/featured"} Featured
+              %a{:href => "/network/featured"}
+                - if params[:action] == 'network_featured'
+                  %span.featuredclass Featured					
+                - else
+                  Featured										
       - else
         %li
           %a.sf-with-ul{:href => "/network",:style => "padding-right:0px!important;"}
@@ -112,4 +125,8 @@
             %li.sub_nav
               %a{:href => "#"} Registration
             %li.sub_nav
-              %a{:href => "/network/featured"} Featured
+              %a{:href => "/network/featured"}
+                - if params[:action] == 'network_featured'
+                  %span.featuredclass Featured					
+                - else
+                  Featured					

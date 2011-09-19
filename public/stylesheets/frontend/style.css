@@ -1679,7 +1679,7 @@ font:bold 12px Gotham;
 text-align:left;
 margin:0px;
 padding:10px 12px 10px 12px;
-font: bold 12px Gotham;
+font: bold 12px/32px Gotham;
 color:#848d95;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -1688,7 +1688,7 @@ border-left:1px solid #c9c9c9;
 }
 .content_tab li a:hover{
 padding:10px 12px 10px 12px;
-font:bold 12px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 text-decoration:none;
 border-bottom:none!important;
@@ -1698,7 +1698,7 @@ border-right:1px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tab li a.selettab{
-font:bold 12px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 border-bottom:none!important;
 background:none!important;

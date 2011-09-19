@@ -106,6 +106,19 @@
   jQuery("ul.sf-menu").superfish({
   pathClass:  'current'
   });
+		
+  jQuery(".lp_navigation li a").click(function(){
+  Cufon.replace('.lp_navigation li a', {color: '#000'});
+  jQuery(".lp_navigation li a").removeClass("current");
+  jQuery(this).addClass("current");
+  Cufon.replace(this, {color: '#fff'});
+
+  });
+		
+		
+		
+		
+		
   });
 		
 :javascript
