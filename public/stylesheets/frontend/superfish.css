@@ -150,3 +150,16 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-with-ul li a{
 color:#fff!important;
 }
+.sf-menu li a span.languagesclass{
+font-size:14px;
+font-weightold;
+padding:5px 5px 5px 5px;
+background-color:#b8516c;
+}
+
+.sf-menu li a span.featuredclass{
+font-size:14px;
+font-weightold;
+padding:5px 5px 5px 5px;
+background-color:#55b6b3;
+}
