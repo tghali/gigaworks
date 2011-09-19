@@ -3,7 +3,15 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title Network Featured Page
+    = stylesheet_link_tag "frontend/select_style.css"
     = render :partial => "/pages/partials/script_files"
+    %script{:charset => "utf-8", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js", :type => "text/javascript"}	
+    %script{:src => "/javascripts/frontend/jqueryselect.js", :type => "text/javascript"}
+    :javascript
+      jQuery(document).ready(function() {
+      jQuery("#Items").selectbox();
+      jQuery("#Items1").selectbox();
+      });
   %body
     .topframe
       /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
@@ -52,13 +60,20 @@
               %div
                 .filter_name FILTER BY:
                 .filter_select
-                  %select
-                    %option Most popular
+                  %select{:id => "Items"}
+                    %option Most popular1
+                    %option Most popular2
+                    %option Most popular3
+                    %option Most popular4
               %div
                 .filter_name BY INDUSTRY:
                 .filter_select
-                  %select
+                  %select{:id => "Items1"}
                     %option Entertainment
+                    %option Most popular5
+                    %option Most popular6
+                    %option Most popular7
+                    %option Most popular8
           / right top block end
         .inner_newtwork
           / block1 start
@@ -208,7 +223,8 @@
                     %img{:src => "/images/frontend/next.jpg"}/
         / pagination end
       / network content end
-      .clear  
+      .clear 
+        &nbsp; 
       / footer block start
       = render :partial => "/pages/partials/footer_only"
       / footer block end
