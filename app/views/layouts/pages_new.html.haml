@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title Gigavine
-    =# init_tinymce_hammer_if_required
+
     = render :partial => "/pages/partials/script_files"
     /[if IE]
       <style type="text/css">
@@ -62,7 +62,7 @@
           %input{:type=>"file", :name=>"frontend_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
         %label.headding_label
           %strong Content:
-          = f.text_area :content, :style => "width:600px;",  :value => get_data('home_create')
+          = f.text_area :content, :style => "width:600px;", :value => get_data('home_create')
 
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
@@ -149,6 +149,7 @@
 
   %a#close_x.close.sprited{:href => "#"} close
 
+
 #creative.sign_up{:style => "display:none"}
   %h3#see_id  CREATIVE
   %br.clear
@@ -177,7 +178,8 @@
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close
-		
+
+
 #banner.sign_up{:style => "display:none"}
   %h3#see_id  Home Banner 
   %br.clear
@@ -187,9 +189,9 @@
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 2:
         = f.text_area :title, :style => "width:600px;height:200px;"
-        %input{:type=>"file", :name=>"banner_page[image]", :size=>"35", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+        %input{:type=>"file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %p.clearspace  
-      %p.send_btn1
+      %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}
 
     = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form2"} do |f|
@@ -197,9 +199,9 @@
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 3:
         = f.text_area :title, :style => "width:600px;height:200px;"
-        %input{:type=>"file", :name=>"banner_page[image]", :size=>"35", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+        %input{:type=>"file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %p.clearspace  
-      %p.send_btn1
+      %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}				
 
     = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form3"} do |f|
@@ -207,9 +209,9 @@
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 4:
         = f.text_area :title, :style => "width:600px;height:200px;"
-        %input{:type=>"file", :name=>"banner_page[image]", :size=>"35", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+        %input{:type=>"file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %p.clearspace  
-      %p.send_btn1
+      %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}				
 
 

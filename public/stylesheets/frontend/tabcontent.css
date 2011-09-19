@@ -41,7 +41,7 @@ font:14px/25px Arial, Helvetica, sans-serif;
 	.tabdiv {
 	margin-top: 0px;
 	background: #fff;
-	border: 1px solid #dedbd1;
+/*	border: 1px solid #dedbd1;*/
 	padding: 5px;
 	overflow:hidden;
 		}

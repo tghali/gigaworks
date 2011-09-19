@@ -15,25 +15,46 @@
     / second slide start
     .home_technology_header
       %h4 TECHNOLOGY
-      %img{:width=> "301", :height => "351", :src => "/images/frontend/music.png"}
+      - if get_banner('banner_one','image')
+        = get_banner('banner_one','image')
+      - else
+        %img{:width=> "301", :height => "351", :src => "/images/frontend/music.png"}
       %p
-        %span.headtext The technologies which have had the most profound effects on human life are usually simple.
+        %span.headtext
+          - if get_banner('banner_one','title')
+            = get_banner('banner_one','title')
+          - else
+            The technologies which have had the most profound effects on human life are usually simple.
         %span.clientname William Plomer, Writer
     / second slide end
     / third slide start
     .home_language_header
       %h4 languages
-      %img{:width=> "389", :height => "351", :src => "/images/frontend/feather.png"}
+      - if get_banner('banner_two','image')
+        = get_banner('banner_two','image')
+      - else
+        %img{:width=> "389", :height => "351", :src => "/images/frontend/feather.png"}
       %p
-        %span.headtext If you talk to a man in a language he understands, that goes to his head.  If you talk to him in his language, that goes to his heart.
+        %span.headtext
+          - if get_banner('banner_two','title')
+            = get_banner('banner_two','title')
+          - else
+            If you talk to a man in a language he understands, that goes to his head.  If you talk to him in his language, that goes to his heart.
         %span.clientname William Plomer, Writer
     / third slide start
     / fourth slide start
     .home_create_header
       %h4 creativity
-      %img{:width=> "389", :height => "351", :src => "/images/frontend/camera.png"}
+      - if get_banner('banner_three','image')
+        = get_banner('banner_three','image')
+      - else
+        %img{:width=> "389", :height => "351", :src => "/images/frontend/camera.png"}
       %p
-        %span.headtext Creativity is the power to connect the seemingly unconnected.
+        %span.headtext
+          - if get_banner('banner_three','title')
+            = get_banner('banner_three','title')
+          - else
+            Creativity is the power to connect the seemingly unconnected.
         %span.clientname William Plomer, Writer
     / fourth slide end
   / "next slide" button
