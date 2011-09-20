@@ -4,9 +4,21 @@
   	jQuery(".div_li_tab").click(function () {
   		tab_id = jQuery(this).find("a").attr('id');
   		jQuery(".tabdiv_new").hide();
+    exist_one = jQuery(".selettab").attr("id");
+    jQuery("#"+exist_one).removeClass("selettab");
+    jQuery(this).find("a").addClass("selettab");
+  		document.getElementById("tab"+tab_id).style.display='block';
+				
+  		//jQuery("#tab"+tab_id).show("slow");
+  	});
+
+  	jQuery("#2").click(function () {
+  		tab_id = jQuery(this).find("a").attr('id');
+  		jQuery(".tabdiv_new").hide();
   		document.getElementById("tab"+tab_id).style.display='block';
   		//jQuery("#tab"+tab_id).show("slow");
-  	});   
+  	});
+   
   });
 
 #lang_trans_wrapper
@@ -28,7 +40,10 @@
         .lp_navigation
           %ul
             %li
-              %a.current{:href => "#"} Translation
+              - if params[:action] == 'language_translation'
+                %a.current{:href => "#"} Translation
+              - else
+                %a{:href => "/language_tanslation"} Translation												
             %li
               %a{:href => "#"} Localisation
             %li
@@ -108,13 +123,13 @@
               %p
                 Our technical translators have a professional background in the fields they specialise in, so you can be sure that their work will be accurate and easily understood by a specialist audience.
             #tab2.tabdiv_new{:style => "display:none"}
-              %p Content2
+              %p MEDICAL
             #tab3.tabdiv_new{:style => "display:none"}
-              %p Content3
+              %p MARKETING & BUSINESS
             #tab4.tabdiv_new{:style => "display:none"}
-              %p Content4
+              %p LITERARY
             #tab5.tabdiv_new{:style => "display:none"}
-              %p Content5
+              %p LEGAL
         .topspace  
       / right block end
   / content block end
