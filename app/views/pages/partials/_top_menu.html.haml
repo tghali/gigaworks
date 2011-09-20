@@ -1,7 +1,7 @@
 %div
   #sample4.sampleTabContent
     %ul#sample-menu-4.sf-menu.sf-navbar
-      - if params[:action] == 'languages_new'
+      - if params[:action] == 'languages_new' || params[:action] == 'language_translation'
         %li.current
           %a.sf-with-ul{:href => "/languages"}
             Languages
@@ -102,7 +102,7 @@
           %li.sub_nav
             %a{:href => "#"} Projects
 
-      - if params[:action] == 'network_land'
+      - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current
           %a.sf-with-ul{:href => "/network",:style => "padding-right:0px!important;"}
             Network

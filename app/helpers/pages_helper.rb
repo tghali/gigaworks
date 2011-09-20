@@ -88,14 +88,23 @@ module PagesHelper
     end
   end
 
- def get_banner(banner_count,option)
+def get_banner(banner_count,option)
     banner = FrontendPage.find_by_page_section(banner_count) 
     if option == 'title'
     return banner.title if !banner.blank?
    elsif option == 'image' 
-     banner.image.url(:original) if !banner.blank? && !banner.image_file_name.blank?
+             if banner
+                   if !banner.image_file_name.blank?
+                    banner.image.url(:original)
+                   else
+                      return ""
+                   end 
+            else
+              return ""
+            end      
    end
  end
+
 
 
   def get_news(tab_type)

@@ -16,12 +16,12 @@
     .home_technology_header
       %h4 TECHNOLOGY
       - if !get_banner('banner_one','image').blank?
-        = get_banner('banner_one','image')
+        = image_tag get_banner('banner_one','image')
       - else
         %img{:width=> "301", :height => "351", :src => "/images/frontend/music.png"}
       %p
         %span.headtext
-          - if !get_banner('banner_one','title').blank?
+          - if get_banner('banner_one','title')
             = get_banner('banner_one','title')
           - else
             The technologies which have had the most profound effects on human life are usually simple.
@@ -31,12 +31,13 @@
     .home_language_header
       %h4 languages
       - if !get_banner('banner_two','image').blank?
-        = get_banner('banner_two','image')
+        = image_tag get_banner('banner_two','image')
       - else
+
         %img{:width=> "389", :height => "351", :src => "/images/frontend/feather.png"}
       %p
         %span.headtext
-          - if !get_banner('banner_two','title').blank?
+          - if get_banner('banner_two','title')
             = get_banner('banner_two','title')
           - else
             If you talk to a man in a language he understands, that goes to his head.  If you talk to him in his language, that goes to his heart.
@@ -46,12 +47,12 @@
     .home_create_header
       %h4 creativity
       - if !get_banner('banner_three','image').blank?
-        = get_banner('banner_three','image')
+        = image_tag get_banner('banner_three','image')
       - else
         %img{:width=> "389", :height => "351", :src => "/images/frontend/camera.png"}
       %p
         %span.headtext
-          - if !get_banner('banner_three','title').blank?
+          - if get_banner('banner_three','title')
             = get_banner('banner_three','title')
           - else
             Creativity is the power to connect the seemingly unconnected.

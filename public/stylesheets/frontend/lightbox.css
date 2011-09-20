@@ -82,6 +82,7 @@ body {
         -moz-box-shadow:  rgba(0,0,0,.6) 0px 1px 2px;
 		border-radius: 6px;
 		border: 1px solid #cbccd1;
+		resize: none;
     }
     
     .see_id {
