@@ -4,7 +4,7 @@ class FrontendPage < ActiveRecord::Base
   has_attached_file :image,
     :storage => :s3,    
     :styles => {  :thumb => "100x100>",
-    :preview => "400x400>"},    
+    :preview => "400x400>", :medium => "389x351#"},    
     :s3_credentials => "#{RAILS_ROOT}/config/amazon_s3.yml",
      :path =>  "/frontend/:id/:style.:extension" ,
     :bucket => 'Mawhiba'   
