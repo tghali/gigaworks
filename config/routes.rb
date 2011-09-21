@@ -267,7 +267,8 @@ Gigavine::Application.routes.draw do
     get '/network/featured'=> 'pages#network_featured' 
 
     get '/languages/translation'=> 'pages#language_translation'   
-
+    get '/creative/artwork' => 'pages#creative_work'    
+    
     get '/submenu'=> 'pages#submenu'
     post '/home_create' => 'pages#home_create'    
     post '/language_create' => 'pages#language_create'
