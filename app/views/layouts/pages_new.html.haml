@@ -187,9 +187,9 @@
     = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form1",:multipart => :true} do |f|
       = f.hidden_field :page_section,  :value => "banner_one"
       %label
-        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 2:
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Languages:
         = f.text_area :title, :style => "width:600px;height:200px;", :value => get_banner('banner_one','title')
-        %input{:type=>"file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+        %input{:type => "file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %p.clearspace  
       %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}
@@ -197,9 +197,9 @@
     = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form2",:multipart => :true} do |f|
       = f.hidden_field :page_section,  :value => "banner_two"
       %label
-        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 3:
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Creative:
         = f.text_area :title, :style => "width:600px;height:200px;", :value => get_banner('banner_two','title')
-        %input{:type=>"file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+        %input{:type => "file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %p.clearspace  
       %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}				
@@ -207,9 +207,9 @@
     = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form3",:multipart => :true} do |f|
       = f.hidden_field :page_section,  :value => "banner_three"
       %label
-        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Banner 4:
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Technology:
         = f.text_area :title, :style => "width:600px;height:200px;", :value => get_banner('banner_three','title')
-        %input{:type=>"file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
+        %input{:type => "file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %p.clearspace  
       %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}				
@@ -219,3 +219,4 @@
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close
+
