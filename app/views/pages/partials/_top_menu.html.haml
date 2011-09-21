@@ -66,14 +66,14 @@
               %a{:href => "#"} Copywriting
             %li.sub_nav
               %a{:href => "#"} Interactive
-      - if params[:action] == 'technology_new'
+      - if params[:action] == 'technology_new' || params[:action] == 'technology_learning'
         %li.current
           %a.sf-with-ul{:href => "/technology"}
             Technology
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "#"} E-Learning 
+              %a{:href => "/technology/e-learning"} E-Learning 
             %li.sub_nav
               %a{:href => "#"} E-Commerce 
             %li.sub_nav
@@ -87,7 +87,7 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "#"} E-Learning 
+              %a{:href => "/technology/e-learning"} E-Learning 
             %li.sub_nav
               %a{:href => "#"} E-Commerce 
             %li.sub_nav
