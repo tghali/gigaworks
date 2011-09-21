@@ -1,4 +1,25 @@
+:javascript
+  jQuery.noConflict();
+  jQuery(document).ready(function(){ 
+  	jQuery(".div_li_tab").click(function () {
+  		tab_id = jQuery(this).find("a").attr('id');
+  		jQuery(".tabdiv_new").hide();
+    exist_one = jQuery(".selettab").attr("id");
+    jQuery("#"+exist_one).removeClass("selettab");
+    jQuery(this).find("a").addClass("selettab");
+  		document.getElementById("tab"+tab_id).style.display='block';
+				
+  		//jQuery("#tab"+tab_id).show("slow");
+  	});
 
+  	jQuery("#2").click(function () {
+  		tab_id = jQuery(this).find("a").attr('id');
+  		jQuery(".tabdiv_new").hide();
+  		document.getElementById("tab"+tab_id).style.display='block';
+  		//jQuery("#tab"+tab_id).show("slow");
+  	});
+   
+  });
 #create_wrapper
   / Header
   #trans-wrapper{:style => "position:relative;z-index:1"}
