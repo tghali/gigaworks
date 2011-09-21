@@ -150,7 +150,10 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-with-ul li a{
 color:#fff!important;
 }
-.sf-menu li a span.languagesclass{
+.sf-menu li a span.languagesclass,
+.sf-menu li a span.featuredclass,
+.sf-menu li a span.creativeclass,
+.sf-menu li a span.techclass{
 font-size:14px;
 font-weight:bold;
 padding:5px 5px 5px 5px;
@@ -158,8 +161,17 @@ background-color:#b8516c;
 }
 
 .sf-menu li a span.featuredclass{
-font-size:14px;
-font-weight:bold;
-padding:5px 5px 5px 5px;
+
 background-color:#55b6b3;
+}
+
+.sf-menu li a span.creativeclass{
+
+background-color:#0C85CE;
+}
+
+
+.sf-menu li a span.techclass{
+
+background-color:#9EB121;
 }

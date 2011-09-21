@@ -45,7 +45,12 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "/creative/artwork"} Artwork
+              %a{:href => "/creative/artwork"}
+                - if params[:action] == 'creative_work'
+                  %span.creativeclass Artwork					
+                - else
+                  Artwork																			
+
             %li.sub_nav
               %a{:href => "#"} Webdesign
             %li.sub_nav
@@ -59,7 +64,13 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "/creative/artwork"} Artwork
+              %a{:href => "/creative/artwork"}
+                - if params[:action] == 'creative_work'
+                  %span.creativeclass Artwork					
+                - else
+                  Artwork																			
+														
+														 
             %li.sub_nav
               %a{:href => "#"} Webdesign
             %li.sub_nav
@@ -73,7 +84,12 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "/technology/e-learning"} E-Learning 
+              %a{:href => "/technology/e-learning"}
+                - if params[:action] == 'technology_learning'
+                  %span.techclass E-Learning					
+                - else
+                  E-Learning																
+														  
             %li.sub_nav
               %a{:href => "#"} E-Commerce 
             %li.sub_nav
@@ -87,7 +103,11 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "/technology/e-learning"} E-Learning 
+              %a{:href => "/technology/e-learning"}
+                - if params[:action] == 'technology_learning'
+                  %span.techclass E-Learning					
+                - else
+                  E-Learning			
             %li.sub_nav
               %a{:href => "#"} E-Commerce 
             %li.sub_nav
