@@ -38,14 +38,14 @@
               %a{:href => "#"} Consultancy
             %li.sub_nav
               %a{:href => "#"} Online Tools
-      - if params[:action] == 'creative_new'
+      - if params[:action] == 'creative_new' || params[:action] == 'creative_work'
         %li.current
           %a.sf-with-ul{:href => "/creative"}
             Creative
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "#"} Artwork
+              %a{:href => "/creative/artwork"} Artwork
             %li.sub_nav
               %a{:href => "#"} Webdesign
             %li.sub_nav
@@ -59,7 +59,7 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "#"} Artwork
+              %a{:href => "/creative/artwork"} Artwork
             %li.sub_nav
               %a{:href => "#"} Webdesign
             %li.sub_nav

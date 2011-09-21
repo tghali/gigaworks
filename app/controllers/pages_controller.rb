@@ -38,6 +38,10 @@ class PagesController < ActionController::Base
     	   render :layout => 'pages_new'
   end    
  
+   def creative_work
+    render :layout => 'pages_new'
+  end
+ 
  def technology_new
    render :layout => 'pages_new'
  end

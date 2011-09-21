@@ -1609,10 +1609,20 @@ clear:both;
 
 
 /*-------------------------------------Languages Translation Content-----------------------------------------------*/
-#lang_trans_wrapper{
+
+#lang_trans_wrapper, #create_wrapper, #tech_wrapper, #net_wrapper{
 width:100%;
 height:auto;
 background:url(/images/frontend/inner_trans_bg.jpg) repeat-x;
+}
+#create_wrapper{
+background:url(/images/frontend/inner_create_bg.jpg) repeat-x;
+}
+#tech_wrapper{
+background:url(/images/frontend/tech_learning_bg.jpg) repeat-x;
+}
+#net_wrapper{
+background:url(/images/frontend/net_featured_bg.jpg) repeat-x;
 }
 #trans-wrapper{
 height:214px;
@@ -1628,7 +1638,7 @@ margin:0px auto;
 position:relative;	z-index:100;
 }
 
-.trans-header{
+.trans-header, .create-header, .tech-header, .net-header{
 	width:100%;
 	height:152px;
 	margin:-12px auto;
@@ -1636,23 +1646,42 @@ position:relative;	z-index:100;
 	top:-140px;
 	background:url(/images/frontend/trans_header.jpg) no-repeat center bottom;
 	}
-.trans_headding{
+	
+.create-header{background:url(/images/frontend/work_header.jpg) no-repeat center bottom;}
+.tech-header{background:url(/images/frontend/learn_header.jpg) no-repeat center bottom;}
+.net-header{background:url(/images/frontend/featured_header.jpg) no-repeat center bottom;}
+.trans_headding, .work_headding, .tech_headding{
 width:964px;
 height:65px;
 }	
-.trans_headding h4{
+.trans_headding h4, .work_headding h4, .tech_headding h4, .net_headding h4{
 color:#fff;
 text-align:left;
 font:32px/65px Gotham;
 text-indent:22px;
-text-transform:uppercase;
+text-transform:uppercase
 }
-.trans_headding h4 span{
+.trans_headding h4 span, .work_headding h4 span, .tech_headding h4 span, .net_headding h4 span{
 color:#63030f;
 text-align:left;
 font:32px/65px Gotham;
 text-indent:22px;
 }
+.work_headding h4 span{
+color:#03507d;
+}
+.tech_headding h4 span{
+color:#4b7a25;
+}
+.net_headding h4 span{
+color:#036361;
+}
+/* end */
+
+
+
+
+
 #trance_midcontent{
 width:936px;
 height:auto;

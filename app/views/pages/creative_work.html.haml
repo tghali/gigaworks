@@ -1,0 +1,117 @@
+
+#create_wrapper
+  / Header
+  #trans-wrapper{:style => "position:relative;z-index:1"}
+    #trans-main
+      = render :partial => "/pages/partials/inner_pages"
+      .work_headding
+        %h4
+          %span CREATIVE /
+          Artwork
+    .create-header  
+  / Headerend
+  / content block start
+  #lp_content{:style => "position:relative;"}
+    #trance_midcontent
+      / left block start
+      .lp_leftblock
+        .lp_navigation
+          %ul
+            %li
+              - if params[:action] == 'creative_work'
+                %a.current{:href => "#"} Artwork
+              - else
+                %a{:href => "/creative/artwork"} Artwork												
+            %li
+              %a{:href => "#"} Webdesign
+            %li
+              %a{:href => "#"} Copywriting
+            %li
+              %a{:href => "#"} Interactive
+        / submit block start
+        #language_get
+          %h4 Get an estimate
+          .get_inner
+            .get_leftcorner
+              %span
+            .get_bg
+              .get_bg_inner
+                %p
+                  %span Source language
+                  %select
+                    %option Select
+                .clear{:style => "#height:20px;"}
+                %p
+                  %span Target language
+                  %select
+                    %option Select
+                .clear{:style => "#height:20px;"}
+                %div
+                  %p.count
+                    %span.getname Word count
+                    %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;"}
+                  %p.count1
+                    %span.getname or
+                  %p.count{:style => "float:right!important;"}
+                    %span.getname Page count
+                    %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;"}
+                %p{:style => "#height:20px; margin:15px 0px 0px 0px; #margin:34px 0px 0px 0px;"}
+                  %span
+                %p{:style => "height:auto!important;  margin:0px; padding:0px;"}
+                  %span Requirements
+                %p.checkbox_block
+                  .checkbox
+                    %input{:type => "checkbox"} Translation
+                  .checkbox{:style => "width:80px;"}
+                    %input{:type => "checkbox"} Design
+                  .checkbox
+                    %input{:type => "checkbox"} Localisation
+                %p.estimate
+                  %span Estimate
+                %div
+                  .count_number $0,00
+                  .count_btn calculate
+            .get_rightcorner
+              %span
+        / submit block end
+      / left block end
+      / right block start
+      .lp_rightblock
+        %p.headding_text Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
+        %p At Gigavine we use only native speakers for our translation services, as this is the only way can we guarantee the correct nuances. The goal is to make the material sound as though it was originally written in that language, with no sense of strangeness or distance.
+        %p In addition, our translators have specialist knowledge in many different fields. This means we can offer high quality certified translations of official documents, including legal, medical, marketing and business documents, as well as translations of literary works, including TV, film and theatre productions.
+        %p We approach all our translation with a great deal of caution, care and confidentiality, and the process includes review, revision and proofing of documents for any spelling or grammatical errors, cultural and technical consistency, and formatting. We also offer pure proof-reading services in many different languages, picking up on general issues or looking for particular issues that you brief us on.
+        .inner_tabing
+          .content_tab
+            %ul
+              %li.div_li_tab
+                %a#1.selettab{:href => "javascript://"} TECHNICAL
+              %li.div_li_tab
+                %a#2{:href => "javascript://"} MEDICAL
+              %li.div_li_tab
+                %a#3{:href => "javascript://"} MARKETING & BUSINESS
+              %li.div_li_tab
+                %a#4{:href => "javascript://"} LITERARY
+              %li.div_li_tab
+                %a#5{:href => "javascript://"} LEGAL
+          %div
+            #tab1.tabdiv_new
+              %p Scientific papers, technical manuals, contracts and proposals, software documentation, data sheets, terms and conditions &ndash;  we offer technical translation services that cover all these materials and more.
+              .clear  
+              %p
+                Our technical translators have a professional background in the fields they specialise in, so you can be sure that their work will be accurate and easily understood by a specialist audience.
+            #tab2.tabdiv_new{:style => "display:none"}
+              %p MEDICAL
+            #tab3.tabdiv_new{:style => "display:none"}
+              %p MARKETING & BUSINESS
+            #tab4.tabdiv_new{:style => "display:none"}
+              %p LITERARY
+            #tab5.tabdiv_new{:style => "display:none"}
+              %p LEGAL
+        .topspace  
+      / right block end
+  / content block end
+  .topspace  
+  / footer block start
+
+  / footer block end
