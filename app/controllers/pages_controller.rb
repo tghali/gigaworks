@@ -45,6 +45,11 @@ class PagesController < ActionController::Base
  def technology_new
    render :layout => 'pages_new'
  end
+ 
+ def technology_learning
+   render :layout => 'pages_new'
+ end 
+  
   
    def network_land
 	 render :layout => 'pages_new'
