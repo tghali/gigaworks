@@ -266,6 +266,12 @@ Gigavine::Application.routes.draw do
     get '/network/featured'=> 'pages#network_featured' 
 
     get '/languages/translation'=> 'pages#language_translation'   
+    get '/languages/localisation' => 'pages#language_localisation'
+    get '/languages/consultancy' => 'pages#language_consultancy'
+    get '/languages/online-tools' => 'pages#language_tools'    
+    
+    
+    
     get '/creative/artwork' => 'pages#creative_work'   
     get '/technology/e-learning' => 'pages#technology_learning'      
     

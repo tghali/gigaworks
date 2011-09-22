@@ -33,7 +33,25 @@ class PagesController < ActionController::Base
     @page_title = "Gigavine - Languages - Translation"
      render :layout => 'pages_new'
   end    
-    
+ 
+   def language_localisation
+    @page_title = "Gigavine - Languages - Localisation"
+     render :layout => 'pages_new'
+   end    
+
+  def language_consultancy
+    @page_title = "Gigavine - Languages - Consultancy"
+     render :layout => 'pages_new'
+  end    
+   
+  def language_tools
+    @page_title = "Gigavine - Languages - Online Tools"
+     render :layout => 'pages_new'
+  end    
+
+
+
+
   def creative_new
         @page_title = "Gigavine - Creative"
     	   render :layout => 'pages_new'
