@@ -65,7 +65,7 @@
                   %span.languagesclass Online Tools					
                 - else
                   Online Tools	
-      - if params[:action] == 'creative_new' || params[:action] == 'creative_work'
+      - if params[:action] == 'creative_new' || params[:action] == 'creative_work' || params[:action] == 'creative_design' || params[:action] == 'creative_writing' || params[:action] == 'creative_interactive' 
         %li.current
           %a.sf-with-ul{:href => "/creative"}
             Creative
@@ -79,11 +79,26 @@
                   Artwork																			
 
             %li.sub_nav
-              %a{:href => "#"} Webdesign
+              %a{:href => "/creative/webdesign"}
+                - if params[:action] == 'creative_design'
+                  %span.creativeclass Webdesign					
+                - else
+                  Webdesign		
+
             %li.sub_nav
-              %a{:href => "#"} Copywriting 
+              %a{:href => "/creative/copywriting"}
+                - if params[:action] == 'creative_writing'
+                  %span.creativeclass Copywriting					
+                - else
+                  Copywriting		
+
             %li.sub_nav
-              %a{:href => "#"} Interactive
+              %a{:href => "/creative/interactive"}
+                - if params[:action] == 'creative_interactive'
+                  %span.creativeclass Interactive					
+                - else
+                  Interactive		
+
       - else
         %li
           %a.sf-with-ul{:href => "/creative"}
@@ -96,14 +111,27 @@
                   %span.creativeclass Artwork					
                 - else
                   Artwork																			
-														
-														 
+
             %li.sub_nav
-              %a{:href => "#"} Webdesign
+              %a{:href => "/creative/webdesign"}
+                - if params[:action] == 'creative_design'
+                  %span.creativeclass Webdesign					
+                - else
+                  Webdesign		
+
             %li.sub_nav
-              %a{:href => "#"} Copywriting
+              %a{:href => "/creative/copywriting"}
+                - if params[:action] == 'creative_writing'
+                  %span.creativeclass Copywriting					
+                - else
+                  Copywriting		
+
             %li.sub_nav
-              %a{:href => "#"} Interactive
+              %a{:href => "/creative/interactive"}
+                - if params[:action] == 'creative_interactive'
+                  %span.creativeclass Interactive					
+                - else
+                  Interactive		
       - if params[:action] == 'technology_new' || params[:action] == 'technology_learning'
         %li.current
           %a.sf-with-ul{:href => "/technology"}
