@@ -273,6 +273,13 @@ Gigavine::Application.routes.draw do
     
     
     get '/creative/artwork' => 'pages#creative_work'   
+    get '/creative/webdesign' => 'pages#creative_design'
+    get '/creative/copywriting' => 'pages#creative_writing'
+    get '/creative/interactive' => 'pages#creative_interactive'        
+    
+    
+    
+    
     get '/technology/e-learning' => 'pages#technology_learning'      
     
     get '/submenu'=> 'pages#submenu'

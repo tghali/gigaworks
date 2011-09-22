@@ -62,6 +62,24 @@ class PagesController < ActionController::Base
      render :layout => 'pages_new'
   end
  
+   def creative_design
+    @page_title = "Gigavine - Creative - Webdesign"
+    render :layout => 'pages_new'
+  end
+
+  def creative_writing
+    @page_title = "Gigavine - Creative - Copywriting"
+    render :layout => 'pages_new'
+  end
+
+  def creative_interactive
+    @page_title = "Gigavine - Creative - Interactive"
+    render :layout => 'pages_new'
+  end
+
+ 
+ 
+ 
  def technology_new
    @page_title = "Gigavine - Technology"
    render :layout => 'pages_new'
