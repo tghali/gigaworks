@@ -132,7 +132,7 @@
                   %span.creativeclass Interactive					
                 - else
                   Interactive		
-      - if params[:action] == 'technology_new' || params[:action] == 'technology_learning'
+      - if params[:action] == 'technology_new' || params[:action] == 'technology_learning' || params[:action] == 'technology_commerce' || params[:action] == 'technology_secure' || params[:action] == 'technology_dms' 
         %li.current
           %a.sf-with-ul{:href => "/technology"}
             Technology
@@ -143,14 +143,27 @@
                 - if params[:action] == 'technology_learning'
                   %span.techclass E-Learning					
                 - else
-                  E-Learning																
-														  
+                  E-Learning			
             %li.sub_nav
-              %a{:href => "#"} E-Commerce 
+              %a{:href => "/technology/e-commerce"}
+                - if params[:action] == 'technology_commerce'
+                  %span.techclass E-Commerce					
+                - else
+                  E-Commerce			
+
             %li.sub_nav
-              %a{:href => "#"} Online Security  
+              %a{:href => "/technology/online-security"}
+                - if params[:action] == 'technology_secure'
+                  %span.techclass Online Security					
+                - else
+                  Online Security			
+  
             %li.sub_nav
-              %a{:href => "#"} Dms 
+              %a{:href => "/technology/dms"}
+                - if params[:action] == 'technology_dms'
+                  %span.techclass DMS					
+                - else
+                  DMS			
       - else
         %li
           %a.sf-with-ul{:href => "/technology"}
@@ -164,11 +177,26 @@
                 - else
                   E-Learning			
             %li.sub_nav
-              %a{:href => "#"} E-Commerce 
+              %a{:href => "/technology/e-commerce"}
+                - if params[:action] == 'technology_commerce'
+                  %span.techclass E-Commerce					
+                - else
+                  E-Commerce			
+
             %li.sub_nav
-              %a{:href => "#"} Online Security  
+              %a{:href => "/technology/online-security"}
+                - if params[:action] == 'technology_secure'
+                  %span.techclass Online Security					
+                - else
+                  Online Security			
+  
             %li.sub_nav
-              %a{:href => "#"} Dms 
+              %a{:href => "/technology/dms"}
+                - if params[:action] == 'technology_dms'
+                  %span.techclass DMS					
+                - else
+                  DMS			
+          
       %li
         %a.sf-with-ul{:href => "#"}
           Projects

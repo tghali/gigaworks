@@ -281,7 +281,10 @@ Gigavine::Application.routes.draw do
     
     
     
-    get '/technology/e-learning' => 'pages#technology_learning'      
+    get '/technology/e-learning' => 'pages#technology_learning'
+    get '/technology/e-commerce' => 'pages#technology_commerce'     
+    get '/technology/online-security' => 'pages#technology_secure' 
+    get '/technology/dms' => 'pages#technology_dms'     
     
     get '/submenu'=> 'pages#submenu'
     post '/home_create' => 'pages#home_create'    
