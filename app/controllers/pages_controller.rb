@@ -89,7 +89,21 @@ class PagesController < ActionController::Base
     @page_title = "Gigavine - Technology - E-Learning"
    render :layout => 'pages_new'
  end 
+
+ def technology_commerce
+   @page_title = "Gigavine - Technology - E-Commerce"
+   render :layout => 'pages_new'
+ end
   
+  def technology_secure
+   @page_title = "Gigavine - Technology - Online Security"
+   render :layout => 'pages_new'
+ end
+ 
+  def technology_dms
+   @page_title = "Gigavine - Technology - DMS"
+   render :layout => 'pages_new'
+ end
   
    def network_land
 	 render :layout => 'pages_new'
