@@ -1,7 +1,7 @@
 %div
   #sample4.sampleTabContent
     %ul#sample-menu-4.sf-menu.sf-navbar
-      - if params[:action] == 'languages_new' || params[:action] == 'language_translation'
+      - if params[:action] == 'languages_new' || params[:action] == 'language_translation' || params[:action] == 'language_localisation' || params[:action] == 'language_consultancy' || params[:action] == 'language_tools'
         %li.current
           %a.sf-with-ul{:href => "/languages"}
             Languages
@@ -15,11 +15,25 @@
                   Translation		
                 
             %li.sub_nav
-              %a{:href => "#"} Localisation
+              %a{:href => "/languages/localisation"}
+                - if params[:action] == 'language_localisation'
+                  %span.languagesclass Localisation					
+                - else
+                  Localisation		
+
             %li.sub_nav
-              %a{:href => "#"} Consultancy
+              %a{:href => "/languages/consultancy"}
+                - if params[:action] == 'language_consultancy'
+                  %span.languagesclass Consultancy					
+                - else
+                  Consultancy		
             %li.sub_nav
-              %a{:href => "#"} Online Tools
+              %a{:href => "/languages/online-tools"}
+                - if params[:action] == 'language_tools'
+                  %span.languagesclass Online Tools					
+                - else
+                  Online Tools	
+
       - else
         %li			
           %a.sf-with-ul{:href => "/languages"}
@@ -33,11 +47,24 @@
                 - else
                   Translation		
             %li.sub_nav
-              %a{:href => "#"} Localisation
+              %a{:href => "/languages/localisation"}
+                - if params[:action] == 'language_localisation'
+                  %span.languagesclass Localisation					
+                - else
+                  Localisation		
+
             %li.sub_nav
-              %a{:href => "#"} Consultancy
+              %a{:href => "/languages/consultancy"}
+                - if params[:action] == 'language_consultancy'
+                  %span.languagesclass Consultancy					
+                - else
+                  Consultancy		
             %li.sub_nav
-              %a{:href => "#"} Online Tools
+              %a{:href => "/languages/online-tools"}
+                - if params[:action] == 'language_tools'
+                  %span.languagesclass Online Tools					
+                - else
+                  Online Tools	
       - if params[:action] == 'creative_new' || params[:action] == 'creative_work'
         %li.current
           %a.sf-with-ul{:href => "/creative"}
