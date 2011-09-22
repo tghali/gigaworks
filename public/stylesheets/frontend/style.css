@@ -859,12 +859,17 @@ color:#858585;
 position:relative;
 top:-2px;
 }
+.checkbox span.trans_space{
+#padding:0px 0px 0px 5px;
+#position:relative;
+#top:5px;
+}
 .checkbox input[type="checkbox"]{
 position:relative;
 top:2px;
-width:10px;
-height:10px;
-border:1px solid #8e8f8f;
+width:15px;
+height:15px;
+/*border:1px solid #8e8f8f;*/
 }
 .checkbox_block{ margin:25px 0px 0px 0px;height:auto!important;}
 .estimate{
@@ -1677,6 +1682,8 @@ color:#4b7a25;
 color:#036361;
 }
 /* end */
+
+
 
 
 
