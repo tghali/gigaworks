@@ -19,16 +19,44 @@
     .topframe
       /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
 
-      .subframe
-        %ul
+      .subframe.suckertreemenu
+        %ul{:id => "treemenu1"}
           %li
             %a{:href => "#", :id => "home_new"} HOME
           %li
             %a{:href => "#", :id => "languages_new"} LANGUAGES
+            %ul{:style=>"margin-left:85px;"}
+              %li
+                %a{:href => "#", :title => "Translation"} Translation
+              %li
+                %a{:href => "#", :title => "Localisation"} Localisation
+              %li
+                %a{:href => "#", :title => "Consultancy"} Consultancy
+              %li
+                %a{:href => "#", :title => "Online Tools"} Online Tools
+
           %li
             %a{:href => "#", :id => "creative_new"} CREATIVE
+            %ul{:style=>"margin-left:180px;"}
+              %li
+                %a{:href => "#", :title => "Artwork"} Artwork
+              %li
+                %a{:href => "#", :title => "Webdesign"} Webdesign
+              %li
+                %a{:href => "#", :title => "Copywriting"} Copywriting
+              %li
+                %a{:href => "#", :title => "Interactive"} Interactive
           %li
             %a{:href => "#", :id => "technology_new"} TECHNOLOGY
+            %ul{:style=>"margin-left:300px;"}
+              %li
+                %a{:href => "#", :title => "E-Learning"} E-Learning
+              %li
+                %a{:href => "#", :title => "E-Commerce"} E-Commerce
+              %li
+                %a{:href => "#", :title => "Online Security"} Online Security
+              %li
+                %a{:href => "#", :title => "DMS"} DMS
           %li
             %a{:href => "#"} PROJECTS
           %li
