@@ -1,0 +1,80 @@
+/* CSS Document */
+
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+
+.suckertreemenu{
+width:980px;
+margin:0px auto;
+height:30px;
+background:#485963;
+position:relative;
+top:0px;
+left:0px;
+display:block;
+font:12px Arial, Helvetica, sans-serif;
+-webkit-box-shadow: rgba(6,0,0,.6) 0px 2px 12px;
+-moz-box-shadow:  rgba(6,0,0,.6) 0px 2px 12px;
+}
+
+.suckertreemenu ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+}
+
+/*Top level list items*/
+.suckertreemenu ul li{
+width:auto;
+float:left;
+margin:0px;
+color:#fff;
+}
+/*background-color: #F3F3F3;*/ /*overall menu background color*/
+
+
+/*Top level menu link items style*/
+.suckertreemenu ul li a{
+font:12px/30px Arial, Helvetica, sans-serif;
+color:#fff;
+text-decoration:none;
+}
+	
+/*1st sub level menu*/
+.suckertreemenu ul li ul{
+left: 0;
+position: absolute;
+top: lem; /* no need to change, as true value set by script */
+display: block;
+visibility: hidden;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.suckertreemenu ul li ul li{
+display: list-item;
+float: none;
+background-color:#485963;
+}
+
+/*All subsequent sub menu levels offset after 1st level sub menu */
+.suckertreemenu ul li ul li ul{ 
+left: 130px; /* no need to change, as true value set by script */
+top: 0;
+}
+
+/* Sub level menu links style */
+.suckertreemenu ul li ul li a{
+display: block;
+width: 140px; /*width of sub menu levels*/
+color: #fff;
+text-decoration: none;
+border:0px solid #ccc;
+text-align:left;
+/*padding-left:10px;
+padding-right:10px;*/
+}
+
+.suckertreemenu ul li a:hover{
+text-decoration:underline;
+}
