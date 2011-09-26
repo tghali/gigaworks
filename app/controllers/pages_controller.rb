@@ -158,6 +158,20 @@ class PagesController < ActionController::Base
 	 redirect_to :action => "creative_new"
  end
   
+    def technology_create
+	 find_page = FrontendPage.find_by_page_section(params[:technology_page][:page_section])
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:technology_page])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = params[:technology_page][:page_section]
+		@frontend_page.save
+	else
+		find_page.update_attributes(params[:technology_page])
+	end
+	 redirect_to :action => "technology_new"
+ end
+  
+  
     def banner_create
     #~ render :text => params.inspect and return
     
