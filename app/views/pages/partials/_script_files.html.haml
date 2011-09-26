@@ -90,6 +90,16 @@
   }});    
   e.preventDefault();
   });		
+		
+		
+  jQuery('#technology_new').click(function(e) {
+  jQuery("#technology").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#technology").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });	
+
+
 	
   jQuery('#banner_new').click(function(e) {
   jQuery("#banner").lightbox_me({centered: true, onLoad: function() {
