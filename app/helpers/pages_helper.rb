@@ -101,7 +101,17 @@ def get_banner(banner_count,option)
                    end 
             else
               return ""
-            end      
+            end
+  elsif option == 'news' 
+             if banner
+                   if !banner.news.blank?
+                    banner.news
+                   else
+                      return ""
+                   end 
+            else
+              return ""
+            end                      
    end
  end
 

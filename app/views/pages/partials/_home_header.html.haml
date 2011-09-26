@@ -27,7 +27,11 @@
             = get_banner('banner_one','title')
           - else
             If you talk to a man in a language he understands, that goes to his head.  If you talk to him in his language, that goes to his heart.
-        %span.clientname Nelson Mandela
+        %span.clientname
+          - if !get_banner('banner_one','news').blank?
+            = get_banner('banner_one','news')
+          - else
+            Nelson Mandela
     / second slide end
     / third slide start
     .home_create_header
@@ -42,7 +46,11 @@
             = get_banner('banner_two','title')
           - else
             Creativity is the power to connect the seemingly unconnected.
-        %span.clientname William Plomer, Writer
+        %span.clientname
+          - if !get_banner('banner_two','news').blank?
+            = get_banner('banner_two','news')
+          - else
+            William Plomer, Writer
     / third slide end
 
 
@@ -60,7 +68,11 @@
             = get_banner('banner_three','title')
           - else
             The technologies which have had the most profound effects on human life are usually simple.
-        %span.clientname Freeman Dyson, Physicist
+        %span.clientname
+          - if !get_banner('banner_three','news').blank?
+            = get_banner('banner_three','news')
+          - else
+            Freeman Dyson, Physicist
     / fourth slide end
 
   / "next slide" button
