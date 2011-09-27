@@ -51,6 +51,7 @@ padding:0 6px;
 	width:627px;
 	height:95px;
 	float:left;
+	white-space:nowrap;
 	font:27px Gotham,Arial, Helvetica, sans-serif;
 }
 .images_1 div.sub_content p br{font-size:0; line-height:0px;}
