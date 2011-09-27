@@ -15,7 +15,7 @@
   %body
     - if !current_user.blank?
       - @user_type = current_user.class
-      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Admin')       
+      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Client')       
         .topframe
           /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
 
