@@ -19,7 +19,7 @@
         %img.fl_left{:src => "/images/frontend/content-image.png"}
       %p
         - if !get_data('home_create').blank?
-          = truncate(get_data('home_create'),:length => 150)
+          = truncate(raw(get_data('home_create')),:length => 150)
         - else
           Original concepts and compelling designs to capture attention and establish a connection with your audience.
 
@@ -35,7 +35,7 @@
       %p
           
         - if !get_data('home_adapt').blank?
-          = truncate(get_data('home_adapt'),:length => 150)
+          = truncate(raw(get_data('home_adapt')),:length => 150)
         - else
           Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
 
@@ -50,7 +50,7 @@
         %img.fl_left{:src => "/images/frontend/content-image.png"}
       %p
         - if !get_data('home_deliver').blank?
-          = truncate(get_data('home_deliver'),:length => 150)
+          = truncate(raw(get_data('home_deliver')),:length => 150)
         - else
           The technical tools and digital interfaces to carry your communication to the heart of your audience.
 
