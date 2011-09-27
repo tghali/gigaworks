@@ -3,7 +3,7 @@
     %ul#sample-menu-4.sf-menu.sf-navbar
       - if params[:action] == 'languages_new' || params[:action] == 'language_translation' || params[:action] == 'language_localisation' || params[:action] == 'language_consultancy' || params[:action] == 'language_tools'
         %li.current
-          %a.sf-with-ul{:href => "/languages"}
+          %a.sf-with-ul{:href => "/languages", :style=>"color:#aa0c22"}
             Languages
             %span.sf-sub-indicator »
           %ul
@@ -36,7 +36,7 @@
 
       - else
         %li			
-          %a.sf-with-ul{:href => "/languages"}
+          %a.sf-with-ul{:href => "/languages" }
             Languages
             %span.sf-sub-indicator »
           %ul
@@ -67,7 +67,7 @@
                   Online Tools	
       - if params[:action] == 'creative_new' || params[:action] == 'creative_work' || params[:action] == 'creative_design' || params[:action] == 'creative_writing' || params[:action] == 'creative_interactive' 
         %li.current
-          %a.sf-with-ul{:href => "/creative"}
+          %a.sf-with-ul{:href => "/creative" , :style=>"color:#0069a9"}
             Creative
             %span.sf-sub-indicator »
           %ul
@@ -134,7 +134,7 @@
                   Interactive		
       - if params[:action] == 'technology_new' || params[:action] == 'technology_learning' || params[:action] == 'technology_commerce' || params[:action] == 'technology_secure' || params[:action] == 'technology_dms' 
         %li.current
-          %a.sf-with-ul{:href => "/technology"}
+          %a.sf-with-ul{:href => "/technology"  , :style=>"color:#5f9732"}
             Technology
             %span.sf-sub-indicator »
           %ul
@@ -198,16 +198,16 @@
                   DMS			
           
       %li
-        %a.sf-with-ul{:href => "#"}
+        %a.sf-with-ul{:href => "#" }
           Projects
         %span.sf-sub-indicator »
         %ul
           %li.sub_nav
-            %a{:href => "#"} Projects
+            %a{:href => "#" , :style=>"color:#cf641e"} Projects
 
       - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current
-          %a.sf-with-ul{:href => "/network",:style => "padding-right:0px!important;"}
+          %a.sf-with-ul{:href => "/network",:style => "padding-right:0px!important; color:#227671"}
             Network
             %span.sf-sub-indicator »
           %ul
