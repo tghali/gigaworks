@@ -56,7 +56,12 @@ class PagesController < ActionController::Base
         @page_title = "Gigavine - Creative"
     	   render :layout => 'pages_new'
   end    
- 
+
+  def creative_adv
+    @page_title = "Gigavine - Creative - Advertisement"
+    render :layout => 'pages_new'
+  end
+
    def creative_work
      @page_title = "Gigavine - Creative - Artwork"
      render :layout => 'pages_new'

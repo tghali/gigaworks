@@ -273,7 +273,8 @@ Gigavine::Application.routes.draw do
     
     
     
-    get '/creative/artwork' => 'pages#creative_work'   
+    get '/creative/artwork' => 'pages#creative_work'  
+    get '/creative/advertising' => 'pages#creative_adv'        
     get '/creative/webdesign' => 'pages#creative_design'
     get '/creative/copywriting' => 'pages#creative_writing'
     get '/creative/interactive' => 'pages#creative_interactive'        

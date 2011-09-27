@@ -65,7 +65,7 @@
                   %span.languagesclass Online Tools					
                 - else
                   Online Tools	
-      - if params[:action] == 'creative_new' || params[:action] == 'creative_work' || params[:action] == 'creative_design' || params[:action] == 'creative_writing' || params[:action] == 'creative_interactive' 
+      - if params[:action] == 'creative_new' || params[:action] == 'creative_work' || params[:action] == 'creative_design' || params[:action] == 'creative_writing' || params[:action] == 'creative_interactive' || params[:action] == 'creative_adv' 
         %li.current
           %a.sf-with-ul{:href => "/creative" , :style=>"color:#0069a9"}
             Creative
@@ -77,6 +77,14 @@
                   %span.creativeclass Artwork					
                 - else
                   Artwork																			
+
+            %li.sub_nav
+              %a{:href => "/creative/advertising"}
+                - if params[:action] == 'creative_adv'
+                  %span.creativeclass Advertising					
+                - else
+                  Advertising		
+
 
             %li.sub_nav
               %a{:href => "/creative/webdesign"}
@@ -111,6 +119,14 @@
                   %span.creativeclass Artwork					
                 - else
                   Artwork																			
+
+            %li.sub_nav
+              %a{:href => "/creative/advertising"}
+                - if params[:action] == 'creative_adv'
+                  %span.creativeclass Advertising					
+                - else
+                  Advertising	
+
 
             %li.sub_nav
               %a{:href => "/creative/webdesign"}
