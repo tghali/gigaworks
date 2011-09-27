@@ -16,55 +16,58 @@
       </style>
   %body
         
-    .topframe
-      /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
+    - if !current_user.blank?
+      - @user_type = current_user.class
+      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Admin')       
+        .topframe
+          /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
 
-      .subframe.suckertreemenu
-        %ul{:id => "treemenu1"}
-          %li
-            %a{:href => "#", :id => "home_new"} HOME
-          %li
-            %a{:href => "#", :id => "languages_new"} LANGUAGES
-            %ul{:style=>"margin-left:85px;"}
+          .subframe.suckertreemenu
+            %ul{:id => "treemenu1"}
               %li
-                %a{:href => "#", :title => "Translation"} Translation
+                %a{:href => "#", :id => "home_new"} HOME 
               %li
-                %a{:href => "#", :title => "Localisation"} Localisation
-              %li
-                %a{:href => "#", :title => "Consultancy"} Consultancy
-              %li
-                %a{:href => "#", :title => "Online Tools"} Online Tools
+                %a{:href => "#", :id => "languages_new"} LANGUAGES
+                %ul{:style=>"margin-left:85px;"}
+                  %li
+                    %a{:href => "#", :title => "Translation"} Translation
+                  %li
+                    %a{:href => "#", :title => "Localisation"} Localisation
+                  %li
+                    %a{:href => "#", :title => "Consultancy"} Consultancy
+                  %li
+                    %a{:href => "#", :title => "Online Tools"} Online Tools
 
-          %li
-            %a{:href => "#", :id => "creative_new"} CREATIVE
-            %ul{:style=>"margin-left:180px;"}
               %li
-                %a{:href => "#", :title => "Artwork"} Artwork
+                %a{:href => "#", :id => "creative_new"} CREATIVE
+                %ul{:style=>"margin-left:180px;"}
+                  %li
+                    %a{:href => "#", :title => "Artwork"} Artwork
+                  %li
+                    %a{:href => "#", :title => "Webdesign"} Webdesign
+                  %li
+                    %a{:href => "#", :title => "Copywriting"} Copywriting
+                  %li
+                    %a{:href => "#", :title => "Interactive"} Interactive
               %li
-                %a{:href => "#", :title => "Webdesign"} Webdesign
+                %a{:href => "#", :id => "technology_new"} TECHNOLOGY
+                %ul{:style=>"margin-left:300px;"}
+                  %li
+                    %a{:href => "#", :title => "E-Learning"} E-Learning
+                  %li
+                    %a{:href => "#", :title => "E-Commerce"} E-Commerce
+                  %li
+                    %a{:href => "#", :title => "Online Security"} Online Security
+                  %li
+                    %a{:href => "#", :title => "DMS"} DMS
               %li
-                %a{:href => "#", :title => "Copywriting"} Copywriting
+                %a{:href => "#"} PROJECTS
               %li
-                %a{:href => "#", :title => "Interactive"} Interactive
-          %li
-            %a{:href => "#", :id => "technology_new"} TECHNOLOGY
-            %ul{:style=>"margin-left:300px;"}
+                %a{:href => "#"} NETWORK
               %li
-                %a{:href => "#", :title => "E-Learning"} E-Learning
-              %li
-                %a{:href => "#", :title => "E-Commerce"} E-Commerce
-              %li
-                %a{:href => "#", :title => "Online Security"} Online Security
-              %li
-                %a{:href => "#", :title => "DMS"} DMS
-          %li
-            %a{:href => "#"} PROJECTS
-          %li
-            %a{:href => "#"} NETWORK
-          %li
-            %a{:href => "#", :id => "banner_new"} HOME BANNER
-          %li{:style => "float:right;"}
-            %a{:href => "#"} Logout
+                %a{:href => "#", :id => "banner_new"} HOME BANNER
+              %li{:style => "float:right;"}
+                %a{:href => "#"} Logout
 
     
 

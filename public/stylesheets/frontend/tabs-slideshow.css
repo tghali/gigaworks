@@ -44,10 +44,13 @@ padding:0 6px;
 	margin-top:56px;
 	}
 .images_1 div.sub_content p{
-	padding-left:68px;
-	padding-right:30px;
+	/*padding-left:68px;
+	padding-right:30px;*/
 	padding-top:40px;
 	color:#fff;
+	width:627px;
+	height:95px;
+	float:left;
 	font:27px Gotham,Arial, Helvetica, sans-serif;
 }
 .images_1 div.sub_content p br{font-size:0; line-height:0px;}
