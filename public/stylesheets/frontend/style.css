@@ -651,9 +651,33 @@ text-align:left;
 color:#828282;
 font:14px/22px Arial, Helvetica, sans-serif;
 }
-
-
-
+.local_nav{
+margin:0px;
+padding:0px;
+}
+.local_nav ul{
+margin:0px;
+padding:0px;
+list-style-type:none;
+}
+.local_nav li{
+margin:0px 0px 10px 0px;
+padding:0px 0px 0px 17px;
+width:auto;
+font:14px Arial, Helvetica, sans-serif;
+color:#828282;
+background:url(/images/frontend/arrow.png) no-repeat left 2px;
+}
+.local_nav li a{
+margin:0px 0px 10px 0px;
+width:auto;
+font:14px Arial, Helvetica, sans-serif;
+color:#828282;
+text-decoration:none;
+}
+.local_nav li a:hover{
+text-decoration:none;
+}
 .lp_navigation{
 float:left;
 width:296px;
@@ -1743,6 +1767,143 @@ border-left:none!important;
 border-right:1px solid #c9c9c9;
 text-align:left!important;
 }
+
+
+
+
+/* tab big */
+
+
+.content_tabbig{
+width:620px;
+height:32px;
+}
+.content_tabbig ul{
+margin:0px;
+padding:0px;
+list-style-type:none;
+width:620px;
+}
+.content_tabbig li{
+margin:0px;
+padding:0px;
+height:32px;
+width:auto;
+float:left;
+font:bold 12px Gotham;
+}
+.content_tabbig li a{
+text-align:left;
+margin:0px;
+padding:10px 8px 10px 8px;
+font: bold 12px/32px Gotham;
+color:#848d95;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+text-decoration:none;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
+}
+.content_tabbig li a:hover{
+padding:10px 8px 10px 8px;
+font:bold 12px/32px Gotham;
+color:#465561;
+text-decoration:none;
+border-bottom:none!important;
+background:none!important;
+border-left:none!important;
+border-right:1px solid #c9c9c9;
+text-align:left!important;
+}
+.content_tabbig li a.selettab{
+font:bold 12px/32px Gotham;
+color:#465561;
+border-bottom:none!important;
+background:none!important;
+border-left:none!important;
+border-right:1px solid #c9c9c9;
+text-align:left!important;
+}
+
+
+
+/* tab big end */
+
+
+/* tab big1 */
+
+
+.content_tabbig1{
+width:700px;
+height:32px;
+}
+.content_tabbig1 ul{
+margin:0px;
+padding:0px;
+list-style-type:none;
+width:700px;
+}
+.content_tabbig1 li{
+margin:0px;
+padding:0px;
+height:32px;
+width:auto;
+float:left;
+font:bold 12px Gotham;
+}
+.content_tabbig1 li a{
+text-align:left;
+margin:0px;
+padding:10px 5px 10px 5px;
+font: bold 12px/32px Gotham;
+color:#848d95;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+text-decoration:none;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
+}
+.content_tabbig1 li a:hover{
+padding:10px 5px 10px 5px;
+font:bold 12px/32px Gotham;
+color:#465561;
+text-decoration:none;
+border-bottom:none!important;
+background:none!important;
+border-left:none!important;
+border-right:1px solid #c9c9c9;
+text-align:left!important;
+}
+.content_tabbig1 li a.selettab{
+font:bold 12px/32px Gotham;
+color:#465561;
+border-bottom:none!important;
+background:none!important;
+border-left:none!important;
+border-right:1px solid #c9c9c9;
+text-align:left!important;
+}
+
+
+
+/* tab big1 end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .tabdiv_new{
 width:555px;
 height:auto;
