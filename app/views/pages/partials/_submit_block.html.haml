@@ -36,27 +36,69 @@
         #slider
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
-            .title Build an Arabic version of your website for Middle East expansion
+              - if !get_help('help_connect_one','image').blank?
+                = image_tag get_help('help_connect_one','image')
+              - else
+                %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
+            .title
+              - if get_help('help_connect_one','title')
+                = get_help('help_connect_one','title')
+              - else
+                Build an Arabic version of your website for Middle East expansion
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
-            .title Develop a mobile app for 15 territories, in 8 languages
+              - if !get_help('help_connect_two','image').blank?
+                = image_tag get_help('help_connect_two','image')
+              - else
+                %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
+            .title
+              - if get_help('help_connect_two','title')
+                = get_help('help_connect_two','title')
+              - else
+                Develop a mobile app for 15 territories, in 8 languages
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
-            .title Increase your UK sales with a highly effective marketing campaign
+              - if !get_help('help_connect_three','image').blank?
+                = image_tag get_help('help_connect_three','image')
+              - else
+                %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
+            .title
+              - if get_help('help_connect_three','title')
+                = get_help('help_connect_three','title')
+              - else
+                Increase your UK sales with a highly effective marketing campaign
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
-            .title Adapt your annual report for Chinese shareholders
+              - if !get_help('help_connect_four','image').blank?
+                = image_tag get_banner('help_connect_four','image')
+              - else
+                %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
+            .title
+              - if get_help('help_connect_four','title')
+                = get_help('help_connect_four','title')
+              - else
+                Adapt your annual report for Chinese shareholders
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
-            .title Design a new brand identity for your business, suitable for South America
+              - if !get_help('help_connect_five','image').blank?
+                = image_tag get_banner('help_connect_five','image')
+              - else
+                %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
+            .title
+              - if get_help('help_connect_five','title')
+                = get_help('help_connect_five','title')
+              - else
+                Design a new brand identity for your business, suitable for South America
           .product
             .pic
-              %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
-            .title Build a multi-lingual extranet for your global customers
+              - if !get_help('help_connect_six','image').blank?
+                = image_tag get_banner('help_connect_six','image')
+              - else
+                %img{:alt => "?Dell Vostro A860", :height => "113", :src => "/images/frontend/content/1.png", :width => "116"}/
+            .title
+              - if get_help('help_connect_six','title')
+                = get_help('help_connect_six','title')
+              - else
+                Build a multi-lingual extranet for your global customers
         .clear
 / how we help block end
