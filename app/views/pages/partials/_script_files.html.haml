@@ -1,6 +1,6 @@
 = stylesheet_link_tag "frontend/lightbox.css","frontend/style.css","frontend/tabs-slideshow.css","frontend/superfish.css","frontend/superfish-navbar.css","frontend/tabcontent.css","frontend/submenu.css"
 
-= javascript_include_tag "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js"
+= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js"
 
 
 :javascript
@@ -46,6 +46,8 @@
     jQuery(getid).slideDown('slow');
     return false;
     });
+	
+	
   });
     
 :javascript
@@ -66,7 +68,8 @@
   jQuery('#home_page').lightbox_me({centered: true, onLoad: function() { $('#home_page').find('input:first').focus()}});
   jQuery('#languages').lightbox_me({centered: true, onLoad: function() { $('#languages').find('input:first').focus()}});
   jQuery('#creative').lightbox_me({centered: true, onLoad: function() { $('#creative').find('input:first').focus()}});
-  jQuery('#banner').lightbox_me({centered: true, onLoad: function() { $('#creative').find('input:first').focus()}});
+  jQuery('#banner').lightbox_me({centered: true, onLoad: function() { $('#banner').find('input:first').focus()}});
+  jQuery('#how_we_help').lightbox_me({centered: true, onLoad: function() { $('#how_we_help').find('input:first').focus()}});
   }
       
   jQuery('#home_new').click(function(e) {
@@ -106,6 +109,16 @@
   }});    
   e.preventDefault();
   });				
+
+  jQuery('#how_we_help_new').click(function(e) {
+  jQuery("#how_we_help").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#how_we_help").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });			
+		
+		
+		
 		
   jQuery('table tr:nth-child(even)').addClass('stripe');
   });
@@ -133,4 +146,17 @@
   		document.getElementById("tab"+tab_id).style.display='block';
   		//jQuery("#tab"+tab_id).show("slow");
   	});   
+  });
+:javascript
+  jQuery(document).ready(function(){ 
+  jQuery(".sf-with-ul").mouseover(function(){
+  colrid = "#"+jQuery(this).attr("id");
+  Cufon.replace(this, {color: colrid});
+  }); 
+  jQuery(".sf-with-ul").mouseout(function(){
+  if((jQuery(this).parent().attr("class")!= "sfHover sf-breadcrumb") && (jQuery(this).parent().attr("class")!= "sf-breadcrumb")){
+  Cufon.replace(this, {color: '#383839'});
+  }
+
+  });
   });

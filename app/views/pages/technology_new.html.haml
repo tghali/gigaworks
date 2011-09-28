@@ -2,7 +2,6 @@
 :javascript
   Cufon.replace('.sf-navbar li a.current', {color: '#5f9732'});
   Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
-
 #tech_landing_wrapper
   / Header
   #tech-header
@@ -62,11 +61,12 @@
           - if !get_languages('technology_page','title').blank?
             = raw(get_languages('technology_page','title'))
           - else
-            We don&rsquo;t just create the messages, we deliver them. Using an array of cutting edge communications technologies, we build the interfaces and develop the interactions that bring each client’s digital presence alive.
+            We don&#39;t just create the messages, we deliver them. Using an array of cutting edge communications technologies, we build the interfaces and develop the interactions that bring each client&#39;s digital presence alive.
         - if get_languages('technology_page','summary').blank?
-          %p A powerful message that can&rsquo;t reach its audience is wasted, but a technology without engaging content is empty. We bring them together so one can inform the other.
-          %p This is why the applications, digital campaigns and online solutions we build for our clients are highly effective &ndash; because they are focused on delivering effective and meaningful communication. It could be through an ecommerce website or a mobile phone application, a secure server or a CRM system for managing relationships with customers.
-          %p Gigavine offers an integrated team built on a culture of innovation which will pursue and deliver the most effective technical solutions for your requirements: technology to transform communications.
+          %p A powerful message that can&#39;t reach its audience is wasted, but a technology without engaging content is empty. We bring them together so one can inform the other. 
+          %p This is why the applications, digital campaigns and online solutions we build for our clients are highly effective 	&#45; because they are focused on delivering effective and meaningful communication. It could be through an ecommerce website or a mobile phone application, a secure server or a CRM system for managing relationships with customers. 
+          %p Gigavine offers an integrated team built on a culture of innovation which will pursue and deliver the most effective technical solutions for your requirements: technology to transform communications. 
+
         - else
           = raw(get_languages('technology_page','summary'))
       / right block end

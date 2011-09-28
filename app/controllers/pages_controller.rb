@@ -192,6 +192,19 @@ class PagesController < ActionController::Base
 	 redirect_to :action => "home_land"
  end
   
+    def help_connect     
+	 find_page = FrontendPage.find_by_page_section(params[:help_connect][:page_section])
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:help_connect])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = params[:help_connect][:page_section]
+		@frontend_page.save
+	else
+	
+		find_page.update_attributes(params[:help_connect])
+	end
+	 redirect_to :action => "home_land"
+ end
   
   
     def index

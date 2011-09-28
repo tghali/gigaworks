@@ -132,5 +132,22 @@ def get_banner(banner_count,option)
   !frontend_page.blank? ? raw(frontend_page.contact_us) : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat orci congue enim dignissim sit amet porta metus ultrices."
   end
 
+  def get_help(tab_type,option)
+    help_connect = FrontendPage.find_by_page_section(tab_type) 
+    if option == 'title'
+      return help_connect.title if !help_connect.blank?
+    elsif option == 'image' 
+             if help_connect
+                   if !help_connect.image_file_name.blank?
+                    help_connect.image.url(:original)
+                   else
+                      return ""
+                   end 
+            else
+              return ""
+            end  
+    end
+    end
+
 
 end

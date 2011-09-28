@@ -293,7 +293,7 @@ Gigavine::Application.routes.draw do
     post '/creative_create' => 'pages#creative_create'
     post '/technology_create' => 'pages#technology_create'
     post '/banner_create' => 'pages#banner_create'
-
+    post '/help_connect' => 'pages#help_connect'
 
 
     get 'contactus' => 'pages#index'        
