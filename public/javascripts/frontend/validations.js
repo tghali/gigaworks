@@ -54,3 +54,25 @@
 
     return true;
   }	
+		
+		
+	  function tech_validate()
+  {
+
+    var theading = document.getElementById('tech_heading');
+    var tsummary = document.getElementById('tech_summary');
+    if(theading.value == "")
+    {
+      alert('Please enter heading');
+      theading.focus();
+      return false;
+    }
+    if(tsummary.value == "")
+    {
+						alert('Please enter summary');
+      tsummary.focus();
+      return false;
+    }
+    return true;
+  }	
+		

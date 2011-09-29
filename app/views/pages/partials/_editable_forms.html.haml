@@ -142,15 +142,15 @@
   %h3#see_id  TECHNOLOGY
   %br.clear
   %div
-    = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_form"} do |f|
+    = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_form",:onsubmit => "return tech_validate();"} do |f|
       = f.hidden_field :page_section,  :value => "technology_page"
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
-        = f.text_area :title, :style => "width:600px;", :value => get_languages('technology_page','title')
+        = f.text_area :title, :style => "width:600px;",:id => "tech_heading", :value => get_languages('technology_page','title')
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
-        = f.text_area :content, :style => "width:600px;",  :value => get_languages('technology_page','summary')
+        = f.text_area :content, :style => "width:600px;", :id => "tech_summary", :value => get_languages('technology_page','summary')
 
       %p.clearspace  
       %p.send_btn1
@@ -158,9 +158,6 @@
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close
-
-
-
 
 
 
