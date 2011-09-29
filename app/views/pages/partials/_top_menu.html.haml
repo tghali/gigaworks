@@ -148,7 +148,7 @@
                   %span.creativeclass Interactive					
                 - else
                   Interactive		
-      - if params[:action] == 'technology_new' || params[:action] == 'technology_learning' || params[:action] == 'technology_commerce' || params[:action] == 'technology_secure' || params[:action] == 'technology_cms' 
+      - if params[:action] == 'technology_new' || params[:action] == 'technology_learning' || params[:action] == 'technology_commerce' || params[:action] == 'technology_secure' || params[:action] == 'technology_crm' 
         %li.current
           %a#5f9732.sf-with-ul{:href => "/technology"  , :style=>"color:#5f9732"}
             Technology
@@ -175,11 +175,11 @@
                   Online Security			
   
             %li.sub_nav
-              %a{:href => "/technology/cms"}
-                - if params[:action] == 'technology_cms'
-                  %span.techclass CMS					
+              %a{:href => "/technology/crm"}
+                - if params[:action] == 'technology_crm'
+                  %span.techclass CRM					
                 - else
-                  CMS			
+                  CRM			
       - else
         %li
           %a#5f9732.sf-with-ul{:href => "/technology" , :style=>"color:#383839"}
@@ -207,11 +207,11 @@
                   Online Security			
   
             %li.sub_nav
-              %a{:href => "/technology/cms"}
-                - if params[:action] == 'technology_cms'
-                  %span.techclass CMS					
+              %a{:href => "/technology/crm"}
+                - if params[:action] == 'technology_crm'
+                  %span.techclass CRM					
                 - else
-                  CMS			
+                  CRM			
           
       %li
         %a#cf641e.sf-with-ul{:href => "#"  , :style=>"color:#383839"}

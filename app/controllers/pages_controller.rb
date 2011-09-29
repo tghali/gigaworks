@@ -105,8 +105,8 @@ class PagesController < ActionController::Base
    render :layout => 'pages_new'
  end
  
-  def technology_cms
-   @page_title = "Gigavine - Technology - DMS"
+  def technology_crm
+   @page_title = "Gigavine - Technology - CRM"
    render :layout => 'pages_new'
  end
   
