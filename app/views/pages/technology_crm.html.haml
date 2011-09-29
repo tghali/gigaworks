@@ -1,0 +1,111 @@
+
+#tech_wrapper
+  / Header
+  #trans-wrapper{:style => "position:relative;z-index:1"}
+    #trans-main
+      = render :partial => "/pages/partials/inner_pages"
+      .tech_headding
+        %h4
+          %span TECHNOLOGY /
+          CMS
+    .tech-header  
+  / Headerend
+  / content block start
+  #lp_content{:style => "position:relative;"}
+    #trance_midcontent
+      / left block start
+      .lp_leftblock
+        .lp_navigation
+          %ul
+            %li
+
+              %a{:href => "/technology/e-learning"} E-learning												
+            %li
+
+              %a{:href => "/technology/e-commerce"} E-commerce
+
+            %li
+
+              %a{:href => "/technology/online-security"} Online Security		
+
+            %li
+
+              %a.current{:href => "#"} CRM		
+        / submit block start
+        #lp_submit
+          %h4 Submit a brief
+          .lpsub_inner
+            .lpsub_leftcorner
+              %span
+            .lpsub_bg
+              .lpsub_bg_inner
+                %p
+                  %span Name
+                  %input{:type => "text"}/
+                %p
+                  %span Email
+                  %input{:type => "text"}/
+                %p{:style=>"width:200px;"}
+                  %span File
+                  #FileUpload1
+                    %input#BrowserHidden1{:onChange => "getElementById('FileField1').value = getElementById('BrowserHidden1').value;", :size => "4", :type => "file"}
+                      #BrowserVisible1
+                        %input#FileField1{:type => "text", :size => "17"}																		
+                %p.form_btn{ :style=>"float:right; position:relative; top:-80px; right:12px;"}
+                  %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
+            .lpsub_rightcorner
+              %span
+
+        / submit block end
+      / left block end
+      / right block start
+      .lp_rightblock
+        %p{:style=>"margin-top:0px;"} The internet has ushered in an era of truly targeted marketing and responsive, personalised customer service, and CRM systems are the tools that allow you to take full advantage of it.
+        %p Instead of offering you an off&#45;the&#45;shelf product which may have redundant features you&#39;ll never use or could be difficult to integrate with your current systems and website, we develop custom CRM systems to our clients&#39; requirements. This way the system does exactly what you need it to (and what your customers want it to). Your teams will be able to access exactly the information they require at the right time, in the format that&#39;s most useful to them. 
+        %p 
+          %b Our CRM systems will make it easy for you to:
+        .local_nav
+          %ul
+            %li
+              Improve your customer service and thus increase customer loyalty and retention
+            %li
+              Track your prospects as they become customers
+            %li
+              Give you usable analyses of buying behaviour
+            %li
+              Identify people who are likely to become repeat customers
+            %li
+              Set up one&#45;to&#45;one marketing campaigns that match your products and services with customers who want them
+
+        %p We build our CRM systems to run on an easy&#45;to&#45;use web&#45;based application that links directly into your website. 
+        %p 
+          %b The range of features we offer include all the following:
+        .local_nav
+          %ul
+            %li
+              Sales force automation (SFA) to streamline your sales process
+            %li
+              Document and asset management so you can share documents such as sales letters and proposals, to avoid duplicating work
+            %li
+              Contact management to keep track of prospects, customers, colleagues, etc, by creating and managing profiles 
+            %li
+              Order management to stay up to date on orders, invoices, etc
+            %li
+              Sales lead tracking, allowing you to capture or manually import leads and send them to one of your sales team
+            %li
+              Campaign management with analytics to run sales campaigns and measure how they perform
+            %li
+              Task management so you don&#39;t miss appointments 
+            %li
+              Email marketing to build an ongoing relationship with your prospects and customers using template-driven sales letters, newsletters, and more
+            %li
+              Product management which keeps track of product and service information 
+            %li
+              Customer support information, enabling you to respond instantly to customers by accessing centralised data 
+
+      / right block end
+  / content block end
+  .topspace
+  / footer block start
+
+  / footer block end
