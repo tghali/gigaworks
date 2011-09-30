@@ -1,18 +1,22 @@
-= stylesheet_link_tag "frontend/lightbox.css","frontend/style.css","frontend/tabs-slideshow.css","frontend/superfish.css","frontend/superfish-navbar.css","frontend/tabcontent.css","frontend/submenu.css"
 
-= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js"
+= stylesheet_link_tag "overall.css"
+
+= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js",'tiny_mce/tiny_mce.js',"frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js"
+
 
 
 :javascript
-  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .content_tab li, .content_tabbig li,  .content_tabbig1 li,.clientname', ' ', { fontFamily: 'gothamxlight', hover: true});
+  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .content_tab li, .content_tabbig li,  .content_tabbig1 li,.clientname, .inner_leftcase h3, .content_tab li a, .details_block h2, .pro_case_header h4, .inner_pro_right h3 ', ' ', { fontFamily: 'gothamxlight', hover: true});
 		   
   Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'}});
 		   
   Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
   Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
-			
+		
+
 %script{:src => "/javascripts/frontend/hoverIntent.js", :type => "text/javascript"}
 %script{:src => "/javascripts/frontend/superfish.js", :type => "text/javascript"}
+
 
 
 
@@ -160,3 +164,15 @@
 
   });
   });
+
+:javascript
+  tinyMCE.init({
+  mode : "specific_textareas",
+  editor_selector : "mceEditor",
+  cleanup : false,
+  theme : "simple",
+
+
+  });
+		
+

@@ -110,6 +110,17 @@ class PagesController < ActionController::Base
    render :layout => 'pages_new'
  end
   
+    def projects_land
+   @page_title = "Gigavine - Projects"
+   render :layout => 'pages_new'    
+  end
+ 
+   def projects_case_studies
+   @page_title = "Gigavine - Projects - Case Studies"
+   render :layout => 'pages_new'    
+  end
+  
+  
    def network_land
 	 render :layout => 'pages_new'
  end

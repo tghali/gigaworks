@@ -89,9 +89,9 @@
             %li.sub_nav
               %a{:href => "/creative/webdesign"}
                 - if params[:action] == 'creative_design'
-                  %span.creativeclass Web Design					
+                  %span.creativeclass Webdesign					
                 - else
-                  Web Design		
+                  Webdesign		
 
             %li.sub_nav
               %a{:href => "/creative/copywriting"}
@@ -131,9 +131,9 @@
             %li.sub_nav
               %a{:href => "/creative/webdesign"}
                 - if params[:action] == 'creative_design'
-                  %span.creativeclass Web Design					
+                  %span.creativeclass Webdesign					
                 - else
-                  Web Design		
+                  Webdesign		
 
             %li.sub_nav
               %a{:href => "/creative/copywriting"}
@@ -212,14 +212,31 @@
                   %span.techclass CRM					
                 - else
                   CRM			
-          
-      %li
-        %a#cf641e.sf-with-ul{:href => "#"  , :style=>"color:#383839"}
-          Projects
-        %span.sf-sub-indicator »
-        %ul
-          %li.sub_nav
-            %a{:href => "#" , :style=>"color:#cf641e"} Projects
+      - if params[:action] == 'projects_land' || params[:action] == 'projects_case_studies'
+        %li.current
+          %a#cf641e.sf-with-ul{:href => "/projects"  , :style=>"color:#383839"}
+            Projects
+          %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "/projects/case-studies"}
+                - if params[:action] == 'projects_case_studies'
+                  %span.projectclass Case Studies				
+                - else
+                  Case Studies			
+														 
+      - else          
+        %li
+          %a#cf641e.sf-with-ul{:href => "/projects"  , :style=>"color:#383839"}
+            Projects
+          %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "/projects/case-studies" }
+                - if params[:action] == 'projects_case_studies'
+                  %span.projectclass Case Studies				
+                - else
+                  Case Studies		
 
       - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current
