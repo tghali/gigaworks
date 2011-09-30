@@ -1,6 +1,30 @@
+:javascript
+  jQuery.noConflict();
+  jQuery(document).ready(function(){ 
+  	jQuery(".div_li_tab").click(function () {
+  		tab_id = jQuery(this).find("a").attr('id');
+  		jQuery(".tabdiv_new").hide();
+    exist_one = jQuery(".selettab").attr("id");
+    jQuery("#"+exist_one).removeClass("selettab");
+    jQuery(this).find("a").addClass("selettab");
+  		document.getElementById("tab"+tab_id).style.display='block';
+				
+  		//jQuery("#tab"+tab_id).show("slow");
+  	});
+
+  	jQuery("#2").click(function () {
+  		tab_id = jQuery(this).find("a").attr('id');
+  		jQuery(".tabdiv_new").hide();
+  		document.getElementById("tab"+tab_id).style.display='block';
+  		//jQuery("#tab"+tab_id).show("slow");
+  	});
+   
+  });
+
+
 #project_wrapper
   / Header
-  #trans-wrapper
+  #trans-wrapper{:style => "position:relative;z-index:1"}
     #trans-main
       = render :partial => "/pages/partials/login_links"
       .pro_case_header
@@ -23,7 +47,7 @@
           / links start
           .inner_tabing
             .content_tab
-              %ul.tabnav
+              %ul
                 %li.div_li_tab
                   %a#1.selettab{:href => "javascript://"} CHALLENGE
                 %li.div_li_tab
@@ -31,11 +55,11 @@
                 %li.div_li_tab
                   %a#3{:href => "javascript://"} BENEFITS
             %div
-              #tab1.tabdiv
+              #tab1.tabdiv_new
                 %p Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus.
-              #tab2.tabdiv{:style => "display:none"}
+              #tab2.tabdiv_new{:style => "display:none"}
                 %p Content2
-              #tab3.tabdiv{:style => "display:none"}
+              #tab3.tabdiv_new{:style => "display:none"}
                 %p Content3
           / links end
     / left block end
