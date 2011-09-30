@@ -1,0 +1,145 @@
+:css
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+  #footer {
+  position: relative; top: 280px;
+  }
+  }
+  
+  #footer {
+  #position: relative; #top: 280px;
+  }
+%script{:src => "/javascripts/frontend/jquery-1.4.2.min.js", :type => "text/javascript"}
+%script{:src => "/javascripts/frontend/jquery.jcarousel.min.js", :type => "text/javascript"}	
+:javascript
+  jQuery(document).ready(function() {
+  jQuery('#mycarousel').jcarousel();
+  });
+
+:javascript
+  Cufon.replace('.sf-navbar li a.current', {color: '#5f9732'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+#project_landing_wrapper
+  / Header
+  #project-header
+    .create_headder
+      = render :partial => "/pages/partials/login_links"
+      .create_headding
+        %h4 Projects
+  / Headerend
+  .clear
+  / network content start
+  .network_content
+    / main header block start
+    .pro_header_block
+      / slider block start
+      .pro_left_block
+        %img{:alt => "", :src => "/images/frontend/pro_img.jpg", :title => ""}/
+      / slider block end
+      / right content block start
+      .pro_right_block
+        .inner_pro_right
+          %h3 Oryx Magazine
+          .small_name QATAR AIRWAYS
+          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
+          %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
+          %p.pro_btn View case study
+      / right content block end
+    / main header block end
+    / gallery block start
+    .pro_gallery
+      #wrap
+        %ul#mycarousel.jcarousel-skin-tango
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+          %li
+    / gallery block end
+    / client block start
+    .client_blocks
+      / block1 start
+      .inner_client
+        / block1 start
+        .client_block1
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img1.jpg", :title => ""}/
+        / block1 end
+        / block1 start
+        .client_block1
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img2.jpg", :title => ""}/
+        / block1 end
+        / block1 start
+        .client_block1.none_border
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img3.jpg", :title => ""}/
+        / block1 end
+      / block1 end
+      / block2 start
+      .inner_client
+        / block4 start
+        .client_block1
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img4.jpg", :title => ""}/
+        / block4 end
+        / block5 start
+        .client_block1
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img5.jpg", :title => ""}/
+        / block5 end
+        / block6 start
+        .client_block1.none_border
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img6.jpg", :title => ""}/
+        / block6 end
+      / block2 end
+      / block3 start
+      .inner_client
+        / block7 start
+        .client_block1
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img7.jpg", :title => ""}/
+        / block7 end
+        / block8 start
+        .client_block1
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img8.jpg", :title => ""}/
+        / block8 end
+        / block9 start
+        .client_block1.none_border
+          .white_block{:align => "center"}
+            %img{:alt => "", :src => "/images/frontend/pro_img9.jpg", :title => ""}/
+        / block9 end
+      / block3 end
+    / client block end
+  / network content end
+  .clear
+    &nbsp;
+  / footer block start
+
+  / footer block end

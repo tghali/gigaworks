@@ -1,0 +1,63 @@
+#project_wrapper
+  / Header
+  #trans-wrapper
+    #trans-main
+      = render :partial => "/pages/partials/login_links"
+      .pro_case_header
+        %h4
+          %span PROJECTS /
+          CASE STUDIES
+    .pro-case-header
+  / Headerend
+  / network content start
+  #lp_content
+    / left block start
+    .case_left
+      .inner_leftcase
+        %img{:alt => "", :src => "/images/frontend/case_img.jpg", :title => ""}
+          %h3 Oryx Magazine
+          .small_name QATAR AIRWAYS
+          %p Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa.
+          %p Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus. Phasellus venenatis dictum nulla vel ultrices.
+          .topspace
+          / links start
+          .inner_tabing
+            .content_tab
+              %ul.tabnav
+                %li.div_li_tab
+                  %a#1.selettab{:href => "javascript://"} CHALLENGE
+                %li.div_li_tab
+                  %a#2{:href => "javascript://"} SOLUTION
+                %li.div_li_tab
+                  %a#3{:href => "javascript://"} BENEFITS
+            %div
+              #tab1.tabdiv
+                %p Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus.
+              #tab2.tabdiv{:style => "display:none"}
+                %p Content2
+              #tab3.tabdiv{:style => "display:none"}
+                %p Content3
+          / links end
+    / left block end
+    / right block start
+    .case_right
+      .details_block
+        %h2
+          %strong CLIENT DETAILS
+        %p.client_name Name:
+        %p.client_desc Consectetur adipiscing
+        %p.client_name Date:
+        %p.client_desc June, 2011
+        %p.client_name Location:
+        %p.client_desc Consectetur adipiscing
+        %p.client_name Contact:
+        %p.client_desc Consectetur adipiscing
+        %p.client_name Name:
+        %p.client_desc Consectetur adipisemper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros ascing
+    / right block end
+    .clear
+  / network content end
+  .topspace
+  / footer block start
+
+  / footer block end

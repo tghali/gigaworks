@@ -12,7 +12,7 @@
       %li
         %a{:href => "#deliver"} Deliver
     #create.tabdiv
-      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return slider_validation('create');"} do |f|
         = f.hidden_field :tab_type,  :value => "create"
         %label.headding1_label
           %strong Image:
@@ -20,54 +20,54 @@
           %input{:type=>"file", :name=>"frontend_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
         %label.headding_label
           %strong Content:
-          = f.text_area :content, :style => "width:600px;", :value => get_data('home_create')
-          -#%textarea{:class => "mceEditor", :style => "width:600px;",:value => "srirama"}
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('home_create')
+          -#%textarea{:class => "mceEditor", :style => "width:600px;",:value => "srirama",:id => "create_content"}
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / /Create
     #adapt.tabdiv
-      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return slider_validation('adapt');"} do |f|
         = f.hidden_field :tab_type,  :value => "adapt"
         %label.headding1_label
           %strong Image:
           %input{:type=>"file", :name=>"frontend_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
         %label.headding_label
           %strong Content:
-          = f.text_area :content, :style => "width:600px;", :value => get_data('home_adapt')
+          = f.text_area :content, :style => "width:600px;", :id => "adapt_content", :value => get_data('home_adapt')
 
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / /Adapt
     #deliver.tabdiv
-      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return slider_validation('deliver');"} do |f|
         = f.hidden_field :tab_type,  :value => "deliver"
         %label.headding1_label
           %strong Image:
           %input{:type=>"file", :name=>"frontend_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
         %label.headding_label
           %strong Content:
-          = f.text_area :content, :style => "width:600px;", :value => get_data('home_deliver')
+          = f.text_area :content, :style => "width:600px;", :id => "deliver_content",:value => get_data('home_deliver')
 
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
   .clearspace  
   %div
-    = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+    = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return home_middle_validation();"} do |f|
       = f.hidden_field :tab_type,  :value => "middle_content"
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Title:
-        = f.text_field :title,  :value => get_title('home_middle')
+        = f.text_field :title, :id => "middle_title", :value => get_title('home_middle')
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Content:
-        = f.text_area :content, :style => "width:600px;",  :value => get_data('home_middle')
+        = f.text_area :content, :style => "width:600px;", :id => "middle_content", :value => get_data('home_middle')
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
   .clear  
   .latest_maintab
-    = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true} do |f|
+    = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true, :onsubmit => "return network_validation();"} do |f|
       = f.hidden_field :tab_type,  :value => "news_block"
       .latest_inputblock
         %label
@@ -165,41 +165,41 @@
   %h3#see_id  Home Banner 
   %br.clear
   %div
-    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form1",:multipart => :true} do |f|
+    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form1",:multipart => :true, :onsubmit => "return banner_validate('banner_one');"} do |f|
       = f.hidden_field :page_section,  :value => "banner_one"
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Languages:
-        = f.text_area :title, :style => "width:600px;height:200px;", :value => get_banner('banner_one','title')
+        = f.text_area :title, :style => "width:600px;height:200px;", :id => "bone_title", :value => get_banner('banner_one','title')
         %input{:type => "file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Writers:
-        = f.text_field :news, :style => "width:600px;height:30px;", :value => get_banner('banner_one','news')
+        = f.text_field :news, :style => "width:600px;height:30px;", :id => "bone_writer",:value => get_banner('banner_one','news')
       %p.clearspace  
       %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}
 
-    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form2",:multipart => :true} do |f|
+    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form2",:multipart => :true, :onsubmit => "return banner_validate('banner_two');"} do |f|
       = f.hidden_field :page_section,  :value => "banner_two"
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Creative:
-        = f.text_area :title, :style => "width:600px;height:200px;", :value => get_banner('banner_two','title')
+        = f.text_area :title, :style => "width:600px;height:200px;",  :id => "btwo_title",:value => get_banner('banner_two','title')
         %input{:type => "file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Writers:
-        = f.text_field :news, :style => "width:600px;height:30px;", :value => get_banner('banner_two','news')
+        = f.text_field :news, :style => "width:600px;height:30px;",  :id => "btwo_writer",:value => get_banner('banner_two','news')
       %p.clearspace  
       %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}				
 
-    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form3",:multipart => :true} do |f|
+    = form_for :banner_page, :url => {:controller => "pages",:action => "banner_create"},:html =>{:name => "banner_form3",:multipart => :true, :onsubmit => "return banner_validate('banner_three');"} do |f|
       = f.hidden_field :page_section,  :value => "banner_three"
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Technology:
-        = f.text_area :title, :style => "width:600px;height:200px;", :value => get_banner('banner_three','title')
+        = f.text_area :title, :style => "width:600px;height:200px;",:id => "bthree_title", :value => get_banner('banner_three','title')
         %input{:type => "file", :name=>"banner_page[image]", :size=>"65", :style=>"font:12px arial; height:20px; width:600px; margin-left:123px;"}
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Writers:
-        = f.text_field :news, :style => "width:600px;height:30px;", :value => get_banner('banner_three','news')
+        = f.text_field :news, :style => "width:600px;height:30px;", :id => "bthree_writer", :value => get_banner('banner_three','news')
       %p.clearspace  
       %p.send_btn1{:style => "margin-right:20px;"}
         %input{:type=>"Submit" , :value=> "Submit"}				

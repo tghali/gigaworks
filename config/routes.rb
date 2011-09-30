@@ -263,6 +263,11 @@ Gigavine::Application.routes.draw do
     get '/languages' => 'pages#languages_new'
     get '/creative' => 'pages#creative_new'
     get '/technology' => 'pages#technology_new'
+    
+    get '/projects' => 'pages#projects_land' 
+    get '/projects/case-studies'=> 'pages#projects_case_studies'      
+    
+    
     get '/network' => 'pages#network_land'  
     get '/network/featured'=> 'pages#network_featured' 
 
