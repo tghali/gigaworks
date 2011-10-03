@@ -1,8 +1,6 @@
 :javascript
-  jQuery.noConflict(); 
   Cufon.replace('.sf-navbar li.current', {color: '#aa0c22'});
   Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});		
-		
 #lang_landing_wrapper
   / Header
   #languages-header
@@ -63,11 +61,14 @@
                   %span Requirements
                 %p.checkbox_block
                   .checkbox
-                    %input{:type => "checkbox"}Translation
+                    %input{:type => "checkbox"}
+                    %span Translation
                   .checkbox{:style => "width:80px;"}
-                    %input{:type => "checkbox"}Design
+                    %input{:type => "checkbox"}
+                    %span Design
                   .checkbox
-                    %input{:type => "checkbox"}Localisation
+                    %input{:type => "checkbox"}
+                    %span Localisation
                 %p.estimate
                   %span Estimate
                 %div

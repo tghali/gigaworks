@@ -898,10 +898,11 @@ top:-2px;
 @media screen and (-webkit-min-device-pixel-ratio:0){
 .checkbox span{ position:relative; top:0px;}
 }
-.checkbox span.trans_space{
-#padding:0px 0px 0px 5px;
+
+
+.checkbox span{
 #position:relative;
-#top:5px;
+#top:3px;
 }
 .checkbox input[type="checkbox"]{
 position:relative;
@@ -1797,7 +1798,7 @@ text-align:left;
 margin:0px;
 padding:10px 12px 10px 12px;
 font: bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
