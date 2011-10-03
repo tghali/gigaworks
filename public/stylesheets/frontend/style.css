@@ -1877,7 +1877,7 @@ color:#848d95;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
-border-right:1px solid #c9c9c9;
+border-right:0px solid #c9c9c9;
 text-align:left!important;
 }
 
@@ -2023,23 +2023,23 @@ color:#828282;
 margin:20px 0px 0px 0px!important;
 padding:0px;
 }
-.pro_btn a{
+.pro_btn{
 width:135px;
 height:21px;
 float:left;
 font:14px Arial, Helvetica, sans-serif;
 color:#FFFFFF!important;
-text-indent:12px;
+text-indent:10px;
 cursor:pointer;
 background:url(/images/frontend/pro_btn.jpg) no-repeat;
 }
-.pro_btn a:hover{
+.pro_btn:hover{
 width:135px;
 height:21px;
 float:left;
 font:14px Arial, Helvetica, sans-serif;
 color:#646464!important;
-text-indent:12px;
+text-indent:10px;
 background:url(/images/frontend/pro_btn.jpg) no-repeat 0px -22px;
 }
 .pro_gallery{
