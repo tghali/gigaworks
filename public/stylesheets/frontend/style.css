@@ -1868,12 +1868,12 @@ text-decoration:none;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
-border-right:1px solid #c9c9c9;
+border-right:0px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tabbig li a.selettab{
 font:bold 12px/32px Gotham;
-color:#465561;
+color:#848d95;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
@@ -1926,12 +1926,12 @@ text-decoration:none;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
-border-right:1px solid #c9c9c9;
+border-right:0px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tabbig1 li a.selettab{
 font:bold 12px/32px Gotham;
-color:#465561;
+color:#848d95;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
