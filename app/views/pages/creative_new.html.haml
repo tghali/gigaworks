@@ -26,7 +26,7 @@
             %li
               %a{:href => "/creative/advertising"} Advertising
             %li
-              %a{:href => "/creative/webdesign"} Web Design
+              %a{:href => "/creative/webdesign"} Webdesign
             %li
               %a{:href => "/creative/copywriting"} Copywriting
             %li
@@ -74,7 +74,7 @@
         - else
           = raw(get_languages('creative_page','summary'))
 
-        %p.headding_text
+        %p.headding_textnew
           - if get_languages('creative_page','heading2').blank?
             Branding runs through everything we do.
           - else

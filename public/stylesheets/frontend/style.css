@@ -646,6 +646,15 @@ font:24px/32px Gotham;
 margin-top:0px !important;
 width:600px;
 }
+.lp_rightblock p.headding_textnew{
+color:#465561;
+text-align:left;
+font:24px Gotham;
+margin-top:0px!important;
+margin-bottom:0px!important;
+width:600px;
+}
+
 .lp_rightblock p{
 width:600px;
 margin:20px 0px 20px 0px;
@@ -668,7 +677,7 @@ padding:0px 0px 0px 17px;
 width:auto;
 font:14px/20px Arial, Helvetica, sans-serif;
 color:#828282;
-background:url(/images/frontend/arrow.png) no-repeat left 1px;
+background:url(/images/frontend/bullet.png) no-repeat left 5px;
 }
 .local_nav li a{
 margin:0px 0px 10px 0px;
@@ -885,6 +894,10 @@ color:#465561;
 position:relative;
 top:-2px;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+.checkbox span{ position:relative; top:0px;}
+}
 .checkbox span.trans_space{
 #padding:0px 0px 0px 5px;
 #position:relative;
@@ -893,15 +906,15 @@ top:-2px;
 .checkbox input[type="checkbox"]{
 position:relative;
 top:2px;
-width:15px;
-height:15px;
+width:12px;
+height:12px;
 /*border:1px solid #8e8f8f;*/
 }
 .checkbox_block{ margin:25px 0px 0px 0px;height:auto!important;}
 .estimate{
 position:relative;
 top:-5px;
-padding:5px 0px 0px 0px;
+padding:10px 0px 0px 0px;
 height:auto!important;
 border-top:1px solid #c1c0c6;
 }
@@ -913,17 +926,37 @@ width:190px;
 }
 .count_btn{
 cursor:pointer;
-width:65px;
+width:64px;
 height:22px;
 float:right;
 color:#fff;
-font:11px/22px Verdana;
+font:11px/21px Verdana;
 text-align:center;
 background:url(/images/frontend/gray_btn.gif) no-repeat;
 }
+.count_btn:hover{
+cursor:pointer;
+width:64px;
+height:22px;
+float:right;
+color:#646464;
+font:11px/21px Verdana;
+text-align:center;
+background:url(/images/frontend/gray_btn.gif) no-repeat 0px -22px;
+}
 .count_btn a{
 cursor:pointer;
-background:url(/images/frontend/gray_btn.gif) no-repeat;}
+color:#fff;
+text-decoration:none;
+}
+.count_btn a:hover{
+cursor:pointer;
+text-decoration:none;
+color:#646464;
+}
+
+
+
 .language_textblock{
 width:280px;
 height:auto;
@@ -1469,27 +1502,26 @@ text-transform:none!important;
 word-spacing:3px;
 }
 
-.inner_img_top p.see_btn{
+
+.inner_img_top p.see_btn a{
 background:url(/images/frontend/see_btn.gif) no-repeat;
-width:89px;
-height:21px;
+text-decoration:none;
 font:14px/20px Arial, Helvetica, sans-serif;
 color:#fff;
 text-align:left;
 margin:-3px 0px 0px 0px;
 text-indent:5px;
 float:left;
+width:89px;
+height:21px;
 text-transform:capitalize;
 }
-.inner_img_top p.see_btn:hover{
-text-decoration:none;
+.inner_img_top p.see_btn a:hover{
+width:89px;
+height:21px;
+background:url(/images/frontend/see_btn.gif) no-repeat 0px -22px;
+color:#646464;
 }
-.inner_img_top p.see_btn a{
-text-decoration:none;
-font:14px/20px Arial, Helvetica, sans-serif;
-color:#fff;
-}
-
 
 .inner_img_top{
 height:52px;
@@ -1618,20 +1650,34 @@ padding:0px 0px 0px 5px;
 width:280px;
 float:left;
 }
-.net_block_wrapper p.btn{
+
+.net_block_wrapper p.btn a{
 background:url(/images/frontend/reg_btn.gif) no-repeat;
-width:159px;
-height:21px;
+text-decoration:none;
 font:14px/21px Arial, Helvetica, sans-serif;
 color:#fff;
-margin:0px 0px 0px 5px;
+margin:0px 0px 0px 0px;
 padding:0px;
-text-indent:8px;
+text-indent:3px;
+text-align:left;
+float:left;
+width:159px;
+height:21px;
+text-transform:capitalize;
 }
-.net_block_wrapper p.btn a{
+/*.net_block_wrapper p.btn a{
+width:159px;
+height:21px;
 text-decoration:none;
 font:14px/20px Arial, Helvetica, sans-serif;
 color:#fff;
+}
+.net_block_wrapper p.btn a:hover{color:#646464;}*/
+.net_block_wrapper p.btn a:hover{
+width:159px;
+height:21px;
+color:#646464;
+background:url(/images/frontend/reg_btn.gif) no-repeat 0px -22px;
 }
 .topspace{
 height:20px;
@@ -1774,7 +1820,7 @@ color:#465561;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
-border-right:1px solid #c9c9c9;
+border-right:0px solid #c9c9c9;
 text-align:left!important;
 }
 
@@ -1976,7 +2022,7 @@ color:#828282;
 margin:20px 0px 0px 0px!important;
 padding:0px;
 }
-.pro_btn{
+.pro_btn a{
 width:135px;
 height:21px;
 float:left;
@@ -1985,6 +2031,15 @@ color:#FFFFFF!important;
 text-indent:12px;
 cursor:pointer;
 background:url(/images/frontend/pro_btn.jpg) no-repeat;
+}
+.pro_btn a:hover{
+width:135px;
+height:21px;
+float:left;
+font:14px Arial, Helvetica, sans-serif;
+color:#646464!important;
+text-indent:12px;
+background:url(/images/frontend/pro_btn.jpg) no-repeat 0px -22px;
 }
 .pro_gallery{
 width:964px;
