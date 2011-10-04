@@ -88,6 +88,19 @@ module PagesHelper
     end
   end
 
+  def get_projects(tab_type,option)    
+    project = FrontendPage.find_by_page_section(tab_type)
+    if option == 'title'
+      return project.title if !project.blank?
+    elsif option == 'summary'
+      return raw(project.content) if !project.blank?
+    elsif option == 'caption'
+      return raw(project.news) if !project.blank?
+    end
+    
+  end
+
+
 def get_banner(banner_count,option)
     banner = FrontendPage.find_by_page_section(banner_count) 
     if option == 'title'

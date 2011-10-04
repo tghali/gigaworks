@@ -1227,8 +1227,11 @@ border-radius: 5px;
     z-index: 2;
 }
 
-
-
+@media screen and (-webkit-min-device-pixel-ratio:0){
+#FileUpload1 {
+width:100px;
+}
+}
 .home_index_header{
 /*width:960px;*/
 width:1082px;
@@ -1812,7 +1815,7 @@ text-decoration:none;
 border-bottom:none!important;
 background:none!important;
 border-left:none!important;
-border-right:1px solid #c9c9c9;
+border-right:0px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tab li a.selettab{
@@ -1858,7 +1861,7 @@ color:#848d95;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
-border-left:1px solid #c9c9c9;
+border-left:0px solid #c9c9c9;
 }
 .content_tabbig li a:hover{
 padding:10px 8px 10px 8px;
@@ -2002,7 +2005,7 @@ float:left;
 .inner_pro_right{
 width:287px;
 height:auto;
-margin:24px 0px 0px 25px;
+margin:18px 0px 0px 25px;
 }
 .inner_pro_right h3{
 font:30px gotham;
@@ -2027,19 +2030,21 @@ padding:0px;
 width:135px;
 height:21px;
 float:left;
-font:14px Arial, Helvetica, sans-serif;
+font:14px/20px Arial, Helvetica, sans-serif;
 color:#FFFFFF!important;
 text-indent:10px;
 cursor:pointer;
+text-decoration:none;
 background:url(/images/frontend/pro_btn.jpg) no-repeat;
 }
 .pro_btn:hover{
 width:135px;
 height:21px;
 float:left;
-font:14px Arial, Helvetica, sans-serif;
+font:14px/20px Arial, Helvetica, sans-serif;
 color:#646464!important;
 text-indent:10px;
+text-decoration:none;
 background:url(/images/frontend/pro_btn.jpg) no-repeat 0px -22px;
 }
 .pro_gallery{
