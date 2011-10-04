@@ -297,6 +297,9 @@ Gigavine::Application.routes.draw do
     post '/language_create' => 'pages#language_create'
     post '/creative_create' => 'pages#creative_create'
     post '/technology_create' => 'pages#technology_create'
+  
+    post '/projects_create' => 'pages#projects_create'
+    
     post '/banner_create' => 'pages#banner_create'
     post '/help_connect' => 'pages#help_connect'
 

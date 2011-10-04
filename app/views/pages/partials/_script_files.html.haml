@@ -89,6 +89,14 @@
   }});    
   e.preventDefault();
   });		
+
+  jQuery('#language_translation_new').click(function(e) {
+  jQuery("#language_translation").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#language_translation").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });		
+
 		
   jQuery('#creative_new').click(function(e) {
   jQuery("#creative").lightbox_me({centered: true, onLoad: function() {
@@ -113,6 +121,21 @@
   }});    
   e.preventDefault();
   });				
+
+  jQuery('#projects_new').click(function(e) {
+  jQuery("#projects_land").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#projects_land").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });			
+
+  jQuery('#project_case_studies_new').click(function(e) {
+  jQuery("#projects_case_studies").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#projects_case_studies").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });			
+
 
   jQuery('#how_we_help_new').click(function(e) {
   jQuery("#how_we_help").lightbox_me({centered: true, onLoad: function() {

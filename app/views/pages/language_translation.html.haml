@@ -81,13 +81,13 @@
                 %p.checkbox_block
                   .checkbox
                     %input{:type => "checkbox"} 
-                    %span.trans_space Translation
+                    %span Translation
                   .checkbox{:style => "width:80px;"}
                     %input{:type => "checkbox"}
-                    %span.trans_space Design
+                    %span Design
                   .checkbox
                     %input{:type => "checkbox"}
-                    %span.trans_space Localisation
+                    %span Localisation
                 %p.estimate
                   %span Estimate
                 %div
@@ -99,10 +99,17 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p.headding_text Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
-        %p At Gigavine we use only native speakers for our translation services, as this is the only way can we guarantee the correct nuances. The goal is to make the material sound as though it was originally written in that language, with no sense of strangeness or distance.
-        %p In addition, our translators have specialist knowledge in many different fields. This means we can offer high quality certified translations of official documents, including legal, medical, marketing and business documents, as well as translations of literary works, including TV, film and theatre productions.
-        %p We approach all our translation with a great deal of caution, care and confidentiality, and the process includes review, revision and proofing of documents for any spelling or grammatical errors, cultural and technical consistency, and formatting. We also offer pure proof-reading services in many different languages, picking up on general issues or looking for particular issues that you brief us on.
+        %p.headding_text
+          - if !get_languages('language_translation_page','title').blank?
+            = get_languages('language_translation_page','title')
+          - else
+            Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
+        - if !get_languages('language_translation_page','summary').blank?	
+          = raw(get_languages('language_translation_page','summary'))								
+        - else											
+          %p At Gigavine we use only native speakers for our translation services, as this is the only way can we guarantee the correct nuances. The goal is to make the material sound as though it was originally written in that language, with no sense of strangeness or distance.
+          %p In addition, our translators have specialist knowledge in many different fields. This means we can offer high quality certified translations of official documents, including legal, medical, marketing and business documents, as well as translations of literary works, including TV, film and theatre productions.
+          %p We approach all our translation with a great deal of caution, care and confidentiality, and the process includes review, revision and proofing of documents for any spelling or grammatical errors, cultural and technical consistency, and formatting. We also offer pure proof-reading services in many different languages, picking up on general issues or looking for particular issues that you brief us on.
         .inner_tabing
           .content_tab
             %ul
@@ -118,35 +125,45 @@
                 %a#5{:href => "javascript://"} LEGAL
           %div
             #tab1.tabdiv_new
-
-              %p Scientific papers, technical manuals, contracts and proposals, software documentation, data sheets, terms and conditions &#151; we offer technical translation services that cover all these materials and more.
-
-              .clear  
-              %p
-                Our technical translators have a professional background in the fields they specialise in, so you can be sure that their work will be accurate and easily understood by a specialist audience.
+              - if !get_languages('lang_trans_technical','summary').blank?	
+                = raw(get_languages('lang_trans_technical','summary'))
+              - else
+                %p Scientific papers, technical manuals, contracts and proposals, software documentation, data sheets, terms and conditions &#151; we offer technical translation services that cover all these materials and more.
+                .clear  
+                %p
+                  Our technical translators have a professional background in the fields they specialise in, so you can be sure that their work will be accurate and easily understood by a specialist audience.
             #tab2.tabdiv_new{:style => "display:none"}
-
-              %p Medical and pharmaceutical texts require translation by skilled experts in the field, as it is essential they are accurate and easily understood by a native speaker. That&#39;s why at Gigavine we insist on using qualified doctors and pharmacists for this kind of work. 
-
-              %p Medical and pharmaceutical texts require translation by skilled experts in the field, as it is essential they are accurate and easily understood by a native speaker. That&#39;s why at Gigavine we insist on using qualified doctors and pharmacists for this kind of work. 
+              - if !get_languages('lang_trans_medical','summary').blank?
+                = raw(get_languages('lang_trans_medical','summary'))
+              - else		
+                %p Medical and pharmaceutical texts require translation by skilled experts in the field, as it is essential they are accurate and easily understood by a native speaker. That&#39;s why at Gigavine we insist on using qualified doctors and pharmacists for this kind of work. 
 
             #tab3.tabdiv_new{:style => "display:none"}
-              %p If you&#39;re marketing products and services in new territories, it&#39;s exceptionally easy to make mistakes that a native of the area would spot straight away. We help companies tune their positioning and messaging so they avoid making these mistakes and communicate in ways that are not only effective, but also appropriate in the particular culture.
-              .clear  
-              %p
-                We translate outward-facing business documents such as brochures and annual reports, as well as internal materials such as marketing briefings.
+              - if !get_languages('lang_trans_marketing','summary').blank?
+                = raw(get_languages('lang_trans_marketing','summary'))
+              - else		
+                %p If you&#39;re marketing products and services in new territories, it&#39;s exceptionally easy to make mistakes that a native of the area would spot straight away. We help companies tune their positioning and messaging so they avoid making these mistakes and communicate in ways that are not only effective, but also appropriate in the particular culture.
+                .clear  
+                %p
+                  We translate outward-facing business documents such as brochures and annual reports, as well as internal materials such as marketing briefings.
 
             #tab4.tabdiv_new{:style => "display:none"}
-              %p Unlike verbatim translation, literary translation is an attempt to express the author&#39;s message, evoking the same mood and style of the original narrative to a different audience. Besides having a profound knowledge of the foreign languages and cultures involved, our literary translators are also creative writers and literary experts in their own right, with a mastery of both classical and contemporary works. 
-              .clear  
-              %p
-                In recent years our literary translation work has regularly included film and theatre subtitling and dubbing.
+              - if !get_languages('lang_trans_literary','summary').blank?
+                = raw(get_languages('lang_trans_literary','summary'))
+              - else		
+                %p Unlike verbatim translation, literary translation is an attempt to express the author&#39;s message, evoking the same mood and style of the original narrative to a different audience. Besides having a profound knowledge of the foreign languages and cultures involved, our literary translators are also creative writers and literary experts in their own right, with a mastery of both classical and contemporary works. 
+                .clear  
+                %p
+                  In recent years our literary translation work has regularly included film and theatre subtitling and dubbing.
 
             #tab5.tabdiv_new{:style => "display:none"}
-              %p In law, precise and specific meaning can become crucial, so it&#39;s essential to have a legal document translated with the utmost accuracy by an expert in legal language. This is why we only use translators who have a comprehensive working knowledge of the legal industry or have undergone extensive training in legal translation.
-              .clear  
-              %p
-                We provide legal translation services in more than 60 languages including Spanish, French, Portuguese, Italian, Arabic and German. 
+              - if !get_languages('lang_trans_legal','summary').blank?
+                = raw(get_languages('lang_trans_legal','summary'))
+              - else		
+                %p In law, precise and specific meaning can become crucial, so it&#39;s essential to have a legal document translated with the utmost accuracy by an expert in legal language. This is why we only use translators who have a comprehensive working knowledge of the legal industry or have undergone extensive training in legal translation.
+                .clear  
+                %p
+                  We provide legal translation services in more than 60 languages including Spanish, French, Portuguese, Italian, Arabic and German. 
 
         .topspace  
       / right block end

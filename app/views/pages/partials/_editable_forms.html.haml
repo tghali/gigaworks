@@ -108,6 +108,89 @@
   %a#close_x.close.sprited{:href => "#"} close
 
 
+#language_translation.sign_up{:style => "display:none"}
+  %h3#see_id  LANGUAGES / TRANSLATION
+  %br.clear
+  %div
+    = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form",:onsubmit => "return lang_trans_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "language_translation_page"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
+        = f.text_area :title, :style => "width:600px;",:id => "lang_trans_heading", :value => get_languages('language_translation_page','title')
+
+      %label
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
+        = f.text_area :content, :style => "width:600px;", :id => "lang_trans_summary", :value => get_languages('language_translation_page','summary')
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+  %br.clear
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a.c1{:href => "#technical"} TECHNICAL
+      %li
+        %a{:href => "#medical"} MEDICAL
+      %li
+        %a{:href => "#marketing_business"} MARKETING & BUSINESS
+      %li
+        %a{:href => "#literary"} LITERARY
+      %li
+        %a{:href => "#legal"} LEGAL
+    %br.clear
+    #technical.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_technical');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_trans_technical"
+        %label.headding_label
+          %strong Technical :
+          = f.text_area :content, :style => "width:600px;", :id => "technical_content",:value => get_data('lang_trans_technical')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / /Create
+    #medical.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_medical');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_trans_medical"
+        %label.headding_label
+          %strong Medical :
+          = f.text_area :content, :style => "width:600px;", :id => "medical_content",:value => get_data('lang_trans_medical')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / /Adapt
+    #marketing_business.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_trans_marketing"
+        %label.headding_label
+          %strong Marketing :
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_trans_marketing')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Deliver
+    #literary.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_literary');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_trans_literary"
+        %label.headding_label
+          %strong Literary :
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_trans_literary')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Deliver
+    #legal.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_trans_legal"
+        %label.headding_label
+          %strong Legal :
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_trans_legal')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Deliver
+  .clearspace  
+
+
+
+  %a#close_x.close.sprited{:href => "#"} close
+
+
 #creative.sign_up{:style => "display:none"}
   %h3#see_id  CREATIVE
   %br.clear
@@ -295,9 +378,59 @@
   %a#close_x.close.sprited{:href => "#"} close
 
 
+#projects_land.sign_up{:style => "display:none"}
+  %h3#see_id  Projects
+  %br.clear
+  %div
+    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form",:onsubmit => "return tech_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "project_land_page"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title:
+        = f.text_field :title, :style => "width:600px;",:id => "project_heading", :value => get_projects('project_land_page','title')
+
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Caption:
+        = f.text_field :news, :style => "width:600px;",:id => "project_caption", :value => get_projects('project_land_page','caption')
+
+      %label
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
+        = f.text_area :content, :style => "width:600px;", :id => "project_summary", :value => get_projects('project_land_page','summary')
+
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+
+  %a#close_x.close.sprited{:href => "#"} close
 
 
+#projects_case_studies.sign_up{:style => "display:none"}
+  %h3#see_id  Projects / Case Studies - Left Block
+  %br.clear
+  %div
+    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form",:onsubmit => "return tech_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "project_case_study_page"
 
+      %label
+        %strong{:style=>"font:12px/20px Arial, Helvetica, sans-serif;"} Image:
+        %input{:type => "file", :name=>"projects_page[image]", :size=>"65", :style=>"font:12px arial; height:25px; width:520px; border:none!important; background:none!important;"}
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title:
+        = f.text_field :title, :style => "width:600px;",:id => "project_heading", :value => get_projects('project_land_page','title')
 
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Caption:
+        = f.text_field :news, :style => "width:600px;",:id => "project_caption", :value => get_projects('project_land_page','caption')
+
+      %label
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
+        = f.text_area :content, :style => "width:600px;", :id => "project_summary", :value => get_projects('project_land_page','summary')
+
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+
+  %a#close_x.close.sprited{:href => "#"} close
 
 

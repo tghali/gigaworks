@@ -221,9 +221,9 @@
             %li.sub_nav
               %a{:href => "/projects/case-studies"}
                 - if params[:action] == 'projects_case_studies'
-                  %span.projectclass Case Studies				
+                  -#%span.projectclass Case Studies				
                 - else
-                  Case Studies			
+                  //Case Studies			
 														 
       - else          
         %li
@@ -234,9 +234,9 @@
             %li.sub_nav
               %a{:href => "/projects/case-studies" }
                 - if params[:action] == 'projects_case_studies'
-                  %span.projectclass Case Studies				
+                  -#%span.projectclass Case Studies				
                 - else
-                  Case Studies		
+                  //Case Studies		
 
       - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current

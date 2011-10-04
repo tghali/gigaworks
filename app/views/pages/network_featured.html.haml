@@ -15,7 +15,7 @@
   %body
     - if !current_user.blank?
       - @user_type = current_user.class
-      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Client')       
+      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Admin')       
         .topframe
           /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
 
@@ -58,7 +58,10 @@
                   %li
                     %a{:href => "#", :title => "DMS"} DMS
               %li
-                %a{:href => "#"} PROJECTS
+                %a{:href => "#",:id => "projects_new"} PROJECTS
+                %ul{:style=>"margin-left:390px;"}
+                  %li
+                    %a{:href => "#", :title => "Case Studies", :id => "project_case_studies_new"} Case Studies
               %li
                 %a{:href => "#"} NETWORK
               %li
@@ -67,7 +70,6 @@
                 %a{:href => "#", :id => "how_we_help_new"} HELP
               %li{:style => "float:right;"}
                 %a{:href => "#"} Logout
-
     #network_landing_wrapper
       / Header
       #network-header
@@ -262,6 +264,4 @@
       / footer block start
       = render :partial => "/pages/partials/footer_only"
       / footer block end
-
 = render :partial => "/pages/partials/editable_forms"
-
