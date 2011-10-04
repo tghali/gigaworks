@@ -382,7 +382,7 @@
   %h3#see_id  Projects
   %br.clear
   %div
-    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form",:onsubmit => "return tech_validate();"} do |f|
+    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form"} do |f|
       = f.hidden_field :page_section,  :value => "project_land_page"
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title:
@@ -408,7 +408,7 @@
   %h3#see_id  Projects / Case Studies - Left Block
   %br.clear
   %div
-    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form",:onsubmit => "return tech_validate();"} do |f|
+    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form"} do |f|
       = f.hidden_field :page_section,  :value => "project_case_study_page"
 
       %label

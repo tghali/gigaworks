@@ -86,7 +86,7 @@
               %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
           - else
             %div{:style => "height:250px;"}
-              = get_projects('project_land_page','summary')
+              = raw(get_projects('project_land_page','summary'))
           %p{:style=>"position:relative; top:-10px;"}
             %a.pro_btn{:href => "/projects/case-studies"} View case study
       / right content block end
