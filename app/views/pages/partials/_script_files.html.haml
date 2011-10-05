@@ -97,6 +97,27 @@
   e.preventDefault();
   });		
 
+  jQuery('#language_localisation_new').click(function(e) {
+  jQuery("#language_localisation").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#language_localisation").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });		
+		
+  jQuery('#language_consultancy_new').click(function(e) {
+  jQuery("#language_consultancy").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#language_consultancy").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });		
+		
+  jQuery('#language_tools_new').click(function(e) {
+  jQuery("#language_onlinetools").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#language_onlinetools").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });		
+
 		
   jQuery('#creative_new').click(function(e) {
   jQuery("#creative").lightbox_me({centered: true, onLoad: function() {

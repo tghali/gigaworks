@@ -1,0 +1,81 @@
+#language_localisation.sign_up{:style => "display:none"}
+  %h3#see_id  LANGUAGES / LOCALISATION
+  %br.clear
+  %div
+    = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form",:onsubmit => "return lang_trans_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "language_localisation_page"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
+        = f.text_area :title, :style => "width:600px;",:id => "lang_trans_heading", :value => get_languages('language_localisation_page','title')
+
+      %label
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
+        = f.text_area :content, :style => "width:600px;", :id => "lang_trans_summary", :value => get_languages('language_localisation_page','summary')
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+  %br.clear
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a.c1{:href => "#products_documentation"} Products & Documentation
+      %li
+        %a{:href => "#websites"} Websites
+      %li
+        %a{:href => "#software"} Software
+      %li
+        %a{:href => "#mobile_interface"} Mobile Interfaces
+      %li
+        %a{:href => "#subtitle_dubbing"} Subtitling & Dubbing
+    %br.clear
+    #products_documentation.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_technical');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_localisation_products"
+        %label.headding_label
+          %strong Products & Documentation :
+          = f.text_area :content, :style => "width:600px;", :id => "technical_content",:value => get_data('lang_localisation_products')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+
+    #websites.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_medical');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_localisation_websites"
+        %label.headding_label
+          %strong Websites :
+          = f.text_area :content, :style => "width:600px;", :id => "medical_content",:value => get_data('lang_localisation_websites')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / /Adapt
+    #software.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_localisation_software"
+        %label.headding_label
+          %strong Software :
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_localisation_software')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Deliver
+    #mobile_interface.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_literary');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_localisation_mobile"
+        %label.headding_label
+          %strong Mobile Interfaces :
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_localisation_mobile')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Deliver
+    #subtitle_dubbing.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+        = f.hidden_field :page_section,  :value => "lang_localisation_subtitle"
+        %label.headding_label
+          %strong Subtitle & Dubbing:
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_localisation_subtitle')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Deliver
+  .clearspace  
+
+
+
+  %a#close_x.close.sprited{:href => "#"} close
