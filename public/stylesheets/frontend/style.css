@@ -1857,7 +1857,7 @@ text-align:left;
 margin:0px;
 padding:10px 8px 10px 8px;
 font: bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
@@ -1866,7 +1866,7 @@ border-left:1px solid #c9c9c9;
 .content_tabbig li a:hover{
 padding:10px 8px 10px 8px;
 font:bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -1875,7 +1875,7 @@ text-align:left!important;
 }
 .content_tabbig li a.selettab{
 font:bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 border-bottom:1px solid #c9c9c9;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 border-left:1px solid #c9c9c9;
@@ -1913,7 +1913,7 @@ text-align:left;
 margin:0px;
 padding:10px 5px 10px 5px;
 font: bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
@@ -1922,7 +1922,7 @@ border-left:1px solid #c9c9c9;
 .content_tabbig1 li a:hover{
 padding:10px 5px 10px 5px;
 font:bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
@@ -1931,7 +1931,7 @@ text-align:left!important;
 }
 .content_tabbig1 li a.selettab{
 font:bold 12px/32px Gotham;
-color:#848d95;
+color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
