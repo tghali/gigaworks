@@ -15,7 +15,7 @@
   %body
     - if !current_user.blank?
       - @user_type = current_user.class
-      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Admin')       
+      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Client')       
         .topframe
           /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
 
@@ -27,13 +27,13 @@
                 %a{:href => "#", :id => "languages_new"} LANGUAGES
                 %ul{:style=>"margin-left:85px;"}
                   %li
-                    %a{:href => "#", :title => "Translation"} Translation
+                    %a{:href => "#", :title => "Translation",:id => "language_translation_new"} Translation
                   %li
-                    %a{:href => "#", :title => "Localisation"} Localisation
+                    %a{:href => "#", :title => "Localisation",:id => "language_localisation_new"} Localisation
                   %li
-                    %a{:href => "#", :title => "Consultancy"} Consultancy
+                    %a{:href => "#", :title => "Consultancy",:id => "language_consultancy_new"} Consultancy
                   %li
-                    %a{:href => "#", :title => "Online Tools"} Online Tools
+                    %a{:href => "#", :title => "Online Tools",:id => "language_tools_new"} Online Tools
 
               %li
                 %a{:href => "#", :id => "creative_new"} CREATIVE

@@ -99,17 +99,30 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p.headding_text Bringing a product, service or message into a new region involves more than simply verbal translation. It requires cultural and local adaptation. For example, the key messages may need to adjust to conditions in the local market or to religious sensitivities. The positioning of graphics or the choice of images may need to change so they feel truly local, and not a foreign import. 
-        %p All these things affect how an audience views your product or service, and their willingness to buy it.
-        %p{:style=>"margin-bottom:10px;"} To do localisation well requires local native-speaking experts in the relevant field and a thorough and well tested methodology. Gigavine offers both.
-        %p{:style=>"margin-top:10px;"}
-          %b We take each project through a defined production process:
-        .local_nav
-          %ul{:style=>"margin-top:-10px;"}
-            %li Before work begins we capture goals, deliverables, schedule, budget details, etc, through an analytical project approach.
-            %li During production we provide regularly updated project information through our web portal.
-            %li After delivery we measure and analyse actual performance against the initial goals and quality standards.
-        %p This gives us a reliable and repeatable process for adapting products, services or messages so they succeed within a new culture. 
+        %p.headding_text
+          - if !get_languages('language_localisation_page','title').blank?
+            = get_languages('language_localisation_page','title')
+          - else
+            Bringing a product, service or message into a new region involves more than simply verbal translation. It requires cultural and local adaptation. For example, the key messages may need to adjust to conditions in the local market or to religious sensitivities. The positioning of graphics or the choice of images may need to change so they feel truly local, and not a foreign import.
+        - if !get_languages('language_localisation_page','summary').blank?
+          = raw(get_languages('language_localisation_page','summary'))
+        - else 
+          %p All these things affect how an audience views your product or service, and their willingness to buy it.
+          %p{:style=>"margin-bottom:10px;"}
+            To do localisation well requires local native-speaking experts in the relevant field and a thorough and well tested methodology. Gigavine offers both.
+          %p{:style=>"margin-top:10px;"}
+            %b 
+              We take each project through a defined production process:
+          .local_nav
+            %ul{:style=>"margin-top:-10px;"}
+              %li 
+                Before work begins we capture goals, deliverables, schedule, budget details, etc, through an analytical project approach.
+              %li
+                During production we provide regularly updated project information through our web portal.
+              %li
+                After delivery we measure and analyse actual performance against the initial goals and quality standards.
+          %p
+            This gives us a reliable and repeatable process for adapting products, services or messages so they succeed within a new culture. 
 
         .inner_tabing
           .content_tabbig1
@@ -122,95 +135,110 @@
                 %a#3{:href => "javascript://"} Software
               %li.div_li_tab
                 %a#4{:href => "javascript://"} Mobile&nbsp;interfaces
-              %li.div_li_tab
+              %li.div_li_tab{:style=>"border-right:1px solid #c9c9c9;"}
                 %a#5{:href => "javascript://"} Subtitling&nbsp;and&nbsp;dubbing
           %div
             #tab1.tabdiv_new
-              %p We can adapt both packaging and product features for the diverse expectations and needs of different groups of customers. This enhances initial uptake and subsequent customer loyalty and reduces demand on customer support. 
-              .clear  
-              %p
-                By using a repeatable methodology and globalised information technology, we can speed up this process and thus time to market.
-              .clear  
-              %p
-                We use our own platform, Gigaworx, to automate and tightly manage the work processes. Gigaworx includes a portal for tracking, a project workspace with tools allowing collaboration, and reporting capabilities. It also includes our Megasource language management tools, which store &#145;translation memories&#146; and glossaries so they can be instantly accessed by many different translators working on different projects. Megasource allows us to retain, reuse and build upon our knowledge.
+              - if !get_languages('lang_localisation_products','summary').blank?
+                = raw(get_languages('lang_localisation_products','summary'))
+              - else 
+                %p We can adapt both packaging and product features for the diverse expectations and needs of different groups of customers. This enhances initial uptake and subsequent customer loyalty and reduces demand on customer support. 
+                .clear  
+                %p
+                  By using a repeatable methodology and globalised information technology, we can speed up this process and thus time to market.
+                .clear  
+                %p
+                  We use our own platform, Gigaworx, to automate and tightly manage the work processes. Gigaworx includes a portal for tracking, a project workspace with tools allowing collaboration, and reporting capabilities. It also includes our Megasource language management tools, which store &#145;translation memories&#146; and glossaries so they can be instantly accessed by many different translators working on different projects. Megasource allows us to retain, reuse and build upon our knowledge.
  
             #tab2.tabdiv_new{:style => "display:none"}
-              %p It is no longer a question of whether to globalise your website, but how best to localise it. If you are to speak directly to potential customers in your target countries, you must give them an experience that makes sense to them and recognises their culture, not one that alienates them.
-              .clear  
-              %p
-                Correctly applied, the process of translation and localisation takes into account culture, politics, taste, norms, religious sensitivities and aesthetic style. The statements and messages are adapted, not just translated. Graphics, images, page design and navigation can all be altered to fit the local culture&#39;s requirements and norms. 
-              .clear  
-              %p
-                %b Gigavine carries out website localisation in a structured way, using:
-              .local_nav
-                %ul
-                  %li
-                    Style guide creation for consistency
-                  %li
-                    &#145;Translation memory&#146; management
-                  %li
-                    A range of web technologies to localise graphics
-                  %li
-                    Our web platform to manage workloads
-              .clear  
-              %p
-                This process will dramatically enhance the ease with which customers access your site. 
+              - if !get_languages('lang_localisation_websites','summary').blank?
+                = raw(get_languages('lang_localisation_websites','summary'))
+              - else 
+                %p It is no longer a question of whether to globalise your website, but how best to localise it. If you are to speak directly to potential customers in your target countries, you must give them an experience that makes sense to them and recognises their culture, not one that alienates them.
+                .clear  
+                %p
+                  Correctly applied, the process of translation and localisation takes into account culture, politics, taste, norms, religious sensitivities and aesthetic style. The statements and messages are adapted, not just translated. Graphics, images, page design and navigation can all be altered to fit the local culture&#39;s requirements and norms. 
+                .clear  
+                %p
+                  %b Gigavine carries out website localisation in a structured way, using:
+                .local_nav
+                  %ul
+                    %li
+                      Style guide creation for consistency
+                    %li
+                      &#145;Translation memory&#146; management
+                    %li
+                      A range of web technologies to localise graphics
+                    %li
+                      Our web platform to manage workloads
+                .clear  
+                %p
+                  This process will dramatically enhance the ease with which customers access your site. 
 
             #tab3.tabdiv_new{:style => "display:none"}
-              %p Software localisation means adapting the product to the linguistic, cultural and also technical needs of the target market. When it&#39;s done well the software will feel as though it was originally designed for that market.
-              .clear  
-              %p
-                This can be a complex task that involves such aspects as units, number formats, fonts, character sets, copyright issues, payment methods, currency conversion, and so on. 
-              .clear  
-              %p
-                %b At Gigavine we offer the full range of capabilities required, including:
-              .local_nav
-                %ul
-                  %li
-                    Localisation engineering, including replicating the build environment
-                  %li
-                    Creation and maintenance of terminology glossaries
-                  %li
-                    Translation of all user interface elements and assistance components
-                  %li
-                    Localisation of graphics and other media containing visible text
-                  %li
-                    Software testing and linguistic and functional quality assurance
-              .clear  
-              %p
-                We carefully control and co-ordinate the diverse workflows and teams involved in the software localisation process, using flexible but systematic best practices to optimise workloads and give our clients best value, fastest time to market and maximum consistency of the final product. 
+              - if !get_languages('lang_localisation_software','summary').blank?
+                = raw(get_languages('lang_localisation_software','summary'))
+              - else 
+                %p Software localisation means adapting the product to the linguistic, cultural and also technical needs of the target market. When it&#39;s done well the software will feel as though it was originally designed for that market.
+                .clear  
+                %p
+                  This can be a complex task that involves such aspects as units, number formats, fonts, character sets, copyright issues, payment methods, currency conversion, and so on. 
+                .clear  
+                %p
+                  %b At Gigavine we offer the full range of capabilities required, including:
+                .local_nav
+                  %ul
+                    %li
+                      Localisation engineering, including replicating the build environment
+                    %li
+                      Creation and maintenance of terminology glossaries
+                    %li
+                      Translation of all user interface elements and assistance components
+                    %li
+                      Localisation of graphics and other media containing visible text
+                    %li
+                      Software testing and linguistic and functional quality assurance
+                .clear  
+                %p
+                  We carefully control and co-ordinate the diverse workflows and teams involved in the software localisation process, using flexible but systematic best practices to optimise workloads and give our clients best value, fastest time to market and maximum consistency of the final product. 
 
             #tab4.tabdiv_new{:style => "display:none"}
-              %p Global markets for mobile devices are experiencing hyper&#150;growth as operators tap into developing markets such as China and India. The relative ease of building wireless networks is making mobile service available where landline communications are limited. For businesses making mobiles, and services for mobiles, this creates exciting growth opportunities &#150; and significant challenges. 
-              .clear  
-              %p
-                The language diversity in many new markets (and there are more than 15 languages, each spoken by more than 25 million people, in India alone) presents daunting localisation challenges. And with intense pricing pressures and razor&#150;thin margins, businesses must carefully manage costs.  
-              .clear  
-              %p
-                %b To succeed in these markets mobile devices, their interfaces and applications must be tailored to the language and culture of the target region. At Gigavine we offer a range of services to achieve this:
-              .local_nav
-                %ul
-                  %li
-                    Product localisation services to ensure hardware and embedded applications are compatible with existing infrastructures and to ensure a consistent experience across all languages
-                  %li
-                    Localisation testing services within local networks
-                  %li
-                    Translation services for the full range of user resources, including device interface, applications, support websites, print documentation
-              .clear  
-              %p
-                We can scale up our services to support product launches in multiple global markets simultaneously. 
+              - if !get_languages('lang_localisation_mobile','summary').blank?
+                = raw(get_languages('lang_localisation_mobile','summary'))
+              - else 
+                %p Global markets for mobile devices are experiencing hyper&#150;growth as operators tap into developing markets such as China and India. The relative ease of building wireless networks is making mobile service available where landline communications are limited. For businesses making mobiles, and services for mobiles, this creates exciting growth opportunities &#150; and significant challenges. 
+                .clear  
+                %p
+                  The language diversity in many new markets (and there are more than 15 languages, each spoken by more than 25 million people, in India alone) presents daunting localisation challenges. And with intense pricing pressures and razor&#150;thin margins, businesses must carefully manage costs.  
+                .clear  
+                %p
+                  %b To succeed in these markets mobile devices, their interfaces and applications must be tailored to the language and culture of the target region. At Gigavine we offer a range of services to achieve this:
+                .local_nav
+                  %ul
+                    %li
+                      Product localisation services to ensure hardware and embedded applications are compatible with existing infrastructures and to ensure a consistent experience across all languages
+                    %li
+                      Localisation testing services within local networks
+                    %li
+                      Translation services for the full range of user resources, including device interface, applications, support websites, print documentation
+                .clear  
+                %p
+                  We can scale up our services to support product launches in multiple global markets simultaneously. 
 
             #tab5.tabdiv_new{:style => "display:none"}
-              %p We offer voiceover, subtitling and dubbing for international TV, radio, DVD, cinema and new media using state of the art technology. 
-              .clear  
-              %p
-                We use a range of multilingual voice talents, from general mother tongue speakers to trained voice actors, and we&#39;ll help you find the right voices, impressionists, sound effects and music for your project. We will retain the qualities of the original by choosing the right voice artists to match the original speaker in tone and vigour. 
-              .clear  
-              %p
-                We are also experts at adapting source language scripts to different languages, including synchronisation with on-screen video, text or animation. 
-              .clear  
-              %p
-                Finally we&#39;ll integrate the result into the medium you choose. 
+              - if !get_languages('lang_localisation_subtitle','summary').blank?
+                = raw(get_languages('lang_localisation_subtitle','summary'))
+              - else 
+                %p We offer voiceover, subtitling and dubbing for international TV, radio, DVD, cinema and new media using state of the art technology. 
+                .clear  
+                %p
+                  We use a range of multilingual voice talents, from general mother tongue speakers to trained voice actors, and we&#39;ll help you find the right voices, impressionists, sound effects and music for your project. We will retain the qualities of the original by choosing the right voice artists to match the original speaker in tone and vigour. 
+                .clear  
+                %p
+                  We are also experts at adapting source language scripts to different languages, including synchronisation with on-screen video, text or animation. 
+                .clear  
+                %p
+                  Finally we&#39;ll integrate the result into the medium you choose. 
 
         .topspace  
       / right block end

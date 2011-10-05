@@ -99,30 +99,41 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p{:style=>"margin-top:0px; margin-bottom:10px;"} If you&#39;re developing materials for a foreign market it&#39;s crucial you test them to ensure they&#39;re appropriate for the culture you&#39;re entering. We can provide detailed feedback and recommendations from a local cultural and creative perspective. We&#39;ll advise on the appropriateness of the text and imagery from a political, social, ethnic or gender specific point of view, and highlight any issues that arise. 
-        %p{:style=>"margin-top:10px;"}
-          %b Our services include:
-        .local_nav
-          %ul{:style=>"margin-top:-10px;"}
-            %li
-              Concept testing &#45; providing structured feedback on product names, slogans and straplines
-            %li
-              Language technology &#45; helping you choose which specific technology, such as author memory or machine translation, is the right option for you
-            %li
-              Language specifics &#45; giving expert input on regional variations, such as the differences between European and South American Spanish, and different writing systems, supported by a multilingual font library
-        %p.headding_textnew Reducing the risk of global product launches
-        %p{:style=>"margin-top:10px;"} Our cultural assessment service involves evaluating your product before launch to identify any barriers to its success. Our assessments are extremely thorough and comprise several different and complementary elements:
-        .local_nav
-          %ul{:style=>"margin-top:-10px;"}
-            %li
-              Analysis of the product from the cultural point of view to uncover historical, social or commercial conflicts
-            %li
-              In-country focus groups
-            %li
-              Brand polling to measure the suitability of your brand/product in the target market
-            %li
-              Brand perception testing to identify unwanted associations that your imagery, colours, etc, may have
-        %p We would always recommend undertaking a cultural assessment before you begin a product launch. 
+        - if !get_languages('language_consultancy_page','summary').blank?
+          = get_languages('language_consultancy_page','summary')
+        - else						
+          %p{:style=>"margin-top:0px; margin-bottom:10px;"} If you&#39;re developing materials for a foreign market it&#39;s crucial you test them to ensure they&#39;re appropriate for the culture you&#39;re entering. We can provide detailed feedback and recommendations from a local cultural and creative perspective. We&#39;ll advise on the appropriateness of the text and imagery from a political, social, ethnic or gender specific point of view, and highlight any issues that arise. 
+          %p{:style=>"margin-top:10px;"}
+            %b Our services include:
+          .local_nav
+            %ul{:style=>"margin-top:-10px;"}
+              %li
+                Concept testing &#45; providing structured feedback on product names, slogans and straplines
+              %li
+                Language technology &#45; helping you choose which specific technology, such as author memory or machine translation, is the right option for you
+              %li
+                Language specifics &#45; giving expert input on regional variations, such as the differences between European and South American Spanish, and different writing systems, supported by a multilingual font library
+        %p.headding_textnew
+          - if !get_languages('language_consultancy_page','title').blank?
+            = get_languages('language_consultancy_page','title')
+          - else
+            Reducing the risk of global product launches
+        - if !get_languages('language_consultancy_page','summary2').blank?
+          = get_languages('language_consultancy_page','summary2')
+        - else
+								
+          %p{:style=>"margin-top:10px;"} Our cultural assessment service involves evaluating your product before launch to identify any barriers to its success. Our assessments are extremely thorough and comprise several different and complementary elements:
+          .local_nav
+            %ul{:style=>"margin-top:-10px;"}
+              %li
+                Analysis of the product from the cultural point of view to uncover historical, social or commercial conflicts
+              %li
+                In-country focus groups
+              %li
+                Brand polling to measure the suitability of your brand/product in the target market
+              %li
+                Brand perception testing to identify unwanted associations that your imagery, colours, etc, may have
+          %p We would always recommend undertaking a cultural assessment before you begin a product launch. 
 
         .clear  
       / right block end

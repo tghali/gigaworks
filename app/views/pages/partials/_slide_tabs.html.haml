@@ -19,12 +19,15 @@
         %img.fl_left{:src => "/images/frontend/content-image.png"}
       %p
         - if !get_data('home_create').blank?
-          = truncate(raw(get_data('home_create')),:length => 150)
+          = truncate(raw(get_data('home_create')),:length => 120)
         - else
           Original concepts and compelling designs to capture attention and establish a connection with your audience.
+        %a{:href => "/creative", :class=>"blue"}
+          Find out more
+          %span.span_1
+            &nbsp; &nbsp;
 
-        %span
-          %a{:href => "/creative"} Find out more
+
   .adapt
     .sub_content
       / <h3>Create</h3>
@@ -32,15 +35,18 @@
         = image_tag get_image('home_adapt'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
-      %p
+        %p
           
-        - if !get_data('home_adapt').blank?
-          = truncate(raw(get_data('home_adapt')),:length => 150)
-        - else
-          Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
+          - if !get_data('home_adapt').blank?
+            = truncate(raw(get_data('home_adapt')),:length => 120)
+          - else
+            Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
 
-        %span.span_1
-          %a{:href => "/languages"} Find out more
+          %a{:href => "/languages", :class=>"red"}
+            Find out more
+            %span.span_2
+              &nbsp; &nbsp;
+
   .deliver
     .sub_content
       / <h3>Create</h3>
@@ -48,11 +54,12 @@
         = image_tag get_image('home_deliver'),:class => "fl_left"
       - else
         %img.fl_left{:src => "/images/frontend/content-image.png"}
-      %p
-        - if !get_data('home_deliver').blank?
-          = truncate(raw(get_data('home_deliver')),:length => 150)
-        - else
-          The technical tools and digital interfaces to carry your communication to the heart of your audience.
-
-        %span.span_2
-          %a{:href => "/technology"} Find out more
+        %p
+          - if !get_data('home_deliver').blank?
+            = truncate(raw(get_data('home_deliver')),:length => 120)
+          - else
+            The technical tools and digital interfaces to carry your communication to the heart of your audience.
+          %a{:href => "/technology", :class=>"green"}
+            Find out more
+            %span.span_3
+              &nbsp; &nbsp;

@@ -161,14 +161,14 @@ height:22px;
 }
 .org_bg_inner p{
 height:79px;
-font:12px/18px Arial, Helvetica, sans-serif;
+font:15px/18px Arial, Helvetica, sans-serif;
 color:#fff;
 text-align:left;
 }
 
 .news_headding{
 height:45px;
- background:url(/images/frontend/right_arrow.gif) no-repeat right 5px;
+ background:url(/images/frontend/right_arrow.gif) no-repeat right 15px;
  cursor:pointer;
  position:relative;
  left:-8px;
@@ -179,7 +179,7 @@ text-decoration:none;
 }
 
 .news_headding h4{
-font:20px/35px Gotham;
+font:20px/55px Gotham;
 color:#465561;
 }
 .org_rightcorner{
@@ -1812,19 +1812,19 @@ padding:10px 12px 10px 12px;
 font:bold 12px/32px Gotham;
 color:#465561;
 text-decoration:none;
-border-bottom:none!important;
-background:none!important;
-border-left:none!important;
-border-right:0px solid #c9c9c9;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+text-decoration:none;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tab li a.selettab{
 font:bold 12px/32px Gotham;
 color:#465561;
-border-bottom:none!important;
-background:none!important;
-border-left:none!important;
-border-right:0px solid #c9c9c9;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+text-decoration:none;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 
@@ -1861,26 +1861,24 @@ color:#848d95;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
-border-left:0px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
 }
 .content_tabbig li a:hover{
 padding:10px 8px 10px 8px;
 font:bold 12px/32px Gotham;
-color:#465561;
+color:#848d95;
 text-decoration:none;
-border-bottom:none!important;
-background:none!important;
-border-left:none!important;
-border-right:0px solid #c9c9c9;
+border-bottom:1px solid #c9c9c9;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tabbig li a.selettab{
 font:bold 12px/32px Gotham;
 color:#848d95;
-border-bottom:none!important;
-background:none!important;
-border-left:none!important;
-border-right:0px solid #c9c9c9;
+border-bottom:1px solid #c9c9c9;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 
@@ -1925,20 +1923,19 @@ border-left:1px solid #c9c9c9;
 padding:10px 5px 10px 5px;
 font:bold 12px/32px Gotham;
 color:#465561;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
-border-bottom:none!important;
-background:none!important;
-border-left:none!important;
-border-right:0px solid #c9c9c9;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 .content_tabbig1 li a.selettab{
 font:bold 12px/32px Gotham;
 color:#848d95;
-border-bottom:none!important;
-background:none!important;
-border-left:none!important;
-border-right:0px solid #c9c9c9;
+background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+text-decoration:none;
+border-bottom:1px solid #c9c9c9;
+border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 
