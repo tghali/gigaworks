@@ -159,16 +159,18 @@ class PagesController < ActionController::Base
 		find_page.update_attributes(params[:languages_page])
 	end
   
-    if params[:languages_page][:page_section] == 'languages_page'
+  if params[:languages_page][:page_section] == 'languages_page'
 	 redirect_to :action => "languages_new"
   elsif params[:languages_page][:page_section] == 'language_consultancy_page'
     redirect_to :action => "language_consultancy"
   elsif params[:languages_page][:page_section] == 'language_translation_page'
         redirect_to :action => "language_translation"
-  elsif params[:languages_page][:page_section] == 'language_localisation_page'
+  elsif params[:languages_page][:page_section] == 'language_localisation_page' || params[:languages_page][:page_section] == "lang_localisation_products" || params[:languages_page][:page_section] == "lang_localisation_websites" || params[:languages_page][:page_section] == "lang_localisation_software" || params[:languages_page][:page_section] == "lang_localisation_mobile" || params[:languages_page][:page_section] == "lang_localisation_subtitle"
         redirect_to :action => "language_localisation"
   elsif params[:languages_page][:page_section] == 'language_online_tools'
         redirect_to :action => "language_tools"
+  else
+    redirect_to :action => "language_translation"
   end
 
  end
