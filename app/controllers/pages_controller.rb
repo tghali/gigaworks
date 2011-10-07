@@ -185,7 +185,26 @@ class PagesController < ActionController::Base
 	else
 		find_page.update_attributes(params[:creative_page])
 	end
+  
+      if params[:creative_page][:page_section] == 'creative_page'
 	 redirect_to :action => "creative_new"
+  elsif params[:creative_page][:page_section] == 'creative_copywriting_page'
+    redirect_to :action => "creative_writing"
+  elsif params[:creative_page][:page_section] == 'creative_artwork_page'
+        redirect_to :action => "creative_work"
+  elsif params[:creative_page][:page_section] == 'creative_adv_page' || params[:creative_page][:page_section] == "creative_press_adv" || params[:creative_page][:page_section] == "creative_outdoor_adv" || params[:creative_page][:page_section] == "creative_online_adv" || params[:creative_page][:page_section] == "creative_adv_exhibition" 
+    redirect_to :action => "creative_adv"
+  elsif params[:creative_page][:page_section] == 'creative_webdesign_page'
+        redirect_to :action => "creative_design"
+  else
+    redirect_to :action => "creative_new"
+  end
+  
+  
+  
+  
+  
+	 #~ redirect_to :action => "creative_new"
  end
   
     def technology_create

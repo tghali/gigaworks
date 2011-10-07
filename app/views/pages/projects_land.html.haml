@@ -42,7 +42,20 @@
   document.getElementById(img_id).id=img_id;
   });
   });
-		
+:javascript
+  jQuery(document).ready(function() {
+  jQuery(".white_block").mouseover(function (){
+  img_id=jQuery(this).find("img").attr('id');
+  document.getElementById(img_id).src='/images/frontend/client_logos/color_img'+img_id+'.jpg';
+  document.getElementById(img_id).id=img_id;
+  });
+  jQuery(".white_block").mouseout(function (){
+  img_id=jQuery(this).find("img").attr('id');
+  document.getElementById(img_id).src='/images/frontend/client_logos/pro_img'+img_id+'.jpg';
+  document.getElementById(img_id).id=img_id;
+  });
+  });
+
 #project_landing_wrapper
   / Header
   #project-header
@@ -146,17 +159,17 @@
         / block1 start
         .client_block1
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img1.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img41.jpg", :title => "", :id=>"41"}/
         / block1 end
         / block1 start
         .client_block1
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img2.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img42.jpg", :title => "" , :id=>"42"}/
         / block1 end
         / block1 start
         .client_block1.none_border
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img3.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img43.jpg", :title => "" , :id=>"43"}/
         / block1 end
       / block1 end
       / block2 start
@@ -164,17 +177,17 @@
         / block4 start
         .client_block1
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img4.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img44.jpg", :title => "", :id=>"44"}/
         / block4 end
         / block5 start
         .client_block1
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img5.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img45.jpg", :title => "", :id=>"45"}/
         / block5 end
         / block6 start
         .client_block1.none_border
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img6.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img46.jpg", :title => "", :id=>"46"}/
         / block6 end
       / block2 end
       / block3 start
@@ -182,17 +195,17 @@
         / block7 start
         .client_block1
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img7.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img47.jpg", :title => "", :id=>"47"}/
         / block7 end
         / block8 start
         .client_block1
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img8.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img48.jpg", :title => "", :id=>"48"}/
         / block8 end
         / block9 start
         .client_block1.none_border
           .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/pro_img9.jpg", :title => ""}/
+            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img49.jpg", :title => "", :id=>"49"}/
         / block9 end
       / block3 end
     / client block end
