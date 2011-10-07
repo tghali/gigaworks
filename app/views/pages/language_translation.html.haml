@@ -2,15 +2,26 @@
   jQuery.noConflict();
   jQuery(document).ready(function(){ 
   	jQuery(".div_li_tab").click(function () {
+    jQuery(".div_li_tab a").each( function(id){
+    Cufon.replace(this, {color: '#465561'});
+    });
   		tab_id = jQuery(this).find("a").attr('id');
   		jQuery(".tabdiv_new").hide();
     exist_one = jQuery(".selettab").attr("id");
+    jQuery(".div_li_tab_last").css('border-right', '1px solid #c9c9c9');
+    jQuery(".div_li_tab_first").css('border-left', '1px solid #c9c9c9');
     jQuery("#"+exist_one).removeClass("selettab");
     jQuery(this).find("a").addClass("selettab");
-  		document.getElementById("tab"+tab_id).style.display='block';
-				
-  		//jQuery("#tab"+tab_id).show("slow");
-  	});
+    document.getElementById("tab"+tab_id).style.display='block';
+    if(jQuery(this).attr("class") == "div_li_tab div_li_tab_first"){
+    jQuery(this).find("a").css('border-left', '0px solid #000');
+    jQuery(this).css('border-left', '0px solid #000');
+    }
+    if(jQuery(this).attr("class") == "div_li_tab div_li_tab_last"){
+    jQuery(this).find("a").css('border-right', '0px solid #000');
+    jQuery(this).css('border-right', '0px solid #000');
+    }
+    });
 
   	jQuery("#2").click(function () {
   		tab_id = jQuery(this).find("a").attr('id');
@@ -113,7 +124,7 @@
         .inner_tabing
           .content_tab
             %ul
-              %li.div_li_tab
+              %li.div_li_tab.div_li_tab_first
                 %a#1.selettab{:href => "javascript://"} TECHNICAL
               %li.div_li_tab
                 %a#2{:href => "javascript://"} MEDICAL
@@ -121,7 +132,7 @@
                 %a#3{:href => "javascript://"} MARKETING & BUSINESS
               %li.div_li_tab
                 %a#4{:href => "javascript://"} LITERARY
-              %li.div_li_tab{:style=>"border-right:1px solid #c9c9c9;"}
+              %li.div_li_tab.div_li_tab_last{:style=>"border-right:1px solid #c9c9c9;"}
                 %a#5{:href => "javascript://"} LEGAL
           %div
             #tab1.tabdiv_new
