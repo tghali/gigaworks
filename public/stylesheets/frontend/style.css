@@ -1820,15 +1820,22 @@ text-align:left!important;
 }
 .content_tab li a.selettab{
 font:bold 12px/32px Gotham;
-color:#465561;
-background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
+color:#aa0c22;
+background:#fff;
 text-decoration:none;
-border-bottom:1px solid #c9c9c9;
+border-bottom:0px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
 }
 
-
+.content_tab li a.selecttablast{
+font:bold 12px/32px Gotham;
+color:#aa0c22;
+background:#fff;
+text-decoration:none;
+border-bottom:0px solid #c9c9c9;
+text-align:left!important;
+}
 
 
 /* tab big */
