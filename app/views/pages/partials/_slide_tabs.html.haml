@@ -38,7 +38,8 @@
         %p
           
           - if !get_data('home_adapt').blank?
-            = truncate(raw(get_data('home_adapt')),:length => 120)
+            =# truncate(raw(get_data('home_adapt')),:length => 120)
+            Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
           - else
             Translation and adaption by native linguists and cultural specialists to make your message meaningful in your audience's world.
 
@@ -56,7 +57,8 @@
         %img.fl_left{:src => "/images/frontend/content-image.png"}
         %p
           - if !get_data('home_deliver').blank?
-            = truncate(raw(get_data('home_deliver')),:length => 120)
+            =# truncate(raw(get_data('home_deliver')),:length => 120)
+            The technical tools and digital interfaces to carry your communication to the heart of your audience.
           - else
             The technical tools and digital interfaces to carry your communication to the heart of your audience.
           %a{:href => "/technology", :class=>"green"}
