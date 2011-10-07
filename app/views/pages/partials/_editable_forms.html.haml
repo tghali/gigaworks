@@ -6,7 +6,7 @@
   #tabvanilla.widget
     %ul.tabnav
       %li
-        %a.c1{:href => "#create"} Create
+        %a.c1{:href => "#create"} Create 
       %li
         %a{:href => "#adapt"} Adapt
       %li
@@ -144,6 +144,15 @@
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close
+
+
+= render :partial => "/pages/partials/create_artwork"
+
+= render :partial => "/pages/partials/creative_advertisement"
+
+= render :partial => "/pages/partials/creative_design"
+
+= render :partial => "/pages/partials/creative_copywrite"
 
 
 #technology.sign_up{:style => "display:none"}
