@@ -1,16 +1,18 @@
 .create_nav
   .create_navleftblock
     #logo
-      %a{:alt => "Gigavine", :href => "/home", :title => "Gigavine"}
+      %a{:alt => "Gigavine", :href => "http://test.gigavine.com/home", :title => "Gigavine"}
         %img{:alt => "Gigavine", :src => "/images/frontend/gigavine-logo.png", :title => "Gigavine"}/
   .create_navrightblock
     .create_register
       .reg_text
-        Register
-        %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+        %a#try-1{:href => "#"}
+          Register
+          %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
       .reg_text
-        Login
-        %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+        %a#try-1{:href => "#"}
+          Login
+          %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
       .reg_text1
         Current Language: 
         %a#image_frm_div{:href => "javascript://"}
@@ -21,11 +23,12 @@
             %li
               %a{:href => "#"} En
             %li
-              %a{:href => "#"} Fn
+              %a{:href => "#"} Fr
             %li
-              %a{:href => "#"} An
+              %a{:href => "#"} Ar
       .reg_text2
-        Search_
-        %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
-    = render :partial => "/pages/partials/top_menu"
+        %input{:type => "text",  :value=>"Search", :onFocus=>"if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}", :onBlur=>" if (this.value == '') {this.value = 'Search';}"  }
+          %a{:href => "#"}
+            %img{:src => "/images/frontend/top_inputarrow.jpg"}/
 
+    = render :partial => "/pages/partials/top_menu"

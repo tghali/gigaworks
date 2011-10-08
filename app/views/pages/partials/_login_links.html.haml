@@ -8,8 +8,9 @@
     .create_navrightblock
       .create_register
         .reg_text
-          Register
-          %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+          %a#try-1{:href => "#"}
+            Register
+            %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
         .reg_text
           %a#try-1{:href => "#"}
             Login
@@ -24,11 +25,11 @@
               %li
                 %a{:href => "#"} En
               %li
-                %a{:href => "#"} Fn
+                %a{:href => "#"} Fr
               %li
                 %a{:href => "#"} Ar
         .reg_text2
-          %input{:type => "text", :value => "Search_"}
+          %input{:type => "text",  :value=>"Search", :onFocus=>"if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}", :onBlur=>" if (this.value == '') {this.value = 'Search';}"  }
             %a{:href => "#"}
               %img{:src => "/images/frontend/top_inputarrow.jpg"}/
 
