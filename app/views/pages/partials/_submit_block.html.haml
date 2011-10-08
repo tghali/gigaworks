@@ -17,15 +17,20 @@
             %input{:type => "text"}/
           %p{:style=>"width:370px; float:left;"}
             %span File
-            %input#browsetext{:name => "browsetext", :onClick => "document.forms1.AddPicture.click();", :style => "width:240px;", :type => "text", :value => ""}/
-            %input{:accept => "image/gif,image/jpeg", :name => "browse2", :onChange => "document.forms1.browsetext.value=document.forms1.browse2.value;", :style => "display: none;", :type => "file", :value => ""}/
-            %img{:alt => "Add Picture", :height => "22", :name => "AddPicture", :onClick => "document.forms1.browse2.click();document.forms1.browse2.disabled=false;", :src => "/images/frontend/browse_btn1.png", :style => "margin:0px 0px 0px 4px", :width => "51"}/
-          %p.form_btn{:style=>"float:left; width:50px;"}
+            #FileUpload2
+              %input#BrowserHidden2{:onChange => "document.getElementById('FileField2').value = document.getElementById('BrowserHidden2').value;", :size => "28", :type => "file"}
+                #BrowserVisible2
+                  %input#FileField2{:type => "text", :size => "17"}																		
+          %p.form_btn{ :style=>"float:right; position:relative; top:-33px; right:12px;"}
             %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
-	    
 
     .sub_rightcorner
       %span
+		  
+		  
+
+	    
+
 / submit block end
 / how we help block start
 #how-we-help
