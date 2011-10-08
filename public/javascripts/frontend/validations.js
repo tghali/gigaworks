@@ -97,10 +97,11 @@ function network_validation()
 		
 	  function creative_validate()
   {
-			 var h1 = document.getElementById('cheading1');
-				var h2 = document.getElementById('cheading2');
-    var s1 = document.getElementById('csummary1');
-    var s2 = document.getElementById('csummary2');
+			 var h1 = document.getElementById('creative_heading1');
+				var h2 = document.getElementById('creative_heading2');
+    var s1 = document.getElementById('creative_summary1');
+    var s2 = document.getElementById('creative_summary2');
+				
     if(h1.value == "")
     {
       alert('Please enter heading one');
@@ -126,7 +127,6 @@ function network_validation()
       s2.focus();
       return false;
     }
-
 
     return true;
   }	
