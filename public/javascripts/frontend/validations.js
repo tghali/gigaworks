@@ -89,7 +89,7 @@ function network_validation()
     if(lsummary.value == "")
     {
 						alert('Please enter summary for languages');
-      lheading.focus();
+      lsummary.focus();
       return false;
     }
     return true;
