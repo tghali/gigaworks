@@ -57,15 +57,17 @@
       / left block end
       / right block start
       .lp_rightblock
-        - if !get_languages('creative_webdesign_page','summary').blank?
+        - if get_languages('creative_webdesign_page','summary').blank?
           = raw(get_languages('creative_webdesign_page','summary'))
         - else
-          %p{:style=>"margin-top:0px;"}
+          %p.headding_textnew{:style=>"margin-top:0px;"}
             We have all been on websites that are confusing to navigate, hard to read, or which fail to give us the information we're looking for - not to mention sites which look as though they were designed to be cold and unappealing. 
+          %p 
+            %img{:height => "162", :hspace => "30px", :src => "/images/frontend/samp_creat.jpg", :vspace => "30px", :align =>"right" ,:width => "260", :style=>"border:1px solid #ff0000;"}/
           %p
             The problem is, it's extremely easy to put users off. If they get frustrated they can find another website with a couple of clicks. Everyone on the internet knows they could be on a million other websites, so patience wears thin very quickly. 
           %p
-            At Gigavine we design websites to be used. Users shouldn't have to think as they navigate their way through a site. The process should be effortless, and to achieve that we factor in usability throughout the design and development. Navigation should be simple and anticipate user's needs; and page layouts should be clearly organised so different kinds of content are easy to find and understand. 
+            At Gigavine we design websites to be used. Users shouldn't have to think as they navigate their way through a site. The process should be effortless, and to achieve that we factor in usability throughout the design and development. Navigation should be simple and anticipate user's needs; and page layouts should be clearly organised so different kinds of content are easy to find and understand.
           %p
             But ease of use is only one aspect of a successful website. Search engine optimisation is also vital. We apply a range of SEO techniques to all our sites, including keyworded content, error-free code, and appropriate link and navigation naming conventions. 
           %p

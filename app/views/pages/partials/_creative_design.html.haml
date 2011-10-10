@@ -2,12 +2,12 @@
   %h3#see_id  CREATIVE / WEB DESIGN
   %br.clear
   %div
-    = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_artwork_form",:onsubmit => "return creative_artwork_validate();"} do |f|
+    = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_artwork_form",:onsubmit => "return creative_design_validate();"} do |f|
       = f.hidden_field :page_section,  :value => "creative_webdesign_page"
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
-        = f.text_area :content, :style => "width:600px;",  :id => "summary_artwork", :value => get_languages('creative_webdesign_page','summary') 
+        = f.text_area :content, :style => "width:600px;",  :id => "creative_design_summary", :value => get_languages('creative_webdesign_page','summary') 
 
 
       %p.clearspace  

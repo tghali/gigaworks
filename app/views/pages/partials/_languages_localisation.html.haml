@@ -2,15 +2,15 @@
   %h3#see_id  LANGUAGES / LOCALISATION
   %br.clear
   %div
-    = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form",:onsubmit => "return lang_trans_validate();"} do |f|
+    = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form",:onsubmit => "return lang_localisation_validate();"} do |f|
       = f.hidden_field :page_section,  :value => "language_localisation_page"
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
-        = f.text_area :title, :style => "width:600px;",:id => "lang_trans_heading", :value => get_languages('language_localisation_page','title')
+        = f.text_area :title, :style => "width:600px;",:id => "lang_localisation_heading", :value => get_languages('language_localisation_page','title')
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
-        = f.text_area :content, :style => "width:600px;", :id => "lang_trans_summary", :value => get_languages('language_localisation_page','summary')
+        = f.text_area :content, :style => "width:600px;", :id => "lang_localisation_summary", :value => get_languages('language_localisation_page','summary')
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
