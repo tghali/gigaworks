@@ -87,7 +87,7 @@
             It&#39;s not just speaking the language, it&#39;s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
         - if !get_languages('languages_page','summary').blank?
           %p
-            = get_languages('languages_page','summary')
+            = raw(get_languages('languages_page','summary'))
         - else
           %p True translation means bringing meaning alive in a new and different context for an audience with different cultural bearings. It is as much about adapting a message’s references, as it is about translating the words. 
           %p This process is an enormous challenge for businesses operating in more than one region. Translation on its own is not enough; understanding of the social, political, religious and business context is also required. Add to that the potential complexities of technical terminology and the use of different technologies and interfaces, and you have a formidable problem to solve – one which requires expert assistance.

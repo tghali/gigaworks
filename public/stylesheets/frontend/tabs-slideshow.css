@@ -156,7 +156,18 @@ padding:0 6px;
 	display:inline;
 	margin-right:2px
 }
+.slidetabs_2_inner li.custom_adapt{
+ position:absolute;
+ left:390px; width:334px; 
+}
 
+
+
+.slidetabs_2_inner li.custom_deliver{
+margin:0; 
+position:relative; 
+left:323px;
+}
 .slidetabs_2 a{
 	width:321px;
 	height:67px;
@@ -178,12 +189,18 @@ padding:0 6px;
 .slidetabs a.current,.slidetabs_2 a.current {
 	background-position:0 -26px; color:#fff;} 	
 
+.slidetabs_2 li.custom_adapt a.current{
+ background:url(/images/frontend/adapt_bg.png) no-repeat;
+ width:330px;
+}
 
 .slidetabs_2 a.current{
 	background:#495963;
 	background:url(/images/frontend/highlight.png) no-repeat;
 	color:#FFF
 }
+
+
 
 .images_1 .create{
 	background:url(/images/frontend/create_bg.jpg) no-repeat top center #026cac;
