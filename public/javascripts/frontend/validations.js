@@ -78,21 +78,23 @@ function network_validation()
   function lang_validate()
   {
 
-    var lheading = document.getElementById('lang_heading');
-    var lsummary = document.getElementById('lang_summary');
-    if(lheading.value == "")
+    var lang_heading = document.getElementById('lang_heading');
+    var lang_summary = document.getElementById('lang_summary');
+				
+				
+    if(lang_heading.value == "")
     {
       alert('Please enter heading for languages');
-      lheading.focus();
+      lang_heading.focus();
       return false;
     }
-    if(lsummary.value == "")
+    if(lang_summary.value == "" || lang_summary.value == " ")
     {
 						alert('Please enter summary for languages');
-      lsummary.focus();
+      lang_summary.focus();
       return false;
     }
-    return true;
+    return false;
   }
 		
 		
