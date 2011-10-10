@@ -159,9 +159,9 @@ width:272px;
 margin:0px auto;
 /*float:right;*/
 }
-/*.org_bg_inner p.space{
+.org_bg_inner p.space{
 height:22px;
-}*/
+}
 .org_bg_inner p{
 height:79px;
 font:15px/20px Arial, Helvetica, sans-serif;
@@ -176,6 +176,7 @@ height:45px;
  position:relative;
  left:-8px;
  width:290px;
+ margin:5px 0px 0px 0px
 }
 .news_headding:hover{
 text-decoration:none;

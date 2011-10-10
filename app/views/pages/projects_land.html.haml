@@ -13,11 +13,6 @@
 :javascript
   jQuery(document).ready(function() {
   jQuery.noConflict();
-  jQuery('#mycarousel').jcarousel();
-  });
-:javascript
-  jQuery(document).ready(function() {
-  jQuery.noConflict();
       // Initialise the first and second carousel by class selector.
   	// Note that they use both the same configuration options (none in this case).
   	//jQuery('.first-and-second-carousel').jcarousel();
@@ -119,38 +114,30 @@
     / main header block end
     / gallery block start
     .pro_gallery
-      #wrap
-        %ul#mycarousel.jcarousel-skin-tango
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.png", :title => "", :id=>"1"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.png", :title => "", :id=>"2"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.png", :title => "", :id=>"3"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.png", :title => "", :id=>"4"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.png", :title => "", :id=>"5"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.png", :title => "", :id=>"6"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.png", :title => "", :id=>"7"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_8.png", :title => "", :id=>"8"}/
-          %li.slide1
-            %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_9.png", :title => "", :id=>"9"}/
-          %li
-          %li
-          %li
-          %li
-          %li
-          %li
-          %li
-          %li
-          %li
-          %li
-          %li
-
+      %ul#mycarousel.jcarousel-skin-tango
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.png", :title => "", :id=>"1"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.png", :title => "", :id=>"2"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.png", :title => "", :id=>"3"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.png", :title => "", :id=>"4"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.png", :title => "", :id=>"5"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.png", :title => "", :id=>"6"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.png", :title => "", :id=>"7"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_8.png", :title => "", :id=>"8"}/
+        %li.slide1
+          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_9.png", :title => "", :id=>"9"}/
+        %li
+        %li
+        %li
+        %li
+        %li
     / gallery block end
     / client block start
     .client_blocks
