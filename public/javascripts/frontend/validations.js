@@ -73,7 +73,7 @@ function network_validation()
 		
 }
 
-
+	/*	language block start*/
 
   function lang_validate()
   {
@@ -82,18 +82,141 @@ function network_validation()
     var lsummary = document.getElementById('lang_summary');
     if(lheading.value == "")
     {
-      alert('Please enter heading');
+      alert('Please enter heading for languages');
       lheading.focus();
       return false;
     }
     if(lsummary.value == "")
     {
-						alert('Please enter heading');
+						alert('Please enter summary for languages');
       lheading.focus();
       return false;
     }
     return true;
   }
+		
+		
+		function lang_trans_validate()
+		{
+
+    var trans_heading = document.getElementById('lang_translation_heading');
+    var trans_summary = document.getElementById('lang_translation_summary');
+
+    if(trans_heading.value == "")
+    {
+      alert('Please enter heading for language translation');
+      trans_heading.focus();
+      return false;
+    }
+    if(trans_summary.value == "")
+    {
+						alert('Please enter summary for language translation');
+      trans_summary.focus();
+      return false;
+    }
+    return true;
+
+
+
+		}
+		
+		function lang_consultancy_validate()
+		{
+    var consultancy_summary = document.getElementById('lang_consultancy_summary');
+    var consultancy_heading = document.getElementById('lang_consultancy_heading');
+    var consultancy_summary2 = document.getElementById('lang_consultancy_summary1');
+				
+    if(consultancy_summary.value == "")
+    {
+      alert('Please enter summary for language consultancy');
+      consultancy_summary.focus();
+      return false;
+    }
+
+    if(consultancy_heading.value == "")
+    {
+      alert('Please enter heading for language consultancy');
+      consultancy_heading.focus();
+      return false;
+    }
+
+    if(consultancy_summary2.value == "")
+    {
+      alert('Please enter summary two for language consultancy');
+      consultancy_summary2.focus();
+      return false;
+    }
+
+    return true;
+			
+		}
+		
+				function lang_localisation_validate()
+		{
+
+    var localisation_heading = document.getElementById('lang_localisation_heading');
+    var localisation_summary = document.getElementById('lang_localisation_summary');
+
+    if(localisation_heading.value == "")
+    {
+      alert('Please enter heading for language localisation');
+      localisation_heading.focus();
+      return false;
+    }
+    if(localisation_summary.value == "")
+    {
+						alert('Please enter summary for language localisation');
+      localisation_summary.focus();
+      return false;
+    }
+    return true;
+
+
+
+		}
+		
+		function lang_onlinetools_validate()
+		{
+
+			 var online_heading = document.getElementById('lang_online_tools_heading');
+				var online_heading2 = document.getElementById('lang_online_tools_heading1');
+    var online_summary = document.getElementById('lang_online_tools_summary');
+    var online_summary2 = document.getElementById('lang_online_tools_summary1');
+				
+	    if(online_heading.value == "")
+    {
+      alert('Please enter heading one for language online tools');
+      online_heading.focus();
+      return false;
+    }
+    if(online_summary.value == "")
+    {
+						alert('Please enter summary one for language online tools');
+      online_summary.focus();
+      return false;
+    }
+
+    if(online_heading2.value == "")
+    {
+      alert('Please enter heading two for language online tools');
+      online_heading2.focus();
+      return false;
+    }
+    if(online_summary2.value == "")
+    {
+						alert('Please enter summary two for language online tools');
+      online_summary2.focus();
+      return false;
+    }
+
+    return true;			
+
+		}
+		
+		/*	language block end*/
+		
+			/*	creative block start*/
+		
 		
 	  function creative_validate()
   {
@@ -104,26 +227,26 @@ function network_validation()
 				
     if(h1.value == "")
     {
-      alert('Please enter heading one');
+      alert('Please enter heading one for creative');
       h1.focus();
       return false;
     }
     if(s1.value == "")
     {
-						alert('Please enter summary one');
+						alert('Please enter summary one for creative');
       s1.focus();
       return false;
     }
 
     if(h2.value == "")
     {
-      alert('Please enter heading two');
+      alert('Please enter heading two for creative');
       h2.focus();
       return false;
     }
     if(s2.value == "")
     {
-						alert('Please enter summary two');
+						alert('Please enter summary two for creative');
       s2.focus();
       return false;
     }
@@ -131,6 +254,84 @@ function network_validation()
     return true;
   }	
 		
+		function creative_design_validate()
+		{
+			
+			var creative_design = document.getElementById('creative_design_summary');
+    if(creative_design.value == "")
+    {
+						alert('Please enter summary for creative web design');
+      creative_design.focus();
+      return false;
+    }
+
+    return true;			
+		}
+		
+			function creative_adv_validate()
+		{
+			
+			var creative_adv = document.getElementById('creative_advertising');
+    if(creative_adv.value == "")
+    {
+						alert('Please enter summary for creative advertising');
+      creative_adv.focus();
+      return false;
+    }
+
+    return true;			
+		}
+	
+				function creative_artwork_validate()
+		{
+			
+			var creative_art = document.getElementById('creative_summary_artwork');
+    if(creative_art.value == "")
+    {
+						alert('Please enter summary for creative artwork');
+      creative_art.focus();
+      return false;
+    }
+
+    return true;			
+		}
+	
+					function creative_copywrite_validate()
+		{
+			
+			var copywrite_summary = document.getElementById('copywrite_summary');
+			var copywrite_heading = document.getElementById('copywrite_heading');
+			var copywrite_summary2 = document.getElementById('copywrite_summary2');
+			
+    if(copywrite_summary.value == "")
+    {
+						alert('Please enter summary for creative copywriting');
+      copywrite_summary.focus();
+      return false;
+    }
+
+    if(copywrite_heading.value == "")
+    {
+						alert('Please enter heading for creative copywriting');
+      copywrite_heading.focus();
+      return false;
+    }
+
+    if(copywrite_summary2.value == "")
+    {
+						alert('Please enter summary two for creative copywriting');
+      copywrite_summary2.focus();
+      return false;
+    }
+
+
+    return true;			
+		}
+		
+	/*	creative block end*/
+	
+	
+	
 		
 	  function tech_validate()
   {

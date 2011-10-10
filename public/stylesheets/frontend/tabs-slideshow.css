@@ -5,6 +5,7 @@
 	height:370px;
 	width:1016px;
 	float:left;
+	margin:-1px 0px 0px 0px;
 	/*margin-top:72px;*/
 	/* CSS3 tweaks for modern browsers*/
 	/*-moz-border-radius:5px;
@@ -180,22 +181,22 @@ padding:0 6px;
 
 .slidetabs_2 a.current{
 	background:#495963;
-	background:url(/images/frontend/highlight.jpg) no-repeat;
+	background:url(/images/frontend/highlight.png) no-repeat;
 	color:#FFF
 }
 
 .images_1 .create{
-	background:url(/images/frontend/create_bg.jpg) no-repeat center #026cac;
+	background:url(/images/frontend/create_bg.jpg) no-repeat top center #026cac;
 	width:100%;
 }
 
 .images_1 .adapt{
-	background:url(/images/frontend/adapt_bg.jpg) no-repeat center #870036;
+	background:url(/images/frontend/adapt_bg.jpg) no-repeat top center #870036;
 	width:100%;
 }
 
 .images_1 .deliver{
-	background:url(/images/frontend/deliver_bg.jpg) no-repeat center #629831;
+	background:url(/images/frontend/deliver_bg.jpg) no-repeat top center #629831;
 	width:100%;
 }
 

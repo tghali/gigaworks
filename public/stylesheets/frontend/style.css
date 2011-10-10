@@ -17,6 +17,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-family: inherit;
 	vertical-align: baseline;
 }
+ .cufon-loading { 
+ visibility: hidden;
+}
 /* remember to define focus styles! */
 input{border:0}
 :focus{outline: 0;}
@@ -128,7 +131,7 @@ blockquote, q {quotes: "" "";}
 		padding:0px 0px 30px 0px;
 }
 .shadow_midbg p span{
-       font: 500 italic 15px/22px Arial, Helvetica, sans-serif;
+       font: 800 15px/22px Arial, Helvetica, sans-serif;
 }
 
 #latest-news{
@@ -156,12 +159,12 @@ width:272px;
 margin:0px auto;
 /*float:right;*/
 }
-.org_bg_inner p.space{
+/*.org_bg_inner p.space{
 height:22px;
-}
+}*/
 .org_bg_inner p{
 height:79px;
-font:15px/18px Arial, Helvetica, sans-serif;
+font:15px/20px Arial, Helvetica, sans-serif;
 color:#fff;
 text-align:left;
 }
@@ -482,7 +485,7 @@ float:left;
 	margin:8px 0px 0px 0px;
 	position:relative;
 	left:10px;
-	font-style:italic
+	/*font-style:italic*/
 }
 
 /*.product .link,.product .price{
@@ -671,17 +674,18 @@ margin:0px;
 padding:0px;
 }
 .local_nav ul{
-margin:10px 0px 0px 0px;
+margin:10px 0px 0px 35px;
 padding:0px;
-list-style-type:none;
+width:580px;
 }
 .local_nav li{
+list-style-type:disc;
 margin:0px 0px 10px 0px;
-padding:0px 0px 0px 17px;
+padding:0px 0px 0px 0px;
 width:auto;
 font:14px/20px Arial, Helvetica, sans-serif;
 color:#828282;
-background:url(/images/frontend/bullet.png) no-repeat left 5px;
+/*background:url(/images/frontend/bullet.png) no-repeat left 5px;*/
 }
 .local_nav li a{
 margin:0px 0px 10px 0px;

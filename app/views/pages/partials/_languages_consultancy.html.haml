@@ -2,22 +2,22 @@
   %h3#see_id  LANGUAGES / CONSULTANCY
   %br.clear
   %div
-    = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "language_consultancy_form",:onsubmit => "return creative_validate();"} do |f|
+    = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "language_consultancy_form",:onsubmit => "return lang_consultancy_validate();"} do |f|
       = f.hidden_field :page_section,  :value => "language_consultancy_page"
 
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
-        = f.text_area :content, :style => "width:600px;",  :id => "csummary1", :value => get_languages('language_consultancy_page','summary')
+        = f.text_area :content, :style => "width:600px;",  :id => "lang_consultancy_summary", :value => get_languages('language_consultancy_page','summary')
 
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
-        = f.text_field :title, :style => "width:600px;", :id => "cheading1", :value => get_languages('language_consultancy_page','title')
+        = f.text_field :title, :style => "width:600px;", :id => "lang_consultancy_heading", :value => get_languages('language_consultancy_page','title')
 
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary2:
-        = f.text_area :network, :style => "width:600px;",  :id => "csummary2", :value => get_languages('language_consultancy_page','summary2')
+        = f.text_area :network, :style => "width:600px;",  :id => "lang_consultancy_summary1", :value => get_languages('language_consultancy_page','summary2')
 
       %p.clearspace  
       %p.send_btn1
