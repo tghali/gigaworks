@@ -1069,6 +1069,9 @@ opacity:.60;
 filter:alpha(opacity=50);
 filter: “alpha(opacity=50)”;
 }
+@media \0screen {
+  .home_create_header p, .home_language_header p, .home_technology_header p{width:350px;}
+}
 .home_create_header span.headtext , .home_create_header span.clientname{
 width:338px;
 color:#fff;
