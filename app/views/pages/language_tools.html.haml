@@ -99,13 +99,13 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p{:style=>"margin-top:0px; margin-bottom:18px;"} Inconsistent terminology is a very significant cost factor in globalisation projects. Gigavine offers the tools to eliminate these costs and build a reliable and consistent internal processes. 
+
 	  
         %p.headding_textnew
           - if !get_languages('language_online_tools','title').blank?
             = get_languages('language_online_tools','title')
           - else
-            Glossary creation
+            Inconsistent terminology is a very significant cost factor in globalisation projects. Gigavine offers the tools to eliminate these costs and build a reliable and consistent internal processes. 
         - if !get_languages('language_online_tools','summary').blank?
           = raw(get_languages('language_online_tools','summary'))
         - else  
