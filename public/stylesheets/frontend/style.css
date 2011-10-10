@@ -624,7 +624,9 @@ margin-top:5px;
 text-indent:5px;
 #text-indent:10px
 }	
-	
+@media \0screen {
+ .reg_text2 input{{width:130px;}
+}
 #lp_content{
 width:964px;
 height:auto;
