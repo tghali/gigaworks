@@ -76,22 +76,6 @@ padding:0 6px;
 .images_1 div.sub_content p a.green span.span_3{ top:0px}
 }
 
-.images_1 div.sub_content p a.green span.span_3{ #background: url(/images/frontend/arrow_slide.png) no-repeat 5px 12px;}
-.images_1 div.sub_content p a.red span.span_2{ #background: url(/images/frontend/arrow_slide.png) no-repeat 5px 12px;}
-.images_1 div.sub_content p a.blue span.span_1{ #background: url(/images/frontend/arrow_slide.png) no-repeat 5px 12px;}
-
-
-@media \0screen {
- .images_1 div.sub_content p a.green span.span_3{ #background: url(/images/frontend/arrow_slide.png) no-repeat 5px 12px;}
-}
-@media \0screen {
-.images_1 div.sub_content p a.red span.span_2{ #background: url(/images/frontend/arrow_slide.png) no-repeat 5px 12px;}
-}
-
-@media \0screen {
-.images_1 div.sub_content p a.blue span.span_1{ #background: url(/images/frontend/arrow_slide.png) no-repeat 5px 12px;}
-}
-
 
 
 .images_1 div.sub_content p a.blue{ color:#fff; text-decoration:none; font:14px Arial, Helvetica, sans-serif; background:#77bbe4; padding:4px 6px 4px 6px; position:relative;}
