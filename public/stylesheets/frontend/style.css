@@ -615,14 +615,15 @@ background-image:none;
 }	
 .reg_text2 input{
 width:132px;
+#width:130px;
 background:none;
 font:10px Arial, Helvetica, sans-serif;
 color:#7a7979;
 float:left;
 margin-top:5px;
-text-indent:5px
+text-indent:5px;
+#text-indent:10px
 }	
-
 	
 #lp_content{
 width:964px;

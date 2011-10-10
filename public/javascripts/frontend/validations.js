@@ -82,7 +82,7 @@ function network_validation()
     var lang_summary = document.getElementById('lang_summary');
 				
 				
-    if(lang_heading.value == "")
+    if(lang_heading.value == "" || lang_heading.value == " ")
     {
       alert('Please enter heading for languages');
       lang_heading.focus();
@@ -94,7 +94,7 @@ function network_validation()
       lang_summary.focus();
       return false;
     }
-    return false;
+    return true;
   }
 		
 		
@@ -104,13 +104,13 @@ function network_validation()
     var trans_heading = document.getElementById('lang_translation_heading');
     var trans_summary = document.getElementById('lang_translation_summary');
 
-    if(trans_heading.value == "")
+    if(trans_heading.value == "" || trans_heading.value == " ")
     {
       alert('Please enter heading for language translation');
       trans_heading.focus();
       return false;
     }
-    if(trans_summary.value == "")
+    if(trans_summary.value == "" || trans_summary.value == " ")
     {
 						alert('Please enter summary for language translation');
       trans_summary.focus();
@@ -128,21 +128,21 @@ function network_validation()
     var consultancy_heading = document.getElementById('lang_consultancy_heading');
     var consultancy_summary2 = document.getElementById('lang_consultancy_summary1');
 				
-    if(consultancy_summary.value == "")
+    if(consultancy_summary.value == "" || consultancy_summary.value == " ")
     {
       alert('Please enter summary for language consultancy');
       consultancy_summary.focus();
       return false;
     }
 
-    if(consultancy_heading.value == "")
+    if(consultancy_heading.value == "" || consultancy_heading.value == " ")
     {
       alert('Please enter heading for language consultancy');
       consultancy_heading.focus();
       return false;
     }
 
-    if(consultancy_summary2.value == "")
+    if(consultancy_summary2.value == "" || consultancy_summary2.value == " ")
     {
       alert('Please enter summary two for language consultancy');
       consultancy_summary2.focus();
@@ -159,13 +159,13 @@ function network_validation()
     var localisation_heading = document.getElementById('lang_localisation_heading');
     var localisation_summary = document.getElementById('lang_localisation_summary');
 
-    if(localisation_heading.value == "")
+    if(localisation_heading.value == "" || localisation_heading.value == " ")
     {
       alert('Please enter heading for language localisation');
       localisation_heading.focus();
       return false;
     }
-    if(localisation_summary.value == "")
+    if(localisation_summary.value == "" || localisation_summary.value == " ")
     {
 						alert('Please enter summary for language localisation');
       localisation_summary.focus();
@@ -185,26 +185,26 @@ function network_validation()
     var online_summary = document.getElementById('lang_online_tools_summary');
     var online_summary2 = document.getElementById('lang_online_tools_summary1');
 				
-	    if(online_heading.value == "")
+	    if(online_heading.value == "" || online_heading.value == " ")
     {
       alert('Please enter heading one for language online tools');
       online_heading.focus();
       return false;
     }
-    if(online_summary.value == "")
+    if(online_summary.value == "" || online_summary.value == " ")
     {
 						alert('Please enter summary one for language online tools');
       online_summary.focus();
       return false;
     }
 
-    if(online_heading2.value == "")
+    if(online_heading2.value == "" || online_heading2.value == " ")
     {
       alert('Please enter heading two for language online tools');
       online_heading2.focus();
       return false;
     }
-    if(online_summary2.value == "")
+    if(online_summary2.value == "" || online_summary2.value == " ")
     {
 						alert('Please enter summary two for language online tools');
       online_summary2.focus();
