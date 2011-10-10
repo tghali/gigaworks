@@ -622,11 +622,9 @@ color:#7a7979;
 float:left;
 margin-top:5px;
 text-indent:5px;
-#text-indent:10px
+#text-indent:5px
 }	
-@media \0screen {
- .reg_text2 input{{width:130px;}
-}
+	
 #lp_content{
 width:964px;
 height:auto;
@@ -1072,9 +1070,7 @@ opacity:.60;
 filter:alpha(opacity=50);
 filter: “alpha(opacity=50)”;
 }
-@media \0screen {
-  .home_create_header p, .home_language_header p, .home_technology_header p{width:420px;}
-}
+
 .home_create_header span.headtext , .home_create_header span.clientname{
 width:338px;
 color:#fff;
