@@ -311,18 +311,22 @@ height:33px;
 width: 68px;
 float:left;
 }
+
+
 .sub_bg_inner p input{
-	width:356px;
+	width:346px;
 	height:20px;
 	float:left;
-	text-indent:7px;
+	/*text-indent:7px;*/
  	-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
     border-radius: 5px;
+	padding-left:5px;
+	padding-right:5px;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.sub_bg_inner p input{padding-left:0px; line-height:19px;}
+.sub_bg_inner p input{margin-left:5px; margin-right:5px; width:330px; line-height:19px;}
 }
 
 
@@ -632,7 +636,7 @@ text-indent:5px;
 #text-indent:5px
 }	
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.reg_text2 input{ width:130px;}
+.reg_text2 input{ width:120px; padding-left:5px; padding-right:5px; text-indent:0px!important;}
 }
 	
 	
@@ -806,17 +810,18 @@ float:left;
  font:14px Gotham;
 }
 .lpsub_bg_inner p input{
-	width:200px;
+	width:190px;
 	height:20px;
 	float:left;
-	text-indent:7px;
+	/*text-indent:7px;*/
  	-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
     border-radius: 5px;
+	padding-left:5px; padding-right:5px;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.lpsub_bg_inner p input{padding-left:5px; line-height:19px;}
+.lpsub_bg_inner p input{margin-left:5px; margin-right:5px; line-height:19px; width:180px;}
 }
 /*------------------------------ Languages Landing Page -----------------------------------------------------------*/
 #lang_landing_wrapper{
@@ -880,6 +885,7 @@ height:33px;
 width: 275px;
 float:left;
 }
+
 .get_bg_inner p input, select{
 	width:275px;
 	height:20px;
@@ -891,15 +897,25 @@ float:left;
     border-radius: 5px;
 	border:0px;
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-.get_bg_inner p input{padding-left:5px; line-height:19px;}
-}
-.get_bg_inner p select{ width:277px!important; padding-left:5px; padding-top:1px;}
 .get_bg_inner p input{
 width:95px;
-	text-indent:7px;
-
 }
+
+.get_bg_inner p select{ width:277px!important; padding-left:5px; padding-top:1px;}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+.get_bg_inner p input{ padding-left:5px!important; padding-right:5px!important; width:85px; line-height:19px;}
+}
+
+
+
+
+
+
+
+
 .get_bg_inner p.count{
 width:95px;
 float:left;
@@ -1239,7 +1255,7 @@ border-radius: 5px;
 
 #FileField1 {
 float:left;
-    width:125px;
+    width:115px;
     height:22px;
     margin-right:65px;
     font-size:14px;
@@ -1247,6 +1263,8 @@ float:left;
 -webkit-border-radius: 5px;
 -khtml-border-radius: 5px;
 border-radius: 5px;
+padding-left:5px;
+padding-right:5px;
 }
 
 #BrowserHidden1 {
@@ -1262,6 +1280,7 @@ border-radius: 5px;
 @media screen and (-webkit-min-device-pixel-ratio:0){
 #FileUpload1 {
 width:100px;
+margin-left:3px;
 }
 }
 
@@ -1287,7 +1306,7 @@ width:100px;
 
 #FileField2 {
 float:left;
-    width:280px;
+    width:270px;
     height:22px;
     margin-right:65px;
     font-size:14px;
@@ -1296,6 +1315,8 @@ float:left;
 -khtml-border-radius: 5px;
 border-radius: 5px;
 position:relative;
+padding-left:5px;
+padding-right:5px;
 }
 
 #BrowserHidden2 {
@@ -1313,8 +1334,9 @@ position:relative;
 
 
 
-
-
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+#FileField2 {margin-left:3px;}
+}
 
 
 
