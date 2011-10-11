@@ -7,7 +7,7 @@
 .home_create_header span.headtext , .home_create_header span.clientname{ width:320px; margin:15px 25px 0px 0px;}
 
 
-.reg_text2 input{ width:125px; padding-left:5px;}
+.reg_text2 input{ width:127px!important;  padding-left:5px; text-indent:0px!important; padding-right:0px!important;}
 
 
 
