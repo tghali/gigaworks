@@ -321,6 +321,11 @@ float:left;
     -khtml-border-radius: 5px;
     border-radius: 5px;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.sub_bg_inner p input{padding-left:0px; line-height:19px;}
+}
+
+
 .form_btn{
 width:51px;
 margin:0px auto;
@@ -484,7 +489,7 @@ float:left;
 	font:24px Gotham;
 	color:#b5101c;
 	text-align:left;
-	margin:8px 0px 0px 0px;
+	margin:20px 0px 0px 0px;
 	position:relative;
 	left:10px;
 	/*font-style:italic*/
@@ -626,6 +631,10 @@ margin-top:5px;
 text-indent:5px;
 #text-indent:5px
 }	
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.reg_text2 input{ width:130px;}
+}
+	
 	
 #lp_content{
 width:964px;
@@ -806,6 +815,9 @@ float:left;
     -khtml-border-radius: 5px;
     border-radius: 5px;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.lpsub_bg_inner p input{padding-left:5px; line-height:19px;}
+}
 /*------------------------------ Languages Landing Page -----------------------------------------------------------*/
 #lang_landing_wrapper{
 background:url(/images/frontend/lang_landing_bg.jpg) repeat-x;
@@ -878,6 +890,9 @@ float:left;
     -khtml-border-radius: 5px;
     border-radius: 5px;
 	border:0px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.get_bg_inner p input{padding-left:5px; line-height:19px;}
 }
 .get_bg_inner p select{ width:277px!important; padding-left:5px; padding-top:1px;}
 .get_bg_inner p input{
