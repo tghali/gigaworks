@@ -277,7 +277,7 @@ float:left;
 .sub_inner{
 width:456px;
 height:135px;
-margin:20px 0px 0px 0px;
+margin:20px 0px 0px 15px;
 }
 .sub_leftcorner{
         background:url(/images/frontend/sub_leftcorner.gif) no-repeat left;
@@ -315,6 +315,7 @@ float:left;
 	width:356px;
 	height:20px;
 	float:left;
+	text-indent:7px;
  	-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
@@ -615,7 +616,8 @@ background-image:none;
 }	
 .reg_text2 input{
 width:132px;
-#width:130px;
+#width:125px;
+#padding-left:5px;
 background:none;
 font:10px Arial, Helvetica, sans-serif;
 color:#7a7979;
@@ -798,6 +800,7 @@ float:left;
 	width:200px;
 	height:20px;
 	float:left;
+	text-indent:7px;
  	-moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -khtml-border-radius: 5px;
@@ -876,8 +879,11 @@ float:left;
     border-radius: 5px;
 	border:0px;
 }
+.get_bg_inner p select{ width:277px!important; padding-left:5px; padding-top:1px;}
 .get_bg_inner p input{
 width:95px;
+	text-indent:7px;
+
 }
 .get_bg_inner p.count{
 width:95px;
@@ -1875,6 +1881,7 @@ background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
+text-transform:capitalize!important;
 }
 .content_tab li a:hover{
 padding:10px 12px 10px 12px;
@@ -1886,6 +1893,7 @@ text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize!important;
 }
 .content_tab li a.selettab{
 font:bold 12px/32px Gotham;
@@ -1895,6 +1903,7 @@ text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize!important;
 }
 
 .content_tab li a.selecttablast{
@@ -1904,6 +1913,7 @@ background:#fff;
 text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize!important;
 }
 
 .content_tab li:first-child a.selettab{
@@ -1942,6 +1952,7 @@ background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
+text-transform:capitalize;
 }
 .content_tab_create li a:hover{
 padding:10px 12px 10px 12px;
@@ -1953,6 +1964,7 @@ text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tab_create li a.selettab{
 font:bold 12px/32px Gotham;
@@ -1962,6 +1974,7 @@ text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 
 .content_tab_create li a.selecttablast{
@@ -1971,6 +1984,7 @@ background:#fff;
 text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tab_create li:first-child a.selettab{
 	border-left:0;
@@ -2006,6 +2020,7 @@ background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
+text-transform:capitalize;
 }
 .content_tab_project li a:hover{
 padding:10px 12px 10px 12px;
@@ -2017,6 +2032,7 @@ text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tab_project li a.selettab{
 font:bold 12px/32px Gotham;
@@ -2026,6 +2042,7 @@ text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 
 .content_tab_project li a.selecttablast{
@@ -2035,6 +2052,7 @@ background:#fff;
 text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tab_project li:first-child a.selettab{
 	border-left:0;
@@ -2076,6 +2094,7 @@ background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
+text-transform:capitalize;
 }
 .content_tabbig li a:hover{
 padding:10px 8px 10px 8px;
@@ -2086,6 +2105,7 @@ border-bottom:1px solid #c9c9c9;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tabbig li a.selettab{
 font:bold 12px/32px Gotham;
@@ -2095,6 +2115,7 @@ text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 
 .content_tabbig li a.selecttablast{
@@ -2104,6 +2125,7 @@ background:#fff;
 text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 
 .content_tabbig li:first-child a.selettab{
@@ -2144,6 +2166,7 @@ background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
+text-transform:capitalize;
 }
 .content_tabbig1 li a:hover{
 padding:10px 5px 10px 5px;
@@ -2154,6 +2177,7 @@ text-decoration:none;
 border-bottom:1px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tabbig1 li a.selettab{
 font:bold 12px/32px Gotham;
@@ -2163,6 +2187,7 @@ text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 border-left:1px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 .content_tabbig1 li:first-child a.selettab{
 	border-left:0;
@@ -2175,6 +2200,7 @@ background:#fff;
 text-decoration:none;
 border-bottom:0px solid #c9c9c9;
 text-align:left!important;
+text-transform:capitalize;
 }
 
 /* tab big1 end */

@@ -2,3 +2,17 @@
 
 
   .home_create_header p, .home_language_header p, .home_technology_header p{width:420px;}
+.home_language_header span.headtext , .home_language_header span.clientname{ width:320px; margin:15px 25px 0px 0px;}
+.home_technology_header span.headtext , .home_technology_header span.clientname{ width:320px; margin:15px 25px 0px 0px;}
+.home_create_header span.headtext , .home_create_header span.clientname{ width:320px; margin:15px 25px 0px 0px;}
+
+
+.reg_text2 input{ width:125px; padding-left:5px;}
+
+
+
+.images_1 div.sub_content p a.blue span.span_1{  background: url(/images/frontend/arrow_slide.png) no-repeat 5px 15px; padding:4px 4px; margin-left:2px;  position:absolute; right:-18px;}
+
+.images_1 div.sub_content p a.red span.span_2{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 15px; padding:4px 4px; margin-left:2px;  position:absolute; right:-18px;}
+
+.images_1 div.sub_content p a.green span.span_3{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 15px; padding:4px 4px; margin-left:2px;  position:absolute; right:-18px;}

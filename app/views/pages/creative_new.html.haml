@@ -12,7 +12,7 @@
       .create_mainblock
         %img{:alt => "", :src => "/images/frontend/blue-img1.gif", :title => ""}
           .top_comment
-            %p Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
+            %p We work with you to define and develop your brand, create guidelines and act as the brand guardian.
   / Headerend
   / content block start
   #lp_content{:style => "position:relative;"}
@@ -69,25 +69,26 @@
         - if get_languages('creative_page','summary').blank?
           %p 
             Creativity means using original concepts and compelling designs to bring your offer alive, so your audience welcomes the message, remembers it and acts on it. This is how we establish a connection and begin communicating. 
-          %p
+          %p{:style=>"margin-top:0px!important; margin-bottom:0px!important;"}
             It doesn't matter what the medium is, the idea is primary. And the value of the idea comes from gaining a thorough understanding of your brand, your products and services, your market and your audience – only then can we create something which will be powerful and effective. That is why we use a thorough strategic planning process which involves auditing and defining your identity and brand attributes.
         - else
           = raw(get_languages('creative_page','summary'))
 
-        %p.headding_textnew
+        %p.headding_textnew{:style=>"margin-bottom:0px!important;"}
           - if get_languages('creative_page','heading2').blank?
             Branding runs through everything we do.
           - else
             = get_languages('creative_page','heading2')
         - if get_languages('creative_page','summary2').blank?
-          %p
+          %p{:style=>"margin-top:0px!important; margin-bottom:0px!important;"}
             Every kind of creative work we do for our clients involves branding. This is because a brand is more than a logo or even a set of colours. Your brand is the sum of what you mean to your customers, your values, your products, your voice, your message and your attitude. It is not something you simply adopt, but emerges from what you are.
           %p
             %i Your brand is what you stand for.
           %p
             We work with you to define and develop that brand, create guidelines and act as the brand guardian. 
         - else
-          = raw(get_languages('creative_page','summary2'))
+          %p{:style=>"margin-top:0px!important; margin-bottom:0px!important;"}
+            = raw(get_languages('creative_page','summary2'))
       / right block end
   / content block end
   .topspace &nbsp;  

@@ -119,21 +119,24 @@
           = raw(get_languages('language_translation_page','summary'))								
         - else											
           %p At Gigavine we use only native speakers for our translation services, as this is the only way can we guarantee the correct nuances. The goal is to make the material sound as though it was originally written in that language, with no sense of strangeness or distance.
+          %p 
+            %object{:height => "178", :width => "303"}
+              %embed{:height => "178", :src => "/giga8_mov.FLV", :width => "303"}/
           %p In addition, our translators have specialist knowledge in many different fields. This means we can offer high quality certified translations of official documents, including legal, medical, marketing and business documents, as well as translations of literary works, including TV, film and theatre productions.
           %p We approach all our translation with a great deal of caution, care and confidentiality, and the process includes review, revision and proofing of documents for any spelling or grammatical errors, cultural and technical consistency, and formatting. We also offer pure proof-reading services in many different languages, picking up on general issues or looking for particular issues that you brief us on.
         .inner_tabing
           .content_tab
             %ul
               %li.div_li_tab.div_li_tab_first
-                %a#1.selettab{:href => "javascript://"} TECHNICAL
+                %a#1.selettab{:href => "javascript://"} Technical
               %li.div_li_tab
-                %a#2{:href => "javascript://"} MEDICAL
+                %a#2{:href => "javascript://"} Medical
               %li.div_li_tab
-                %a#3{:href => "javascript://"} MARKETING & BUSINESS
+                %a#3{:href => "javascript://"} Marketing & Business
               %li.div_li_tab
-                %a#4{:href => "javascript://"} LITERARY
+                %a#4{:href => "javascript://"} Literary
               %li.div_li_tab.div_li_tab_last{:style=>"border-right:1px solid #c9c9c9;"}
-                %a#5{:href => "javascript://"} LEGAL
+                %a#5{:href => "javascript://"} Legal
           %div
             #tab1.tabdiv_new
               - if !get_languages('lang_trans_technical','summary').blank?	

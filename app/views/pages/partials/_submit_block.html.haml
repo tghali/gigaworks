@@ -20,9 +20,9 @@
             #FileUpload2
               %input#BrowserHidden2{:onChange => "document.getElementById('FileField2').value = document.getElementById('BrowserHidden2').value;", :size => "28", :type => "file"}
                 #BrowserVisible2
-                  %input#FileField2{:type => "text", :size => "17"}																		
-          %p.form_btn{ :style=>"float:right; position:relative; top:-33px; right:12px;"}
-            %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
+                  %input#FileField2{:type => "text", :size => "17" , :style=>"#position:relative; #top:-18px;"}																		
+          %p.form_btn{ :style=>"float:right; position:relative; top:-33px; #top:-66px; right:12px;"}
+            %input.form_submit{:src => "#", :type => "submit", :value => ""}/
 
     .sub_rightcorner
       %span
@@ -49,7 +49,7 @@
               - if get_help('help_connect_one','title')
                 = get_help('help_connect_one','title')
               - else
-                Build an Arabic version of your website for Middle East expansion
+                Build an Arabic version of your <b>website</b> for Middle East expansion
           .product
             .pic
               - if !get_help('help_connect_two','image').blank?
@@ -60,7 +60,7 @@
               - if get_help('help_connect_two','title')
                 = get_help('help_connect_two','title')
               - else
-                Develop a mobile app for 15 territories, in 8 languages
+                Develop a <b>mobile app</b> for 15 territories, in 8 languages
           .product
             .pic
               - if !get_help('help_connect_three','image').blank?
@@ -71,7 +71,7 @@
               - if get_help('help_connect_three','title')
                 = get_help('help_connect_three','title')
               - else
-                Increase your UK sales with a highly effective marketing campaign
+                Increase your UK sales with a highly effective <b>marketing campaign</b>
           .product
             .pic
               - if !get_help('help_connect_four','image').blank?
@@ -82,7 +82,7 @@
               - if get_help('help_connect_four','title')
                 = get_help('help_connect_four','title')
               - else
-                Adapt your annual report for Chinese shareholders
+                Adapt your <b>annual report</b> for Chinese shareholders
           .product
             .pic
               - if !get_help('help_connect_five','image').blank?
@@ -93,7 +93,7 @@
               - if get_help('help_connect_five','title')
                 = get_help('help_connect_five','title')
               - else
-                Design a new brand identity for your business, suitable for South America
+                Design a new <b>brand identity</b> for your business, suitable for South America
           .product
             .pic
               - if !get_help('help_connect_six','image').blank?
@@ -104,6 +104,6 @@
               - if get_help('help_connect_six','title')
                 = get_help('help_connect_six','title')
               - else
-                Build a multi-lingual extranet for your global customers
+                Build a multi-lingual <b>extranet</b> for your global customers
         .clear
 / how we help block end
