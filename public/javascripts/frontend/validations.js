@@ -330,6 +330,55 @@ function network_validation()
     return true;			
 		}
 		
+		function creative_interactive_validate()
+		{
+			var interactive_summary = document.getElementById('creative_interactive_summary');
+			
+			    if(interactive_summary.value == "" || interactive_summary.value == " ")
+    {
+						alert('Please enter summary for creative interactive');
+      interactive_summary.focus();
+      return false;
+    }
+				    return true;			
+		}
+		
+			function crative_interactive_tabs(tab_option)
+		{
+			var creative_mobdevelopment = document.getElementById('creative_mobiledevelopment');
+			var creative_books = document.getElementById('creative_ebooks');
+			var creative_media = document.getElementById('media_presentation');			
+			
+
+			
+			    if(tab_option == "creative_mobile_development" && creative_mobdevelopment.value == "")
+    {
+						alert('Please enter data for mobile development');
+      creative_mobdevelopment.focus();
+      return false;
+    }
+				
+				    if(tab_option == "creative_ebooks" && creative_books.value == "")
+    {
+						alert('Please enter data for ebooks');
+      creative_books.focus();
+      return false;
+    }			
+	
+					    if(tab_option == "creative_media_presentations" && creative_media.value == "")
+    {
+						alert('Please enter data for media presentations');
+      creative_media.focus();
+      return false;
+    }			
+	
+	
+				    return true;			
+		}	
+		
+		
+		
+		
 	/*	creative block end*/
 	
 	
@@ -342,13 +391,13 @@ function network_validation()
     var tsummary = document.getElementById('tech_summary');
     if(theading.value == "")
     {
-      alert('Please enter heading');
+      alert('Please enter heading for technology');
       theading.focus();
       return false;
     }
     if(tsummary.value == "")
     {
-						alert('Please enter summary');
+						alert('Please enter summary for technology');
       tsummary.focus();
       return false;
     }
@@ -356,6 +405,52 @@ function network_validation()
   }	
 		
 		
+		function tech_commerce()
+		{
+
+    var commercesummary = document.getElementById('commerce_summary');
+
+    if(commercesummary.value == "")
+    {
+						alert('Please enter summary for technology commerce');
+      commercesummary.focus();
+      return false;
+    }
+    return true;
+		}
+		
+			function tech_security()
+		{
+
+    var techsecurity = document.getElementById('security_summary');
+
+    if(techsecurity.value == "")
+    {
+						alert('Please enter summary for online security');
+      techsecurity.focus();
+      return false;
+    }
+				
+    return true;
+		}	
+		
+
+			function tech_crm()
+		{
+
+    var techcrm = document.getElementById('crm_summary');
+
+    if(techcrm.value == "")
+    {
+						alert('Please enter summary for technology CRM');
+      techcrm.focus();
+      return false;
+    }
+				
+    return true;
+		}	
+
+
 	function banner_validate(option_value)
 	{
 			 var bone_title = document.getElementById('bone_title');
