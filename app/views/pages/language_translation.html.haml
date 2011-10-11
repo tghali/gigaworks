@@ -111,7 +111,7 @@
       / right block start
       .lp_rightblock
         %p.headding_text
-          - if !get_languages('language_translation_page','title').blank?
+          - if get_languages('language_translation_page','title').blank?
             = get_languages('language_translation_page','title')
           - else
             Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
