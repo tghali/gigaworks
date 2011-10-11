@@ -118,7 +118,7 @@
           - else
             Terminology management
         - if !get_languages('language_online_tools','summary2').blank?
-          = get_languages('language_online_tools','summary2')
+          = raw(get_languages('language_online_tools','summary2'))
         - else
           %p{:style=>"margin-top:18px!important;"} Our terminology management process takes things a step further than glossaries. It is the process of capturing your internal jargon and formalising it, and then creating systems to store, distribute and update it. This can include:
           .local_nav
