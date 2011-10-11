@@ -1950,8 +1950,8 @@ font:bold 12px Gotham;
 .content_tab li a{
 text-align:left;
 margin:0px;
-padding:10px 12px 10px 12px;
-font: bold 12px/32px Gotham;
+padding:10px 12px 9px 12px;
+font: bold 12px/30px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -1960,8 +1960,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize!important;
 }
 .content_tab li a:hover{
-padding:10px 12px 10px 12px;
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#465561;
 text-decoration:none;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -1972,7 +1971,7 @@ text-align:left!important;
 text-transform:capitalize!important;
 }
 .content_tab li a.selettab{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -1983,7 +1982,7 @@ text-transform:capitalize!important;
 }
 
 .content_tab li a.selecttablast{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -2021,8 +2020,8 @@ font:bold 12px Gotham;
 .content_tab_create li a{
 text-align:left;
 margin:0px;
-padding:10px 12px 10px 12px;
-font: bold 12px/32px Gotham;
+padding:10px 12px 9px 12px;
+font: bold 12px/30px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2031,8 +2030,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tab_create li a:hover{
-padding:10px 12px 10px 12px;
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#465561;
 text-decoration:none;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -2043,7 +2041,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tab_create li a.selettab{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2054,7 +2052,7 @@ text-transform:capitalize;
 }
 
 .content_tab_create li a.selecttablast{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2089,8 +2087,8 @@ font:bold 12px Gotham;
 .content_tab_project li a{
 text-align:left;
 margin:0px;
-padding:10px 12px 10px 12px;
-font: bold 12px/32px Gotham;
+padding:10px 12px 9px 12px;
+font: bold 12px/30px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2099,8 +2097,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tab_project li a:hover{
-padding:10px 12px 10px 12px;
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#465561;
 text-decoration:none;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -2111,7 +2108,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tab_project li a.selettab{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#d37436;
 background:#fff;
 text-decoration:none;
@@ -2122,7 +2119,7 @@ text-transform:capitalize;
 }
 
 .content_tab_project li a.selecttablast{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#d37436;
 background:#fff;
 text-decoration:none;
@@ -2163,8 +2160,8 @@ font:bold 12px Gotham;
 .content_tabbig li a{
 text-align:left;
 margin:0px;
-padding:10px 8px 10px 8px;
-font: bold 12px/32px Gotham;
+padding:10px 8px 9px 8px;
+font: bold 12px/30px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2173,8 +2170,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tabbig li a:hover{
-padding:10px 8px 10px 8px;
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#465561;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
@@ -2184,7 +2180,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tabbig li a.selettab{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2195,7 +2191,7 @@ text-transform:capitalize;
 }
 
 .content_tabbig li a.selecttablast{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2235,8 +2231,8 @@ font:bold 12px Gotham;
 .content_tabbig1 li a{
 text-align:left;
 margin:0px;
-padding:10px 5px 10px 5px;
-font: bold 12px/32px Gotham;
+padding:10px 5px 9px 5px;
+font: bold 12px/30px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2245,8 +2241,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tabbig1 li a:hover{
-padding:10px 5px 10px 5px;
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2256,7 +2251,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tabbig1 li a.selettab{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -2270,7 +2265,7 @@ text-transform:capitalize;
 }
 
 .content_tabbig1 li a.selecttablast{
-font:bold 12px/32px Gotham;
+font:bold 12px/30px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
