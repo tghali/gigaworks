@@ -100,7 +100,7 @@
       / right block start
       .lp_rightblock
         - if !get_languages('language_consultancy_page','summary').blank?
-          = get_languages('language_consultancy_page','summary')
+          = raw(get_languages('language_consultancy_page','summary'))
         - else						
           %p{:style=>"margin-top:0px; margin-bottom:10px;"} If you&#39;re developing materials for a foreign market it&#39;s crucial you test them to ensure they&#39;re appropriate for the culture you&#39;re entering. We can provide detailed feedback and recommendations from a local cultural and creative perspective. We&#39;ll advise on the appropriateness of the text and imagery from a political, social, ethnic or gender specific point of view, and highlight any issues that arise. 
           %p{:style=>"margin-top:10px;"}
@@ -119,7 +119,7 @@
           - else
             Reducing the risk of global product launches
         - if !get_languages('language_consultancy_page','summary2').blank?
-          = get_languages('language_consultancy_page','summary2')
+          = raw(get_languages('language_consultancy_page','summary2'))
         - else
 								
           %p{:style=>"margin-top:10px;"} Our cultural assessment service involves evaluating your product before launch to identify any barriers to its success. Our assessments are extremely thorough and comprise several different and complementary elements:
