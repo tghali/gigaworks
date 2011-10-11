@@ -898,7 +898,9 @@ float:left;
 	border:0px;
 }
 .get_bg_inner p input{
-width:95px;
+width:85px;
+ padding-left:5px!important; padding-right:5px!important;
+ line-height:19px;
 }
 
 .get_bg_inner p select{ width:277px!important; padding-left:5px; padding-top:1px;}
@@ -1280,7 +1282,7 @@ padding-right:5px;
 @media screen and (-webkit-min-device-pixel-ratio:0){
 #FileUpload1 {
 width:100px;
-margin-left:3px;
+margin-left:2px;
 }
 }
 
