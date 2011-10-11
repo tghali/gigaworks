@@ -11,8 +11,22 @@
 
 
 
-.images_1 div.sub_content p a.blue span.span_1{  background: url(/images/frontend/arrow_slide.png) no-repeat 5px 15px; padding:4px 4px; margin-left:2px;  position:absolute; right:-18px;}
+.images_1 div.sub_content p a.blue span.span_1{  background: url(/images/frontend/arrow_slide.png) no-repeat 5px 16px; padding:4px 4px; margin-left:2px; margin-top:1px;  position:absolute; right:-18px;}
 
-.images_1 div.sub_content p a.red span.span_2{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 15px; padding:4px 4px; margin-left:2px;  position:absolute; right:-18px;}
+.images_1 div.sub_content p a.red span.span_2{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 16px; padding:4px 4px; margin-left:2px;  margin-top:1px; position:absolute; right:-18px;}
 
-.images_1 div.sub_content p a.green span.span_3{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 15px; padding:4px 4px; margin-left:2px;  position:absolute; right:-18px;}
+.images_1 div.sub_content p a.green span.span_3{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 16px; padding:4px 4px; margin-left:2px;  margin-top:1px; position:absolute; right:-18px;}
+
+
+.latest_mod{
+padding:20px 0px 0px 6px;
+}
+.news_headding{
+height:45px;
+ background:url(/images/frontend/right_arrow.gif) no-repeat right 16px;
+ cursor:pointer;
+ position:relative;
+ left:-15px;
+ top:10px;
+ width:290px;
+}
