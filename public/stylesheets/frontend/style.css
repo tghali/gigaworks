@@ -126,7 +126,7 @@ blockquote, q {quotes: "" "";}
 		padding:25px 0px 25px 0px;
 		}
 .shadow_midbg p{
-		font:14px/22px Arial, Helvetica, sans-serif;
+		font:15px/22px Arial, Helvetica, sans-serif;
 		color:#828282;
 		padding:0px 0px 30px 0px;
 }
@@ -159,14 +159,18 @@ width:272px;
 margin:0px auto;
 /*float:right;*/
 }
-.org_bg_inner p.space{
+/*.org_bg_inner p.space{
 height:22px;
-}
+}*/
 .org_bg_inner p{
 height:79px;
 font:15px/20px Arial, Helvetica, sans-serif;
 color:#fff;
 text-align:left;
+}
+
+.latest_mod{
+padding:18px 0px 0px 6px; height:79px; word-wrap:break-word;
 }
 
 .news_headding{
@@ -1036,7 +1040,10 @@ width:300px;
 }
 .top_comment{
 width:447px;
-height:89px;
+/*height:89px;*/
+height:auto;
+padding-bottom:15px;
+padding-right:7px;
 color:#fff;
 position:relative;
 top:-180px;
@@ -1052,9 +1059,9 @@ filter:alpha(opacity=50);
 filter: “alpha(opacity=50)”;
 }
 .top_comment p{
-font:18px/20px Gotham;
+font:18px/27px Gotham;
 color:#fff;
-padding:10px 0px 0px 20px;
+padding:12px 0px 0px 15px;
 }
 
 /*------------------------------ Technology  Languages Landing Page -----------------------------------------------------------*/
@@ -1698,8 +1705,11 @@ color:#5f5f5f;
 
 
 .network_comment{
-width:332px;
-height:76px;
+width:312px;
+/*height:76px;*/
+height:auto;
+padding-bottom:15px;
+padding-right:7px;
 color:#fff;
 position:relative;
 top:-210px;
@@ -1715,10 +1725,35 @@ filter:alpha(opacity=70);
 filter: “alpha(opacity=70)”;
 }
 .network_comment p{
-font:18px/20px Gotham;
+font:18px/27px Gotham;
 color:#fff;
-padding:18px 0px 0px 20px;
+padding:12px 0px 0px 15px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .net_signbtn{
 background:url(/images/frontend/sign_btn.gif) no-repeat;
 font:bold 16px/31px Arial, Helvetica, sans-serif;
