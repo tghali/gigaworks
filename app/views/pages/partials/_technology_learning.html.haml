@@ -1,0 +1,108 @@
+#technology_learning.sign_up{:style => "display:none"}
+  %h3#see_id  TECHNOLOGY / E-LEARNING
+  %br.clear
+  %div
+    = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_learning",:onsubmit => "return technology_learning();"} do |f|
+      = f.hidden_field :page_section,  :value => "tech_learning_page"
+
+      %label
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
+        = f.text_area :content, :style => "width:600px;",  :id => "tech_learning_summary", :value => get_languages('tech_learning_page','summary')
+
+
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+
+  %br.clear
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a.c1{:href => "#block1"} Block 1
+      %li
+        %a{:href => "#block2"} Block 2
+      %li
+        %a{:href => "#block3"} Block 3
+      %li
+        %a{:href => "#block4"} Block 4
+      %li
+        %a{:href => "#block5"} Block 5
+
+    %br.clear
+    #block1.tabdiv
+      = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_learning_block1",:onsubmit => "return tech_learning_tabs('block1');"} do |f|
+        = f.hidden_field :page_section,  :value => "block1"
+
+        %label.headding_label
+          %strong Title:
+          = f.text_field :title, :style => "width:600px;", :id => "tech_learn_title1", :value => get_languages('block1','title') 
+								
+        %label.headding_label
+          %strong  Summary :
+          = f.text_area :content, :style => "width:600px;", :id => "tech_learn_block1",:value => get_data('block1')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+
+    #block2.tabdiv
+      = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_learning_block2",:onsubmit => "return tech_learning_tabs('block2');"} do |f|
+        = f.hidden_field :page_section,  :value => "block2"
+
+        %label.headding_label
+          %strong Title:
+          = f.text_field :title, :style => "width:600px;", :id => "tech_learn_title2", :value => get_languages('block2','title') 
+										
+        %label.headding_label
+          %strong Summary :
+          = f.text_area :content, :style => "width:600px;", :id => "tech_learn_block2",:value => get_data('block2')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / /Outdoor
+    #block3.tabdiv
+      = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_learning_block3",:onsubmit => "return tech_learning_tabs('block3');"} do |f|
+        = f.hidden_field :page_section,  :value => "block3"
+
+        %label.headding_label
+          %strong Title:
+          = f.text_field :title, :style => "width:600px;", :id => "tech_learn_title3", :value => get_languages('block3','title') 
+										
+        %label.headding_label
+          %strong Summary :
+          = f.text_area :content, :style => "width:600px;", :id => "tech_learn_block3",:value => get_data('block3')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Online
+
+    #block4.tabdiv
+      = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_learning_block4",:onsubmit => "return tech_learning_tabs('block4');"} do |f|
+        = f.hidden_field :page_section,  :value => "block4"
+								
+        %label.headding_label
+          %strong Title:
+          = f.text_field :title, :style => "width:600px;", :id => "tech_learn_title4", :value => get_languages('block4','title') 
+										
+        %label.headding_label
+          %strong Summary :
+          = f.text_area :content, :style => "width:600px;", :id => "tech_learn_block4",:value => get_data('block4')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Online
+
+    #block5.tabdiv
+      = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_learning_block5",:onsubmit => "return tech_learning_tabs('block5');"} do |f|
+        = f.hidden_field :page_section,  :value => "block5"
+
+        %label.headding_label
+          %strong Title:
+          = f.text_field :title, :style => "width:600px;", :id => "tech_learn_title5", :value => get_languages('block5','title') 
+
+        %label.headding_label
+          %strong Summary :
+          = f.text_area :content, :style => "width:600px;", :id => "tech_learn_block5",:value => get_data('block5')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    / Online
+
+  .clearspace 
+		 
+  %a#close_x.close.sprited{:href => "#"} close

@@ -122,6 +122,54 @@ function network_validation()
 
 		}
 		
+		
+		function language_translation_tabs(tab_option)
+		{
+			var trans_technical = document.getElementById('technical_content');
+			var trans_medical = document.getElementById('medical_content'); 
+			var trans_marketing = document.getElementById('marketing_content');
+			var trans_literary = document.getElementById('literary_content');
+			var trans_legal = document.getElementById('legal_content');
+			
+			 if(tab_option == "lang_trans_technical" && trans_technical.value == "")
+    {
+						alert('Please enter data for technical');
+      trans_technical.focus();
+      return false;
+    }		
+				
+				if(tab_option == "lang_trans_medical" && trans_medical.value == "")
+    {
+						alert('Please enter data for medical');
+      trans_medical.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "lang_trans_marketing" && trans_marketing.value == "")
+    {
+						alert('Please enter data for marketing and business');
+      trans_marketing.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "lang_trans_literary" && trans_literary.value == "")
+    {
+						alert('Please enter data for literary');
+      trans_literary.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "lang_trans_legal" && trans_legal.value == "")
+    {
+						alert('Please enter data for legal');
+      trans_legal.focus();
+      return false;
+    }		
+				
+				return true;			
+		}
+		
+		
 		function lang_consultancy_validate()
 		{
     var consultancy_summary = document.getElementById('lang_consultancy_summary');
@@ -176,6 +224,55 @@ function network_validation()
 
 
 		}
+		
+		function language_localisation_tabs(tab_option)
+		{
+			
+			var products = document.getElementById('local_products');
+			var lang_website = document.getElementById('local_websites'); 
+			var lang_software = document.getElementById('local_software');
+			var  lang_mobile = document.getElementById('local_mobile');
+			var title = document.getElementById('local_subtitle');
+			
+					    if(tab_option == "products" && products.value == "")
+    {
+						alert('Please enter data for products and documentation');
+      products.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "websites" && lang_website.value == "")
+    {
+						alert('Please enter data for websites');
+      lang_website.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "software" && lang_software.value == "")
+    {
+						alert('Please enter data for software');
+      lang_software.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "mobile" && lang_mobile.value == "")
+    {
+						alert('Please enter data for mobile interfaces');
+      lang_mobile.focus();
+      return false;
+    }		
+				
+						    if(tab_option == "subtitle" && title.value == "")
+    {
+						alert('Please enter data for subtitling and debugging');
+      title.focus();
+      return false;
+    }		
+				
+				return true;
+			
+		}
+		
 		
 		function lang_onlinetools_validate()
 		{
@@ -284,6 +381,48 @@ function network_validation()
     return true;			
 		}
 	
+	
+	function creative_adv_tabs(tab_option)
+	{
+		var press = document.getElementById('press_advertisement');
+		var outdoor = document.getElementById('outdoor_advertisement');
+		var online = document.getElementById('online_advertisement');
+		var exb = document.getElementById('exhibition_advertisement');
+		
+
+		
+			    if(tab_option == "press_adv" && press.value == "")
+    {
+						alert('Please enter data for press advertisement');
+      press.focus();
+      return false;
+    }		
+
+			    if(tab_option == "outdoor_adv" && outdoor.value == "")
+    {
+						alert('Please enter data for outdoor advertisement');
+      outdoor.focus();
+      return false;
+    }		
+				
+			    if(tab_option == "online_adv" && online.value == "")
+    {
+						alert('Please enter data for online advertisement');
+      online.focus();
+      return false;
+    }		
+				
+				    if(tab_option == "exhibition" && exb.value == "")
+    {
+						alert('Please enter data for exihibition');
+      exb.focus();
+      return false;
+    }		
+
+					return true;
+	}
+	
+	
 				function creative_artwork_validate()
 		{
 			
@@ -329,6 +468,9 @@ function network_validation()
 
     return true;			
 		}
+		
+		
+		
 		
 		function creative_interactive_validate()
 		{
@@ -404,7 +546,120 @@ function network_validation()
     return true;
   }	
 		
+
+		function technology_learning()
+		{
+
+    var learn_summary = document.getElementById('tech_learning_summary');
+
+    if(learn_summary.value == "")
+    {
+						alert('Please enter summary for technology learning');
+      learn_summary.focus();
+      return false;
+    }
+    return true;
+		}
+
+
+			function tech_learning_tabs(tab_option)
+		{
+			var block_title1 = document.getElementById('tech_learn_title1');
+			var block_summary1 = document.getElementById('tech_learn_block1');
 		
+			var block_title2 = document.getElementById('tech_learn_title2');
+			var block_summary2 = document.getElementById('tech_learn_block2');
+
+			var block_title3 = document.getElementById('tech_learn_title3');
+			var block_summary3 = document.getElementById('tech_learn_block3');
+			
+			var block_title4 = document.getElementById('tech_learn_title4');
+			var block_summary4 = document.getElementById('tech_learn_block4');
+			
+			var block_title5 = document.getElementById('tech_learn_title5');
+			var block_summary5 = document.getElementById('tech_learn_block5');
+			
+			    if(tab_option == "block1" && block_title1.value == "")
+    {
+						alert('Please enter title for block');
+      block_title1.focus();
+      return false;
+    }
+				
+				    if(tab_option == "block1" && block_summary1.value == "")
+    {
+						alert('Please enter summary for block');
+      block_summary1.focus();
+      return false;
+    }			
+	
+		
+				    if(tab_option == "block2" && block_title2.value == "")
+    {
+						alert('Please enter title for block');
+      block_title2.focus();
+      return false;
+    }
+				
+				    if(tab_option == "block2" && block_summary2.value == "")
+    {
+						alert('Please enter summary for block');
+      block_summary2.focus();
+      return false;
+    }			
+	
+	
+	
+				    if(tab_option == "block3" && block_title3.value == "")
+    {
+						alert('Please enter title for block');
+      block_title3.focus();
+      return false;
+    }
+				
+				    if(tab_option == "block3" && block_summary3.value == "")
+    {
+						alert('Please enter summary for block');
+      block_summary3.focus();
+      return false;
+    }			
+	
+	
+				    if(tab_option == "block4" && block_title4.value == "")
+    {
+						alert('Please enter title for block');
+      block_title4.focus();
+      return false;
+    }
+				
+				    if(tab_option == "block4" && block_summary4.value == "")
+    {
+						alert('Please enter summary for block');
+      block_summary4.focus();
+      return false;
+    }			
+	
+	
+				    if(tab_option == "block5" && block_title5.value == "")
+    {
+						alert('Please enter title for block');
+      block_title5.focus();
+      return false;
+    }
+				
+				    if(tab_option == "block5" && block_summary5.value == "")
+    {
+						alert('Please enter summary for block');
+      block_summary5.focus();
+      return false;
+    }			
+	
+		
+	
+				    return true;			
+		}	
+
+
 		function tech_commerce()
 		{
 
