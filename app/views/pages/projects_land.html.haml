@@ -39,18 +39,23 @@
   });
 :javascript
   jQuery(document).ready(function() {
-  jQuery(".white_block").mouseover(function (){
-  img_id=jQuery(this).find("img").attr('id');
-  document.getElementById(img_id).src='/images/frontend/client_logos/color_img'+img_id+'.jpg';
-  document.getElementById(img_id).id=img_id;
+  	
+  	jQuery("ul.gallery li").hover(function() { //On hover...
+  		
+  		var thumbOver = jQuery(this).find("img").attr("src"); //Get image url and assign it to 'thumbOver'
+  		
+  		//Set a background image(thumbOver) on the <a> tag 
+  		jQuery(this).find("a.thumb").css({'background' : 'url(' + thumbOver + ') no-repeat center bottom'});
+  		//Fade the image to 0 
+  		jQuery(this).find("span").stop().fadeTo('normal', 0 , function() {
+  			jQuery(this).hide() //Hide the image after fade
+  		}); 
+  	} , function() { //on hover out...
+  		//Fade the image to 1 
+  		jQuery(this).find("span").stop().fadeTo('normal', 1).show();
+  	});
+  
   });
-  jQuery(".white_block").mouseout(function (){
-  img_id=jQuery(this).find("img").attr('id');
-  document.getElementById(img_id).src='/images/frontend/client_logos/pro_img'+img_id+'.jpg';
-  document.getElementById(img_id).id=img_id;
-  });
-  });
-
 #project_landing_wrapper
   / Header
   #project-header
@@ -143,58 +148,45 @@
     .client_blocks
       / block1 start
       .inner_client
-        / block1 start
-        .client_block1
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img41.jpg", :title => "", :id=>"41"}/
-        / block1 end
-        / block1 start
-        .client_block1
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img42.jpg", :title => "" , :id=>"42"}/
-        / block1 end
-        / block1 start
-        .client_block1.none_border
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img43.jpg", :title => "" , :id=>"43"}/
-        / block1 end
-      / block1 end
-      / block2 start
-      .inner_client
-        / block4 start
-        .client_block1
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img44.jpg", :title => "", :id=>"44"}/
-        / block4 end
-        / block5 start
-        .client_block1
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img45.jpg", :title => "", :id=>"45"}/
-        / block5 end
-        / block6 start
-        .client_block1.none_border
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img46.jpg", :title => "", :id=>"46"}/
-        / block6 end
-      / block2 end
-      / block3 start
-      .inner_client
-        / block7 start
-        .client_block1
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img47.jpg", :title => "", :id=>"47"}/
-        / block7 end
-        / block8 start
-        .client_block1
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img48.jpg", :title => "", :id=>"48"}/
-        / block8 end
-        / block9 start
-        .client_block1.none_border
-          .white_block{:align => "center"}
-            %img{:alt => "", :src => "/images/frontend/client_logos/pro_img49.jpg", :title => "", :id=>"49"}/
-        / block9 end
-      / block3 end
+        %ul.gallery
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Aon", :src => "/images/frontend/client_logos/aon_thumb.gif", :title => "Aon"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Bausch&Lomb", :src => "/images/frontend/client_logos/bandlomb_thumb.gif", :title => "Bausch&Lomb"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Dove", :src => "/images/frontend/client_logos/dove_thumb.gif", :title => "Dove"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Honeywell", :src => "/images/frontend/client_logos/honeywell_thumb.gif", :title => "Honeywell"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Mawhiba", :src => "/images/frontend/client_logos/mawhiba_thumb.gif", :title => "Mawhiba"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Mobily", :src => "/images/frontend/client_logos/mobily_thumb.gif", :title => "Mobily"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Nae", :src => "/images/frontend/client_logos/nae_thumb.gif", :title => "Nae"}/
+
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Shell", :src => "/images/frontend/client_logos/shell_thumb.gif", :title => "Shell"}/
+          %li
+            %a.thumb{:href => "#"}
+              %span
+                %img{:alt => "Sofitel", :src => "/images/frontend/client_logos/sofitel_thumb.gif", :title => "Sofitel"}/
+        .clear
     / client block end
   / network content end
   .clear

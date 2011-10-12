@@ -1948,10 +1948,12 @@ float:left;
 font:bold 12px Gotham;
 }
 .content_tab li a{
+display:block;
 text-align:left;
 margin:0px;
-padding:10px 12px 9px 12px;
-font: bold 12px/30px Gotham;
+height:32px;
+padding:0px 12px 0px 12px;
+font: bold 12px/32px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -1960,7 +1962,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize!important;
 }
 .content_tab li a:hover{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 text-decoration:none;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -1971,7 +1973,7 @@ text-align:left!important;
 text-transform:capitalize!important;
 }
 .content_tab li a.selettab{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -1982,7 +1984,7 @@ text-transform:capitalize!important;
 }
 
 .content_tab li a.selecttablast{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -2018,10 +2020,12 @@ float:left;
 font:bold 12px Gotham;
 }
 .content_tab_create li a{
+display:block;
 text-align:left;
 margin:0px;
-padding:10px 12px 9px 12px;
-font: bold 12px/30px Gotham;
+height:32px;
+padding:0px 12px 0px 12px;
+font: bold 12px/32px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2030,7 +2034,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tab_create li a:hover{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 text-decoration:none;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -2041,7 +2045,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tab_create li a.selettab{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2052,7 +2056,7 @@ text-transform:capitalize;
 }
 
 .content_tab_create li a.selecttablast{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2085,10 +2089,12 @@ float:left;
 font:bold 12px Gotham;
 }
 .content_tab_project li a{
+display:block;
 text-align:left;
 margin:0px;
-padding:10px 12px 9px 12px;
-font: bold 12px/30px Gotham;
+height:32px;
+padding:0px 12px 0px 12px;
+font: bold 12px/32px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2097,7 +2103,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tab_project li a:hover{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 text-decoration:none;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
@@ -2108,7 +2114,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tab_project li a.selettab{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#d37436;
 background:#fff;
 text-decoration:none;
@@ -2119,7 +2125,7 @@ text-transform:capitalize;
 }
 
 .content_tab_project li a.selecttablast{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#d37436;
 background:#fff;
 text-decoration:none;
@@ -2158,10 +2164,12 @@ float:left;
 font:bold 12px Gotham;
 }
 .content_tabbig li a{
+display:block;
 text-align:left;
 margin:0px;
-padding:10px 8px 9px 8px;
-font: bold 12px/30px Gotham;
+padding:0px 8px 0px 8px;
+height:32px;
+font: bold 12px/32px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2170,7 +2178,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tabbig li a:hover{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 text-decoration:none;
 border-bottom:1px solid #c9c9c9;
@@ -2180,7 +2188,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tabbig li a.selettab{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2191,7 +2199,7 @@ text-transform:capitalize;
 }
 
 .content_tabbig li a.selecttablast{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#207bb2;
 background:#fff;
 text-decoration:none;
@@ -2229,10 +2237,12 @@ float:left;
 font:bold 12px Gotham;
 }
 .content_tabbig1 li a{
+display:block;
 text-align:left;
 margin:0px;
-padding:10px 5px 9px 5px;
-font: bold 12px/30px Gotham;
+height:32px;
+padding:0px 5px 0px 5px;
+font: bold 12px/32px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2241,7 +2251,7 @@ border-left:1px solid #c9c9c9;
 text-transform:capitalize;
 }
 .content_tabbig1 li a:hover{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#465561;
 background:#ededed url(/images/frontend/trans_dot.jpg) repeat;
 text-decoration:none;
@@ -2251,7 +2261,7 @@ text-align:left!important;
 text-transform:capitalize;
 }
 .content_tabbig1 li a.selettab{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -2265,7 +2275,7 @@ text-transform:capitalize;
 }
 
 .content_tabbig1 li a.selecttablast{
-font:bold 12px/30px Gotham;
+font:bold 12px/32px Gotham;
 color:#aa0c22;
 background:#fff;
 text-decoration:none;
@@ -2390,8 +2400,9 @@ height:auto;
 }
 .inner_client{
 width:964px;
-height:140px;
+height:auto;
 border-top:1px solid #fff;
+background:#fff
 }
 .client_block1{
 width:320px;
@@ -2456,4 +2467,48 @@ font:14px/22px Arial, Helvetica, sans-serif;
 margin:15px 0px 0px 0px;
 }
 
+ul.gallery {
+	width: 964px;
+	height:auto;	
+	list-style: none;
+	padding: 0;
+	margin-left:1px;
+}
+ul.gallery li {
+	float: left;
+	margin: 0 1px 1px 0; padding: 0;
+	text-align: center;
+	display: inline;
+	background:#e4e4e4;
+	width:320px;
+	height:140px /*--Gimp Fix aka IE6 Fix--*/
+}
+ul.gallery li a.thumb {
+	width: 280px;
+	height: 90px;
+	cursor: pointer;
+	margin-top:21px;
+	margin-left:21px;
+}
+ul.gallery li span { /*--Used to crop image--*/
+	width: 280px;
+	height: 90px;
+	overflow: hidden;
+	display: block;
+}
+ul.gallery li a.thumb:hover {
+	background: #333;
+}
 
+ul.gallery li a {text-decoration: none; color: #777; display: block;}
+
+
+
+embed{
+border:1px solid #e4e4e4; float:right; padding:0px 6px 0px 6px; position:relative; left:15px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+embed{
+border:1px solid #e4e4e4; float:right; padding:4px 6px 3px 6px; position:relative; left:15px;
+}
+}
