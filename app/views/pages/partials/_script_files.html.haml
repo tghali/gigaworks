@@ -175,6 +175,15 @@
   e.preventDefault();
   });	
 
+  jQuery('#technology_learning_new').click(function(e) {
+  jQuery("#technology_learning").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#technology_learning").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });	
+
+
+
   jQuery('#technology_commerce_new').click(function(e) {
   jQuery("#technology_commerce").lightbox_me({centered: true, onLoad: function() {
   jQuery("#technology_commerce").find("input:first").focus();
