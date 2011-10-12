@@ -2502,13 +2502,19 @@ ul.gallery li a.thumb:hover {
 
 ul.gallery li a {text-decoration: none; color: #777; display: block;}
 
+.new_video{float:right; margin:0px 0px 0px 15px; border:1px solid #e4e4e4;  #padding-left:20px;}
 
 
-embed{
-border:1px solid #e4e4e4; float:right; padding:0px 6px 0px 6px; position:relative; left:15px;
+/*embed{
+ float:right; padding:0px 6px 0px 6px; position:relative; left:15px;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 embed{
-border:1px solid #e4e4e4; float:right; padding:4px 6px 3px 6px; position:relative; left:15px;
+ float:right; padding:4px 6px 3px 6px; position:relative; left:15px;
+}
+}*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.new_video{
+ float:right;  position:relative; left:5px;
 }
 }
