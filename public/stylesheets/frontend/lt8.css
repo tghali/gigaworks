@@ -17,6 +17,9 @@
 
 .images_1 div.sub_content p a.green span.span_3{ background: url(/images/frontend/arrow_slide.png) no-repeat 5px 16px; padding:4px 4px; margin-left:2px;  margin-top:1px; position:absolute; right:-18px;}
 
+embed{
+border:1px solid #e4e4e4; float:right; padding:4px 6px 4px 6px; position:relative; left:15px;
+}
 
 .latest_mod{
 padding:20px 0px 0px 6px;
