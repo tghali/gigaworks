@@ -30,7 +30,7 @@
         %a{:href => "#legal"} LEGAL
     %br.clear
     #technical.tabdiv
-      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_technical');"} do |f|
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation_tabs('lang_trans_technical');"} do |f|
         = f.hidden_field :page_section,  :value => "lang_trans_technical"
         %label.headding_label
           %strong Technical :
@@ -39,7 +39,7 @@
           %input{:type=>"Submit" , :value=> "Submit"}
     / /Create
     #medical.tabdiv
-      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_medical');"} do |f|
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation_tabs('lang_trans_medical');"} do |f|
         = f.hidden_field :page_section,  :value => "lang_trans_medical"
         %label.headding_label
           %strong Medical :
@@ -48,29 +48,29 @@
           %input{:type=>"Submit" , :value=> "Submit"}
     / /Adapt
     #marketing_business.tabdiv
-      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation_tabs('lang_trans_marketing');"} do |f|
         = f.hidden_field :page_section,  :value => "lang_trans_marketing"
         %label.headding_label
           %strong Marketing :
-          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_trans_marketing')
+          = f.text_area :content, :style => "width:600px;", :id => "marketing_content",:value => get_data('lang_trans_marketing')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
     #literary.tabdiv
-      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_literary');"} do |f|
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation_tabs('lang_trans_literary');"} do |f|
         = f.hidden_field :page_section,  :value => "lang_trans_literary"
         %label.headding_label
           %strong Literary :
-          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_trans_literary')
+          = f.text_area :content, :style => "width:600px;", :id => "literary_content",:value => get_data('lang_trans_literary')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
     #legal.tabdiv
-      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation_tabs('lang_trans_legal');"} do |f|
         = f.hidden_field :page_section,  :value => "lang_trans_legal"
         %label.headding_label
           %strong Legal :
-          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('lang_trans_legal')
+          = f.text_area :content, :style => "width:600px;", :id => "legal_content",:value => get_data('lang_trans_legal')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver

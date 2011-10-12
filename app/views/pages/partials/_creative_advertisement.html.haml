@@ -29,38 +29,38 @@
 
     %br.clear
     #press_adv.tabdiv
-      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_technical');"} do |f|
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return creative_adv_tabs('press_adv');"} do |f|
         = f.hidden_field :page_section,  :value => "creative_press_adv"
         %label.headding_label
           %strong Press &nbsp; &nbsp; &nbsp; Advertising :
-          = f.text_area :content, :style => "width:600px;", :id => "press_adv",:value => get_data('creative_press_adv')
+          = f.text_area :content, :style => "width:600px;", :id => "press_advertisement",:value => get_data('creative_press_adv')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
 
     #outdoor_adv.tabdiv
-      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_medical');"} do |f|
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return creative_adv_tabs('outdoor_adv');"} do |f|
         = f.hidden_field :page_section,  :value => "creative_outdoor_adv"
         %label.headding_label
           %strong Outdoor Advertising :
-          = f.text_area :content, :style => "width:600px;", :id => "outdoor_adv",:value => get_data('creative_outdoor_adv')
+          = f.text_area :content, :style => "width:600px;", :id => "outdoor_advertisement",:value => get_data('creative_outdoor_adv')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / /Outdoor
     #online_adv.tabdiv
-      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_marketing');"} do |f|
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return creative_adv_tabs('online_adv');"} do |f|
         = f.hidden_field :page_section,  :value => "creative_online_adv"
         %label.headding_label
           %strong Online &nbsp; Advertising :
-          = f.text_area :content, :style => "width:600px;", :id => "online_adv",:value => get_data('creative_online_adv')
+          = f.text_area :content, :style => "width:600px;", :id => "online_advertisement",:value => get_data('creative_online_adv')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Online
     #exhibition.tabdiv
-      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation('lang_trans_literary');"} do |f|
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "langu_translation",:onsubmit => "return creative_adv_tabs('exhibition');"} do |f|
         = f.hidden_field :page_section,  :value => "creative_adv_exhibition"
         %label.headding_label
           %strong Exhibition & Events :
-          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_data('creative_adv_exhibition')
+          = f.text_area :content, :style => "width:600px;", :id => "exhibition_advertisement",:value => get_data('creative_adv_exhibition')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
