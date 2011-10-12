@@ -90,8 +90,11 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p{:style=>"margin-top:0px;"}  As the market for new interactive devices expands rapidly, the digital world is changing fast. At the same time the need for businesses to adapt to this new media landscape is becoming more urgent every month.
-        %p Gigavine has the experience and the skills to help businesses to take advantage, whether they&#39;re interested in creating content for handheld devices such as mobile phones, or other media such as ebook readers. We have strong software development and testing teams with wide experience of working with the new interactive technologies, and we make sure we stay right on the cutting edge of the latest developments &#45; which means we can offer you valuable consultancy and strategic advice on how best to solve your business requirements using the latest applications. 
+        - if !get_languages('creative_interactive_page','summary').blank?
+          = raw(get_languages('creative_interactive_page','summary'))
+        - else
+          %p{:style=>"margin-top:0px;"}  As the market for new interactive devices expands rapidly, the digital world is changing fast. At the same time the need for businesses to adapt to this new media landscape is becoming more urgent every month.
+          %p Gigavine has the experience and the skills to help businesses to take advantage, whether they&#39;re interested in creating content for handheld devices such as mobile phones, or other media such as ebook readers. We have strong software development and testing teams with wide experience of working with the new interactive technologies, and we make sure we stay right on the cutting edge of the latest developments &#45; which means we can offer you valuable consultancy and strategic advice on how best to solve your business requirements using the latest applications. 
         .inner_tabing
           .content_tab_create
             %ul
@@ -103,76 +106,85 @@
                 %a#3{:href => "javascript://"} Multimedia&nbsp;presentations 
           %div
             #tab1.tabdiv_new
-              %p The key change that kickstarted this market was when mobile operators introduced flat rate plans for mobile data usage. Now, in the UK market alone, over a quarter of mobile users have browsed the internet from their phones. This is a massive potential marketplace, one which most of the world&#39;s biggest brands have already recognised by building their own mobile portals with content designed specifically for handheld devices. 
-              .clear  
-              %p
-                All of which means your customers are likely to be looking for your digital presence via a mobile phone.
-              .clear  
-              %p
-                Because of the way mobiles use WAP browsers, many websites don&#39;t render correctly on mobile phones. If that&#39;s true for your site, it&#39;s important to do something about it. Even if your site looks the same on a mobile as it does on a desktop browser, unless you optimise it for mobile use it can be very difficult to use. 
-              .clear  
-              %p
-                Gigavine has developed phone&#45;based applications successfully for clients across three continents, and we work with following platforms:
-              .clear  
-              .local_nav
-                %ul{:style=>"float:left; width:180px; margin-top:10px;"}
-                  %li
-                    iPhone
-                  %li
-                    Symbian
-                  %li
-                    Windows Mobile
-                  %li
-                    J2ME
-                %ul{:style=>"float:left; width:180px;  margin-top:10px;"}
-                  %li
-                    Android
-                  %li
-                    Blackberry
-                  %li
-                    BREW 
-                  %li
-                    Palm software development
+              - if !get_languages('creative_mobile_development','summary').blank?
+                = raw(get_languages('creative_mobile_development','summary'))
+              - else
+                %p The key change that kickstarted this market was when mobile operators introduced flat rate plans for mobile data usage. Now, in the UK market alone, over a quarter of mobile users have browsed the internet from their phones. This is a massive potential marketplace, one which most of the world&#39;s biggest brands have already recognised by building their own mobile portals with content designed specifically for handheld devices. 
+                .clear  
+                %p
+                  All of which means your customers are likely to be looking for your digital presence via a mobile phone.
+                .clear  
+                %p
+                  Because of the way mobiles use WAP browsers, many websites don&#39;t render correctly on mobile phones. If that&#39;s true for your site, it&#39;s important to do something about it. Even if your site looks the same on a mobile as it does on a desktop browser, unless you optimise it for mobile use it can be very difficult to use. 
+                .clear  
+                %p
+                  Gigavine has developed phone&#45;based applications successfully for clients across three continents, and we work with following platforms:
+                .clear  
+                .local_nav
+                  %ul{:style=>"float:left; width:180px; margin-top:10px;"}
+                    %li
+                      iPhone
+                    %li
+                      Symbian
+                    %li
+                      Windows Mobile
+                    %li
+                      J2ME
+                  %ul{:style=>"float:left; width:180px;  margin-top:10px;"}
+                    %li
+                      Android
+                    %li
+                      Blackberry
+                    %li
+                      BREW 
+                    %li
+                      Palm software development
 
             #tab2.tabdiv_new{:style => "display:none"}
-              %p Ebooks are the next big step forward in digital publishing and they&#39;re just beginning to achieve critical mass. We create ebooks that can be read on handheld devices or personal computers, and are compatible with any of these devices and formats:
-              .clear
-              .local_nav
-                %ul{:style=>"float:left; width:150px;"}
-                  %li
-                    Palm
-                  %li
-                    Handspring
-                  %li
-                    Pocket PC
-                  %li
-                    eBookman
-                %ul{:style=>"float:left; width:150px;"}
-                  %li
-                    Kindle 
-                  %li
-                    iPad
-                  %li
-                    Microsoft Reader
-                  %li
-                    Adobe
-                %ul{:style=>"float:left; width:150px;"}
-                  %li
-                    OeB
-                  %li
-                    Rocketbook
-                  %li
-                    SoftBook
-              .clear
-              %p We are able to create an ebook from hard copy, including images, as well as from electronic formats such as HTML and Quark Xpress. The imaging and document management standards we achieve match or exceed European and US standards. We can also provide pre-press services such as data conversion and typesetting. 
-              .clear  
-              %p In other words, if you need an ebook created, we can offer you a seamless service.
+              - if !get_languages('creative_ebooks','summary').blank?
+                = raw(get_languages('creative_ebooks','summary'))
+              - else
+                %p Ebooks are the next big step forward in digital publishing and they&#39;re just beginning to achieve critical mass. We create ebooks that can be read on handheld devices or personal computers, and are compatible with any of these devices and formats:
+                .clear
+                .local_nav
+                  %ul{:style=>"float:left; width:150px;"}
+                    %li
+                      Palm
+                    %li
+                      Handspring
+                    %li
+                      Pocket PC
+                    %li
+                      eBookman
+                  %ul{:style=>"float:left; width:150px;"}
+                    %li
+                      Kindle 
+                    %li
+                      iPad
+                    %li
+                      Microsoft Reader
+                    %li
+                      Adobe
+                  %ul{:style=>"float:left; width:150px;"}
+                    %li
+                      OeB
+                    %li
+                      Rocketbook
+                    %li
+                      SoftBook
+                .clear
+                %p We are able to create an ebook from hard copy, including images, as well as from electronic formats such as HTML and Quark Xpress. The imaging and document management standards we achieve match or exceed European and US standards. We can also provide pre-press services such as data conversion and typesetting. 
+                .clear  
+                %p In other words, if you need an ebook created, we can offer you a seamless service.
             #tab3.tabdiv_new{:style => "display:none"}
-              %p Audiences&#39; expectations when they&#39;re presented with a multimedia presentation have grown exponentially. These days it&#39;s not enough to have some bullet points and the odd image. If you want the biggest visual impact and the maximum audience retention, you need to use a far wider palette of tools.
-              .clear  
-              %p At Gigavine we can design a professionally designed multimedia presentation for you, one which will not only captivate your audience but also match your brand perfectly.
-              .clear  
-              %p Using graphics, animation, video or flash, the possibilities for delivering a powerful multimedia message for your business are endless. 
+              - if !get_languages('creative_media_presentations','summary').blank?
+                = raw(get_languages('creative_media_presentations','summary'))
+              - else
+                %p Audiences&#39; expectations when they&#39;re presented with a multimedia presentation have grown exponentially. These days it&#39;s not enough to have some bullet points and the odd image. If you want the biggest visual impact and the maximum audience retention, you need to use a far wider palette of tools.
+                .clear  
+                %p At Gigavine we can design a professionally designed multimedia presentation for you, one which will not only captivate your audience but also match your brand perfectly.
+                .clear  
+                %p Using graphics, animation, video or flash, the possibilities for delivering a powerful multimedia message for your business are endless. 
 
 			  
         .topspace  

@@ -61,10 +61,13 @@
       / left block end
       / right block start
       .lp_rightblock
-        %p{:style=>"margin-top:0px;"}The boom in buying online only seems to get bigger as the internet matures and broadband becomes more widespread. Yet too many e-commerce sites still present barriers to purchase, losing potential customers even in the final stages of the purchasing process. 
-        %p The solutions we offer at Gigavine avoid these pitfalls by putting your target audience at the heart of our design process. Our emphasis on usability testing gives us a powerful understanding of what your customers need and how to give it to them. 
-        %p Harnessing e-commerce successfully takes more than a simple online payment solution, and we have the expertise and experience to develop an appealing transactional website with captivating content and effortless functionality, all in line with your brand principles and your web strategy. 
-        %p But, crucially, the systems we build allow you to control and edit your inventory yourselves without the input of a web development company. This kind of cost-effective and highly flexible system has helped many of our clients increase their profits from existing revenue streams and create new ones. 
+        - if !get_languages('tech_commerce_page','summary').blank?
+          = raw(get_languages('tech_commerce_page','summary'))
+        - else
+          %p{:style=>"margin-top:0px;"}The boom in buying online only seems to get bigger as the internet matures and broadband becomes more widespread. Yet too many e-commerce sites still present barriers to purchase, losing potential customers even in the final stages of the purchasing process. 
+          %p The solutions we offer at Gigavine avoid these pitfalls by putting your target audience at the heart of our design process. Our emphasis on usability testing gives us a powerful understanding of what your customers need and how to give it to them. 
+          %p Harnessing e-commerce successfully takes more than a simple online payment solution, and we have the expertise and experience to develop an appealing transactional website with captivating content and effortless functionality, all in line with your brand principles and your web strategy. 
+          %p But, crucially, the systems we build allow you to control and edit your inventory yourselves without the input of a web development company. This kind of cost-effective and highly flexible system has helped many of our clients increase their profits from existing revenue streams and create new ones. 
       / right block end
   / content block end
   .topspace
