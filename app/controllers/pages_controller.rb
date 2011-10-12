@@ -196,6 +196,8 @@ class PagesController < ActionController::Base
     redirect_to :action => "creative_adv"
   elsif params[:creative_page][:page_section] == 'creative_webdesign_page'
         redirect_to :action => "creative_design"
+  elsif params[:creative_page][:page_section] == 'creative_interactive_page' || params[:creative_page][:page_section] == 'creative_mobile_development' || params[:creative_page][:page_section] == 'creative_ebooks' || params[:creative_page][:page_section] == 'creative_media_presentations'
+        redirect_to :action => "creative_interactive"
   else
     redirect_to :action => "creative_new"
   end
@@ -217,7 +219,20 @@ class PagesController < ActionController::Base
 	else
 		find_page.update_attributes(params[:technology_page])
 	end
+    if params[:technology_page][:page_section] == 'technology_page'
+      redirect_to :action => "technology_new"
+   elsif params[:technology_page][:page_section] == 'tech_learning_page' || params[:technology_page][:page_section] == 'block1' || params[:technology_page][:page_section] == 'block2' || params[:technology_page][:page_section] == 'block3' || params[:technology_page][:page_section] == 'block4' || params[:technology_page][:page_section] == 'block5'
+     redirect_to :action => "technology_learning"
+   elsif params[:technology_page][:page_section] == 'tech_crm_page'
+      redirect_to :action => "technology_crm"
+   elsif params[:technology_page][:page_section] == 'tech_security_page'
+      redirect_to :action => "technology_secure"
+   elsif params[:technology_page][:page_section] == 'tech_commerce_page'
+      redirect_to :action => "technology_commerce"
+   else
 	 redirect_to :action => "technology_new"
+   end
+
  end
   
     def projects_create
