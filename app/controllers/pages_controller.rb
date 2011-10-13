@@ -169,8 +169,8 @@ class PagesController < ActionController::Base
         redirect_to :action => "language_translation"
   elsif params[:languages_page][:page_section] == 'language_localisation_page' || params[:languages_page][:page_section] == "lang_localisation_products" || params[:languages_page][:page_section] == "lang_localisation_websites" || params[:languages_page][:page_section] == "lang_localisation_software" || params[:languages_page][:page_section] == "lang_localisation_mobile" || params[:languages_page][:page_section] == "lang_localisation_subtitle"
         redirect_to :action => "language_localisation"
-  elsif params[:languages_page][:page_section] == 'language_online_tools'
-        redirect_to :action => "language_tools"
+  elsif params[:languages_page][:page_section] == 'tech_online_tools'
+        redirect_to :action => "technology_tools"
   else
     redirect_to :action => "language_translation"
   end
@@ -190,8 +190,8 @@ class PagesController < ActionController::Base
   
       if params[:creative_page][:page_section] == 'creative_page'
 	 redirect_to :action => "creative_new"
-  elsif params[:creative_page][:page_section] == 'creative_copywriting_page'
-    redirect_to :action => "creative_writing"
+  elsif params[:creative_page][:page_section] == 'languages_copywriting_page'
+    redirect_to :action => "languages_writing"
   elsif params[:creative_page][:page_section] == 'creative_artwork_page'
         redirect_to :action => "creative_work"
   elsif params[:creative_page][:page_section] == 'creative_adv_page' || params[:creative_page][:page_section] == "creative_press_adv" || params[:creative_page][:page_section] == "creative_outdoor_adv" || params[:creative_page][:page_section] == "creative_online_adv" || params[:creative_page][:page_section] == "creative_adv_exhibition" 
