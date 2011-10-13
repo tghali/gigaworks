@@ -1,0 +1,106 @@
+
+#tech_wrapper
+  / Header
+  #trans-wrapper{:style => "position:relative;z-index:1"}
+    #trans-main
+      = render :partial => "/pages/partials/inner_pages"
+      .tech_headding
+        %h4
+          %span TECHNOLOGY /
+          Online Tools
+    .tech-header  
+  / Headerend
+  / content block start
+  #lp_content{:style => "position:relative;"}
+    #trance_midcontent
+      / left block start
+      .lp_leftblock
+        .lp_navigation
+          %ul
+            %li
+
+              %a{:href => "/technology/e-learning"} E-learning												
+            %li
+
+              %a{:href => "/technology/e-commerce"} E-commerce
+
+            %li
+
+              %a{:href => "/technology/online-security"} Online Security	
+														
+            %li
+
+              %a.current{:href => "#"} Online Tools			
+
+
+        / submit block start
+        #lp_submit
+          %h4 Submit a brief
+          .lpsub_inner
+            .lpsub_leftcorner
+              %span
+            .lpsub_bg
+              .lpsub_bg_inner
+                %p
+                  %span Name
+                  %input{:type => "text"}/
+                %p
+                  %span Email
+                  %input{:type => "text"}/
+                %p{:style=>"width:200px;"}
+                  %span File
+                  #FileUpload1
+                    %input#BrowserHidden1{:onChange => "getElementById('FileField1').value = getElementById('BrowserHidden1').value;", :size => "4", :type => "file"}
+                      #BrowserVisible1
+                        %input#FileField1{:type => "text", :size => "17"}																		
+                %p.form_btn{ :style=>"float:right; position:relative; top:-80px; right:12px;"}
+                  %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => ""}/
+            .lpsub_rightcorner
+              %span
+
+        / submit block end
+      / left block end
+      / right block start
+      .lp_rightblock
+        %p.headding_text
+          - if !get_languages('tech_online_tools','title').blank?
+            = raw(get_languages('tech_online_tools','title'))
+          - else
+            Inconsistent terminology is a very significant cost factor in globalisation projects. Gigavine offers the tools to eliminate these costs and build a reliable and consistent internal processes. 
+        - if !get_languages('tech_online_tools','summary').blank?
+          = raw(get_languages('tech_online_tools','summary'))
+        - else  
+          %p{:style=>"margin-top:10px; margin-bottom:0px;"} When large numbers of documents are circulating in multinational companies, accurate and consistent terminology which all parties understand is essential for effective and efficient communication. Without this consistency damaging and costly misunderstandings can easily occur &#45; within the company and, even worse, when dealing with clients. 
+          %p{:style=>"margin-bottom:18px;"} Gigavine&#39;s custom-made glossaries save time and reduce risks, so that when different staff work on projects they are brought into line with consistent corporate standards.
+
+        %p.headding_textnew
+          - if !get_languages('tech_online_tools','heading2').blank?
+            = raw(get_languages('tech_online_tools','heading2'))
+          - else
+            Terminology management
+        - if !get_languages('tech_online_tools','summary2').blank?
+          = raw(get_languages('tech_online_tools','summary2'))
+        - else
+          %p{:style=>"margin-top:18px!important;"} Our terminology management process takes things a step further than glossaries. It is the process of capturing your internal jargon and formalising it, and then creating systems to store, distribute and update it. This can include:
+          .local_nav
+            %ul{:style=>"margin-top:-10px;"}
+              %li
+                Reviewing existing glossaries, style guides, etc, to establish the core terminology
+              %li
+                Building a process to catalogue and distribute terminology to all employees who need to use it
+              %li
+                Creating a single accepted translation for each term in each target language
+              %li
+                Giving access to the approved term base to internal authors, marketing communicators and external consultants
+              %li
+                Integrating terminology management with the translation process, so translators are alerted to the correct term as they work
+          %p Our consultants and terminology architects will establish a reliable process to eliminate confusion and inconsistencies and dramatically reduce the costs of localisation.
+
+	
+        .clear  
+      / right block end
+  / content block end
+  .topspace  
+  / footer block start
+
+  / footer block end

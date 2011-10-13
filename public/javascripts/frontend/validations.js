@@ -284,26 +284,26 @@ function network_validation()
 				
 	    if(online_heading.value == "" || online_heading.value == " ")
     {
-      alert('Please enter heading one for language online tools');
+      alert('Please enter heading one for technology online tools');
       online_heading.focus();
       return false;
     }
     if(online_summary.value == "" || online_summary.value == " ")
     {
-						alert('Please enter summary one for language online tools');
+						alert('Please enter summary one for technology online tools');
       online_summary.focus();
       return false;
     }
 
     if(online_heading2.value == "" || online_heading2.value == " ")
     {
-      alert('Please enter heading two for language online tools');
+      alert('Please enter heading two for technology online tools');
       online_heading2.focus();
       return false;
     }
     if(online_summary2.value == "" || online_summary2.value == " ")
     {
-						alert('Please enter summary two for language online tools');
+						alert('Please enter summary two for technology online tools');
       online_summary2.focus();
       return false;
     }
@@ -446,21 +446,21 @@ function network_validation()
 			
     if(copywrite_summary.value == "")
     {
-						alert('Please enter summary for creative copywriting');
+						alert('Please enter summary for languages copywriting');
       copywrite_summary.focus();
       return false;
     }
 
     if(copywrite_heading.value == "")
     {
-						alert('Please enter heading for creative copywriting');
+						alert('Please enter heading for languages copywriting');
       copywrite_heading.focus();
       return false;
     }
 
     if(copywrite_summary2.value == "")
     {
-						alert('Please enter summary two for creative copywriting');
+						alert('Please enter summary two for languages copywriting');
       copywrite_summary2.focus();
       return false;
     }

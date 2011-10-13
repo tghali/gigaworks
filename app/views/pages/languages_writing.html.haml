@@ -29,7 +29,7 @@
       .trans_headding
         %h4
           %span LANGUAGES /
-          Consultancy
+          Copywriting
     .trans-header  
   / Headerend
   / content block start
@@ -40,13 +40,13 @@
         .lp_navigation
           %ul
             %li
-              %a{:href => "/languages/copywriting"} Copywriting
+              %a.current{:href => "#"} Copywriting
             %li
               %a{:href => "/languages/translation"} Translation												
             %li
               %a{:href => "/languages/localisation"} Localisation
             %li
-              %a.current{:href => "#"} Cultural Consultancy
+              %a{:href => "/languages/consultancy"} Cultural Consultancy
 
         / submit block start
         #language_get
@@ -100,42 +100,53 @@
       / left block end
       / right block start
       .lp_rightblock
-        - if !get_languages('language_consultancy_page','summary').blank?
-          = raw(get_languages('language_consultancy_page','summary'))
-        - else						
-          %p{:style=>"margin-top:0px; margin-bottom:10px;"} If you&#39;re developing materials for a foreign market it&#39;s crucial you test them to ensure they&#39;re appropriate for the culture you&#39;re entering. We can provide detailed feedback and recommendations from a local cultural and creative perspective. We&#39;ll advise on the appropriateness of the text and imagery from a political, social, ethnic or gender specific point of view, and highlight any issues that arise. 
-          %p{:style=>"margin-top:10px;"}
-            %b Our services include:
-          .local_nav
-            %ul{:style=>"margin-top:-10px;"}
-              %li
-                Concept testing &#45; providing structured feedback on product names, slogans and straplines
-              %li
-                Language technology &#45; helping you choose which specific technology, such as author memory or machine translation, is the right option for you
-              %li
-                Language specifics &#45; giving expert input on regional variations, such as the differences between European and South American Spanish, and different writing systems, supported by a multilingual font library
-        %p.headding_textnew{:style=>"margin-top:18px!important;"}
-          - if !get_languages('language_consultancy_page','title').blank?
-            = raw(get_languages('language_consultancy_page','title'))
-          - else
-            Reducing the risk of global product launches
-        - if !get_languages('language_consultancy_page','summary2').blank?
-          = raw(get_languages('language_consultancy_page','summary2'))
+        - if !get_languages('languages_copywriting_page','summary').blank?
+          = raw(get_languages('languages_copywriting_page','summary'))
         - else
-								
-          %p{:style=>"margin-top:10px;"} Our cultural assessment service involves evaluating your product before launch to identify any barriers to its success. Our assessments are extremely thorough and comprise several different and complementary elements:
+          %p{:style=>"margin-top:0px;"}
+            You know what you want to say but you don't know exactly how to put it. Or you've written something but you need advice and input on how it could be improved. 
+          %p
+            Either way, using a professional copywriting service means you know you're communicating your offer in a memorable and persuasive way. 
+          %p
+            After all, what's the point of building a great business if you can't persuade people to use it?
+          %p{:style=>"margin-bottom:10px;"}
+            It's too easy to slip into clich&#275;s, go on far too long or use confusing jargon. Your text needs to be fresh and original, concise and hard hitting, and above all it needs to establish a relationship, to engage and communicate. 
+        %p.headding_textnew{:style=>"margin-top:18px!important;"}
+          - if !get_languages('languages_copywriting_page','title').blank?
+            = get_languages('languages_copywriting_page','title')
+          - else
+            Our copywriting and editing services
+        - if !get_languages('languages_copywriting_page','summary2').blank?
+          = raw(get_languages('languages_copywriting_page','summary2'))
+        - else
+          %p{:style=>"margin-top:10px;"}
+            Copywriting at Gigavine comes in different sizes and shapes. 
           .local_nav
             %ul{:style=>"margin-top:-10px;"}
               %li
-                Analysis of the product from the cultural point of view to uncover historical, social or commercial conflicts
+                Give us a brief and we can write what you need from scratch
               %li
-                In-country focus groups
+                Give us a set of notes and we'll turn them into working copy
               %li
-                Brand polling to measure the suitability of your brand/product in the target market
+                Give us what you've written and we can edit any way you want - shorten it, expand upon it, sharpen it, relax it 
               %li
-                Brand perception testing to identify unwanted associations that your imagery, colours, etc, may have
-          %p We would always recommend undertaking a cultural assessment before you begin a product launch. 
+                Give us what you've written and we can edit any way you want - shorten it, expand upon it, sharpen it, relax it
+          %p{:style=>"margin-top:10px;"}
+            Furthermore, our copywriting services include long and short copy, conceptual work or explanatory or descriptive text. We can:  
+          .local_nav
+            %ul{:style=>"margin-top:-10px;"}
+              %li
+                Generate headline concepts for adverts, home pages, leaflets or direct mail 
+              %li
+                Craft long copy for customer emails and letters, articles, blog posts, brochures, newsletters, annual reports or direct mail marketing
+              %li
+                Write radio ads or packaging copy 
+              %li
+                Rewrite a piece of technical information so it becomes accessible to a wide audience  
 
+          %p
+            If you want to communicate your services or ideas powerfully and persuasively, ask us about our copywriting services. 
+ 
         .clear  
       / right block end
   / content block end

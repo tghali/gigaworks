@@ -51,13 +51,14 @@
         .lp_navigation
           %ul
             %li
+              %a{:href => "/languages/copywriting"} Copywriting
+            %li
               %a.current{:href => "#"} Translation											
             %li
               %a{:href => "/languages/localisation"} Localisation
             %li
-              %a{:href => "/languages/consultancy"} Cultural consultancy
-            %li
-              %a{:href => "/languages/online-tools"} Online tools
+              %a{:href => "/languages/consultancy"} Cultural Consultancy
+
         / submit block start
         #language_get
           %h4 Get an estimate
@@ -115,7 +116,7 @@
             = get_languages('language_translation_page','title')
           - else
             Our experts can translate into and out of more than 150 languages across a wide range of different specialist subject areas.
-        - if get_languages('language_translation_page','summary').blank?	
+        - if !get_languages('language_translation_page','summary').blank?	
           = raw(get_languages('language_translation_page','summary'))								
         - else											
           %p At Gigavine we use only native speakers for our translation services, as this is the only way can we guarantee the correct nuances. The goal is to make the material sound as though it was originally written in that language, with no sense of strangeness or distance.
