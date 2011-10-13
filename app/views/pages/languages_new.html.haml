@@ -86,7 +86,7 @@
             = raw(get_languages('languages_page','title'))
           - else
             It&#39;s not just speaking the language, it&#39;s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.
-        - if !get_languages('languages_page','summary').blank?
+        - if get_languages('languages_page','summary').blank?
           %p
             = raw(get_languages('languages_page','summary'))
         - else
