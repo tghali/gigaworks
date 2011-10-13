@@ -271,17 +271,18 @@ Gigavine::Application.routes.draw do
     get '/network' => 'pages#network_land'  
     get '/network/featured'=> 'pages#network_featured' 
 
+    get '/languages/copywriting' => 'pages#languages_writing'
     get '/languages/translation'=> 'pages#language_translation'   
     get '/languages/localisation' => 'pages#language_localisation'
     get '/languages/consultancy' => 'pages#language_consultancy'
-    get '/languages/online-tools' => 'pages#language_tools'    
+    #~ get '/languages/online-tools' => 'pages#language_tools'    
     
     
     
     get '/creative/artwork' => 'pages#creative_work'  
     get '/creative/advertising' => 'pages#creative_adv'        
     get '/creative/webdesign' => 'pages#creative_design'
-    get '/creative/copywriting' => 'pages#creative_writing'
+    #~ get '/creative/copywriting' => 'pages#creative_writing'
     get '/creative/interactive' => 'pages#creative_interactive'        
     
     
@@ -290,7 +291,8 @@ Gigavine::Application.routes.draw do
     get '/technology/e-learning' => 'pages#technology_learning'
     get '/technology/e-commerce' => 'pages#technology_commerce'     
     get '/technology/online-security' => 'pages#technology_secure' 
-    get '/technology/crm' => 'pages#technology_crm'     
+    get '/technology/online-tools' => 'pages#technology_tools'
+    #~ get '/technology/crm' => 'pages#technology_crm'     
     
     get '/submenu'=> 'pages#submenu'
     post '/home_create' => 'pages#home_create'    

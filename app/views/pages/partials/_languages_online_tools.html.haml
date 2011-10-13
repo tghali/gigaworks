@@ -1,27 +1,27 @@
 
 #language_onlinetools.sign_up{:style => "display:none"}
-  %h3#see_id  LANGUAGES / ONLINE TOOLS
+  %h3#see_id  TECHNOLOGY / ONLINE TOOLS
   %br.clear
   %div
     = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "language_consultancy_form",:onsubmit => "return lang_onlinetools_validate();"} do |f|
-      = f.hidden_field :page_section,  :value => "language_online_tools"
+      = f.hidden_field :page_section,  :value => "tech_online_tools"
 
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
-        = f.text_field :title, :style => "width:600px;", :id => "lang_online_tools_heading", :value => get_languages('language_online_tools','title')
+        = f.text_field :title, :style => "width:600px;", :id => "lang_online_tools_heading", :value => get_languages('tech_online_tools','title')
 								
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
-        = f.text_area :content, :style => "width:600px;",  :id => "lang_online_tools_summary", :value => get_languages('language_online_tools','summary')
+        = f.text_area :content, :style => "width:600px;",  :id => "lang_online_tools_summary", :value => get_languages('tech_online_tools','summary')
 
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading 2:
-        = f.text_field :news, :style => "width:600px;", :id => "lang_online_tools_heading1", :value => get_languages('language_online_tools','heading2')
+        = f.text_field :news, :style => "width:600px;", :id => "lang_online_tools_heading1", :value => get_languages('tech_online_tools','heading2')
 
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary2:
-        = f.text_area :network, :style => "width:600px;",  :id => "lang_online_tools_summary1", :value => get_languages('language_online_tools','summary2')
+        = f.text_area :network, :style => "width:600px;",  :id => "lang_online_tools_summary1", :value => get_languages('tech_online_tools','summary2')
 
       %p.clearspace  
       %p.send_btn1

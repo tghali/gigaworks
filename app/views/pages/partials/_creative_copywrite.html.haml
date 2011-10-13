@@ -1,22 +1,22 @@
 #creative_copywriting.sign_up{:style => "display:none"}
-  %h3#see_id  CREATIVE / COPYWRITING
+  %h3#see_id  LANGUAGES / COPYWRITING
   %br.clear
   %div
-    = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_writing_form",:onsubmit => "return creative_copywrite_validate();"} do |f|
-      = f.hidden_field :page_section,  :value => "creative_copywriting_page"
+    = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "language_writing_form",:onsubmit => "return creative_copywrite_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "languages_copywriting_page"
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
-        = f.text_area :content, :style => "width:600px;",  :id => "copywrite_summary", :value => get_languages('creative_copywriting_page','summary')
+        = f.text_area :content, :style => "width:600px;",  :id => "copywrite_summary", :value => get_languages('languages_copywriting_page','summary')
 
       %label
         %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Heading:
-        = f.text_field :title, :style => "width:600px;", :id => "copywrite_heading", :value => get_languages('creative_copywriting_page','title') 
+        = f.text_field :title, :style => "width:600px;", :id => "copywrite_heading", :value => get_languages('languages_copywriting_page','title') 
 
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary2:
-        = f.text_area :network, :style => "width:600px;",  :id => "copywrite_summary2", :value => get_languages('creative_copywriting_page','summary2')
+        = f.text_area :network, :style => "width:600px;",  :id => "copywrite_summary2", :value => get_languages('languages_copywriting_page','summary2')
 
 
 

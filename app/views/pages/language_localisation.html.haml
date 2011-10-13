@@ -2,6 +2,7 @@
   jQuery.noConflict();
   jQuery(document).ready(function(){ 
   	jQuery(".div_li_tab").click(function () {
+
     jQuery(".div_li_tab a").each( function(id){
     Cufon.replace(this, {color: '#465561'});
     });
@@ -53,13 +54,14 @@
         .lp_navigation
           %ul
             %li
+              %a{:href => "/languages/copywriting"} Copywriting
+            %li
               %a{:href => "/languages/translation"} Translation												
             %li
               %a.current{:href => "#"} Localisation
             %li
-              %a{:href => "/languages/consultancy"} Cultural consultancy
-            %li
-              %a{:href => "/languages/online-tools"} Online tools
+              %a{:href => "/languages/consultancy"} Cultural Consultancy
+
         / submit block start
         #language_get
           %h4 Get an estimate

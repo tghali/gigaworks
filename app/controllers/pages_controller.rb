@@ -29,6 +29,11 @@ class PagesController < ActionController::Base
 	   render :layout => 'pages_new'
    end
    
+  def languages_writing
+    @page_title = "Gigavine - Languages - Copywriting"
+    render :layout => 'pages_new'
+  end
+
   def language_translation	
     @page_title = "Gigavine - Languages - Translation"
      render :layout => 'pages_new'
@@ -43,13 +48,6 @@ class PagesController < ActionController::Base
     @page_title = "Gigavine - Languages - Consultancy"
      render :layout => 'pages_new'
   end    
-   
-  def language_tools
-    @page_title = "Gigavine - Languages - Online Tools"
-     render :layout => 'pages_new'
-  end    
-
-
 
 
   def creative_new
@@ -72,10 +70,10 @@ class PagesController < ActionController::Base
     render :layout => 'pages_new'
   end
 
-  def creative_writing
-    @page_title = "Gigavine - Creative - Copywriting"
-    render :layout => 'pages_new'
-  end
+  #~ def creative_writing
+    #~ @page_title = "Gigavine - Creative - Copywriting"
+    #~ render :layout => 'pages_new'
+  #~ end
 
   def creative_interactive
     @page_title = "Gigavine - Creative - Interactive"
@@ -105,10 +103,14 @@ class PagesController < ActionController::Base
    render :layout => 'pages_new'
  end
  
-  def technology_crm
-   @page_title = "Gigavine - Technology - CRM"
-   render :layout => 'pages_new'
- end
+    def technology_tools
+    @page_title = "Gigavine - Technology - Online Tools"
+     render :layout => 'pages_new'
+  end  
+  #~ def technology_crm
+   #~ @page_title = "Gigavine - Technology - CRM"
+   #~ render :layout => 'pages_new'
+ #~ end
   
     def projects_land
    @page_title = "Gigavine - Projects"
