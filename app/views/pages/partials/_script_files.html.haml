@@ -26,6 +26,19 @@
 
 :javascript
   jQuery.noConflict();
+		
+		
+  jQuery(document).ready(function() {	
+  jQuery(".net_block_wrapper a,.inner_img_top p.see_btn a,.net_signbtn,.pro_btn,.form_btn input.form_submit  ").hover(function() { 
+  jQuery(this).fadeTo('normal', 0.50 ).show;		
+  } , function() { //on hover out...
+  //Fade the image to 1 
+  jQuery(this).fadeTo('normal', 1).show();		
+  });
+  });
+
+
+
   jQuery(function() {
   jQuery(document).ready(function(){ 
 
