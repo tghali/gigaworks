@@ -2,8 +2,16 @@
   %h3#see_id  CREATIVE / WEB DESIGN
   %br.clear
   %div
-    = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_artwork_form",:onsubmit => "return creative_design_validate();"} do |f|
+    = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_artwork_form",:multipart => :true,:onsubmit => "return creative_design_validate();"} do |f|
       = f.hidden_field :page_section,  :value => "creative_webdesign_page"
+
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title:
+        = f.text_field :title, :style => "width:600px;", :id => "creative_design_heading", :value => get_languages('creative_webdesign_page','title') 
+
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Image:
+          %input{:type=>"file", :name=>"creative_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:

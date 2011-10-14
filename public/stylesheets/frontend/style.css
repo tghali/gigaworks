@@ -352,7 +352,7 @@ background:url(/images/frontend/form_submit.png) no-repeat  0px -22px;
 width:51px;
 height:22px;
 cursor:pointer;
-background:url(/images/frontend/form_submit.png) no-repeat  0px 0px;
+/*background:url(/images/frontend/form_submit.png) no-repeat  0px 0px;*/
 }
 
 
@@ -1646,8 +1646,8 @@ text-transform:capitalize;
 .inner_img_top p.see_btn a:hover{
 width:89px;
 height:21px;
-background:url(/images/frontend/see_btn.gif) no-repeat 0px -22px;
-color:#646464;
+/*background:url(/images/frontend/see_btn.gif) no-repeat 0px -22px;*/
+/*color:#646464;*/
 }
 
 .inner_img_top{
@@ -1816,7 +1816,7 @@ padding:0px;
 text-indent:3px;
 text-align:left;
 float:left;
-width:159px;
+width:164px;
 height:21px;
 text-transform:capitalize;
 }
@@ -1831,8 +1831,8 @@ color:#fff;
 .net_block_wrapper p.btn a:hover{
 width:159px;
 height:21px;
-color:#646464;
-background:url(/images/frontend/reg_btn.gif) no-repeat 0px -22px;
+/*color:#646464;*/
+/*background:url(/images/frontend/reg_btn.gif) no-repeat 0px -22px;*/
 }
 .topspace{
 height:20px;
@@ -2385,7 +2385,7 @@ font:14px/20px Arial, Helvetica, sans-serif;
 color:#646464!important;
 text-indent:10px;
 text-decoration:none;
-background:url(/images/frontend/pro_btn.jpg) no-repeat 0px -22px;
+/*background:url(/images/frontend/pro_btn.jpg) no-repeat 0px -22px;*/
 }
 .pro_gallery{
 width:964px;

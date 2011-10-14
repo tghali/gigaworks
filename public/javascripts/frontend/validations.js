@@ -357,6 +357,17 @@ function network_validation()
 		{
 			
 			var creative_design = document.getElementById('creative_design_summary');
+			var creative_design_title = document.getElementById('creative_design_heading');
+			
+
+    if(creative_design_title.value == "")
+    {
+						alert('Please enter title for creative web design');
+      creative_design_title.focus();
+      return false;
+    }
+
+
     if(creative_design.value == "")
     {
 						alert('Please enter summary for creative web design');

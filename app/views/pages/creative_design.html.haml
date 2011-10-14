@@ -56,24 +56,32 @@
       / left block end
       / right block start
       .lp_rightblock
-        - if get_languages('creative_webdesign_page','summary').blank?
-          = raw(get_languages('creative_webdesign_page','summary'))
-        - else
-          %p.headding_text{:style=>"margin-top:0px;"}
+
+        %p.headding_text{:style=>"margin-top:0px;"}
+          - if !get_languages('creative_webdesign_page','title').blank?
+            = raw(get_languages('creative_webdesign_page','title'))
+          - else
             We have all been on websites that are confusing to navigate, hard to read, or which fail to give us the information we're looking for - not to mention sites which look as though they were designed to be cold and unappealing. 
-          %p 
+
+        %p 
+          - if !get_help('creative_webdesign_page','image').blank?
+            = image_tag(get_help('creative_webdesign_page','image'),:height => "178", :hspace => "5",:vspace => "5", :align =>"right" ,:width => "303", :style=>"padding:5px; float:right;")
+          - else										
             %img{:height => "178", :hspace => "5", :src => "/images/frontend/web_design.jpg", :vspace => "5", :align =>"right" ,:width => "303", :style=>"padding:5px; float:right;"}/
+          - if !get_languages('creative_webdesign_page','summary').blank?
+            = raw(get_languages('creative_webdesign_page','summary'))
+          - else	
             The problem is, it's extremely easy to put users off. If they get frustrated they can find another website with a couple of clicks. Everyone on the internet knows they could be on a million other websites, so patience wears thin very quickly. 
             %br
             At Gigavine we design websites to be used. Users shouldn't have to think as they navigate their way through a site. The process should be effortless, and to achieve that we factor in usability throughout the design and development. Navigation should be simple and anticipate user's needs; and page layouts should be clearly organised so different kinds of content are easy to find and understand.
-          %p
-            But ease of use is only one aspect of a successful website. Search engine optimisation is also vital. We apply a range of SEO techniques to all our sites, including keyworded content, error-free code, and appropriate link and navigation naming conventions. 
-          %p
-            Great web design needs to do all the above while creating pages and content that are visually welcoming and which exploit the dynamic and interactive functionality that the internet offers. And that's what we offer.
-          %p
-            So if you need e-commerce, we can build it for you. If we want to develop a customer database and build customer loyalty through it, we'll do it for you. And on top of that we can create a variety of interactive content, including online games, motion graphics and podcasts.
-          %p
-            We are not just another web design agency. We are as passionate about the success of our client's brands online as they are. 
+            %p
+              But ease of use is only one aspect of a successful website. Search engine optimisation is also vital. We apply a range of SEO techniques to all our sites, including keyworded content, error-free code, and appropriate link and navigation naming conventions. 
+            %p
+              Great web design needs to do all the above while creating pages and content that are visually welcoming and which exploit the dynamic and interactive functionality that the internet offers. And that's what we offer.
+            %p
+              So if you need e-commerce, we can build it for you. If we want to develop a customer database and build customer loyalty through it, we'll do it for you. And on top of that we can create a variety of interactive content, including online games, motion graphics and podcasts.
+            %p
+              We are not just another web design agency. We are as passionate about the success of our client's brands online as they are. 
         .topspace  
       / right block end
   / content block end
