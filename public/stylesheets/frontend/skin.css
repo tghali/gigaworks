@@ -39,7 +39,7 @@
 .jcarousel-skin-tango .jcarousel-item {
     width: 75px;
     height: 75px;
-	background:#808080
+	/*background:#808080*/
 }
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
@@ -47,6 +47,21 @@
     margin-right: 20px;
 }
 
+.jcarousel-skin-tango li a.thumb{
+ width:75px;
+	height:75px;
+	display:block
+}
+.jcarousel-skin-tango li a.thumb:hover{
+ background: #333;
+}
+.jcarousel-skin-tango li span{
+overflow: hidden; 
+width:75px; 
+height:75px;	
+overflow: hidden;
+	display: block;
+	}
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
 	margin-left: 10px;
     margin-right: 0;

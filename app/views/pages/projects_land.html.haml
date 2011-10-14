@@ -24,23 +24,11 @@
   	// We do it by an id selector here.
   jQuery('#mycarousel').jcarousel();
   });
-:javascript
-  jQuery(document).ready(function() {
-  jQuery(".slide1").mouseover(function (){
-  img_id=jQuery(this).find("img").attr('id');
-  document.getElementById(img_id).src='/images/frontend/project_thumbnails/coloured_'+img_id+'.png';
-  document.getElementById(img_id).id=img_id;
-  });
-  jQuery(".slide1").mouseout(function (){
-  img_id=jQuery(this).find("img").attr('id');
-  document.getElementById(img_id).src='/images/frontend/project_thumbnails/grey_'+img_id+'.png';
-  document.getElementById(img_id).id=img_id;
-  });
-  });
+
 :javascript
   jQuery(document).ready(function() {
   	
-  	jQuery("ul.gallery li").hover(function() { //On hover...
+  	jQuery("ul.gallery li, .jcarousel-skin-tango li").hover(function() { //On hover...
   		
   		var thumbOver = jQuery(this).find("img").attr("src"); //Get image url and assign it to 'thumbOver'
   		
@@ -120,29 +108,70 @@
     / gallery block start
     .pro_gallery
       %ul#mycarousel.jcarousel-skin-tango
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.png", :title => "", :id=>"1"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.png", :title => "", :id=>"2"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.png", :title => "", :id=>"3"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.png", :title => "", :id=>"4"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.png", :title => "", :id=>"5"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.png", :title => "", :id=>"6"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.png", :title => "", :id=>"7"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_8.png", :title => "", :id=>"8"}/
-        %li.slide1
-          %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_9.png", :title => "", :id=>"9"}/
         %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.gif", :title => ""}/
         %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.gif", :title => ""}/
         %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.gif", :title => ""}/
         %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.gif", :title => ""}/
         %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_8.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_9.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.gif", :title => ""}/			
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "#"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.gif", :title => ""}/																																																																																																																																																																					
     / gallery block end
     / client block start
     .client_blocks
