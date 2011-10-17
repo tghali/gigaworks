@@ -1383,6 +1383,10 @@ position:relative;
 z-index:1000; 
 left:0px; 
 float:right;
+ -moz-box-shadow: 2px 2px 2px #666;
+  -webkit-box-shadow: 2px 2px 2px #666;
+  box-shadow: 2px 2px 2px #666;
+
 }
 .select_language ul{
 list-style-type:none;
