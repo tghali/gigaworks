@@ -1,8 +1,7 @@
 :javascript
   Cufon.replace('.sf-navbar li.current', {color: '#aa0c22'});
   Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});	
-= javascript_include_tag "frontend/video.js"
-= stylesheet_link_tag "frontend/video-js"
+
 
 #contact_wrapper
   .contact-newbg
@@ -24,12 +23,12 @@
         .lp_leftblock
           .lp_navigation
             %ul
+              %li.current
+                %a{:href => "/languages/copywriting"} About
               %li
-                %a{:href => "javascript://"} About
+                %a{:href => "/languages/translation"} Values
               %li
-                %a{:href => "javascript://"} Values
-              %li
-                %a.current{:href => "javascript://"} Contact Us
+                %a{:href => "/languages/localisation"} Contact us
 
           / submit block start
           #language_get
