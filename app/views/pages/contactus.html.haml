@@ -1,0 +1,72 @@
+:javascript
+  Cufon.replace('.sf-navbar li.current', {color: '#aa0c22'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});	
+= javascript_include_tag "frontend/video.js"
+= stylesheet_link_tag "frontend/video-js"
+
+#contact_wrapper
+  .contact-newbg
+    / Header
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        .contact_headding
+          %h4
+            %span COMPANY /
+            CONTACT US
+      .contact_new_header  
+
+    / Headerend
+    / content block start
+    #lp_content{:style => "position:relative;"}
+      #lp_midcontent
+        / left block start
+        .lp_leftblock
+          .lp_navigation
+            %ul
+              %li
+                %a{:href => "javascript://"} About
+              %li
+                %a{:href => "javascript://"} Values
+              %li
+                %a.current{:href => "javascript://"} Contact Us
+
+          / submit block start
+          #language_get
+            %h4 &nbsp;
+          / submit block end
+        / left block end
+        / right block start
+        .lp_rightblock
+          %p.headding_text
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lorem turpis, eu convallis neque. Duis aliquet sodales risus id euismod.
+        
+            %p Nulla vulputate, sem eu venenatis dapibus, ante sapien pretium enim, eu bibendum est ligula non elit. Nulla mattis, tellus non condimentum lacinia, risus sem scelerisque lectus, et semper libero diam non tortor. In porttitor tristique erat sagittis eleifend. Integer risus libero, sodales in feugiat blandit, interdum vitae metus.
+            %div
+              .contact_textblock
+                %p.headding Gigavine London
+                %p T: + 44 (0) 20 3371 1004
+                %p F: + 44 (0) 20 3371 1004
+                %p.clear
+                  &nbsp;
+                %p.headding Gigavine Dubai
+                %p T: + 44 (0) 20 3371 1004
+                %p F: + 44 (0) 20 3371 1004
+                %p.clear 
+                  &nbsp;
+                %p.headding General enquiries
+                %p
+                  %a{:href => "#"} info@gigavine.com
+                %p.clear
+                  &nbsp;
+                %p.headding Sales enquiries
+                %p
+                  %a{:href => "#"} sales@gigavine.com
+                %p.clear
+                  &nbsp;
+              .contact_video
+                %img{:src => "/images/frontend/conrtact_img1.jpg"}
+          / right block end
+      / content block end
+    .clear  
+      &nbsp; 

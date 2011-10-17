@@ -15,7 +15,7 @@
           %a#try-1{:href => "#"}
             Login
             %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
-        .reg_text1
+        .reg_text1#reg_t1
           Current Language: 
           %a#image_frm_div{:href => "javascript://"}
             English
@@ -23,11 +23,35 @@
           #products.select_language
             %ul
               %li
-                %a{:href => "#"} En
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;English
               %li
-                %a{:href => "#"} Fr
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;French
               %li
-                %a{:href => "#"} Ar
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;Arabic
+              %li
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;Chinese
+              %li
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;Japanese
+              %li
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;German
+
+              %li
+                %a{:href => "javascript://"}
+                  %span> 
+                  &nbsp; &nbsp;English
+
         .reg_text2
           %input{:type => "text",  :value=>"Search", :onFocus=>"if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}", :onBlur=>" if (this.value == '') {this.value = 'Search';}"  }
             %a{:href => "#"}

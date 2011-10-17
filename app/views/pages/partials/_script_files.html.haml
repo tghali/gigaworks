@@ -1,12 +1,12 @@
 
-= stylesheet_link_tag "overall.css"
+= stylesheet_link_tag "overall.css", "frontend/editor/jquery.wysiwyg.css"
 
-= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js"
+= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js", "frontend/editor/jquery.wysiwyg.js", "frontend/editor/default.js","frontend/jquery-color.js"
 
 
 
 :javascript
-  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4, .inner_pro_right h3, .count_number ', ' ', { fontFamily: 'gothamxlight', hover: true});
+  Cufon.replace('.create_headding h4, .sf-navbar, .foot_right li p , #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4, .inner_pro_right h3, .count_number , .contact_headding h4, .contact_textblock p.headding ', ' ', { fontFamily: 'gothamxlight', hover: true});
 		   
   Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'}});
 		   
@@ -23,21 +23,25 @@
 
 
 
-
 :javascript
   jQuery.noConflict();
-		
-		
+
   jQuery(document).ready(function() {	
-  jQuery(".net_block_wrapper a,.inner_img_top p.see_btn a,.net_signbtn,.pro_btn,.form_btn input.form_submit  ").hover(function() { 
+  jQuery(".net_signbtn,.form_btn input.form_submit  ").hover(function() { 
   jQuery(this).fadeTo('normal', 0.50 ).show;		
   } , function() { //on hover out...
   //Fade the image to 1 
-  jQuery(this).fadeTo('normal', 1).show();		
+  jQuery(this).fadeTo('normal', 1).show();	
+	
   });
+		
+		
+   jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a").hover(function() {
+                jQuery(this).animate({ backgroundColor: "#c1c1c1" }, 500);
+        },function() {
+                 jQuery(this).animate({ backgroundColor: "#9f9f9f" }, 500);
+        });	
   });
-
-
 
   jQuery(function() {
   jQuery(document).ready(function(){ 
@@ -47,12 +51,14 @@
   jQuery("#image_frm_div").click(function () {
   	if(document.getElementById("products").style.display == 'none')
   	{
-  	jQuery("#products").show();	
+  	jQuery("#products").show();
+    document.getElementById("reg_t1").style.backgroundColor='#fff';	
   	return false;
   	}
   	else
   	{
-  	jQuery("#products").hide();	
+  	jQuery("#products").hide();
+    document.getElementById("reg_t1").style.backgroundColor='#f0f0f0';	
   	return false;
   	}
   	});
@@ -179,7 +185,6 @@
   e.preventDefault();
   });	
 
-
 		
   jQuery('#technology_new').click(function(e) {
   jQuery("#technology").lightbox_me({centered: true, onLoad: function() {
@@ -218,6 +223,7 @@
   }});    
   e.preventDefault();
   });		
+	
 	
   jQuery('#banner_new').click(function(e) {
   jQuery("#banner").lightbox_me({centered: true, onLoad: function() {
@@ -283,6 +289,21 @@
   });
   });
 
-
+:javascript
+  jQuery(document).ready(function() {
+  jQuery.noConflict();
+  jQuery("ul.fblinks li").hover(function() { //On hover...
+  var thumbOver = jQuery(this).find("img").attr("src"); //Get image url and assign it to 'thumbOver'
+  jQuery(this).find("a.thumb1").css({'background' : 'url(' + thumbOver + ') no-repeat center -23px'});
+  jQuery(this).find("span").stop().fadeTo('normal', 0 , function() {
+  jQuery(this).hide(); //Hide the image after fade
+  }); 
+  } , function() { //on hover out...
+  		//Fade the image to 1 
+      jQuery(this).find("span").stop().fadeTo('normal', 1).show();
+  		
+  });
+  
+  });
 		
 
