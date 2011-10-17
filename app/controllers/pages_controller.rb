@@ -131,6 +131,11 @@ class PagesController < ActionController::Base
    render :layout => false
  end
   
+   def contactus
+     @page_title = "Gigavine - Contact Us"
+    render :layout => 'pages_new'
+ end
+  
    def submenu
      render :layout => false  
  end
