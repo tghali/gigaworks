@@ -285,6 +285,16 @@ class PagesController < ActionController::Base
 	 redirect_to :action => "home_land"
  end
   
+   	def submit_brief_pages
+                file_path = params[:briefdetail_file].path
+                name_file = params[:briefdetail_file].original_filename
+      UserMailer.submit_brief(params[:user_name],  file_path, name_file, params[:user_email]).deliver
+      redirect_to :action => 'technology_new' 
+ 
+    end 
+  
+  
+  
   
     def index
 	  	 @prospect = Prospect.new	

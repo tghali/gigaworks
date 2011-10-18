@@ -31,4 +31,12 @@ class UserMailer < ActionMailer::Base
 	  mail(:to => gigauser.email, :subject => "Gigavine Login Details")
 end
   
+  def submit_brief(name, ulf, filename, to_mail)
+    mail(:to => to_mail, :subject => "Technology page data")
+    
+     attachment :content_type => "application/pdf",
+      :filename => filename, 
+     :body=> File.read(ulf)
+  end  
+  
 end
