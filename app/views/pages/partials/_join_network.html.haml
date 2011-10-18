@@ -1,11 +1,18 @@
-.green_leftcorner
-  %span
-.green_bg
-  .org_bg_inner
-    %div.latest_mod
-      %p
-        = get_network('home_news_block') 
-      .news_headding
-        %h4 Join the network
-.green_rightcorner
-  %span
+.news_wrapper_block
+  .green_leftcorner
+    %span
+  .green_bg
+    .org_bg_inner
+      %div{:style => "padding:18px 0px 0px 6px; height:79px; word-wrap:break-word;"}
+        %p
+          = get_network('home_news_block')
+  .green_rightcorner
+    %span
+.news_headding
+  %h4
+    %a#join.hoverBtn_1{:href => "#"} Join the network
+
+
+
+
+
