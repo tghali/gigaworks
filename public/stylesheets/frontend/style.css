@@ -134,12 +134,18 @@ blockquote, q {quotes: "" "";}
        font: 800 15px/22px Arial, Helvetica, sans-serif;
 }
 
-#latest-news{
+#latest-news,
+#join-the-network,
+#contact-us{
 width:314px;
 height:141px;
 float:left;
 margin:10px 0px 20px 0px;
+position:relative
 }
+
+
+
 .org_leftcorner{
         background:url(/images/frontend/org-leftcorner.gif) no-repeat left;
 		width:5px;
@@ -173,25 +179,33 @@ text-align:left;
 padding:18px 0px 0px 6px; height:79px; 
 }
 
-.news_headding{
-height:45px;
- background:url(/images/frontend/right_arrow.gif) no-repeat right 18px;
- cursor:pointer;
- position:relative;
- left:-15px;
- top:12px;
- width:290px;
+.news_wrapper_block{
+height:94px; 
+overflow:hidden
 }
+
+
+.news_headding{
+height:46px;
+ background:url(../images/latest_news_bg.png) no-repeat;
+ position:absolute;
+ width:315px;
+ top:94px;
+ z-index:1;
+ text-indent:20px
+
+}
+
+.news_headding a{ text-decoration:none;color:#465561; display:block;  line-height:45px}
 .news_headding:hover{
 text-decoration:none;
 }
 
 .news_headding h4{
-font:20px/55px Gotham;
+font:20px/35px Gotham;
 color:#465561;
-position:relative;
-left:10px;
 }
+
 .org_rightcorner{
         background:url(/images/frontend/org-rightcorner.gif) no-repeat left;
 		width:5px;
@@ -200,11 +214,7 @@ left:10px;
 }
 
 #join-the-network{
-width:314px;
-height:141px;
-float:left;
 margin:10px 17px 20px 17px;
-/*background:#00CC99*/
 }
 .green_leftcorner{
         background:url(/images/frontend/green-leftcorner.gif) no-repeat left;
@@ -227,11 +237,7 @@ margin:10px 17px 20px 17px;
 
 
 #contact-us{
-width:314px;
-height:141px;
-float:left;
 margin:10px 0px 20px 0px;
-/*background:#66CCFF*/
 }
 
 .blue_leftcorner{

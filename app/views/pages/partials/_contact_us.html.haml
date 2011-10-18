@@ -1,11 +1,16 @@
-.blue_leftcorner
-  %span
-.blue_bg
-  .org_bg_inner
-    %div.latest_mod
-      %p 
-        = get_contact('home_news_block')
-      .news_headding
-        %h4 Contact us
-.blue_rightcorner
-%span
+
+.news_wrapper_block
+  .blue_leftcorner
+    %span
+  .blue_bg
+    .org_bg_inner
+      %div{:style => "padding:18px 0px 0px 6px; height:79px; word-wrap:break-word;"}
+        %p
+          = get_contact('home_news_block')
+  .blue_rightcorner
+    %span
+.news_headding
+  %h4
+    %a#contact.hoverBtn_1{:href => "#"} Contact us
+
+

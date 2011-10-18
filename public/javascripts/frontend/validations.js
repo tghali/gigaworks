@@ -1,5 +1,51 @@
 // JavaScript Document
 
+
+  function submit_brief_form()
+  {
+  var name = document.getElementById('briefdetail_name');
+  var email = document.getElementById('briefdetail_email');
+  var attachment = document.getElementById('briefdetail_attachment');
+  var emailExp=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+  
+  if(name.value == "")
+  {
+  alert('Please enter name');
+  name.focus();
+  return false;
+  }
+  
+  
+  if(email.value == "")
+  {
+  alert('Please enter email');
+  email.focus();
+  return false;
+  }
+  
+  
+  if(!email.value.match(emailExp))
+  {
+  alert("Invalid email format");
+  email.focus();
+  return false;
+  }
+  
+  
+  
+  
+  if(attachment.value == "")
+  {
+  alert('Please choose a file to upload');
+  attachment.focus();
+  return false;
+  }
+  
+  return true;
+  }
+
+
+
 function slider_validation(option_type)
 {
 			 var tabtype = document.getElementById('frontend_page_tab_type');
