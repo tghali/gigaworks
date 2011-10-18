@@ -307,7 +307,8 @@ Gigavine::Application.routes.draw do
     get 'contact-us' => 'pages#contactus'
     get 'contactus' => 'pages#index'        
     post 'submit_brief' => 'pages#submit_brief'
-
+    
+    post 'submitbrief/:id' =>'pages#submit_brief_pages'
         
     post 'create_contact' => 'pages#lead_create'
     get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
