@@ -1,0 +1,29 @@
+div.hoverBtn, div.hoverBtn2,div.hoverBtn3 {
+position:relative;
+float:			left;
+background: url(/images/frontend/latest_news_bg.png) no-repeat;
+}
+
+div.hoverBtn a,div.hoverBtn2 a,div.hoverBtn3 a {
+position: 		relative;
+z-index: 		2;
+display: 		block;
+width: 			314px;
+height: 		45px;
+line-height: 		45px;
+font-size:		1.1em;
+text-decoration:	none;
+color:			#000;
+background:		transparent none repeat-x 0 0 scroll;
+}
+
+div.hoverBtn div,div.hoverBtn2 div,div.hoverBtn3 div {
+display:		none;
+position: 		absolute;
+z-index: 		1;
+top: 			0px;
+background: url(/images/frontend/latest_news_bg_hover.png) no-repeat;
+}
+div.hoverBtn2 div{ 	background: url(/images/frontend/join_bg_hover.png) no-repeat;}
+div.hoverBtn3 div{ 	background: url(/images/frontend/contact_bg_hover.png) no-repeat; }
+div.hoverBtn div a{ color:#ffffff}
