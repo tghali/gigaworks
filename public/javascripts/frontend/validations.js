@@ -1,6 +1,70 @@
 // JavaScript Document
 
 
+function case_study_validate()
+{
+	
+	var ptitle = document.getElementById('casestudy_title');
+	var cap = document.getElementById('casestudy_caption');
+ var psummary = document.getElementById('casestudy_summary');
+	
+	  if(ptitle.value == "")
+  {
+  alert('Please enter title for project case studies');
+  ptitle.focus();
+  return false;
+  }
+
+	  if(cap.value == "")
+  {
+  alert('Please enter caption for project case studies');
+  cap.focus();
+  return false;
+  }
+
+	  if(psummary.value == "")
+  {
+  alert('Please enter summary for project case studies');
+  psummary.focus();
+  return false;
+  }
+		
+		return true;
+
+}
+
+function project_adv_tabs(tab_option)
+{
+	
+			var pchallenge = document.getElementById('project_challenge');
+			var psolution = document.getElementById('project_solution'); 
+			var pbenefit = document.getElementById('project_benefits');
+
+			
+			 if(tab_option == "cstudies_challenge" && pchallenge.value == "")
+    {
+						alert('Please enter data for challenge');
+      pchallenge.focus();
+      return false;
+    }		
+			 if(tab_option == "cstudies_solution" && psolution.value == "")
+    {
+						alert('Please enter data for solution');
+      psolution.focus();
+      return false;
+    }			
+	
+				 if(tab_option == "cstudies_benefits" && pbenefit.value == "")
+    {
+						alert('Please enter data for benefits');
+      pbenefit.focus();
+      return false;
+    }			
+				
+				return true;
+	
+}
+
   function submit_brief_form()
   {
   var name = document.getElementById('briefdetail_name');

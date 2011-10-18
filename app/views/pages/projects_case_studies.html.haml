@@ -51,10 +51,22 @@
     .case_left
       .inner_leftcase
         %img{:alt => "", :src => "/images/frontend/case_img.jpg", :title => ""}
-          %h3 Oryx Magazine
-          .small_name QATAR AIRWAYS
-          %p Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa.
-          %p Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus. Phasellus venenatis dictum nulla vel ultrices.
+          %h3
+            - if !get_projects('project_case_study_page','title').blank?
+              = raw(get_projects('project_case_study_page','title'))
+            - else
+              Oryx Magazine
+          .small_name
+            - if !get_projects('project_case_study_page','caption').blank?
+              = raw(get_projects('project_case_study_page','caption'))
+            - else
+              QATAR AIRWAYS
+          %p
+            - if !get_projects('project_case_study_page','summary').blank?
+              = raw(get_projects('project_case_study_page','summary'))
+            - else
+              Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa.
+              %p Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus. Phasellus venenatis dictum nulla vel ultrices.
           .topspace
           / links start
           .inner_tabing
@@ -68,11 +80,23 @@
                   %a#3{:href => "javascript://"} Benefits
             %div
               #tab1.tabdiv_new
-                %p Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus.
+                - if !get_data('project_cstudies_challenge').blank?
+                  %p
+                    = raw(get_data('project_cstudies_challenge'))
+                - else
+                  %p Etiam interdum feugiat ante eget pulvinar. Suspendisse orci sem, cursus in tincidunt eu, consequat vitae magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel urna sem, sit amet mattis libero. Fusce varius, leo vestibulum cursus dapibus, tortor risus varius dolor, a semper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros a mauris. Sed mauris orci, venenatis at vestibulum sit amet, tempus nec lacus.
               #tab2.tabdiv_new{:style => "display:none"}
-                %p Content2
+                - if !get_data('project_cstudies_solution').blank?
+                  %p									
+                    = raw(get_data('project_cstudies_solution'))
+                - else
+                  %p Content2
               #tab3.tabdiv_new{:style => "display:none"}
-                %p Content3
+                - if !get_data('project_cstudies_benefits').blank?
+                  %p
+                    = raw(get_data('project_cstudies_benefits'))
+                - else
+                  %p Content3
           / links end
     / left block end
     / right block start
