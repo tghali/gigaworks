@@ -1,8 +1,43 @@
 
-= stylesheet_link_tag "overall.css", "frontend/editor/jquery.wysiwyg.css",'frontend/home_page_blocks.css'
+= stylesheet_link_tag "overall.css", "frontend/editor/jquery.wysiwyg.css"
 
-= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js", "frontend/editor/jquery.wysiwyg.js", "frontend/editor/default.js","frontend/jquery-color.js","frontend/main.js"
+= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js", "frontend/editor/jquery.wysiwyg.js", "frontend/editor/default.js","frontend/jquery-color.js"
 
+:javascript
+  // Background color animation 
+         jQuery(document).ready(function () {
+
+         var currentId = jQuery(this).find('div').attr('id');
+         jQuery("#latest-news,#join-the-network,#contact-us").hover(function () {
+
+
+             var currentId = jQuery(this).find('.news_wrapper_block').attr('id');
+             if (this.id == 'latest-news') {
+                 jQuery(this).find(".news_wrapper_block").animate({
+                     backgroundColor: "#e46800"
+                 }, 500);
+
+             }
+             if (this.id == 'join-the-network') {
+                 jQuery(this).find(".news_wrapper_block").animate({
+                     backgroundColor: "#007575"
+                 }, 500);
+             }
+             if (this.id == 'contact-us') {
+                 jQuery(this).find(".news_wrapper_block").animate({
+                     backgroundColor: "#0071B9 "
+                 }, 500);
+             }
+
+         }, function () {
+             jQuery(this).find(".news_wrapper_block").animate({
+                 backgroundColor: "#fff"
+             }, 400);
+
+         });
+
+
+     });
 
 
 :javascript

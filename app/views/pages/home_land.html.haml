@@ -60,15 +60,15 @@
           %span We can do it for you too!
       %div
         / lastes news block start
-        #latest-news
+        #latest-news{:onClick => "location.href='#", :style => "cursor: pointer;"}
           = render :partial => "/pages/partials/latest_news"
         / lastes news block end
         / join network block start
-        #join-the-network
+        #join-the-network{:onClick => "location.href='#", :style => "cursor: pointer;"}
           = render :partial => "/pages/partials/join_network"
         / join network block end
         / contact block start
-        #contact-us
+        #contact-us{:onClick => "location.href='#", :style => "cursor: pointer;"}
           = render :partial => "/pages/partials/contact_us"
         / contact block end
     / headding text end
