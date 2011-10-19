@@ -304,7 +304,7 @@ Gigavine::Application.routes.draw do
     post '/banner_create' => 'pages#banner_create'
     post '/help_connect' => 'pages#help_connect'
 
-    get 'contact-us' => 'pages#contactus'
+    get '/contact-us' => 'pages#contactus'
     get 'contactus' => 'pages#index'        
     post 'submit_brief' => 'pages#submit_brief'
     
