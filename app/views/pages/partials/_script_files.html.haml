@@ -71,12 +71,40 @@
   });
 		
 		
-   jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a").hover(function() {
-                jQuery(this).animate({ backgroundColor: "#c1c1c1" }, 500);
+   jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a,.form_btn input.form_submit, .count_btn").hover(function() {
+                jQuery(this).animate({ backgroundColor: "#c1c1c1",color:"#585858" }, 500);
         },function() {
-                 jQuery(this).animate({ backgroundColor: "#9f9f9f" }, 500);
+                 jQuery(this).animate({ backgroundColor: "#9f9f9f", color: "#fff"}, 500);
         });	
+   jQuery(".net_signbtn a").hover(function() {
+                jQuery(this).animate({ backgroundColor: "#587877", color: "#fff" }, 500);
+        },function() {
+                 jQuery(this).animate({ backgroundColor: "#459F9B", color: "#fff" }, 500);
+        });	
+   jQuery(".images_1 div.sub_content p a.blue").hover(function() {
+                jQuery(this).animate({ backgroundColor: "#005d93", color: "#fff" }, 500);
+        },function() {
+                 jQuery(this).animate({ backgroundColor: "#66bae6", color: "#fff" }, 500);
+        });	
+   jQuery(".images_1 div.sub_content p a.red").hover(function() {
+                jQuery(this).animate({ backgroundColor: "#6b051e", color: "#fff" }, 500);
+        },function() {
+                 jQuery(this).animate({ backgroundColor: "#d27782", color: "#fff" }, 500);
+        });
+   jQuery(".images_1 div.sub_content p a.green").hover(function() {
+                jQuery(this).animate({ backgroundColor: "#5a6814", color: "#fff" }, 500);
+        },function() {
+                 jQuery(this).animate({ backgroundColor: "#c2d184", color: "#fff" }, 500);
+        });										
+
   });
+		
+		
+		
+		
+		
+		
+		
 
   jQuery(function() {
   jQuery(document).ready(function(){ 

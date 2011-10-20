@@ -286,10 +286,25 @@ class PagesController < ActionController::Base
  end
   
    	def submit_brief_pages
-                file_path = params[:briefdetail_file].path
-                name_file = params[:briefdetail_file].original_filename
-      UserMailer.submit_brief(params[:user_name],  file_path, name_file, params[:user_email]).deliver
-      redirect_to :action => 'technology_new' 
+                #~ file_path = params[:briefdetail_file].path
+                #~ name_file = params[:briefdetail_file].original_filename
+      #~ UserMailer.submit_brief(params[:user_name],  file_path, name_file, params[:user_email]).deliver
+      #~ redirect_to :action => 'technology_new' 
+ 
+      briefdetail = BriefDetail.new(params[:brief_detail])
+      respond_to do |format|
+      if briefdetail.save!
+        #~ file_path = params[:briefdetail_file].path
+        UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path).deliver        
+                
+                #~ name_file = params[:briefdetail_file].original_filename
+      	format.html { redirect_to({:action => 'technology_new'}, :notice => 'Your data submitted successfully.') }			
+       
+      end
+    end
+ 
+ 
+ 
  
     end 
   
