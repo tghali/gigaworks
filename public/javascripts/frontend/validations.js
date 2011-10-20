@@ -67,15 +67,15 @@ function project_adv_tabs(tab_option)
 
   function submit_brief_form()
   {
-  var name = document.getElementById('briefdetail_name');
+  var bname = document.getElementById('briefdetail_name');
   var email = document.getElementById('briefdetail_email');
-  var attachment = document.getElementById('briefdetail_attachment');
+  var attachment = document.getElementById('FileField1');
   var emailExp=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
   
-  if(name.value == "")
+  if(bname.value == "")
   {
   alert('Please enter name');
-  name.focus();
+  bname.focus();
   return false;
   }
   
