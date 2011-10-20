@@ -1,7 +1,7 @@
 
-= stylesheet_link_tag "overall.css", "frontend/editor/jquery.wysiwyg.css"
+= stylesheet_link_tag "overall.css"
 
-= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js", "frontend/editor/jquery.wysiwyg.js", "frontend/editor/default.js","frontend/jquery-color.js"
+= javascript_include_tag  "frontend/jquery.min.js","frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js", "frontend/editor/default.js","frontend/jquery-color.js"
 
 :javascript
   // Background color animation 
@@ -62,14 +62,7 @@
   jQuery.noConflict();
 
   jQuery(document).ready(function() {	
-  jQuery(".net_signbtn,.form_btn input.form_submit  ").hover(function() { 
-  jQuery(this).fadeTo('normal', 0.50 ).show;		
-  } , function() { //on hover out...
-  //Fade the image to 1 
-  jQuery(this).fadeTo('normal', 1).show();	
 	
-  });
-		
 		
    jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a,.form_btn input.form_submit, .count_btn").hover(function() {
                 jQuery(this).animate({ backgroundColor: "#c1c1c1",color:"#585858" }, 500);
