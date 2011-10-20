@@ -1830,6 +1830,9 @@ cursor:pointer;
 .net_signbtn a{
 text-decoration:none;
 color:#FFFFFF;
+display:block;
+width:70px;
+background:#61dfd9;
 }
 .net_landing_wrapper{
 width:964px;
