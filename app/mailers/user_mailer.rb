@@ -31,12 +31,26 @@ class UserMailer < ActionMailer::Base
 	  mail(:to => gigauser.email, :subject => "Gigavine Login Details")
 end
   
-  def submit_brief(name, ulf, filename, to_mail)
-    mail(:to => to_mail, :subject => "Technology page data")
+  #~ def submit_brief(name, ulf, filename, to_mail)
+    #~ mail(:to => to_mail, :subject => "Technology page data")
     
-     attachment :content_type => "application/pdf",
-      :filename => filename, 
-     :body=> File.read(ulf)
-  end  
+     #~ attachment :content_type => "application/pdf",
+      #~ :filename => filename, 
+     #~ :body=> File.read(ulf)
+  #~ end  
+  
+    def submit_brief(details,myfile)
+    @filepath = details.attachment.url
+    attachments["#{details.attachment_file_name}"] = File.read("#{myfile}")
+    mail(:to => details.email, :subject => "Technology page data",:content_type => "text/html" )    
+     #~ attachment :content_type => "application/pdf",
+      #~ :filename => details.attachment_file_name, 
+     
+     #~ :body=> File.read(@filepath) 
+
+    end
+
+  
+  
   
 end
