@@ -42,7 +42,7 @@ end
     def submit_brief(details,myfile)
     @filepath = details.attachment.url
     attachments["#{details.attachment_file_name}"] = File.read("#{myfile}")
-    mail(:to => details.email, :subject => "Technology page data" )    
+    mail(:to => details.email, :subject => "Technology page data",:content_type => "text/html" )    
      #~ attachment :content_type => "application/pdf",
       #~ :filename => details.attachment_file_name, 
      
