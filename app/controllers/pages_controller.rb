@@ -286,9 +286,11 @@ class PagesController < ActionController::Base
  end
   
    	def submit_brief_pages
+        briefdetail = BriefDetail.new(params[:brief_detail])
       respond_to do |format|
-        if  UserMailer.submit_brief(params[:briefdetail_file].original_filename, params[:brief_detail][:email],params[:brief_detail][:attachment].path,params[:section_name]).deliver   
-        format.html { redirect_to({:action => 'technology_new'}, :notice => 'Your data submitted successfully.') }
+        if briefdetail.save! 
+          UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path,params[:section_name]).deliver   
+          format.html { redirect_to({:action => 'technology_new'}, :notice => 'Your data submitted successfully.') }
       else
         format.html { redirect_to({:action => 'technology_new'}, :notice => 'There is problemt to submit data. Please try again') }
       end
