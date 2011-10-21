@@ -39,10 +39,10 @@ end
      #~ :body=> File.read(ulf)
   #~ end  
   
-    def submit_brief(details,myfile)
+    def submit_brief(file_name,email,myfile,section)
     #~ @filepath = details.attachment.url
-    attachments["#{details.attachment_file_name}"] = File.read("#{myfile}")
-    mail(:to => details.email, :subject => "Technology page data")    
+    attachments["#{file_name}"] = File.read("#{myfile}")
+    mail(:to => email, :subject => "#{section} page data")    
     end
 
   
