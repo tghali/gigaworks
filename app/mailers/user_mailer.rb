@@ -41,12 +41,8 @@ end
   
     def submit_brief(details,myfile)
     #~ @filepath = details.attachment.url
-    attachments["test.txt"] = File.read("#{myfile}")
+    attachments["#{details.attachment_file_name}"] = File.read("#{myfile}")
     mail(:to => details.email, :subject => "Technology page data")    
-     #~ attachment :content_type => "application/pdf",
-      #~ :filename => details.attachment_file_name,      
-     #~ :body=> File.read("#{myfile}")
-
     end
 
   
