@@ -48,8 +48,8 @@
                   %p
                     %span Email
                     = f.text_field "email", :id=> "briefdetail_email"
-                    =# f.hidden_field "section_name", :value => "technology_main",:name => "brief_detail[section_name]"
-                  %p{:style=>"width:200px;"}
+                    = hidden_field_tag "section_name", "Technology main"
+                  %p{:style=>"width:200px;"} 
                     %span File
                     #FileUpload1
                       %input#BrowserHidden1{:onChange => "getElementById('FileField1').value = getElementById('BrowserHidden1').value;", :size => "4", :type => "file", :name => "brief_detail[attachment]"}
