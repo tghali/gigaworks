@@ -481,10 +481,27 @@ font:11px/17px Arial, Helvetica, sans-serif;
 
 .foot_logo{
 margin:0px 0px 0px 0px;
+width:128px;
+height:95px;
+float:left;
+    top:30px;
+    position:relative;
 }
 .flo_left{
 float:left;
 }
+
+.foot_logo span{ width:128px; height:95px; display:block; overflow:hidden;cursor: pointer;}
+
+.foot_logo span,.foot_logo a.thumb2
+{
+	width: 128px;
+	height: 96px;
+	cursor: pointer;
+	display:block;
+	background:none
+}
+
 
 /* ----------- slider styles ----------------------*/
 #main{
@@ -839,8 +856,9 @@ height:31px;
 }
 .lpsub_bg_inner p span{
 width: 68px;
+height:30px;
 float:left;
- font:14px Gotham;
+ font:14px/25px Gotham;
 }
 .lpsub_bg_inner p input{
 	width:190px;

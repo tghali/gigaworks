@@ -72,7 +72,7 @@
    jQuery(".net_signbtn a").hover(function() {
                 jQuery(this).animate({ backgroundColor: "#587877", color: "#fff" }, 500);
         },function() {
-                 jQuery(this).animate({ backgroundColor: "#61dfd9", color: "#fff" }, 500);
+                 jQuery(this).animate({ backgroundColor: "#048581", color: "#fff" }, 500);
         });	
    jQuery(".images_1 div.sub_content p a.blue").hover(function() {
                 jQuery(this).animate({ backgroundColor: "#005d93", color: "#fff" }, 500);
@@ -91,48 +91,36 @@
         });										
 
   });
-		
-		
-		
-		
-		
-		
-		
 
-  jQuery(function() {
   jQuery(document).ready(function(){ 
-
-  	jQuery("#products").hide();	
-  	});	
-  jQuery("#image_frm_div").click(function () {
-  	if(document.getElementById("products").style.display == 'none')
-  	{
-  	jQuery("#products").show();
-    document.getElementById("reg_t1").style.backgroundColor='#fff';	
-  	return false;
-  	}
-  	else
-  	{
-  	jQuery("#products").hide();
-    document.getElementById("reg_t1").style.backgroundColor='#f0f0f0';	
-  	return false;
-  	}
-  	});
-    jQuery(".tabdiv").hide();
-    jQuery("#create").show();
-    jQuery(".c1").css("background-color","#e5e5e5");
-    jQuery(".tabnav li").click(function($){
-    getid = jQuery(this).find("a").attr('href');
-    jQuery(".tabnav li a").css("background-color","");
-    jQuery(this).find("a").css("background-color","#e5e5e5");
-    jQuery(".tabdiv").slideUp('slow');
-    jQuery(getid).slideDown('slow');
-    return false;
-    });
-	
-	
-  });
-    
+  jQuery("#products").hide();	
+   jQuery("#image_frm_div").click(function()
+   {
+   if (jQuery("#products:visible").length != 0)
+   {
+   jQuery("#products").fadeTo("1000", 0).hide();
+   jQuery(".reg_text1").css("background","none");
+   }
+   else {
+   jQuery("#products").fadeTo("1000", 1).show();
+   jQuery(".reg_text1").css("background","#ffffff");
+   jQuery(".reg_text1").css("position","relative");
+   jQuery(".reg_text1").css("z-index","999");
+    }
+   });
+   
+  });	
+		
+     jQuery(document).ready(function(){   
+    jQuery(".languages_select").click(function()
+    { 
+    li_id=jQuery(this).attr('id');
+    jQuery("#selected_lang").html(li_id);
+    jQuery("#products").fadeTo("1000", 0).hide();
+    jQuery(".reg_text1").css("background","none");	    	    
+    });	
+    });			
+		
 :javascript
   jQuery.noConflict();
   jQuery(function() {
@@ -348,18 +336,18 @@
 :javascript
   jQuery(document).ready(function() {
   jQuery.noConflict();
-  jQuery("ul.fblinks li").hover(function() { //On hover...
+  jQuery("ul.fblinks li,p.foot_logo").hover(function() { //On hover...
   var thumbOver = jQuery(this).find("img").attr("src"); //Get image url and assign it to 'thumbOver'
   jQuery(this).find("a.thumb1").css({'background' : 'url(' + thumbOver + ') no-repeat center -23px'});
+  jQuery(this).find("a.thumb2").css({'background' : 'url(' + thumbOver + ') no-repeat center -98px'});
   jQuery(this).find("span").stop().fadeTo('normal', 0 , function() {
   jQuery(this).hide(); //Hide the image after fade
   }); 
   } , function() { //on hover out...
   		//Fade the image to 1 
-      jQuery(this).find("span").stop().fadeTo('normal', 1).show();
-  		
+        jQuery(this).find("span").stop().fadeTo('normal', 1).show();
+        jQuery(this).find("a.thumb2").stop().css({'background' : 'url(' + thumbOver + ') no-repeat center -96px'});
   });
-  
   });
 		
 
