@@ -8,7 +8,7 @@
     .create_navrightblock
       .create_register
         .reg_text
-          %a#try-1{:href => "#"}
+          %a#try-1{:href => "/clients/registration", :title=>"Client Registration"}
             Register
             %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
         .reg_text
@@ -18,39 +18,38 @@
         .reg_text1#reg_t1
           Current Language: 
           %a#image_frm_div{:href => "javascript://"}
-            English
+            %span{:id=>"selected_lang"}English
             %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
           #products.select_language
             %ul
+              %li{:style=>"height:10px;background:#fff"} 
+                %span>
               %li
-                %a{:href => "javascript://"}
+                %a#English.languages_select{:href => "javascript://"}
                   %span> 
                   &nbsp; &nbsp;English
               %li
-                %a{:href => "javascript://"}
+                %a#French.languages_select{:href => "javascript://"}
                   %span> 
                   &nbsp; &nbsp;French
               %li
-                %a{:href => "javascript://"}
+                %a#Arabic.languages_select{:href => "javascript://"}
                   %span> 
                   &nbsp; &nbsp;Arabic
               %li
-                %a{:href => "javascript://"}
+                %a#Chinese.languages_select{:href => "javascript://"}
                   %span> 
                   &nbsp; &nbsp;Chinese
               %li
-                %a{:href => "javascript://"}
+                %a#Japanese.languages_select{:href => "javascript://"}
                   %span> 
                   &nbsp; &nbsp;Japanese
               %li
-                %a{:href => "javascript://"}
+                %a#German.languages_select{:href => "javascript://"}
                   %span> 
                   &nbsp; &nbsp;German
 
-              %li
-                %a{:href => "javascript://"}
-                  %span> 
-                  &nbsp; &nbsp;English
+
 
         .reg_text2
           %input{:type => "text",  :value=>"Search", :onFocus=>"if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}", :onBlur=>" if (this.value == '') {this.value = 'Search';}"  }
