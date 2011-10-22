@@ -600,7 +600,7 @@ margin:0px auto;
 width:964px;
 height:150px;
 display:block;
-overflow:hidden;
+/*overflow:hidden;*/
 }
 .create_navleftblock{
 width:210px;
@@ -639,12 +639,14 @@ height:276px;
 
 .create_register{
 height:25px;
-width:430px;
+width:420px;
 float:right;
 color:#7a7979;
 text-align:center;
 font:10px/25px Arial, Helvetica, sans-serif;
-background:#f1f1f1
+background:#f1f1f1;
+position:relative;
+z-index:100
 }	
 	
 .reg_text, .reg_text1, .reg_text2{
@@ -666,7 +668,7 @@ width:155px;
 background:none;
 }
 .reg_text2{
-float:right;
+float:left;
 width:144px;
 text-align:left;
 text-indent:10px;
@@ -1428,25 +1430,29 @@ background:#fff;
 width:155px;
 height:auto;
 display:none; 
-position:relative;
-z-index:1000; 
+position:absolute;
+z-index:999; 
 left:0px; 
 float:right;
- -moz-box-shadow: 1px 1px 1px 1px #666;
-  -webkit-box-shadow: 1px 1px 1px 1px #666;
-  box-shadow: 1px 1px 1px 1px #666;
+-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
 
 }
 .select_language ul{
 list-style-type:none;
 width:155px;
-background:url(/images/frontend/language_dropdown_bg.gif) repeat-y;
+background:#fff url(/images/frontend/language_dropdown_bg.gif) repeat-y 5px 0;
+margin-top:-5px;
+
+z-index:1;
 }
 .select_language li{
 width:155px;
 height:20px;
 font:10px/20px Arial, Helvetica, sans-serif;
-text-align:left
+text-align:left;
+text-indent:10px
 }
 
 .select_language li a{
@@ -1458,7 +1464,7 @@ text-align:left
 .select_language li a span{float:left; width:82px;height:20px}
 
 .select_language li a:hover{
-background:#e7e7e7 url(/images/frontend/contact_arrow.jpg) no-repeat 70px;
+background:#e7e7e7 url(/images/frontend/contact_arrow.jpg) no-repeat 75px;
 }
 
 
