@@ -253,7 +253,7 @@ class PagesController < ActionController::Base
 	
 		find_page.update_attributes(params[:projects_page])
 	end
-	 redirect_to :action => "projects_land"
+	 redirect_to :action => "projects_case_studies"
   end
   
     def banner_create
