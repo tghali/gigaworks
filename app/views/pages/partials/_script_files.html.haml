@@ -108,6 +108,18 @@
    jQuery(".reg_text1").css("z-index","999");
     }
    });
+
+    jQuery(".tabdiv").hide();
+    jQuery("#create").show();
+    jQuery(".c1").css("background-color","#e5e5e5");
+    jQuery(".tabnav li").click(function($){
+    getid = jQuery(this).find("a").attr('href');
+    jQuery(".tabnav li a").css("background-color","");
+    jQuery(this).find("a").css("background-color","#e5e5e5");
+    jQuery(".tabdiv").slideUp('slow');
+    jQuery(getid).slideDown('slow');
+    return false;
+    });
    
   });	
 		
