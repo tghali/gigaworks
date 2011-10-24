@@ -62,29 +62,31 @@
         / submit block start
         #lp_submit
           %h4 Submit a brief
-          .lpsub_inner
-            .lpsub_leftcorner
-              %span
-            .lpsub_bg
-              .lpsub_bg_inner
-                %p
-                  %span Name
-                  %input{:type => "text"}/
-                %p
-                  %span Email
-                  %input{:type => "text"}/
-                %p{:style=>"width:200px;"}
-                  %span File
-                  #FileUpload1
-                    %input#BrowserHidden1{:onChange => "document.getElementById('FileField1').value = document.getElementById('BrowserHidden1').value;", :size => "4", :type => "file"}
-                      #BrowserVisible1
-                        %input#FileField1{:type => "text", :size => "17"}																		
-                %p.form_btn{ :style=>"float:right; position:relative; top:-80px; right:12px;"}
-                  %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => "Submit"}/
-            .lpsub_rightcorner
-              %span
-
-
+          - if !flash[:notice].blank? 
+            = flash[:notice]  
+          = form_for :brief_detail, :url =>{:controller=> :pages, :action => :submit_brief_pages,:id => 'creative'},:html => {:multipart => :true,:onsubmit => "return submit_brief_form();"} do |f|
+            .lpsub_inner
+              .lpsub_leftcorner
+                %span
+              .lpsub_bg
+                .lpsub_bg_inner
+                  %p
+                    %span Name
+                    = f.text_field "name",:id=> "briefdetail_name"
+                  %p
+                    %span Email
+                    = f.text_field "email", :id=> "briefdetail_email"
+                    = hidden_field_tag "section_name", "Creative adv"
+                  %p{:style=>"width:200px;"} 
+                    %span File
+                    #FileUpload1
+                      %input#BrowserHidden1{:onChange => "getElementById('FileField1').value = getElementById('BrowserHidden1').value;", :size => "4", :type => "file", :name => "brief_detail[attachment]"}
+                        #BrowserVisible1
+                          %input#FileField1{:type => "text", :size => "5",:name => "briefdetail_file_text"}																		
+                  %p.form_btn{ :style=>"float:right; position:relative; top:-80px; right:12px; z-index:1000;"}
+                    %input.form_submit{:src => "/images/frontend/form_submit.png", :type => "submit", :value => "Submit"}/
+              .lpsub_rightcorner
+                %span
         / submit block end
       / left block end
       / right block start
