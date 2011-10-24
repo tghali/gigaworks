@@ -50,7 +50,11 @@
     / left block start
     .case_left
       .inner_leftcase
-        %img{:alt => "", :src => "/images/frontend/case_img.jpg", :title => ""}
+        - if !get_help('project_case_study_page','image').blank?
+          = image_tag(get_help('project_case_study_page','image'),:height => "368px", :width => "601px",:style => "align:center;")
+        - else
+          %img{:alt => "", :src => "/images/frontend/case_img.jpg", :title => ""}
+        .clear
           %h3
             - if !get_projects('project_case_study_page','title').blank?
               = raw(get_projects('project_case_study_page','title'))

@@ -2,7 +2,7 @@
   %h3#see_id  Projects / Case Studies - Left Block
   %br.clear
   %div
-    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form",:onsubmit => "return case_study_validate();"} do |f|
+    = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "tech_form",:multipart => :true,:onsubmit => "return case_study_validate();"} do |f|
       = f.hidden_field :page_section,  :value => "project_case_study_page"
 
       %label
