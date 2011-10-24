@@ -3,29 +3,33 @@
 / submit block start
 #submit-a-brief
   %h4 Submit a brief
-  .sub_inner
-    .sub_leftcorner
-      %span
-    .sub_bg
-      .sub_bg_inner
-        =# form_for :data, :url => {},:html => {:name=> "forms1"} do 
-        %p
-          %span Name
-          %input{:type => "text"}/
-        %p
-          %span Email
-          %input{:type => "text"}/
-        %p{:style=>"width:370px; float:left;"}
-          %span File
-          #FileUpload2
-            %input#BrowserHidden2{:onChange => "document.getElementById('FileField2').value = document.getElementById('BrowserHidden2').value;", :size => "28", :type => "file"}
-              #BrowserVisible2
-                %input#FileField2{:type => "text", :size => "17" , :style=>"#position:relative; #top:-18px;"}																		
-        %p.form_btn{ :style=>"float:right; position:relative; top:-33px; #top:-66px; right:12px; #height:23px;"}
-          %input.form_submit{:src => "#", :type => "submit", :value => "Submit", :style=>"#height:23px;"}/
+  - if !flash[:notice].blank? 
+    = flash[:notice]  
+  = form_for :brief_detail, :url =>{:controller=> :pages, :action => :submit_brief_pages,:id => 'home'},:html => {:multipart => :true,:onsubmit => "return submit_brief_form();"} do |f|
+    .sub_inner
+      .sub_leftcorner
+        %span
+      .sub_bg
+        .sub_bg_inner
+          =# form_for :data, :url => "#",:html => {:name=> "forms1"} do 
+          %p
+            %span Name
+            = f.text_field "name",:id=> "briefdetail_name"
+          %p
+            %span Email
+            = f.text_field "email", :id=> "briefdetail_email"
+            = hidden_field_tag "section_name", "Home"
+          %p{:style=>"width:370px; float:left;"}
+            %span File
+            #FileUpload2
+              %input#BrowserHidden2{:onChange => "getElementById('FileField2').value = getElementById('BrowserHidden2').value;", :size => "28", :type => "file", :name => "brief_detail[attachment]"}
+                #BrowserVisible2
+                  %input#FileField2{:type => "text", :size => "17" , :style=>"#position:relative; #top:-18px;"}																		
+          %p.form_btn{ :style=>"float:right; position:relative; top:-33px; #top:-66px; right:12px; #height:23px;"}
+            %input.form_submit{:src => "#", :type => "submit", :value => "Submit", :style=>"#height:23px;"}/
 
-    .sub_rightcorner
-      %span
+      .sub_rightcorner
+        %span
 		  
 		  
 
