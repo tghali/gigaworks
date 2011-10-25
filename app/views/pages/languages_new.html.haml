@@ -92,7 +92,13 @@
           -#%object{:height => "250", :width => "600"}
             -#%embed{:height => "250", :src => "/flvs/giga8_mov.swf", :width => "600",:style => "border:1px solid #ccc;" }/
 
-
+          %video{:controls => "", :width => "600", :poster => "/images/frontend/1319445921_button_play.png" }
+            / if Firefox
+            %source{:src => "/flvs/giga8_mov.ogg", :type => "video/ogg"}/
+            / if Safari/Chrome
+            %source{:src => "/flvs/giga8_mov.mp4", :type => "video/mp4"}/
+            / If the browser doesn't understand the <video> element, then reference a Flash file. You could also write something like "Use a Better Browser!" if you're feeling nasty. (Better to use a Flash file though.)
+            %embed{:allowfullscreen => "true", :allowscriptaccess => "always", :src => "/flvs/giga8_mov.swf", :type => "application/x-shockwave-flash"}
 														
         - if !get_languages('languages_page','summary').blank?
           %p
