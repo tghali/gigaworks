@@ -205,31 +205,7 @@
                   %span.techclass Online Tools					
                 - else
                   Online Tools			
-      - if params[:action] == 'projects_land' || params[:action] == 'projects_case_studies'
-        %li.current
-          %a#cf641e.sf-with-ul{:href => "/projects"  , :style=>"color:#383839"}
-            %span{:style => "color:#cf641e"}Projects
-            %span.sf-sub-indicator »
-          %ul
-            %li.sub_nav
-              %a{:href => "/projects/case-studies"}
-                - if params[:action] == 'projects_case_studies'
-                  -#%span.projectclass Case Studies				
-                - else
-                  //Case Studies			
-														 
-      - else          
-        %li
-          %a#cf641e.sf-with-ul{:href => "/projects"  , :style=>"color:#383839"}
-            Projects
-            %span.sf-sub-indicator »
-          %ul
-            %li.sub_nav
-              %a{:href => "/projects/case-studies" }
-                - if params[:action] == 'projects_case_studies'
-                  -#%span.projectclass Case Studies				
-                - else
-                  //Case Studies		
+
 
       - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current
@@ -258,4 +234,16 @@
                 - if params[:action] == 'network_featured'
                   %span.featuredclass Featured					
                 - else
-                  Featured					
+                  Featured				
+
+      - if params[:action] == 'contactus'
+        %li.current
+          %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"color:#383839"}
+            %span{:style => "color:#cf641e"}Contact
+            %span.sf-sub-indicator »
+														 
+      - else          
+        %li
+          %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"color:#383839"}
+            Contact
+            %span.sf-sub-indicator »

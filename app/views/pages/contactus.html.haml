@@ -38,9 +38,16 @@
         / right block start
         .lp_rightblock
           %p.headding_text
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lorem turpis, eu convallis neque. Duis aliquet sodales risus id euismod.
+            - if !get_languages('contact_page','title').blank?
+              = raw(get_languages('contact_page','title'))
+            - else
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lorem turpis, eu convallis neque. Duis aliquet sodales risus id euismod.
         
-            %p Nulla vulputate, sem eu venenatis dapibus, ante sapien pretium enim, eu bibendum est ligula non elit. Nulla mattis, tellus non condimentum lacinia, risus sem scelerisque lectus, et semper libero diam non tortor. In porttitor tristique erat sagittis eleifend. Integer risus libero, sodales in feugiat blandit, interdum vitae metus.
+            %p
+              - if !get_languages('contact_page','summary').blank?
+                = raw(get_languages('contact_page','summary'))
+              - else
+                Nulla vulputate, sem eu venenatis dapibus, ante sapien pretium enim, eu bibendum est ligula non elit. Nulla mattis, tellus non condimentum lacinia, risus sem scelerisque lectus, et semper libero diam non tortor. In porttitor tristique erat sagittis eleifend. Integer risus libero, sodales in feugiat blandit, interdum vitae metus.
             %div
               .contact_textblock
                 %p.headding Gigavine London
@@ -64,7 +71,10 @@
                 %p.clear
                   &nbsp;
               .contact_video
-                %img{:src => "/images/frontend/conrtact_img1.jpg"}
+                - if !get_help('contact_page','image').blank?
+                  = image_tag(get_help('contact_page','image'),:width => "379px;",:height => "289px;")
+                - else
+                  %img{:src => "/images/frontend/conrtact_img1.jpg"}
           / right block end
       / content block end
     .clear  

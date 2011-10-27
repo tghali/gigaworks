@@ -458,7 +458,8 @@ padding:0px;
 float:left;
 list-style-type:none;
 }
-.foot_right li p{
+ /*october 27*/
+.foot_right li p,.foot_right li p a{
 font:16px Gotham;
 text-align:left;
 color:#e5e5e5;
@@ -478,6 +479,9 @@ text-decoration:none;
 color:#fff;
 font:11px/17px Arial, Helvetica, sans-serif;
 }
+
+.foot_right li p a{ display:block; padding:0px; margin:0px; height:20px; line-height:20px}
+.foot_right li p a:hover{ padding:0px; margin:0px;line-height:20px}  /*october 27*/
 
 .foot_logo{
 margin:0px 0px 0px 0px;
@@ -646,7 +650,7 @@ text-align:center;
 font:10px/25px Arial, Helvetica, sans-serif;
 background:#f1f1f1;
 position:relative;
-z-index:100
+z-index:3  /*october 27*/
 }	
 	
 .reg_text, .reg_text1, .reg_text2{
@@ -1953,7 +1957,7 @@ margin:0px auto;
 height:214px;
 width:100%;
 margin:0px auto;
-position:relative;	z-index:100;
+position:relative;	z-index:1;  /*october 27*/
 }
 
 #trans-main{

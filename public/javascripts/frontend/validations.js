@@ -1,6 +1,30 @@
 // JavaScript Document
 
 
+function contact_validate()
+{
+		var contact_title = document.getElementById('contact_heading');
+	 var contact_summary = document.getElementById('contact_summary');
+
+		
+		  if(contact_title.value == "")
+  {
+  alert('Please enter title for contact us');
+  contact_title.focus();
+  return false;
+  }
+
+		  if(contact_summary.value == "")
+  {
+  alert('Please enter summary for contact us');
+  contact_summary.focus();
+  return false;
+  }
+		
+		return true;
+		
+}
+
 function case_study_validate()
 {
 	
@@ -63,6 +87,10 @@ function project_adv_tabs(tab_option)
 				
 				return true;
 	
+}
+function sucessful_submission()
+{
+	alert('Your brief has been submitted successfully, one of our project managers will be in-touch shortly.');
 }
 
   function submit_brief_form()
