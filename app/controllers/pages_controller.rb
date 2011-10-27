@@ -205,6 +205,8 @@ class PagesController < ActionController::Base
         redirect_to :action => "creative_design"
   elsif params[:creative_page][:page_section] == 'creative_interactive_page' || params[:creative_page][:page_section] == 'creative_mobile_development' || params[:creative_page][:page_section] == 'creative_ebooks' || params[:creative_page][:page_section] == 'creative_media_presentations'
         redirect_to :action => "creative_interactive"
+  elsif params[:creative_page][:page_section] == 'contact_page'
+    redirect_to :action => "contactus"
   else
     redirect_to :action => "creative_new"
   end

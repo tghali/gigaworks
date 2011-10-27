@@ -1,5 +1,7 @@
 = javascript_include_tag "frontend/validations"
-
+:javascript
+  Cufon.replace('.sf-navbar li.current', {color: '#aa0c22'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});	
 #home_page.sign_up{:style => "display:none"}
   %h3#see_id  HOME
   %br.clear
@@ -61,7 +63,7 @@
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Content:
-        = f.text_area :content, :style => "width:600px;", :id => "middle_content", :value => get_data('home_middle')
+        = f.text_area :content, :style => "width:600px;height:300px", :id => "middle_content", :value => get_data('home_middle')
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
@@ -156,7 +158,6 @@
 
 = render :partial => "/pages/partials/creative_interactive"
 
-
 #technology.sign_up{:style => "display:none"}
   %h3#see_id  TECHNOLOGY
   %br.clear
@@ -177,8 +178,8 @@
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close
-		
-= render :partial => "/pages/partials/technology_learning"		
+
+= render :partial => "/pages/partials/technology_learning"
 
 = render :partial => "/pages/partials/technology_commerce"
 
@@ -348,4 +349,4 @@
 
 = render :partial => "/pages/partials/projects_case_studies"
 
-
+= render :partial => "/pages/partials/contact"
