@@ -459,7 +459,7 @@ float:left;
 list-style-type:none;
 }
  /*october 27*/
-.foot_right li p,.foot_right li p a{
+.foot_right li p,.foot_right li.foot_head a{
 font:16px Gotham;
 text-align:left;
 color:#e5e5e5;
@@ -480,13 +480,16 @@ color:#fff;
 font:11px/17px Arial, Helvetica, sans-serif;
 }
 
+.foot_right li.foot_head{ margin-bottom:20px;}
+.foot_right li.foot_head a{ display:block; padding:0px; margin:0px; height:20px; line-height:20px}
+.foot_right li.foot_head a:hover{ padding:0px; margin:0px;line-height:20px}  /*october 27*/
+
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.foot_right li p a{ display:block; padding:0px; margin:0px; height:20px; line-height:22px!important}
-.foot_right li p a:hover{ padding:0px; margin:0px;line-height:22px!important}  /*october 27*/
+.foot_right li.foot_head a{ height:20px; line-height:22px}
+.foot_right li.foot_head a:hover{ line-height:22px}  /*october 27*/
 }
 
-.foot_right li p a{ display:block; padding:0px; margin:0px; height:20px; line-height:20px}
-.foot_right li p a:hover{ padding:0px; margin:0px;line-height:22px}  /*october 27*/
 
 .foot_logo{
 margin:0px 0px 0px 0px;
