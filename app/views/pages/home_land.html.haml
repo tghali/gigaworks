@@ -1,4 +1,5 @@
 %script{:language => "JavaScript"}
+
   jQuery(function() {
   jQuery.noConflict();      
   jQuery(".slidetabs").tabs(".images > div", {
@@ -29,6 +30,11 @@
   })/*.slideshow();*/
       
   });
+  
+
+
+
+	
 
 
 #main-wrapper-home
@@ -60,15 +66,15 @@
           %span We can do it for you too!
       %div
         / lastes news block start
-        #latest-news{:onClick => "location.href='#", :style => "cursor: pointer;"}
+        #latest-news{:onClick => "comingsoon();"  , :style => "cursor: pointer;"}
           = render :partial => "/pages/partials/latest_news"
         / lastes news block end
         / join network block start
-        #join-the-network{:onClick => "location.href='#", :style => "cursor: pointer;"}
+        #join-the-network{:onClick => "location.href='/network'"  , :style => "cursor: pointer;"}
           = render :partial => "/pages/partials/join_network"
         / join network block end
         / contact block start
-        #contact-us{:onClick => "location.href='#", :style => "cursor: pointer;"}
+        #contact-us{:onClick => "location.href='/contact'", :style => "cursor: pointer;"}
           = render :partial => "/pages/partials/contact_us"
         / contact block end
     / headding text end
