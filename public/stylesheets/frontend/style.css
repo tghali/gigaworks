@@ -481,8 +481,8 @@ font:11px/17px Arial, Helvetica, sans-serif;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-.foot_right li p a{ display:block; padding:0px; margin:0px; height:20px; line-height:22px}
-.foot_right li p a:hover{ padding:0px; margin:0px;line-height:22px}  /*october 27*/
+.foot_right li p a{ display:block; padding:0px; margin:0px; height:20px; line-height:22px!important}
+.foot_right li p a:hover{ padding:0px; margin:0px;line-height:22px!important}  /*october 27*/
 }
 
 .foot_right li p a{ display:block; padding:0px; margin:0px; height:20px; line-height:20px}
