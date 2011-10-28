@@ -315,7 +315,10 @@
   jQuery("#contact_us").find("input:first").focus();
   }});    
   e.preventDefault();
-  });					
+  });	
+  - if !flash[:notice].blank? 
+    jQuery("#message").lightbox_me({centered: true});
+    //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");				
 		
 		
   jQuery('table tr:nth-child(even)').addClass('stripe');
@@ -366,5 +369,9 @@
         jQuery(this).find("a.thumb2").stop().css({'background' : 'url(' + thumbOver + ') no-repeat center -96px'});
   });
   });
+		function comingsoon()
+  {
+  jQuery("#comingsoon").lightbox_me({centered: true});    
+  }
 		
 

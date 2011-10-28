@@ -62,8 +62,6 @@
         / submit block start
         #lp_submit
           %h4 Submit a brief
-          - if !flash[:notice].blank? 
-            = flash[:notice]  
           = form_for :brief_detail, :url =>{:controller=> :pages, :action => :submit_brief_pages,:id => 'creative'},:html => {:multipart => :true,:onsubmit => "return submit_brief_form();"} do |f|
             .lpsub_inner
               .lpsub_leftcorner

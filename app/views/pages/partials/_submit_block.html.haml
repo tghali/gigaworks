@@ -3,8 +3,6 @@
 / submit block start
 #submit-a-brief
   %h4 Submit a brief
-  - if !flash[:notice].blank? 
-    = flash[:notice]  
   = form_for :brief_detail, :url =>{:controller=> :pages, :action => :submit_brief_pages,:id => 'home'},:html => {:multipart => :true,:onsubmit => "return submit_brief_form();"} do |f|
     .sub_inner
       .sub_leftcorner
