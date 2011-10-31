@@ -349,9 +349,17 @@
   if((jQuery(this).parent().attr("class")!= "sfHover sf-breadcrumb") && (jQuery(this).parent().attr("class")!= "sf-breadcrumb")){
   Cufon.replace(this, {color: '#383839'});
   }
+  colrhref = jQuery(this).attr("href");
+  var pathname = window.location.pathname;
+  if(colrhref==pathname)
+  {
+  colrid = "#"+jQuery(this).attr("id");
+  Cufon.replace(this, {color: colrid});  
+  }
+  });
+  });
 
-  });
-  });
+
 
 :javascript
   jQuery(document).ready(function() {
