@@ -59,7 +59,7 @@
       .shadow_midbg
         %p
           - if !get_data('home_deliver').blank?
-            = get_data('home_middle')
+            = raw(get_data('home_middle'))
           - else
             As global markets grow, clear and open communication has never been more important to businesses and governments. We offer a seamless blend of creative solutions, cultural and linguistic translation and technical delivery which transform our client&#39;s communications. 
             %br
