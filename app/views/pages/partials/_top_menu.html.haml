@@ -237,13 +237,10 @@
                   Featured				
 
       - if params[:action] == 'contactus'
-        %li.current
-          %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"color:#383839"}
-            %span{:style => "color:#cf641e"}Contact
-            %span.sf-sub-indicator »
-														 
+        %li
+          %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"padding-right:0px!important; color:#cf641e"}
+            Contact														 
       - else          
         %li
-          %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"color:#383839"}
+          %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"padding-right:0px!important; color:#383839"}
             Contact
-            %span.sf-sub-indicator »
