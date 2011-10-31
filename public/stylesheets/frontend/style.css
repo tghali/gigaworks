@@ -442,11 +442,11 @@ font:11px Arial, Helvetica, sans-serif;
 color:#a7a7a7;
 text-decoration:none;
 }
-.foot_right a:hover{
+/*.foot_right a:hover{
 font:11px Arial, Helvetica, sans-serif;
 color:#fff;
 text-decoration:none;
-}
+}*/
 .foot_right p{
 font:11px/60px Arial, Helvetica, sans-serif;
 color:#a7a7a7;
@@ -478,7 +478,7 @@ text-decoration:none;
 text-decoration:none;
 color:#fff;
 }
-.foot_right li.foot_head{ margin-bottom:20px;}
+.foot_right li.foot_head{ margin-bottom:10px;}
 .foot_right li.foot_head a{ display:block; padding:0px; margin:0px; height:35px; }
 .foot_right li.foot_head a:hover{ padding:0px; margin:0px;}  /*october 27*/
 

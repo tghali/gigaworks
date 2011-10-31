@@ -88,8 +88,10 @@
 
 = render :partial => "/pages/partials/editable_forms"
 
-#message.sign_up{:style => "display:none; width:600px; height:100px; font: 20px Arial"}
-  = "Your brief has been submitted successfully, one of our project managers will be in-touch shortly."
+#message.sign_up{:style => "display:none; width:600px; font:20px Arial; text-align:center;"}
+  %img{:alt => "", :src => "/images/frontend/foot_logo_colored.png", :title => ""}
+  %h1
+    = "Your brief has been submitted successfully, one of our project managers will be in-touch shortly."
   %br.clear
   %div
 
