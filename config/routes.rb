@@ -305,6 +305,8 @@ Gigavine::Application.routes.draw do
     post '/help_connect' => 'pages#help_connect'
 
     get '/contact' => 'pages#contactus'
+				get '/privacypolicy' => 'pages#privacypolicy'
+    get '/terms' => 'pages#terms'
     get 'contactus' => 'pages#index'        
     post 'submit_brief' => 'pages#submit_brief'
     

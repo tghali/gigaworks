@@ -135,6 +135,12 @@ class PagesController < ActionController::Base
      @page_title = "Gigavine - Contact Us"
     render :layout => 'pages_new'
  end
+	 def privacypolicy
+    render :layout => 'pages_new'  
+ end
+ def terms
+    render :layout => 'pages_new'  
+ end
   
    def submenu
      render :layout => false  
