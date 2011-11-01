@@ -211,8 +211,9 @@ class PagesController < ActionController::Base
         redirect_to :action => "creative_design"
   elsif params[:creative_page][:page_section] == 'creative_interactive_page' || params[:creative_page][:page_section] == 'creative_mobile_development' || params[:creative_page][:page_section] == 'creative_ebooks' || params[:creative_page][:page_section] == 'creative_media_presentations'
         redirect_to :action => "creative_interactive"
-  elsif params[:creative_page][:page_section] == 'contact_page'
+  elsif params[:creative_page][:page_section] == 'contact_page' || params[:creative_page][:page_section] == 'contact_page_london' || params[:creative_page][:page_section] == 'contact_page_dubai'
     redirect_to :action => "contactus"
+
   else
     redirect_to :action => "creative_new"
   end
@@ -298,16 +299,16 @@ class PagesController < ActionController::Base
       respond_to do |format|
         if briefdetail.save! 
           UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path,params[:section_name]).deliver 
-	  format.html { redirect_to({:action => 'technology_new'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Technology main"	
-          format.html { redirect_to({:action => 'technology_learning'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Technology learning"  
-          format.html { redirect_to({:action => 'technology_commerce'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Technology commerce"  
-          format.html { redirect_to({:action => 'technology_tools'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Technology tools"  
-          format.html { redirect_to({:action => 'technology_secure'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Technology secure"  
-          format.html { redirect_to({:action => 'creative_new'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Creative main"  
-          format.html { redirect_to({:action => 'creative_work'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Creative work"  
-          format.html { redirect_to({:action => 'creative_adv'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Creative adv"  
-          format.html { redirect_to({:action => 'creative_design'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Creative design"  
-          format.html { redirect_to({:action => 'creative_interactive'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Creative interactive"  
+	  format.html { redirect_to{ redirect_to("http://test.gigavine.com/technology#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology main"	
+          format.html { redirect_to("http://test.gigavine.com/technology/e-learning#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology learning"  
+          format.html { redirect_to("http://test.gigavine.com/technology/e-commerce#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology commerce"  
+          format.html { redirect_to("http://test.gigavine.com/technology/online-tools#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology tools"  
+          format.html { redirect_to("http://test.gigavine.com/technology/online-security#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology secure"  
+          format.html { redirect_to("http://test.gigavine.com/creative#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Creative main"  
+          format.html { redirect_to("http://test.gigavine.com/creative/artwork#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Creative work"  
+          format.html { redirect_to("http://test.gigavine.com/creative/advertising#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Creative adv"  
+          format.html { redirect_to("http://test.gigavine.com/creative/webdesign#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Creative design"  
+          format.html { redirect_to("http://test.gigavine.com/creative/interactive#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Creative interactive"  
           format.html { redirect_to({:action => 'home_land'}, :notice => 'Your data submitted successfully.') } if params[:section_name]=="Home"  
       else
           format.html { redirect_to({:action => 'technology_new'}, :notice => 'There is problem to submit data. Please try again') } if params[:section_name]=="Technology main"	

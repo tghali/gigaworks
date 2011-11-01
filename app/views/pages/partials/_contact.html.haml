@@ -16,13 +16,40 @@
         %label
           %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Image:
           %input{:type=>"file", :name=>"creative_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
-
-
-
-
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
-  .clear  
+  .clear 
+
+  %br.clear
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a.c1{:href => "#press_london"} Gigavine London
+      %li
+        %a{:href => "#press_dubai"} Gigavine Dubai
+    %br.clear
+    #press_london.tabdiv
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "contact_form",:onsubmit => "return contact_validate();"} do |f|
+        = f.hidden_field :page_section,  :value => "contact_page_london"
+        %label.headding_label
+          %strong Telephone :
+          = f.text_field :title, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_london','title')
+        %label.headding_label
+          %strong Fax :
+          = f.text_field :content, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_london','summary')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    #press_dubai.tabdiv
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "contact_form",:onsubmit => "return contact_validate();"} do |f|
+        = f.hidden_field :page_section,  :value => "contact_page_dubai"
+        %label.headding_label
+          %strong Telephone :
+          = f.text_field :title, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_dubai','title')
+        %label.headding_label
+          %strong Fax :
+          = f.text_field :content, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_dubai','summary')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"} 
 
   %a#close_x.close.sprited{:href => "#"} close

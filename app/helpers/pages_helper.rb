@@ -87,6 +87,20 @@ module PagesHelper
       return raw(lang.network) if !lang.blank?
     end
   end
+    def get_contacts(tab_type,option)
+    lang = FrontendPage.find_by_page_section(tab_type)
+    if option == 'title'
+      return lang.title if !lang.blank?
+    elsif option == 'summary'
+      return raw(lang.content) if !lang.blank?
+    elsif option == 'heading2'
+      return raw(lang.news) if !lang.blank?
+    elsif option == 'summary2'
+      return raw(lang.network) if !lang.blank?
+    elsif option == 'summary3'
+      return raw(lang.contact_us) if !lang.blank?
+    end
+  end
 
   def get_projects(tab_type,option)    
     project = FrontendPage.find_by_page_section(tab_type)
