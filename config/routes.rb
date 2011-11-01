@@ -13,6 +13,7 @@ Gigavine::Application.routes.draw do
   get    'sign_up/(:invite_token)'  => 'users#new', :as => :sign_up
   post   'sign_up'  => 'users#create'
   get    'activate/:verification_token' => 'users#verify'
+    get '/clients/signup' => 'users#client_signup'
 
   # Profile and password reset
   get '/profile'           => 'users#edit',        :as => :profile
