@@ -1,8 +1,29 @@
+:css
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+  #footer {
+  position: relative; top: 280px;
+  }
+  }  
+  #footer {
+  #position: relative; #top: 280px;
+  }
 
-%script{:charset => "utf-8", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js", :type => "text/javascript"}
-= javascript_include_tag "frontend/jquery.pikachoose.js"
+%script{:src => "/javascripts/frontend/jquery.jcarousel.min.js", :type => "text/javascript"}	
 
-
+:javascript
+  jQuery(document).ready(function() {
+  jQuery.noConflict();
+      // Initialise the first and second carousel by class selector.
+  	// Note that they use both the same configuration options (none in this case).
+  	//jQuery('.first-and-second-carousel').jcarousel();
+  jQuery('.first-and-second-carousel').jcarousel({
+  scroll: 1
+  });
+  	// If you want to use a caoursel with different configuration options,
+  	// you have to initialise it seperately.
+  	// We do it by an id selector here.
+  jQuery('#mycarousel').jcarousel();
+  });
 
 :javascript
   jQuery(document).ready(function() {
@@ -23,31 +44,6 @@
   	});
   
   });
-
-:javascript
-  jQuery(document).ready(function (){
-  jQuery("#pikame").PikaChoose({carousel:true});
-  });
-
-:javascript
-  jQuery(document).ready(function() {
-  jQuery.noConflict();
-  jQuery("ul.fblinks li,p.foot_logo").hover(function() { //On hover...
-  var thumbOver = jQuery(this).find("img").attr("src"); //Get image url and assign it to 'thumbOver'
-  jQuery(this).find("a.thumb1").css({'background' : 'url(' + thumbOver + ') no-repeat center -23px'});
-  jQuery(this).find("a.thumb2").css({'background' : 'url(' + thumbOver + ') no-repeat center -98px'});
-  jQuery(this).find("span").stop().fadeTo('normal', 0 , function() {
-  jQuery(this).hide(); //Hide the image after fade
-  }); 
-  } , function() { //on hover out...
-  		//Fade the image to 1 
-        jQuery(this).find("span").stop().fadeTo('normal', 1).show();
-        jQuery(this).find("a.thumb2").stop().css({'background' : 'url(' + thumbOver + ') no-repeat center -96px'});
-  });
-  });
-
-
-
 #project_landing_wrapper
   / Header
   #project-header
@@ -58,140 +54,124 @@
   / Headerend
   .clear
   / network content start
-  
   .network_content
     / main header block start
-    .pikachoose-whiteout
-      %ul#pikame
+    .pro_header_block
+      / slider block start
+      .pro_left_block
+        %ul.first-and-second-carousel.jcarousel-skin-tango-new
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/pro_img.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project1_qatar.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project2_mawhiba.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project3_aon.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project4_dove.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project5_nsm.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project6_honeywell.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project7_sofitel.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project8_shell.png", :title => ""}/
+          %li
+            %img{:alt => "", :src => "/images/frontend/projects/project9_mobily.png", :title => ""}/
+      / slider block end
+      / right content block start
+      .pro_right_block
+        .inner_pro_right
+          %h3
+            - if get_projects('project_land_page','caption').blank?										
+              Oryx Magazine
+            - else
+              = get_projects('project_land_page','title')														
+          .small_name
+            - if get_projects('project_land_page','caption').blank? 
+              QATAR AIRWAYS
+            - else
+              = get_projects('project_land_page','caption')
+          - if get_projects('project_land_page','summary').blank?
+            %div{:style => "height:250px;"}	 
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
+              %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
+          - else
+            %div{:style => "height:250px;"}
+              = get_projects('project_land_page','summary')
+          %p{:style=>"position:relative; top:-10px;"}
+            %a.pro_btn{:href => "/projects/case-studies"} View case study
+      / right content block end
+    / main header block end
+    / gallery block start
+    .pro_gallery
+      %ul#mycarousel.jcarousel-skin-tango
         %li
-          %a{:href => "#"}
-            %img{:height => "75", :src => "/images/frontend/projects/pro_img.png", :width => "75"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name QATAR AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-          / right content block end
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project1_qatar.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name INDIAN AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project2_mawhiba.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project3_aon.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name BERLIN AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project4_dove.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project5_nsm.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project6_honeywell.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project7_sofitel.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_8.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project8_shell.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study
-
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_9.gif", :title => ""}/
         %li
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/projects/project9_mobily.png"}/
-          %span
-            / right content block start
-            .pro_right_block
-              .inner_pro_right
-                %h3 Oryx Magazine
-                .small_name DUBAI AIRWAYS
-                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend metus vel nisi luctus non vestibulum risus sagittis. Vestibulum sit amet lorem non neque porttitor convallis sed in dui. Aenean eget massa in leo imperdiet dapibus sit amet a velit. Mauris eu nisi ligula, quis tristique nunc. Aliquam sit amet quam sit amet augue consequat ultricies in eget justo.
-                %p Donec blandit, libero eget vestibulum ornare, orci turpis iaculis turpis, non blandit erat orci non nisi. Sed hendrerit vulputate ante.
-                %p.pro_btn View case study																																																
-
-    																																																																																																																																																																
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_1.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_2.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_3.gif", :title => ""}/			
+        %li
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_4.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_5.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_6.gif", :title => ""}/
+        %li
+          %a.thumb{:href => "javascript://"}
+            %span
+              %img{:alt => "", :src => "/images/frontend/project_thumbnails/grey_7.gif", :title => ""}/																																																																																																																																																																					
     / gallery block end
     / client block start
     .client_blocks
