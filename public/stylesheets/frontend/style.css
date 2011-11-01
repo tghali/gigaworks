@@ -442,11 +442,17 @@ font:11px Arial, Helvetica, sans-serif;
 color:#a7a7a7;
 text-decoration:none;
 }
+
+
 /*.foot_right a:hover{
 font:11px Arial, Helvetica, sans-serif;
 color:#fff;
 text-decoration:none;
 }*/
+
+.foot_right a:hover{
+color:#fff;/*01-11-2011*/
+}
 .foot_right p{
 font:11px/60px Arial, Helvetica, sans-serif;
 color:#a7a7a7;
@@ -1956,7 +1962,7 @@ background:url(/images/frontend/pro_case_bg.jpg) repeat-x #f7f7f7;
 background:url(/images/frontend/contactgray_bg.jpg) repeat-x #f7f7f7;
 }
 .contact-newbg{
-background:url(/images/frontend/map.png) no-repeat 54% 0;
+background:url(/images/frontend/map.png) no-repeat 46% 72px;/*01-11-2011*/
 margin:0px auto;
 }
 #trans-wrapper{

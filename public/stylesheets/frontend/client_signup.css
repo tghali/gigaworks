@@ -1,0 +1,723 @@
+/* GLOBAL -----------------------------------------------------*/
+
+div.signup {
+  margin: 0;
+  padding: 0;
+  font:12px Arial, Helvetica, sans-serif;
+}
+
+*:focus {outline: none;}
+
+br{ font-size:0; line-height:0; height:0}
+
+a{ outline:none}
+
+div.signup img { 
+  -ms-interpolation-mode:bicubic;
+}
+
+div.signup h1 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+div.signup h4 {
+  font-size: 14px;
+  line-height: 1.3em;
+  margin: 0;
+}
+
+div.signup a {
+  color: #0066cc;
+}
+
+div.signup a:hover {
+  color: #0099ff;
+}
+
+/* STRUCTURE --------------------------------------------------*/
+
+div.signup div.wrapper {
+  width: 100%;
+}
+
+div.signup div.container {
+  width: 700px;
+  float:left;
+  padding: 0;
+  background:#f0f1f5;
+}
+
+div.signup div.rightcolumn {
+  float: right;
+  overflow: hidden;
+  width: 310px;
+}
+
+div.signup div.leftcolumn {
+ /* float: left;*/
+  overflow: visible;
+  width: 845px;
+  margin-left: 25px;
+  margin:0 auto;
+}
+
+div.signup div.clear {
+  clear: right;
+}
+
+div.signup div.rule {
+  border-top: 1px solid #ccc;
+  clear: right;
+  padding-bottom: 20px;
+}
+
+div.signup div.top {
+  border-top: 1px solid #fff;
+  padding-bottom: 0;
+}
+
+div.signup div.both {
+  clear: both;
+}
+
+div.signup div.last {
+  padding-bottom: 0;
+}
+
+/* HEADER ---------------------------------------------------*/
+
+div.signup div.header {
+  background-color: #222;
+  padding: 10px 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+div.signup div.logo_product {
+  float: left;
+  overflow: hidden;
+}
+
+div.signup div.logo_37signals {
+  float: right;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+/* BANNER ---------------------------------------------------*/
+
+div.signup div.banner {
+  background-image: url(/images/frontend/client_signup/shadow-plan.png);
+  height: 34px;
+  padding: 20px 0 0 20px;
+  margin-top: 20px;
+  overflow: hidden;
+  display:none
+}
+
+div.signup div.banner h2 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+div.signup div.banner h2 span {
+  display: block;
+  color: #c60;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.4em;
+}
+
+/* THANKS ---------------------------------------------------*/
+
+div.signup div.thanks {
+  text-align: center;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+div.signup div.thanks p {
+  text-align: left;
+}
+
+div.signup ul {
+  margin: 0px 0 10px 0;
+  padding-left: 23px;
+  list-style-image: url(/images/frontend/client_signup/icon_check.png);
+}
+
+div.signup li {
+  padding: 0 0 15px 0;
+  color: #666;
+  font-size: 11px;
+}
+
+div.signup li strong {
+  color: #000;
+  font-size: 13px;
+}
+
+div.signup div.billingpoints {
+  position: relative;
+  float: right;
+  width: 310px;
+  margin-right: -350px;
+  margin-left: 20px;
+}
+
+/* FOOTER ---------------------------------------------------*/
+
+div.signup div.footer {
+  background-color: #222;
+  padding: 20px 0;
+  margin-bottom: 0;
+  color: #ccc;
+  font-size: 10px;
+  line-height: 1.3em;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+/*-------------------------------------------------
+  NEW
+-------------------------------------------------*/
+
+div.signup form div.section {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+div.signup form div.section.last {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+div.signup div.contents form h3.step {
+  font-size: 14px;
+  color: #465561;
+  padding: 8px 0 8px 36px;
+  margin: 0 0 10px -10px;
+}
+
+div.signup form h3.step.one {
+  background: url(/images/frontend/client_signup/step-1.png) no-repeat center left;
+}
+
+div.signup form h3.step.two {
+  background: url(/images/frontend/client_signup/step-2.png) no-repeat center left;
+}
+
+div.signup form h3.step.three {
+  background: url(/images/frontend/client_signup/step-2.png) no-repeat center left;
+}
+
+div.signup h4 {
+  color: #000;
+  font-size: 12px;
+  padding: 7px;
+  margin: 0;
+}
+
+div.signup label {
+  font-weight: normal;
+  color: #222;
+  font-size: 12px;
+}
+
+div.signup input {
+  color: #000;
+  font-weight: bold;
+  font-size: 13px;
+  border:0;
+  background:#fff;
+ /* background:url(input-bg.jpg) no-repeat 0 0;*/
+  padding:5px 8px;
+  width:205px;
+ -webkit-border-radius: 8px;
+ -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+div.signup fieldset {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 0 0 5px 15px;
+  margin: 10px 0 0 0;
+}
+
+div.signup fieldset legend {
+  font-weight: bold;
+  color: #000;
+  padding: 7px;
+}
+
+div.signup table {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+div.signup table tr {
+  padding: 0;
+}
+
+div.signup table td {
+  padding: 0 0 8px 5px;
+  color: #999;
+  font-size: 11px;
+}
+
+div.signup table td.last {
+  padding: 0 0 0 5px;
+}
+
+div.signup table td strong {
+  color: #666;
+}
+
+div.signup span.monospace {
+  font-family: Courier;
+}
+
+div.signup div.contents {
+  background-image:url(/images/frontend/client_signup/shadow-form.png) ;
+  padding: 20px 35px 20px 30px;
+  overflow: visible;
+}
+
+div.signup div.contents img {
+  margin-right: 8px;
+}
+
+div.signup div.contents p {
+  margin: 0px 0;
+  color: #999;
+  font-size: 11px;
+}
+
+div.signup div#coupon_status {
+  margin: 0;
+}
+
+div.signup div.contents p.info,
+div.signup div.contents p.validation_error {
+  font-weight: bold;
+  margin: -5px 0 15px 0;
+  
+}
+
+div.signup div.contents p.info {
+  color: green;
+  background: #ffc;
+}
+
+div.signup div.contents p.validation_error {
+  color: red;
+}
+
+div.signup div.billingpoints p {
+  font-size: 11px;
+  line-height: 1.4em;
+  color: #666;
+  margin-left: 10px;
+  text-align: center;
+}
+
+div.signup div.contents p.coupon {
+  margin-top: 0;
+}
+
+div.signup div.contents p.instruction {
+  color: #222;
+  font-size: 12px;
+  line-height: 1.4em;
+}
+
+div.signup div.contents p.instruction strong {
+  color: #000;
+}
+
+div.signup div.contents p.url {
+  font-size: 16px;
+  color: #000;
+  font-family: Helvetica, Verdana, sans-serif;
+}
+
+div.signup div.preset_value {
+  font-size: 16px;
+  padding: 3px;
+  font-weight: bold;
+  color: #666;
+}
+
+div.signup div.amount {
+  border-top: 1px solid #ccc;
+  background-color: #ffc;
+  padding: 0 10px 15px 10px;
+}
+
+div.signup div.contents div.amount p {
+  margin-bottom: 0;
+}
+
+div.signup div.bottom {
+  margin-bottom: 20px;
+}
+
+div.signup div.tip_container {
+  float: right;
+  overflow: visible;
+  margin: 7px 0 15px 0;
+  line-height: 1.2em;
+}
+
+div.signup div.tip {
+  width: 200px;
+  overflow: hidden;
+}
+
+div.signup div.cards {
+  background-color: #fff;
+}
+
+div.signup div.tip_content {
+  padding: 0 5px;
+}
+
+div.signup div.tip_content p {
+  color: #000;
+}
+
+div.signup div.secure {
+  background-image: url(/images/frontend/client_signup/bkgd-secure.png);
+  background-repeat: no-repeat;
+  margin: 0;
+  overflow: hidden;
+  float: right;
+  color: #000;
+}
+
+div.signup div.secure_content {
+  padding: 6px 30px 10px 60px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+div.signup a.referrer {
+  color: #888;
+}
+
+div.signup div.javascript_disabled_notification {
+  width: 500px;
+  margin: 50px auto;
+  padding: 10px;
+  background: #fff;
+  border: 10px solid #ccc;
+}
+
+div.signup div#credit_card_form {
+  margin: 15px 0;
+}
+
+/*div.signup input#card_number {
+  width: 185px;
+}*/
+
+div.signup div#id_card {
+  float: right;
+  margin: 0 0 10px 0;
+}
+
+
+/*-------------------------------------------------
+  SIGN-IN
+-------------------------------------------------*/
+
+div.signup div.contents div.offer_to_sign_in {
+  background: #ffc;
+  padding: 10px 15px 10px 15px;
+  margin: 5px 0 5px -40px;
+  display: inline-block;
+}
+
+div.signup div.contents div.offer_to_sign_in p {
+  color: #000;
+  font-size: 12px;
+  margin: 0;
+}
+
+div.signup div.contents div.signed_in_explanation {
+  background: #ffc;
+  padding: 20px 15px 10px 20px;
+  margin: -20px -25px 15px -25px;
+  overflow: hidden;
+}
+
+div.signup div.contents div.signed_in_explanation p {
+  color: #000;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+}
+
+div.signup div.contents div.signed_in_explanation div.text {
+  width: 270px;
+}
+
+div.signup div.contents div.signed_in_explanation div.text span.logout {
+  color: #bbb;
+}
+
+div.signup div.contents div.signed_in_explanation div.text span.logout a {
+  padding: 1px;
+}
+
+/*-------------------------------------------------
+  QUEUED
+-------------------------------------------------*/
+
+div.signup div.queued_explanation {
+  padding: 0 15px;
+}
+
+div.signup div.queued_explanation p {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+/*-------------------------------------------------
+  ERRORS
+-------------------------------------------------*/
+
+div.signup div.flash_notice {
+  border: 1px solid #9c9;
+  background: #e2f9e3;
+  color: #060;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+div.signup div.flash_alert, div.flash_error {
+  background: #c00;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+div.signup div.error {
+  font-weight: bold;
+  margin: 5px 0 5px 0;
+   color: red;
+}
+
+div.signup div.error h1 {
+  margin: 0 0 10px 0;
+}
+
+div.signup div.error ul {
+  margin: 0px 0 10px 0;
+  padding-left: 23px;
+  list-style-image: none;
+}
+
+div.signup div.error li {
+  padding: 0 0 2px 0;
+  font-size: 11px;
+  color: #333;
+}
+
+div.signup div.error p {
+  margin: 0;
+  color: #222;
+  font-size: 12px;
+}
+
+div.signup .fieldWithErrors label {
+  font-weight: bold;
+  color: red;
+}
+
+/*div.signup .fieldWithErrors input {
+  border: 2px solid red;
+}*/
+
+div.signup #username_error {
+  margin-top: -10px;
+}
+
+div.signup div.username_suggestions {
+	margin: 10px 0 5px 0;
+}
+
+div.signup div.username_suggestions h2 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+div.signup div.username_suggestions ul {
+	padding-top: 5px;
+	margin-bottom: 9px;
+}
+
+div.signup div.username_suggestions li {
+	padding-top: 4px;
+	font-family: monaco, monspace, courier, sans-serif;
+	padding-bottom: 0;
+}
+
+
+/* LOGIN POPOVER / CLAIM -----------------------------------------------------*/
+
+div.new_claim {
+  background: #fff;
+  color: #333;
+}
+
+div.new_claim a {
+  color: #666 !important;
+  font-size: 10px;
+  padding: 1px;
+}
+
+div.new_claim a:hover {
+  color: #999 !important;
+}
+
+div.new_claim h2 {
+  font-size: 14px;
+  margin: 14px 0 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+div.new_claim div.products {
+  float: left;
+  font-size: 14px;
+  color: #666;
+  line-height: 32px;
+}
+
+div.new_claim div.products div {
+  margin-bottom: 8px;
+}
+
+div.new_claim div.products img {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+div.new_claim div.form {
+  margin-left: 160px;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
+
+div.new_claim div.form p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+
+div.new_claim div.form table tr.field th {
+  font-weight: normal;
+  font-size: 12px;
+  padding: 10px 5px 0 0;
+  vertical-align: top;
+}
+
+div.new_claim div.form table tr.field td {
+  padding-bottom: 10px;
+}
+
+div.new_claim input {
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 3px;
+}
+
+div.new_claim div.form table tr.field td input {
+  width: 180px;
+}
+
+div.new_claim div.form table tr.field td.openid input {
+  background: #fff url(/images/frontend/client_signup/open_id_icon.gif) center left no-repeat;
+  font-size: 14px;
+  padding-left: 16px;
+  width: 200px;
+}
+
+div.new_claim div.form table tr.submit td {
+  line-height: 1.6;
+}
+
+div.new_claim div.form table tr.submit td input {
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+div.new_claim div.form table tr.submit td div.submit_or_cancel {
+  color: #666;
+  font-size: 10px;
+  line-height: 33px;
+  margin-bottom: 0;
+}
+
+div.new_claim div.errors {
+  color: #d00;
+}
+
+div.signup div.login_overlay {
+  width: 470px;
+  padding: 10px 30px 20px;
+  background: #fff;
+  border: 2px solid #333;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  -moz-box-shadow: 0 0 16px #333; /* firefox 3.5+ */
+	-webkit-box-shadow: 0 0 16px #333; /* webkit */
+	box-shadow: 0 0 16px #333;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=135, Color='#333333')"; /* IE 8+ */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=135, Color='#333333'); /* IE <= 7 */
+}
+
+div:first-of-type.signup div.login_overlay {border: none;}
+
+*:first-child+html div.signup div.login_overlay {
+  padding-top: 25px;
+  padding-bottom: 20px;
+}
+
+div.signup div.dim_zum_window div.controls {
+  display: none;
+}
+
+div.signup input#signup_open_id_url {
+  background: url(/images/frontend/client_signup/open_id_icon.png) no-repeat 3px 3px;
+  padding-left: 24px;
+}
+
+div.signup div.login_overlay input#open_id_url {
+  background: url(/images/frontend/client_signup/open_id_icon.png) no-repeat 3px 3px;
+  padding-left: 24px;
+}
+
+div.signup div.login_overlay div.form h2 {
+  margin-top: 20px;
+}
+
+.success, .error{
+font:13px Verdana, Arial, Helvetica, sans-serif;
+color:#009933;
+text-align:center;
+}
+.error{
+color:#FF0000;
+}
