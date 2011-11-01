@@ -3,7 +3,7 @@
 
 %script{:charset => "utf-8", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js", :type => "text/javascript"}
 
-= javascript_include_tag  "frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js", "frontend/editor/default.js","frontend/jquery-color.js"
+= javascript_include_tag  "frontend/jquery-ui.min.js","frontend/pngFix/jquery.pngFix.js","frontend/mopSlider/mopSlider-2.4.js","frontend/script.js","frontend/jquery.tools.min.js","frontend/jquery.lightbox_me.js","frontend/cufon-yui.js","frontend/Gotham_Light_300.font.js","frontend/hmenuscript.js","frontend/jquery-color.js"
 
 :javascript
   // Background color animation 
@@ -43,7 +43,7 @@
 
 
 :javascript
-  Cufon.replace('.create_headding h4, .sf-navbar, #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4, .count_number , .contact_headding h4, .contact_textblock p.headding ', ' ', { fontFamily: 'gothamxlight', hover: true});
+  Cufon.replace('.create_headding h4, .sf-navbar,  #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4,  .count_number , .contact_headding h4, .contact_textblock p.headding ', ' ', { fontFamily: 'gothamxlight', hover: true});
 		   
   Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'}});
 		   
@@ -55,8 +55,6 @@
   Cufon.replace('.content_tab_create', {hover: {color: '#207bb2'}});
   Cufon.replace('.content_tab_project', {hover: {color: '#d37436'}});
   Cufon.replace('.foot_right li a', {hover: {color: '#ffffff'}});
-		
-		
 
 %script{:src => "/javascripts/frontend/hoverIntent.js", :type => "text/javascript"}
 %script{:src => "/javascripts/frontend/superfish.js", :type => "text/javascript"}
@@ -67,7 +65,8 @@
   jQuery.noConflict();
 
   jQuery(document).ready(function() {	
-	
+
+		
 		
    jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a,.form_btn input.form_submit, .count_btn").hover(function() {
                 jQuery(this).animate({ backgroundColor: "#c1c1c1",color:"#585858" }, 500);
@@ -93,11 +92,15 @@
                 jQuery(this).animate({ backgroundColor: "#5a6814", color: "#fff" }, 500);
         },function() {
                  jQuery(this).animate({ backgroundColor: "#c2d184", color: "#fff" }, 500);
-        });										
-
+        });		
+		
+	
   });
+  jQuery(document).ready(function(){
 
-  jQuery(document).ready(function(){ 
+
+
+ 
   jQuery("#products").hide();	
    jQuery("#image_frm_div").click(function()
    {
@@ -106,14 +109,18 @@
    jQuery("#products").fadeTo("1000", 0).hide();
    jQuery(".reg_text1").css("background","none");
    }
+    
    else {
    jQuery("#products").fadeTo("1000", 1).show();
    jQuery(".reg_text1").css("background","#ffffff");
    jQuery(".reg_text1").css("position","relative");
    jQuery(".reg_text1").css("z-index","999");
     }
-   });
 
+
+
+   });
+			
     jQuery(".tabdiv").hide();
     jQuery("#create").show();
     jQuery(".c1").css("background-color","#e5e5e5");
@@ -126,18 +133,35 @@
     return false;
     });
    
-  });	
-		
-     jQuery(document).ready(function(){   
+  });
+    jQuery(document).ready(function(){   
     jQuery(".languages_select").click(function()
     { 
     li_id=jQuery(this).attr('id');
     jQuery("#selected_lang").html(li_id);
     jQuery("#products").fadeTo("1000", 0).hide();
-    jQuery(".reg_text1").css("background","none");	    	    
-    });	
-    });			
+    jQuery(".reg_text1").css("background","none");					    	    
+    });
+    jQuery("#products").mouseleave(function()
+    { 
+     //if(jQuery("#products").is(":visible")){
+    //jQuery(this).stop()
+    //jQuery(this).hide();
+    //}
+    	    
+    });		
+	
+    $(".foot_right li").hover(
+      function () {
+      $(this).css("color","#ffffff");
+       }, 
+      function () {
+       $(this).css("color","red");
+
+       }
+       );
 		
+    });	
 :javascript
   jQuery.noConflict();
   jQuery(function() {
@@ -152,6 +176,7 @@
   }); 
 %script{:charset => "utf-8", :type => "text/javascript"}
   jQuery(function() {
+
   function launch() {
   jQuery('#home_page').lightbox_me({centered: true, onLoad: function() { $('#home_page').find('input:first').focus()}});
   jQuery('#languages').lightbox_me({centered: true, onLoad: function() { $('#languages').find('input:first').focus()}});
@@ -320,10 +345,11 @@
   jQuery("#contact_us").find("input:first").focus();
   }});    
   e.preventDefault();
-  });	
+  });			
   - if !flash[:notice].blank? 
     jQuery("#message").lightbox_me({centered: true});
-    //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");				
+    //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");
+				
 		
 		
   jQuery('table tr:nth-child(even)').addClass('stripe');
@@ -343,7 +369,8 @@
   });
 		
   });
-		
+
+
 :javascript
   jQuery(document).ready(function(){ 
   jQuery(".sf-with-ul").mouseover(function(){
@@ -363,8 +390,7 @@
   }
   });
   });
-
-
+  
 
 :javascript
   jQuery(document).ready(function() {
@@ -384,7 +410,7 @@
   });
   function comingsoon()
   {
-    jQuery("#comingsoon").lightbox_me({centered: true});    
+  jQuery("#comingsoon").lightbox_me({centered: true});    
   }
 		
 
