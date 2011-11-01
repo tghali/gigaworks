@@ -2588,11 +2588,12 @@ ul.fblinks {
 }
 ul.fblinks li {
 	float: left;
-	margin: 0 1px 1px 0; padding: 0;
+	margin: 0 0px 1px 0; padding: 0;/*--------01-11-2011----------*/
 	text-align: center;
 	display: inline;
-	width:31px;
-	height:44px /*--Gimp Fix aka IE6 Fix--*/
+	width:28px;/*--------01-11-2011----------*/
+	height:44px;
+	 /*--Gimp Fix aka IE6 Fix--*/
 }
 ul.fblinks li a.thumb1 {
 	width: 31px;
