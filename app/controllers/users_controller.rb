@@ -90,6 +90,28 @@ end
 
   
   
+  def client_signup 	
+		 @gigaclient = Gigaclient.new
+		 @gigaclient.build_gigadomain
+		 
+		 respond_to do |format|
+		   format.html { render :layout=>'pages_new'   }
+		   format.xml  { render :xml => @gigaclient }
+	
+		end	
+end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   def new
     invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound
