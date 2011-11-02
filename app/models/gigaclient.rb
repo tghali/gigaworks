@@ -12,6 +12,8 @@ class Gigaclient < ActiveRecord::Base
   
   has_one  :invite,:foreign_key => 'event_id',:dependent => :destroy
   
+  attr_accessor :password,:username, :password_confirmation
+  
 	validates_presence_of :first_name, :last_name
 	validates_presence_of :email 
 	#~ validates_presence_of :pms_url	
@@ -42,6 +44,9 @@ class Gigaclient < ActiveRecord::Base
     @gfind = Gigauser.find_by_sql("SELECT id FROM gigausers order by id DESC limit 1")
     guser = Gigauser.new
     guser.id = @gfind[0]['id'] + 1
+    guser.username = self.username
+    guser.password = self.password
+    guser.password_confirmation = self.password_confirmation    
     guser.first_name = self.first_name
     guser.last_name = self.last_name
     guser.gigaclient_id = self.id
