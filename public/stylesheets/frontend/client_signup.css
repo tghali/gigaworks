@@ -3,7 +3,8 @@
 div.signup {
   margin: 0;
   padding: 0;
-  font:12px Arial, Helvetica, sans-serif;
+  font:12px gothamxlight;
+  background:url(/images/frontend/client_signup/gigavine-reg.jpg) no-repeat right top;
 }
 
 *:focus {outline: none;}
@@ -42,7 +43,7 @@ div.signup div.wrapper {
 }
 
 div.signup div.container {
-  width: 700px;
+  width: 650px;
   float:left;
   padding: 0;
   background:#f0f1f5;
@@ -242,6 +243,8 @@ div.signup input {
  -moz-border-radius: 8px;
   border-radius: 8px;
 }
+div.signup select{ width:80px;margin-right:8px;}
+.hidden_block input[type="hidden"]{ visibility:hidden}
 
 div.signup fieldset {
   border: none;
