@@ -1483,14 +1483,13 @@ text-align:left
 background:#e7e7e7 url(/images/frontend/contact_arrow.jpg) no-repeat 75px;
 }
 
-
 .topframe{
 margin:0px auto;
 padding:0px;
 position:absolute;
 top:0px;
 left:0px;
-z-index:100;
+z-index:9999;
 width:100%;
 height:30px;
 background:#485963;
@@ -2579,24 +2578,26 @@ margin:15px 0px 0px 0px;
 }
 
 ul.fblinks {
-	width: 160px;
+	width: 150px;
 	list-style: none;
 	float:left;
 	margin: 0px auto; padding: 0;
 	height:30px;
 	overflow:hidden;
+	margin-left:-5px
 }
 ul.fblinks li {
 	float: left;
 	margin: 0 0px 1px 0; padding: 0;/*--------01-11-2011----------*/
 	text-align: center;
 	display: inline;
-	width:28px;/*--------01-11-2011----------*/
+	width:auto;/*--------01-11-2011----------*/
 	height:44px;
+	overflow: hidden;
 	 /*--Gimp Fix aka IE6 Fix--*/
 }
 ul.fblinks li a.thumb1 {
-	width: 31px;
+	width: 26px;
 	height: 22px;
 	cursor: pointer;
 	display:block;
@@ -2604,14 +2605,11 @@ ul.fblinks li a.thumb1 {
 	margin-left:21px;*/
 	}
 ul.fblinks li span { /*--Used to crop image--*/
-	width: 31px;
+	width: 26px;
 	height: 22px;
 	overflow: hidden;
 	display: block;
 }
-/*ul.fblinks li a.thumb1:hover {
-text-decoration:none;
-}*/
 .contact_textblock{
 width:205px;
 height:auto;

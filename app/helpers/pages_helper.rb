@@ -113,6 +113,21 @@ module PagesHelper
     end
     
   end
+    def get_project_clients(tab_type,option)    
+    project = FrontendPage.find_by_page_section(tab_type)
+    if option == 'name'
+      return project.title if !project.blank?
+    elsif option == 'date'
+      return raw(project.content) if !project.blank?
+    elsif option == 'location'
+      return raw(project.news) if !project.blank?
+    elsif option == 'contact'
+      return raw(project.network) if !project.blank?
+    elsif option == 'description'
+      return raw(project.contact_us) if !project.blank?
+    end
+    
+  end
 
 
 def get_banner(banner_count,option)

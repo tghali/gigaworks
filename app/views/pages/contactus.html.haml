@@ -79,6 +79,21 @@
                     + 44 (0) 20 3371 1004
                 %p.clear 
                   &nbsp;
+                %p.headding Gigavine New York
+                %p
+                  T:                
+                  - if !get_contacts('contact_page_newyork','title').blank?
+                    = raw(get_contacts('contact_page_newyork','title'))
+                  - else
+                    + 19174709543
+                %p  
+                  F:
+                  - if !get_contacts('contact_page_newyork','summary').blank?
+                    = raw(get_contacts('contact_page_newyork','summary'))
+                  - else
+                    + 19174709543
+                %p.clear 
+                  &nbsp;
                 %p.headding General enquiries
                 %p
                   %a{:href => "#"} info@gigavine.com
