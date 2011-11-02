@@ -43,7 +43,7 @@
 
 
 :javascript
-  Cufon.replace('.create_headding h4, .sf-navbar,  #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4,  .count_number , .contact_headding h4, .contact_textblock p.headding ', ' ', { fontFamily: 'gothamxlight', hover: true});
+  Cufon.replace('.create_headding h4, .sf-navbar,  #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4,  .count_number , .contact_headding h4, .contact_textblock p.headding ,h3,label,legend', ' ', { fontFamily: 'gothamxlight', hover: true});
 		   
   Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'}});
 		   
@@ -192,6 +192,7 @@
   }});    
   e.preventDefault();
   });
+
 
   jQuery('#languages_new').click(function(e) {
   jQuery("#languages").lightbox_me({centered: true, onLoad: function() {
@@ -350,6 +351,8 @@
   - if !flash[:notice].blank? 
     jQuery("#message").lightbox_me({centered: true});
     //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");
+  - if !flash[:alert].blank?    
+    jQuery("#client").lightbox_me({centered: true});
 				
 		
 		

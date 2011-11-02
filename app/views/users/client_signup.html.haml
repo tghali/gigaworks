@@ -1,3 +1,4 @@
+= javascript_include_tag "client_registration"
 #contact_wrapper
   .contact-newbg{:style=>"background:none"}
     #trans-wrapper
@@ -17,8 +18,10 @@
             .leftcolumn
               .banner{:style=>"background:none"}
                 %h2 Form to create an account
+
               .contents{:style=>"background:none"}
-                %form
+                - form_for :gigaclient, :url=> {:action => 'create_client_registration'}, :html => {:onsubmit => "return valid_register();" }  do |f|
+
                   .account.section
                     %h3.step.one Create your Sample account
                     %table
@@ -27,56 +30,64 @@
                           %td{:width => "80px"}
                             %label{:for => "signup_first_name"} First name
                           %td
-                            %input{:type => "text"}/
+                            = f.text_field :first_name
                           %td
 
                         %tr
                           %td
                             %label{:for => "signup_last_name"} Last name
                           %td
-                            %input{:type => "text"}/
+                            = f.text_field :last_name
                           %td
 
                         %tr
                           %td
                             %label{:for => "signup_email_address"} Email
                           %td
-                            %input{:type => "text"}/
-                        %tr
-                          %td
-                            %label{:for => "signup_company_name"} Company
-                          %td
-                            %input{:type => "text"}/
-                        %tr
-                          %td
-                            %label{:for => "signup_company_name"} Industry
-                          %td
-                            %input{:type => "text"}/
-                        %tr
-                          %td
-                            %label{:for => "signup_company_name"} Turn Over
-                          %td
-                            %input{:type => "text"}/
+                            = f.text_field :email
+
+
                     %fieldset.credentials
                       %legend Now choose a username & password
                       #username_entry
                         %p.field
-                          %label{:for => "signup_username"} Username/Login
+                          %label{:for => "signup_username"} Username
                           %br
-                            %input{:type => "text"}/
+                            = f.text_field :username
  
                             #login
 
                         %p.field
                           %label{:for => "signup_password"} Password
-                          %br
-                            %input{:type => "text"}/
+                          %br						  
+                            = f.password_field :password
                             %br
-                              6 characters or longer with at least one number is safest.
+                             
                         %p.field
-                          %label{:for => "signup_password_confirmation"} Enter your password again for verification
-                          %br
-                            %input{:type => "text"}/
+                          %label{:for => "signup_password_confirmation"} Confirm Password
+                          %br		  
+                            = f.password_field :password_confirmation
+                        %p
+                    %fieldset.credentials
+                      %legend Enter Company Details
+                      #username_entry
+                        %p.field
+                          %label{:for => "signup_username",:style => "padding-bottom:20px;"} Company
+                          %br						  
+                            = f.text_field :company
+ 
+                            #login
+
+                        %p.field
+                          %label{:for => "signup_password"} Industry
+                          %br						  
+                            = f.text_field :industry
+                            %br
+                             
+                        %p.field
+                          %label{:for => "signup_password_confirmation"} Turn Over
+                          %br						  
+                            = f.text_field :turnover
                         %p
                   .billing.section
                     .billing
@@ -89,41 +100,41 @@
                               %td
                                 %label{:for => "card_number"} Card Number
                               %td
-                                %input{:type => "text"}/
+                                = text_field_tag "credit_card"
                               %td
                                 / <haml:loud> error_message_on :user, :card_number , :prepend_text =&gt; &quot;Card Number &quot;, :css_class =&gt; &quot;error&quot;</haml:loud>
                             %tr
-                              %td
+                              %td{:style=>"vertical-align:middle"}
                                 %label{:for => "card_expires_on_month"} Expires on
                               %td
-                                %input{:type => "text"}/
+                                = date_select( "card" ,"card_expirty_date", :order => [:month, :year])
                               %td
 
                             %tr
                               %td
                                 %label{:for => "verification_value"} Verification Number
                               %td
-                                %input{:type => "text"}/
+                                = password_field_tag "verification_number"
                               %td 
                             %tr
-                              %td
+                              %td{:style=>"vertical-align:middle"}
                                 %label{:for => "type"} Card Type
                               %td
-                                %input{:type => "text"}/
+                                = select("card", "card_type", %w[visa master], {}, :id=>"card_type")
                               %td
 
                             %tr
                               %td
                                 %label{:for => "card_zip_code"} Billing ZIP
                               %td
-                                %input{:type => "text"}/
+                                = text_field_tag "billing_zip"
                               %td
 
                             %tr
                               %td  
-                              %td{:colspan => "2", :valign => "top"} (or Postal Code if not in the USA)
+                              %td{:colspan => "2", :valign => "top"}  
                   .clear
-                  %img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
-                  -#%input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+                  -#%img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
+                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
               .bottom
           .clear.both
