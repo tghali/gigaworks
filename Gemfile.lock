@@ -57,7 +57,7 @@ GEM
       rack-mount (~> 0.6.13)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    activemerchant (1.18.1)
+
     activemodel (3.0.5)
       activesupport (= 3.0.5)
       builder (~> 2.1.2)
@@ -293,7 +293,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activemerchant
+
   awesome_print
   aws-s3
   bson_ext (~> 1.2)

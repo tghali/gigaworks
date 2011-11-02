@@ -1,5 +1,4 @@
-require "rubygems"
-require "active_merchant"
+
 class UsersController < ActionController::Base
   include WardenHelper
   include UrlHelper
