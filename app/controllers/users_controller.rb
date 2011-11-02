@@ -205,7 +205,7 @@ protected
   def redirect_to_https
       redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
   end
-end
+ 
 
 
 
@@ -273,3 +273,4 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 		    end
 end
 
+end
