@@ -3,8 +3,8 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:client_signup]
-  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:client_signup]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
@@ -88,28 +88,6 @@ end
 
 #### Client User Signup End
 
-  
-  
-  def client_signup 	
-		 @gigaclient = Gigaclient.new
-		 @gigaclient.build_gigadomain
-		 
-		 respond_to do |format|
-		   format.html { render :layout=>'pages_new'   }
-		   format.xml  { render :xml => @gigaclient }
-	
-		end	
-end
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -205,72 +183,4 @@ protected
   def redirect_to_https
       redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
   end
- 
-
-
-
-
-def create_client_registration
- #render :text=> params.inspect and return
- 
- ActiveMerchant::Billing::Base.mode = :test
-
-gateway = ActiveMerchant::Billing::PaypalGateway.new(
-  :login => "seller_1229899173_biz_api1.railscasts.com",
-   :password => "FXWU58S7KXFC6HBE",
-  :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
- )
-
-credit_card = ActiveMerchant::Billing::CreditCard.new(
-  :type               => params[:card][:credit_type],
-  :number             => params[:credit_card],
-  :verification_value => params[:verification_number],
-  :month              => params[:card][:"card_expirty_date(2i)"],
-  :year               => params[:card][:"card_expirty_date(1i)"],
-  :first_name         => "Ryan",
-  :last_name          => "Bates"
-)
- 
-  
- if credit_card.valid?
-  # or gateway.purchase to do both authorize and capture
-  response = gateway.authorize(1000, credit_card, :ip => "127.0.0.1",  :billing_address => {
-                   
-                  :address1 => "Kakinada",               
-                :city => "Kakinada",
-              :state =>"Andhara Pradesh",
-              :country => "India",
-              :zip => "533001"
-              })
-
-	  if response.success?
-	  gateway.capture(10, response.authorization)
-		flash[:alert]='Sucessfully created"
-	      redirect_to  :controller=>'pages',:action => 'home_land' and return
-	  else
-	      flash[:success] = 'Error: #{response.message}'
-	      render :action => 'client_signup', :layout=> 'pages_new' and return
-	  end
-  else
-      flash[:success] = "Error: credit card is not valid. #{credit_card.errors.full_messages.join('. ')}"
-      render :action => 'client_signup'
-  end
- 
- 
-
- 
-  		@gigaclient = Gigaclient.new(params[:gigaclient])    
-    		    respond_to do |format|
-		      if @gigaclient.save
-			#~ @gigaclient.gigadomain.update_attribute(:gigaclient_id,  @gigaclient.id)
-
-			format.html { redirect_to(:action=>'home_new', :alert => 'Your registration was successfully completed.')}
-			format.xml  { render :xml => @gigaclient, :status => :created, :location => @client, :layout=> false  }
-		      else
-			format.html { render :action => "client_signup", :layout=> 'pages_new'  }
-			format.xml  { render :xml => @gigaclient.errors, :status => :unprocessable_entity  }
-		      end
-		    end
-end
-
 end
