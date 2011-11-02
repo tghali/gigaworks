@@ -209,7 +209,7 @@
 
       - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current
-          %a#227671.sf-with-ul{:href => "/network",:style => "padding-right:0px!important; color:#227671"}
+          %a#227671.sf-with-ul{:href => "/network",:style => "color:#227671"}
             Network
             %span.sf-sub-indicator »
           %ul
@@ -223,7 +223,7 @@
                   Featured										
       - else
         %li
-          %a#227671.sf-with-ul{:href => "/network",:style => "padding-right:0px!important; color:#383839;"}
+          %a#227671.sf-with-ul{:href => "/network",:style => "color:#383839;"}
             Network
             %span.sf-sub-indicator »
           %ul
@@ -234,7 +234,8 @@
                 - if params[:action] == 'network_featured'
                   %span.featuredclass Featured					
                 - else
-                  Featured				
+                  Featured	
+
 
       - if params[:action] == 'contactus'
         %li
@@ -244,3 +245,4 @@
         %li
           %a#cf641e.sf-with-ul{:href => "/contact"  , :style=>"padding-right:0px!important; color:#383839"}
             Contact
+

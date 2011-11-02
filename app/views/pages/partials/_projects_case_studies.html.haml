@@ -34,6 +34,8 @@
         %a{:href => "#sol_block"} Solution
       %li
         %a{:href => "#benefits_block"} Benefits
+      %li
+        %a{:href => "#client_block"} Client Details
 
 
     %br.clear
@@ -61,6 +63,27 @@
         %label.headding_label
           %strong Benefits :
           = f.text_area :content, :style => "width:600px;", :id => "project_benefits",:value => get_data('project_cstudies_benefits')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+
+    #client_block.tabdiv
+      = form_for :projects_page, :url => {:controller => "pages",:action => "projects_create"},:html =>{:name => "langu_translation"} do |f|
+        = f.hidden_field :page_section,  :value => "projects_client_details"
+        %label.headding_label
+          %strong Name :
+          = f.text_field :title, :style => "width:600px;",:id => "client_name", :value => get_project_clients('projects_client_details','name')
+        %label.headding_label
+          %strong Date :
+          = f.text_field :content, :style => "width:600px;",:id => "client_name", :value => get_project_clients('projects_client_details','date')
+        %label.headding_label
+          %strong Location :
+          = f.text_field :news, :style => "width:600px;",:id => "client_name", :value => get_project_clients('projects_client_details','location')
+        %label.headding_label
+          %strong Contact :
+          = f.text_field :network, :style => "width:600px;",:id => "client_name", :value => get_project_clients('projects_client_details','contact')
+        %label.headding_label
+          %strong Description :
+          = f.text_area :contact_us, :style => "width:600px;",:id => "client_name", :value => get_project_clients('projects_client_details','description')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
 

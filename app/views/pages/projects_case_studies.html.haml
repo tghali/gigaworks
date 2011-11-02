@@ -109,15 +109,35 @@
         %h2
           %strong CLIENT DETAILS
         %p.client_name Name:
-        %p.client_desc Consectetur adipiscing
+        %p.client_desc 
+          - if !get_project_clients('projects_client_details','name').blank?
+            = (get_project_clients('projects_client_details','name'))
+          - else
+            Consectetur adipiscing
         %p.client_name Date:
-        %p.client_desc June, 2011
+        %p.client_desc 
+          - if !get_project_clients('projects_client_details','date').blank?
+            = (get_project_clients('projects_client_details','date'))
+          - else
+            June, 2011
         %p.client_name Location:
-        %p.client_desc Consectetur adipiscing
+        %p.client_desc 
+          - if !get_project_clients('projects_client_details','location').blank?
+            = (get_project_clients('projects_client_details','location'))
+          - else
+            Consectetur adipiscing
         %p.client_name Contact:
-        %p.client_desc Consectetur adipiscing
-        %p.client_name Name:
-        %p.client_desc Consectetur adipisemper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros ascing
+        %p.client_desc 
+          - if !get_project_clients('projects_client_details','contact').blank?
+            = (get_project_clients('projects_client_details','contact'))
+          - else
+            Consectetur adipiscing
+        %p.client_name Description:
+        %p.client_desc 
+          - if !get_project_clients('projects_client_details','description').blank?
+            = raw(get_project_clients('projects_client_details','description'))
+          - else
+            Consectetur adipisemper lacus justo cursus massa. Nunc et tempor erat. Donec tristique, libero eget congue scelerisque, eros justo pharetra dolor, sed condimentum felis eros ascing
     / right block end
     .clear
   / network content end
