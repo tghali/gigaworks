@@ -300,7 +300,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-
+  activemerchant
   awesome_print
   aws-s3
   bson_ext (~> 1.2)
