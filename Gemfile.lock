@@ -57,7 +57,14 @@ GEM
       rack-mount (~> 0.6.13)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-
+    activemerchant (1.18.1)
+      active_utils (>= 1.0.1)
+      activesupport (>= 2.3.11)
+      braintree (>= 2.0.0)
+      builder (>= 2.0.0)
+      i18n
+      json (>= 1.5.1)
+      money
     activemodel (3.0.5)
       activesupport (= 3.0.5)
       builder (~> 2.1.2)

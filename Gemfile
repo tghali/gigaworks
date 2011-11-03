@@ -10,7 +10,7 @@ gem 'pg', :group => :production
 gem "will_paginate", "~> 3.0.pre2"
 
 gem 'gdocs4ruby'
-#gem 'activemerchant'
+gem 'activemerchant'
 
 gem 'subdomain-fu', :git => "git://github.com/nhowell/subdomain-fu.git"
 gem "rails3_acts_as_paranoid", :path =>  'vendor/plugins/rails3_acts_as_paranoid'
