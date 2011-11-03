@@ -49,47 +49,31 @@
                 Nulla vulputate, sem eu venenatis dapibus, ante sapien pretium enim, eu bibendum est ligula non elit. Nulla mattis, tellus non condimentum lacinia, risus sem scelerisque lectus, et semper libero diam non tortor. In porttitor tristique erat sagittis eleifend. Integer risus libero, sodales in feugiat blandit, interdum vitae metus.
             %div
               .contact_textblock
-                %p.headding Gigavine London
+                %p.headding London
                 %p
                   T:
                   - if !get_contacts('contact_page_london','title').blank?
                     = raw(get_contacts('contact_page_london','title'))
                   - else
                     + 44 (0) 20 3371 1004
-                %p
-                  F:
-                  - if !get_contacts('contact_page_london','summary').blank?
-                    = raw(get_contacts('contact_page_london','summary'))
-                  - else
-                    + 44 (0) 20 3371 1004
+
                 %p.clear
                   &nbsp;
-                %p.headding Gigavine Dubai
+                %p.headding Dubai
                 %p
                   T:                
                   - if !get_contacts('contact_page_dubai','title').blank?
                     = raw(get_contacts('contact_page_dubai','title'))
                   - else
                     + 44 (0) 20 3371 1004
-                %p  
-                  F:
-                  - if !get_contacts('contact_page_dubai','summary').blank?
-                    = raw(get_contacts('contact_page_dubai','summary'))
-                  - else
-                    + 44 (0) 20 3371 1004
+
                 %p.clear 
                   &nbsp;
-                %p.headding Gigavine New York
+                %p.headding New York
                 %p
                   T:                
                   - if !get_contacts('contact_page_newyork','title').blank?
                     = raw(get_contacts('contact_page_newyork','title'))
-                  - else
-                    + 19174709543
-                %p  
-                  F:
-                  - if !get_contacts('contact_page_newyork','summary').blank?
-                    = raw(get_contacts('contact_page_newyork','summary'))
                   - else
                     + 19174709543
                 %p.clear 
