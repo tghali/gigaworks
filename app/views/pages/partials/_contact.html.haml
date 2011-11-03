@@ -25,11 +25,11 @@
   #tabvanilla.widget
     %ul.tabnav
       %li
-        %a.c1{:href => "#press_london"} Gigavine London
+        %a.c1{:href => "#press_london"} London
       %li
-        %a{:href => "#press_dubai"} Gigavine Dubai
+        %a{:href => "#press_dubai"} Dubai
       %li
-        %a{:href => "#press_newyork"} Gigavine New York
+        %a{:href => "#press_newyork"} New York
     %br.clear
     #press_london.tabdiv
       = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "contact_form",:onsubmit => "return contact_validate();"} do |f|
@@ -37,9 +37,6 @@
         %label.headding_label
           %strong Telephone :
           = f.text_field :title, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_london','title')
-        %label.headding_label
-          %strong Fax :
-          = f.text_field :content, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_london','summary')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
 										
@@ -50,9 +47,6 @@
         %label.headding_label
           %strong Telephone :
           = f.text_field :title, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_dubai','title')
-        %label.headding_label
-          %strong Fax :
-          = f.text_field :content, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_dubai','summary')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"} 
 										
@@ -64,9 +58,6 @@
         %label.headding_label
           %strong Telephone :
           = f.text_field :title, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_newyork','title')
-        %label.headding_label
-          %strong Fax :
-          = f.text_field :content, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_newyork','summary')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"} 
 

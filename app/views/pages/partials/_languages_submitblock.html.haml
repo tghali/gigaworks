@@ -1,0 +1,60 @@
+#language_get
+  %h4 Get an estimate
+  .get_inner
+    .get_leftcorner
+      %span
+    .get_bg
+      .get_bg_inner
+        %p
+          %span Source language
+          %select
+            %option Select
+            %option English
+            %option French
+            %option Arabic
+            %option Chinese
+            %option Japanese
+            %option German
+                 
+        .clear{:style => "#height:20px;"}
+        %p
+          %span Target language
+          %select
+            %option Select
+            %option English
+            %option French
+            %option Arabic
+            %option Chinese
+            %option Japanese
+            %option German
+        .clear{:style => "#height:20px;"}
+        %div
+          %p.count
+            %span.getname Word count
+            %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;"}
+          %p.count1
+            %span.getname or
+          %p.count{:style => "float:right!important;"}
+            %span.getname Page count
+            %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;"}
+        %p{:style => "#height:20px; margin:15px 0px 0px 0px; #margin:34px 0px 0px 0px;"}
+          %span
+        %p{:style => "height:auto!important;  margin:0px; padding:0px;"}
+          %span Requirements
+        %p.checkbox_block
+          .checkbox
+            %input{:type => "checkbox"} 
+            %span Translation
+          .checkbox{:style => "width:80px;"}
+            %input{:type => "checkbox"}
+            %span Design
+          .checkbox
+            %input{:type => "checkbox"}
+            %span Localisation
+        %p.estimate
+          %span Estimate
+        %div
+          .count_number $0,00
+          .count_btn calculate
+    .get_rightcorner
+      %span
