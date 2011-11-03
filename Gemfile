@@ -17,6 +17,7 @@ gem 'subdomain-fu', :git => "git://github.com/nhowell/subdomain-fu.git"
 gem "rails3_acts_as_paranoid", :path =>  'vendor/plugins/rails3_acts_as_paranoid'
 gem 'kaminari'
 
+
 # gem 'haml', '>= 3.0.12'
 gem 'haml-rails', '=0.3.4'
 gem 'compass', '>= 0.10.4'
