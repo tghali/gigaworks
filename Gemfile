@@ -10,6 +10,7 @@ gem 'pg', :group => :production
 gem "will_paginate", "~> 3.0.pre2"
 
 
+
 # gem 'haml', '>= 3.0.12'
 gem 'haml-rails', '=0.3.4'
 gem 'compass', '>= 0.10.4'
