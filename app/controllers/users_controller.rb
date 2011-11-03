@@ -158,12 +158,12 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 		flash[:alert]='Sucessfully created'
 	      redirect_to  :controller=>'pages',:action => 'home_land' and return
 	  else
-	      flash[:success] = 'Error: #{response.message}'
+	      flash[:success] = "Error: #{response.message}"
 	      render :action => 'client_signup', :layout=> 'pages_new' and return
 	  end
   else
-      flash[:success] = "Error: credit card is not valid. #{credit_card.errors.full_messages.join('. ')}"
-      render :action => 'client_signup'
+      flash[:success] = "Error: #{credit_card.errors.full_messages.join(', ')}"
+      render :action => 'client_signup', :layout=> 'pages_new' and return
   end
  
  
