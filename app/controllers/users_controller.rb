@@ -163,7 +163,7 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 	  end
   else
       flash[:success] = "Error: #{credit_card.errors.full_messages.join(', ')}"
-      render :action => 'client_signup'
+      render :action => 'client_signup', :layout=> 'pages_new' and return
   end
  
  
