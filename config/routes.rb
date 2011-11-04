@@ -3,7 +3,7 @@ Gigavine::Application.routes.draw do
   # Assets
   get '/javascripts/:bundle.js' =>  JavascriptMinifier
   get "/stylesheets/:media.:ext" => SassCompiler
-  
+  get '/', :to => 'sessions#new' #, :as => 'dashboard'
   # Sign In, Sign Out and Sign Up 
   get    '/sign_in'                 => 'sessions#new',     :as => :sign_in
   post   '/sign_in'                 => 'sessions#create'
@@ -169,7 +169,7 @@ Gigavine::Application.routes.draw do
       #resources: events -- a wrapper? or different resources for different events?
     end
     
-    get '/', :to => 'dashboard#index', :as => 'dashboard'
+    
   end
   
   

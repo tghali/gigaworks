@@ -72,7 +72,11 @@ class SessionsController < ActionController::Base
   
   def destroy
     warden.logout
+    if params[:q]
+      redirect_to "http://test.#{request.domain}/home" 
+      else
     render :action => "new"
+    end
   end
   
   def unauthorized
