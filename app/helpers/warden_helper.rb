@@ -10,7 +10,8 @@ module WardenHelper
   end
   
   def authenticate
-     client_contact = ClientContact.find_by_gigauser_id(current_user)
+     client_contact = ClientContact.find_by_gigauser_id(current_user) if current_user
+
       if !client_contact.blank?
         env['warden'].authenticated? && client_contact.login_access == "open" or throw(:warden, :message => t(:'account.must_have_access'))
       else
