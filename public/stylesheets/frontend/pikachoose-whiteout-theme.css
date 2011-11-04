@@ -1,0 +1,158 @@
+
+/*modify these values to change the size of the stage or the thumbs */
+.pika-stage{
+    width:964px;
+    height:380px;
+	background:#f7f7f7;
+	position:relative;
+	overflow:hidden;
+	}
+
+.pika-thumbs li{
+    width: 100px;
+    height:55px;}
+h3{
+font:24px/12px Gotham;
+}
+
+
+img{ border:0}
+
+
+.pikachoose-whiteout{
+    position:relative;
+    width:964px;
+    height:476px;
+    margin:0 auto;
+}
+
+.pika-stage{
+  /*  padding:10px;*/}
+
+.pika-stage .pika-aniwrap{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    z-index:9;
+	}
+
+.pika-stage, .pika-thumbs li, .pika-stage .caption{
+    position: relative;
+  /*  -webkit-box-shadow: 0px 0px 10px 0px #000000;
+    -moz-box-shadow: 0px 0px 10px 0px #000000;
+    box-shadow: 0px 0px 10px 0px #000000;*/}
+
+.pika-thumbs li{
+   /* -webkit-box-shadow: 0px 0px 9px -2px #000000;
+    -moz-box-shadow: 0px 0px 9px -2px #000000;
+    box-shadow: 0px 0px 9px -2px #000000;*/}
+
+.pika-stage .caption {
+    font-family: Rokkitt;
+    position: absolute;
+	top:0px;
+/*    bottom: 18px;*/
+    right: 0px;
+    background-color: #e4e4e4;
+/*    background-color: rgba(255, 255, 255, 1);*/
+    width: 354px;
+    height: 379px;
+   /* padding: 7px;*/}
+
+.pika-stage .caption a{
+    color:black;}
+
+.pika-imgnav{display:block;}
+
+.pika-imgnav a{
+    position: absolute;
+    text-indent: -5000px;
+    height: 54px;
+    width: 39px;
+    display: block;
+    z-index:11;
+    background:url(/images/frontend/controls.png) 0 0 no-repeat;
+    cursor:pointer;
+    top:-80px;
+    right:28px;
+	}
+
+.pika-imgnav .next, .pika-imgnav .previous{
+    top:325px;
+	left:570px;
+    background-position: 0 -53px;}
+
+.pika-imgnav .previous{
+    left:531px;
+    background-position: 0 0px;}
+/*
+.pika-imgnav .play{
+   background-position:0 -240px;}
+*/
+
+
+.pika-thumbs li{
+    float:left;
+    list-style: none;
+    overflow:hidden;
+    margin:10px 20px 10px 0;
+	width:75px;
+	height:75px;
+	background:#000;
+  /*  padding:4px;*/}
+
+.pika-thumbs li .clip{
+    position:relative;
+    height:100%;
+    overflow: hidden;
+	cursor:pointer;
+	width:75px;height:75px;}
+
+.pika-textnav{display:none;}
+.pika-counter{display:none;}
+
+
+
+.jcarousel-clip-horizontal{
+    width:850px;
+    overflow:hidden;
+    left:65px;
+	}
+
+.jcarousel-container{
+    position:relative;
+    width:964px;
+/*    padding-top:15px;*/
+    height:96px;
+    z-index:10;
+    overflow:hidden;
+    top:0px;
+    left:0px;
+	background:#fff}
+
+.jcarousel-prev,.jcarousel-next{
+    width:18px;
+    height:30px;
+    background:url(/images/frontend/controls.png) left bottom no-repeat;
+    display:block;
+    position:absolute;
+    right:25px;
+    top:35px;
+    cursor:pointer;
+    opacity:0.6;}
+
+.jcarousel-prev:hover, .jcarousel-next:hover{
+    filter:alpha(opacity=100);
+    opacity:1.0;}
+
+.jcarousel-prev-disabled:hover, .jcarousel-next-disabled:hover, .jcarousel-next-disabled, .jcarousel-prev-disabled{
+    filter:alpha(opacity=30);
+    opacity:0.3;}
+
+.jcarousel-next{
+    background-position: -18px -108px;}
+
+.jcarousel-prev{
+    background-position: 0 -108px;
+    left:25px;}
+	
