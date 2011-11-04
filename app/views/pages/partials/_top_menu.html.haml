@@ -216,7 +216,7 @@
             %li.sub_nav
               %a{:href => "javascript://", :onClick => "comingsoon();" } Registration
             %li.sub_nav
-              %a{:href => "/network/featured"}
+              %a{:href => "javascript://", :onClick => "comingsoon();" }
                 - if params[:action] == 'network_featured'
                   %span.featuredclass Featured					
                 - else
@@ -228,9 +228,9 @@
             %span.sf-sub-indicator »
           %ul
             %li.sub_nav
-              %a{:href => "#"} Registration
+              %a{:href => "javascript://", :onClick => "comingsoon();" } Registration
             %li.sub_nav
-              %a{:href => "/network/featured"}
+              %a{:href => "javascript://", :onClick => "comingsoon();" }
                 - if params[:action] == 'network_featured'
                   %span.featuredclass Featured					
                 - else
