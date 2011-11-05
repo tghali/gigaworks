@@ -1,4 +1,7 @@
 = javascript_include_tag "client_registration"
+:css
+  .select_block #card_card_expirty_date_2i{width:200px;}
+    
 #contact_wrapper
   .contact-newbg{:style=>"background:none"}
     #trans-wrapper
@@ -14,10 +17,6 @@
       #lp_midcontent
         .signup.baselayout
           .container
-            %div{:style=>"padding:8px;"}
-              - if !flash[:success].blank?
-                %label.error{:style=>"margin:8px;color:#f00!important;"}							
-                  = flash[:success]											
             .clear  
             .leftcolumn
               .banner{:style=>"background:none"}
@@ -36,14 +35,12 @@
                           %td
                             = f.text_field :first_name
                           %td
-
                         %tr
                           %td
                             %label{:for => "signup_last_name"} Last name
                           %td
                             = f.text_field :last_name
                           %td
-
                         %tr
                           %td
                             %label{:for => "signup_email_address"} Email
@@ -53,46 +50,53 @@
 
                     %fieldset.credentials
                       %legend Now choose a username & password
-                      #username_entry
-                        %p.field
-                          %label{:for => "signup_username"} Username
-                          %br
-                            = f.text_field :username
- 
-                            #login
-
-                        %p.field
-                          %label{:for => "signup_password"} Password
-                          %br						  
-                            = f.password_field :password
-                            %br
-                             
-                        %p.field
-                          %label{:for => "signup_password_confirmation"} Confirm Password
-                          %br		  
-                            = f.password_field :password_confirmation
-                        %p
+                      %br
+                      %table
+                        %tbody
+                          %tr
+                          %tr
+                            %td{:width => "100px", :height => "35px"}
+                              %label{:for => "signup_first_name"} Username
+                            %td
+                              = f.text_field :username
+                            %td
+                          %tr
+                            %td{:width => "100px", :height => "35px"}
+                              %label{:for => "signup_last_name"} Password
+                            %td
+                              = f.password_field :password
+                            %td
+                          %tr
+                            %td{:width => "100px", :height => "35px"}
+                              %label{:for => "signup_email_address"} Confirm Password
+                            %td
+                              = f.password_field :password_confirmation
+                          %p
                     %fieldset.credentials
                       %legend Enter Company Details
+                      %br
                       #username_entry
-                        %p.field
-                          %label{:for => "signup_username",:style => "padding-bottom:20px;"} Company
-                          %br						  
-                            = f.text_field :company
- 
-                            #login
-
-                        %p.field
-                          %label{:for => "signup_password"} Industry
-                          %br						  
-                            = f.text_field :industry
-                            %br
-                             
-                        %p.field
-                          %label{:for => "signup_password_confirmation"} Turn Over
-                          %br						  
-                            = f.text_field :turnover
-                        %p
+                        %table
+                          %tbody
+                            %tr
+                            %tr
+                              %td{:width => "100px", :height => "35px"}
+                                %label{:for => "signup_username",:style => "padding-bottom:20px;"} Company
+                              %td
+                                = f.text_field :company
+                              %td
+                            %tr
+                              %td{:width => "100px", :height => "35px"}
+                                %label{:for => "signup_password"} Industry
+                              %td
+                                = f.text_field :industry
+                              %td
+                            %tr
+                              %td{:width => "100px", :height => "35px"}
+                                %label{:for => "signup_password_confirmation"} Turn Over
+                              %td
+                                = f.text_field :turnover
+                            %p
                   .billing.section
                     .billing
                       %h3.step.three Enter your billing information
@@ -110,8 +114,8 @@
                             %tr
                               %td{:style=>"vertical-align:middle"}
                                 %label{:for => "card_expires_on_month"} Expires on
-                              %td
-                                = date_select( "card" ,"card_expirty_date", :order => [:month, :year])
+                              %td.select_block
+                                = date_select( "card" ,"card_expirty_date", :order => [:month, :year],:size => "5")
                               %td
 
                             %tr
@@ -143,3 +147,4 @@
               .bottom
           .clear.both
   .topspace
+
