@@ -22,7 +22,7 @@ body {
         width: 800px;
         position: relative;
         display: none;
-								font:14px Arial, Helvetica, sans-serif;
+		font:14px Arial, Helvetica, sans-serif;
     }
     .sign_up .sign_up_form {
         margin-top: 13px;
@@ -95,11 +95,12 @@ body {
         width: 113px; height: 16px;
     }
 	#close_x { 
-        width: 24px; height: 23px;
-        overflow: hidden; line-height: 1000px;
+        width:24px; height:23px;
+       
         display: block;
         position: absolute; top: 5px; right: 5px;
         background-position: -387px -102px;
+		 overflow: hidden; line-height: 1000px;
     }
 .sign_up p.send_btn, .sign_up p.send_btn1{
 	background:url(/images/frontend/submit_btn.png) no-repeat;

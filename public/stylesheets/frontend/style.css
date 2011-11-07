@@ -456,6 +456,8 @@ color:#fff;/*01-11-2011*/
 .foot_right p{
 font:11px/60px Arial, Helvetica, sans-serif;
 color:#a7a7a7;
+margin:0px;
+padding:0px;
 }
 .foot_right ul{
 width:110px;
@@ -469,11 +471,12 @@ list-style-type:none;
 font:16px Gotham;
 text-align:left;
 color:#e5e5e5;
-padding:0px 0px 20px 0px;
+/*padding:0px 0px 20px 0px;*/
 }
 .foot_right li{
 margin:0px;
 }
+
 .foot_right li a{
 font:11px/17px Arial, Helvetica, sans-serif;
 color:#a7a7a7;
@@ -484,7 +487,7 @@ text-decoration:none;
 text-decoration:none;
 color:#fff;
 }
-.foot_right li.foot_head{ margin-bottom:10px;}
+.foot_right li.foot_head{ margin-bottom:10px; height:20px;}
 .foot_right li.foot_head a{ display:block; padding:0px; margin:0px; height:35px; }
 .foot_right li.foot_head a:hover{ padding:0px; margin:0px;}  /*october 27*/
 
@@ -1196,11 +1199,11 @@ margin:15px 20px 0px 0px;
 position:relative;
 }
 .home_create_header span.clientname{
-font:14px Gotham;
+font:bold 14px Gotham;
 margin-top:10px!important;
-opacity:.60;
+/*opacity:.60;
 filter:alpha(opacity=50);
-filter: “alpha(opacity=50)”
+filter: “alpha(opacity=50)”*/
 }
 
 
@@ -1213,7 +1216,7 @@ font:18px Gotham;
 margin:15px 20px 0px 0px;
 }
 .home_language_header span.clientname{
-font:14px Gotham;
+font:bold 14px Gotham;
 margin-top:10px!important;
 opacity:.60;
 filter:alpha(opacity=50);
@@ -1249,7 +1252,7 @@ font:18px Gotham;
 margin:15px 20px 0px 0px;
 }
 .home_technology_header span.clientname{
-font:14px Gotham;
+font:bold 14px Gotham;
 margin-top:10px!important;
 opacity:.60;
 filter:alpha(opacity=50);
@@ -2690,3 +2693,20 @@ embed{
  float:right;  position:relative; left:5px;
 }
 }
+
+#comingsoon.sign_up{
+background:#656565;
+color:#fff;
+width:250px;
+height:150px;
+padding:20px 0px 0px 0px;
+}
+#comingsoon 	#close_x {
+ width:18px; height:18px;
+       
+        display: block;
+        position: absolute; top: 5px; right: 5px;
+        /*background-position: -387px -102px;
+		 overflow: hidden; line-height: 1000px;*/
+		background: url(/images/frontend/pop_close.gif) no-repeat;
+ }
