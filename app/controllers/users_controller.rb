@@ -5,8 +5,8 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup]
-  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
