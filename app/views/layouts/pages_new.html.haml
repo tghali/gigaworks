@@ -10,6 +10,8 @@
     =# javascript_include_tag "frontend/jquery.pikachoose.js"
     :javascript
       document.onselectstart=new Function('return false');
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+    =  javascript_include_tag 'rails.js'						
     = render :partial => "/pages/partials/script_files"
     /[if IE]
       <style type="text/css">

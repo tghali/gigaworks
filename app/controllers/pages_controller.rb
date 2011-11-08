@@ -1,6 +1,8 @@
 class PagesController < ActionController::Base
   include WardenHelper
   
+  before_filter :get_user_ip, :only => [:languages_new, :languages_writing,:language_translation,:language_localisation,:language_consultancy,:get_estimate]
+
   before_filter :set_locale
   #~ before_filter :authenticate_as_admin, :except => :temp_home
   
@@ -388,14 +390,37 @@ end
 	 end
  end 
 
+def get_estimate
+ @amount = 0
+  if !params[:words].blank? && params[:translation]
+    if params[:words].to_i <= 250
+        @amount = @amount + 30 
+    else
+        @amount = @amount + 0.12*params[:words].to_i
+      end  
+  elsif !params[:pages].blank? && params[:localisation] && params[:design]
+     @amount = @amount + 90*params[:pages].to_i        
+  elsif !params[:pages].blank? && params[:design]
+    @amount = @amount + 55*params[:pages].to_i  
+  elsif !params[:pages].blank? && params[:localisation]
+    @amount = @amount + 35*params[:pages].to_i  
+  end
+  
+  	  respond_to do |format|	     
+	      format.js	    
+	    end
+  
+    #render :text=> @amount and return
+end
 
+def get_user_ip
+     ip_address =   request.remote_ip #request.env['REMOTE_ADDR'] #request.env["HTTP_X_FORWARDED_FOR"] #request.remote_ip
+     #~ 209.85.227.104 ---- US
+     #  62.232.30.75 ----- UK
+     ip_info = GeoIp.geolocation(ip_address, :precision => :country)     
+     @country_code = ip_info[:country_code] 
 
-
-
-
-
-
-
+end
   
 private
   def set_locale

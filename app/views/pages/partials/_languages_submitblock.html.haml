@@ -1,60 +1,74 @@
 #language_get
-  %h4 Get an estimate
-  .get_inner
-    .get_leftcorner
-      %span
-    .get_bg
-      .get_bg_inner
-        %p
-          %span Source language
-          %select
-            %option Select
-            %option English
-            %option French
-            %option Arabic
-            %option Chinese
-            %option Japanese
-            %option German
+  %h4 Get an estimate    
+  - form_for(:get_estimate, :url => estimate_path, :remote => 'true')	do
+    .get_inner
+      .get_leftcorner
+        %span
+      .get_bg
+        .get_bg_inner
+          %p
+            %span Source language
+            %select{:name => "source",:id => "source_language"}
+              %option Select
+              %option English
+              %option French
+              %option Arabic
+              %option Chinese
+              %option Japanese
+              %option German
                  
-        .clear{:style => "#height:20px;"}
-        %p
-          %span Target language
-          %select
-            %option Select
-            %option English
-            %option French
-            %option Arabic
-            %option Chinese
-            %option Japanese
-            %option German
-        .clear{:style => "#height:20px;"}
-        %div
-          %p.count
-            %span.getname Word count
-            %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;"}
-          %p.count1
-            %span.getname or
-          %p.count{:style => "float:right!important;"}
-            %span.getname Page count
-            %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;"}
-        %p{:style => "#height:20px; margin:15px 0px 0px 0px; #margin:34px 0px 0px 0px;"}
-          %span
-        %p{:style => "height:auto!important;  margin:0px; padding:0px;"}
-          %span Requirements
-        %p.checkbox_block
-          .checkbox
-            %input{:type => "checkbox"} 
-            %span Translation
-          .checkbox{:style => "width:80px;"}
-            %input{:type => "checkbox"}
-            %span Design
-          .checkbox
-            %input{:type => "checkbox"}
-            %span Localisation
-        %p.estimate
-          %span Estimate
-        %div
-          .count_number $0,00
-          .count_btn calculate
-    .get_rightcorner
-      %span
+          .clear{:style => "#height:20px;"}
+          %p
+            %span Target language
+            %select{:name => "target",:id => "target_language"}
+              %option Select
+              %option English
+              %option French
+              %option Arabic
+              %option Chinese
+              %option Japanese
+              %option German
+          .clear{:style => "#height:20px;"}
+          %div
+            %p.count
+              %span.getname Word count
+              %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;", :name => "words"}
+            %p.count1
+              %span.getname or
+            %p.count{:style => "float:right!important;"}
+              %span.getname Page count
+              %input{:type => "text" , :style=>"margin:-10px 0px 0px 0px; padding:0px;", :name => "pages"}
+          %p{:style => "#height:20px; margin:15px 0px 0px 0px; #margin:34px 0px 0px 0px;"}
+            %span
+          %p{:style => "height:auto!important;  margin:0px; padding:0px;"}
+            %span Requirements
+          %p.checkbox_block
+            .checkbox
+              %input{:type => "checkbox", :name => "translation"} 
+              %span Translation
+            .checkbox{:style => "width:80px;"}
+              %input{:type => "checkbox", :name => "design"}
+              %span Design
+            .checkbox
+              %input{:type => "checkbox", :name => "localisation"}
+              %span Localisation
+          %p.estimate
+            %span Estimate
+          %div
+            %div{:id => "estimate_block"}						
+              - if @country_code == 'UK'								
+                .count_number
+                  %span
+                    &#163;
+                  0,00
+																												
+              - else
+                .count_number
+                  %span
+                    $
+                  0,00										
+																					
+            .count_btn
+              %input.form_submit{:src => "#", :type => "submit", :value => "Calculate", :style=>"#height:23px;" ,:class => "count_btn"}
+      .get_rightcorner
+        %span
