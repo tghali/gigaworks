@@ -7,6 +7,7 @@
         = @page_title
       - else
         Gigavine
+    =# javascript_include_tag "frontend/jquery.pikachoose.js"
     :javascript
       document.onselectstart=new Function('return false');
     = render :partial => "/pages/partials/script_files"
@@ -16,6 +17,8 @@
       \.sliderBtn{ width:32px !important;}
       \.sldBtnLeft,.sldBtnRight{ width:16px!important;height:30px!important;}
       </style>
+    /[if IE 7]
+      <link href="/stylesheets/frontend/lt7.css" rel="stylesheet" type="text/css" media="all"/>
     /[if IE 8]
       <link href="/stylesheets/frontend/lt8.css" rel="stylesheet" type="text/css" media="all"/>
   %body
@@ -101,12 +104,7 @@
 
   %a#close_x.close.sprited{:href => "#"} close
 
-#comingsoon.sign_up{:style => "display:none; width:200px; font:20px Arial; text-align:center;"}
-  %img{:alt => "", :src => "/images/frontend/foot_logo_colored.png", :title => ""}
-  %br
-  %h1
-    = "Coming Soon"
-  %br.clear
+#comingsoon.sign_up{:style => "display:none; width:649px!important; padding:0px!important; margin:0px!important;"}
   %div
 
   .clear  

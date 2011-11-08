@@ -4,7 +4,7 @@ div.signup {
   margin: 0;
   padding: 0;
   font:12px gothamxlight;
-  background:url(/images/frontend/client_signup/gigavine-reg.jpg) no-repeat right top;
+  background:url(/images/frontend/client_signup/gigavine_reg.png) no-repeat right top;
 }
 
 *:focus {outline: none;}

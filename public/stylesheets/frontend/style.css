@@ -234,6 +234,8 @@ color:#465561;
 #join-the-network{
 margin:10px 17px 20px 17px;
 }
+
+
 .green_leftcorner{
         background:url(/images/frontend/green-leftcorner.gif) no-repeat left;
 		width:5px;
@@ -1174,7 +1176,7 @@ filter: “alpha(opacity=50)”;
 .home_create_header p, .home_language_header p, .home_technology_header p{
 background:#74747c url(/images/frontend/quotes.png) no-repeat 26px 18px;
 width:437px; 
-height:106px;
+height:100px;
 color:#fff;
 position:relative;
 top:45px;
@@ -1201,6 +1203,7 @@ position:relative;
 .home_create_header span.clientname{
 font:bold 14px Gotham;
 margin-top:10px!important;
+padding:0px!important;
 /*opacity:.60;
 filter:alpha(opacity=50);
 filter: “alpha(opacity=50)”*/
@@ -1225,7 +1228,7 @@ filter: “alpha(opacity=50)”
 
 
 .home_language_header p{
-height:130px!important;
+height:135px!important;
 padding-bottom:10px;
 position:relative;
 top:60px!important;
@@ -1261,6 +1264,7 @@ filter: “alpha(opacity=50)”
 
 
 .home_technology_header p{
+height:112px!important;
 padding-bottom:10px;
 position:relative; 
 top:60px!important;
@@ -1456,7 +1460,6 @@ float:right;
 -moz-box-shadow: 0 0 5px #888;
 -webkit-box-shadow: 0 0 5px#888;
 box-shadow: 0 0 5px #888;
-
 }
 .select_language ul{
 list-style-type:none;
@@ -1485,6 +1488,55 @@ text-align:left
 .select_language li a:hover{
 background:#e7e7e7 url(/images/frontend/contact_arrow.jpg) no-repeat 75px;
 }
+
+
+
+
+
+
+
+.select_language_reg{
+background:#fff;
+width:90px;
+height:auto;
+display:none; 
+position:absolute;
+z-index:999; 
+left:0px; 
+float:right;
+-moz-box-shadow: 0 0 5px #888;
+-webkit-box-shadow: 0 0 5px#888;
+box-shadow: 0 0 5px #888;
+}
+.select_language_reg ul{
+list-style-type:none;
+width:90px;
+background:#fff;
+/*background:#fff url(/images/frontend/language_dropdown_bg.gif) repeat-y 5px 0;*/
+margin-top:-5px;
+
+z-index:1;
+}
+.select_language_reg li{
+width:90px;
+height:20px;
+font:10px/20px Arial, Helvetica, sans-serif;
+text-align:left;
+text-indent:10px
+}
+
+.select_language_reg li a{
+width:90px;
+display:block;
+font:10px/20px Arial, Helvetica, sans-serif;
+text-align:left
+}
+.select_language_reg li a span{float:left; width:20px;height:20px}
+
+.select_language_reg li a:hover{
+background:#e7e7e7 url(/images/frontend/contact_arrow.jpg) no-repeat 25px;
+}
+
 
 .topframe{
 margin:0px auto;
@@ -2695,11 +2747,11 @@ embed{
 }
 
 #comingsoon.sign_up{
-background:#656565;
+background: url(/images/frontend/comingsoon.png) no-repeat;
 color:#fff;
-width:250px;
-height:150px;
-padding:20px 0px 0px 0px;
+width:649px!important;
+height:432px;
+/*padding:20px 0px 0px 0px;*/
 }
 #comingsoon 	#close_x {
  width:18px; height:18px;

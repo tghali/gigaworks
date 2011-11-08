@@ -8,9 +8,21 @@
     .create_navrightblock
       .create_register
         .reg_text
-          %a#try-1{:href => "/clients/signup", :title=>"Client Registration"}
-            Register
+          %a#image_frm_register{:href => "javascript://"}
+            %span{:id=>"selected_lang"} Register
             %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
+            #register.select_language_reg
+              %ul
+                %li{:style=>"height:10px;background:#fff"} 
+                  %span>
+                %li
+                  %a#Client.languages_select{:href => "/clients/signup"}
+                    %span> 
+                    &nbsp; &nbsp;Client
+                %li
+                  %a#Talent.languages_select{:href => "/talents/registration"}
+                    %span> 
+                    &nbsp; &nbsp;Talent
         .reg_text
           %a#try-1{:href => "#"}
             Login
