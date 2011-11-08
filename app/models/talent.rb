@@ -1,6 +1,6 @@
 class Talent < ActiveRecord::Base
  has_many   :languages
- 
+ attr_accessor :password,:username, :password_confirmation
  
    has_attached_file :resume_file_name,
     :storage => :s3,
