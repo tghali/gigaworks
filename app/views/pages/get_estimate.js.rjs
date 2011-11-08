@@ -1,0 +1,1 @@
+page['estimate_block'].replace_html :partial => "estimate_amount"

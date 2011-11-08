@@ -317,7 +317,8 @@ get '/talents/registration' => 'users#talent_registration'
     post 'submit_brief' => 'pages#submit_brief'
     
     post 'submitbrief/:id' =>'pages#submit_brief_pages'
-        
+   
+    post 'estimate' => 'pages#get_estimate'   
     post 'create_contact' => 'pages#lead_create'
     get "(:locale)/:section(/:page)" => 'pages#show', :constraints => { :section => /(#{Gigavine::Preferences.site_sections.join('|')})/,
                                                                       :locale  => /(#{Gigavine::Preferences.site_locales.join('|')})/,
