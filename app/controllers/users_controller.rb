@@ -30,7 +30,32 @@ class UsersController < ActionController::Base
     end
   rescue ActiveRecord::RecordNotFound
     redirect_to(sign_in_url, :notice => 'The invite code was not found in our database, if the problem persists please contact an administrator.')
- end
+  end
+  
+  def talent_registration
+
+# render :text=> params.inspect and return	
+		@talent = Talent.new
+		
+		 #@gigaclient.build_gigadomain
+		 respond_to do |format|
+		   format.html { render :layout=>'pages_new'   }
+		   format.xml  { render :xml => @talent }
+	
+		end
+	        #redirect_to  :controller=>'pages',:action => 'home_land' and return
+end
+def create_talent_registration
+#render :text => params.inspect and return
+	@talent=Talent.new(params[:talent])
+	@talent.save
+    respond_to do |format|
+	flash[:alert]='Your profile is created sucessfully'
+        format.html { redirect_to  :controller=>'pages',:action => 'home_land' }
+      end
+	
+end
+
 
 
 def gigauser_create
