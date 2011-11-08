@@ -236,13 +236,15 @@ left:323px;
 	text-indent:-9999em;}
 
 /* next */
-.forward 				{ background-position: 0 -30px; clear:right; background:url(/images/frontend/right.png) no-repeat; }
-/*.forward:hover 		{ background-position:-30px -30px; }
+.forward{clear:right; background:url(/images/frontend/right.png) no-repeat 0px -65px; position:relative; left:30px;}
+
+.forward:hover{ clear:right; background:url(/images/frontend/right.png) no-repeat 0px 0px; position:relative; left:30px;}/*.forward:hover 		{ background-position:-30px -30px; }
 .forward:active 	 	{ background-position:-60px -30px; } */
 
 
 /* prev */
-.backward{background:url(/images/frontend/lef.png) no-repeat}
+ .backward{background:url(/images/frontend/lef.png) no-repeat 0px -65px}
+.backward:hover{background:url(/images/frontend/lef.png) no-repeat 0px 0px}/*.forward:hover 		{ background-position:-30px -30px; }
 /*.backward:hover  		{ background-position:-30px 0; }
 .backward:active  	{ background-position:-60px 0; }*/
 
