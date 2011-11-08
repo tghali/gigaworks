@@ -11,6 +11,8 @@ gem "will_paginate", "~> 3.0.pre2"
 
 gem 'gdocs4ruby'
 
+gem 'geo_ip'
+
 gem 'activemerchant'
 
 gem 'subdomain-fu', :git => "git://github.com/nhowell/subdomain-fu.git"
