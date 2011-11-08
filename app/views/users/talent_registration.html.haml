@@ -1,0 +1,77 @@
+= javascript_include_tag "talent_registration"
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        
+        .contact_headding{:style=>"background:none"}
+          %h4
+            %span TALENT /
+            REGISTRATION
+      / <div class="pro-case-header">&nbsp;</div>
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent
+        .signup.baselayout
+          .container
+            .clear  
+            .leftcolumn
+              .banner{:style=>"background:none"}
+                %h2 Form to create an account
+
+              .contents{:style=>"background:none"}
+                - form_for :talent, :url=> {:action => 'create_talent_registration'}, :html => {:onsubmit => "return valid_talent_details();" }  do |f|
+                  .account.section
+                    %h3.step.one Create your Sample account
+                    %table
+                      %tbody
+                        %tr
+                          %td{:width => "80px"}
+                            %label{:for => "signup_first_name"} First name
+                          %td
+                            = f.text_field :first_name
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_last_name"} Last name
+                          %td
+                            = f.text_field :last_name
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_email_address"} Email
+                          %td
+                            = f.text_field :email
+
+
+                    %fieldset.credentials
+                      %legend Now choose a username & password
+                      %br
+                      %table
+                        %tbody
+                          %tr
+                          %tr
+                            %td{:width => "100px", :height => "35px"}
+                              %label{:for => "signup_first_name"} Username
+                            %td
+                              = f.text_field :username
+                            %td
+                          %tr
+                            %td{:width => "100px", :height => "35px"}
+                              %label{:for => "signup_last_name"} Password
+                            %td
+                              = f.password_field :password
+                            %td
+                          %tr
+                            %td{:width => "100px", :height => "35px"}
+                              %label{:for => "signup_email_address"} Confirm Password
+                            %td
+                              = f.password_field :password_confirmation
+                          %p
+
+                  .clear
+                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+              .bottom
+          .clear.both
+  .topspace
+
