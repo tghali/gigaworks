@@ -11,7 +11,7 @@ gem "will_paginate", "~> 3.0.pre2"
 
 gem 'gdocs4ruby'
 
-#gem 'geo_ip'
+gem 'geo_ip', '~> 0.3.0'
 
 gem 'activemerchant'
 
