@@ -147,9 +147,7 @@ GEM
     gdata4ruby (0.1.5)
     gdocs4ruby (0.1.2)
       gdata4ruby (>= 0.1.1)
-    geo_ip (0.4.0)
-      json (~> 1.4)
-      rest-client (~> 1.6.1)						
+				
     gherkin (2.3.5)
       json (>= 1.4.6)
     haml (3.0.25)
@@ -324,7 +322,7 @@ DEPENDENCIES
   formidable!
   fredo!
   gdocs4ruby
-  geo_ip		
+
   haml-rails (= 0.3.4)
   jsmin (= 1.0.0)
   kaminari
