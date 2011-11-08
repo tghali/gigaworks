@@ -147,7 +147,7 @@ padding:0 6px;
 	background:url(/images/frontend/corner-right-shadow.png) no-repeat right bottom;
 	width:1030px;
 	height:67px;
-	padding-left:0px;
+	padding-left:70px;
 }
 
 .slidetabs_2 ul{
@@ -230,23 +230,19 @@ left:323px;
 	/*background:#fff url(hori_large.png) no-repeat;*/
 	display:block;
 	width:33px;
-	height:66px;
+	height:65px;
 	cursor:pointer;
 	font-size:1px;
 	text-indent:-9999em;}
 
 /* next */
-.forward{clear:right; background:url(/images/frontend/right.png) no-repeat 0px -65px; position:relative; left:30px;}
-
-.forward:hover{ clear:right; background:url(/images/frontend/right.png) no-repeat 0px 0px; position:relative; left:30px;}
+.forward 				{ background-position: 0 -30px; clear:right; background:url(/images/frontend/right.png) no-repeat; }
 /*.forward:hover 		{ background-position:-30px -30px; }
 .forward:active 	 	{ background-position:-60px -30px; } */
 
 
 /* prev */
-
-.backward{background:url(/images/frontend/lef.png) no-repeat 0px -65px}
-.backward:hover{background:url(/images/frontend/lef.png) no-repeat 0px 0px}
+.backward{background:url(/images/frontend/lef.png) no-repeat}
 /*.backward:hover  		{ background-position:-30px 0; }
 .backward:active  	{ background-position:-60px 0; }*/
 
