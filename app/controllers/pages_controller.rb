@@ -393,24 +393,49 @@ end
 def get_estimate
  @amount = 0
   if !params[:words].blank? && params[:translation]
-    if params[:words].to_i <= 250
-        @amount = @amount + 30 
-    else
-        @amount = @amount + 0.12*params[:words].to_i
-      end  
+    calc_words(params[:words])
   elsif !params[:pages].blank? && params[:localisation] && params[:design]
-     @amount = @amount + 90*params[:pages].to_i        
+     calc_pages(params[:pages],'local_and_design')
   elsif !params[:pages].blank? && params[:design]
-    @amount = @amount + 55*params[:pages].to_i  
+    calc_pages(params[:pages],'design')    
   elsif !params[:pages].blank? && params[:localisation]
-    @amount = @amount + 35*params[:pages].to_i  
+    calc_pages(params[:pages],'localisation') 
   end
   
   	  respond_to do |format|	     
 	      format.js	    
 	    end
-  
-    #render :text=> @amount and return
+ 
+end
+
+def calc_words(words)
+    if words.to_i <= 250
+        @amount = @amount + 30 
+    else
+        @amount = @amount + 0.12*words.to_i
+    end  
+end
+
+def calc_pages(pages,option)
+  if option == 'design'
+    if pages.to_i <= 4
+        @amount = @amount + 55 
+    else
+        @amount = @amount + 13.75*pages.to_i
+      end  
+  elsif option == 'localisation'
+    if pages.to_i <= 4
+        @amount = @amount + 35 
+    else
+        @amount = @amount + 8.75*pages.to_i
+      end  
+  elsif option == 'local_and_design'
+    if pages.to_i <= 4
+        @amount = @amount + 90
+    else
+        @amount = @amount + 8.75*pages.to_i + 13.75*pages.to_i
+    end      
+  end
 end
 
 def get_user_ip
