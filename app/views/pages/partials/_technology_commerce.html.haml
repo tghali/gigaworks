@@ -2,8 +2,15 @@
   %h3#see_id  TECHNOLOGY / E-COMMERCE
   %br.clear
   %div
-    = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_commerce_form",:onsubmit => "return tech_commerce();"} do |f|
+    = form_for :technology_page, :url => {:controller => "pages",:action => "technology_create"},:html =>{:name => "tech_commerce_form",:multipart => :true,:onsubmit => "return tech_commerce();"} do |f|
       = f.hidden_field :page_section,  :value => "tech_commerce_page"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title:
+        = f.text_field :title, :style => "width:600px;", :id => "creative_design_heading", :value => get_languages('tech_commerce_page','title') 
+
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Image:
+          %input{:type=>"file", :name=>"technology_page[image]", :size=>"63", :style=>"font:12px arial; height:20px; width:600px; position: relative;" }
 
       %label
         %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Summary:
