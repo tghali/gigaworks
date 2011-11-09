@@ -123,14 +123,14 @@
    if (jQuery("#register:visible").length != 0)
    {
    jQuery("#register").fadeTo("1000", 0).hide();
-   jQuery(".reg_text1").css("background","none");
+   jQuery(".reg_text3").css("background","none");
    }
     
    else {
    jQuery("#register").fadeTo("1000", 1).show();
-   jQuery(".reg_text1").css("background","#ffffff");
-   jQuery(".reg_text1").css("position","relative");
-   jQuery(".reg_text1").css("z-index","999");
+   jQuery(".reg_text3").css("background","#ffffff");
+   jQuery(".reg_text3").css("position","relative");
+   jQuery(".reg_text3").css("z-index","999");
     }
 
 
@@ -169,6 +169,16 @@
     
     }
     	    
+    });	
+    jQuery("#register").mouseleave(function()
+    { 
+     //alert("hello");
+    if(jQuery("#register").is(":visible")){
+    jQuery(this).stop()
+    jQuery(this).hide();
+    jQuery(".reg_text3").css("background","none");	
+    
+    }
     });		
 	
     $(".foot_right li").hover(
