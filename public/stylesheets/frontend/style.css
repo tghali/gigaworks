@@ -1185,9 +1185,9 @@ z-index:100;
 -webkit-border-radius: 10px;
 -khtml-border-radius: 10px;
 border-radius: 10px;
-opacity:.60;
+/*opacity:.60;
 filter:alpha(opacity=50);
-}
+*/}
 
 .home_create_header span.headtext , .home_create_header span.clientname{
 width:338px;
