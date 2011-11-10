@@ -169,37 +169,52 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
   
  if credit_card.valid?
   # or gateway.purchase to do both authorize and capture
-  response = gateway.authorize(1000, credit_card, :ip => "127.0.0.1",  :billing_address => {
-                   
-                  :address1 => "Kakinada",               
-                :city => "Kakinada",
-              :state =>"Andhara Pradesh",
-              :country => "India",
-              :zip => "533001"
-              })
+   flash[:alert]='Sucessfully created'
+  #redirect_to  :controller=>'pages',:action => 'home_land' and return
 
-	  if response.success?
-	  gateway.capture(10, response.authorization)
-		flash[:alert]='Sucessfully created'
-	      redirect_to  :controller=>'pages',:action => 'home_land' and return
-	  else
-	      flash[:success] = "Error: #{response.message}"
-	      render :action => 'client_signup', :layout=> 'pages_new' and return
-	  end
+# response = gateway.authorize(1000, credit_card, :ip => "127.0.0.1",  :billing_address => {
+                   
+                 # :address1 => "Kakinada",               
+             #   :city => "Kakinada",
+            #  :state =>"Andhara Pradesh",
+            #  :country => "India",
+            #  :zip => "533001"
+             # })
+
+	 # if response.success?
+	 # gateway.capture(10, response.authorization)
+	#	flash[:alert]='Sucessfully created'
+	 #     redirect_to  :controller=>'pages',:action => 'home_land' and return
+	 # else
+	  #    flash[:success] = "Error: #{response.message}"
+	  #    render :action => 'client_signup', :layout=> 'pages_new' and return
+	  #end
   else
       flash[:success] = "Error: #{credit_card.errors.full_messages.join(', ')}"
       render :action => 'client_signup', :layout=> 'pages_new' and return
   end
+
+@creditcard=ClientcreditDetail.new
+@creditcard.credit_number=params[:credit_card]
+@creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
+@creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
+@creditcard.verification_number=params[:verification_number]
+@creditcard.card_type= params[:card][:card_type]
+@creditcard.biling_zip=params[:billing_zip]
  
  
 
  
-  		@gigaclient = Gigaclient.new(params[:gigaclient])    
+  		@gigaclient = Gigaclient.new(params[:gigaclient])
+		    
     		    respond_to do |format|
 		      if @gigaclient.save
+			@creditcard.gigaclient_id=@gigaclient.id
+			@creditcard.save
 			#~ @gigaclient.gigadomain.update_attribute(:gigaclient_id,  @gigaclient.id)
 
-			format.html { redirect_to(:action=>'home_new', :alert => 'Your registration was successfully completed.')}
+			  flash[:alert]='Sucessfully created'
+  			redirect_to  :controller=>'pages',:action => 'home_land' and return
 			format.xml  { render :xml => @gigaclient, :status => :created, :location => @client, :layout=> false  }
 		      else
 			format.html { render :action => "client_signup", :layout=> 'pages_new'  }
@@ -207,6 +222,8 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 		      end
 		    end
 end
+
+
 
   
   
