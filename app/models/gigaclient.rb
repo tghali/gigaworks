@@ -50,7 +50,7 @@ class Gigaclient < ActiveRecord::Base
     guser.first_name = self.first_name
     guser.last_name = self.last_name
     guser.gigaclient_id = self.id
-    guser.role_id = 5
+    guser.role = "Client"
     guser.email = self.email
     guser.save
 		 #~ Gigauser.create(:first_name =>self.first_name , :last_name =>self.last_name , :gigaclient_id => self.id, :role_id => 5,:email =>self.email )
