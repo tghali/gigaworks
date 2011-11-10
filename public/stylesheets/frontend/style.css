@@ -1177,17 +1177,17 @@ background:#74747c url(/images/frontend/quotes.png) no-repeat 26px 18px;
 width:437px; 
 height:100px;
 color:#fff;
-position:relative;
-top:45px;
+/*position:relative;
+*/top:45px;
 left:30px;
 z-index:100;
 -moz-border-radius:10px;
 -webkit-border-radius: 10px;
 -khtml-border-radius: 10px;
 border-radius: 10px;
-/*opacity:.60;
+opacity:.60;
 filter:alpha(opacity=50);
-*/}
+}
 
 .home_create_header span.headtext , .home_create_header span.clientname{
 width:338px;
