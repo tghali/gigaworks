@@ -72,6 +72,9 @@ jQuery.fn.extend({
 			btnRight.src="/images/frontend/mopSlider/sliderBtnRightW.png";
 			btnRightF.src="/images/frontend/mopSlider/sliderBtnRightW_f.png";
 			btnCenter.src="/images/frontend/mopSlider/sliderBtnW.png";
+			
+			btnChange.src="/images/frontend/mopSlider/sliderBkRtRtW.png";
+			
 			//btnChange.src="mopSlider/sliderBackRightRightW.png";
 			btnChangeF.src="/images/frontend/mopSlider/sliderBackRightRightW_f.png";
 			//backImg.src="mopSlider/paperBack.gif";
@@ -150,7 +153,7 @@ jQuery.fn.extend({
 		$(this).parent().after(
 		'<div class="sliderCase">'+
 			'<div class="sliderCaseLeft"></div>'+
-			'<div class="sliderCaseRight"></div>'+
+			'<div class="sliderCaseRight"><img src="/images/frontend/mopSlider/sliderBkRtRtW.png" alt="refresh"></div>'+
 			'<div class="slider">'+
 				'<div class="sldLeft"></div>'+
 				'<div class="sldCenter"></div>'+
@@ -298,9 +301,10 @@ jQuery.fn.extend({
 			
 			stop:function(){
 				
-				mpSldF.autoAct(mpSldNo,mpSldNm,mopSldTyp);
+				//mpSldF.autoAct(mpSldNo,mpSldNm,mopSldTyp);
 				
-				
+							clearInterval(dragCheck1);
+				mpSldF.finalMove(mpSldNo,mpSldNm);	
 				
 				
 				
