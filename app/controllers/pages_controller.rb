@@ -394,12 +394,20 @@ def get_estimate
  @amount = 0
   if !params[:words].blank? && params[:translation]
     calc_words(params[:words])
+  elsif !params[:pages].blank? && params[:localisation] && params[:design] && params[:translation]
+     calc_pages(params[:pages],'trans_local_design')    
   elsif !params[:pages].blank? && params[:localisation] && params[:design]
      calc_pages(params[:pages],'local_and_design')
+  elsif !params[:pages].blank? && params[:translation] && params[:design]
+     calc_pages(params[:pages],'trans_and_design')
+  elsif !params[:pages].blank? && params[:translation] && params[:localisation]
+     calc_pages(params[:pages],'trans_and_localise')        
   elsif !params[:pages].blank? && params[:design]
     calc_pages(params[:pages],'design')    
   elsif !params[:pages].blank? && params[:localisation]
-    calc_pages(params[:pages],'localisation') 
+    calc_pages(params[:pages],'localisation')
+  elsif !params[:pages].blank? && params[:translation]
+    calc_pages(params[:pages],'translation')    
   end
   
   	  respond_to do |format|	     
@@ -417,24 +425,52 @@ def calc_words(words)
 end
 
 def calc_pages(pages,option)
-  if option == 'design'
+  if option == 'trans_local_design'
     if pages.to_i <= 4
-        @amount = @amount + 55 
+        @amount = @amount + 120
     else
-        @amount = @amount + 13.75*pages.to_i
-      end  
+        words = pages.to_i*250
+        @amount = @amount + 8.75*pages.to_i + 13.75*pages.to_i + 0.12*words.to_i 
+    end   
+  elsif option == 'local_and_design'
+    if pages.to_i <= 4
+        @amount = @amount + 90
+    else
+        @amount = @amount + 8.75*pages.to_i + 13.75*pages.to_i
+      end 
+  elsif option == 'trans_and_design'
+    if pages.to_i <= 4
+        @amount = @amount + 85
+    else  
+        words = pages.to_i*250
+        @amount = @amount + 0.12*words.to_i + 13.75*pages.to_i
+    end       
+  elsif option == 'trans_and_localise'
+    if pages.to_i <= 4
+        @amount = @amount + 65
+    else  
+        words = pages.to_i*250
+        @amount = @amount + 0.12*words.to_i + 8.75*pages.to_i
+    end        
   elsif option == 'localisation'
     if pages.to_i <= 4
         @amount = @amount + 35 
     else
         @amount = @amount + 8.75*pages.to_i
       end  
-  elsif option == 'local_and_design'
+  elsif  option == 'design'
     if pages.to_i <= 4
-        @amount = @amount + 90
+        @amount = @amount + 55 
     else
-        @amount = @amount + 8.75*pages.to_i + 13.75*pages.to_i
-    end      
+        @amount = @amount + 13.75*pages.to_i
+      end 
+   elsif  option == 'translation'
+    if pages.to_i <= 4
+        @amount = @amount + 30 
+    else
+        words = pages.to_i*250
+        @amount = @amount + 0.12*words.to_i
+      end      
   end
 end
 
