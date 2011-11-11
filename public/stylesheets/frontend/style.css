@@ -2760,3 +2760,12 @@ height:432px;
 		 overflow: hidden; line-height: 1000px;*/
 		background: url(/images/frontend/pop_close.gif) no-repeat;
  }
+
+/*for home page slider	*/
+.sliderCaseRight{
+right:170px;
+margin-right:20px;
+position:absolute;
+z-index:1000;
+
+}	
