@@ -1177,8 +1177,10 @@ background:#74747c url(/images/frontend/quotes.png) no-repeat 26px 18px;
 width:437px; 
 height:100px;
 color:#fff;
-/*position:relative;
-*/top:45px;
+/*modified by nalini on 12-11-2011*/
+position:relative;
+/*end of 12-11-2011*/
+top:45px;
 left:30px;
 z-index:100;
 -moz-border-radius:10px;
