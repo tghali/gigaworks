@@ -2747,16 +2747,23 @@ embed{
 }
 
 #comingsoon.sign_up{
-background: url(/images/frontend/comingsoon.png) no-repeat;
+background:#666666 url(/images/frontend/comingsoon.png) no-repeat;
 color:#fff;
-width:649px!important;
-height:432px;
+width:629px!important;
+height:412px;
+position: relative;
+ display: none;
+ left:0px;
+ right:0px!important;
+ padding-right:0px!important;
+  padding-bottom:0px!important;
 /*padding:20px 0px 0px 0px;*/
 }
 #comingsoon 	#close_x {
  width:18px; height:18px;
        
         display: block;
+		z-index:1000;
         position: absolute; top: 5px; right: 5px;
         /*background-position: -387px -102px;
 		 overflow: hidden; line-height: 1000px;*/
