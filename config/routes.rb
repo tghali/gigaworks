@@ -5,6 +5,7 @@ Gigavine::Application.routes.draw do
   get "/stylesheets/:media.:ext" => SassCompiler
   #get '/', :to => 'sessions#new' #, :as => 'dashboard'
   # Sign In, Sign Out and Sign Up 
+  get '/temp' =>'pages#temp_home'
   get    '/sign_in'                 => 'sessions#new',     :as => :sign_in
   post   '/sign_in'                 => 'sessions#create'
   get    '/auth/:provider/callback' => 'sessions#oauth'
@@ -262,8 +263,9 @@ get '/talents/registration' => 'users#talent_registration'
   end
   
   # Static pages
-  constraints :subdomain => "test" do
-    get '/' => 'pages#show'
+  #constraints :subdomain => "test" do
+    #get '/' => 'pages#show'
+    get '/' => 'pages#home_land'
     get '/home' => 'pages#home_land'
     get '/languages' => 'pages#languages_new'
     get '/creative' => 'pages#creative_new'
@@ -327,7 +329,7 @@ get '/talents/registration' => 'users#talent_registration'
     resources :contacts, :only => [ :create ]
     resources :blog_posts
     
-  end
+  #end
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

@@ -19,10 +19,19 @@ class PagesController < ActionController::Base
   end
   
   def temp_home
+       #if request.url != 'http://gigavine.com/'
+      #redirect_to :controller => 'sessions', :action => 'new' and return
+    #end
     render :layout => false
   end
   
   def home_land
+    	#render :text => request.url and return
+
+    if request.url != 'http://gigavine.com/'
+	#render :text => request.url and return
+      redirect_to :controller => 'pages', :action => 'temp_home' and return
+    end
 	  render :layout => 'pages_new'
   end
   
