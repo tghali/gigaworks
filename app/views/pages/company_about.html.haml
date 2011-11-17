@@ -1,0 +1,91 @@
+:javascript
+  Cufon.replace('.sf-navbar li.current', {color: '#cf641e'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+
+#contact_wrapper
+  .contact-newbg
+    / Header
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        .contact_headding
+          %h4
+            %span COMPANY /
+            ABOUT US
+      .contact_new_header  
+
+    / Headerend
+    / content block start
+    #lp_content{:style => "position:relative;min-height:600px;height:auto!important;height:800px;"}
+      #lp_midcontent
+        / left block start
+        .lp_leftblock
+          .lp_navigation
+            %ul
+              %li
+                %a.current{:href => "/contact/about"} About
+              %li
+                %a{:href => "javascript://"} Values
+              %li
+                %a{:href => "/contact"} Contact
+
+          / submit block start
+
+          #language_get
+            %h4 &nbsp;
+            %span{:style => "padding-top:30px;"}																				
+          / submit block end
+        / left block end
+        / right block start
+        .lp_rightblock
+          %p.headding_text
+            - if !get_languages('company_about','title').blank?
+              = raw(get_languages('company_about','title'))
+            - else
+              Gigavine was founded in 2004 by a designer and a marketer, both mutilingual, who shared the belief that existing business communication channels were not meeting the challenge of an increasingly globalised world. The pair began drawing to their diverse cultural backgrounds to create innoviative forms of communication and technology that crossed cultural and regional boundries.
+        
+            %p
+              - if !get_languages('company_about','summary').blank?
+                = raw(get_languages('company_about','summary'))
+              - else
+                Today, Gigavine has offices accross three continents, in London, New York and Dubai, and has grown to employ aroung 40 talented people in Europe, the Middle East and America - a collection of different indivduals accross different countries and backgrounds, bound together by a passion for creating, translating and delievering cutting-edge global communications.
+                %p{:style=>"margin-bottom:10px;"}
+                  Our inhouse team is enchanced by a network of 500+ specialist professionals around the globe, whose skills we call upon whenever a project requires it.
+
+
+            %p.headding_textnew{:style=>"margin-top:18px!important;"}
+              - if !get_languages('company_about','heading2').blank?
+                = raw(get_languages('company_about','heading2'))
+              - else
+                Delivering the right result, right on time
+
+            - if !get_languages('company_about','summary2').blank?
+              = raw(get_languages('company_about','summary2'))
+            - else
+              %p{:style=>"margin-top:10px;"}
+                It's good to know we offer a very wide range of resources, but you also need an excellent working relationship with one or two individuals. We assign a single project manager to each project who acts as your point of contact.
+              %p{:style=>"margin-top:10px;"}
+                Good project management is so essential to successful delivery. It reduces risk and ensures we keep within budget and on schedule. With complex, multi-disciplinary international projects, it's even more important.
+              %p{:style=>"margin-top:10px;"}
+                GigaWorks was developed by our own in-house IT technicians and offers optimum security. You can use it to:
+              .local_nav
+                %ul{:style=>"margin-top:-10px;"}
+                  %li
+                    Request and receive online quotations
+                  %li
+                    Access our filing systems to upload/download documents
+                  %li
+                    Monitor the progress of ongoing projects in real-time
+                  %li
+                    Specify and limit budgets for your employees as they use our services
+                  %li
+                    Access detailed reports on levels of spending per service or time period
+                  %li
+                    Access and reprint invoices
+
+
+
+          / right block end
+      / content block end
+    .clear  
+      &nbsp; 
