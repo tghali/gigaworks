@@ -28,7 +28,7 @@ class PagesController < ActionController::Base
   def home_land
     	#render :text => request.url and return
 
-    if request.url != 'http://gigavine.com/' and request.url != 'http://gigavine.com/home'
+    if request.url != 'http://gigavine.com/' and request.url != 'http://gigavine.com/home' and request.url != 'http://www.gigavine.com/'
 	#render :text => request.url and return
       redirect_to :controller => 'pages', :action => 'temp_home' and return
     end
