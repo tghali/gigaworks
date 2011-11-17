@@ -1,0 +1,59 @@
+:javascript
+  Cufon.replace('.sf-navbar li.current', {color: '#cf641e'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+
+#contact_wrapper
+  / Header
+  .contact-newbg
+    #tech-header22
+      .create_headder
+        = render :partial => "/pages/partials/login_links"
+        .create_headding
+          %h4 COMPANY
+        .create_mainblock
+          %img{:alt => "", :src => "/images/frontend/company_landing_bg.gif", :title => ""}
+            .top_comment
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas euismod adipiscing pulvinar.
+    / Headerend
+    / content block start
+    #lp_content{:style => "position:relative;"}
+      #lp_midcontent
+        / left block start
+        .lp_leftblock
+          .lp_navigation
+            %ul
+              %li
+                %a{:href => "/contact/about"} About
+              %li
+                %a{:href => "/contact/value"} Values
+              %li
+                %a{:href => "/contact"} Contact
+            / submit block start
+
+            #language_get
+              %h4 &nbsp;
+              %span{:style => "padding-top:30px;"}																				
+            / submit block end
+        / left block end
+        / right block start
+        .lp_rightblock
+          %p.headding_text
+            - if get_languages('company_new','title').blank?
+              In today's interdependent and highly connected world, the local is continually interacting with the global. At Gigavine we use this dynamic to produce highly effective forms of contemporary communication.
+            - else
+              = get_languages('company_new','title')
+
+          - if get_languages('company_new','summary').blank?
+            %p 
+              We are the product of the rich variety of traditions and donot define ourselves by a particular language or culture. This allows us to work sucessfully accross many different regions of the world.
+            %p{:style=>"margin-top:0px!important; margin-bottom:0px!important;"}
+              Our portfolio of completed work includes small local projects, as well as global multi-lingual and marketing campaigns, interactive games and education and information materials. We provide services to private and public organisations, and our clients include law firms, museums, media agencies, educational bodies, financial institutions, government bodies, insurance companies, pharmaceutical manufacturers and telecoms suppliers.
+            %p{:style=>"margin-top:10px;"}
+              But it is the diversity of our people that sets us apart. This is the heart of our success and gives us fundamental advantage over our competitors.
+          - else
+            = raw(get_languages('company_new','summary'))
+        / right block end
+    / content block end
+    .topspace &nbsp;  
+    / footer block start
+    / footer block end

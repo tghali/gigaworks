@@ -39,6 +39,18 @@ class PagesController < ActionController::Base
     @page_title = "Gigavine - Languages"
 	   render :layout => 'pages_new'
    end
+     def company_new
+    @page_title = "Gigavine - Company"
+	   render :layout => 'pages_new'
+   end
+  def company_about
+    @page_title = "Gigavine - Company - About"
+	   render :layout => 'pages_new'
+   end
+  def company_value
+    @page_title = "Gigavine - Company - Value"
+	   render :layout => 'pages_new'
+   end
    
   def languages_writing
     @page_title = "Gigavine - Languages - Copywriting"

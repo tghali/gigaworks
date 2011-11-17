@@ -1,0 +1,106 @@
+:javascript
+  Cufon.replace('.sf-navbar li.current', {color: '#cf641e'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+
+#contact_wrapper
+  .contact-newbg
+    / Header
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        .contact_headding
+          %h4
+            %span COMPANY /
+            VALUES
+      .contact_new_header  
+
+    / Headerend
+    / content block start
+    #lp_content{:style => "position:relative;min-height:600px;height:auto!important;height:800px;"}
+      #lp_midcontent
+        / left block start
+        .lp_leftblock
+          .lp_navigation
+            %ul
+              %li
+                %a{:href => "/contact/about"} About
+              %li
+                %a.current{:href => "/contact/value"} Values
+              %li
+                %a{:href => "/contact"} Contact
+
+          / submit block start
+
+          #language_get
+            %h4 &nbsp;
+            %span{:style => "padding-top:30px;"}																				
+          / submit block end
+        / left block end
+        / right block start
+        .lp_rightblock
+          %p.headding_text
+            - if !get_languages('company_value','title').blank?
+              = raw(get_languages('company_value','title'))
+            - else
+              At Gigavine we genuinely believe it's possible to do business in a principled way; in fact we believe this can make a business more effective.
+        
+            %p
+              - if !get_languages('company_value','summary').blank?
+                = raw(get_languages('company_value','summary'))
+              - else
+                We build our values into the way we work. They are not just a matter of presentation, they go to the heart of how we work, why we work and what we create. They are:
+                .local_nav
+                  %ul{:style=>"margin-top:-10px;"}
+                    %li
+                      Passion
+                      %p{:style=>"font-style:italic; margin-top:0px;"}
+                        Our work really matters to us.
+                    %li
+                      Integrity
+                      %p{:style=>"font-style:italic; margin-top:0px;"}
+                        It's essential to be honest, ethical and reliable.
+                    %li
+                      Efficiency
+                      %p{:style=>"font-style:italic; margin-top:0px;"}
+                        We don't like to waste anyone's time.
+                    %li
+                      Diversity
+                      %p{:style=>"font-style:italic; margin-top:0px;"}
+                        Difference makes the world richer, and our work better.
+                    %li
+                      Teamwork
+                      %p{:style=>"font-style:italic; margin-top:0px;"}
+                        When we work together we're greater than the sum of our parts.
+                    %li
+                      Sustainability
+                      %p{:style=>"font-style:italic; margin-top:0px;"}
+                        We intend to pass on a flourishing world to our children. 
+                %p{:style=>"margin-top:10px;"}
+                  We care about the impact and quality of what we do. Our values are here to help us attain the highest possible performance for the sake of our clients, their customers, and ourselves.
+
+
+            %p.headding_textnew{:style=>"margin-top:18px!important;"}
+              - if !get_languages('company_value','heading2').blank?
+                = raw(get_languages('company_value','heading2'))
+              - else
+                Sustainability
+
+            - if !get_languages('company_value','summary2').blank?
+              = raw(get_languages('company_value','summary2'))
+            - else
+              %p{:style=>"margin-top:10px;"}
+                We are serious about achieving environmentally sustainable development and have established our own company environmental policy with the aim of:
+              .local_nav
+                %ul{:style=>"margin-top:-10px;"}
+                  %li
+                    reducing waste
+                  %li
+                    promoting recycling
+                  %li
+                    sourcing renewable resources
+                  %li
+                    mitigating our carbon footprint by achieving a carbon neutral/positive state
+          / right block end
+      / content block end
+    .clear  
+      &nbsp; 
