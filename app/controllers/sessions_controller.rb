@@ -73,7 +73,7 @@ class SessionsController < ActionController::Base
   def destroy
     warden.logout
     if params[:q]
-      redirect_to "http://test.#{request.domain}/home" 
+      redirect_to "http://www.#{request.domain}/" 
       else
     render :action => "new"
     end
