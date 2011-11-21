@@ -412,29 +412,32 @@ end
  end 
 
 def get_estimate
- @amount = 0
-  if !params[:words].blank? && params[:translation]
-    calc_words(params[:words])
-  elsif !params[:pages].blank? && params[:localisation] && params[:design] && params[:translation]
-     calc_pages(params[:pages],'trans_local_design')    
-  elsif !params[:pages].blank? && params[:localisation] && params[:design]
-     calc_pages(params[:pages],'local_and_design')
-  elsif !params[:pages].blank? && params[:translation] && params[:design]
-     calc_pages(params[:pages],'trans_and_design')
-  elsif !params[:pages].blank? && params[:translation] && params[:localisation]
-     calc_pages(params[:pages],'trans_and_localise')        
-  elsif !params[:pages].blank? && params[:design]
-    calc_pages(params[:pages],'design')    
-  elsif !params[:pages].blank? && params[:localisation]
-    calc_pages(params[:pages],'localisation')
-  elsif !params[:pages].blank? && params[:translation]
-    calc_pages(params[:pages],'translation')    
+  @amount = 0
+  if params[:target]!='select' and params[:source]!='select'
+    if !params[:words].blank? && params[:translation]
+      calc_words(params[:words])
+    elsif !params[:pages].blank? && params[:localisation] && params[:design] && params[:translation]
+       calc_pages(params[:pages],'trans_local_design')    
+    elsif !params[:pages].blank? && params[:localisation] && params[:design]
+       calc_pages(params[:pages],'local_and_design')
+    elsif !params[:pages].blank? && params[:translation] && params[:design]
+       calc_pages(params[:pages],'trans_and_design')
+    elsif !params[:pages].blank? && params[:translation] && params[:localisation]
+       calc_pages(params[:pages],'trans_and_localise')        
+    elsif !params[:pages].blank? && params[:design]
+      calc_pages(params[:pages],'design')    
+    elsif !params[:pages].blank? && params[:localisation]
+      calc_pages(params[:pages],'localisation')
+    elsif !params[:pages].blank? && params[:translation]
+      calc_pages(params[:pages],'translation')    
+    end
   end
   
   	  respond_to do |format|	     
 	      format.js	    
 	    end
  
+
 end
 
 def calc_words(words)
