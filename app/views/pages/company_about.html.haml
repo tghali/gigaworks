@@ -25,7 +25,7 @@
               %li
                 %a.current{:href => "/contact/about"} About
               %li
-                %a{:href => "/contact/value"} Values
+                %a{:href => "javascript://"} Values
               %li
                 %a{:href => "/contact"} Contact
 
@@ -47,8 +47,8 @@
               - if !get_languages('company_about','summary').blank?
                 = raw(get_languages('company_about','summary'))
               - else
-														  The pair began drawing to their diverse cultural backgrounds to create innoviative forms of communication and technology that crossed cultural and regional boundries.
-																%p{:style=>"margin-bottom:10px;"}
+                The pair began drawing to their diverse cultural backgrounds to create innoviative forms of communication and technology that crossed cultural and regional boundries.
+                %p{:style=>"margin-bottom:10px;"}
                   Today, Gigavine has offices accross three continents, in London, New York and Dubai, and has grown to employ aroung 40 talented people in Europe, the Middle East and America - a collection of different indivduals accross different countries and backgrounds, bound together by a passion for creating, translating and delievering cutting-edge global communications.
                 %p{:style=>"margin-bottom:10px;"}
                   Our inhouse team is enchanced by a network of 500+ specialist professionals around the globe, whose skills we call upon whenever a project requires it.
