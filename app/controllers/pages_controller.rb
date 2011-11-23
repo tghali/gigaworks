@@ -413,7 +413,7 @@ end
 
 def get_estimate
   @amount = 0
-  if params[:source_language]!='select' and params[:target_language]!='select' and params[:target_language] and params[:source_language]
+  if params[:source]!='Select' and params[:target]!='Select'
     if !params[:words].blank? && params[:translation]
       calc_words(params[:words])
     elsif !params[:pages].blank? && params[:localisation] && params[:design] && params[:translation]
