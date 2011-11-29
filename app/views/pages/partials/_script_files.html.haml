@@ -369,14 +369,33 @@
   jQuery("#how_we_help").find("input:first").focus();
   }});    
   e.preventDefault();
-  });			
+  });		
+  jQuery('#company_about_new').click(function(e) {
+  jQuery("#company_about").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#company_about").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });	
+  jQuery('#company_value_new').click(function(e) {
+  jQuery("#company_value").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#company_value").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });
+  jQuery('#company_new').click(function(e) {
+  jQuery("#company_land").lightbox_me({centered: true, onLoad: function() {
+  jQuery("#company_land").find("input:first").focus();
+  }});    
+  e.preventDefault();
+  });		
 		
   jQuery('#contact_new').click(function(e) {
   jQuery("#contact_us").lightbox_me({centered: true, onLoad: function() {
   jQuery("#contact_us").find("input:first").focus();
   }});    
   e.preventDefault();
-  });			
+  });	
+		
   - if !flash[:notice].blank? 
     jQuery("#message").lightbox_me({centered: true});
     //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");

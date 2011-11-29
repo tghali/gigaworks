@@ -148,26 +148,26 @@ end
 def create_client_registration
  #render :text=> params.inspect and return
  
- ActiveMerchant::Billing::Base.mode = :test
+ #ActiveMerchant::Billing::Base.mode = :test
 
-gateway = ActiveMerchant::Billing::PaypalGateway.new(
-  :login => "seller_1229899173_biz_api1.railscasts.com",
-   :password => "FXWU58S7KXFC6HBE",
-  :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
- )
+#gateway = ActiveMerchant::Billing::PaypalGateway.new(
+ # :login => "seller_1229899173_biz_api1.railscasts.com",
+  # :password => "FXWU58S7KXFC6HBE",
+  #:signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
+ #)
 
-credit_card = ActiveMerchant::Billing::CreditCard.new(
-  :type               => params[:card][:credit_type],
-  :number             => params[:credit_card],
-  :verification_value => params[:verification_number],
-  :month              => params[:card][:"card_expirty_date(2i)"],
-  :year               => params[:card][:"card_expirty_date(1i)"],
-  :first_name         => "Ryan",
-  :last_name          => "Bates"
-)
+#credit_card = ActiveMerchant::Billing::CreditCard.new(
+ # :type               => params[:card][:credit_type],
+ # :number             => params[:credit_card],
+ # :verification_value => params[:verification_number],
+ # :month              => params[:card][:"card_expirty_date(2i)"],
+ # :year               => params[:card][:"card_expirty_date(1i)"],
+ # :first_name         => "Ryan",
+ # :last_name          => "Bates"
+#)
  
   
- if credit_card.valid?
+ #if credit_card.valid?
   # or gateway.purchase to do both authorize and capture
    flash[:alert]='Sucessfully created'
   #redirect_to  :controller=>'pages',:action => 'home_land' and return
@@ -189,18 +189,18 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 	  #    flash[:success] = "Error: #{response.message}"
 	  #    render :action => 'client_signup', :layout=> 'pages_new' and return
 	  #end
-  else
-      flash[:success] = "Error: #{credit_card.errors.full_messages.join(', ')}"
-      render :action => 'client_signup', :layout=> 'pages_new' and return
-  end
+  #else
+      #flash[:success] = "Error: #{credit_card.errors.full_messages.join(', ')}"
+      #render :action => 'client_signup', :layout=> 'pages_new' and return
+  #end
 
-@creditcard=ClientcreditDetail.new
-@creditcard.credit_number=params[:credit_card]
-@creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
-@creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
-@creditcard.verification_number=params[:verification_number]
-@creditcard.card_type= params[:card][:card_type]
-@creditcard.biling_zip=params[:billing_zip]
+#@creditcard=ClientcreditDetail.new
+#@creditcard.credit_number=params[:credit_card]
+#@creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
+#@creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
+#@creditcard.verification_number=params[:verification_number]
+#@creditcard.card_type= params[:card][:card_type]
+#@creditcard.biling_zip=params[:billing_zip]
  
  
 
@@ -209,8 +209,8 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 		    
     		    respond_to do |format|
 		      if @gigaclient.save
-			@creditcard.gigaclient_id=@gigaclient.id
-			@creditcard.save
+			#@creditcard.gigaclient_id=@gigaclient.id
+			#@creditcard.save
 			#~ @gigaclient.gigadomain.update_attribute(:gigaclient_id,  @gigaclient.id)
 
 			  flash[:alert]='Sucessfully created'
@@ -222,7 +222,6 @@ credit_card = ActiveMerchant::Billing::CreditCard.new(
 		      end
 		    end
 end
-
 
 
   
