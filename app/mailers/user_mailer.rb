@@ -39,7 +39,7 @@ end
      #~ :body=> File.read(ulf)
   #~ end  
   
-    def submit_brief(details,myfile,section)
+    def submit_brief(details,myfile,section,browse)
     @briefdetail = details
     @userdetail = local_ip
     @details = browse

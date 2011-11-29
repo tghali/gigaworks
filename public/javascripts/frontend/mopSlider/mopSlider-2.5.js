@@ -68,9 +68,9 @@ jQuery.fn.extend({
 		var mopSldSrc=function(mopSldTyp){
 			if(mopSldTyp=="paper"){
 			btnLeft.src="/images/frontend/mopSlider/sliderBtnLeftW.png";
-			btnLeftF.src="/images/frontend/mopSlider/sliderBtnLeftW_f.png";
+			//btnLeftF.src="/images/frontend/mopSlider/sliderBtnLeftW_f.png";
 			btnRight.src="/images/frontend/mopSlider/sliderBtnRightW.png";
-			btnRightF.src="/images/frontend/mopSlider/sliderBtnRightW_f.png";
+			//btnRightF.src="/images/frontend/mopSlider/sliderBtnRightW_f.png";
 			btnCenter.src="/images/frontend/mopSlider/sliderBtnW.png";
 			
 			btnChange.src="/images/frontend/mopSlider/sliderBkRtRtW.png";
@@ -78,18 +78,18 @@ jQuery.fn.extend({
 			//btnChange.src="mopSlider/sliderBackRightRightW.png";
 			btnChangeF.src="/images/frontend/mopSlider/sliderBackRightRightW_f.png";
 			//backImg.src="mopSlider/paperBack.gif";
-			sldcLeftImg.src="/images/frontend/mopSlider/sliderBackLeftLeftW.png";
+			//sldcLeftImg.src="/images/frontend/mopSlider/sliderBackLeftLeftW.png";
 			//sldcRightImg.src="mopSlider/sliderBackRightRightW.png";
 			sldBackLeft.src="/images/frontend/mopSlider/sliderBackLeftW.png";
 			sldBackCenter.src="/images/frontend/mopSlider/sliderBackW.png";
 			sldBackRight.src="/images/frontend/mopSlider/sliderBackRightW.png";
 		}else if(mopSldTyp=="black"){
 				btnLeft.src="/images/frontend/mopSlider/sliderBtnLeftW.png";
-				btnLeftF.src="/images/frontend/mopSlider/sliderBtnLeftW_f.png";
+				//btnLeftF.src="/images/frontend/mopSlider/sliderBtnLeftW_f.png";
 				btnRight.src="/images/frontend/mopSlider/sliderBtnRightW.png";
-				btnRightF.src="/images/frontend/mopSlider/sliderBtnRightW_f.png";
+				//btnRightF.src="/images/frontend/mopSlider/sliderBtnRightW_f.png";
 		
-				sldcLeftImg.src="/images/frontend/mopSlider/sliderBackLeftLeftW.png";
+				//sldcLeftImg.src="/images/frontend/mopSlider/sliderBackLeftLeftW.png";
 				sldBkLeft.src="/images/frontend/mopSlider/sliderBackLeftW.png";
 				sldBkCenter.src="/images/frontend/mopSlider/sliderBackW.png";
 				sldBkRight.src="/images/frontend/mopSlider/sliderBackRightW.png";
