@@ -414,6 +414,7 @@ end
 
 def get_estimate
   @amount = 0
+  if params[:source]!='Select' and params[:target]!='Select'
   if !params[:words].blank? && params[:localisation] && params[:design] && params[:translation]
        calc_pages((params[:words].to_i/250),'trans_local_design')    
     elsif !params[:words].blank? && params[:localisation] && params[:design]
@@ -444,6 +445,7 @@ def get_estimate
       calc_pages(params[:pages],'localisation')
     elsif !params[:pages].blank? && params[:translation]
       calc_pages(params[:pages],'translation')    
+    end
     end
 
   
