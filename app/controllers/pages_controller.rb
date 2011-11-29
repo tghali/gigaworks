@@ -445,7 +445,7 @@ def get_estimate
     elsif !params[:pages].blank? && params[:translation]
       calc_pages(params[:pages],'translation')    
     end
-  end
+
   
 
   
