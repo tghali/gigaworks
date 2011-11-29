@@ -97,6 +97,7 @@ function sucessful_submission()
   {
   var bname = document.getElementById('briefdetail_name');
   var email = document.getElementById('briefdetail_email');
+  var attach = document.getElementById('BrowserHidden2');
   var attachment = document.getElementById('FileField1');
   var emailExp=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
   
@@ -126,10 +127,10 @@ function sucessful_submission()
   
   
   
-  if(attachment.value == "")
+  if(attach.value == "")
   {
   alert('Please choose a file to upload');
-  attachment.focus();
+  attach.focus();
   return false;
   }
   
