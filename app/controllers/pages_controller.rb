@@ -320,9 +320,10 @@ class PagesController < ActionController::Base
   
   	def submit_brief_pages 
         briefdetail = BriefDetail.new(params[:brief_detail])
+        browser_detail = request.env['HTTP_USER_AGENT']
       respond_to do |format|
         if briefdetail.save! 
-          UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path,params[:section_name]).deliver 
+          UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path,params[:section_name], browser_detail).deliver 
 	  format.html { redirect_to("http://test.gigavine.com/technology#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology main"	
           format.html { redirect_to("http://test.gigavine.com/technology/e-learning#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology learning"  
           format.html { redirect_to("http://test.gigavine.com/technology/e-commerce#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology commerce"  
@@ -413,9 +414,22 @@ end
 
 def get_estimate
   @amount = 0
-  if params[:source]!='Select' and params[:target]!='Select'
-    if !params[:words].blank? && params[:translation]
+  if !params[:words].blank? && params[:localisation] && params[:design] && params[:translation]
+       calc_pages((params[:words].to_i/250),'trans_local_design')    
+    elsif !params[:words].blank? && params[:localisation] && params[:design]
+       calc_pages((params[:words].to_i/250),'local_and_design')
+    elsif !params[:words].blank? && params[:translation] && params[:design]
+       calc_pages((params[:words].to_i/250),'trans_and_design')
+    elsif !params[:words].blank? && params[:translation] && params[:localisation]
+       calc_pages((params[:words].to_i/250),'trans_and_localise')        
+    elsif !params[:words].blank? && params[:design]
+      calc_pages((params[:words].to_i/250),'design')    
+    elsif !params[:words].blank? && params[:localisation]
+      calc_pages((params[:words].to_i/250),'localisation')
+    elsif !params[:words].blank? && params[:translation]
       calc_words(params[:words])
+
+    #--pages---
     elsif !params[:pages].blank? && params[:localisation] && params[:design] && params[:translation]
        calc_pages(params[:pages],'trans_local_design')    
     elsif !params[:pages].blank? && params[:localisation] && params[:design]
@@ -433,6 +447,8 @@ def get_estimate
     end
   end
   
+
+  
   	  respond_to do |format|	     
 	      format.js	    
 	    end
@@ -449,6 +465,7 @@ def calc_words(words)
 end
 
 def calc_pages(pages,option)
+  @amount=0
   if option == 'trans_local_design'
     if pages.to_i <= 4
         @amount = @amount + 120
