@@ -1,0 +1,29 @@
+#company_about.sign_up{:style => "display:none"}
+  %h3#see_id  Company / About
+  %br.clear
+  %div
+    = form_for :company_page, :url => {:controller => "pages",:action => "company_create"},:html =>{:name => "company_form",:onsubmit => "return tech_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "company_about"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title1:
+        = f.text_field :title, :style => "width:600px;",:id => "company_title", :value => get_languages('company_about','title')
+
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Summary1:
+        = f.text_area :content, :style => "width:600px;",:id => "company_summary", :value => get_languages('company_about','summary')
+
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title2:
+        = f.text_field :news, :style => "width:600px;",:id => "company_heading", :value => get_languages('company_about','heading2')
+
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Summary2:
+        = f.text_area :network, :style => "width:600px;",:id => "company_summary2", :value => get_languages('company_about','summary2')
+
+
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+
+  %a#close_x.close.sprited{:href => "#"} close

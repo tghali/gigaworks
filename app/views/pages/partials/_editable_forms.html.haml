@@ -349,4 +349,29 @@
 
 = render :partial => "/pages/partials/projects_case_studies"
 
+#company_land.sign_up{:style => "display:none"}
+  %h3#see_id  Company
+  %br.clear
+  %div
+    = form_for :company_page, :url => {:controller => "pages",:action => "company_create"},:html =>{:name => "company_form",:onsubmit => "return tech_validate();"} do |f|
+      = f.hidden_field :page_section,  :value => "company_new"
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Title:
+        = f.text_field :title, :style => "width:600px;",:id => "company_heading", :value => get_languages('company_new','title')
+
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Summary:
+        = f.text_area :content, :style => "width:600px;",:id => "company_summary", :value => get_languages('company_new','summary')
+
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear  
+
+  %a#close_x.close.sprited{:href => "#"} close
+
+= render :partial => "/pages/partials/company_about"
+
+= render :partial => "/pages/partials/company_value"
+
 = render :partial => "/pages/partials/contact"

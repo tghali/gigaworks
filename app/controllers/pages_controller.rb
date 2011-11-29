@@ -287,7 +287,27 @@ class PagesController < ActionController::Base
 		find_page.update_attributes(params[:projects_page])
 	end
 	 redirect_to :action => "projects_case_studies"
-  end
+ end
+ 
+   def company_create
+	 find_page = FrontendPage.find_by_page_section(params[:company_page][:page_section])
+	 if find_page.blank?
+		@frontend_page = FrontendPage.new(params[:company_page])
+		@frontend_page.user_id = 2	 
+		@frontend_page.page_section = params[:company_page][:page_section]
+		@frontend_page.save
+	else
+		find_page.update_attributes(params[:company_page])
+	end
+  
+      if params[:company_page][:page_section] == 'company_new'
+	 redirect_to :action => "company_new"
+      elsif params[:company_page][:page_section]=='company_about'
+	 redirect_to :action => "company_about"	
+      elsif params[:company_page][:page_section]=='company_value'
+	 redirect_to :action => "company_value"	
+      end
+end
   
     def banner_create
     #~ render :text => params.inspect and return
