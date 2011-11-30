@@ -507,7 +507,7 @@ a.sort_list_anchor:hover{background:url(/images/new_page/sorting_up_down.png) no
 .fancyTable-1 tbody tr.odd td { background-color:#f8f8f8 }
 .fancyTable-1 th{font-size:11px; font-weight:700;}
 .fancyTable-1 td,.fancyTable-1 th{ padding:2px 1px; }
-.fancyTable-1 th div.head,.fancyTable-1 td div{ background:url(/images/new_page/head_bg.gif) repeat-x; border:1px solid #bcc5c1; padding:0 8px;}
+.fancyTable-1 th div.head,.fancyTable-1 td div{ background: repeat-x; border:1px solid #bcc5c1; padding:0 8px;}
 .fancyTable-1 td div{ padding:4px 8px;}
 .fancyTable-1 td div{ border:0; background:none}
 .heading_block{	height:23px; background:#e6e6e6 url(/images/clients/project_icon.jpg) no-repeat 5px 4px; }

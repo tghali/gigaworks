@@ -1,26 +1,2286 @@
 <!DOCTYPE html>
-<html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
+<meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+<title>
+Gigavine
+</title>
 
+<script type='text/javascript'>
+  //<![CDATA[
+    document.onselectstart=new Function('return false');
+  //]]>
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js'></script>
+<script src="javascripts/rails.js" type="text/javascript"></script>
+<link href="stylesheets/overall.css" media="screen" rel="stylesheet" type="text/css" />
+<script charset='utf-8' src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' type='text/javascript'></script>
+<script src="javascripts/frontend/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="javascripts/frontend/pngFix/jquery.pngFix.js" type="text/javascript"></script>
+<script src="javascripts/frontend/script.js" type="text/javascript"></script>
+<script src="javascripts/frontend/jquery.tools.min.js" type="text/javascript"></script>
+<script src="javascripts/frontend/jquery.lightbox_me.js" type="text/javascript"></script>
+<script src="javascripts/frontend/cufon-yui.js" type="text/javascript"></script>
+<script src="javascripts/frontend/Gotham_Light_300.font.js" type="text/javascript"></script>
+<script src="javascripts/frontend/hmenuscript.js" type="text/javascript"></script>
+<script src="javascripts/frontend/jquery-color.js" type="text/javascript"></script>
+<script type='text/javascript'>
+  //<![CDATA[
+    // Background color animation 
+           jQuery(document).ready(function () {
+    
+           var currentId = jQuery(this).find('div').attr('id');
+           jQuery("#latest-news,#join-the-network,#contact-us").hover(function () {
+    
+    
+               var currentId = jQuery(this).find('.news_wrapper_block').attr('id');
+               if (this.id == 'latest-news') {
+                   jQuery(this).find(".news_wrapper_block").animate({
+                       backgroundColor: "#e46800"
+                   }, 500);
+    
+               }
+               if (this.id == 'join-the-network') {
+                   jQuery(this).find(".news_wrapper_block").animate({
+                       backgroundColor: "#007575"
+                   }, 500);
+               }
+               if (this.id == 'contact-us') {
+                   jQuery(this).find(".news_wrapper_block").animate({
+                       backgroundColor: "#0071B9 "
+                   }, 500);
+               }
+    
+           }, function () {
+               jQuery(this).find(".news_wrapper_block").animate({
+                   backgroundColor: "#fff"
+               }, 400);
+    
+           });
+    
+    
+       });
+  //]]>
+
+</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    Cufon.replace('.create_headding h4, .sf-navbar,  #language_get h4, .lp_rightblock p.headding_text, .lp_rightblock p.headding_textnew, .get_bg_inner p span, .get_bg_inner p.count, .get_bg_inner p.count1, .checkbox, .top_comment p, .slidetabs a, .shadow_midbg h4, .images h4, .home_create_header, .news_headding h4, #submit-a-brief h4, #how-we-help h4, .sub_bg_inner p span, .language_video h4, .home_technology_header .headtext, .home_language_header .headtext, .home_create_header .headtext, .home_index_header p,  .network_comment p, .net_block_wrapper h4, .landing, .net_rightblock h3, .net_rightblock h5, .inner_img_top h4, .net_leftblock p, .lpsub_bg_inner p span, #lp_submit h4, .trans_headding h4, .work_headding h4, .tech_headding h4, .trans_headding h4 span, .clientname, .inner_leftcase h3, .details_block h2, .pro_case_header h4,   .contact_headding h4, .contact_textblock p.headding ,h3,label,legend', ' ', { fontFamily: 'gothamxlight', hover: true});
+    
+    Cufon.replace('.lp_navigation li a', {hover: { color: '#ffffff'}});
+    
+    Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
+    Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
+    Cufon.replace('.content_tab', {hover: {color: '#aa0c22'}});
+    Cufon.replace('.content_tabbig1', {hover: {color: '#aa0c22'}});		
+    Cufon.replace('.content_tabbig', {hover: {color: '#207bb2'}});
+    Cufon.replace('.content_tab_create', {hover: {color: '#207bb2'}});
+    Cufon.replace('.content_tab_project', {hover: {color: '#d37436'}});
+    Cufon.replace('.foot_right li a', {hover: {color: '#ffffff'}});
+  //]]>
+</script>
+<script src='javascripts/frontend/hoverIntent.js' type='text/javascript'></script>
+<script src='javascripts/frontend/superfish.js' type='text/javascript'></script>
+<script type='text/javascript'>
+  //<![CDATA[
+    jQuery.noConflict();
+    
+    jQuery(document).ready(function() {	
+    
+    
+    
+     jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a,.form_btn input.form_submit, .count_btn").hover(function() {
+                  jQuery(this).animate({ backgroundColor: "#c1c1c1",color:"#585858" }, 500);
+          },function() {
+                   jQuery(this).animate({ backgroundColor: "#9f9f9f", color: "#fff"}, 500);
+          });	
+     jQuery(".net_signbtn a").hover(function() {
+                  jQuery(this).animate({ backgroundColor: "#587877", color: "#fff" }, 500);
+          },function() {
+                   jQuery(this).animate({ backgroundColor: "#048581", color: "#fff" }, 500);
+          });	
+     jQuery(".images_1 div.sub_content p a.blue").hover(function() {
+                  jQuery(this).animate({ backgroundColor: "#005d93", color: "#fff" }, 500);
+          },function() {
+                   jQuery(this).animate({ backgroundColor: "#66bae6", color: "#fff" }, 500);
+          });	
+     jQuery(".images_1 div.sub_content p a.red").hover(function() {
+                  jQuery(this).animate({ backgroundColor: "#6b051e", color: "#fff" }, 500);
+          },function() {
+                   jQuery(this).animate({ backgroundColor: "#d27782", color: "#fff" }, 500);
+          });
+     jQuery(".images_1 div.sub_content p a.green").hover(function() {
+                  jQuery(this).animate({ backgroundColor: "#5a6814", color: "#fff" }, 500);
+          },function() {
+                   jQuery(this).animate({ backgroundColor: "#c2d184", color: "#fff" }, 500);
+          });		
+    
+    
+    });
+    jQuery.noConflict();
+    jQuery(document).ready(function(){ 
+    jQuery("#products").hide();	
+     jQuery("#image_frm_div").click(function()
+     {
+     if (jQuery("#products:visible").length != 0)
+     {
+     jQuery("#products").fadeTo("1000", 0).hide();
+     jQuery(".reg_text1").css("background","none");
+     }
+      
+     else {
+     jQuery("#products").fadeTo("1000", 1).show();
+     jQuery(".reg_text1").css("background","#ffffff");
+     jQuery(".reg_text1").css("position","relative");
+     jQuery(".reg_text1").css("z-index","999");
+      }
+    
+    
+    
+     });
+    jQuery("#register").hide();	
+     jQuery("#image_frm_register").click(function()
+     {
+     if (jQuery("#register:visible").length != 0)
+     {
+     jQuery("#register").fadeTo("1000", 0).hide();
+     jQuery(".reg_text3").css("background","none");
+     }
+      
+     else {
+     jQuery("#register").fadeTo("1000", 1).show();
+     jQuery(".reg_text3").css("background","#ffffff");
+     jQuery(".reg_text3").css("position","relative");
+     jQuery(".reg_text3").css("z-index","999");
+      }
+    
+    
+    
+     });
+    
+      jQuery(".tabdiv").hide();
+      jQuery("#create").show();
+      jQuery(".c1").css("background-color","#e5e5e5");
+      jQuery(".tabnav li").click(function($){
+      getid = jQuery(this).find("a").attr('href');
+      jQuery(".tabnav li a").css("background-color","");
+      jQuery(this).find("a").css("background-color","#e5e5e5");
+      jQuery(".tabdiv").slideUp('slow');
+      jQuery(getid).slideDown('slow');
+      return false;
+      });
+     
+    });
+      jQuery.noConflict();
+      jQuery(document).ready(function(){   
+      jQuery(".languages_select").click(function()
+      { 
+      li_id=jQuery(this).attr('id');
+      jQuery("#selected_lang").html(li_id);
+      jQuery("#products").fadeTo("1000", 0).hide();
+      jQuery(".reg_text1").css("background","none");					    	    
+      });
+      jQuery("#products").mouseleave(function()
+      { 
+       //alert("hello");
+      if(jQuery("#products").is(":visible")){
+      jQuery(this).stop()
+      jQuery(this).hide();
+      jQuery(".reg_text1").css("background","none");	
+      
+      }
+      	    
+      });	
+      jQuery("#register").mouseleave(function()
+      { 
+       //alert("hello");
+      if(jQuery("#register").is(":visible")){
+      jQuery(this).stop()
+      jQuery(this).hide();
+      jQuery(".reg_text3").css("background","none");	
+      
+      }
+      });		
+    
+      $(".foot_right li").hover(
+        function () {
+        $(this).css("color","#ffffff");
+         }, 
+        function () {
+         $(this).css("color","red");
+    
+         }
+         );
+    
+      });
+  //]]>
+</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    jQuery.noConflict();
+    jQuery(function() {
+    
+     jQuery(".menu_middle").click(function () {
+     	Cufon.replace('.slidetabs_2_inner li a', {color: '#000000'});
+    			Cufon.replace('.slidetabs_2_inner li a.current', {color: '#ffffff'});
+      			
+    			Cufon.replace('.sf-with-ul li a', {color: '#20202c'});
+    			
+     });
+    });
+  //]]>
+</script>
+
+<script type='text/javascript'>
+  //<![CDATA[
+    jQuery(document).ready(function(){ 
+    jQuery(".sf-with-ul").mouseover(function(){
+    colrid = "#"+jQuery(this).attr("id");
+    Cufon.replace(this, {color: colrid});
+    }); 
+    jQuery(".sf-with-ul").mouseout(function(){
+    if((jQuery(this).parent().attr("class")!= "sfHover sf-breadcrumb") && (jQuery(this).parent().attr("class")!= "sf-breadcrumb")){
+    Cufon.replace(this, {color: '#383839'});
+    }
+    colrhref = jQuery(this).attr("href");
+    var pathname = window.location.pathname;
+    if(colrhref==pathname)
+    {
+    colrid = "#"+jQuery(this).attr("id");
+    Cufon.replace(this, {color: colrid});  
+    }
+    });
+    });
+  //]]>
+</script>
+
+<script type='text/javascript'>
+  //<![CDATA[
+    jQuery(document).ready(function() {
+    jQuery.noConflict();
+    jQuery("ul.fblinks li,p.foot_logo").hover(function() { //On hover...
+    var thumbOver = jQuery(this).find("img").attr("src"); //Get image url and assign it to 'thumbOver'
+    jQuery(this).find("a.thumb1").css({'background' : 'url(' + thumbOver + ') no-repeat center -23px'});
+    jQuery(this).find("a.thumb2").css({'background' : 'url(' + thumbOver + ') no-repeat center -98px'});
+    jQuery(this).find("span").stop().fadeTo('normal', 0 , function() {
+    jQuery(this).hide(); //Hide the image after fade
+    }); 
+    } , function() { //on hover out...
+    		//Fade the image to 1 
+          jQuery(this).find("span").stop().fadeTo('normal', 1).show();
+          jQuery(this).find("a.thumb2").stop().css({'background' : 'url(' + thumbOver + ') no-repeat center -96px'});
+    });
+    });
+    function comingsoon()
+    {
+    jQuery("#comingsoon").lightbox_me({centered: true});    
+    }
+  //]]>
+</script>
+
+<!--[if IE]>
+<style type="text/css">
+.sldCenter,.sldLeft,.sldRight{background:#0f0; top:-5px;}
+.sliderBtn{ width:32px !important;}
+.sldBtnLeft,.sldBtnRight{ width:16px!important;height:30px!important;}
+</style>
+<![endif]-->
+<!--[if IE 7]>
+<link href="/stylesheets/frontend/lt7.css" rel="stylesheet" type="text/css" media="all"/>
+<![endif]-->
+<!--[if IE 8]>
+<link href="/stylesheets/frontend/lt8.css" rel="stylesheet" type="text/css" media="all"/>
+<![endif]-->
+</head>
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
+<script type='text/javascript'>
+  //<![CDATA[
+    Cufon.replace('.sf-navbar li.current', {color: '#cf641e'});
+    Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+  //]]>
+</script>
+<div id='contact_wrapper'>
+<div class='contact-newbg' style="background:none!important;">
+<!-- Header -->
+<div id='trans-wrapper'>
+<div id='trans-main'>
+<div class='create_nav'>
+<div class='create_navleftblock'>
+<div id='logo'>
+<a alt='Gigavine' href='http://www.gigavine.com/' title=''>
+<img alt='Gigavine' src='/images/frontend/gigavine-logo.png' title=''>
+</a>
+</div>
+</div>
+<div class='create_navrightblock'>
+
+<div class='create_register'>
+<div class='reg_text3'>
+<a href='javascript://' id='image_frm_register'>
+<span id='selected_lang1'>Register</span>
+<img alt='' src='/images/frontend/down-arrow.jpg' title=''>
+<div class='select_language_reg' id='register'>
+<ul>
+<li style='height:10px;background:#fff'><span></span></li>
+<li>
+<a class='languages_select1' href='/clients/signup' id='Client'><span></span>&nbsp; &nbsp;Client
+</a>
+</li>
+<li>
+<a class='languages_select1' href='/talents/registration' id='Talent'><span></span>&nbsp; &nbsp;Talent
+
+</a>
+</li>
+</ul>
+</div>
+</a>
+</div>
+<div class='reg_text'>
+<a href='#' id='try-1'>
+Login
+<img alt='' src='/images/frontend/down-arrow.jpg' title=''>
+</a>
+</div>
+<div class='reg_text1'>
+Current Language:
+<a href='javascript://' id='image_frm_div'>
+<span id='selected_lang'>English</span>
+
+<img alt='' src='/images/frontend/down-arrow.jpg' title=''>
+<div class='select_language' id='products'>
+<ul>
+<li style='height:10px;background:#fff'><span></span></li>
+<li>
+<a class='languages_select' href='javascript://' id='English'><span></span>&nbsp; &nbsp;English
+</a>
+</li>
+<li>
+<a class='languages_select' href='javascript://' id='French'><span></span>&nbsp; &nbsp;French
+</a>
+</li>
+<li>
+<a class='languages_select' href='javascript://' id='Arabic'><span></span>&nbsp; &nbsp;Arabic
+
+</a>
+</li>
+<li>
+<a class='languages_select' href='javascript://' id='Chinese'><span></span>&nbsp; &nbsp;Chinese
+</a>
+</li>
+<li>
+<a class='languages_select' href='javascript://' id='Japanese'><span></span>&nbsp; &nbsp;Japanese
+</a>
+</li>
+<li>
+<a class='languages_select' href='javascript://' id='German'><span></span>&nbsp; &nbsp;German
+</a>
+</li>
+
+</ul>
+</div>
+</a>
+</div>
+<div class='reg_text2'>
+<input onBlur=" if (this.value == '') {this.value = 'Search';}" onFocus="if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}" type='text' value='Search'>
+<a href='#'>
+<img src='images/frontend/top_inputarrow.jpg'>
+</a>
+</input>
+</div>
+</div>
+<div>
+<div class='sampleTabContent' id='sample4'>
+<ul class='sf-menu sf-navbar' id='sample-menu-4'>
+<li>
+<a class='sf-with-ul' href='/languages' id='aa0c22' style='color:#383839'>
+
+Languages
+<span class='sf-sub-indicator'>�</span>
+</a>
+<ul>
+<li class='sub_nav'>
+<a href='/languages/copywriting'>
+Copywriting
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/languages/translation'>
+Translation
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/languages/localisation'>
+
+Localisation
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/languages/consultancy'>
+Consultancy
+</a>
+</li>
+</ul>
+</li>
+<li>
+<a class='sf-with-ul' href='/creative' id='0069a9' style='color:#383839'>
+Creative
+<span class='sf-sub-indicator'>�</span>
+</a>
+<ul>
+
+<li class='sub_nav'>
+<a href='/creative/artwork'>
+Artwork
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/creative/advertising'>
+Advertising
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/creative/webdesign'>
+Web Design
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/creative/interactive'>
+
+Interactive
+</a>
+</li>
+</ul>
+</li>
+<li>
+<a class='sf-with-ul' href='/technology' id='5f9732' style='color:#383839'>
+Technology
+<span class='sf-sub-indicator'>�</span>
+</a>
+<ul>
+<li class='sub_nav'>
+<a href='/technology/e-learning'>
+E-Learning
+</a>
+</li>
+
+<li class='sub_nav'>
+<a href='/technology/e-commerce'>
+E-Commerce
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/technology/online-security'>
+Online Security
+</a>
+</li>
+<li class='sub_nav'>
+<a href='/technology/online-tools'>
+Online Tools
+</a>
+</li>
+</ul>
+</li>
+
+<li>
+<a class='sf-with-ul' href='javascript://' id='227671' onClick='comingsoon();' style='color:#383839;'>
+Network
+<span class='sf-sub-indicator'>�</span>
+</a>
+<ul>
+<li class='sub_nav'>
+<a href='javascript://' onClick='comingsoon();'>Registration</a>
+</li>
+<li class='sub_nav'>
+<a href='javascript://' onClick='comingsoon();'>
+Featured
+</a>
+</li>
+</ul>
+
+</li>
+<li>
+<a class='sf-with-ul' href='/contact' id='cf641e' style='padding-right:0px!important; color:#383839'>
+Contact
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+
+            <div class='contact_headding' style='background:none'>
+
+              <h4>
+                PAGE NOT FOUND
+              </h4>
+            </div>
+          </div>
+          <!-- <div class="pro-case-header">&nbsp;</div> -->
+        </div>
+              <div id='lp_content' style='position:relative;background:#fff;'>
+
+          <div id='lp_midcontent'>
+            <div class='lp_leftblock'>
+              <div class='lp_navigation'>
+                <ul>
+                  <li>
+                    <a href='http://www.gigavine.com/'>Homepage</a>
+                  </li>
+                </ul>
+
+              </div>
+			  
+			  <div id="language_get"><h4>&nbsp;</h4></div>
+			  
+               </div>
+ <div class='lp_rightblock'>
+<p class='errorheadding_text'>
+Sorry, we can't find the  page you're after...
+<p>
+<p>
+Unfortunately the server couldn't find the page you requested, either because it is temporarily unavailable, has had its name changed or no longer exists.
+</p>
+
+<p>This might be because:</p>
+
+<div class="error_links">
+<ul>
+<li>You may have typed the web address incorrectly. Please check the address and spelling ensuring that it does not contain capital letters or spaces; </li>
+
+<li>The page you were looking for may have been moved, updated or deleted.</li>
+
+</ul>
+
+</div>
+
+<div class="error_link_box">
+<p>Please try the following options instead:</p>
+
+<div class="error_previous_link"><a href="javascript:history.back()">Go back to the previous page</a></div>
+<div class="error_home_link"><a href="http://www.gigavine.com/">Go to the Gigavine Homepage</a></div>
+</div>
+
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div>
+
+</div>
+            
+
+
+          </div>
+        </div>
+      </div>
+      <div class='topspace'></div>
+    </div>
+
+
+
+
+
+<!-- footer block start -->
+<script type='text/javascript'>
+  //<![CDATA[
+    Cufon.replace('.foot_right li a', {hover: {color: '#aa0c22'}});
+  //]]>
+</script>
+<div id='footer'>
+<div class='inner_footer' style='height:168px;'>
+<div class='foot_left'>
+<p class='foot_logo'>
+
+<a alt='' class='thumb2' href='#' title=''>
+<span>
+<img alt='' src='/images/frontend/foot_logo.png' title=''>
+</span>
+</a>
+</p>
+</div>
+<div class='foot_right'>
+<div class='flo_left'>
+<ul style='position:relative; top:20px;'>
+<li class='foot_head'>
+<a href='/languages'>Languages</a>
+</li>
+<li>
+<a href='/languages/copywriting'>Copywriting</a>
+
+</li>
+<li>
+<a href='/languages/translation'>Translation</a>
+</li>
+<li>
+<a href='/languages/localisation'>Localisation</a>
+</li>
+<li>
+<a href='/languages/consultancy'>Consultancy</a>
+</li>
+</ul>
+</div>
+<div class='flo_left'>
+<ul style='position:relative; top:20px;'>
+
+<li class='foot_head'>
+<a href='/creative'>Creative</a>
+</li>
+<li>
+<a href='/creative/artwork'>Artwork</a>
+</li>
+<li>
+<a href='/creative/advertising'>Advertising</a>
+</li>
+<li>
+<a href='/creative/webdesign'>Web Design</a>
+</li>
+<li>
+
+<a href='/creative/interactive'>Interactive</a>
+</li>
+</ul>
+</div>
+<div class='flo_left'>
+<ul style='position:relative; top:20px;'>
+<li class='foot_head'>
+<a href='/technology'>Technology</a>
+</li>
+<li>
+<a href='/technology/e-learning'>E-learning</a>
+</li>
+<li>
+<a href='/technology/e-commerce'>E-commerce</a>
+
+</li>
+<li>
+<a href='/technology/online-security'>Online security</a>
+</li>
+<li>
+<a href='/technology/online-tools'>Online tools</a>
+</li>
+</ul>
+</div>
+<div class='flo_left'>
+<ul style='position:relative; top:20px;'>
+<li class='foot_head'>
+<a href='javascript://' onClick='comingsoon();'>Solutions</a>
+</li>
+
+<li>
+<a href='javascript://' onClick='comingsoon();'>Projects</a>
+</li>
+<li>
+<a href='/projects/case-studies'>Case studies</a>
+</li>
+</ul>
+</div>
+<div class='flo_left'>
+<ul style='position:relative; top:20px;'>
+<li class='foot_head'>
+<a href='/network'>Network</a>
+</li>
+<li>
+
+<a href='/network/registration'>Registration</a>
+</li>
+<li>
+<a href='javascript://' onClick='comingsoon();'>Featured</a>
+</li>
+<li>
+<a href='javascript://' onClick='comingsoon();'>News</a>
+</li>
+</ul>
+</div>
+<div class='flo_left'>
+<ul style='margin-right:0px; position:relative; top:20px;'>
+<li class='foot_head'>
+<a href='/company'>Company</a>
+
+</li>
+<li>
+<a href='/company/about'>About</a>
+</li>
+<li>
+<a href='/company/value'>Values</a>
+</li>
+<li>
+<a href='/contact'>Contact</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class='clear'></div>
+<div class='inner_footer'>
+<div class='foot_left'>
+<ul class='fblinks' style='margin-top:0'>
+<li>
+<a alt='facebook' class='thumb1' href=' http://www.facebook.com/pages/Gigavine/173597436015787' target='_blank' title='Facebook application'>
+<span>
+<img alt='facebook' src='/images/frontend/fb_icon.png' title=''>
+</span>
+</a>
+</li>
+<li>
+<a alt='twitter' class='thumb1' href='http://twitter.com/gigavine' target='_blank' title=''>
+<span>
+<img alt='twitter' src='/images/frontend/tweet_icon.png' title=''>
+</span>
+</a>
+
+</li>
+<li>
+<a alt='linkedin' class='thumb1' href='http://www.linkedin.com/company/gigavine' target='_blank' title=''>
+<span>
+<img alt='linkedin' src='/images/frontend/linkedin.png' title=''>
+</span>
+</a>
+</li>
+<li>
+<a alt='youtube' class='thumb1' href='http://www.youtube.com/user/gigavine' target='_blank' title=''>
+<span>
+<img alt='youtube' src='/images/frontend/tube_icon.png' title=''>
+</span>
+</a>
+</li>
+<li>
+<a alt='' class='thumb1' href='javascript://' title=''>
+
+<span>
+<img alt='' src='/images/frontend/rss_icon.png' title=''>
+</span>
+</a>
+</li>
+</ul>
+</div>
+<div class='foot_right'>
+<p style='line-height:20px'>
+&nbsp;&nbsp;&nbsp;&copy; Copyright Gigavine 2011 &nbsp; &nbsp; &nbsp; &nbsp;<a href='/terms'>Terms & Conditions</a> &nbsp; &nbsp; &nbsp; &nbsp;
+
+<a href='/privacypolicy'>Privacy Policy</a>
+</p>
+</div>
+</div>
+</div>
+<!-- footer block end -->
+
 </body>
 </html>
+<script src="/javascripts/frontend/validations.js?1322486544" type="text/javascript"></script>
+<script type='text/javascript'>
+  //<![CDATA[
+    Cufon.replace('.sf-navbar li.current', {color: '#aa0c22'});
+    Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+  //]]>
+</script>
+<div class='sign_up' id='home_page' style='display:none'>
+<h3 id='see_id'>HOME</h3>
+
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#create'>Create</a>
+</li>
+<li>
+<a href='#adapt'>Adapt</a>
+</li>
+<li>
+<a href='#deliver'>Deliver</a>
+</li>
+</ul>
+<div class='tabdiv' id='create'>
+
+<form accept-charset="UTF-8" action="/home_create" enctype="multipart/form-data" method="post" name="forms1" onSubmit="return slider_validation('create');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="frontend_page_tab_type" name="frontend_page[tab_type]" type="hidden" value="create" />
+<label class='headding1_label'>
+<strong>Image:</strong>
+
+<input name='frontend_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+<label class='headding_label'>
+<strong>Content:</strong>
+<textarea cols="40" id="create_content" name="frontend_page[content]" rows="20" style="width:600px;">&lt;p&gt;Translation and localisation by native linguists and cultural specialists to make your message meaningful.Translation and localisation by native linguists and cultural specialists to make your message meaningful.&lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+
+</form>
+</div>
+<!-- /Create -->
+<div class='tabdiv' id='adapt'>
+<form accept-charset="UTF-8" action="/home_create" enctype="multipart/form-data" method="post" name="forms1" onSubmit="return slider_validation('adapt');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="frontend_page_tab_type" name="frontend_page[tab_type]" type="hidden" value="adapt" />
+<label class='headding1_label'>
+<strong>Image:</strong>
+<input name='frontend_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+<label class='headding_label'>
+<strong>Content:</strong>
+<textarea cols="40" id="adapt_content" name="frontend_page[content]" rows="20" style="width:600px;">validation test for the tabs dfsdf fdsfs</textarea>
+</label>
+
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- /Adapt -->
+<div class='tabdiv' id='deliver'>
+<form accept-charset="UTF-8" action="/home_create" enctype="multipart/form-data" method="post" name="forms1" onSubmit="return slider_validation('deliver');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="frontend_page_tab_type" name="frontend_page[tab_type]" type="hidden" value="deliver" />
+<label class='headding1_label'>
+<strong>Image:</strong>
+<input name='frontend_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+<label class='headding_label'>
+<strong>Content:</strong>
+
+<textarea cols="40" id="deliver_content" name="frontend_page[content]" rows="20" style="width:600px;">The technical tools and digital interfaces to carry your communication to the heart of your &lt;br/&gt; audience.</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Deliver -->
+</div>
+<div class='clearspace'></div>
+<div>
+<form accept-charset="UTF-8" action="/home_create" enctype="multipart/form-data" method="post" name="forms1" onSubmit="return home_middle_validation();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="frontend_page_tab_type" name="frontend_page[tab_type]" type="hidden" value="middle_content" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Title:</strong>
+
+<input class="text" id="middle_title" name="frontend_page[title]" size="30" type="text" value="Gigavine offers creative &amp; technical services which cross borders &amp; open minds" />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Content:</strong>
+<textarea cols="40" id="middle_content" name="frontend_page[content]" rows="20" style="width:600px;height:300px"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<div class='latest_maintab'>
+<form accept-charset="UTF-8" action="/home_create" enctype="multipart/form-data" method="post" name="forms1" onSubmit="return network_validation();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+
+<input id="frontend_page_tab_type" name="frontend_page[tab_type]" type="hidden" value="news_block" />
+<div class='latest_inputblock'>
+<label>
+<strong>Latest News</strong>
+<textarea cols="40" id="frontend_page_news" name="frontend_page[news]" rows="20">Find the latest news, analysis and opinions in digital media and multimedia technology.</textarea>
+</label>
+</div>
+<div class='latest_inputblock'>
+<label>
+<strong>Join&nbsp;the&nbsp;network</strong>
+<textarea cols="40" id="frontend_page_network" name="frontend_page[network]" rows="20">We are always looking for expert linguists, talented digital artists, creative individuals and web developers. </textarea>
+
+</label>
+</div>
+<div class='latest_inputblock'>
+<label>
+<strong>Contact us</strong>
+<textarea cols="40" id="frontend_page_contact_us" name="frontend_page[contact_us]" rows="20">Get in touch if you have any queries, requests or general comments and feedback.</textarea>
+</label>
+</div>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+
+</div>
+<div class='sign_up' id='languages' style='display:none'>
+<h3 id='see_id'>LANGUAGES</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="lang_form" onSubmit="return lang_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="languages_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+<textarea cols="40" id="lang_heading" name="languages_page[title]" rows="20" style="width:600px;">            It&amp;#39;s not just speaking the language, it&amp;#39;s about understanding the culture. We offer expert translation and localisation services to businesses straddling cultural and linguistic divides, helping them to communicate effectively amid the challenges of the global economy.</textarea>
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+
+<textarea cols="40" id="lang_summary" name="languages_page[content]" rows="20" style="width:600px;"> </textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='language_translation' style='display:none'>
+<h3 id='see_id'>LANGUAGES / TRANSLATION</h3>
+<br class='clear'>
+
+<div>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="lang_form" onSubmit="return lang_trans_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="language_translation_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+<textarea cols="40" id="lang_translation_heading" name="languages_page[title]" rows="20" style="width:600px;"></textarea>
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="lang_translation_summary" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#technical'>TECHNICAL</a>
+</li>
+<li>
+<a href='#medical'>MEDICAL</a>
+</li>
+<li>
+
+<a href='#marketing_business'>MARKETING & BUSINESS</a>
+</li>
+<li>
+<a href='#literary'>LITERARY</a>
+</li>
+<li>
+<a href='#legal'>LEGAL</a>
+</li>
+</ul>
+<br class='clear'>
+<div class='tabdiv' id='technical'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_translation_tabs('lang_trans_technical');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_trans_technical" />
+
+<label class='headding_label'>
+<strong>Technical :</strong>
+<textarea cols="40" id="technical_content" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- /Create -->
+<div class='tabdiv' id='medical'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_translation_tabs('lang_trans_medical');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_trans_medical" />
+<label class='headding_label'>
+<strong>Medical :</strong>
+
+<textarea cols="40" id="medical_content" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- /Adapt -->
+<div class='tabdiv' id='marketing_business'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_translation_tabs('lang_trans_marketing');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_trans_marketing" />
+<label class='headding_label'>
+<strong>Marketing :</strong>
+<textarea cols="40" id="marketing_content" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Deliver -->
+<div class='tabdiv' id='literary'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_translation_tabs('lang_trans_literary');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_trans_literary" />
+<label class='headding_label'>
+<strong>Literary :</strong>
+<textarea cols="40" id="literary_content" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Deliver -->
+<div class='tabdiv' id='legal'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_translation_tabs('lang_trans_legal');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_trans_legal" />
+<label class='headding_label'>
+<strong>Legal :</strong>
+<textarea cols="40" id="legal_content" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+
+</form>
+</div>
+<!-- Deliver -->
+</div>
+<div class='clearspace'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='language_localisation' style='display:none'>
+<h3 id='see_id'>LANGUAGES / LOCALISATION</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="lang_form" onSubmit="return lang_localisation_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="language_localisation_page" />
+<label>
+
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+<textarea cols="40" id="lang_localisation_heading" name="languages_page[title]" rows="20" style="width:600px;">Bringing a product, service or message into a new region involves more than simply verbal translation. It requires cultural and local adaptation. For example, the key messages may need to adjust to conditions in the local market or to religious sensitivities. The positioning of graphics or the choice of images may need to change so they feel truly local, and not a foreign import.</textarea>
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="lang_localisation_summary" name="languages_page[content]" rows="20" style="width:600px;">       <p> All these things affect how an audience views your product or service, and their willingness to buy it.</p>&#x000A;        <p style="margin-bottom:10px;"> To do localisation well requires local native-speaking experts in the relevant field and a thorough and well tested methodology. Gigavine offers both.</p>&#x000A;        <p style="margin-top:10px;">&#x000A;         <b> We take each project through a defined production process:</b>&#x000A;         <div class="local_nav"><ul style="margin-top:-10px;">&#x000A;            <li> Before work begins we capture goals, deliverables, schedule, budget details, etc, through an analytical project approach.</li>&#x000A;            <li> During production we provide regularly updated project information through our web portal.</li>&#x000A;            <li> After delivery we measure and analyse actual performance against the initial goals and quality standards.</li></ul></div>&#x000A;        <p> This gives us a reliable and repeatable process for adapting products, services or messages so they succeed within a new culture. </p>&#x000A;&#x000A;&#x000A;</textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<div class='clear'></div>
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#products_documentation'>Products & Documentation</a>
+</li>
+<li>
+<a href='#websites'>Websites</a>
+</li>
+<li>
+<a href='#software'>Software</a>
+</li>
+
+<li>
+<a href='#mobile_interface'>Mobile Interfaces</a>
+</li>
+<li>
+<a href='#subtitle_dubbing'>Subtitling & Dubbing</a>
+</li>
+</ul>
+<br class='clear'>
+<div class='tabdiv' id='products_documentation'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_localisation_tabs('products');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_localisation_products" />
+<label class='headding_label'>
+<strong>Products & Documentation :</strong>
+
+<textarea cols="40" id="local_products" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='websites'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_localisation_tabs('websites');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_localisation_websites" />
+<label class='headding_label'>
+<strong>Websites :</strong>
+<textarea cols="40" id="local_websites" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- /Adapt -->
+<div class='tabdiv' id='software'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_localisation_tabs('software');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_localisation_software" />
+<label class='headding_label'>
+<strong>Software :</strong>
+<textarea cols="40" id="local_software" name="languages_page[content]" rows="20" style="width:600px;">             &lt;p&gt; Software localisation means adapting the product to the linguistic, cultural and also technical needs of the target market. When it&amp;#39;s done well the software will feel as though it was originally designed for that market.&lt;/p&gt;&#x000A;&#x000A;             &lt;p&gt;&#x000A;                This can be a complex task that involves such aspects as units, number formats, fonts, character sets, copyright issues, payment methods, currency conversion, and so on. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+
+</p>
+</form>
+</div>
+<!-- Deliver -->
+<div class='tabdiv' id='mobile_interface'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_localisation_tabs('mobile');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_localisation_mobile" />
+<label class='headding_label'>
+<strong>Mobile Interfaces :</strong>
+<textarea cols="40" id="local_mobile" name="languages_page[content]" rows="20" style="width:600px;">              &lt;p&gt; Global markets for mobile devices are experiencing hyper&amp;#150;growth as operators tap into developing markets such as China and India. The relative ease of building wireless networks is making mobile service available where landline communications are limited. For businesses making mobiles, and services for mobiles, this creates exciting growth opportunities &amp;#150; and significant challenges. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+
+</div>
+<!-- Deliver -->
+<div class='tabdiv' id='subtitle_dubbing'>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="langu_translation" onSubmit="return language_localisation_tabs('subtitle');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="lang_localisation_subtitle" />
+<label class='headding_label'>
+<strong>Subtitle & Dubbing:</strong>
+<textarea cols="40" id="local_subtitle" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<!-- Deliver -->
+</div>
+<div class='clearspace'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='language_consultancy' style='display:none'>
+<h3 id='see_id'>LANGUAGES / CONSULTANCY</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="language_consultancy_form" onSubmit="return lang_consultancy_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="language_consultancy_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+
+<textarea cols="40" id="lang_consultancy_summary" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+<input class="text" id="lang_consultancy_heading" name="languages_page[title]" size="30" style="width:600px;" type="text" value="Reducing the risk of global product launches 123" />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary2:</strong>
+<textarea cols="40" id="lang_consultancy_summary1" name="languages_page[network]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='language_onlinetools' style='display:none'>
+<h3 id='see_id'>TECHNOLOGY / ONLINE TOOLS</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/language_create" method="post" name="language_consultancy_form" onSubmit="return lang_onlinetools_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="languages_page_page_section" name="languages_page[page_section]" type="hidden" value="tech_online_tools" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+
+<input class="text" id="lang_online_tools_heading" name="languages_page[title]" size="30" style="width:600px;" type="text" />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="lang_online_tools_summary" name="languages_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading 2:</strong>
+<input class="text" id="lang_online_tools_heading1" name="languages_page[news]" size="30" style="width:600px;" type="text" />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary2:</strong>
+<textarea cols="40" id="lang_online_tools_summary1" name="languages_page[network]" rows="20" style="width:600px;"></textarea>
+
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='creative' style='display:none'>
+<h3 id='see_id'>CREATIVE</h3>
+<br class='clear'>
+<div>
+
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="creative_form" onSubmit="return creative_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+<textarea cols="40" id="creative_heading1" name="creative_page[title]" rows="20" style="width:600px;">You have messages, products and services you need to promote and position, and an audience you want to communicate with. We have the ideas and the skills to make it happen.</textarea>
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="creative_summary1" name="creative_page[content]" rows="20" style="width:600px;"> </textarea>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading2:</strong>
+
+<input class="text" id="creative_heading2" name="creative_page[news]" size="30" style="width:600px;" type="text" value="Branding runs through everything we do." />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary2:</strong>
+<textarea cols="40" id="creative_summary2" name="creative_page[network]" rows="20" style="width:600px;"><p>Every kind of creative work we do for our clients involves branding. This is because a brand is more than a logo or even a set of colours. Your brand is the sum of what you mean to your customers, your values, your products, your voice, your message and your attitude. It is not something you simply adopt, but emerges from what you are. </p>&#x000A;<p><i>Your brand is what you stand for.</i></p>&#x000A;<p>We work with you to define and develop that brand, create guidelines and act as the brand guardian. </p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+
+</div>
+<div class='sign_up' id='creative_artwork' style='display:none'>
+<h3 id='see_id'>CREATIVE / ARTWORK</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="creative_artwork_form" onSubmit="return creative_artwork_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_artwork_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="creative_summary_artwork" name="creative_page[content]" rows="20" style="width:600px;"> <p class="headding_text">Great design brings together a wide range of graphic characteristics in one original visual statement. It has to be fresh, immediate and pleasing, yet it must adhere to the brand, and make commercial sense too.</p>&#x000A;&#x000A;<p>This calls for a delicate balance of skills: sheer inventiveness combined with hard headed practicality. Gigavine offers that combination to our clients.</p>&#x000A;&#x000A;<p>We create visual designs across a wide range of applications, including logos, packaging, the full range of print collateral including brochures, business cards and promotional materials, direct mail and of course web and interactive design.</p>&#x000A;&#x000A;<p>In addition we provide comprehensive artworking services - that's the process of optimising and perfecting layouts and the imagery within them ready for publication. We include high quality image manipulation and retouching in our artworking department. Nyros Technology</p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='creative_adv' style='display:none'>
+<h3 id='see_id'>CREATIVE / ADVERTISING</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="creative_artwork_form" onSubmit="return creative_adv_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_adv_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+
+<textarea cols="40" id="creative_advertising" name="creative_page[content]" rows="20" style="width:600px;"> <p class="headding_text">Effective advertising has instant impact and immediate appeal. It is a key aspect of marketing but it requires some different skills. Instead of building a relationship with people, it gatecrashes their attention and compels a response. To do this successfully it needs to be original and smart, both in its design and in its concept.</p>&#x000A;<p>&#x000A;<p style="margin-top:10px;">At Gigavine we create hard-hitting advertising which achieves this across a range of different media.</p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#press_adv'>Press Advertising</a>
+</li>
+
+<li>
+<a href='#outdoor_adv'>Outdoor Advertising</a>
+</li>
+<li>
+<a href='#online_adv'>Online Advertising</a>
+</li>
+<li>
+<a href='#exhibition'>Exhibition and Events</a>
+</li>
+</ul>
+<br class='clear'>
+<div class='tabdiv' id='press_adv'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return creative_adv_tabs('press_adv');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_press_adv" />
+
+<label class='headding_label'>
+<strong>Press &nbsp; &nbsp; &nbsp; Advertising :</strong>
+<textarea cols="40" id="press_advertisement" name="creative_page[content]" rows="20" style="width:600px;">             &lt;p&gt; Much of the focus of the world&amp;#39;s marketing has moved online, but online advertising still can&amp;#39;t match the tangible impact of a print advert. Whereas online users tend to automatically filter out banner ads, print adverts are considered part of the publication, sharing its values, and thus worthy of consideration.  &lt;/p&gt;&#x000A;              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;  &#x000A;              &lt;p&gt; Print ads can build brand awareness or promote a specific and time&amp;#45;sensitive offer, and they can invite a response by going into newspapers or magazines as inserts or flyers. They remain an integral part of a well thought out marketing campaign. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='outdoor_adv'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return creative_adv_tabs('outdoor_adv');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_outdoor_adv" />
+<label class='headding_label'>
+<strong>Outdoor Advertising :</strong>
+<textarea cols="40" id="outdoor_advertisement" name="creative_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- /Outdoor -->
+<div class='tabdiv' id='online_adv'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return creative_adv_tabs('online_adv');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_online_adv" />
+<label class='headding_label'>
+
+<strong>Online &nbsp; Advertising :</strong>
+<textarea cols="40" id="online_advertisement" name="creative_page[content]" rows="20" style="width:600px;">             &lt;p&gt; Everyone knows that vast numbers of consumers now regularly go online to browse, search and shop. You can&amp;#39;t ignore the internet - but it&amp;#39;s easy to waste a marketing budget on poorly planned online campaigns. &lt;/p&gt;&#x000A;             &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt; &#x000A;              &lt;p&gt; The internet offers the perfect opportunity for carefully targeted advertising &amp;#45; not the scattergun approach most offline advertising uses. But only if your strategy is planned with care and your advertising uses the strengths of the medium. Customers can be targeted by selecting the right websites and networks to advertise on, while emerging areas such as social media can be used to engage customers, spread the word and build loyalty.&lt;/p&gt;&#x000A;            &lt;div class=&quot;clear&quot;&gt;&#x000A;              &lt;p&gt; Gigavine will provide an integrated and cost effective online advertising strategy that gives you a high return on your investment. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Online -->
+<div class='tabdiv' id='exhibition'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return creative_adv_tabs('exhibition');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_adv_exhibition" />
+<label class='headding_label'>
+
+<strong>Exhibition & Events :</strong>
+<textarea cols="40" id="exhibition_advertisement" name="creative_page[content]" rows="20" style="width:600px;">              &lt;p&gt; An effective display needs to be far more than a few posters, and an exciting, memorable exhibition needs to utilise all the resources available to it. &lt;/p&gt;&#x000A;              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&#x000A;              &lt;p&gt; We create powerful displays &amp;#45; and full exhibitions &amp;#45; that make full of use of the entire available environment, including banners, brochures, exhibition stands (pop up or custom built) and even interactive exhibits. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Deliver -->
+</div>
+<div class='clearspace'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='creative_webdesign' style='display:none'>
+<h3 id='see_id'>CREATIVE / WEB DESIGN</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/creative_create" enctype="multipart/form-data" method="post" name="creative_artwork_form" onSubmit="return creative_design_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_webdesign_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="creative_design_heading" name="creative_page[title]" size="30" style="width:600px;" type="text" value="We have all been on websites that are confusing to navigate, hard to read, or which fail to give us the information we're looking for - not to mention sites which look as though they were designed to be cold and unappealing...." />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Image:</strong>
+<input name='creative_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="creative_design_summary" name="creative_page[content]" rows="20" style="width:600px;"><p style="margin-top:0px;"> We have all been on websites that are confusing to navigate, hard to read, or which fail to give us the information we're looking for - not to mention sites which look as though they were designed to be cold and unappealing.</p>&#x000A;<p><img src="/images/frontend/samp_creat" hspace="5" vspace="5"  height="162" width="260"></p>&#x000A;<p>&#x000A;The problem is, it's extremely easy to put users off. If they get frustrated they can find another website with a couple of clicks. Everyone on the internet knows they could be on a million other websites, so patience wears thin very quickly.</p>&#x000A;<p>&#x000A;At Gigavine we design websites to be used. Users shouldn't have to think as they navigate their way through a site. The process should be effortless, and to achieve that we factor in usability throughout the design and development. Navigation should be simple and anticipate user's needs; and page layouts should be clearly organised so different kinds of content are easy to find and understand.</p>&#x000A;<p>&#x000A;But ease of use is only one aspect of a successful website. Search engine optimisation is also vital. We apply a range of SEO techniques to all our sites, including keyworded content, error-free code, and appropriate link and navigation naming conventions.</p>&#x000A;<p>&#x000A;Great web design needs to do all the above while creating pages and content that are visually welcoming and which exploit the dynamic and interactive functionality that the internet offers. And that's what we offer. </p>&#x000A;<p>&#x000A;So if you need e-commerce, we can build it for you. If we want to develop a customer database and build customer loyalty through it, we'll do it for you. And on top of that we can create a variety of interactive content, including online games, motion graphics and podcasts.</p>&#x000A;<p>&#x000A;We are not just another web design agency. We are as passionate about the success of our client's brands online as they are... </p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='creative_copywriting' style='display:none'>
+<h3 id='see_id'>LANGUAGES / COPYWRITING</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="language_writing_form" onSubmit="return creative_copywrite_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="languages_copywriting_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="copywrite_summary" name="creative_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+
+<input class="text" id="copywrite_heading" name="creative_page[title]" size="30" style="width:600px;" type="text" />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary2:</strong>
+<textarea cols="40" id="copywrite_summary2" name="creative_page[network]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+
+</div>
+
+<div class='sign_up' id='creative_interactive' style='display:none'>
+<h3 id='see_id'>CREATIVE / INTERACTIVE</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="creative_artwork_form" onSubmit="return creative_interactive_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_interactive_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="creative_interactive_summary" name="creative_page[content]" rows="20" style="width:600px;"><p class="headding_text">As the market for new interactive devices expands rapidly, the digital world is changing fast. At the same time the need for businesses to adapt to this new media landscape is becoming more urgent every month...</p>&#x000A;&#x000A;<p style = "margin-top:10px;">Gigavine has the experience and the skills to help businesses to take advantage, whether they're interested in creating content for handheld devices such as mobile phones, or other media such as ebook readers. We have strong software development and testing teams with wide experience of working with the new interactive technologies, and we make sure we stay right on the cutting edge of the latest developments - which means we can offer you valuable consultancy and strategic advice on how best to solve your business requirements using the latest applications.</p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#mobile_development'>Mobile Development</a>
+</li>
+<li>
+<a href='#ebooks'>Ebooks</a>
+</li>
+<li>
+
+<a href='#media_presentations'>Multimedia Presentations</a>
+</li>
+</ul>
+<br class='clear'>
+<div class='tabdiv' id='mobile_development'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return crative_interactive_tabs('creative_mobile_development');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_mobile_development" />
+<label class='headding_label'>
+<strong>Mobile &nbsp; &nbsp; Development :</strong>
+<textarea cols="40" id="creative_mobiledevelopment" name="creative_page[content]" rows="20" style="width:600px;">                &lt;p&gt; The key change that kickstarted this market was when mobile operators introduced flat rate plans for mobile data usage. Now, in the UK market alone, over a quarter of mobile users have browsed the internet from their phones. This is a massive potential marketplace, one which most of the world&amp;#39;s biggest brands have already recognised by building their own mobile portals with content designed specifically for handheld devices. &lt;/p&gt;&#x000A;              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;  &#x000A;                &lt;p&gt;&#x000A;                  All of which means your customers are likely to be looking for your digital presence via a mobile phone.&lt;/p&gt;&#x000A;              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt; &#x000A;               &lt;p&gt;&#x000A;                  Because of the way mobiles use WAP browsers, many websites don&amp;#39;t render correctly on mobile phones. If that&amp;#39;s true for your site, it&amp;#39;s important to do something about it. Even if your site looks the same on a mobile as it does on a desktop browser, unless you optimise it for mobile use it can be very difficult to use. &lt;/p&gt;&#x000A;               &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&#x000A;                &lt;p&gt;&#x000A;                  Gigavine has developed phone&amp;#45;based applications successfully for clients across three continents, and we work with following platforms:&lt;/p&gt;&#x000A;              &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&#x000A;               &lt;div class=&quot;local_nav&quot;&gt;&#x000A;                  &lt;ul style=&quot;float:left; width:180px; margin-top:10px;&quot;&gt;&#x000A;                    &lt;li&gt;&#x000A;                      iPhone&lt;/li&gt;&#x000A;                    &lt;li&gt;&#x000A;                      Symbian&lt;/li&gt;&#x000A;                    &lt;li&gt;&#x000A;                      Windows Mobile&lt;/li&gt;&#x000A;                    &lt;li&gt;&#x000A;                      J2ME&lt;/li&gt;&lt;/ul&gt;&#x000A;                  &lt;ul style=&quot;float:left; width:180px;  margin-top:10px;&quot;&gt;&#x000A;                    &lt;li&gt;&#x000A;                      Android&lt;/li&gt;&#x000A;                    &lt;li&gt;&#x000A;                      Blackberry&lt;/li&gt;&#x000A;                   &lt;li&gt;&#x000A;                      BREW &lt;/li&gt;&#x000A;                   &lt;li&gt;&#x000A;                      Palm software development...&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</textarea>
+</label>
+
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='ebooks'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return crative_interactive_tabs('creative_ebooks');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_ebooks" />
+<label class='headding_label'>
+<strong>Ebooks :</strong>
+<textarea cols="40" id="creative_ebooks" name="creative_page[content]" rows="20" style="width:600px;">&lt;p&gt;Ebooks are the next big step forward in digital publishing and they're just beginning to achieve critical mass. We create ebooks that can be read on handheld devices or personal computers, and are compatible with any of these devices and formats:&lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+
+</form>
+</div>
+<!-- /Outdoor -->
+<div class='tabdiv' id='media_presentations'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="langu_translation" onSubmit="return crative_interactive_tabs('creative_media_presentations');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="creative_media_presentations" />
+<label class='headding_label'>
+<strong>Media &nbsp;  Presentations :</strong>
+<textarea cols="40" id="media_presentation" name="creative_page[content]" rows="20" style="width:600px;">ssdfdfdf</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+
+</form>
+</div>
+<!-- Online -->
+</div>
+<div class='clearspace'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='technology' style='display:none'>
+<h3 id='see_id'>TECHNOLOGY</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_form" onSubmit="return tech_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="technology_page" />
+<label>
+
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Heading:</strong>
+<textarea cols="40" id="tech_heading" name="technology_page[title]" rows="20" style="width:600px;">            We don&amp;rsquo;t just create the messages, we deliver them. Using an array of cutting edge communications technologies, we build the interfaces and develop the interactions that bring each client’s digital presence alive.....</textarea>
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="tech_summary" name="technology_page[content]" rows="20" style="width:600px;">          <p> A powerful message that can’t reach its audience is wasted, but a technology without engaging content is empty. We bring them together so one can inform the other. </p>&#x000A;         <p> This is why the applications, digital campaigns and online solutions we build for our clients are highly effective – because they are focused on delivering effective and meaningful communication. It could be through an ecommerce website or a mobile phone application, a secure server or a CRM system for managing relationships with customers. </p>&#x000A;        <p> Gigavine offers an integrated team built on a culture of innovation which will pursue and deliver the most effective technical solutions for your requirements: technology to transform communications. </p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='technology_learning' style='display:none'>
+<h3 id='see_id'>TECHNOLOGY / E-LEARNING</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_learning" onSubmit="return technology_learning();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="tech_learning_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="tech_learning_summary" name="technology_page[content]" rows="20" style="width:600px;"><p class="headding_text">At its best e-learning technology can improve education outcomes, increase engagement with learners, add flexibility (and fun), and improve organisational performance, while delivering substantial cost and time savings.</p>&#x000A;<p>&#x000A;<p style="margin-top:10px;">But it's easy to get wrong. A confusing interactive environment with complicated tools or content which hasn't been designed to be used interactively can drive learners offline, never to return.</p>&#x000A;<p>&#x000A;We work closely with our clients on all our e-learning projects to ensure the technical solution works hand in hand with the content to create an engaging, refreshing and highly effective learning space.1234</p></textarea>
+</label>
+
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#block1'>Block 1</a>
+</li>
+<li>
+<a href='#block2'>Block 2</a>
+
+</li>
+<li>
+<a href='#block3'>Block 3</a>
+</li>
+<li>
+<a href='#block4'>Block 4</a>
+</li>
+<li>
+<a href='#block5'>Block 5</a>
+</li>
+</ul>
+<br class='clear'>
+<div class='tabdiv' id='block1'>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_learning_block1" onSubmit="return tech_learning_tabs('block1');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="block1" />
+<label class='headding_label'>
+<strong>Title:</strong>
+<input class="text" id="tech_learn_title1" name="technology_page[title]" size="30" style="width:600px;" type="text" value="Consultancy and guidance.." />
+</label>
+<label class='headding_label'>
+<strong>Summary :</strong>
+<textarea cols="40" id="tech_learn_block1" name="technology_page[content]" rows="20" style="width:600px;">&lt;p&gt;Working with you, we analyse the unique goals and requirements of your e-learning project and then draw up a strategy and solution tailored to your resources. We'll recommend the most appropriate tools and resources for your project out of the many on the market.&lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;Our purpose is to become a part of your team, taking on board your constraints and objectives, so everything we do takes the most effective path towards the right solution for you...&lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<div class='tabdiv' id='block2'>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_learning_block2" onSubmit="return tech_learning_tabs('block2');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="block2" />
+<label class='headding_label'>
+<strong>Title:</strong>
+<input class="text" id="tech_learn_title2" name="technology_page[title]" size="30" style="width:600px;" type="text" value="Course content development" />
+</label>
+<label class='headding_label'>
+<strong>Summary :</strong>
+<textarea cols="40" id="tech_learn_block2" name="technology_page[content]" rows="20" style="width:600px;">&lt;p&gt;It's often a minefield trying to take offline course content and convert into engaging interactive materials. What is appropriate for online learning? What can stay the same and what needs to change? What's missing? &lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;We'll draw on our experience to cut through the confusion and solve the technical challenges, while helping you make even the most difficult of subjects come alive in the e-learning environment. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+
+</form>
+</div>
+<!-- /Outdoor -->
+<div class='tabdiv' id='block3'>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_learning_block3" onSubmit="return tech_learning_tabs('block3');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="block3" />
+<label class='headding_label'>
+<strong>Title:</strong>
+<input class="text" id="tech_learn_title3" name="technology_page[title]" size="30" style="width:600px;" type="text" value="E-learning quizzes and games" />
+</label>
+<label class='headding_label'>
+<strong>Summary :</strong>
+<textarea cols="40" id="tech_learn_block3" name="technology_page[content]" rows="20" style="width:600px;">&lt;p&gt;The key to all learning is attention, and games and quizzes are a very useful way of keeping learners engaged and active. Used through a learning course or module, they make e-learning more interactive and they're also useful for evaluating the progress of the learner. In addition, they can provide insights into the effectiveness of your course content.&lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;At Gigavine we build all kinds of quizzes and games - simple or complex-using various tools such as flash, HTML and Articulate, which can not only deliver a powerful experience for the learning but collect data at the same time.&lt;/p&gt;</textarea>
+</label>
+
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Online -->
+<div class='tabdiv' id='block4'>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_learning_block4" onSubmit="return tech_learning_tabs('block4');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="block4" />
+<label class='headding_label'>
+<strong>Title:</strong>
+<input class="text" id="tech_learn_title4" name="technology_page[title]" size="30" style="width:600px;" type="text" value="Learning management system and virtual learning environments" />
+</label>
+<label class='headding_label'>
+<strong>Summary :</strong>
+
+<textarea cols="40" id="tech_learn_block4" name="technology_page[content]" rows="20" style="width:600px;">&lt;p&gt;A learning management system (LMS) or virtual learning environment (VLE) is the software system that puts e-learning in place. It handles the learners' and the tutors' interactions with the system, and it enables you to publish materials, communicate with students, etc. It is the heart of your e-learning environment, and the choice of LMS you make has far-reaching consequences.&lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;There are many of those packages available, open source and commercial, and picking the best one for your purposes is a difficult decision. We can help you make that decision. Alternatively we can build you a bespoke system to meet your exact needs.&lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Online -->
+<div class='tabdiv' id='block5'>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_learning_block5" onSubmit="return tech_learning_tabs('block5');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="block5" />
+<label class='headding_label'>
+<strong>Title:</strong>
+<input class="text" id="tech_learn_title5" name="technology_page[title]" size="30" style="width:600px;" type="text" value="Bespoke learning management system development" />
+</label>
+
+<label class='headding_label'>
+<strong>Summary :</strong>
+<textarea cols="40" id="tech_learn_block5" name="technology_page[content]" rows="20" style="width:600px;">&lt;p&gt;Sometimes off the shelf learning management systems just won't fit the kind of e-learning project you're planning. Trying to force things to fit a rigid and inappropriate system can save money in the short term but lead to serious problems later on.&lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;If nothing fits we can design, develop and build a bespoke LMS to your precise requirements, integrating with your website and your payment gateways and any other third party systems as necessary, and we'll include your input and sign-off every step of the way.&lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<!-- Online -->
+</div>
+<div class='clearspace'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='technology_commerce' style='display:none'>
+<h3 id='see_id'>TECHNOLOGY / E-COMMERCE</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/technology_create" enctype="multipart/form-data" method="post" name="tech_commerce_form" onSubmit="return tech_commerce();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="tech_commerce_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="creative_design_heading" name="technology_page[title]" size="30" style="width:600px;" type="text" value="The boom in buying online" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Image:</strong>
+<input name='technology_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="commerce_summary" name="technology_page[content]" rows="20" style="width:600px;">                <p style="margin-top:0px;">The solutions we offer at Gigavine avoid these pitfalls by putting your target audience at the heart of our design process. Our emphasis on usability testing gives us a powerful understanding of what your customers need and how to give it to them. </p>&#x000A;    </textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='technology_security' style='display:none'>
+<h3 id='see_id'>TECHNOLOGY / ONLINE SECURITY</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/technology_create" enctype="multipart/form-data" method="post" name="tech_commerce_form" onSubmit="return tech_security();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="tech_security_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="creative_design_heading" name="technology_page[title]" size="30" style="width:600px;" type="text" value="" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Image:</strong>
+<input name='technology_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="security_summary" name="technology_page[content]" rows="20" style="width:600px;">              <p style="margin-top:0px;"> SSL or Secure Socket Layers certificates - the technology that activates the yellow padlock or green address bar - are essential for e-commerce websites. They give customers protection they can trust. We offer those certificates at very competitive prices, and provide three types: </p>&#x000A;         <div class="local_nav">&#x000A;            <ul>&#x000A;              <li>&#x000A;                Domain validated - a basic certificate</li>&#x000A;              <li>&#x000A;                Organisation validated - a standard certificate</li>&#x000A;              <li>&#x000A;                Extended validation - an advanced certificate</li></ul></div>&#x000A;&#x000A;          <p> Each type is available as standard (for a single domain and its sub-domains), Wildcard SSL (allowing extended types of sub-domains with the format xxx.domain.com) or Unified Communications SSL (for multiple domains).  </p>&#x000A;          <p> With a Gigavine Domain SSL you know you have future-proof 2048-bit SSL security. When you need a certificate, we can issue them rapidly - just get in contact with us. test </p></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='technology_crm' style='display:none'>
+<h3 id='see_id'>TECHNOLOGY / CRM</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/technology_create" method="post" name="tech_crm_form" onSubmit="return tech_crm();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="technology_page_page_section" name="technology_page[page_section]" type="hidden" value="tech_crm_page" />
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="crm_summary" name="technology_page[content]" rows="20" style="width:600px;">sddd</textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='banner' style='display:none'>
+<h3 id='see_id'>Home Banner</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/banner_create" enctype="multipart/form-data" method="post" name="banner_form1" onSubmit="return banner_validate('banner_one');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="banner_page_page_section" name="banner_page[page_section]" type="hidden" value="banner_one" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Languages:</strong>
+
+<textarea cols="40" id="bone_title" name="banner_page[title]" rows="20" style="width:600px;height:200px;">            If you talk to a man in a language he understands, that goes to his head.  If you talk to him in his language, that goes to his heart.</textarea>
+<input name='banner_page[image]' size='65' style='font:12px arial; height:20px; width:600px; margin-left:123px;' type='file'>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Writers:</strong>
+<input class="text" id="bone_writer" name="banner_page[news]" size="30" style="width:600px;height:30px;" type="text" value="Nelson Mandela" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='margin-right:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/banner_create" enctype="multipart/form-data" method="post" name="banner_form2" onSubmit="return banner_validate('banner_two');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="banner_page_page_section" name="banner_page[page_section]" type="hidden" value="banner_two" />
+<label>
+
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Creative:</strong>
+<textarea cols="40" id="btwo_title" name="banner_page[title]" rows="20" style="width:600px;height:200px;">Creativity is the power to connect the seemingly unconnected.</textarea>
+<input name='banner_page[image]' size='65' style='font:12px arial; height:20px; width:600px; margin-left:123px;' type='file'>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Writers:</strong>
+<input class="text" id="btwo_writer" name="banner_page[news]" size="30" style="width:600px;height:30px;" type="text" value="William Plomer, Writer" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='margin-right:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/banner_create" enctype="multipart/form-data" method="post" name="banner_form3" onSubmit="return banner_validate('banner_three');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+
+<input id="banner_page_page_section" name="banner_page[page_section]" type="hidden" value="banner_three" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Technology:</strong>
+<textarea cols="40" id="bthree_title" name="banner_page[title]" rows="20" style="width:600px;height:200px;">The technologies which have had the most profound effects on human life are usually simple.</textarea>
+<input name='banner_page[image]' size='65' style='font:12px arial; height:20px; width:600px; margin-left:123px;' type='file'>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Writers:</strong>
+<input class="text" id="bthree_writer" name="banner_page[news]" size="30" style="width:600px;height:30px;" type="text" value="Freeman Dyson, Physicist" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='margin-right:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='how_we_help' style='display:none;'>
+<div style='margin-left:50px; font-weight:bold;'>
+<h3 id='see_id'>How we help connect</h3>
+</div>
+<br class='clear'>
+<div style=' width:700px; margin:0px auto;'>
+<form accept-charset="UTF-8" action="/help_connect" enctype="multipart/form-data" method="post" name="help_connect_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="help_connect_page_section" name="help_connect[page_section]" type="hidden" value="help_connect_one" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+
+<input name='help_connect[image]' size='65' style='font:12px arial; height:25px; width:420px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Title One:</strong>
+<input class="text" id="help_connect_title" name="help_connect[title]" size="30" style="width:550px;height:30px; font-size:12px!important;" type="text" value="Build an Arabic version of your website in Middle East " />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style=' position:relative; top:-15px; left:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/help_connect" enctype="multipart/form-data" method="post" name="help_connect_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="help_connect_page_section" name="help_connect[page_section]" type="hidden" value="help_connect_two" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+
+<input name='help_connect[image]' size='65' style='font:12px arial; height:25px; width:420px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Title Two:</strong>
+<input class="text" id="help_connect_title" name="help_connect[title]" size="30" style="width:550px;height:30px; font-size:12px!important;" type="text" value="Develop a mobile app for 15 territories, in 8 languges" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='position:relative; top:-15px; left:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/help_connect" enctype="multipart/form-data" method="post" name="help_connect_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="help_connect_page_section" name="help_connect[page_section]" type="hidden" value="help_connect_three" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+
+<input name='help_connect[image]' size='65' style='font:12px arial; height:25px; width:420px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Title Three:</strong>
+<input class="text" id="help_connect_title" name="help_connect[title]" size="30" style="width:550px;height:30px; font-size:12px!important;" type="text" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='position:relative; top:-15px; left:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/help_connect" enctype="multipart/form-data" method="post" name="help_connect_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="help_connect_page_section" name="help_connect[page_section]" type="hidden" value="help_connect_four" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+
+<input name='help_connect[image]' size='65' style='font:12px arial; height:25px; width:420px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif; '>Title Four:</strong>
+<input class="text" id="help_connect_title" name="help_connect[title]" size="30" style="width:550px;height:30px; font-size:12px!important;" type="text" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='position:relative; top:-15px; left:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/help_connect" enctype="multipart/form-data" method="post" name="help_connect_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="help_connect_page_section" name="help_connect[page_section]" type="hidden" value="help_connect_five" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+
+<input name='help_connect[image]' size='65' style='font:12px arial; height:25px; width:420px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Title Five:</strong>
+<input class="text" id="help_connect_title" name="help_connect[title]" size="30" style="width:550px; height:30px; font-size:12px!important;" type="text" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='position:relative; top:-15px; left:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+<form accept-charset="UTF-8" action="/help_connect" enctype="multipart/form-data" method="post" name="help_connect_form"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="help_connect_page_section" name="help_connect[page_section]" type="hidden" value="help_connect_six" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+
+<input name='help_connect[image]' size='65' style='font:12px arial; height:25px; width:420px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Title Six:</strong>
+<input class="text" id="help_connect_title" name="help_connect[title]" size="30" style="width:550px;height:30px; font-size:12px!important;" type="text" />
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1' style='position:relative; top:-15px; left:20px;'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='projects_land' style='display:none'>
+<h3 id='see_id'>Projects</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/projects_create" method="post" name="tech_form" onSubmit="return tech_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="projects_page_page_section" name="projects_page[page_section]" type="hidden" value="project_land_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="project_heading" name="projects_page[title]" size="30" style="width:600px;" type="text" />
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Caption:</strong>
+<input class="text" id="project_caption" name="projects_page[news]" size="30" style="width:600px;" type="text" />
+</label>
+
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="project_summary" name="projects_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='projects_case_studies' style='display:none'>
+
+<h3 id='see_id'>Projects / Case Studies - Left Block</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/projects_create" enctype="multipart/form-data" method="post" name="tech_form" onSubmit="return case_study_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="projects_page_page_section" name="projects_page[page_section]" type="hidden" value="project_case_study_page" />
+<label>
+<strong style='font:12px/20px Arial, Helvetica, sans-serif;'>Image:</strong>
+<input name='projects_page[image]' size='65' style='font:12px arial; height:25px; width:520px; border:none!important; background:none!important;' type='file'>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="casestudy_title" name="projects_page[title]" size="30" style="width:600px;" type="text" value="tests " />
+</label>
+<label>
+
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Caption:</strong>
+<input class="text" id="casestudy_caption" name="projects_page[news]" size="30" style="width:600px;" type="text" value="ddddfdfdf" />
+</label>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="casestudy_summary" name="projects_page[content]" rows="20" style="width:600px;">sdfdsfdfdfdfdf</textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#challenge_block'>Challenge</a>
+</li>
+<li>
+<a href='#sol_block'>Solution</a>
+</li>
+<li>
+<a href='#benefits_block'>Benefits</a>
+</li>
+<li>
+<a href='#client_block'>Client Details</a>
+
+</li>
+</ul>
+<br class='clear'>
+<div class='tabdiv' id='challenge_block'>
+<form accept-charset="UTF-8" action="/projects_create" method="post" name="langu_translation" onSubmit="return project_adv_tabs('cstudies_challenge');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="projects_page_page_section" name="projects_page[page_section]" type="hidden" value="project_cstudies_challenge" />
+<label class='headding_label'>
+<strong>Challenge :</strong>
+<textarea cols="40" id="project_challenge" name="projects_page[content]" rows="20" style="width:600px;">ffgfgfgfgfg</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<div class='tabdiv' id='sol_block'>
+<form accept-charset="UTF-8" action="/projects_create" method="post" name="langu_translation" onSubmit="return project_adv_tabs('cstudies_solution');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="projects_page_page_section" name="projects_page[page_section]" type="hidden" value="project_cstudies_solution" />
+<label class='headding_label'>
+<strong>Solution :</strong>
+<textarea cols="40" id="project_solution" name="projects_page[content]" rows="20" style="width:600px;">fdgdfgdgdfgrtretretertertrt </textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='benefits_block'>
+<form accept-charset="UTF-8" action="/projects_create" method="post" name="langu_translation" onSubmit="return project_adv_tabs('cstudies_benefits');"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="projects_page_page_section" name="projects_page[page_section]" type="hidden" value="project_cstudies_benefits" />
+
+<label class='headding_label'>
+<strong>Benefits :</strong>
+<textarea cols="40" id="project_benefits" name="projects_page[content]" rows="20" style="width:600px;">&lt;h3&gt;Dynamic team and efficient platform&lt;/h3&gt;&#x000A;&lt;p&gt;&#x000A;With a dedicated team of linguists, Designers and Typesetters, the project manager ran the process smoothly with the help of our dedicated secure Mawhiba portal. The original materials was submitted through the platform, typeset in the layouts and frames, then converted into the suitable format for translation, proofreading, review, localisation, and through to the final approval process. Our Linguists, Designers, Proofreaders, and Consultants were all connected to the platform as well as the Mawhiba’s team and the scientists. This had a major impact on reducing timescales typically involved with large-volume projects that allowed us to focus on maintaining high quality.&lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;Gigavine support team is composed of creative designers, media and communication experts and professional native linguistic with experience in the Education Industry. Dedicated management team with knowledge in all related aspects. Nevertheless, each member also possesses the dedication required for effective on time delivery. &lt;/p&gt;&#x000A;&lt;p&gt;&#x000A;The team is highly trained to handle language barriers and has the know-how to effectively deal with different cultures. &lt;/p&gt;&lt;br/&gt;&#x000A;&lt;h2&gt;&#x000A; Handling Volume under control &lt;/h2&gt;&#x000A;&lt;p&gt;&#x000A;Each month, 150,000 words are translated, 20 Books (Average 40 Pages each) are published once in English and the same volume is Localised and Typeset to be produced in Arabic.&lt;/p&gt; &lt;br/&gt;&#x000A;&lt;h2&gt;&#x000A;Results &lt;/h2&gt;&#x000A;&lt;p&gt;&#x000A;The books are printed and there's a great feedback from the teachers and the students enjoying their new books and activities. At the moment there are 80 books printed, and 240 more to come covering all grades and subjects. &lt;/p&gt;</textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='client_block'>
+<form accept-charset="UTF-8" action="/projects_create" method="post" name="langu_translation"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="projects_page_page_section" name="projects_page[page_section]" type="hidden" value="projects_client_details" />
+<label class='headding_label'>
+<strong>Name :</strong>
+
+<input class="text" id="client_name" name="projects_page[title]" size="30" style="width:600px;" type="text" value="GigavineGigavine" />
+</label>
+<label class='headding_label'>
+<strong>Date :</strong>
+<input class="text" id="client_name" name="projects_page[content]" size="30" style="width:600px;" type="text" value="" />
+</label>
+<label class='headding_label'>
+<strong>Location :</strong>
+<input class="text" id="client_name" name="projects_page[news]" size="30" style="width:600px;" type="text" value="Gigavine" />
+</label>
+<label class='headding_label'>
+<strong>Industry :</strong>
+<input class="text" id="client_name" name="projects_page[network]" size="30" style="width:600px;" type="text" value="" />
+</label>
+
+<label class='headding_label'>
+<strong>Description :</strong>
+<textarea cols="40" id="client_name" name="projects_page[contact_us]" rows="20" style="width:600px;">this is working<br></textarea>
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+</div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='company_land' style='display:none'>
+
+<h3 id='see_id'>Company</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/company_create" method="post" name="company_form" onSubmit="return tech_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="company_page_page_section" name="company_page[page_section]" type="hidden" value="company_new" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="company_heading" name="company_page[title]" size="30" style="width:600px;" type="text" />
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="company_summary" name="company_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='company_about' style='display:none'>
+<h3 id='see_id'>Company / About</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/company_create" method="post" name="company_form" onSubmit="return tech_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="company_page_page_section" name="company_page[page_section]" type="hidden" value="company_about" />
+
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title1:</strong>
+<input class="text" id="company_title" name="company_page[title]" size="30" style="width:600px;" type="text" value="Who shared the belief" />
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Summary1:</strong>
+<textarea cols="40" id="company_summary" name="company_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title2:</strong>
+<input class="text" id="company_heading" name="company_page[news]" size="30" style="width:600px;" type="text" value="" />
+</label>
+<label>
+
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Summary2:</strong>
+<textarea cols="40" id="company_summary2" name="company_page[network]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='company_value' style='display:none'>
+
+<h3 id='see_id'>Company / Values</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/company_create" method="post" name="company_form" onSubmit="return tech_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="company_page_page_section" name="company_page[page_section]" type="hidden" value="company_value" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title1:</strong>
+<input class="text" id="company_title" name="company_page[title]" size="30" style="width:600px;" type="text" value="Gigavine believe it" />
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Summary1:</strong>
+<textarea cols="40" id="company_summary" name="company_page[content]" rows="20" style="width:600px;"></textarea>
+</label>
+
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title2:</strong>
+<input class="text" id="company_heading" name="company_page[news]" size="30" style="width:600px;" type="text" value="Sustain" />
+</label>
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Summary2:</strong>
+<textarea cols="40" id="company_summary2" name="company_page[network]" rows="20" style="width:600px;"></textarea>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+<div class='sign_up' id='contact_us' style='display:none'>
+<h3 id='see_id'>COMPANY / CONTACT</h3>
+<br class='clear'>
+<div>
+<form accept-charset="UTF-8" action="/creative_create" enctype="multipart/form-data" method="post" name="contact_form" onSubmit="return contact_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="contact_page" />
+<label>
+<strong style='font:12px Arial, Helvetica, sans-serif;'>Title:</strong>
+<input class="text" id="contact_heading" name="creative_page[title]" size="30" style="width:600px;" type="text" value="Contact Us Title" />
+</label>
+
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Summary:</strong>
+<textarea cols="40" id="contact_summary" name="creative_page[content]" rows="20" style="width:600px;">Contact Us Summary</textarea>
+<label>
+<strong style='font:14px Arial, Helvetica, sans-serif;'>Image:</strong>
+<input name='creative_page[image]' size='63' style='font:12px arial; height:20px; width:600px; position: relative;' type='file'>
+</label>
+</label>
+<p class='clearspace'></p>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+
+<div class='clear'></div>
+<br class='clear'>
+<div class='widget' id='tabvanilla'>
+<ul class='tabnav'>
+<li>
+<a class='c1' href='#press_london'>London</a>
+</li>
+<li>
+<a href='#press_dubai'>Dubai</a>
+</li>
+<li>
+<a href='#press_newyork'>New York</a>
+</li>
+</ul>
+
+<br class='clear'>
+<div class='tabdiv' id='press_london'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="contact_form" onSubmit="return contact_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="contact_page_london" />
+<label class='headding_label'>
+<strong>Telephone :</strong>
+<input class="text" id="contact_summary" name="creative_page[title]" size="30" style="width:400px;" type="text" value="+ 44 (0) 20 3371 1005" />
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='press_dubai'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="contact_form" onSubmit="return contact_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="contact_page_dubai" />
+
+<label class='headding_label'>
+<strong>Telephone :</strong>
+<input class="text" id="contact_summary" name="creative_page[title]" size="30" style="width:400px;" type="text" value="+ 44 (0) 20 3371 1005" />
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+<div class='tabdiv' id='press_newyork'>
+<form accept-charset="UTF-8" action="/creative_create" method="post" name="contact_form" onSubmit="return contact_validate();"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="CkhuTmHVfGxjtwruPmBfWiVnNFMkbndZpyo2L4O+XXc=" /></div>
+<input id="creative_page_page_section" name="creative_page[page_section]" type="hidden" value="contact_page_newyork" />
+<label class='headding_label'>
+<strong>Telephone :</strong>
+<input class="text" id="contact_summary" name="creative_page[title]" size="30" style="width:400px;" type="text" value="4402033111" />
+
+</label>
+<p class='send_btn1'>
+<input type='Submit' value='Submit'>
+</p>
+</form>
+</div>
+</div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
+
+<div class='sign_up' id='message' style='display:none; width:600px; font:20px Arial; text-align:center;'>
+<img alt='' src='/images/frontend/foot_logo_colored.png' title=''>
+<h1>
+Your brief has been submitted successfully, one of our project managers will be in-touch shortly.
+</h1>
+
+<br class='clear'>
+<div></div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='comingsoon'>
+<div></div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+<div class='sign_up' id='client' style='display:none; width:600px; font:20px Arial; text-align:center;'>
+<img alt='' src='/images/frontend/foot_logo_colored.png' title=''>
+<h1>
+Your registration was successfully completed.
+</h1>
+
+<br class='clear'>
+<div></div>
+<div class='clear'></div>
+<a class='close sprited' href='#' id='close_x'>close</a>
+</div>
+
