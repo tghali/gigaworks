@@ -2778,3 +2778,62 @@ position:absolute;
 z-index:1000;
 
 }	
+
+/*------------------------------30-11-2011-------------------------------------*/
+.lp_rightblock p.errorheadding_text{
+color:#465561;
+text-align:left;
+font:36px/32px Gotham;
+margin-top:0px !important;
+width:600px;
+}
+.error_links {
+margin:0px;
+padding:0px;
+font:14px Arial, Helvetica, sans-serif;
+color:#828282;
+}
+.error_links ul{
+list-style-type:none;
+margin:0px;
+padding:0px;
+}
+.error_links li{
+background:url(/images/frontend/error_link_arrow.jpg) no-repeat left 3px;
+font:14px/18px Arial, Helvetica, sans-serif;
+color:#828282;
+padding:0px 0px 20px 18px;
+}
+.error_link_box{
+width:auto;
+margin:0px;
+padding:0px;
+}
+.error_link_box p{
+margin:0px;
+padding:0px;
+}
+.error_previous_link, .error_home_link{
+width:211px;
+height:21px;
+font:14px/21px Arial, Helvetica, sans-serif;
+color:#646464;
+margin:10px 0px 0px 0px;
+text-indent:5px;
+text-align:left;
+background:url(/images/frontend/error_previous.jpg) no-repeat;
+}
+.error_previous_link a{
+text-decoration:none;
+color:#646464;
+}
+.error_home_link{
+width:218px!important;
+height:21px;
+margin:10px 0px 0px 0px;
+background:url(/images/frontend/error_home.jpg) no-repeat;
+}
+.error_home_link a{
+text-decoration:none;
+color:#646464;
+}
