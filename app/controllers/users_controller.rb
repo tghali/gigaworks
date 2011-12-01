@@ -48,11 +48,25 @@ end
 def create_talent_registration
 #render :text => params.inspect and return
 	@talent=Talent.new(params[:talent])
-	@talent.save
-    respond_to do |format|
-	flash[:alert]='Your profile is created sucessfully'
-        format.html { redirect_to  :controller=>'pages',:action => 'home_land' }
+        if @talent.username
+         if !Gigauser.find_by_username(@talent.username)
+          @talent.save
+           UserMailer.talent_invite(@talent.username, @talent.password, @talent).deliver    
+          flash[:alert]='Your profile is created sucessfully'
+        redirect_to  :controller=>'pages',:action => 'home_land' 
+
+       else
+       flash[:error]='Username already taken'
+       redirect_to :action => 'talent_registration'
       end
+     else
+       @talent.save
+       @guser=Gigauser.first(:conditions => "gigaclient_id= #{@talent.id} and role='Talent'")
+           UserMailer.talent_invite(@guser.username, @guser.password, @talent).deliver    
+          flash[:alert]='Your profile is created sucessfully'
+        redirect_to  :controller=>'pages',:action => 'home_land' 
+       
+    end
 	
 end
 

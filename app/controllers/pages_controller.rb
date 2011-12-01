@@ -153,6 +153,16 @@ class PagesController < ActionController::Base
    def network_featured
    render :layout => false
  end
+ 
+     def network_registration
+        @talent = Talent.new
+         		 respond_to do |format|
+		   format.html { render :layout => false   }
+		   format.xml  { render :xml => @talent }
+	
+		end
+	
+  end
   
    def contactus
      @page_title = "Gigavine - Contact Us"

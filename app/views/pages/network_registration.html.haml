@@ -1,0 +1,170 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title Network Registration Page
+    = stylesheet_link_tag "frontend/select_style.css"
+    %script{:charset => "utf-8", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js", :type => "text/javascript"}
+    = render :partial => "/pages/partials/script_files"				
+    %script{:src => "/javascripts/frontend/jqueryselect.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/frontend/validations.js", :type => "text/javascript"}
+    :javascript
+      jQuery(document).ready(function() {
+      jQuery("#Items").selectbox();
+      jQuery("#Items1").selectbox();
+      });
+  %body
+    - if !current_user.blank?
+      - @user_type = current_user.class
+      - if (@user_type == User && current_user.roles_mask = 1) || (@user_type == Gigauser && current_user.role == 'Client')       
+        .topframe
+          /%iframe{:src => "http://test.gigavine.com:4009/submenu"}
+
+          .subframe.suckertreemenu
+            %ul{:id => "treemenu1"}
+              %li
+                %a{:href => "#", :id => "home_new"} HOME 
+              %li
+                %a{:href => "#", :id => "languages_new"} LANGUAGES
+                %ul{:style=>"margin-left:85px;"}
+                  %li
+                    %a{:href => "#", :title => "Copywriting",:id => "creative_copywriting_new"} Copywriting
+                  %li
+                    %a{:href => "#", :title => "Translation",:id => "language_translation_new"} Translation
+                  %li
+                    %a{:href => "#", :title => "Localisation",:id => "language_localisation_new"} Localisation
+                  %li
+                    %a{:href => "#", :title => "Consultancy",:id => "language_consultancy_new"} Consultancy
+
+
+              %li
+                %a{:href => "#", :id => "creative_new"} CREATIVE
+                %ul{:style=>"margin-left:180px;"}
+                  %li
+                    %a{:href => "#", :title => "Artwork",:id => "creative_artwork_new"} Artwork
+                  %li
+                    %a{:href => "#", :title => "Advertising",:id => "creative_adv_new"} Advertising
+                  %li
+                    %a{:href => "#", :title => "Webdesign",:id => "creative_webdesign_new"} Web Design
+
+                  %li
+                    %a{:href => "#", :title => "Interactive",:id => "creative_interactive_new"} Interactive
+              %li
+                %a{:href => "#", :id => "technology_new"} TECHNOLOGY
+                %ul{:style=>"margin-left:300px;"}
+                  %li
+                    %a{:href => "#", :title => "E-Learning",:id => "technology_learning_new"} E-Learning
+                  %li
+                    %a{:href => "#", :title => "E-Commerce",:id => "technology_commerce_new"} E-Commerce
+                  %li
+                    %a{:href => "#", :title => "Online Security",:id => "technology_security_new"} Online Security
+                  %li
+                    %a{:href => "#", :title => "Online Tools",:id => "language_tools_new"} Online Tools
+              %li
+                %a{:href => "#",:id => "projects_new"} PROJECTS
+                %ul{:style=>"margin-left:390px;"}
+                  %li
+                    %a{:href => "#", :title => "Case Studies", :id => "project_case_studies_new"} Case Studies
+              %li
+                %a{:href => "#", :id => "contact_new"} CONTACT				
+              %li
+                %a{:href => "#", :id => "banner_new"} HOME BANNER
+              %li
+                %a{:href => "#", :id => "how_we_help_new"} HELP
+
+              %li{:style=>"float:right;"}
+                %a{:href => "#"} Logout
+    #network_landing_wrapper
+      / Header
+      #network-header
+        .create_headder
+          = render :partial => "/pages/partials/login_links"
+          .create_headding
+            %h4
+              %span NETWORK /
+              REGISTRATION
+      / Headerend
+      .clear 
+      &nbsp; 
+      / network content start
+      .network_content{:style => "background:#fff!important;"}
+        %p.network_desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis pellentesque lectus ac euismod. Duis nec tortor et velit imperdiet malesuada. Vivamus non sem nec urna rhoncus sagittis. Donec vitae dapibus risus. Nulla risus est, rutrum ac tristique at, condimentum nec mauris. Phasellus tempor lacinia dui ac sollicitudin.
+        - form_for :talent, :url=> {:controller => 'users', :action => 'create_talent_registration'}, :html => {:onsubmit => "talent_validate();" }  do |f|
+          .net_reg_block
+            / left blcok start
+            .net_reg_block_left
+              .reg_name_block
+                .name1 Name
+                %div
+                  = f.text_field :first_name, :class => 'reg3'
+                %div
+                  = f.text_field :last_name, :class => 'reg3'
+              .clear  
+              .reg_name_block
+                .name1
+                  Company
+                  %span (optional)
+                %div
+                  = f.text_field :company, :class => 'reg3'
+              .clear  
+              .reg_name_block
+                .name1 Country
+                %div
+                  = f.country_select :country, ["United States"]
+              .clear{:style => "height:5px;"}
+                %span
+              %div
+
+                %input{:alt => "Send", :src => "/images/send_button.jpg", :style => "background:none; width:auto;", :type => "image"}
+            / left blcok end
+            / right blcok start
+            .net_reg_block_right
+              .reg_name_block
+                .name1 Email & Phone
+                %div
+                  = f.text_field :email, :class => 'reg3'
+                %div
+                  = f.text_field :phone, :class => 'reg3'
+              .clear  
+              .reg_name_block
+                .name1 Address
+                %div
+                  = f.text_field :first_line, :class => 'reg3'
+                  = f.text_field :second_line, :class => 'reg3'
+                  = f.text_field :city, :class => 'reg3'
+                  = f.text_field :state, :class => 'reg4'
+                  = f.text_field :zip_code, :class => 'reg5'
+            / right blcok end
+        .clear
+          &nbsp; 
+        .clear
+          &nbsp; 
+        .clear
+          &nbsp; 
+      / network content end
+  %br
+  %br 
+  %br 
+  %br 
+  %br 
+  %br
+  %br
+  %br 
+  %br 
+  %br 
+  %br 
+  %br 
+  %br
+  %br 
+  %br 
+  %br
+  %br 
+  %br 
+  %br
+    / footer block start
+    = render :partial => "/pages/partials/footer"
+    / footer block end
+    / footer block start
+    =#render :partial => "/pages/partials/footer"
+    / footer block end
+

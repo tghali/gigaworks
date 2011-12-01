@@ -25,6 +25,39 @@ function contact_validate()
 		
 }
 
+function talent_validate()
+{
+	var talent_fname = document.getElementById('first_name');
+	 var talent_lname = document.getElementById('last_name');
+        var email = document.getElementById('email');
+        //alert(talent_lname);
+
+		
+		  if(talent_fname.value == "")
+  {
+  alert('Please enter your first name');
+
+  talent_fname.focus();
+  return false;
+  }
+
+		  if(talent_lname.value == "")
+  {
+  alert('Please enter your last name');
+  talent_lname.focus();
+  return false;
+  }	
+		  if(email.value == "")
+  {
+  alert('Please enter your email id');
+  email.focus();
+  return false;
+  }
+		return true;
+		
+}
+
+
 function case_study_validate()
 {
 	
