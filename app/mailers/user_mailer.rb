@@ -18,7 +18,14 @@ class UserMailer < ActionMailer::Base
     mail(:to => invite.gigaclient.email, :subject => "Gigaworx invite")
     @invite.sent_at Time.now
   end
-  
+      def talent_invite(uname,pass,details)
+      @unm = uname
+      @pass=pass
+      @talent=details.first_name
+
+    mail(:to => details.email, :subject => "Successful registration with Gigavine")
+    #@invite.sent_at Time.now
+  end
   def client_contact_invite(invite)
       @invite = invite
     mail(:to => invite.recipient.email, :subject => "Client Users Invitation")

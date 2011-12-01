@@ -274,6 +274,8 @@ get '/talents/registration' => 'users#talent_registration'
     get '/languages' => 'pages#languages_new'
     get '/creative' => 'pages#creative_new'
     get '/technology' => 'pages#technology_new'
+    get '/network/registration' => 'pages#network_registration'
+
     
     get '/projects' => 'pages#projects_land' 
     get '/projects/case-studies'=> 'pages#projects_case_studies'      
