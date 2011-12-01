@@ -7,7 +7,7 @@
     %script{:charset => "utf-8", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js", :type => "text/javascript"}
     = render :partial => "/pages/partials/script_files"				
     %script{:src => "/javascripts/frontend/jqueryselect.js", :type => "text/javascript"}
-    %script{:src => "/javascripts/frontend/validations.js", :type => "text/javascript"}
+    %script{:src => "/javascripts/talent_registration.js", :type => "text/javascript"}
     :javascript
       jQuery(document).ready(function() {
       jQuery("#Items").selectbox();
@@ -73,7 +73,7 @@
                 %a{:href => "#", :id => "how_we_help_new"} HELP
 
               %li{:style=>"float:right;"}
-                %a{:href => "/sign_out?q=0"} Logout
+                %a{:href => "#"} Logout
     #network_landing_wrapper
       / Header
       #network-header
@@ -89,7 +89,7 @@
       / network content start
       .network_content{:style => "background:#fff!important;"}
         %p.network_desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis pellentesque lectus ac euismod. Duis nec tortor et velit imperdiet malesuada. Vivamus non sem nec urna rhoncus sagittis. Donec vitae dapibus risus. Nulla risus est, rutrum ac tristique at, condimentum nec mauris. Phasellus tempor lacinia dui ac sollicitudin.
-        - form_for :talent, :url=> {:controller => 'users', :action => 'create_talent_registration'}, :html => {:onsubmit => "talent_validate();" }  do |f|
+        - form_for :talent, :url=> {:controller => 'users', :action => 'create_talent_registration'}, :html => {:onsubmit => "return talent_validate();" }  do |f|
           .net_reg_block
             / left blcok start
             .net_reg_block_left
@@ -101,31 +101,28 @@
                   = f.text_field :last_name, :class => 'reg3'
               .clear  
               .reg_name_block
-                .name1
-                  Company
-                  %span (optional)
-                %div
-                  = f.text_field :company, :class => 'reg3'
-              .clear  
-              .reg_name_block
-                .name1 Country
-                %div
-                  = f.country_select :country, ["United States"]
-              .clear{:style => "height:5px;"}
-                %span
-              %div
-
-                %input{:alt => "Send", :src => "/images/send_button.jpg", :style => "background:none; width:auto;", :type => "image"}
-            / left blcok end
-            / right blcok start
-            .net_reg_block_right
-              .reg_name_block
                 .name1 Email & Phone
                 %div
                   = f.text_field :email, :class => 'reg3'
                 %div
                   = f.text_field :phone, :class => 'reg3'
               .clear  
+              .reg_name_block
+                .name1
+                  Company
+                  %span (optional)
+                %div
+                  = f.text_field :company, :class => 'reg3'
+              .clear
+                &nbsp;
+              .clear
+                &nbsp;
+              %div
+                %input{:alt => "Send", :src => "/images/send_button.jpg", :style => "background:none; width:auto;", :type => "image", :onclick =>"talent_validate();" }
+            / left blcok end
+            / right blcok start
+            .net_reg_block_right
+
               .reg_name_block
                 .name1 Address
                 %div
@@ -134,6 +131,12 @@
                   = f.text_field :city, :class => 'reg3'
                   = f.text_field :state, :class => 'reg4'
                   = f.text_field :zip_code, :class => 'reg5'
+              .reg_name_block
+                .name1 Country
+                %div
+                  = f.country_select :country, ["United States"]
+              .clear{:style => "height:5px;"}
+                %span
             / right blcok end
         .clear
           &nbsp; 

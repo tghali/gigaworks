@@ -118,3 +118,72 @@ function valid_talent_details()
 	
 	
 }
+
+function talent_validate()
+{ 
+	f_name = document.getElementById('talent_first_name');
+	l_name = document.getElementById('talent_last_name');
+	mail = document.getElementById('talent_email');
+
+	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+
+	if(f_name.value == "")
+	{
+		
+		alert('Please enter first name');
+
+		f_name.focus();
+		return false;
+		
+	}
+	
+		if(f_name.value.charAt(0) == ' ')
+	{
+		alert('First name should be in characters');
+		f_name.focus();
+		return false;
+	}
+	
+	
+	if(l_name.value == "")
+	{
+		
+		alert('Please enter last name');
+		l_name.focus();
+		return false;
+		
+	}
+	
+		if(l_name.value.charAt(0) == ' ')
+	{
+		alert('Last name should be in characters');
+
+		l_name.focus();
+		return false;
+	}
+	
+	if(mail.value == "")
+	{
+		
+		alert('Please enter email address');
+		mail.focus();
+		return false;
+		
+	}
+	
+
+	if(!mail.value.match(emailExp))
+	{
+			alert("Invalid Email Format");
+			mail.focus();
+			return false;
+	}
+	
+
+	
+	
+	
+	return true;
+	
+	
+}
