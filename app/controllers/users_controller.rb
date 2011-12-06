@@ -39,9 +39,11 @@ end
       if @gigauser.role == 'Talent'
          redirect_to talentedit_users_path(:user => @gigauser.gigaclient_id)
        elsif @gigauser.role=='Client'
+          flash[:error]="yet to come"
           redirect_to :controller => "pages", :action => "home_land"
           #redirect_to clientedit_users_path(:user => @gigauser.gigaclient_id)
        else
+          flash[:error]="yet to come"
          redirect_to :controller => "pages", :action => "home_land"
           #render :text => "admin" and return 
       end
