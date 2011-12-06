@@ -724,3 +724,38 @@ text-align:center;
 .error{
 color:#FF0000;
 }
+
+/*------------------------------6_Dec_2011----------------------------------*/
+.client_reg_leftblock{width:260px; float:left;}
+.client_reg_leftblock ul{
+width:240px;
+height:auto;
+margin:0px auto;
+padding:0px 0px 20px 0px;
+background:url(/images/frontend/lp_shadow.png) no-repeat bottom;
+}
+.client_reg_leftblock li{
+font:18px/32px Gotham;
+color:#465561;
+background:url(/images/frontend/dot_background.gif) repeat-x bottom;
+padding-bottom: 5px;
+}
+.client_reg_leftblock li a{
+font:18px/32px Gotham;
+color:#465561;
+text-decoration:none;
+width:230px;
+display: block;
+padding-left: 10px;
+}
+.client_reg_leftblock li a.select_reg{
+background:#e5e5e5;
+	width: 230px;
+}
+
+.client_reg_leftblock li a:hover
+{
+	background:#e5e5e5;
+	width: 230px;
+	height:auto;
+}
