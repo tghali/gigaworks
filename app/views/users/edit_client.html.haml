@@ -1,0 +1,145 @@
+= javascript_include_tag "client_registration"
+:css
+  .select_block #card_card_expirty_date_2i{width:200px;}
+    
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        
+        .contact_headding{:style=>"background:none"}
+          %h4
+            %span CLIENT /
+            REGISTRATION
+      / <div class="pro-case-header">&nbsp;</div>
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent
+        .signup.baselayout
+          .container
+            .clear  
+            .leftcolumn
+              .banner{:style=>"background:none"}
+                %h2 Form to create an account
+
+              .contents{:style=>"background:none"}
+                - form_for @gigauser, :url=> {:action => 'create_client_registration'}, :html => {:onsubmit => "return valid_register();" }  do |f|
+
+                  .account.section
+                    %h3.step.one Profile
+                    %table
+                      %tbody
+                        %tr
+                          %td{:width => "80px"}
+                            %label{:for => "signup_first_name"} First name
+                          %td
+                            = f.text_field :first_name
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_last_name"} Last name
+                          %td
+                            = f.text_field :last_name
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_email_address"} Email
+                          %td
+                            = f.text_field :email
+                    %fieldset.credentials
+                      %table
+                        %tbody
+                          %tr
+                            %td{:width => "80px"}
+                              %label{:for => "signup_first_name"} First name
+                            %td
+                              =# f.text_field :first_line
+                            %td
+                          %tr
+                            %td
+                              %label{:for => "signup_last_name"} Last name
+                            %td
+                              =# f.text_field :second_line
+                            %td
+                          %tr
+                            %td
+                              %label{:for => "signup_email_address"} Email
+                            %td
+                              =# f.text_field :city
+                          %p
+                    %fieldset.credentials
+                      %legend Enter Company Details
+                      %br
+                      #username_entry
+                        %table
+                          %tbody
+                            %tr
+                            %tr
+                              %td{:width => "100px", :height => "35px"}
+                                %label{:for => "signup_username",:style => "padding-bottom:20px;"} Company
+                              %td
+                                = f.text_field :company
+                              %td
+                            %tr
+                              %td{:width => "100px", :height => "35px"}
+                                %label{:for => "signup_password"} Industry
+                              %td
+                                = f.text_field :industry
+                              %td
+                            %tr
+                              %td{:width => "100px", :height => "35px"}
+                                %label{:for => "signup_password_confirmation"} Turn Over
+                              %td
+                                = f.text_field :turnover
+                            %p
+                  .billing.section
+                    .billing
+                      %h3.step.three Enter your billing information
+                      .tip_container
+                      #credit_card_form
+                        %table
+                          %tbody
+                            %tr
+                              %td
+                                %label{:for => "card_number"} Card Number
+                              %td
+                                = text_field_tag "credit_card"
+                              %td
+                                / <haml:loud> error_message_on :user, :card_number , :prepend_text =&gt; &quot;Card Number &quot;, :css_class =&gt; &quot;error&quot;</haml:loud>
+                            %tr
+                              %td{:style=>"vertical-align:middle"}
+                                %label{:for => "card_expires_on_month"} Expires on
+                              %td.select_block
+                                = date_select( "card" ,"card_expirty_date", :order => [:month, :year],:size => "5")
+                              %td
+
+                            %tr
+                              %td
+                                %label{:for => "verification_value"} Verification Number
+                              %td
+                                = password_field_tag "verification_number"
+                              %td 
+                            %tr
+                              %td{:style=>"vertical-align:middle"}
+                                %label{:for => "type"} Card Type
+                              %td
+                                = select("card", "card_type", %w[visa master], {}, :id=>"card_type")
+                              %td
+
+                            %tr
+                              %td
+                                %label{:for => "card_zip_code"} Billing ZIP
+                              %td
+                                = text_field_tag "billing_zip"
+                              %td
+
+                            %tr
+                              %td  
+                              %td{:colspan => "2", :valign => "top"}  
+                  .clear
+                  -#%img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
+                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+              .bottom
+          .clear.both
+  .topspace
+

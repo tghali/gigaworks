@@ -324,6 +324,9 @@ get '/talents/registration' => 'users#talent_registration'
     get '/terms' => 'pages#terms'
     get 'contactus' => 'pages#index'        
     post 'submit_brief' => 'pages#submit_brief'
+        post '/login/users' => 'users#login'
+    get '/clientedit/users' => 'users#edit_client'
+    get '/talentedit/users' => 'users#edit_talent'
     
     post 'submitbrief/:id' =>'pages#submit_brief_pages'
    

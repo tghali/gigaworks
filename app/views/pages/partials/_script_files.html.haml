@@ -136,6 +136,42 @@
 
 
    });
+   jQuery("#signin_menu").hide();
+   jQuery(document).ready(function(){ 	
+   jQuery("#try-1").click(function()
+   {
+     jQuery("#signin_menu").click(function(){
+     return false;
+     });
+       
+     if (jQuery("#signin_menu:visible").length != 0 ){
+     jQuery("#signin_menu").fadeTo("1000", 0).hide();}
+     else
+     {     
+     jQuery("#signin_menu").fadeTo("1000", 1).show();
+     }
+
+
+
+   });
+
+   });
+   jQuery(document).ready(function() 
+   {
+      jQuery("#signin_menu").mouseleave(function()
+    { 
+     //alert("hello");
+    if(jQuery("#signin_menu:visible").length != 0){
+    //jQuery(this).stop()
+    jQuery("#signin_menu").fadeTo("1000", 0).hide();
+    
+    
+    }
+   });
+   jQuery("#signin_submit").click(function(){
+         JQuery('#signin').submit();
+   });
+   });
 			
     jQuery(".tabdiv").hide();
     jQuery("#create").show();

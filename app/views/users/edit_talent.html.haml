@@ -1,0 +1,128 @@
+= javascript_include_tag "client_registration"
+:css
+  #gigauser_date_of_birth_2i{width:200px;}
+    
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        
+        .contact_headding{:style=>"background:none"}
+          %h4
+            %span CLIENT /
+            PROFILE
+      / <div class="pro-case-header">&nbsp;</div>
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent
+        .client_reg_leftblock
+          %ul
+            %li
+              =link_to "General Info", talentedit_users_path(:user =>params[:user]), :class =>"select_reg" 
+            %li
+              %a{:href=> "javascript://", :onClick => "comingsoon();"} Contact
+            %li
+              %a{:href=> "javascript://", :onClick => "comingsoon();"} Profile
+            %li
+              %a{:href=> "javascript://", :onClick => "comingsoon();"} 	 Billing
+          %img{:src => "/images/frontend/client_signup/gigavine_reg.png"}/
+        .signup.baselayout{:style=>"background:none!important; width:660px; float:right;"}
+          .container
+            .clear  
+            .leftcolumn
+              .banner{:style=>"background:none"}
+                %h2 Form to create an account
+
+              .contents{:style=>"background:none"}
+                - form_for :gigauser, :url=> {:action => 'create_client_registration'}, :html => {:onsubmit => "return valid_register();" }  do |f|
+
+                  .account.section
+                    %table
+                      %tbody
+                        %tr
+                          %td{:width => "80px"}
+                            %label{:for => "signup_first_name"} First name
+                          %td
+                            = f.text_field :first_name
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_last_name"} Last name
+                          %td
+                            = f.text_field :last_name
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_email_address"} Email
+                          %td
+                            = f.text_field :email
+
+
+                    %fieldset.credentials
+                      %br
+                      %table
+                        %tbody
+                          %tr
+                            %td{:width => "80px"}
+                              %label{:for => "signup_first_name"} Street 
+                            %td
+                              = f.text_field :first_line
+                            %td
+                          %tr
+                            %td
+                              %label{:for => "signup_last_name"} Flat #
+                            %td
+                              = f.text_field :second_line
+                            %td
+                          %tr
+                            %td
+                              %label{:for => "signup_email_address"} City
+                            %td
+                              = f.text_field :city
+                          %tr
+                            %td
+                              %label{:for => "signup_email_address"} State
+                            %td
+                              = f.text_field :state
+                          %tr
+                            %td
+                              %label{:for => "signup_email_address"} Post Cde
+                            %td
+                              = f.text_field :zip_code
+                          %p
+
+
+                    %fieldset.credentials
+                      %br
+                      %table
+                        %tbody
+                          %tr
+                            %td{:width => "120px"}
+                              %br
+                              %br
+                              %label{:for => "signup_first_name",:style => "valign:bottom"} Date Of birth
+                            %td{:style => "valign:bottom"}  
+                              %br                 
+                              = f.date_select :date_of_birth
+                            %td
+                          %tr
+                            %td
+                              %label{:for => "signup_last_name"} Gender
+                            %td
+                              = f.text_field :gender
+                            %td
+                          %tr
+                            %td{:style => "display:none"}
+                              %label{:for => "signup_email_address"} About me
+                            %td
+                              =# f.text_area :city
+                          %p
+
+                  .clear
+                  =  hidden_field_tag :user, params[:user]
+                  -#%img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
+                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+              .bottom
+          .clear.both
+  .topspace
+
