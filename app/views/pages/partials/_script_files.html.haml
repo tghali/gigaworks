@@ -437,6 +437,10 @@
     //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");
   - if !flash[:alert].blank?    
     jQuery("#client").lightbox_me({centered: true});
+  - if flash[:error]=="Invalid user name and password"
+    jQuery("#fail").lightbox_me({centered: true});
+  - if flash[:error]=="yet to come"
+    comingsoon();
 				
 		
 		
