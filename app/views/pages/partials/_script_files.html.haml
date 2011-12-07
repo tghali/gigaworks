@@ -136,23 +136,40 @@
 
 
    });
-   jQuery("#signin_menu").hide();
-   jQuery(document).ready(function(){ 	
+   var click=0, timer = null;
+
+   jQuery(document).ready(function(){ 
+   jQuery("#signin_menu").hide();	
    jQuery("#try-1").click(function()
    {
-     jQuery("#signin_menu").click(function(){
+   //alert(click);
+   jQuery("#signin_menu").click(function(){
      return false;
      });
-       
-     if (jQuery("#signin_menu:visible").length != 0 ){
-     jQuery("#signin_menu").fadeTo("1000", 0).hide();}
-     else
-     {     
-     jQuery("#signin_menu").fadeTo("1000", 1).show();
-     }
+   click++;
+   if(click ==1){
+   timer =setTimeout(function() {
+   if (jQuery("#signin_menu:visible").length != 0 ){
+   click = 0;  
+   jQuery("#signin_menu").fadeTo("1000", 0).hide();
 
+   }
+   else
+   {     
+   click = 0;  
+   jQuery("#signin_menu").fadeTo("1000", 1).show();
 
-
+   }
+   
+   }, 900); 
+   }
+   else
+   {
+      clearTimeout(timer);
+      //jQuery("#signin_menu").fadeTo("1000", 1).show();
+      $('#signin').submit();
+     clicks = 0;  
+    }
    });
 
    });
@@ -167,9 +184,6 @@
     
     
     }
-   });
-   jQuery("#signin_submit").click(function(){
-         JQuery('#signin').submit();
    });
    });
 			
