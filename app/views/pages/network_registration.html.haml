@@ -88,7 +88,7 @@
       &nbsp; 
       / network content start
       .network_content{:style => "background:#fff!important;"}
-        %p.network_desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis pellentesque lectus ac euismod. Duis nec tortor et velit imperdiet malesuada. Vivamus non sem nec urna rhoncus sagittis. Donec vitae dapibus risus. Nulla risus est, rutrum ac tristique at, condimentum nec mauris. Phasellus tempor lacinia dui ac sollicitudin.
+        %p.network_desc 
         - form_for :talent, :url=> {:controller => 'users', :action => 'create_talent_registration'}, :html => {:onsubmit => "return talent_validate();" }  do |f|
           .net_reg_block
             / left blcok start
