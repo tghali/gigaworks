@@ -1,0 +1,79 @@
+= javascript_include_tag "client_registration"
+:css
+  #gigauser_date_of_birth_2i{width:200px;}
+    
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/profile_topmenu"
+        
+        .contact_headding{:style=>"background:none"}
+          %h4
+            %span CLIENT /
+            PROFILE
+      / <div class="pro-case-header">&nbsp;</div>
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent
+        .client_reg_leftblock
+          %ul
+            %li
+              =link_to "General Info", talentedit_users_path(:user =>params[:user])
+            %li
+              %a{:href=> "/contactedit/users"} Contact
+            %li
+              %a.select_reg{:href=> "/profileedit/users"} Profile
+            %li
+              %a{:href=> "javascript://", :onClick => "comingsoon();"} 	 Billing
+          %img{:src => "/images/frontend/client_signup/gigavine_reg.png"}/
+        .signup.baselayout{:style=>"background:none!important; width:660px; float:right;"}
+          .container
+            .clear  
+            .leftcolumn
+              .banner{:style=>"background:none"}
+                %h2 Form to create an account
+
+              .contents{:style=>"background:none"}
+                - form_for :talent, :url=> {:action => 'update_profile_talent'}, :html => {:onsubmit => "return valid_register();" }  do |f|
+
+                  .account.section
+                    %table
+                      %tbody
+                        %tr
+                          %td{:width => "120px"}
+                            %label{:for => "signup_first_name"} What's your talent
+                          %td &nbsp;
+                          %td
+                        %tr
+                          %td{:width => "120px"}
+                            &nbsp;
+                          %td
+                            = f.radio_button :skill_id, "1", :label => 'Linguist' 
+                            = f.radio_button :skill_id, "2", :label => 'Developer'
+                            = f.radio_button :skill_id ,"3", :label => 'Designer'
+                          %td
+
+                        %tr
+                          %td{:width => "120px"}
+                            %label{:for => "signup_first_name"} Language pairs
+                          %td &nbsp;
+                          %td
+                        %tr
+                          %td{:width => "120px"}
+                            &nbsp;
+                          %td
+                            =# f.select_box :
+                          %td
+
+
+
+
+
+                  .clear
+                  =  hidden_field_tag :user, params[:user]
+                  -#%img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
+                  -#%input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+              .bottom
+          .clear.both
+  .topspace
+

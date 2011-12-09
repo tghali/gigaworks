@@ -1,0 +1,70 @@
+= javascript_include_tag "client_registration"
+:css
+  #gigauser_date_of_birth_2i{width:200px;}
+    
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/profile_topmenu"
+        
+        .contact_headding{:style=>"background:none"}
+          %h4
+            %span CLIENT /
+            PROFILE
+      / <div class="pro-case-header">&nbsp;</div>
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent
+        .client_reg_leftblock
+          %ul
+            %li
+              =link_to "General Info", talentedit_users_path(:user =>params[:user])
+            %li
+              %a.select_reg{:href=> "/contactedit/users"} Contact
+            %li
+              %a{:href=> "/profileedit/users"} Profile
+            %li
+              %a{:href=> "javascript://", :onClick => "comingsoon();"} 	 Billing
+          %img{:src => "/images/frontend/client_signup/gigavine_reg.png"}/
+        .signup.baselayout{:style=>"background:none!important; width:660px; float:right;"}
+          .container
+            .clear  
+            .leftcolumn
+              .banner{:style=>"background:none"}
+                %h2 Form to create an account
+
+              .contents{:style=>"background:none"}
+                - form_for :talent, :url=> {:action => 'update_profile_talent'}, :html => {:onsubmit => "return valid_register();" }  do |f|
+
+                  .account.section
+                    %table
+                      %tbody
+                        %tr
+                          %td{:width => "80px"}
+                            %label{:for => "signup_first_name"} Phone
+                          %td
+                            = f.text_field :phone
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_last_name"} Mobile
+                          %td
+                            = f.text_field :mobile
+                          %td
+                        %tr
+                          %td
+                            %label{:for => "signup_email_address"} Email
+                          %td
+                            = f.text_field :email
+
+
+
+
+                  .clear
+                  =  hidden_field_tag :user, params[:user]
+                  -#%img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
+                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+              .bottom
+          .clear.both
+  .topspace
+
