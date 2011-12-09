@@ -5,8 +5,8 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent]
-  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
@@ -15,7 +15,7 @@ class UsersController < ActionController::Base
   
   
     def edit_client
-@gigauser=Gigaclient.find(params[:user])
+@gigauser=Gigaclient.find(session[:user])
   
   respond_to do |format|
 		   format.html { render :layout=>'pages_new'   }
@@ -23,8 +23,27 @@ class UsersController < ActionController::Base
 	
 		end
 end
+  
   def edit_talent
-@gigauser=Talent.find(params[:user])
+@talent=Talent.find(session[:user]) 
+  
+  respond_to do |format|
+		   format.html { render :layout=>'pages_new'   }
+		   format.xml  { render :xml => @gigauser }
+	
+		end
+end
+  def edit_talent_contact
+@talent=Talent.find(session[:user]) 
+  
+  respond_to do |format|
+		   format.html { render :layout=>'pages_new'   }
+		   format.xml  { render :xml => @gigauser }
+	
+		end
+end
+def edit_talent_profile
+@talent=Talent.find(session[:user])
   
   respond_to do |format|
 		   format.html { render :layout=>'pages_new'   }
@@ -38,6 +57,7 @@ end
 
       if @gigauser.role == 'Talent'
          redirect_to talentedit_users_path(:user => @gigauser.gigaclient_id)
+         session[:user]=@gigauser.gigaclient_id
        elsif @gigauser.role=='Client'
           flash[:error]="yet to come"
           redirect_to :controller => "pages", :action => "home_land"
@@ -52,7 +72,10 @@ end
      redirect_to :controller => "pages", :action => "home_land"
   end
 end
-
+def logout
+  session[:user]=nil
+  redirect_to :controller => "pages", :action => "home_land"
+end
   
   def signup
 	 invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound	

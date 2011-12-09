@@ -13,7 +13,7 @@ class Talent < ActiveRecord::Base
 	
 	#validates_numericality_of :mobile_phone, :if => :mobile_phone? 
     def gigausers
-    
+    if self.new_record?
     @gfind = Gigauser.find_by_sql("SELECT id FROM gigausers order by id DESC limit 1")
     guser = Gigauser.new
     guser.id = @gfind[0]['id'] + 1
@@ -51,6 +51,7 @@ class Talent < ActiveRecord::Base
     guser.role = "Talent"
     guser.email = self.email
     guser.save!
+    end
 		 #~ Gigauser.create(:first_name =>self.first_name , :last_name =>self.last_name , :gigaclient_id => self.id, :role_id => 5,:email =>self.email )
 end     
 

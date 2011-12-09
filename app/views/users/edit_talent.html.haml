@@ -1,12 +1,12 @@
 = javascript_include_tag "client_registration"
 :css
-  #gigauser_date_of_birth_2i{width:200px;}
+  #talent_date_of_birth_2i{width:200px;}
     
 #contact_wrapper
   .contact-newbg{:style=>"background:none"}
     #trans-wrapper
       #trans-main
-        = render :partial => "/pages/partials/inner_pages"
+        = render :partial => "/pages/partials/profile_topmenu"
         
         .contact_headding{:style=>"background:none"}
           %h4
@@ -20,9 +20,9 @@
             %li
               =link_to "General Info", talentedit_users_path(:user =>params[:user]), :class =>"select_reg" 
             %li
-              %a{:href=> "javascript://", :onClick => "comingsoon();"} Contact
+              %a{:href=> "/contactedit/users"} Contact
             %li
-              %a{:href=> "javascript://", :onClick => "comingsoon();"} Profile
+              %a{:href=> "/profileedit/users"} Profile
             %li
               %a{:href=> "javascript://", :onClick => "comingsoon();"} 	 Billing
           %img{:src => "/images/frontend/client_signup/gigavine_reg.png"}/
@@ -34,7 +34,7 @@
                 %h2 Form to create an account
 
               .contents{:style=>"background:none"}
-                - form_for :gigauser, :url=> {:action => 'create_client_registration'}, :html => {:onsubmit => "return valid_register();" }  do |f|
+                - form_for :talent, :url=> talentupdate_users_path, :html => {:onsubmit => "return valid_register();" }  do |f|
 
                   .account.section
                     %table
@@ -51,11 +51,7 @@
                           %td
                             = f.text_field :last_name
                           %td
-                        %tr
-                          %td
-                            %label{:for => "signup_email_address"} Email
-                          %td
-                            = f.text_field :email
+
 
 
                     %fieldset.credentials
@@ -86,7 +82,7 @@
                               = f.text_field :state
                           %tr
                             %td
-                              %label{:for => "signup_email_address"} Post Cde
+                              %label{:for => "signup_email_address"} Post Code
                             %td
                               = f.text_field :zip_code
                           %p
@@ -109,13 +105,23 @@
                             %td
                               %label{:for => "signup_last_name"} Gender
                             %td
-                              = f.text_field :gender
+                              = f.radio_button :gender, "Male"
+                              = f.radio_button :gender, "Female"
                             %td
                           %tr
-                            %td{:style => "display:none"}
+                            %td 
+                              &nbsp;
+                            %td &nbsp;
+                            %td &nbsp;
+                          %tr
+                            %td 
                               %label{:for => "signup_email_address"} About me
+                            %td &nbsp;
+                            %td &nbsp;
+                          %tr
+                            %td &nbsp;                              
                             %td
-                              =# f.text_area :city
+                              = f.text_area :about_me
                           %p
 
                   .clear
