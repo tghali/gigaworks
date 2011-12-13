@@ -57,6 +57,8 @@ end
 
       if @gigauser.role == 'Talent'
          redirect_to talentedit_users_path(:user => @gigauser.gigaclient_id)
+         cookies[:username]=@gigauser.username
+         cookies[:password]=@gigauser.password
          session[:user]=@gigauser.gigaclient_id
        elsif @gigauser.role=='Client'
           flash[:error]="yet to come"

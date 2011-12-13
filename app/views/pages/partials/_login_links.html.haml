@@ -31,11 +31,11 @@
             %fieldset#signin_menu.login_box               
               = form_for(:login, :url => {:controller => "users", :action => "login"}, :html => {:id =>"signin",:method => "post"}, :onsubmit => "alert('hi')") do |f|
                 %p
-                  %label Username 
-                  = f.text_field :username, :tabindex => "4", :title => "username"
+                  %label Username
+                  = f.text_field :username, :tabindex => "4", :title => "username", :value => (!cookies[:username].blank? ? cookies[:username] : "username") , :onclick => "if(this.value=='username')this.value='';" 
                 %p
                   %label Password
-                  = f.password_field :password, :tabindex => "5", :title => "password"
+                  = f.password_field :password, :tabindex => "5", :value =>  (!cookies[:password].blank? ? cookies[:password]: "password") , :title => "password", :onclick => "if(this.value=='password')this.value='';"
                 %p
                   = f.submit :id => "signin_submit", :tabindex => "6", :value => "Sign in",:class=>"count_btn",:style=>"width:50px!important; float:left!important; margin-top:10px!important; margin-bottom:10px!important;", :onclick=>"$('#signin').submit()"
                 =# link_to 'Save', "#", :onclick=>"$('#signin').submit()" 
