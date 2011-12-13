@@ -96,23 +96,23 @@
               .reg_name_block
                 .name1 Name
                 %div
-                  = f.text_field :first_name, :class => 'reg3'
+                  = f.text_field :first_name, :class => 'reg3', :value => "First", :onclick => "if(this.value=='First')this.value=''"
                 %div
-                  = f.text_field :last_name, :class => 'reg3'
+                  = f.text_field :last_name, :class => 'reg3', :value => "Last", :onclick => "if(this.value=='Last')this.value=''"
               .clear  
               .reg_name_block
                 .name1 Email & Phone
                 %div
-                  = f.text_field :email, :class => 'reg3'
+                  = f.text_field :email, :class => 'reg3', :value => "Email", :onclick => "if(this.value=='Email')this.value='';"
                 %div
-                  = f.text_field :phone, :class => 'reg3'
+                  = f.text_field :phone, :class => 'reg3', :value => "Phone", :onclick => "if(this.value=='Phone')this.value='';"
               .clear  
               .reg_name_block
                 .name1
                   Company
                   %span (optional)
                 %div
-                  = f.text_field :company, :class => 'reg3'
+                  = f.text_field :company, :class => 'reg3', :value => "Company", :onclick => "if(this.value=='Company')this.value=''"
               .clear
                 &nbsp;
               .clear
@@ -126,11 +126,11 @@
               .reg_name_block
                 .name1 Address
                 %div
-                  = f.text_field :first_line, :class => 'reg3'
-                  = f.text_field :second_line, :class => 'reg3'
-                  = f.text_field :city, :class => 'reg3'
-                  = f.text_field :state, :class => 'reg4'
-                  = f.text_field :zip_code, :class => 'reg5'
+                  = f.text_field :first_line, :class => 'reg3', :value => "Street", :onclick => "if(this.value=='Street')this.value=''"
+                  = f.text_field :second_line, :class => 'reg3', :value => "Flat #", :onclick => "if(this.value=='Flat #')this.value=''"
+                  = f.text_field :city, :class => 'reg3', :value => "City", :onclick => "if(this.value=='City')this.value=''"
+                  = f.text_field :state, :class => 'reg4', :value => "State", :onclick => "if(this.value=='State')this.value=''"
+                  = f.text_field :zip_code, :class => 'reg5', :value => "Post Code", :onclick => "if(this.value=='Post Code')this.value=''"
               .reg_name_block
                 .name1 Country
                 %div

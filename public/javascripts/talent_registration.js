@@ -124,7 +124,13 @@ function talent_validate()
 	f_name = document.getElementById('talent_first_name');
 	l_name = document.getElementById('talent_last_name');
 	mail = document.getElementById('talent_email');
-
+ phone = document.getElementById('talent_phone');
+company=document.getElementById('talent_company');
+f_line= document.getElementById('talent_first_line');
+s_line= document.getElementById('talent_second_line');
+city= document.getElementById('talent_city');
+state=document.getElementById('talent_state');
+z_code=document.getElementById('talent_zip_code');
 	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 
 	if(f_name.value == "")
@@ -178,9 +184,36 @@ function talent_validate()
 			mail.focus();
 			return false;
 	}
-	
+       if(phone.value=="Phone")
+       {
+         phone.value="";
+       }
+       if(company.value=="Company")
+       {
+         company.value="";
+       }
+       if(f_line.value=="Street")
+       {
+          f_line.value="";
+       }
+       if(s_line.value=="Flat #")
+       {
+         s_line.value="";
+       }
+       if(city.value=="City")
+       {
+         city.value="";
+       }
+       if(state.value=="State")
+       {
+         state.value="";
+       }
+      if(z_code.value=="Post Code")
+      {
+        z_code.value="";
+      }
 
-	
+       
 	
 	
 	return true;
