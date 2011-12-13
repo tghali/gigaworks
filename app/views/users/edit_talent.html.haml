@@ -1,6 +1,6 @@
 = javascript_include_tag "client_registration"
 :css
-  #talent_date_of_birth_2i{width:200px;}
+  #talent_date_of_birth_2i{width:120px;}
     
 #contact_wrapper
   .contact-newbg{:style=>"background:none"}
@@ -66,7 +66,7 @@
                             %td
                           %tr
                             %td
-                              %label{:for => "signup_last_name"} Flat #
+                              %label{:for => "signup_last_name"} Flat 
                             %td
                               = f.text_field :second_line
                             %td
@@ -97,16 +97,16 @@
                               %br
                               %br
                               %label{:for => "signup_first_name",:style => "valign:bottom"} Date Of birth
-                            %td{:style => "valign:bottom"}  
+                            %td{:style => "valign:bottom",:width => "120px"}  
                               %br                 
                               = f.date_select :date_of_birth
                             %td
                           %tr
                             %td
                               %label{:for => "signup_last_name"} Gender
-                            %td
-                              = f.radio_button :gender, "Male"
-                              = f.radio_button :gender, "Female"
+                            %td{:style => "text-align:left"}
+                              = f.radio_button :gender, "Male", :style=>"width:10px!important"
+                              = f.radio_button :gender, "Female",  :style=>"width:10px!important"
                             %td
                           %tr
                             %td 
@@ -121,7 +121,7 @@
                           %tr
                             %td &nbsp;                              
                             %td
-                              = f.text_area :about_me
+                              = f.text_area :about_me, :style=>"position:relative; top:-20px;"
                           %p
 
                   .clear
