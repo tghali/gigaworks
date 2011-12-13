@@ -13,7 +13,8 @@ class Talent < ActiveRecord::Base
 	
 	#validates_numericality_of :mobile_phone, :if => :mobile_phone? 
     def gigausers
-    if self.new_record?
+    guser= Gigauser.first(:conditions => "gigaclient_id= #{self.id}")
+    if !guser
     @gfind = Gigauser.find_by_sql("SELECT id FROM gigausers order by id DESC limit 1")
     guser = Gigauser.new
     guser.id = @gfind[0]['id'] + 1
