@@ -37,13 +37,15 @@
                   %label Password
                   = f.password_field :password, :tabindex => "5", :value =>  (!cookies[:password].blank? ? cookies[:password]: "password") , :title => "password", :onclick => "if(this.value=='password')this.value='';"
                 %p
+                  - if flash[:error]=="Invalid user name and password"
+                    %p{:style=>"color:#ff0000;position:relative; left:-10px;"} You&nbsp;entered&nbsp;wrong&nbsp;username&nbsp;and&nbsp;password
+                %p
                   = f.submit :id => "signin_submit", :tabindex => "6", :value => "Sign in",:class=>"count_btn",:style=>"width:50px!important; float:left!important; margin-top:10px!important; margin-bottom:10px!important;", :onclick=>"$('#signin').submit()"
                 =# link_to 'Save', "#", :onclick=>"$('#signin').submit()" 
         - else
           .reg_text
-            %a#try-1{:href => "javascript://"}
+            %a#try-1{:href => "/logout/users" }
               Logout
-              %img{:alt => "", :src => "/images/frontend/down-arrow.jpg", :title => ""}/
         .reg_text1#reg_t1
           Current Language: 
           %a#image_frm_div{:href => "javascript://"}

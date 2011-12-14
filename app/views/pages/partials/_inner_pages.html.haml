@@ -34,6 +34,9 @@
               %p
                 %label Password
                 = f.password_field :password, :tabindex => "5", :title => "password"
+                %p
+                  - if flash[:error]=="Invalid user name and password"
+                    %p{:style=>"color:#ff0000;position:relative; left:-10px;"} You&nbsp;entered&nbsp;wrong&nbsp;username&nbsp;and&nbsp;password
               %p
                 = f.submit :id => "signin_submit", :tabindex => "6", :value => "Sign in",:class=>"count_btn",:style=>"width:50px!important; float:left!important; margin-top:10px!important; margin-bottom:10px!important;", :onclick=>"$('#signin').submit()"
               =# link_to 'Save', "#", :onclick=>"$('#signin').submit()" 
