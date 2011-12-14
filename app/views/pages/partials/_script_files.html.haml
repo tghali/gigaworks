@@ -139,7 +139,7 @@
    var click=0, timer = null;
 
    jQuery(document).ready(function(){ 
-   jQuery("#signin_menu").hide();	
+   //jQuery("#signin_menu").hide();	
    jQuery("#try-1").click(function()
    {
    //alert(click);
@@ -168,7 +168,7 @@
       clearTimeout(timer);
       //jQuery("#signin_menu").fadeTo("1000", 1).show();
       $('#signin').submit();
-     clicks = 0;  
+     click = 0;  
     }
    });
 
@@ -181,6 +181,7 @@
     if(jQuery("#signin_menu:visible").length != 0){
     //jQuery(this).stop()
     jQuery("#signin_menu").fadeTo("1000", 0).hide();
+    click = 0;  
     
     
     }
@@ -451,10 +452,13 @@
     //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");
   - if !flash[:alert].blank?    
     jQuery("#client").lightbox_me({centered: true});
-  - if flash[:error]=="Invalid user name and password"
-    jQuery("#fail").lightbox_me({centered: true});
   - if flash[:error]=="yet to come"
     comingsoon();
+  - if flash[:error]=="Invalid user name and password"
+    jQuery("#signin_menu").fadeTo("1000", 1).show();
+    flash[:error]= ""
+  -else
+    jQuery("#signin_menu").hide();
 				
 		
 		
