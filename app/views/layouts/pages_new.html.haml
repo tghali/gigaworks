@@ -7,6 +7,12 @@
         = @page_title
       - else
         Gigavine
+    - if !@page_description.blank?
+      %META{:content => @page_description, :name => "description"  }/
+    - if !@page_keywords.blank?
+      %META{:content => @page_keywords, :name => "keywords"}/
+
+
     =# javascript_include_tag "frontend/jquery.pikachoose.js"
     :javascript
       document.onselectstart=new Function('return false');

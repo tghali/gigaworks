@@ -13,6 +13,8 @@
         %a{:href => "#adapt"} Adapt
       %li
         %a{:href => "#deliver"} Deliver
+      %li
+        %a{:href => "#seo"} SEO
     #create.tabdiv
       = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return slider_validation('create');"} do |f|
         = f.hidden_field :tab_type,  :value => "create"
@@ -53,6 +55,18 @@
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
+    #seo.tabdiv
+      = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return slider_validation('create');"} do |f|
+        = f.hidden_field :tab_type,  :value => "home_seo"
+        %label.headding1_label
+          %strong Description:
+          = f.text_area :content, :style => "width:600px;", :id => "create_content",:value => get_seo('home_seo','desc')
+        %label.headding_label
+          %strong Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "create_content",:value => get_seo('home_seo','key')
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    /SEO
   .clearspace  
   %div
     = form_for :frontend_page, :url => {:controller => "pages",:action => "home_create"},:html =>{:name => "forms1",:multipart => :true,:onsubmit => "return home_middle_validation();"} do |f|
@@ -105,6 +119,24 @@
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a{:href => "#lanseo"} SEO  
+
+
+    #lanseo.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form"} do |f|
+        = f.hidden_field :page_section,  :value => "language_main_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('language_main_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('language_main_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close

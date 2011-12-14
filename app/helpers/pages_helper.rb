@@ -55,6 +55,15 @@ module PagesHelper
    end
   end
 
+def get_seo(tab_type,option)
+  frontend_page =  FrontendPage.find_by_page_section(tab_type)
+  if option=="desc"
+    return frontend_page.content if !frontend_page.blank?
+  elsif option=="key"
+    return frontend_page.news if !frontend_page.blank?
+   end
+ end
+
  def get_image(tab)
    frontend_page =  FrontendPage.find_by_page_section(tab)
        if frontend_page 

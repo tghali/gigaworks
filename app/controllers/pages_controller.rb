@@ -10,6 +10,13 @@ class PagesController < ActionController::Base
     raise ActionController::RoutingError.new "#{params[:section]}/#{params[:page]} is not a static page in the application"
   end
 
+  def meta_data(section)
+
+        meta_detail=FrontendPage.find_by_page_section(section)
+       @page_description=meta_detail.content if meta_detail
+      @page_keywords=meta_detail.news if meta_detail
+  end
+
   def show
     if params[:page]
       render "pages/#{params[:section]}/#{params[:page]}"
@@ -32,11 +39,13 @@ class PagesController < ActionController::Base
 	#render :text => request.url and return
       redirect_to :controller => 'pages', :action => 'temp_home' and return
     end
+        meta_data('home_seo')
 	  render :layout => 'pages_new'
   end
   
   def languages_new
     @page_title = "Gigavine - Languages"
+meta_data('language_main_seo')
 	   render :layout => 'pages_new'
    end
      def company_new
@@ -205,7 +214,7 @@ class PagesController < ActionController::Base
 		find_page.update_attributes(params[:languages_page])
 	end
   
-  if params[:languages_page][:page_section] == 'languages_page'
+  if params[:languages_page][:page_section] == 'languages_page'|| params[:languages_page][:page_section] == 'language_main_seo'
 	 redirect_to :action => "languages_new"
   elsif params[:languages_page][:page_section] == 'language_consultancy_page'
     redirect_to :action => "language_consultancy"
@@ -439,7 +448,9 @@ end
 	 elsif tab_type == "middle_content"
 		 return "home_middle"	
          elsif tab_type == "news_block"	
-		  return "home_news_block"	
+		  return "home_news_block"
+         elsif tab_type == "home_seo"
+                  return "home_seo"	
 	 end
  end 
 
