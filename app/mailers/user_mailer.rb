@@ -72,9 +72,9 @@ end
     attachments["#{details.attachment_file_name}"] = File.read("#{myfile}")
     #mail(:to => details.email, :subject => "#{section} page data")
    #mail(:to => 'umamahesh_nyros@yahoo.com', :subject => "#{section} page data")
-   mail(:to => 'prohini_nyros@yahoo.com', :subject => "#{section} page data")    
+   #mail(:to => 'prohini_nyros@yahoo.com', :subject => "#{section} page data")    
     
-#mail(:to => 'info@gigavine.com', :subject => "#{section} page data")       
+mail(:to => 'info@gigavine.com', :subject => "#{section} page data")       
     end
 
   
