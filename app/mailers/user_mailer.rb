@@ -50,6 +50,24 @@ end
     @briefdetail = details
     @userdetail = ipadd
     @details = browse
+       if browse =~ /Safari/
+          unless result =~ /Chrome/
+            @version = result.split('Version/')[1].split(' ').first.split('.').first
+            @browser = 'Safari'
+          else
+            @version = result.split('Chrome/')[1].split(' ').first.split('.').first
+            @browser = 'Chrome'
+          end
+        elsif result =~ /Firefox/
+          @version = result.split('Firefox/')[1].split('.').first
+          @browser = 'Firefox '
+        elsif result =~ /Opera/
+          @version = result.split('Version/')[1].split('.').first
+          @browser = 'Opera'
+        elsif result =~ /MSIE/
+          @version = result.split('MSIE')[1].split(' ').first
+          @browser = 'Microsoft Internet Explorer '
+        end
     #~ @filepath = details.attachment.url
     attachments["#{details.attachment_file_name}"] = File.read("#{myfile}")
     #mail(:to => details.email, :subject => "#{section} page data")
