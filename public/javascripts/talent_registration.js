@@ -16,12 +16,16 @@ if (mail.value!="")
 {
 if(!mail.value.match(emailExp))
 	{
-			alert("Invalid Email Format");
-			mail.focus();
+			//alert("Invalid Email Format");
+			//mail.focus();
                          document.getElementById('check').style.display='none';
-			return false;
+			//return false;
 	}
 	document.getElementById('check').style.display='block';
+}
+if (mail.value!="")
+{
+   document.getElementById('check').style.display='block';
 }
    return true;
    
