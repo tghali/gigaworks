@@ -40,7 +40,7 @@
                   - if flash[:error]=="Invalid user name and password"
                     Wrong username and password
                 %p
-                  = f.submit :id => "signin_submit", :tabindex => "6", :value => "Sign in",:class=>"count_btn",:style=>"width:50px!important; float:left!important; margin-top:10px!important; margin-bottom:10px!important;", :onclick=>"$('#signin').submit()"
+                  = f.submit :id => "signin_submit", :tabindex => "6", :value => "Authenticate",:class=>"count_btn_new",:style=>"width:75px!important; float:left!important; margin-top:10px!important; margin-bottom:10px!important;", :onclick=>"$('#signin').submit()"
                 =# link_to 'Save', "#", :onclick=>"$('#signin').submit()" 
         - else
           .reg_text
