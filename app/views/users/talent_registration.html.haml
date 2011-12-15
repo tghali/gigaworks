@@ -41,7 +41,9 @@
                           %td
                             %label{:for => "signup_email_address"} Email
                           %td
-                            = f.text_field :email
+                            = f.text_field :email, :onblur => "return email_check(this);"
+                            %div{:style => "float:right;display:none", :id =>"check"}
+                              =image_tag("/images/frontend/Symbol-Check.png",:size=>"25x25", :alt=>"check")
 
 
                     %fieldset.credentials
@@ -50,12 +52,6 @@
                       %table
                         %tbody
                           %tr
-                          %tr
-                            %td{:width => "100px", :height => "35px"}
-                              %label{:for => "signup_first_name"} Username
-                            %td
-                              = f.text_field :username
-                            %td
                           %tr
                             %td{:width => "100px", :height => "35px"}
                               %label{:for => "signup_last_name"} Password
