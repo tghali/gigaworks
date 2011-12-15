@@ -1085,6 +1085,43 @@ color:#646464;
 
 
 
+
+.count_btn_new{
+cursor:pointer;
+width:75px;
+height:22px;
+float:right;
+color:#fff;
+font:11px/21px Verdana;
+text-align:center;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+background:#9f9f9f;
+/*background:url(/images/frontend/gray_btn.gif) no-repeat;*/
+}
+/*.count_btn:hover{
+cursor:pointer;
+width:64px;
+height:22px;
+float:right;
+color:#646464;
+font:11px/21px Verdana;
+text-align:center;
+background:url(/images/frontend/gray_btn.gif) no-repeat 0px -22px;
+}*/
+.count_btn_new a{
+cursor:pointer;
+color:#fff;
+text-decoration:none;
+}
+.count_btn_new a:hover{
+cursor:pointer;
+text-decoration:none;
+color:#646464;
+}
+
+
 .language_textblock{
 width:280px;
 height:auto;
