@@ -361,9 +361,11 @@ end
         briefdetail = BriefDetail.new(params[:brief_detail])
         browser_detail = request.env['HTTP_USER_AGENT']
         ipadd=request.remote_ip
+        get_user_ip
+        loc=@country_name
       respond_to do |format|
         if briefdetail.save! 
-          UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path,params[:section_name], browser_detail,ipadd).deliver 
+          UserMailer.submit_brief(briefdetail,params[:brief_detail][:attachment].path,params[:section_name], browser_detail,ipadd,loc).deliver 
 	  format.html { redirect_to("http://www.gigavine.com/technology#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology main"	
           format.html { redirect_to("http://www.gigavine.com/technology/e-learning#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology learning"  
           format.html { redirect_to("http://www.gigavine.com/technology/e-commerce#submit", :notice => "Your brief has been submitted successfully, one of our project managers will be in-touch shortly.") } if params[:section_name]=="Technology commerce"  
@@ -565,6 +567,7 @@ def get_user_ip
      #  62.232.30.75 ----- UK
      ip_info = GeoIp.geolocation(ip_address, :precision => :country)     
      @country_code = ip_info[:country_code] 
+     @country_name=ip_info[:country_name]
 
 end
   

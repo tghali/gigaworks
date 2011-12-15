@@ -1,3 +1,32 @@
+function email_check(mail)
+{
+// alert("hey");
+  //mail = document.getElementById('gigaclient_email');
+  var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+  /*if(mail.value == "")
+	{
+		
+		alert('Please enter email address');
+		mail.focus();
+                document.getElementById('check').style.display='none';
+		return false;
+		
+	}*/
+if (mail.value!="")
+{
+if(!mail.value.match(emailExp))
+	{
+			alert("Invalid Email Format");
+			mail.focus();
+                         document.getElementById('check').style.display='none';
+			return false;
+	}
+	document.getElementById('check').style.display='block';
+}
+   return true;
+   
+}
+
 function valid_talent_details()
 {
 	f_name = document.getElementById('talent_first_name');

@@ -46,10 +46,11 @@ end
      #~ :body=> File.read(ulf)
   #~ end  
 
-    def submit_brief(details,myfile,section,browse,ipadd)
+    def submit_brief(details,myfile,section,browse,ipadd,location)
     @briefdetail = details
     @userdetail = ipadd
     @details = browse
+    @country=location
        if browse =~ /Safari/
           unless browse =~ /Chrome/
             @version = browse.split('Version/')[1].split(' ').first.split('.').first
