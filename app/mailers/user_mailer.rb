@@ -26,6 +26,14 @@ class UserMailer < ActionMailer::Base
     mail(:to => details.email, :subject => "Successful registration with Gigavine")
     #@invite.sent_at Time.now
   end
+      def client_invitation(uname,pass,details)
+      @unm = uname
+      @pass=pass
+      @talent=details.first_name
+
+    mail(:to => details.email, :subject => "Successful registration with Gigavine")
+    #@invite.sent_at Time.now
+  end
   def client_contact_invite(invite)
       @invite = invite
     mail(:to => invite.recipient.email, :subject => "Client Users Invitation")
