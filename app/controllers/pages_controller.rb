@@ -194,7 +194,8 @@ meta_data('language_main_seo')
 	 find_page = FrontendPage.find_by_page_section(page_section)
 	 if find_page.blank?
 		@frontend_page = FrontendPage.new(params[:frontend_page])
-		@frontend_page.user_id = 2	 
+		#@frontend_page.user_id = 2	 
+                @frontend_page.user_id = current_user.id
 		@frontend_page.page_section = page_section
 		@frontend_page.save
 	else
