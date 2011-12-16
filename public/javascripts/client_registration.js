@@ -32,6 +32,33 @@ if (mail.value=="")
 }
    
 }
+function passwd(pwd)
+{
+        var passExp =  /([A-Z])+([a-z])+([0-9])+/g;
+//alert(pwd.value.match(passExp));
+        if(!pwd.value.match(/([A-Z])+/))
+        {
+           alert("invalid password")
+           //pwd.focus();
+           return false;
+          }
+          if(!pwd.value.match(/([a-z])+/))
+          {
+                      alert("invalid password")
+           //pwd.focus();
+           return false;
+          }
+            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\
++|\_])+/))
+            {
+           alert("invalid password")
+           //pwd.focus();
+           return false;
+          }
+
+
+return true;
+}
 
 function valid_register()
 {
