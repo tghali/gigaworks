@@ -16,20 +16,21 @@ if (mail.value!="")
 {
 if(!mail.value.match(emailExp))
 	{
-			//alert("Invalid Email Format");
-			//mail.focus();
+			alert("Invalid Email Format");
+			mail.focus();
                          document.getElementById('check').style.display='none';
 			return false;
 	}
 	document.getElementById('check').style.display='block';
-   return true;
 }
-if (mail.value=="")
+if (mail.value!="")
 {
-   document.getElementById('check').style.display='none';
+   document.getElementById('check').style.display='block';
 }
+   return true;
    
 }
+
 
 function valid_talent_details()
 {
@@ -185,7 +186,7 @@ state=document.getElementById('talent_state');
 z_code=document.getElementById('talent_zip_code');
 	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 
-	if(f_name.value == "")
+	if(f_name.value == ""  || f_name.value=="First")
 	{
 		
 		alert('Please enter first name');
@@ -203,7 +204,7 @@ z_code=document.getElementById('talent_zip_code');
 	}
 	
 	
-	if(l_name.value == "")
+	if(l_name.value == "" || l_nme.value=="Last")
 	{
 		
 		alert('Please enter last name');
