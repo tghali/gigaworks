@@ -69,26 +69,27 @@ class Gigaclient < ActiveRecord::Base
     #from network registration
     else
      puts "i got it...#{self.first_name[0,1]}"
-    guser.username=self.first_name[0,1] + self.last_name
-    if Gigauser.find_by_username(guser.username)
-       guser.username=self.first_name + self.last_name
-       if Gigauser.find_by_username(guser.username)
-          guser.username = self.first_name + "." + self.last_name
-       end
-    end
+    #guser.username=self.first_name[0,1] + self.last_name
+    #if Gigauser.find_by_username(guser.username)
+       #guser.username=self.first_name + self.last_name
+       #if Gigauser.find_by_username(guser.username)
+          #guser.username = self.first_name + "." + self.last_name
+          guser.username = self.company
+       #end
+    #end
   end
       # from talents registration
-    if self.password
+    #if self.password
     guser.password = self.password
        #from network registration
-    else
-     guser.password = '12345678'
-    end
-    if self.password_confirmation
+    #else
+     #guser.password = '12345678'
+    #end
+    #if self.password_confirmation
     guser.password_confirmation = self.password_confirmation
-    else
-     guser.password_confirmation = '12345678'
-    end
+    #else
+     #guser.password_confirmation = '12345678'
+    #end
     #guser.password_confirmation = self.password_confirmation
     guser.first_name = self.first_name
     guser.last_name = self.last_name

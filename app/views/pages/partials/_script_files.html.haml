@@ -451,14 +451,15 @@
     jQuery("#message").lightbox_me({centered: true});
     //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");
   - if !flash[:alert].blank?    
-    jQuery("#client").lightbox_me({centered: true});
+    jQuery("#client").lightbox_me({centered: true});   
   - if flash[:error]=="yet to come"
     comingsoon();
   - if flash[:error]=="Invalid user name and password"
     jQuery("#signin_menu").fadeTo("1000", 1).show();
-    flash[:error]= ""
+    - flash[:error]= nil
   -else
     jQuery("#signin_menu").hide();
+  - flash[:error]=flash[:notice]=flash[:alert]= nil
 				
 		
 		

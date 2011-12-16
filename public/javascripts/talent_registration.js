@@ -36,10 +36,10 @@ function valid_talent_details()
 	f_name = document.getElementById('talent_first_name');
 	l_name = document.getElementById('talent_last_name');
 	mail = document.getElementById('talent_email');
-	client_user = document.getElementById('talent_username');
+	//client_user = document.getElementById('talent_username');
 	pwd = document.getElementById('talent_password');
 	confirm_pwd = document.getElementById('talent_password_confirmation');
-	country = document.getElementById('talent_country');
+	//country = document.getElementById('talent_country');
 
 	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 
@@ -55,7 +55,7 @@ function valid_talent_details()
 		if(f_name.value.charAt(0) == ' ')
 	{
 		alert('First name should be in characters');
-		f_name.focus();
+		f_name.focus();as
 		return false;
 	}
 	
@@ -95,14 +95,14 @@ function valid_talent_details()
 	
 
 	
-		if(client_user.value == "")
+	/*	if(client_user.value == "")
 	{
 		
 		alert('Please enter username');
 		client_user.focus();
 		return false;
 		
-	}	
+	}*/	
 	
 	
 	if(pwd.value == "")
@@ -137,14 +137,33 @@ function valid_talent_details()
 		confirm_pwd.focus();
 		return false;
 	}
-	if(country.value == "")
+        if(!pwd.value.match(/([A-Z])+/))
+        {
+           alert("invalid password must have a captial letter")
+           pwd.focus();
+           return false;
+          }
+          if(!pwd.value.match(/([a-z])+/))
+          {
+                      alert("invalid password must have a small letter")
+           pwd.focus();
+           return false;
+          }
+            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\
++|\_])+/))
+            {
+           alert("invalid password must have a digit or a special character")
+           pwd.focus();
+           return false;
+          }
+	/*if(country.value == "")
 	{
 		
 		alert('Please enter Country name');
 		country.focus();
 		return false;
 		
-	}
+	}*/
 	
 	return true;
 	

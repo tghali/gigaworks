@@ -38,7 +38,7 @@ function valid_register()
 	f_name = document.getElementById('gigaclient_first_name');
 	l_name = document.getElementById('gigaclient_last_name');
 	mail = document.getElementById('gigaclient_email');
-	client_user = document.getElementById('gigaclient_username');
+	//client_user = document.getElementById('gigaclient_username');
 	pwd = document.getElementById('gigaclient_password');
 	confirm_pwd = document.getElementById('gigaclient_password_confirmation');
 		company = document.getElementById('gigaclient_company');
@@ -55,7 +55,7 @@ function valid_register()
 	
  
 	
-	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/
 	
 	if(f_name.value == "")
 	{
@@ -109,14 +109,14 @@ function valid_register()
 	
 
 	
-		if(client_user.value == "")
+		/*if(client_user.value == "")
 	{
 		
 		alert('Please enter username');
 		client_user.focus();
 		return false;
 		
-	}	
+	}*/	
 	
 	
 	if(pwd.value == "")
@@ -151,6 +151,26 @@ function valid_register()
 		confirm_pwd.focus();
 		return false;
 	}
+        
+        if(!pwd.value.match(/([A-Z])+/))
+        {
+           alert("invalid password must have a captial letter")
+           pwd.focus();
+           return false;
+          }
+          if(!pwd.value.match(/([a-z])+/))
+          {
+                      alert("invalid password must have a small letter")
+           pwd.focus();
+           return false;
+          }
+            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\
++|\_])+/))
+            {
+           alert("invalid password must have a digit or a special character")
+           pwd.focus();
+           return false;
+          }
 	
 	if(company.value == "")
 	{

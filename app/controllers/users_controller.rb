@@ -248,7 +248,7 @@ def create_client_registration
   
  #if credit_card.valid?
   # or gateway.purchase to do both authorize and capture
-   flash[:alert]='Sucessfully created'
+   #flash[:alert]='Sucessfully created'
   #redirect_to  :controller=>'pages',:action => 'home_land' and return
 
 # response = gateway.authorize(1000, credit_card, :ip => "127.0.0.1",  :billing_address => {
@@ -284,22 +284,29 @@ def create_client_registration
  
 
  
+		if !Gigauser.first(:conditions => "username = '#{params[:gigaclient][:company]}'") 
   		@gigaclient = Gigaclient.new(params[:gigaclient])
 		    
     		    respond_to do |format|
 		      if @gigaclient.save
+                        @guser=Gigauser.first(:conditions => "gigaclient_id= #{@gigaclient.id} and role='Client'")
 			#@creditcard.gigaclient_id=@gigaclient.id
 			#@creditcard.save
 			#~ @gigaclient.gigadomain.update_attribute(:gigaclient_id,  @gigaclient.id)
+                       UserMailer.client_invitation(@guser.username, @gigaclient.password, @gigaclient).deliver 
 
-			  flash[:alert]='Sucessfully created'
+			  flash[:alert]='Your profile is created sucessfully'
+
   			redirect_to  :controller=>'pages',:action => 'home_land' and return
 			format.xml  { render :xml => @gigaclient, :status => :created, :location => @client, :layout=> false  }
 		      else
-			format.html { render :action => "client_signup", :layout=> 'pages_new'  }
+			 render :action => "client_signup", :layout=> 'pages_new' 
 			format.xml  { render :xml => @gigaclient.errors, :status => :unprocessable_entity  }
 		      end
 		    end
+        else
+		render :action => "client_signup", :layout=> 'pages_new' 
+  end
 end
 
 
