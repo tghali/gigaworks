@@ -17,8 +17,8 @@ if (mail.value!="")
 {
 if(!mail.value.match(emailExp))
 	{
-			alert("Invalid Email Format");
-			mail.focus();
+			//alert("Invalid Email Format");
+			//mail.focus();
                          document.getElementById('check').style.display='none';
 			return false;
 	}
