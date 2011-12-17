@@ -151,8 +151,7 @@ function valid_talent_details()
            pwd.focus();
            return false;
           }
-            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\
-+|\_])+/))
+            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\+|\_])+/))
             {
            alert("invalid password must have a digit or a special character")
            pwd.focus();

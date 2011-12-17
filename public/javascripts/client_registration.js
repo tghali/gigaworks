@@ -48,8 +48,7 @@ function passwd(pwd)
            //pwd.focus();
            return false;
           }
-            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\
-+|\_])+/))
+            if(!pwd.value.match(/([0-9]|[\~|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\+|\_])+/))
             {
            alert("invalid password")
            //pwd.focus();
