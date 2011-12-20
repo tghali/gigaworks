@@ -74,7 +74,7 @@
                             %td
                               %label{:for => "signup_email_address"} Email
                             %td
-                              = f.text_field :email, :onblur => "return email_check(this);"
+                              = f.text_field :email
                               %div{:style => "float:right;display:none", :id =>"check"}
                                 =image_tag("/images/frontend/Symbol-Check.png",:size=>"25x25", :alt=>"check")
 
