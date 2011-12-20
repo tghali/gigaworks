@@ -1,3 +1,11 @@
+
+GIT
+  remote: git://github.com/nhowell/subdomain-fu.git
+  revision: c6fbf945cf3f4ab344f9c8e0604dc5dcca9ee6cf
+  specs:
+    subdomain-fu (1.0.0.beta2)
+
+
 GIT
   remote: https://github.com/hassox/rack-test.git
   revision: b9aa869cf58d8c0c4bf80780cb95631a0eaaca59
@@ -6,22 +14,29 @@ GIT
       rack (>= 1.0)
 
 PATH
-  remote: ~/Sites/tools/formidable
+  remote: vendor/plugins/formidable
   specs:
     formidable (0.1.0)
 
 PATH
-  remote: ~/Sites/tools/fredo
+  remote: vendor/plugins/fredo
   specs:
     fredo (0.1.10)
 
 PATH
-  remote: ~/Sites/tools/tabelle
+  remote: vendor/plugins/rails3_acts_as_paranoid
+  specs:
+    rails3_acts_as_paranoid (0.1)
+      activerecord (~> 3.0)
+
+
+PATH
+  remote: vendor/plugins/tabelle
   specs:
     tabelle (0.0.4)
 
 PATH
-  remote: ~/Sites/tools/tarte
+  remote: vendor/plugins/tarte
   specs:
     tarte (0.1.2)
 
@@ -42,6 +57,17 @@ GEM
       rack-mount (~> 0.6.13)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
+    active_utils (1.0.1)
+      activesupport (>= 2.3.11)
+      i18n
+    activemerchant (1.18.1)
+      active_utils (>= 1.0.1)
+      activesupport (>= 2.3.11)
+      braintree (>= 2.0.0)
+      builder (>= 2.0.0)
+      i18n
+      json (>= 1.5.1)
+      money
     activemodel (3.0.5)
       activesupport (= 3.0.5)
       builder (~> 2.1.2)
@@ -115,8 +141,15 @@ GEM
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
+    fastercsv (1.5.4)
     ffi (1.0.7)
       rake (>= 0.8.7)
+    gdata4ruby (0.1.5)
+    gdocs4ruby (0.1.2)
+      gdata4ruby (>= 0.1.1)
+    geo_ip (0.3.2)
+      json (~> 1.4)
+      rest-client (~> 1.6.1)		
     gherkin (2.3.5)
       json (>= 1.4.6)
     haml (3.0.25)
@@ -131,6 +164,8 @@ GEM
     jsmin (1.0.0)
     json (1.5.1)
     json_pure (1.5.1)
+    kaminari (0.12.4)
+      rails (>= 3.0.0)
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -144,6 +179,7 @@ GEM
     multi_json (0.0.5)
     multipart-post (1.1.0)
     net-ldap (0.1.1)
+    nifty-generators (0.4.6)
     nokogiri (1.4.4)
     oa-basic (0.2.0)
       multi_json (~> 0.0.2)
@@ -206,15 +242,19 @@ GEM
       activesupport (= 3.0.5)
       bundler (~> 1.0)
       railties (= 3.0.5)
+    rails3-jquery-autocomplete (0.6.6)
+      rails (~> 3.0.0)
+      yajl-ruby
     railties (3.0.5)
       actionpack (= 3.0.5)
       activesupport (= 3.0.5)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    recaptcha (0.3.4)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rmagick (2.12.0)
+
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -253,6 +293,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.26)
+    vpim (0.695)
     warden (1.0.3)
       rack (>= 1.0.0)
     will_paginate (3.0.pre2)
@@ -260,11 +301,13 @@ GEM
     xml-simple (1.0.15)
     xpath (0.1.3)
       nokogiri (~> 1.3)
-
+    yajl-ruby (0.8.2)
+	
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   awesome_print
   aws-s3
   bson_ext (~> 1.2)
@@ -278,25 +321,36 @@ DEPENDENCIES
   delayed_job (~> 2.1.2)
   factory_girl_generator
   factory_girl_rails (>= 1.0.0)
+  fastercsv
   formidable!
   fredo!
+  gdocs4ruby
+  geo_ip (~> 0.3.0)
   haml-rails (= 0.3.4)
   jsmin (= 1.0.0)
+  kaminari
   launchy (>= 0.3.5)
   net-ldap (>= 0.1.1)
+  nifty-generators
   omniauth (>= 0.1.6)
-  paperclip 
+  paperclip
   pg
   pickle (>= 0.3.4)
   rack-test!
   rails (= 3.0.5)
+  rails3-jquery-autocomplete
+  rails3_acts_as_paranoid!
+  recaptcha
+
   rspec-rails (>= 2.5.0)
-  rmagick (= 2.12.0)
+
   ruby-debug
+  subdomain-fu!
   sqlite3-ruby
   tabelle!
   tarte!
   timecop (~> 0.3.5)
+  vpim
   warden
   will_paginate (~> 3.0.pre2)
   wirble
