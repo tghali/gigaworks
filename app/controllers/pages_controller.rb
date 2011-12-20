@@ -212,9 +212,11 @@ meta_data('language_main_seo')
 		@frontend_page = FrontendPage.new(params[:languages_page])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:languages_page][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 		find_page.update_attributes(params[:languages_page])
+                find_page.update_attribute(:ippadd, request.remote_ip)
 	end
   
   if params[:languages_page][:page_section] == 'languages_page'|| params[:languages_page][:page_section] == 'language_main_seo'
@@ -239,9 +241,11 @@ meta_data('language_main_seo')
 		@frontend_page = FrontendPage.new(params[:creative_page])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:creative_page][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 		find_page.update_attributes(params[:creative_page])
+ 		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
   
       if params[:creative_page][:page_section] == 'creative_page'
@@ -277,9 +281,11 @@ meta_data('language_main_seo')
 		@frontend_page = FrontendPage.new(params[:technology_page])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:technology_page][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 		find_page.update_attributes(params[:technology_page])
+ 		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
     if params[:technology_page][:page_section] == 'technology_page'
       redirect_to :action => "technology_new"
@@ -303,10 +309,12 @@ meta_data('language_main_seo')
 		@frontend_page = FrontendPage.new(params[:projects_page])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:projects_page][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 	
 		find_page.update_attributes(params[:projects_page])
+ 		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
 	 redirect_to :action => "projects_case_studies"
  end
@@ -317,9 +325,11 @@ meta_data('language_main_seo')
 		@frontend_page = FrontendPage.new(params[:company_page])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:company_page][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 		find_page.update_attributes(params[:company_page])
+ 		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
   
       if params[:company_page][:page_section] == 'company_new'
@@ -339,9 +349,11 @@ end
 		@frontend_page = FrontendPage.new(params[:banner_page])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:banner_page][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 		find_page.update_attributes(params[:banner_page])
+ 		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
 	 redirect_to :action => "home_land"
  end
@@ -352,10 +364,12 @@ end
 		@frontend_page = FrontendPage.new(params[:help_connect])
 		@frontend_page.user_id = 2	 
 		@frontend_page.page_section = params[:help_connect][:page_section]
+                @frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 	
 		find_page.update_attributes(params[:help_connect])
+ 		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
 	 redirect_to :action => "home_land"
  end
