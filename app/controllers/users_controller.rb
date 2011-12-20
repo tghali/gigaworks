@@ -78,6 +78,25 @@ def logout
   session[:user]=nil
   redirect_to :controller => "pages", :action => "home_land"
 end
+def validate_email
+email=params[:email]
+if !params[:email].blank?
+domain = email.match(/\@(.+)/)[1]
+      Resolv::DNS.open do |dns|
+          @mx = dns.getresources(domain, Resolv::DNS::Resource::IN::MX)
+          @a=   dns.getresources(domain,Resolv::DNS::Resource::IN::A)
+
+      end
+      if @mx.size > 0 || @a.size > 0 
+       @valid="true"
+      else
+       @valid ="false"
+  	end
+else
+@valid ="false"
+end
+
+end
   
   def signup
 	 invite = Invite.where(:token => params[:invite_token]).first or raise ActiveRecord::RecordNotFound	

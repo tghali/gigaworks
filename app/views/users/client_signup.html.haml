@@ -1,6 +1,20 @@
 = javascript_include_tag "client_registration"
 :css
   .select_block #card_card_expirty_date_2i{width:200px;}
+:javascript
+  // Background color animation 
+
+         jQuery(document).ready(function () {
+         $("#gigaclient_email").bind("blur", function() {
+         var data = $("#gigaclient_email").val(); 
+         var url="/emailvalidate/users"+"?email="+data
+
+         $.get(url,function(data) { // function to handle the response
+         //$('#check').show();
+         });
+
+        });
+        });
     
 #contact_wrapper
   .contact-newbg{:style=>"background:none"}
