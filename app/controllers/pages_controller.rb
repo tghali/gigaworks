@@ -197,9 +197,11 @@ meta_data('language_main_seo')
 		#@frontend_page.user_id = 2	 
                 @frontend_page.user_id = current_user.id
 		@frontend_page.page_section = page_section
+		@frontend_page.ippadd = request.remote_ip
 		@frontend_page.save
 	else
 		find_page.update_attributes(params[:frontend_page])
+		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
 	 redirect_to :action => "home_land"
  end
