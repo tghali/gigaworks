@@ -1,0 +1,5 @@
+if @valid=="true"
+	page<< "$('#check').show();"
+else
+page<< "$('#check').hide();"
+end

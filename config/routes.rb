@@ -331,7 +331,7 @@ get '/talents/registration' => 'users#talent_registration'
     get '/contactedit/users' => 'users#edit_talent_contact'
     get '/profileedit/users' => 'users#edit_talent_profile'
     post "/talentupdate/users" => 'users#update_profile_talent'
-    
+       get '/emailvalidate/users' => 'users#validate_email'
     post 'submitbrief/:id' =>'pages#submit_brief_pages'
    
     post 'estimate' => 'pages#get_estimate'   
