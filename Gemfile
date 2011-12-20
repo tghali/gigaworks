@@ -8,6 +8,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg', :group => :production
 
 gem "will_paginate", "~> 3.0.pre2"
+gem "recaptcha", :require => "recaptcha/rails"
 
 gem 'gdocs4ruby'
 
