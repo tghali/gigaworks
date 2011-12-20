@@ -1,4 +1,19 @@
 = javascript_include_tag "talent_registration"
+:javascript
+  // Background color animation 
+
+         jQuery(document).ready(function () {
+         $("#talent_email").bind("blur", function() {
+         var data = $("#talent_email").val(); 
+         var url="/emailvalidate/users"+"?email="+data
+
+         $.get(url,function(data) { // function to handle the response
+         //$('#check').show();
+         });
+
+        });
+        });
+
 #contact_wrapper
   .contact-newbg{:style=>"background:none"}
     #trans-wrapper
@@ -41,7 +56,7 @@
                           %td
                             %label{:for => "signup_email_address"} Email
                           %td
-                            = f.text_field :email, :onblur => "return email_check(this);"
+                            = f.text_field :email
                             %div{:style => "float:right;display:none", :id =>"check"}
                               =image_tag("/images/frontend/Symbol-Check.png",:size=>"25x25", :alt=>"check")
 
