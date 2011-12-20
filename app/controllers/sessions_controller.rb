@@ -30,6 +30,7 @@ class SessionsController < ActionController::Base
       flash[:alert] = t(:'account.already_signed_in')
       redirect_to "http://worx.#{request.domain}/" and return
     end
+     if verify_recaptcha
     
     warden.authenticate! :sign_in
 
@@ -47,8 +48,10 @@ class SessionsController < ActionController::Base
 		    redirect_to "http://#{gigadomain.subdomain}.gigavine.com/welcome" and return
 	    else
         #~ render :text => "worx.gigavine.com" and return
-		    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" 
+		    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" and return
 	    end
+end
+render :action => "new"
     #~ end
   end
   

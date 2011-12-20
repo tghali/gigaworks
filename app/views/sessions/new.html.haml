@@ -80,7 +80,7 @@
       	-webkit-box-shadow:0 0 10px #000;*/
       }
       #login_wrapper{
-      	width:322px;
+      	width:400px;
       	margin:20px auto!IMPORTANT;
       	overflow:hidden;
       }
@@ -107,9 +107,9 @@
       	}
       
       #loging_form .inner_login_wrap{
-      	width:294px;
+      	width:300px;
       	float:left;
-      	margin:20px 30px;
+      	margin:25px 30px;
       }
       #loging_form h1{
       	font-size:24px;
@@ -241,7 +241,7 @@
         .head_login
           %span Secured Connexion
         #loging_form.fl_left
-          .inner_login_wrap
+          .inner_login_wrap{:style => "width:300px"}
             %h1 Please Sign In
             / First Name
             .form_block_two.fl_left
@@ -264,6 +264,9 @@
               .clear_all
               .error_msg dd
             / Email end
+            .clear_all
+            .form_block_two.fl_left.mag_non
+              = recaptcha_tags 
             .clear_all
             .form_block_two.fl_left.mag_non
               %label.fl_left.text_indent{:style => "width:250px"}
