@@ -82,6 +82,7 @@ end
 def validate_email
 email=params[:email]
 if !params[:email].blank?
+if email.match(/\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/)
 domain = email.match(/\@(.+)/)[1]
       Resolv::DNS.open do |dns|
           @mx = dns.getresources(domain, Resolv::DNS::Resource::IN::MX)
@@ -96,6 +97,12 @@ domain = email.match(/\@(.+)/)[1]
 else
 @valid ="false"
 end
+else
+@valid ="false"
+end
+    
+
+
 
 end
   
