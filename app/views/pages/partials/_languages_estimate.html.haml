@@ -1,0 +1,28 @@
+#languages_estimate.sign_up{:style => "display:none"}
+  %h3#see_id  LANGUAGES / ESTIMATE BLOCK
+  %br.clear
+  %div{:id => "estimate_list"}
+    = render :partial => "/pages/partials/estimate", :collection => @estimates
+  %br.clear
+
+
+
+  %div
+    = form_for :estimate, :url => {:controller => "pages",:action => "new_estimate"},:html =>{:name => "creative_form",:onsubmit => "return creative_validate();"} do |f|
+      %label
+        %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Service:
+        = f.text_field :service, :style => "width:600px;"
+
+      %label
+        %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Cost per Page:
+        = f.text_field :cost, :style => "width:600px;"
+
+      %p.clearspace  
+      %p.send_btn1
+        %input{:type=>"Submit" , :value=> "Submit"}
+  .clear
+
+
+    .clear  
+
+  %a#close_x.close.sprited{:href => "#"} close

@@ -924,26 +924,26 @@ float:left;
 
 .get_inner{
 width:296px;
-height:302px;
+height:340px;
 margin:10px 0px 0px 0px;
 }
 .get_leftcorner{
-        background:url(/images/frontend/get_leftstrip.gif) no-repeat left;
+        background:url(/images/frontend/get_leftstrip1.gif) no-repeat left;
 		width:4px;
-		height:302px;
+		height:340px;
 		float:left;
 }
 .get_bg{
-        background:url(/images/frontend/get_bgstrip.gif) repeat-x;
+        background:url(/images/frontend/get_bgstrip1.gif) repeat-x;
 		width:284px;
-		height:302px;
+		height:340px;
 		float:left;
 }
 
 .get_rightcorner{
-        background:url(/images/frontend/get_rightstrip.gif) no-repeat left;
+        background:url(/images/frontend/get_rightstrip1.gif) no-repeat left;
 		width:4px;
-		height:302px;
+		height:340px;
 		float:left;
 }
 .get_bg_inner{
@@ -1010,7 +1010,7 @@ width: 95px;
 float:left;
 }
 .checkbox{
-width:95px;
+width:92px;
 float:left;
 font:11px Gotham;
 color:#465561;
@@ -1021,6 +1021,12 @@ top:-2px;
 @media screen and (-webkit-min-device-pixel-ratio:0){
 .checkbox span{ position:relative; top:0px;}
 }
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+.checkbox input[type="checkbox"]{ margin:9px 5px 0px 0px;}
+}
+
 
 
 .checkbox span{

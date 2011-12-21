@@ -16,6 +16,9 @@ class PagesController < ActionController::Base
        @page_description=meta_detail.content if meta_detail
       @page_keywords=meta_detail.news if meta_detail
   end
+ def get_estimates
+@estimates=Estimate.all
+end
 
   def show
     if params[:page]
@@ -40,64 +43,88 @@ class PagesController < ActionController::Base
       redirect_to :controller => 'pages', :action => 'temp_home' and return
     end
         meta_data('home_seo')
+get_estimates
 	  render :layout => 'pages_new'
   end
+
+def new_estimate
+ @estimate=Estimate.create(params[:estimate])
+ redirect_to :action => "languages_new"
+end
+def delete_estimate
+  @estimate=Estimate.find(params[:id])
+  @estimate.destroy
+  redirect_to :action => "languages_new"
+  
+end
   
   def languages_new
     @page_title = "Gigavine - Languages"
 meta_data('language_main_seo')
+get_estimates
 	   render :layout => 'pages_new'
    end
      def company_new
+get_estimates
     @page_title = "Gigavine - Company"
 	   render :layout => 'pages_new'
    end
   def company_about
+get_estimates
     @page_title = "Gigavine - Company - About"
 	   render :layout => 'pages_new'
    end
   def company_value
+get_estimates
     @page_title = "Gigavine - Company - Value"
 	   render :layout => 'pages_new'
    end
    
   def languages_writing
+get_estimates
     @page_title = "Gigavine - Languages - Copywriting"
     render :layout => 'pages_new'
   end
 
-  def language_translation	
+  def language_translation
+get_estimates	
     @page_title = "Gigavine - Languages - Translation"
      render :layout => 'pages_new'
   end    
  
    def language_localisation
+get_estimates
     @page_title = "Gigavine - Languages - Localisation"
      render :layout => 'pages_new'
    end    
 
   def language_consultancy
+get_estimates
     @page_title = "Gigavine - Languages - Consultancy"
      render :layout => 'pages_new'
   end    
 
 
   def creative_new
+get_estimates
         @page_title = "Gigavine - Creative"
     	   render :layout => 'pages_new'
   end    
 
   def creative_adv
+get_estimates
     @page_title = "Gigavine - Creative - Advertisement"
     render :layout => 'pages_new'
   end
 
    def creative_work
+get_estimates
      @page_title = "Gigavine - Creative - Artwork"
      render :layout => 'pages_new'
   end
  
    def creative_design
+get_estimates
     @page_title = "Gigavine - Creative - Webdesign"
     render :layout => 'pages_new'
   end
@@ -108,6 +135,7 @@ meta_data('language_main_seo')
   #~ end
 
   def creative_interactive
+get_estimates
     @page_title = "Gigavine - Creative - Interactive"
     render :layout => 'pages_new'
   end
@@ -116,26 +144,31 @@ meta_data('language_main_seo')
  
  
  def technology_new
+get_estimates
    @page_title = "Gigavine - Technology"
    render :layout => 'pages_new'
  end
  
  def technology_learning
+get_estimates
     @page_title = "Gigavine - Technology - E-Learning"
    render :layout => 'pages_new'
  end 
 
  def technology_commerce
+get_estimates
    @page_title = "Gigavine - Technology - E-Commerce"
    render :layout => 'pages_new'
  end
   
   def technology_secure
+get_estimates
    @page_title = "Gigavine - Technology - Online Security"
    render :layout => 'pages_new'
  end
  
     def technology_tools
+get_estimates
     @page_title = "Gigavine - Technology - Online Tools"
      render :layout => 'pages_new'
   end  
@@ -145,25 +178,30 @@ meta_data('language_main_seo')
  #~ end
   
     def projects_land
+get_estimates
    @page_title = "Gigavine - Projects"
    render :layout => 'pages_new'    
   end
  
    def projects_case_studies
+get_estimates
    @page_title = "Gigavine - Projects - Case Studies"
    render :layout => 'pages_new'    
   end
   
   
    def network_land
+get_estimates
 	 render :layout => 'pages_new'
  end
   
    def network_featured
+get_estimates
    render :layout => false
  end
  
      def network_registration
+get_estimates
         @talent = Talent.new
          		 respond_to do |format|
 		   format.html { render :layout => false   }
@@ -174,17 +212,21 @@ meta_data('language_main_seo')
   end
   
    def contactus
+get_estimates
      @page_title = "Gigavine - Contact Us"
     render :layout => 'pages_new'
  end
 	 def privacypolicy
+get_estimates
     render :layout => 'pages_new'  
  end
  def terms
+get_estimates
     render :layout => 'pages_new'  
  end
   
    def submenu
+get_estimates
      render :layout => false  
  end
  
@@ -475,48 +517,32 @@ end
 
 def get_estimate
   @amount = 0
+  @estimates=Estimate.all
+
+
   if params[:source]!='Select' and params[:target]!='Select'
-  if !params[:words].blank? && params[:localisation] && params[:design] && params[:translation]
-       calc_pages((params[:words].to_i/250),'trans_local_design')    
-    elsif !params[:words].blank? && params[:localisation] && params[:design]
-       calc_pages((params[:words].to_i/250),'local_and_design')
-    elsif !params[:words].blank? && params[:translation] && params[:design]
-       calc_pages((params[:words].to_i/250),'trans_and_design')
-    elsif !params[:words].blank? && params[:translation] && params[:localisation]
-       calc_pages((params[:words].to_i/250),'trans_and_localise')        
-    elsif !params[:words].blank? && params[:design]
-      calc_pages((params[:words].to_i/250),'design')    
-    elsif !params[:words].blank? && params[:localisation]
-      calc_pages((params[:words].to_i/250),'localisation')
-    elsif !params[:words].blank? && params[:translation]
-      calc_words(params[:words])
+   
+    if !params[:words].blank?
+      for e in @estimates
+        if params["#{e.service}".to_sym]
+          @amount = @amount + ((params[:words].to_i/250)*(e.cost).to_i)
+         puts "@ammount ... #{@amount} #{e.service} #{e.cost}"
+        end
+      end
 
-    #--pages---
-    elsif !params[:pages].blank? && params[:localisation] && params[:design] && params[:translation]
-       calc_pages(params[:pages],'trans_local_design')    
-    elsif !params[:pages].blank? && params[:localisation] && params[:design]
-       calc_pages(params[:pages],'local_and_design')
-    elsif !params[:pages].blank? && params[:translation] && params[:design]
-       calc_pages(params[:pages],'trans_and_design')
-    elsif !params[:pages].blank? && params[:translation] && params[:localisation]
-       calc_pages(params[:pages],'trans_and_localise')        
-    elsif !params[:pages].blank? && params[:design]
-      calc_pages(params[:pages],'design')    
-    elsif !params[:pages].blank? && params[:localisation]
-      calc_pages(params[:pages],'localisation')
-    elsif !params[:pages].blank? && params[:translation]
-      calc_pages(params[:pages],'translation')    
     end
+    if !params[:pages].blank?
+      for e in @estimates
+        if params["#{e.service}".to_sym]
+          @amount = @amount + ((params[:pages].to_i)*(e.cost).to_i)
+         puts "@ammount ... #{@amount} #{e.service} #{e.cost}"
+        end
+      end
     end
-
-  
-
-  
-  	  respond_to do |format|	     
-	      format.js	    
-	    end
- 
-
+  end
+  respond_to do |format|	     
+    format.js	    
+  end
 end
 
 def calc_words(words)

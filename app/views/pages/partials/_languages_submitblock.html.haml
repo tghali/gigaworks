@@ -43,15 +43,14 @@
           %p{:style => "height:auto!important;  margin:0px; padding:0px;"}
             %span Requirements
           %p.checkbox_block
-            .checkbox
-              %input{:type => "checkbox", :name => "translation"} 
-              %span Translation
-            .checkbox{:style => "width:80px;"}
-              %input{:type => "checkbox", :name => "design"}
-              %span Design
-            .checkbox
-              %input{:type => "checkbox", :name => "localisation"}
-              %span Localisation
+            - for estimate in @estimates
+              .checkbox
+                %div{:style=>"float:left;"}
+                  %input{:type => "checkbox", :name => "#{estimate.service}"} 
+                .trans_space{:style=>"float:left; margin-top:7px;"} 
+                  = estimate.service
+          %p.clear{:style=>"height:18px;"}
+            %span
           %p.estimate
             %span Estimate
           %div
