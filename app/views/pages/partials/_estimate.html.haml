@@ -1,0 +1,16 @@
+-#%div_for estimate do
+%table
+  %tr 
+    %td{:width => "150px"}
+      Service
+    %td
+      Cost per Page      
+    %td{:width => "150px"}
+      &nbsp;
+  %tr
+    %td
+      = estimate.service
+    %td
+      = estimate.cost
+    %td 
+      = link_to "Delete", estimate_path(:id =>estimate), :method => :delete, :remote => true

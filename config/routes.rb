@@ -311,6 +311,8 @@ get '/talents/registration' => 'users#talent_registration'
     post '/home_create' => 'pages#home_create'    
     post '/language_create' => 'pages#language_create'
     post '/creative_create' => 'pages#creative_create'
+    post '/new_estimate' => 'pages#new_estimate'
+    get '/estimate' => 'pages#delete_estimate'
     post '/technology_create' => 'pages#technology_create'
   
     post '/projects_create' => 'pages#projects_create'
