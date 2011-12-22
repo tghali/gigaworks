@@ -1,0 +1,189 @@
+:javascript
+  Cufon.replace('.sf-navbar li.current', {color: '#cf641e'});
+  Cufon.replace('.sf-navbar li.sub_nav', {color: '#fff'});
+
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    / Header
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/inner_pages"
+        .contact_headding
+          %h4
+            %span SEARCH RESULTS
+      .contact_new_header  
+
+    / Headerend
+    / content block start
+    #lp_content{:style => "position:relative;min-height:600px;height:auto!important;height:800px;"}
+      #lp_midcontent
+        / left block start
+        .lp_leftblock
+          .lp_navigation
+            %ul
+              %li{:style=>"background:none"}
+                = select :search, :section_filter, ["Home","Languages", "Creative", "Technology", "Solutions", "Network", "Company"]
+                -#%a.current{:href => "/company/about"} About
+              %li{:style=>"background:none"}
+                = select :search, :industries_filter, ["Education", "Life Sciences", "Legal", "Communication", "Manufacturing", "Transportation", "Industrial", "Finance", "Entertainment"]
+                -#%a{:href => "/company/values"} Values
+              %li{:style=>"background:none"}
+                = select :search, :discipline_filter, ["Academia","Advertising","Animation","Architecture","Art Direction","Automotive"]
+                -#%a{:href => "/contact"} Contact
+
+          / submit block start
+
+          #language_get
+            %h4 &nbsp;
+            %span{:style => "padding-top:30px;"}																				
+          / submit block end
+        / left block end
+        / right block start
+        .lp_rightblock
+          %p.errorheadding_text
+            Search results for '#{@key}' 
+          .local_nav
+            %ul
+              - for result in @sections
+                %p{:style=>"margin-top:10px;"}
+                  - case result
+                    - when 'languages_page'
+                      %li
+                        = link_to "Languages", "/languages"
+                    - when 'language_translation_page'
+                      %li
+                        = link_to "Languages - Translation", "/languages/translation"
+                    - when 'lang_trans_technical'
+                      %li
+                        = link_to "Languages - Translation", "/languages/translation"        
+                    - when 'lang_trans_medical'
+                      %li
+                        = link_to "Languages - Translation", "/languages/translation"
+                    - when 'lang_trans_marketing'
+                      %li
+                        = link_to "Languages - Translation", "/languages/translation"
+                    - when 'lang_trans_literary'
+                      %li
+                        = link_to "Languages - Translation", "/languages/translation"      
+                    - when 'language_localisation_page'
+                      %li
+                        = link_to "Languages - Localization", "/languages/localisation"  
+                    - when 'lang_localisation_products'
+                      %li
+                        = link_to "Languages - Localization", "/languages/localisation"  
+                    - when 'lang_localisation_websites'
+                      %li
+                        = link_to "Languages - Localization", "/languages/localisation"  
+                    - when 'lang_localisation_software'
+                      %li
+                        = link_to "Languages - Localization", "/languages/localisation"  
+                    - when 'lang_localisation_mobile'
+                      %li
+                        = link_to "Languages - Localization", "/languages/localisation"  
+                    - when 'lang_localisation_subtitle'
+                      %li
+                        = link_to "Languages - Localization", "/languages/localisation"  
+                    - when 'language_consultancy_page'
+                      %li
+                        = link_to "Languages - Consultancy", "/languages/consultancy"  
+                    - when 'tech_online_tools'
+                      %li
+                        = link_to "Technology - Online tools", "/languages/online-tools"  
+                    - when 'language_online_tools'
+                      %li
+                        = link_to "Technology - Online tools", "/languages/online-tools" 
+                    - when 'creative_page'
+                      %li
+                        = link_to "Creative", "/creative" 
+                    - when 'creative_artwork_page'
+                      %li
+                        = link_to "Creative - Artwok", "/creative/artwork"
+                    - when 'creative_adv_page'
+                      %li
+                        = link_to "Creative - Advertising", "/creative/advertising"
+                    - when 'creative_press_adv'
+                      %li
+                        = link_to "Creative - Advertising", "/creative/advertising"
+                    -  when 'creative_outdoor_adv'
+                      %li
+                        = link_to "Creative - Advertising", "/creative/advertising"
+                    - when 'creative_online_adv'
+                      %li
+                        = link_to "Creative - Advertising", "/creative/advertising"
+                    - when 'creative_adv_exhibition'
+                      %li
+                        = link_to "Creative - Advertising", "/creative/advertising"
+                    - when 'creative_webdesign_page'
+                      %li
+                        = link_to "Creative - Web Design", "/creative/webdesign"
+                    - when 'languages_copywriting_page'
+                      %li
+                        = link_to "Languages - Copywriting", "/languages/copywriting"
+                    - when 'creative_copywriting_page'
+                      %li
+                        = link_to "Languages - Copywriting", "/languages/copywriting" 
+                    - when 'creative_interactive_page'
+                      %li
+                        = link_to "Creative - Interactive", "/creative/interactive"
+                    - when 'creative_mobile_development'
+                      %li
+                        = link_to "Creative - Interactive", "/creative/interactive"
+                    - when 'creative_ebooks'
+                      %li
+                        = link_to "Creative - Interactive", "/creative/interactive"
+                    - when 'create'
+                      %li
+                        = link_to "Home", "/"
+                    - when 'adapt'
+                      %li
+                        = link_to "Home", "/"
+                    - when 'deliver'
+                      %li
+                        = link_to "Home", "/"
+                    - when 'middle_content'
+                      %li
+                        = link_to "Home", "/"
+                    - when 'news_block' 
+                      %li
+                        = link_to "Home", "/"
+                    - when 'home_adapt' 
+                      %li
+                        = link_to "Home", "/"
+                    - when 'home_deliver' 
+                      %li
+                        = link_to "Home", "/"
+                    - when 'company_new'
+                      %li
+                        = link_to "Company", "/company"
+                    - when 'company_about'
+                      %li
+                        = link_to "Company - About", "/company/about"
+                    - when 'company_value'
+                      %li
+                        = link_to "Company - Values", "/company/values"
+                    - when 'technology_page'
+                      %li
+                        = link_to "Technology", "/technology"
+                    - when 'tech_learning_page'
+                      %li
+                        = link_to "Technology - E-Learning", "/technology/e-learning"
+                    - when 'tech_commerce_page'
+                      %li
+                        = link_to "Technology - E-Commerce", "/technology/e-commerce"
+                    - when 'tech_security_page'
+                      %li
+                        = link_to "Technology - Online Security", "/technology/online-security"
+
+                    
+           
+
+
+
+
+
+
+
+          / right block end
+      / content block end
+    .clear  
+      &nbsp; 
