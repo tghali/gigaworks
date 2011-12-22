@@ -333,6 +333,7 @@ get '/talents/registration' => 'users#talent_registration'
     get '/profileedit/users' => 'users#edit_talent_profile'
     post "/talentupdate/users" => 'users#update_profile_talent'
        get '/emailvalidate/users' => 'users#validate_email'
+    post '/searchsite' => 'pages#search_site' 
     post 'submitbrief/:id' =>'pages#submit_brief_pages'
    
     post 'estimate' => 'pages#get_estimate'   

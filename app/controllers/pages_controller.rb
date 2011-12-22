@@ -604,6 +604,149 @@ def calc_pages(pages,option)
   end
 end
 
+def search_site
+
+  if !params[:search_form][:search].blank?
+  
+    @frontend =FrontendPage.all
+    @sections = []
+    @query=params[:search_form][:search]
+    for string in @frontend
+      if !(string.title).blank?     
+        if string.title.include?(@query)
+          @sections << string.page_section
+        end 
+      end
+      if !(string.content).blank?
+        if string.content.include?(@query)
+          @sections << string.page_section
+        end
+      end
+    end
+  end
+  @sections.uniq!
+  @a_sections=[]
+  for s in @sections
+    puts "hello #{s}"
+    case s
+      when 'languages_page'
+        s ='Languages'
+      when 'language_translation_page'
+        s ='Languages'
+      when 'lang_trans_technical'
+        s ='Languages'
+     when 'lang_trans_medical'
+        s ='Languages'
+     when 'lang_trans_marketing'
+        s ='Languages'
+     when 'lang_trans_literary'
+        s ='Languages'
+     when 'language_localisation_page'
+        s ='Languages'
+     when 'lang_localisation_products'
+        s ='Languages'
+     when 'lang_localisation_websites'
+        s ='Languages'
+     when 'lang_localisation_software'
+        s ='Languages'
+     when 'lang_localisation_mobile'
+        s ='Languages'
+     when 'lang_localisation_subtitle'
+        s ='Languages'
+     when 'language_consultancy_page'
+        s ='Languages'
+     when 'tech_online_tools'
+        s ='Technology'
+     when 'creative_page'
+        s ='Creative'
+     when 'creative_artwork_page'
+        s ='Creative'
+     when 'creative_adv_page'
+        s ='Creative'
+     when 'creative_press_adv'
+        s ='Creative'
+     when 'creative_outdoor_adv'
+        s ='Creative'
+     when 'creative_online_adv'
+        s ='Creative'
+     when 'creative_adv_exhibition'
+        s ='Creative'
+     when 'creative_webdesign_page'
+        s ='Creative'
+     when 'languages_copywriting_page'
+        s ='Languages'
+     when 'creative_interactive_page'
+        s ='Creative'
+     when 'creative_mobile_development'
+        s ='Creative'
+     when 'creative_ebooks'
+        s ='Creative'
+     when 'technology_page'
+        s ='Technology'
+     when 'tech_learning_page'
+        s ='Technology'
+     when 'block1'
+       s ='Technology'
+     when 'block2'
+        s ='Technology'
+     when 'block3'
+        s ='Technology'
+     when 'block4'
+        s ='Technology'
+     when 'block5'
+        s ='Technology'
+     when 'tech_commerce_page'
+        s ='Technology'
+     when 'tech_security_page'
+        s ='Technology'
+     when 'tech_crm_page'
+        s ='Technology'
+     when 'project_land_page'
+        s ='Project'
+     when 'project_case_study_page'
+        s ='Project'
+     when 'project_cstudies_challenge'
+        s ='Project'
+     when 'project_cstudies_benefits'
+        s ='Project'
+     when 'company_new'
+        s ='Company'
+     when 'company_about'
+        s ='Company'
+     when 'company_value'
+        s ='Company'
+     when 'create'
+       s ='Home'
+     when 'adapt'
+       s ='Home'
+     when 'deliver'
+       s ='Home'
+     when 'middle_content'
+       s ='Home'
+     when 'news_block' 
+       s ='Home'
+     when 'home_adapt' 
+       s ='Home'
+     when 'home_deliver' 
+       s ='Home'
+     when 'language_online_tools'
+        s ='Languages'
+     when 'creative_copywriting_page'
+        s ='Creative'
+     else
+       s=''
+   end
+  if s!=''
+     @a_sections << s
+  end
+
+  end
+  @key=params[:search_form][:search]
+  @a_sections.uniq!
+  #params[:query]=nil
+render :layout => 'pages_new'  
+end
+
 def get_user_ip
      ip_address =   request.remote_ip #request.env['REMOTE_ADDR'] #request.env["HTTP_X_FORWARDED_FOR"] #request.remote_ip
      #~ 209.85.227.104 ---- US

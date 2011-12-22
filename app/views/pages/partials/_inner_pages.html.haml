@@ -81,8 +81,12 @@
 
 
       .reg_text2
-        %input{:type => "text",  :value=>"Search", :onFocus=>"if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}", :onBlur=>" if (this.value == '') {this.value = 'Search';}"  }
-          %a{:href => "#"}
-            %img{:src => "/images/frontend/top_inputarrow.jpg"}/
+          = form_for(:search_form, :url => {:controller => "pages", :action => "search_site"}, :html => {:id =>"signin",:method => "post"}) do |s|
+            = s.text_field :search, :value => "Search", :onFocus => "if(this.value == 'Search') {{this.value = '';}{this.style.cursor='text'}}", :onblur => " if (this.value == '') {this.value = 'Search';}"
+            %input{:src => "/images/frontend/top_inputarrow.jpg", :style => "width:12px!important;", :type => "image"}
+            =# s.image_submit "/images/frontend/top_inputarrow.jpg", :class => 'long'
+            =# link_to image_tag("/images/frontend/top_inputarrow.jpg"), searchsite_path, :onclick => "this.href += '?query=' + $('#search').val();"   
+            -#%a{:href => "searchsite?query="+ ('#search').value}
+              -# %img{:src => "/images/frontend/top_inputarrow.jpg"}/
 
     = render :partial => "/pages/partials/top_menu"
