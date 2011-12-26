@@ -24,6 +24,8 @@
         %a{:href => "#ebooks"} Ebooks
       %li
         %a{:href => "#media_presentations"} Multimedia Presentations
+      %li
+        %a{:href => "#createinterseo"} SEO 
 
 
     %br.clear
@@ -54,7 +56,20 @@
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Online
+    #createinterseo.tabdiv
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_interactive_form"} do |f|
+        = f.hidden_field :page_section,  :value => "creative_interactive_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('creative_interactive_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('creative_interactive_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
 
   .clearspace 
+
 		 
   %a#close_x.close.sprited{:href => "#"} close
