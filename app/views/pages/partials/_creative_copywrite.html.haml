@@ -25,5 +25,24 @@
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
   .clear  
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a{:href => "#createcopyseo"} SEO  
+
+
+    #createcopyseo.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "creative_artwork_form"} do |f|
+        = f.hidden_field :page_section,  :value => "language_copy_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('language_copy_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('language_copy_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    .clear 
 
   %a#close_x.close.sprited{:href => "#"} close
