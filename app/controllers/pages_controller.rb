@@ -82,24 +82,28 @@ get_estimates
    
   def languages_writing
 get_estimates
+meta_data('language_copy_seo')
     @page_title = "Gigavine - Languages - Copywriting"
     render :layout => 'pages_new'
   end
 
   def language_translation
 get_estimates	
+meta_data('language_translate_seo')
     @page_title = "Gigavine - Languages - Translation"
      render :layout => 'pages_new'
   end    
  
    def language_localisation
 get_estimates
+meta_data('language_local_seo')
     @page_title = "Gigavine - Languages - Localisation"
      render :layout => 'pages_new'
    end    
 
   def language_consultancy
 get_estimates
+meta_data('language_consult_seo')
     @page_title = "Gigavine - Languages - Consultancy"
      render :layout => 'pages_new'
   end    
@@ -263,13 +267,15 @@ get_estimates
   
   if params[:languages_page][:page_section] == 'languages_page'|| params[:languages_page][:page_section] == 'language_main_seo'
 	 redirect_to :action => "languages_new"
-  elsif params[:languages_page][:page_section] == 'language_consultancy_page'
+  elsif params[:languages_page][:page_section] == 'language_consultancy_page' || params[:languages_page][:page_section] == 'language_consult_seo'
     redirect_to :action => "language_consultancy"
-  elsif params[:languages_page][:page_section] == 'language_translation_page'
+  elsif params[:languages_page][:page_section] == 'language_translation_page'|| params[:languages_page][:page_section] == 'language_translate_seo'
         redirect_to :action => "language_translation"
-  elsif params[:languages_page][:page_section] == 'language_localisation_page' || params[:languages_page][:page_section] == "lang_localisation_products" || params[:languages_page][:page_section] == "lang_localisation_websites" || params[:languages_page][:page_section] == "lang_localisation_software" || params[:languages_page][:page_section] == "lang_localisation_mobile" || params[:languages_page][:page_section] == "lang_localisation_subtitle"
+  elsif params[:languages_page][:page_section] == 'language_copy_seo'
+    redirect_to :action => "languages_writing"
+  elsif params[:languages_page][:page_section] == 'language_localisation_page' || params[:languages_page][:page_section] == "lang_localisation_products" || params[:languages_page][:page_section] == "lang_localisation_websites" || params[:languages_page][:page_section] == "lang_localisation_software" || params[:languages_page][:page_section] == "lang_localisation_mobile" || params[:languages_page][:page_section] == "lang_localisation_subtitle"|| params[:languages_page][:page_section] == 'language_local_seo'
         redirect_to :action => "language_localisation"
-  elsif params[:languages_page][:page_section] == 'tech_online_tools'
+  elsif params[:languages_page][:page_section] == 'tech_online_tools' 
         redirect_to :action => "technology_tools"
   else
     redirect_to :action => "language_translation"

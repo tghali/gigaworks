@@ -7,6 +7,8 @@
         = @page_title
       - else
         Gigavine
+    - if @page_title
+      %META{:content => @page_title, :name => "title"  }/
     - if !@page_description.blank?
       %META{:content => @page_description, :name => "description"  }/
     - if !@page_keywords.blank?

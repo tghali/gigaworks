@@ -28,6 +28,8 @@
         %a{:href => "#literary"} LITERARY
       %li
         %a{:href => "#legal"} LEGAL
+      %li
+        %a{:href => "#lantranseo"} SEO
     %br.clear
     #technical.tabdiv
       = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "langu_translation",:onsubmit => "return language_translation_tabs('lang_trans_technical');"} do |f|
@@ -74,7 +76,20 @@
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
-  .clearspace  
+    #lantranseo.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form"} do |f|
+        = f.hidden_field :page_section,  :value => "language_translate_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('language_translate_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('language_translate_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    .clear 
+  .clearspace 
 
 
 
