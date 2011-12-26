@@ -26,6 +26,8 @@
         %a{:href => "#online_adv"} Online Advertising
       %li
         %a{:href => "#exhibition"} Exhibition and Events
+      %li
+        %a{:href => "#createadseo"} SEO
 
     %br.clear
     #press_adv.tabdiv
@@ -65,6 +67,20 @@
           %input{:type=>"Submit" , :value=> "Submit"}
     / Deliver
 
-  .clearspace 
+    #createadseo.tabdiv
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "creative_artwork_form"} do |f|
+        = f.hidden_field :page_section,  :value => "creative_advert_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('creative_advert_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('creative_advert_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    .clear
+
+  .clearspace
 		 
   %a#close_x.close.sprited{:href => "#"} close

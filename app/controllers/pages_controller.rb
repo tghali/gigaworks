@@ -296,18 +296,18 @@ get_estimates
  		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
   
-      if params[:creative_page][:page_section] == 'creative_page'
+      if params[:creative_page][:page_section] == 'creative_page'||params[:creative_page][:page_section] == 'creative_main_seo'
 	 redirect_to :action => "creative_new"
   elsif params[:creative_page][:page_section] == 'languages_copywriting_page'
     redirect_to :action => "languages_writing"
-  elsif params[:creative_page][:page_section] == 'creative_artwork_page'
+  elsif params[:creative_page][:page_section] == 'creative_artwork_page' || params[:creative_page][:page_section] == 'creative_artwork_seo'
         redirect_to :action => "creative_work"
-  elsif params[:creative_page][:page_section] == 'creative_adv_page' || params[:creative_page][:page_section] == "creative_press_adv" || params[:creative_page][:page_section] == "creative_outdoor_adv" || params[:creative_page][:page_section] == "creative_online_adv" || params[:creative_page][:page_section] == "creative_adv_exhibition" 
-    redirect_to :action => "creative_adv"
-  elsif params[:creative_page][:page_section] == 'creative_webdesign_page'
+  elsif params[:creative_page][:page_section] == 'creative_adv_page' || params[:creative_page][:page_section] == "creative_press_adv" || params[:creative_page][:page_section] == "creative_outdoor_adv" || params[:creative_page][:page_section] == "creative_online_adv" || params[:creative_page][:page_section] == "creative_adv_exhibition" || params[:creative_page][:page_section] == 'creative_advert_seo'
+    redirect_to :action => "creative_adv" 
+  elsif params[:creative_page][:page_section] == 'creative_webdesign_page' || params[:creative_page][:page_section] == 'creative_design_seo'
         redirect_to :action => "creative_design"
-  elsif params[:creative_page][:page_section] == 'creative_interactive_page' || params[:creative_page][:page_section] == 'creative_mobile_development' || params[:creative_page][:page_section] == 'creative_ebooks' || params[:creative_page][:page_section] == 'creative_media_presentations'
-        redirect_to :action => "creative_interactive"
+  elsif params[:creative_page][:page_section] == 'creative_interactive_page' || params[:creative_page][:page_section] == 'creative_mobile_development' || params[:creative_page][:page_section] == 'creative_ebooks' || params[:creative_page][:page_section] == 'creative_media_presentations' || params[:creative_page][:page_section] == 'creative_interactive_seo'
+        redirect_to :action => "creative_interactive" 
   elsif params[:creative_page][:page_section] == 'contact_page' || params[:creative_page][:page_section] == 'contact_page_london' || params[:creative_page][:page_section] == 'contact_page_dubai'|| params[:creative_page][:page_section] == 'contact_page_newyork'
 
     redirect_to :action => "contactus"
