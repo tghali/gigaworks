@@ -22,7 +22,7 @@
           .lp_navigation
             %ul
               %li{:style=>"background:none"}
-                = select :search, :section_filter, ["Home","Languages", "Creative", "Technology", "Solutions", "Network", "Company"]
+                = select :search, :section_filter, ["Languages", "Creative", "Technology", "Solutions", "Network", "Company"]
                 -#%a.current{:href => "/company/about"} About
               %li{:style=>"background:none"}
                 = select :search, :industries_filter, ["Education", "Life Sciences", "Legal", "Communication", "Manufacturing", "Transportation", "Industrial", "Finance", "Entertainment"]
@@ -41,7 +41,7 @@
         / right block start
         .lp_rightblock
           %p.errorheadding_text
-            Search results for '#{@key}' 
+            Search results 
           .local_nav
             %ul
               - for result in @sections
@@ -131,27 +131,7 @@
                     - when 'creative_ebooks'
                       %li
                         = link_to "Creative - Interactive", "/creative/interactive"
-                    - when 'create'
-                      %li
-                        = link_to "Home", "/"
-                    - when 'adapt'
-                      %li
-                        = link_to "Home", "/"
-                    - when 'deliver'
-                      %li
-                        = link_to "Home", "/"
-                    - when 'middle_content'
-                      %li
-                        = link_to "Home", "/"
-                    - when 'news_block' 
-                      %li
-                        = link_to "Home", "/"
-                    - when 'home_adapt' 
-                      %li
-                        = link_to "Home", "/"
-                    - when 'home_deliver' 
-                      %li
-                        = link_to "Home", "/"
+
                     - when 'company_new'
                       %li
                         = link_to "Company", "/company"
