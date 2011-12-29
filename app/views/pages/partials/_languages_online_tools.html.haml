@@ -26,6 +26,23 @@
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
-  .clear  
+  .clear
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a{:href => "#lantoolseo"} SEO  
+    #lantoolseo.tabdiv
+      = form_for :languages_page, :url => {:controller => "pages",:action => "language_create"},:html =>{:name => "lang_form"} do |f|
+        = f.hidden_field :page_section,  :value => "tech_online_tools_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('tech_online_tools_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('tech_online_tools_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
+    .clear   
 
   %a#close_x.close.sprited{:href => "#"} close

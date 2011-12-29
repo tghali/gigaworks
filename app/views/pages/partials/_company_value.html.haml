@@ -24,6 +24,23 @@
       %p.clearspace  
       %p.send_btn1
         %input{:type=>"Submit" , :value=> "Submit"}
+  #tabvanilla.widget
+    %ul.tabnav
+      %li
+        %a{:href => "#compvalueseo"} SEO
+
+    #compvalueseo.tabdiv
+      = form_for :company_page, :url => {:controller => "pages",:action => "company_create"},:html =>{:name => "comp_form"} do |f|
+        = f.hidden_field :page_section,  :value => "company_values_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('company_values_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('company_values_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"} 
   .clear  
 
   %a#close_x.close.sprited{:href => "#"} close

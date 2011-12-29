@@ -30,6 +30,8 @@
         %a{:href => "#press_dubai"} Dubai
       %li
         %a{:href => "#press_newyork"} New York
+      %li
+        %a{:href => "#compcontactseo"} SEO
     %br.clear
     #press_london.tabdiv
       = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "contact_form",:onsubmit => "return contact_validate();"} do |f|
@@ -60,5 +62,18 @@
           = f.text_field :title, :style => "width:400px;", :id => "contact_summary",:value => get_contacts('contact_page_newyork','title')
         %p.send_btn1
           %input{:type=>"Submit" , :value=> "Submit"} 
+
+    #compcontactseo.tabdiv
+      = form_for :creative_page, :url => {:controller => "pages",:action => "creative_create"},:html =>{:name => "comp_form"} do |f|
+        = f.hidden_field :page_section,  :value => "company_contact_seo"
+        %label
+          %strong{:style=>"font:12px Arial, Helvetica, sans-serif;"} Description:
+          = f.text_area :content, :style => "width:600px;",:id => "lang_heading", :value => get_seo('company_contact_seo','desc')
+        %label
+          %strong{:style=>"font:14px Arial, Helvetica, sans-serif;"} Keywords:
+          = f.text_area :news, :style => "width:600px;", :id => "lang_summary", :value => get_seo('company_contact_seo','key')
+        %p.clearspace  
+        %p.send_btn1
+          %input{:type=>"Submit" , :value=> "Submit"}
 
   %a#close_x.close.sprited{:href => "#"} close
