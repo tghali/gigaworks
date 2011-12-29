@@ -106,9 +106,7 @@
             %span
               %img{:alt => "youtube", :src => "/images/frontend/tube_icon.png", :title => ""}/
         %li
-          %a.thumb1{:alt => "", :href => "javascript://", :title => ""}
-            %span
-              %img{:alt => "", :src => "/images/frontend/rss_icon.png", :title => ""}/
+          = link_to content_tag(:span, image_tag("/images/frontend/rss_icon.png")), "http://gigablog.heroku.com/browse/view_rss", :class=>'thumb1' 
     .foot_right
       %p{:style=>"line-height:20px"}
         &nbsp;&nbsp;&nbsp;&copy; Copyright Gigavine 2011 &nbsp; &nbsp; &nbsp; &nbsp;  

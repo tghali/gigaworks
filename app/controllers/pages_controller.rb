@@ -66,16 +66,19 @@ get_estimates
    end
      def company_new
 get_estimates
+meta_data('company_main_seo')
     @page_title = "Gigavine - Company"
 	   render :layout => 'pages_new'
    end
   def company_about
 get_estimates
+meta_data('company_about_seo')
     @page_title = "Gigavine - Company - About"
 	   render :layout => 'pages_new'
    end
   def company_value
 get_estimates
+meta_data('company_values_seo')
     @page_title = "Gigavine - Company - Value"
 	   render :layout => 'pages_new'
    end
@@ -111,24 +114,28 @@ meta_data('language_consult_seo')
 
   def creative_new
 get_estimates
+meta_data('creative_main_seo')
         @page_title = "Gigavine - Creative"
     	   render :layout => 'pages_new'
   end    
 
   def creative_adv
 get_estimates
+meta_data('creative_advert_seo')
     @page_title = "Gigavine - Creative - Advertisement"
     render :layout => 'pages_new'
   end
 
    def creative_work
 get_estimates
+meta_data('creative_artwork_seo')
      @page_title = "Gigavine - Creative - Artwork"
      render :layout => 'pages_new'
   end
  
    def creative_design
 get_estimates
+meta_data('creative_design_seo')
     @page_title = "Gigavine - Creative - Webdesign"
     render :layout => 'pages_new'
   end
@@ -140,6 +147,7 @@ get_estimates
 
   def creative_interactive
 get_estimates
+meta_data('creative_interactive_seo')
     @page_title = "Gigavine - Creative - Interactive"
     render :layout => 'pages_new'
   end
@@ -149,30 +157,35 @@ get_estimates
  
  def technology_new
 get_estimates
+meta_data('technology_main_seo')
    @page_title = "Gigavine - Technology"
    render :layout => 'pages_new'
  end
  
  def technology_learning
 get_estimates
+meta_data('technology_learn_seo')
     @page_title = "Gigavine - Technology - E-Learning"
    render :layout => 'pages_new'
  end 
 
  def technology_commerce
 get_estimates
+meta_data('technology_commerce_seo')
    @page_title = "Gigavine - Technology - E-Commerce"
    render :layout => 'pages_new'
  end
   
   def technology_secure
 get_estimates
+meta_data('technology_security_seo')
    @page_title = "Gigavine - Technology - Online Security"
    render :layout => 'pages_new'
  end
  
     def technology_tools
 get_estimates
+meta_data('tech_online_tools_seo')
     @page_title = "Gigavine - Technology - Online Tools"
      render :layout => 'pages_new'
   end  
@@ -217,6 +230,7 @@ get_estimates
   
    def contactus
 get_estimates
+meta_data('company_contact_seo')
      @page_title = "Gigavine - Contact Us"
     render :layout => 'pages_new'
  end
@@ -308,7 +322,7 @@ get_estimates
         redirect_to :action => "creative_design"
   elsif params[:creative_page][:page_section] == 'creative_interactive_page' || params[:creative_page][:page_section] == 'creative_mobile_development' || params[:creative_page][:page_section] == 'creative_ebooks' || params[:creative_page][:page_section] == 'creative_media_presentations' || params[:creative_page][:page_section] == 'creative_interactive_seo'
         redirect_to :action => "creative_interactive" 
-  elsif params[:creative_page][:page_section] == 'contact_page' || params[:creative_page][:page_section] == 'contact_page_london' || params[:creative_page][:page_section] == 'contact_page_dubai'|| params[:creative_page][:page_section] == 'contact_page_newyork'
+  elsif params[:creative_page][:page_section] == 'contact_page' || params[:creative_page][:page_section] == 'contact_page_london' || params[:creative_page][:page_section] == 'contact_page_dubai'|| params[:creative_page][:page_section] == 'contact_page_newyork'|| params[:creative_page][:page_section] == 'company_contact_seo'
 
     redirect_to :action => "contactus"
 
@@ -335,21 +349,22 @@ get_estimates
 		find_page.update_attributes(params[:technology_page])
  		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
-    if params[:technology_page][:page_section] == 'technology_page'
+    if params[:technology_page][:page_section] == 'technology_page' || params[:technology_page][:page_section] == 'technology_main_seo'
       redirect_to :action => "technology_new"
-   elsif params[:technology_page][:page_section] == 'tech_learning_page' || params[:technology_page][:page_section] == 'block1' || params[:technology_page][:page_section] == 'block2' || params[:technology_page][:page_section] == 'block3' || params[:technology_page][:page_section] == 'block4' || params[:technology_page][:page_section] == 'block5'
-     redirect_to :action => "technology_learning"
-   elsif params[:technology_page][:page_section] == 'tech_crm_page'
+   elsif params[:technology_page][:page_section] == 'tech_learning_page' || params[:technology_page][:page_section] == 'block1' || params[:technology_page][:page_section] == 'block2' || params[:technology_page][:page_section] == 'block3' || params[:technology_page][:page_section] == 'block4' || params[:technology_page][:page_section] == 'block5'|| params[:technology_page][:page_section] == 'technology_learn_seo'
+     redirect_to :action => "technology_learning" 
+   elsif params[:technology_page][:page_section] == 'tech_crm_page' || params[:technology_page][:page_section] == 'technology_crm_seo'
       redirect_to :action => "technology_crm"
-   elsif params[:technology_page][:page_section] == 'tech_security_page'
+   elsif params[:technology_page][:page_section] == 'tech_security_page' || params[:technology_page][:page_section] == 'technology_security_seo'
       redirect_to :action => "technology_secure"
-   elsif params[:technology_page][:page_section] == 'tech_commerce_page'
+   elsif params[:technology_page][:page_section] == 'tech_commerce_page' || params[:technology_page][:page_section] == 'technology_commerce_seo'
       redirect_to :action => "technology_commerce"
    else
 	 redirect_to :action => "technology_new"
    end
 
  end
+  
   
     def projects_create
     	 find_page = FrontendPage.find_by_page_section(params[:projects_page][:page_section])
@@ -380,14 +395,15 @@ get_estimates
  		find_page.update_attribute(:ippadd, request.remote_ip)
 	end
   
-      if params[:company_page][:page_section] == 'company_new'
+      if params[:company_page][:page_section] == 'company_new' || params[:company_page][:page_section] == 'company_main_seo'
 	 redirect_to :action => "company_new"
-      elsif params[:company_page][:page_section]=='company_about'
+      elsif params[:company_page][:page_section]=='company_about'|| params[:company_page][:page_section]=='company_about_seo'
 	 redirect_to :action => "company_about"	
-      elsif params[:company_page][:page_section]=='company_value'
+      elsif params[:company_page][:page_section]=='company_value' || params[:company_page][:page_section]=='company_values_seo'
 	 redirect_to :action => "company_value"	
       end
 end
+  
   
     def banner_create
     #~ render :text => params.inspect and return
