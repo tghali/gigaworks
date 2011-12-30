@@ -261,7 +261,9 @@ get '/talents/registration' => 'users#talent_registration'
     resources :languages
     resources :skills
   end
-  
+  get '/sitemap.xml', :controller => 'sitemap', :action => 'sitemap'
+  get '/sitemap', :controller => 'sitemap', :action => 'sitemap'
+  get '/sitemap.rxml', :controller => 'sitemap', :action => 'sitemap'
   # Static pages
   #constraints :subdomain => "test" do
     #get '/' => 'pages#show'
