@@ -1,0 +1,173 @@
+xml.instruct! :xml, :version=> '1.0', :encoding => 'UTF-8'
+base_url = "http://www.gigavine.com"
+xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
+  @entries.each do |entry|
+    case entry.page_section
+      when "languages_page"
+        xml.url do
+           xml.loc url_for(:controller => "pages",
+                      :action => 'languages_new',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "language_translation_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'language_translation',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "language_localisation_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'language_localisation',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "language_consultancy_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'language_consultancy',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "tech_online_tools"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'technology_tools',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "creative_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'creative_new',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "creative_artwork_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'creative_work',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "creative_adv_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'creative_adv',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "creative_webdesign_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'creative_design',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "languages_copywriting_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'language_consultancy',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "creative_interactive_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'creative_interactive',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "technology_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'technology_new',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "tech_learning_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'technology_learning',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "tech_commerce_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'technology_commerce',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "tech_security_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'technology_secure',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "company_new"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'company_new',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "company_about"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'company_about',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "company_value"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'company_value',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "contact_page"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'contactus',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+      when "middle_content"
+        xml.url do
+          xml.loc url_for(:controller => "pages",
+                      :action => 'home_land',
+                      :only_path => false)
+           xml.priority '1.0'
+           xml.lastmod entry.updated_at.to_date
+        end
+
+
+
+     end
+      
+
+  end
+end
