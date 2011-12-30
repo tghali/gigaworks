@@ -155,7 +155,7 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
            xml.priority '1.0'
            xml.lastmod entry.updated_at.to_date
         end
-      when "middle_content"
+      when "home_middle"
         xml.url do
           xml.loc url_for(:controller => "pages",
                       :action => 'home_land',
