@@ -1,6 +1,6 @@
 = table_for @users do |tabelle|  
   = tabelle.view "table" do |table|
-    -# table.collection_actions = [:new]  
+    - table.collection_actions = [:new]  
     - table.column "User Name"
     - table.column "Email"
     - table.column "Status"
