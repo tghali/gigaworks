@@ -95,14 +95,9 @@ class User < ActiveRecord::Base
   #                                         :unless => :performed_by_admin?,
   #                                         :message => :not_verified
                              
-<<<<<<< HEAD
-  #validate_on_update         :reset_token_or_old_password, :if => :password_changed?,
-  #                                                         :unless => :performed_by_admin?
-=======
   #validate                   :reset_token_or_old_password, :if => :password_changed?,
   #                                                         :on => :update,
   #                                                         :unless => :performed_by_admin?
->>>>>>> master
   
   #validates_presence_of        :password, :on => :create, :unless => :password_changed?
   
