@@ -84,28 +84,34 @@ class User < ActiveRecord::Base
   delegate :email, :to => :contact
   
   # REGISTRATION AND UPDATE                             
-  validates_presence_of      :contact
-  validates_uniqueness_of    :contact_id
-  validates_associated       :contact
-  validates_acceptance_of    :terms_of_service, :on => :create
-  validates_acceptance_of    :privacy_policy, :on => :create
+  #validates_presence_of      :contact
+  #validates_uniqueness_of    :contact_id
+  #validates_associated       :contact
+  #validates_acceptance_of    :terms_of_service, :on => :create
+  #validates_acceptance_of    :privacy_policy, :on => :create
   
-  validates_inclusion_of     :status_code, :on => :update,
-                                           :in => status_codes_for(:active),
-                                           :unless => :performed_by_admin?,
-                                           :message => :not_verified
+  #validates_inclusion_of     :status_code, :on => :update,
+  #                                         :in => status_codes_for(:active),
+  #                                         :unless => :performed_by_admin?,
+  #                                         :message => :not_verified
                              
-  validate_on_update         :reset_token_or_old_password, :if => :password_changed?,
-                                                           :unless => :performed_by_admin?
+<<<<<<< HEAD
+  #validate_on_update         :reset_token_or_old_password, :if => :password_changed?,
+  #                                                         :unless => :performed_by_admin?
+=======
+  #validate                   :reset_token_or_old_password, :if => :password_changed?,
+  #                                                         :on => :update,
+  #                                                         :unless => :performed_by_admin?
+>>>>>>> master
   
-  validates_presence_of        :password, :on => :create, :unless => :password_changed?
+  #validates_presence_of        :password, :on => :create, :unless => :password_changed?
   
   
-  validates_confirmation_of  :password, :if => :password_changed?
-  validates_length_of        :password, :within => 7..30, :if => :password_changed?
+  #validates_confirmation_of  :password, :if => :password_changed?
+  #validates_length_of        :password, :within => 7..30, :if => :password_changed?
                              
-  validates_associated       :verification_key, :message => :expired
-  validates_associated       :password_reset_key, :message => :expired
+  #validates_associated       :verification_key, :message => :expired
+  #validates_associated       :password_reset_key, :message => :expired
 
   before_update     :spend_user_token, :if => lambda {|u| u.status_code_changed? && u.verified?}
   before_create     :create_verification_key, :unless => :verified?
