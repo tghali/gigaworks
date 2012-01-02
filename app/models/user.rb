@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
   #                                                         :on => :update,
   #                                                         :unless => :performed_by_admin?
   
-  #validates_presence_of        :password, :on => :create, :unless => :password_changed?
+  validates_presence_of        :password, :on => :create, :unless => :password_changed?
   
   
   #validates_confirmation_of  :password, :if => :password_changed?
