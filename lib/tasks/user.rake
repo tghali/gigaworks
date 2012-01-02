@@ -1,5 +1,3 @@
-
-
 namespace :user do
  desc "create delayedjos"
  
