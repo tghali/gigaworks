@@ -43,6 +43,29 @@ end
 	
 		end
 end
+def update_profile_client
+  @gigauser=Gigaclient.find(session[:user])
+  if params[:creditcard]
+   @creditcard= ClientcreditDetail.first(:conditions => "gigaclient_id= #{@gigauser.id}")
+    if !@creditcard
+   @creditcard=ClientcreditDetail.new
+   end
+  
+   @creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
+   @creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
+   @creditcard.save
+   redirect_to :action => "edit_client"
+  else
+  if @gigauser.update_attributes(params[:gigauser])
+#render :text => params.inspect and return
+       @gigauser.save
+       flash[:success] = "changes have been updated"
+    end
+    redirect_to :action => "edit_client"
+  end
+
+end
+
 def edit_talent_profile
 @talent=Talent.find(session[:user])
   
@@ -103,28 +126,7 @@ end
 else
 @valid ="false"
 end
-def update_profile_client
-  @gigauser=Gigaclient.find(session[:user])
-  if params[:creditcard]
-   @creditcard= ClientcreditDetail.first(:conditions => "gigaclient_id= #{@gigauser.id}")
-    if !@creditcard
-   @creditcard=ClientcreditDetail.new
-   end
-  
-   @creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
-   @creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
-   @creditcard.save
-   redirect_to :action => "edit_client"
-  else
-  if @gigauser.update_attributes(params[:gigauser])
-#render :text => params.inspect and return
-       @gigauser.save
-       flash[:success] = "changes have been updated"
-    end
-    redirect_to :action => "edit_client"
-  end
-
-end   
+   
 
 
 
