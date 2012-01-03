@@ -18,7 +18,7 @@
         .lp_navigation{:style => "width:260px"}
           %ul
             %li
-              %a.select_reg{:href => "/talentedit/users"} General
+              %a.current{:href => "/talentedit/users"} General
               =#link_to "General Info", talentedit_users_path(:user =>params[:user]), :class =>"select_reg" 
             %li
               %a{:href => "javascript://", :onClick => "comingsoon();"} Contact

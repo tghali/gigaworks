@@ -154,7 +154,8 @@ color:#fff!important;
 .sf-menu li a span.featuredclass,
 .sf-menu li a span.creativeclass,
 .sf-menu li a span.techclass,
-.sf-menu li a span.projectclass{
+.sf-menu li a span.projectclass,
+.sf-menu li a span.profileclass{
 font-size:14px;
 font-weight:bold;
 padding:5px 5px 5px 5px;
@@ -176,4 +177,8 @@ background-color:#9EB121;
 
 .sf-menu li a span.projectclass{
 background-color:#ee9f60;
+}
+
+.sf-menu li a span.profileclass{
+background-color:#dd714f;
 }
