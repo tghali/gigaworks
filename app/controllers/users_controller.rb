@@ -103,7 +103,7 @@ end
 else
 @valid ="false"
 end
- def update_profile_client
+def update_profile_client
   @gigauser=Gigaclient.find(session[:user])
   if params[:creditcard]
    @creditcard= ClientcreditDetail.first(:conditions => "gigaclient_id= #{@gigauser.id}")
