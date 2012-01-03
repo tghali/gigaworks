@@ -1,0 +1,118 @@
+%div
+  #sample4.sampleTabContent
+    %ul#sample-menu-4.sf-menu.sf-navbar
+      - if params[:action] == 'languages_new' || params[:action] == 'language_translation' || params[:action] == 'language_localisation' || params[:action] == 'language_consultancy' || params[:action] == 'languages_writing'
+        %li.current
+          %a#aa0c22.sf-with-ul{:href => "javascript://", :onClick => "comingsoon();", :style=>"color:#aa0c22"}
+            Dashboard
+            %span.sf-sub-indicator »
+          %ul
+
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'languages_writing'
+                  %span.profileclass Projects					
+                - else
+                  Projects		
+
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'language_translation'
+                  %span.profileclass Calendar					
+                - else
+                  Calendar		
+                
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'language_localisation'
+                  %span.profileclass Team					
+                - else
+                  Team		
+
+
+      - else
+        %li			
+          %a#aa0c22.sf-with-ul{:href => "javascript://", :onClick => "comingsoon();" , :style=>"color:#383839" }
+            Dashboard
+            %span.sf-sub-indicator »
+          %ul
+
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'languages_writing'
+                  %span.profileclass Projects					
+                - else
+                  Projects		
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'language_translation'
+                  %span.profileclass Calendar						
+                - else
+                  Calendar			
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'language_localisation'
+                  %span.profileclass Team					
+                - else
+                  Team		
+	
+
+      - if params[:action] == 'edit_client' || params[:action] == 'edit_talent_contact' || params[:action] == 'client_billing' 
+        %li.current
+          %a#d25832.sf-with-ul{:href => "/clientedit/users" , :style=>"color:#d25832"}
+            Profile
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "/clientedit/users"}
+                - if params[:action] == 'edit_client'
+                  %span.profileclass General					
+                - else
+                  General																			
+
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'edit_talent_contact'
+                  %span.profileclass Contact					
+                - else
+                  Contact		
+
+
+            %li.sub_nav
+              %a{:href => "/billingclient/users"}
+                - if params[:action] == 'client_billing'
+                  %span.profileclass Billing					
+                - else
+                  Billing		
+	
+
+      - else
+        %li
+          %a#d25832.sf-with-ul{:href => "/clientedit/users" , :style=>"color:#d25832"}
+            Profile
+            %span.sf-sub-indicator »
+          %ul
+            %li.sub_nav
+              %a{:href => "/clientedit/users"}
+                - if params[:action] == 'edit_client'
+                  %span.profileclass General					
+                - else
+                  General																			
+
+            %li.sub_nav
+              %a{:href => "javascript://", :onClick => "comingsoon();"}
+                - if params[:action] == 'creative_adv'
+                  %span.profileclass Contact					
+                - else
+                  Contact	
+
+
+            %li.sub_nav
+              %a{:href => "/billingclient/users"}
+                - if params[:action] == 'client_billing'
+                  %span.profileclass Billing					
+                - else
+                  Billing		
+
+
+ 

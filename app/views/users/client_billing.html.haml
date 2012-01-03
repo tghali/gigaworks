@@ -1,0 +1,128 @@
+= javascript_include_tag "client_registration"
+:css
+  #talent_date_of_birth_2i{width:120px;}
+    
+#contact_wrapper
+  .contact-newbg{:style=>"background:none"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/profile_topmenu"
+        
+        .contact_headding{:style=>"background:none"}
+          %h4
+            %span CLIENT /
+            BILLING
+      / <div class="pro-case-header">&nbsp;</div>
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent
+        .lp_navigation{:style => "width:260px"}
+          %ul
+            %li
+              %a{:href => "/clientedit/users"} General
+              =#link_to "General Info", talentedit_users_path(:user =>params[:user]), :class =>"select_reg" 
+            %li
+              %a{:href => "javascript://", :onClick => "comingsoon();"} Contact
+
+            %li
+              %a.select_reg{:href=> "/billingclient/users"} Billing
+          %img{:src => "/images/frontend/client_signup/gigavine_reg.png"}/
+        .signup.baselayout{:style=>"background:none!important; width:630px; float:right;"}
+          .container{:style=>"width:620px; float:right;"}
+            .clear  
+            .leftcolumn
+              .banner{:style=>"background:none"}
+                %h2 Form to create an account
+
+              .contents{:style=>"background:none"}
+                - form_for :creditcard, :url=> {:action => 'update_profile_client'} do |f|
+
+                  .billing.section
+                    .billing
+                      %h3.step Billing information
+                      .tip_container
+                      #credit_card_form
+                        %table
+                          %tbody
+                            %tr
+                              %td
+                                %label{:for => "type"} First Name
+                              %td
+                                = f.text_field :fname
+                              %td
+                            %tr
+                              %td
+                                %label{:for => "type"} Surname
+                              %td
+                                = f.text_field :sname
+                              %td
+                            %tr
+                              %td
+                                %label{:for => "card_number"} Card Number
+                              %td
+                                = f.text_field :credit_number
+                              %td
+                                / <haml:loud> error_message_on :user, :card_number , :prepend_text =&gt; &quot;Card Number &quot;, :css_class =&gt; &quot;error&quot;</haml:loud>
+                            %tr
+                              %td{:style=>"vertical-align:middle"}
+                                %label{:for => "card_expires_on_month"} Expires date
+                              %td.select_block
+                                = date_select( "card" ,"card_expirty_date", :order => [:month, :year],:size => "5")
+                              %td
+
+                            %tr
+                              %td
+                                %label{:for => "verification_value"} Verification Number
+                              %td
+                                = f.password_field :verification_number
+                              %td 
+                            %tr
+                              %td{:style=>"vertical-align:middle"}
+                                %label{:for => "type"} Card Type
+                              %td
+                                = f.select( "card_type", %w[visa master], {}, :id=>"card_type")
+                              %td
+                            %tr
+                              %td
+                                %label{:for => "card_zip_code"} Billing Address
+                              %td
+                                = f.text_field :billing_add
+                              %td
+                            %tr
+                              %td
+                                %label{:for => "card_zip_code"} City/Town
+                              %td
+                                = f.text_field :city
+                              %td
+                            %tr
+                              %td
+                                %label{:for => "card_zip_code"} County/Region
+                              %td
+                                = f.text_field :region
+                              %td
+                            %tr
+                              %td{:style=>"vertical-align:middle"}
+                                %label{:for => "card_zip_code"} Country
+                              %td
+                                = f.country_select :country
+                              %td
+
+
+                            %tr
+                              %td
+                                %label{:for => "card_zip_code"} Billing ZIP
+                              %td
+                                = f.text_field :biling_zip
+                              %td
+
+                            %tr
+                              %td  
+                              %td{:colspan => "2", :valign => "top"}  
+                  .clear
+                  =  hidden_field_tag :user, params[:user]
+                  -#%img{:src=>"/images/frontend/client_signup/btn-createaccount.png",:alt => "Create my account", :style => "background:none; width:auto;"}
+                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+              .bottom
+          .clear.both
+            &nbsp;
+  .topspace
+
