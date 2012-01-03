@@ -6,8 +6,8 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout, :validate_email]
-  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent, :validate_email]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout, :validate_email, :client_billing,:update_profile_client]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent, :validate_email,:client_billing,:update_profile_client]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
@@ -62,9 +62,12 @@ end
          cookies[:password]=@gigauser.password
          session[:user]=@gigauser.gigaclient_id
        elsif @gigauser.role=='Client'
-          flash[:error]="yet to come"
-          redirect_to :controller => "pages", :action => "home_land"
-          #redirect_to clientedit_users_path(:user => @gigauser.gigaclient_id)
+          #flash[:error]="yet to come"
+          #redirect_to :controller => "pages", :action => "home_land"
+         cookies[:username]=@gigauser.username
+         cookies[:password]=@gigauser.password
+         session[:user]=@gigauser.gigaclient_id
+          redirect_to clientedit_users_path
        else
           flash[:error]="yet to come"
          redirect_to :controller => "pages", :action => "home_land"
@@ -100,9 +103,56 @@ end
 else
 @valid ="false"
 end
-    
+ def update_profile_client
+  @gigauser=Gigaclient.find(session[:user])
+  if params[:creditcard]
+   @creditcard= ClientcreditDetail.first(:conditions => "gigaclient_id= #{@gigauser.id}")
+    if !@creditcard
+   @creditcard=ClientcreditDetail.new
+   end
+  
+   @creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
+   @creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
+   @creditcard.save
+   redirect_to :action => "edit_client"
+  else
+  if @gigauser.update_attributes(params[:gigauser])
+#render :text => params.inspect and return
+       @gigauser.save
+       flash[:success] = "changes have been updated"
+    end
+    redirect_to :action => "edit_client"
+  end
+
+end   
 
 
+
+end
+
+def client_billing
+@gigauser=Gigaclient.find(session[:user])
+@creditcard= ClientcreditDetail.first(:conditions => "gigaclient_id= #{@gigauser.id}")
+if !@creditcard
+@creditcard=ClientcreditDetail.new
+end
+  
+  respond_to do |format|
+		   format.html { render :layout=>'pages_new'   }
+		   format.xml  { render :xml => @gigauser }
+	
+		end
+  
+end
+
+def update_profile_talent
+    @talent = Talent.find(session[:user])
+    if @talent.update_attributes(params[:talent])
+#render :text => params.inspect and return
+       @talent.save
+       flash[:success] = "changes have been updated"
+    end
+    redirect_to :action => "edit_talent"
 
 end
   

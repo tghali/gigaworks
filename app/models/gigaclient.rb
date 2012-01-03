@@ -58,6 +58,8 @@ class Gigaclient < ActiveRecord::Base
    
    
    def gigausers
+    guser= Gigauser.first(:conditions => "gigaclient_id= #{self.id} and role='Client'")
+    if !guser
     
     @gfind = Gigauser.find_by_sql("SELECT id FROM gigausers order by id DESC limit 1")
     guser = Gigauser.new
@@ -97,6 +99,7 @@ class Gigaclient < ActiveRecord::Base
     guser.role = "Client"
     guser.email = self.email
     guser.save!
+   end
 		 #~ Gigauser.create(:first_name =>self.first_name , :last_name =>self.last_name , :gigaclient_id => self.id, :role_id => 5,:email =>self.email )
 end     
 	
