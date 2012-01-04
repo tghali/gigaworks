@@ -335,6 +335,8 @@ get '/talents/registration' => 'users#talent_registration'
     get '/profileedit/users' => 'users#edit_talent_profile'
     post "/talentupdate/users" => 'users#update_profile_talent'
     get "/billingclient/users" =>'users#client_billing'
+
+get '/contactclient/users' =>'users#client_contact'
     post "/clientupdate/users" => 'users#update_profile_client'
        get '/emailvalidate/users' => 'users#validate_email'
     post '/searchsite' => 'pages#search_site' 

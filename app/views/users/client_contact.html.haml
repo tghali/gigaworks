@@ -18,10 +18,10 @@
         .lp_navigation{:style => "width:260px"}
           %ul
             %li
-              %a.current{:href => "/clientedit/users"} General
+              %a{:href => "/clientedit/users"} General
               =#link_to "General Info", talentedit_users_path(:user =>params[:user]), :class =>"select_reg" 
             %li
-              %a{:href => "/contactclient/users"} Contact
+              %a.current{:href => "/contactclient/users"} Contact
 
             %li
               %a{:href=> "/billingclient/users"} Billing
@@ -34,10 +34,10 @@
                 %h2 Form to create an account
 
               .contents{:style=>"background:none"}
-                - form_for :gigauser, :url=> {:action => 'update_profile_client'}, :html => {:onsubmit => "return valid_register();" , :multipart => true}  do |f|
+                - form_for :gigauser, :url=> {:action => 'update_profile_client'}, :html => {:onsubmit => "return valid_register();" }  do 
 
                   %fieldset.credentials
-                    %legend Company Details
+                    %legend Contact Details
                     %br
                     #username_entry
                       %table
@@ -45,49 +45,44 @@
                           %tr
                           %tr
                             %td{:width => "120px", :height => "35px"}
-                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} Name
+                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} First Name
                             %td
-                              = f.text_field :company
-                            %td
-                          %tr
-                            %td{:width => "120px", :height => "35px"}
-                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} Founded
-                            %td
-                              = f.text_field :founded
+                              = text_field :gigauser, :first_name
                             %td
                           %tr
                             %td{:width => "120px", :height => "35px"}
-                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} Logo
+                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} Last Name
                             %td
-                              = image_tag @gigauser.logo.url, :style => "width:40px;height:40px"
-                              = f.file_field :logo
-                            %td
-                          %tr
-                            %td{:style=>"vertical-align:middle"}
-                              %label{:for => "signup_username"} Company&nbsp;Size
-                            %td
-                              = f.select :number_of_employ, options_for_select([["1-10","1-10"], ["11-50","11-50"],["50-200","50-200"],["201-500","201-500"],["501-1000","501-1000"],["1001-5000","1001-5000"], ["10,001+","10,001+"]])
+                              = text_field :gigauser, :last_name
                             %td
                           %tr
                             %td{:width => "120px", :height => "35px"}
-                              %label{:for => "signup_password"} Industry
+                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} Job Title
                             %td
-                              = f.text_field :industry
+                              = text_field :gigauser, :title
                             %td
                           %tr
                             %td{:width => "120px", :height => "35px"}
-                              %label{:for => "signup_password_confirmation"} Turn Over
+                              %label{:for => "signup_username"} Email
                             %td
-                              = f.text_field :turnover
+                              = text_field :gigauser, :email
+                            %td
                           %tr
                             %td{:width => "120px", :height => "35px"}
-                              %label{:for => "signup_username",:style => "padding-bottom:20px;"} Company Overview
-                            %td &nbsp;                                
+                              %label{:for => "signup_password"} Phone
+                            %td
+                              = text_field :client_address, :phone
                             %td
                           %tr
-                            %td{:width => "120px", :height => "35px"} &nbsp;
+                            %td{:width => "120px", :height => "35px"}
+                              %label{:for => "signup_password_confirmation"} Mobile
                             %td
-                              = f.text_area :overview
+                              = text_field :client_address, :phone
+                          %tr
+                            %td{:width => "120px", :height => "35px"}
+                              %label{:for => "signup_username"} Fax
+                            %td
+                              = text_field :client_address, :fax
                             %td
                           %p
                   .clear
