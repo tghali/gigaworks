@@ -57,7 +57,7 @@
                   Team		
 	
 
-      - if params[:action] == 'edit_client' || params[:action] == 'edit_talent_contact' || params[:action] == 'client_billing' 
+      - if params[:action] == 'edit_client' || params[:action] == 'client_contact' || params[:action] == 'client_billing' 
         %li.current
           %a#d25832.sf-with-ul{:href => "/clientedit/users" , :style=>"color:#d25832"}
             Profile
@@ -71,8 +71,8 @@
                   General																			
 
             %li.sub_nav
-              %a{:href => "javascript://", :onClick => "comingsoon();"}
-                - if params[:action] == 'edit_talent_contact'
+              %a{:href => "/contactclient/users"}
+                - if params[:action] == 'client_contact'
                   %span.profileclass Contact					
                 - else
                   Contact		
@@ -100,8 +100,8 @@
                   General																			
 
             %li.sub_nav
-              %a{:href => "javascript://", :onClick => "comingsoon();"}
-                - if params[:action] == 'creative_adv'
+              %a{:href => "/contactclient/users"}
+                - if params[:action] == 'client_contact'
                   %span.profileclass Contact					
                 - else
                   Contact	

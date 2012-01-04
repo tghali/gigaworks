@@ -6,8 +6,8 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout, :validate_email, :client_billing,:update_profile_client]
-  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent, :validate_email,:client_billing,:update_profile_client]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout, :validate_email, :client_billing,:update_profile_client,:client_contact]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent, :validate_email,:client_billing,:update_profile_client, :client_contact]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
@@ -45,17 +45,30 @@ end
 end
 def update_profile_client
   @gigauser=Gigaclient.find(session[:user])
+  
   if params[:creditcard]
    @creditcard= ClientcreditDetail.first(:conditions => "gigaclient_id= #{@gigauser.id}")
     if !@creditcard
    @creditcard=ClientcreditDetail.new
+   @creditcard.gigaclient_id=@gigauser.id
+   @creditcard.save
    end
   
-   @creditcard.expires_on_month=params[:card][:"card_expirty_date(2i)"]
-   @creditcard.expires_on_year=params[:card][:"card_expirty_date(1i)"]
-   @creditcard.save
+
+   @creditcard.update_attributes(params[:creditcard])
    redirect_to :action => "edit_client"
   else
+  if params[:client_address] 
+   @client_add =ClientAddress.first(:conditions => "gigaclient_id= #{@gigauser.id}") 
+   if !@client_add
+   @client_add =ClientAddress.new
+   @client_add.gigaclient_id=@gigauser.id
+   @client_add.save
+   end
+
+  @client_add.update_attributes(params[:client_address])
+  
+  end
   if @gigauser.update_attributes(params[:gigauser])
 #render :text => params.inspect and return
        @gigauser.save
@@ -138,6 +151,19 @@ def client_billing
 if !@creditcard
 @creditcard=ClientcreditDetail.new
 end
+  
+  respond_to do |format|
+		   format.html { render :layout=>'pages_new'   }
+		   format.xml  { render :xml => @gigauser }
+	
+		end
+  
+end
+def client_contact
+@gigauser=Gigaclient.find(session[:user])
+@client_address =ClientAddress.first(:conditions => "gigaclient_id= #{@gigauser.id}") 
+
+
   
   respond_to do |format|
 		   format.html { render :layout=>'pages_new'   }
