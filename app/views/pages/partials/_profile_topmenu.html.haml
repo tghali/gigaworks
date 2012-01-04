@@ -84,4 +84,7 @@
           %a{:href => "#"}
             %img{:src => "/images/frontend/top_inputarrow.jpg"}/
 
-    = render :partial => "/pages/partials/profile_toplinks"
+    - if params[:action] == 'edit_client' || params[:action] == 'client_contact' || params[:action] == 'client_billing' 
+      = render :partial => "/pages/partials/profile_toplinks"
+    - else
+      = render :partial => "/pages/partials/profile_toplinks_talent"

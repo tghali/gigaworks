@@ -93,7 +93,7 @@ end
   if @gigauser
 
       if @gigauser.role == 'Talent'
-         redirect_to talentedit_users_path(:user => @gigauser.gigaclient_id)
+         redirect_to talentedit_users_path
          cookies[:username]=@gigauser.username
          cookies[:password]=@gigauser.password
          session[:user]=@gigauser.gigaclient_id
