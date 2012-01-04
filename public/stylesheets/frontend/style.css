@@ -20,6 +20,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
  .cufon-loading { 
  visibility: hidden;
 }
+
+html,body{height:100%;}
 /* remember to define focus styles! */
 input{border:0}
 :focus{outline: 0;}
@@ -3179,3 +3181,5 @@ text-align:left;
  } 
 .login_box input{ border:1px solid #ccc; width:150px; color:#666; font:11px Arial, Helvetica, sans-serif;}
 .login_box.count_btn{ color:#fff!important;}
+
+#contact_wrapper{height:100%; margin-bottom:350px;}
