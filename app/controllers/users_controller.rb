@@ -89,7 +89,8 @@ def edit_talent_profile
 		end
 end
   def login
-   @gigauser=Gigauser.find_by_username(params[:login][:username])
+   #@gigauser=Gigauser.find_by_username(params[:login][:username])
+   @gigauser= Gigauser.authenticate( params[:login][:username], params[:login][:password])
   if @gigauser
 
       if @gigauser.role == 'Talent'

@@ -29,6 +29,18 @@ class Gigauser < ActiveRecord::Base
   validates_acceptance_of    :privacy_policy, :on => :create, :if => Proc.new {|user| user.main_account_id != nil}
 	  
  ## Password
+
+  def self.authenticate(username_or_email, password)
+    if username_or_email
+      user = Gigauser.find_by_username(username_or_email)
+    end
+    expected_password = encrypted_password(password, user.salt) 
+    user.hashed_password == expected_password or raise ActiveRecord::RecordNotFound
+    
+    return user
+  rescue ActiveRecord::RecordNotFound
+    nil
+  end
   
   # Virtual attribute to access the clear password for validations
   def password 
