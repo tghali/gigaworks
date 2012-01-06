@@ -2063,8 +2063,9 @@ background:url(/images/frontend/pro_case_bg.jpg) repeat-x #f7f7f7;
 background:url(/images/frontend/contactgray_bg.jpg) repeat-x #f7f7f7;
 }
 .contact-newbg{
-background:url(/images/frontend/map.png) no-repeat 46% 72px;/*01-11-2011*/
+background:url(/images/frontend/map.png) no-repeat 46% 80px;/*01-11-2011*/
 margin:0px auto;
+height:1050px;
 }
 #trans-wrapper{
 height:214px;
