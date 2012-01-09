@@ -30,8 +30,8 @@ class SessionsController < ActionController::Base
       flash[:alert] = t(:'account.already_signed_in')
       redirect_to "http://worx.#{request.domain}/" and return
     end
-    #if params[:recaptcha_response_field]
-    # if verify_recaptcha
+    if params[:recaptcha_response_field]
+     if verify_recaptcha
     
     warden.authenticate! :sign_in
 
@@ -51,10 +51,27 @@ class SessionsController < ActionController::Base
         #~ render :text => "worx.gigavine.com" and return
 		    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" and return
 	    end
-#end
-#else
+end
+else
+    warden.authenticate! :sign_in
 
-#end
+   
+    Rails.logger.info "[Sign In: success] from #{request.remote_ip} - #{current_user.id}"
+    #~ if request.referrer == "http://gigavine.com:4006/admin"
+	     #~ redirect_to "http://admin.#{request.domain}:4006/groups"
+    #~ else
+    
+  gigauser = Gigauser.find_by_id(current_user.id)
+	gigadomain = Gigadomain.find_by_gigaclient_id(gigauser.gigaclient_id) if !gigauser.blank?
+    	 #~ gigadomain = Gigadomain.find_by_id(current_user.id)
+	    if gigadomain
+          #~ render :text => "Subdomain" and return
+		    redirect_to "http://#{gigadomain.subdomain}.gigavine.com/welcome" and return
+	    else
+        #~ render :text => "worx.gigavine.com" and return
+		    redirect_to "http://worx.#{request.domain}/admin/employees/dashboard" and return
+	    end
+end
 render :action => "new"
     #~ end
   end
