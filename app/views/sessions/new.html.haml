@@ -266,7 +266,8 @@
             / Email end
             .clear_all
             .form_block_two.fl_left.mag_non
-              = recaptcha_tags 
+              - if request.subdomain == 'worx'
+                = recaptcha_tags 
             .clear_all
             .form_block_two.fl_left.mag_non
               %label.fl_left.text_indent{:style => "width:250px"}
