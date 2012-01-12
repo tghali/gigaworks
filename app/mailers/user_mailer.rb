@@ -6,6 +6,11 @@ class UserMailer < ActionMailer::Base
     mail(:to => invite.recipient.email, :subject => "Gigaworx invite")
     @invite.sent_at Time.now
   end
+def forgot_password(user,token)
+  @user = user
+  @token = token
+  mail(:to => user.email, :subject => "password reset request - Gigavine")
+end
   
   def password_reset(user)  
     @user = user  
