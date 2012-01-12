@@ -708,8 +708,8 @@ font:10px Arial, Helvetica, sans-serif;
 color:#7a7979;
 float:left;
 margin-top:0px;
-padding-top:3px;
 text-indent:5px;
+padding-top:0px;
 #text-indent:5px
 }	
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -3184,3 +3184,41 @@ text-align:left;
 .login_box.count_btn{ color:#fff!important;}
 
 #contact_wrapper.contact_wrapper_new{min-height:850px;height:100%}
+
+#lp_midcontent1, #lp_midcontent2{
+width:350px;
+height:200px;
+margin:30px auto;
+padding:50px 0px 0px 0px;
+}
+#lp_midcontent2{
+width:750px;
+height:200px;
+margin:30px auto;
+padding:50px 0px 0px 0px;
+}
+#lp_midcontent1 h3, #lp_midcontent2 h3{
+font:25px Arial, Helvetica, sans-serif;
+color:#000;
+margin:0px;
+padding:0px;
+}
+#lp_midcontent1 p{
+font:14px Arial, Helvetica, sans-serif;
+color:#666;
+margin:10px 0px 10px 0px;
+padding:0px;
+}
+#lp_midcontent1 input{
+border:1px solid #ccc; 
+width:150px;
+height:25px;
+color:#666; 
+font:11px Arial, Helvetica, sans-serif;
+margin:0px 10px 0px 10px;
+}
+.mid_button{
+width:80px!important;
+height:25px;
+margin:0px 0px 0px 5px!important;
+}
