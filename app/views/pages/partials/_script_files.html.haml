@@ -68,7 +68,7 @@
 
 		
 		
-   jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a,.form_btn input.form_submit, .count_btn").hover(function() {
+   jQuery(".pro_btn,.inner_img_top p.see_btn a,.net_block_wrapper a,.form_btn input.form_submit, .count_btn, .count_btn_new").hover(function() {
                 jQuery(this).animate({ backgroundColor: "#c1c1c1",color:"#585858" }, 500);
         },function() {
                  jQuery(this).animate({ backgroundColor: "#9f9f9f", color: "#fff"}, 500);
@@ -453,7 +453,7 @@
   e.preventDefault();
   });	
 		
-  - if !flash[:notice].blank? 
+  - if !flash[:notice].blank? and flash[:notice]!= "No such email id and username found. Please enter your email id using which you are registered" and flash[:notice]!= "Password reset instructions have been email to the given mail id.Check your email." 
     jQuery("#message").lightbox_me({centered: true});
     //alert ("Your brief has been submitted successfully, one of our project managers will be in-touch shortly.");
   - if !flash[:alert].blank?    

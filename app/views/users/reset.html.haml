@@ -1,0 +1,12 @@
+#contact_wrapper.contact_wrapper_new
+  .contact-newbg{:style=>"background:none;height:500px;"}
+    #trans-wrapper
+      #trans-main
+        = render :partial => "/pages/partials/login_links"
+    #lp_content{:style => "position:relative;background:#fff;"}
+      #lp_midcontent2
+        %h3
+          = flash[:notice]
+        .clear.both
+          &nbsp;
+  .topspace

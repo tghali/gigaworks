@@ -18,6 +18,8 @@ Gigavine::Application.routes.draw do
     post '/clients/registration_page' => 'users#create_client_registration'
 post '/talents/registration_page' => 'users#create_talent_registration'
 get '/talents/registration' => 'users#talent_registration'
+get '/change_password/users' => 'users#change_password'
+post '/new_password/users' => 'users#new_password'
 
   # Profile and password reset
   get '/profile'           => 'users#edit',        :as => :profile
@@ -338,6 +340,8 @@ get '/talents/registration' => 'users#talent_registration'
 
 get '/contactclient/users' =>'users#client_contact'
     post "/clientupdate/users" => 'users#update_profile_client'
+    get '/forgotpassword/users' => "users#forgotpassword"
+    post '/reset/users' => "users#reset"
        get '/emailvalidate/users' => 'users#validate_email'
     post '/searchsite' => 'pages#search_site' 
     post 'submitbrief/:id' =>'pages#submit_brief_pages'

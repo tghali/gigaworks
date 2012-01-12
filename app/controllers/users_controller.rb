@@ -6,8 +6,8 @@ class UsersController < ActionController::Base
   include UrlHelper
   protect_from_forgery
   
-  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout, :validate_email, :client_billing,:update_profile_client,:client_contact]
-  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent, :validate_email,:client_billing,:update_profile_client, :client_contact]
+  before_filter :authenticate, :except => [:new, :create, :verify, :terms_and_conditions, :privacy_policy,:signup,:gigauser_create,:client_user_signup,:client_user_create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :edit_client,:edit_talent, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile, :logout, :validate_email, :client_billing,:update_profile_client,:client_contact, :forgotpassword, :reset, :change_password, :new_password]
+  before_filter :ensure_user_is_not_signed_in, :only => [:new, :create,:create_client_registration,:client_signup, :talent_registration, :create_talent_registration, :login, :logout, :update_profile_talent, :edit_talent_contact, :edit_talent_profile,:edit_talent, :validate_email,:client_billing,:update_profile_client, :client_contact, :forgotpassword, :reset, :change_password, :new_password]
   
   # before_filter :redirect_to_https, :except => [:verify, :privacy_policy, :terms_and_conditions]
   
@@ -89,10 +89,13 @@ def edit_talent_profile
 		end
 end
   def login
-   #@gigauser=Gigauser.find_by_username(params[:login][:username])
+   @gigauser=Gigauser.find_by_username(params[:login][:username])
+   if @gigauser
    @gigauser= Gigauser.authenticate( params[:login][:username], params[:login][:password])
-  if @gigauser
 
+
+  if @gigauser 
+      puts @gigauser.password
       if @gigauser.role == 'Talent'
          redirect_to talentedit_users_path
          cookies[:username]=@gigauser.username
@@ -114,11 +117,64 @@ end
      flash[:error]="Invalid user name and password"
      redirect_to :controller => "pages", :action => "home_land"
   end
+else
+     flash[:error]="Invalid user name and password"
+     redirect_to :controller => "pages", :action => "home_land"
 end
+end
+
 def logout
   session[:user]=nil
   redirect_to :controller => "pages", :action => "home_land"
 end
+
+def forgotpassword
+
+render :layout => 'pages_new'
+
+end
+
+def reset 
+  @giga=Gigauser.forgot_password_for(params[:email], params[:username])
+
+  if @giga
+    token = Gigauser.make_token
+
+    if @giga.update_attribute(:token, token)
+    flash[:notice] ="Password reset instructions have been email to the given mail id.Check your email."
+    UserMailer.forgot_password(@giga, token).deliver 
+   end
+  else
+    flash[:notice] ="No such email id and username found. Please enter your email id using which you are registered"
+  end
+  render :layout => 'pages_new'
+end
+
+def change_password
+  val= params[:password_reset_token]
+  email = params[:email]
+  @gigauser= Gigauser.find_by_token(val)
+  if @gigauser and @gigauser.email == email
+   @found = true
+  else
+  @found = false
+   
+  end
+  render :layout => 'pages_new'
+  
+end
+
+def new_password
+  @gigauser = Gigauser.find(params[:gigauser])
+  @gigauser.password= params[:password]
+ @gigauser.update_attribute(:token, "NULL")
+  render :layout=>'pages_new'
+
+
+  
+end
+
+
 def validate_email
 email=params[:email]
 if !params[:email].blank?
