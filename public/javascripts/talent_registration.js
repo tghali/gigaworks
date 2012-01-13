@@ -182,6 +182,7 @@ function talent_validate()
 	f_name = document.getElementById('talent_first_name');
 	l_name = document.getElementById('talent_last_name');
 	mail = document.getElementById('talent_email');
+ ele = document.getElementById('check');
  phone = document.getElementById('talent_phone');
 company=document.getElementById('talent_company');
 f_line= document.getElementById('talent_first_line');
@@ -209,7 +210,7 @@ z_code=document.getElementById('talent_zip_code');
 	}
 	
 	
-	if(l_name.value == "" || l_nme.value=="Last")
+	if(l_name.value == "" || l_name.value=="Last")
 	{
 		
 		alert('Please enter last name');
@@ -242,6 +243,12 @@ z_code=document.getElementById('talent_zip_code');
 			mail.focus();
 			return false;
 	}
+       if(ele.style.display=='none')
+     {
+       			alert("Invalid Email Format");
+			mail.focus();
+			return false;
+     }  
        if(phone.value=="Phone")
        {
          phone.value="";
