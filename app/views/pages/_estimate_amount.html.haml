@@ -1,7 +1,12 @@
-%div{:id => "estimate_block"}				
-			
-  .count_number
-    %span
-      &#163;
-    = @amount
-																												
+%div{:id => "estimate_block"}
+  - if @country_code == 'GB'								
+    .count_number
+      %span
+        &#163;
+      = @amount
+  - else
+    .count_number
+      %span
+        $
+      = @amount					
+		
