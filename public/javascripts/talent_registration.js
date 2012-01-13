@@ -43,6 +43,7 @@ function valid_talent_details()
 	f_name = document.getElementById('talent_first_name');
 	l_name = document.getElementById('talent_last_name');
 	mail = document.getElementById('talent_email');
+        ele = document.getElementById('check');
 	//client_user = document.getElementById('talent_username');
 	pwd = document.getElementById('talent_password');
 	confirm_pwd = document.getElementById('talent_password_confirmation');
@@ -99,6 +100,12 @@ function valid_talent_details()
 			mail.focus();
 			return false;
 	}
+       if(ele.style.display=='none')
+     {
+       			alert("Invalid Email Format");
+			mail.focus();
+			return false;
+     } 
 	
 
 	
