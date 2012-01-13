@@ -14,7 +14,7 @@ Gigavine::Application.routes.draw do
   get    'sign_up/(:invite_token)'  => 'users#new', :as => :sign_up
   post   'sign_up'  => 'users#create'
   get    'activate/:verification_token' => 'users#verify'
-    get '/clients/signup' => 'users#client_signup'
+    get '/clients/registration' => 'users#client_signup'
     post '/clients/registration_page' => 'users#create_client_registration'
 post '/talents/registration_page' => 'users#create_talent_registration'
 get '/talents/registration' => 'users#talent_registration'
