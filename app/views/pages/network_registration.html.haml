@@ -13,6 +13,15 @@
       jQuery("#Items").selectbox();
       jQuery("#Items1").selectbox();
       });
+      jQuery(document).ready(function () {
+      $("#talent_email").bind("blur", function() {
+      var data = $("#talent_email").val(); 
+      var url="/emailvalidate/users"+"?email="+data
+      $.get(url,function(data) { // function to handle the response
+      //$('#check').show();
+      });
+      });
+      });
   %body
     - if !current_user.blank?
       - @user_type = current_user.class
@@ -110,7 +119,7 @@
               .reg_name_block
                 .name1 Email & Phone
                 %div
-                  = f.text_field :email, :class => 'reg3', :value => "Email", :onclick => "if(this.value=='Email')this.value='';", :onblur => "return email_check(this);"
+                  = f.text_field :email, :class => 'reg3', :value => "Email", :onclick => "if(this.value=='Email')this.value='';"
                   %div{:style => "float:right;display:none", :id =>"check"}
                     =image_tag("/images/frontend/Symbol-Check.png",:size=>"25x25", :alt=>"check")
                 %div
