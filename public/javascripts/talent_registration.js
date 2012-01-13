@@ -28,6 +28,11 @@ if (mail.value!="")
 {
    document.getElementById('check').style.display='block';
 }
+if (mail.value == "")
+{
+document.getElementById('check').style.display='none';
+return false;
+}
    return true;
    
 }
