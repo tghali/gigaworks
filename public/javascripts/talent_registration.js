@@ -3,6 +3,7 @@ function email_check(mail)
 // alert("hey");
   //mail = document.getElementById('gigaclient_email');
   var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+  //alert("hello");
   /*if(mail.value == "")
 	{
 		
@@ -16,8 +17,8 @@ if (mail.value!="")
 {
 if(!mail.value.match(emailExp))
 	{
-			alert("Invalid Email Format");
-			mail.focus();
+			//alert("Invalid Email Format");
+			//mail.focus();
                          document.getElementById('check').style.display='none';
 			return false;
 	}
@@ -27,7 +28,6 @@ if (mail.value!="")
 {
    document.getElementById('check').style.display='block';
 }
-
 if (mail.value == "")
 {
 document.getElementById('check').style.display='none';
