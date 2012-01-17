@@ -460,7 +460,7 @@
     jQuery("#client").lightbox_me({centered: true});   
   - if flash[:error]=="yet to come"
     comingsoon();
-  - if flash[:error]=="Invalid user name and password"
+  - if flash[:error]=="Invalid user name and password" or flash[:error]=="visible"
     jQuery("#signin_menu").fadeTo("1000", 1).show();
     - flash[:error]= nil
   -else
