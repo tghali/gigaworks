@@ -37,7 +37,8 @@
               .contents{:style=>"background:none"}
                 - form_for :talent, :url=> {:action => 'create_talent_registration'}, :html => {:onsubmit => "return valid_talent_details();" }  do |f|
                   .account.section
-                    %h3.step.one Create your Sample account
+                    %h3 Create your account
+                    %br
                     %table
                       %tbody
                         %tr
@@ -81,7 +82,7 @@
                           %p
 
                   .clear
-                  %input{:alt => "Create my account", :src => "/images/frontend/client_signup/btn-createaccount.png", :style => "background:none; width:auto;", :type => "image"}
+                  %input{:alt => "Create my account", :src => "/images/frontend/register.png", :style => "background:none; width:auto;", :type => "image"}
               .bottom
           .clear.both
   .topspace

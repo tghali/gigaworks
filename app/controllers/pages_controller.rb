@@ -37,6 +37,9 @@ end
   
   def home_land
     	#render :text => request.url and return
+   if request.env['HTTP_REFERER'] == "http://gigablog.heroku.com/"
+    flash[:error]= "visible"
+  end
 
     if request.url != 'http://gigavine.com/' and request.url != 'http://gigavine.com/home' and request.url != 'http://www.gigavine.com/'
 	#render :text => request.url and return
