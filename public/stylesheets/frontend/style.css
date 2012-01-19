@@ -2043,6 +2043,7 @@ clear:both;
 /*-------------------------------------Languages Translation Content-----------------------------------------------*/
 
 #lang_trans_wrapper, #create_wrapper, #tech_wrapper, #net_wrapper, #project_wrapper, #contact_wrapper{
+min-height:850px;
 width:100%;
 height:auto;
 background:url(/images/frontend/inner_trans_bg.jpg) repeat-x #f7f7f7;
