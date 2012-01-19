@@ -1,5 +1,5 @@
 ExpiresActive On
- 
+<IfModule mod_expires.c>
 # Expires after a month client accesses the file
 ExpiresByType image/jpeg A2592000
 ExpiresByType image/gif A2592000
@@ -10,4 +10,5 @@ ExpiresByType image/x-icon A2592000
 # Good for one week
 ExpiresByType application/x-javascript "modification plus 2 hours"
 ExpiresByType text/css A2592000
+</IfModule>
 	
