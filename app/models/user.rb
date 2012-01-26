@@ -6,6 +6,8 @@ module UserErrors
 end
 
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
   
   belongs_to :contact
   

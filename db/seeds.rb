@@ -6,21 +6,21 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-gigavine = Factory :organisation, :name => 'Gigavine', :country_code => :uk
+gigavine = Factory :organisation, :name => 'Gigavine2', :country_code => :uk
 
 me = Factory :admin, :user_name => "lpedroni",
                      :contact => Factory(:user_contact, :first_name => 'Leandro',
                                                         :last_name  => 'Pedroni',
                                                         :organisation => gigavine,
-                                                        :email      => 'ilpoldo@gmail.com')
+                                                        :email      => 'adnanaliarshad@gmail.com')
 
 
-organisations = Array.new(30).map { Factory.populate :organisation}
-8.times { organisations[rand(organisations.size-1)] = nil}
+#organisations = Array.new(30).map { Factory.populate :organisation}
+#8.times { organisations[rand(organisations.size-1)] = nil}
 
-contacts = Array.new(200).map do
-  Factory.populate :contact, :organisation => Connie(organisations)
-end
+#contacts = Array.new(200).map do
+#  Factory.populate :contact, :organisation => Connie(organisations)
+#end
 
 
 

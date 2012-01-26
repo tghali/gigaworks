@@ -4,9 +4,9 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     %title
       - if @page_title
-        = @page_title
+        = title @page_title
       - else
-        Gigavine
+        = title "Gigaworx"
     - if !@page_description.blank?
       %META{:content => @page_description, :name => "description"  }/
     - if !@page_keywords.blank?
