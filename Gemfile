@@ -29,8 +29,8 @@ gem 'dynamic_sitemaps'
 
 
 group :production, :test, :cucumber, :development do
-  gem 'tarte',      :path => '#{rails_root}/Sites/tools/tarte'
-  gem 'formidable', :path => '#{rails_root}/Sites/tools/formidable'
+  gem 'tarte',      :path => '/Sites/tools/tarte'
+  gem 'formidable', :path => '/Sites/tools/formidable'
   #gem 'tabelle',    :path => '~/Sites/tools/tabelle'
   gem 'aws-s3'
   gem 'paperclip'
@@ -56,7 +56,7 @@ group :test, :cucumber do
   #gem 'timecop', '~> 0.3.5'
   #gem 'launchy', '>= 0.3.5'
   #gem 'rspec-rails', '>= 2.5.0'
-  #gem 'fredo', :path => '#{rails_root}/Sites/tools/fredo'
+  #gem 'fredo', :path => '/Sites/tools/fredo'
   #gem 'ruby-debug'
   ## gem 'spork', '>= 0.8.4'
 end
