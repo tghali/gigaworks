@@ -1,5 +1,7 @@
 Gigavine::Application.routes.draw do
   
+  match 'sitemap.xml' => 'sitemaps#sitemap'
+
   # Assets
   get '/javascripts/:bundle.js' =>  JavascriptMinifier
   get "/stylesheets/:media.:ext" => SassCompiler

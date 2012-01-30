@@ -1,0 +1,35 @@
+{
+    IBClasses =     (
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        },
+                {
+            CLASS = rVorlage;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                VorlageDruckfeld = id;
+            };
+            SUPERCLASS = NSWindowController;
+        },
+                {
+            CLASS = rVorlageDruckfeld;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                Datumfeld = id;
+                Gruppefeld = id;
+                Nummerfeld = id;
+                Titelfeld = id;
+                Vorlagerahmen = id;
+            };
+            SUPERCLASS = NSView;
+        },
+                {
+            CLASS = rVorlagerahmen;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSView;
+        }
+    );
+    IBVersion = 1;
+}

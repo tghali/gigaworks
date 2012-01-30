@@ -1,0 +1,54 @@
+{
+    IBClasses =     (
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        },
+                {
+            CLASS = rArbeitsblatt;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                Druckfeld = id;
+            };
+            SUPERCLASS = NSWindowController;
+        },
+                {
+            CLASS = rAufgabeRahmen;
+            LANGUAGE = ObjC;
+            SUPERCLASS = rRahmen;
+        },
+                {
+            CLASS = rDruckfeld;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                Aufgaberahmen = id;
+                Datumfeld = id;
+                ErgebnisDatumfeld = id;
+                ErgebnisGruppefeld = id;
+                ErgebnisNummerfeld = id;
+                ErgebnisTitelfeld = id;
+                ErgebnisTitlerahmen = id;
+                Ergebnisfeld = id;
+                Gruppefeld = id;
+                Namefeld = id;
+                Nummerfeld = id;
+                Titelfeld = id;
+                Titelrahmen = id;
+                myOutlet = id;
+            };
+            SUPERCLASS = NSView;
+        },
+                {
+            CLASS = rErgebnisRahmen;
+            LANGUAGE = ObjC;
+            SUPERCLASS = rRahmen;
+        },
+                {
+            CLASS = rRahmen;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSView;
+        }
+    );
+    IBVersion = 1;
+}

@@ -1,0 +1,48 @@
+= Fredo
+==== Stubs web services by plugging a sinatra-y DSL on Net::Http 
+
+I know it was you, Fredo[http://www.youtube.com/watch?v=FcFlp6kl508]
+
+I needed a slightly more articulated stub behaviour than the one provided by fakeweb[http://github.com/chrisk/fakeweb] to mimic S3 uploads and external APIs to process my attachments.
+Inside my simple cucumber steps.
+
+== Install
+On the console:
+    >> gem install fredo
+    
+In your app:
+    # config/environments/test.rb, config/environments/cucumber.rb
+    config.gem 'fredo'
+
+== Usage
+
+I borrowed the sinatra router, fakeweb's Net::Http extension and glued them together with Rack like returns and accepts:
+
+    # and in your s3_steps.rb or what not:
+    Fredo.put "http://s3.amazonaws.com/*/:size.:ext" do
+      [200, {}, 'OK']
+    end
+
+    Fredo.get "http://s3.amazonaws.com/*/:size.:ext" do
+      fixture_path = File.expand_path("../../support/s3/placeholder_#{params[:size]}.#{params[:ext]}", __FILE__)
+      [200, {'ContentType' => "image/#{params[:ext]}"}, File.read]
+    end
+    
+  
+== Bugs
+This is in a very early stage for the project, feel free to provide feedback. Please use the Github issues.
+
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Leandro Pedroni. See LICENSE for details.

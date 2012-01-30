@@ -25,6 +25,7 @@ gem 'geoip'
 gem 'metamagic'
 gem 'gretel'
 gem 'friendly_id'
+gem 'dynamic_sitemaps'
 
 
 group :production, :test, :cucumber, :development do
