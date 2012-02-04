@@ -1,12 +1,11 @@
-require 'gdocs4ruby'
 class ApplicationController < ActionController::Base
   include WardenHelper
   include UrlHelper
   include LogActionHelper
-  
+
   before_filter :authenticate
-  include GDocs4Ruby
-  
+  #include GDocs4Ruby
+
   protect_from_forgery
 
   def setup
@@ -25,5 +24,5 @@ private
       end
     end
   end
-  
+
 end

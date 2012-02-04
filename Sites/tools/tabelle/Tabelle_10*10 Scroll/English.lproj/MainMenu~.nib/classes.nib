@@ -1,0 +1,44 @@
+{
+    IBClasses =     (
+                {
+            ACTIONS =             {
+                clearTasten = id;
+                goArbeitsblatt = id;
+                goVorlage = id;
+                reportGruppe = id;
+                setMode = id;
+                showVorlage = id;
+                switchSeg = id;
+                terminate = id;
+            };
+            CLASS = Einstellungen;
+            LANGUAGE = ObjC;
+            OUTLETS =             {
+                Anzahlfeld = id;
+                Ergebnisfeld = id;
+                Gruppefeld = id;
+                Iconfeld = id;
+                ModeSeg = id;
+                Nummerfeld = id;
+                Tasten = id;
+                Tastenmatrixfeld = id;
+                Wertmatrixfeld = id;
+                goArbeitsblattTaste = id;
+                goVorlageTaste = id;
+                terminate = id;
+            };
+            SUPERCLASS = NSPanel;
+        },
+                {
+            CLASS = FirstResponder;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSObject;
+        },
+                {
+            CLASS = NSSegmentedControl;
+            LANGUAGE = ObjC;
+            SUPERCLASS = NSControl;
+        }
+    );
+    IBVersion = 1;
+}

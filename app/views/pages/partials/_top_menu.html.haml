@@ -5,7 +5,7 @@
         %li.current
           %a#aa0c22.sf-with-ul{:href => "/languages", :style=>"color:#aa0c22"}
             Languages
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
 
             %li.sub_nav
@@ -41,7 +41,7 @@
         %li			
           %a#aa0c22.sf-with-ul{:href => "/languages" , :style=>"color:#383839" }
             Languages
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
 
             %li.sub_nav
@@ -74,7 +74,7 @@
         %li.current
           %a#0069a9.sf-with-ul{:href => "/creative" , :style=>"color:#0069a9"}
             Creative
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
             %li.sub_nav
               %a{:href => "/creative/artwork"}
@@ -110,7 +110,7 @@
         %li
           %a#0069a9.sf-with-ul{:href => "/creative" , :style=>"color:#383839"}
             Creative
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
             %li.sub_nav
               %a{:href => "/creative/artwork"}
@@ -145,7 +145,7 @@
         %li.current
           %a#5f9732.sf-with-ul{:href => "/technology"  , :style=>"color:#5f9732"}
             Technology
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
             %li.sub_nav
               %a{:href => "/technology/e-learning"}
@@ -177,7 +177,7 @@
         %li
           %a#5f9732.sf-with-ul{:href => "/technology" , :style=>"color:#383839"}
             Technology
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
             %li.sub_nav
               %a{:href => "/technology/e-learning"}
@@ -205,13 +205,11 @@
                   %span.techclass Online Tools					
                 - else
                   Online Tools			
-
-
       - if params[:action] == 'network_land' || params[:action] == 'network_featured'
         %li.current
-          %a#227671.sf-with-ul{:href => "/network" ,:style => "color:#227671"}
+          %a#227671.sf-with-ul{:href => "javascript://", :onClick => "comingsoon();" ,:style => "color:#227671"}
             Network
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
             %li.sub_nav
               %a{:href => "/network/registration" } Registration
@@ -223,9 +221,10 @@
                   Featured										
       - else
         %li
-          %a#227671.sf-with-ul{:href => "/network" ,:style => "color:#383839;"}
+          -#%a#227671.sf-with-ul{:href => "javascript://", :onClick => "comingsoon();" ,:style => "color:#383839;"}
+          %a#227671.sf-with-ul{:href => "/network",:style => "color:#383839;"}
             Network
-            %span.sf-sub-indicator »
+            %span.sf-sub-indicator ï¿½
           %ul
             %li.sub_nav
               %a{:href => "/network/registration" } Registration
